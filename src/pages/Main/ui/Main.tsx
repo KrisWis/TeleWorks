@@ -1,12 +1,9 @@
-/* Z-INDEXES:
-0 - весь обычный контент;
-*/
-
+import { Profile } from "@/entities";
 
 export const Main: React.FC = (): React.JSX.Element => {
     return (
         <>
-            Дарова
+            <Profile />
         </>
     )
 }

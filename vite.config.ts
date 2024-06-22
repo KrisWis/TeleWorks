@@ -1,8 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
-// https://vitejs.dev/config/
+// Resolve aliases
+const aliases = {
+  '@': path.resolve(__dirname, './src') // Replace 'src' with your actual source directory
+};
+
 export default defineConfig({
   plugins: [react()],
-  base: "/TeleWorks/"
+  base: "/TeleWorks/",
+  resolve: {
+    alias: aliases
+  }
 })
