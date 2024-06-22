@@ -12,4 +12,5 @@
 Или вы можете просто зайти на [сайт](kriswis.github.io/TeleWorks/), загруженный на Github Pages.
 
 # Макет:
-![Личный кабинет](https://github.com/KrisWis/TeleWorks/assets/94256853/ccafcd60-2cbf-46a0-a54d-26fc720092dd)
+![Личный кабинет](https://github.com/KrisWis/TeleWorks/assets/94256853/feae6120-4b47-49c0-922b-26ac15a45109)
+
