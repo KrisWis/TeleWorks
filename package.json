@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/KrisWis/TeleWorks",
+  "homepage": "https://kriswis.github.io/TeleWorks/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

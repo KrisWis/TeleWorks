@@ -1,9 +1,3 @@
-@font-face {
-    font-family: "Protest Riot";
-    src: url('../../shared/fonts/ProtestRiot-Regular.woff2') format('woff2');
-    font-display: swap;
-}
-
 :root {
     --font-family: "Manrope", sans-serif;
     --second-family: "Montserrat", sans-serif;
@@ -11,7 +5,7 @@
 }
 
 body {
-    background: url(body_background.jpg);
+    background: url(/body_background.jpg);
     background-size: cover;
     display: flex;
     flex-direction: column;
