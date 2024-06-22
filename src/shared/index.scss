@@ -5,16 +5,37 @@
 }
 
 body {
-    background: url(/body_background.jpg);
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
     overflow-x: hidden;
-    font-family: "Protest Riot", sans-serif;
     font-weight: 400;
     font-style: normal;
     margin: 0;
     height: 100vh;
-    width: 100vw;
-    color: #fff;
+    max-width: 100vw;
+    padding: 0 370px;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url(other/body_background.jpg);
+    background-size: cover;
+    margin-top: 70px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    margin: 0;
 }

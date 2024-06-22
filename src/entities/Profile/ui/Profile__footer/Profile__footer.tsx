@@ -1,0 +1,27 @@
+import styles from './Profile__footer.module.scss';
+
+export const Profile__footer: React.FC = (): React.JSX.Element => {
+    return (
+        <div className={styles.profile__footer}>
+
+            <div className={styles.profile__footer__item}>
+                <img className={styles.profile__footer__item__img} src="icons/profile__footer/geo.png" alt="Иконка гео" />
+                <h4 className={styles.profile__footer__item__caption}>Гео / Язык</h4>
+                <span className={styles.profile__footer__item__desc}>Россия / Русский</span>
+            </div>
+
+            <div className={styles.profile__footer__item}>
+                <img className={styles.profile__footer__item__img} src="icons/profile__footer/age.png" alt="Иконка гео" />
+                <h4 className={styles.profile__footer__item__caption}>Возраст</h4>
+                <span className={styles.profile__footer__item__desc}>1 год.</span>
+            </div>
+
+            <div className={styles.profile__footer__item}>
+                <img className={styles.profile__footer__item__img} src="icons/profile__footer/posts.png" alt="Иконка гео" />
+                <h4 className={styles.profile__footer__item__caption}>Постов</h4>
+                <span className={styles.profile__footer__item__desc}>1 573</span>
+            </div>
+
+        </div>
+    )
+}
