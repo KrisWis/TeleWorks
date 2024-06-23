@@ -5,7 +5,7 @@ export const Profile__body: React.FC = (): React.JSX.Element => {
         <div className={styles.profile__body}>
 
             <div className={styles.profile__body__avatar}>
-                <img className={styles.profile__body__avatar__img} src="other/default-user.png" alt="Изображение пользователя" />
+                <img className={styles.profile__body__avatar__img} src="images/other/default-user.png" alt="Изображение пользователя" />
             </div>
 
             <h2 className={styles.profile__body__avatar__caption}>Квартира мечты!</h2>
