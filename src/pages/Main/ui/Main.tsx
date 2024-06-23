@@ -2,12 +2,12 @@ import styles from './Main.module.scss';
 import { lazy } from "react";
 
 const Profile: React.LazyExoticComponent<React.FC<{}>> = lazy(() =>
-    import("@/entities")
+    import("@/widgets")
         .then(({ Profile }) => ({ default: Profile })),
 );
 
 const Stats: React.LazyExoticComponent<React.FC<{}>> = lazy(() =>
-    import("@/entities")
+    import("@/widgets")
         .then(({ Stats }) => ({ default: Stats })),
 );
 
