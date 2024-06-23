@@ -1,4 +1,4 @@
-import { Stats__item__props } from "./Stats__item/Stats__item__types";
+import { Stats__item__props } from "../../../entities/Stats__item/model/Stats__item__types";
 
 export const Stats__items: Stats__item__props[] = [
 
