@@ -3,4 +3,39 @@
     height: 100%;
     border-radius: 23px;
     background: #fafafa;
+    padding: 30px 20px;
+    position: relative;
+    padding-top: 20px;
+
+    &_arrow {
+        min-width: 26px;
+        min-height: 19px;
+        cursor: pointer;
+        position: absolute;
+        margin-top: 20px;
+        z-index: 2;
+
+        &Prev {
+            left: 40px;
+        }
+
+        &Next {
+            right: 40px;
+        }
+
+        path {
+            transition: .3s linear all;
+            opacity: 1;
+            fill: #4266c6;
+        }
+
+        &_disabled {
+
+            path {
+                fill: #000;
+                opacity: 0.4;
+            }
+
+        }
+    }
 }
