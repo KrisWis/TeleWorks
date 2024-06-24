@@ -50,6 +50,6 @@ export const Buy_ads_calendar: React.FC = (): React.JSX.Element => {
     }
 
     return (
-        <Calendar tileClassName={(date) => tileClassName(date.date)} minDate={new Date()} locale="ru-RU" onClickDay={(date) => onClickDay(date)} />
+        <Calendar prevAriaLabel="Кнопка перелистывания назад" nextAriaLabel="Кнопка перелистывания вперёд" tileClassName={(date) => tileClassName(date.date)} minDate={new Date()} locale="ru-RU" onClickDay={(date) => onClickDay(date)} />
     )
 }
