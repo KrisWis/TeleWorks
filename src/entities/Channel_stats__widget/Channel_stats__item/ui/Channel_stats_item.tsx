@@ -6,9 +6,9 @@ export const Channel_stats_item: React.FC<Channel_stats_item_props> = ({ imgURL,
         <div className={styles.channel_stats_item}>
 
             <img className={styles.channel_stats_item__img} src={imgURL} alt="Изображение рейтинга" />
-            <h6 className={styles.channel_stats_item__caption}>{caption}</h6>
+            <h5 className={styles.channel_stats_item__caption}>{caption}</h5>
             <span className={styles.channel_stats_item__amount}>{amount}
-                {stars && <img width={33} height={33} className={styles.channel_stats_item__star_icon} src='icons/channel_stats__item/Channel_stats__item_star_icon.png' alt="Изображение рейтинга" />}
+                {stars && <img width={29} height={27} className={styles.channel_stats_item__star_icon} src='icons/channel_stats__item/Channel_stats__item_star_icon.png' alt="Изображение рейтинга" />}
             </span>
         </div>
     )
