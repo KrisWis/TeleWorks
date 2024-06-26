@@ -8,7 +8,11 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "scss check": "npx stylelint '**/*.scss'",
+    "scss fix": "npx stylelint '**/*.scss' --fix",
+    "eslint check": " eslint \"**/*.{ts,tsx}\"",
+    "eslint fix": " eslint \"**/*.{ts,tsx}\" --fix"
   },
   "dependencies": {
     "react": "^18.3.1",

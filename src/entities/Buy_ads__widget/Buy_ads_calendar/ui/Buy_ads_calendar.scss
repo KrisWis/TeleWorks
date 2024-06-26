@@ -13,9 +13,20 @@
     width: 700px;
 }
 
+.react-calendar__viewContainer {
+    margin-top: 10px;
+}
+
 .react-calendar--doubleView .react-calendar__viewContainer {
     display: flex;
     margin: -0.5em;
+}
+
+.react-calendar,
+.react-calendar *,
+.react-calendar *::before,
+.react-calendar *::after {
+    box-sizing: border-box;
 }
 
 .react-calendar--doubleView .react-calendar__viewContainer>* {
@@ -23,14 +34,26 @@
     margin: 0.5em;
 }
 
-.react-calendar,
-.react-calendar *,
-.react-calendar *:before,
-.react-calendar *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+.react-calendar__navigation button {
+    min-width: 44px;
+    background: none;
+
+    path {
+        transition: .3s linear all;
+        opacity: 1;
+        fill: #4266c6;
+    }
 }
+
+.react-calendar__navigation button:disabled {
+    background: none;
+
+    path {
+        fill: #000;
+        opacity: 0.4;
+    }
+}
+
 
 .react-calendar button:enabled:hover {
     cursor: pointer;
@@ -40,11 +63,6 @@
     display: flex;
     height: 44px;
     margin-bottom: 1em;
-}
-
-.react-calendar__navigation button {
-    min-width: 44px;
-    background: none;
 }
 
 .react-calendar__month-view__weekdays {
@@ -57,6 +75,26 @@
 
 .react-calendar__month-view__weekdays__weekday {
     padding: 0.5em;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    color: #000;
+    opacity: .5;
+}
+
+.react-calendar__tile {
+    height: 84px;
+    max-width: 82px;
+    border-radius: 11px;
+    box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 25%), inset 3px 3px 3px 0 rgb(247 247 247 / 25%), inset -3px -3px 3px 0 rgb(0 0 0 / 10%);
+    background: #fff;
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 35px;
+    letter-spacing: -0.04em;
+    color: #000;
+    transition: .3s linear all;
 }
 
 .react-calendar__month-view__weekNumbers .react-calendar__tile {
@@ -76,7 +114,11 @@
 .react-calendar__decade-view__years__year--neighboringDecade,
 .react-calendar__century-view__decades__decade--neighboringCentury {
     color: #757575;
+    box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 25%);
+    background: #fff;
+    border-radius: 11px;
 }
+
 
 .react-calendar__year-view .react-calendar__tile,
 .react-calendar__decade-view .react-calendar__tile,
@@ -84,38 +126,15 @@
     padding: 2em 0.5em;
 }
 
-.react-calendar__tile {
-    background: none;
-    height: 84px;
-    max-width: 82px;
-    border-radius: 11px;
-    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.25), inset 3px 3px 3px 0 rgba(247, 247, 247, 0.25), inset -3px -3px 3px 0 rgba(0, 0, 0, .1);
-    background: #fff;
-    font-family: var(--second-family);
-    font-weight: 600;
-    font-size: 35px;
-    letter-spacing: -0.04em;
-    color: #000;
-    transition: .3s linear all;
-}
-
 .react-calendar__tile:disabled {
-    box-shadow: inset 3px 3px 3px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 5%);
     background: #fff;
     border-radius: 11px;
     font-family: var(--second-family);
     font-weight: 500;
     font-size: 35px;
     letter-spacing: -0.04em;
-    color: rgba(0, 0, 0, .1);
-}
-
-.react-calendar__month-view__days__day--neighboringMonth,
-.react-calendar__decade-view__years__year--neighboringDecade,
-.react-calendar__century-view__decades__decade--neighboringCentury {
-    box-shadow: inset 3px 3px 3px 0 rgba(0, 0, 0, 0.25);
-    background: #fff;
-    border-radius: 11px;
+    color: rgb(0 0 0 / 10%);
 }
 
 
@@ -144,24 +163,6 @@
     display: none;
 }
 
-.react-calendar__navigation button {
-
-    path {
-        transition: .3s linear all;
-        opacity: 1;
-        fill: #4266c6;
-    }
-}
-
-.react-calendar__navigation button:disabled {
-    background: none;
-
-    path {
-        fill: #000;
-        opacity: 0.4;
-    }
-}
-
 .react-calendar__navigation__label__labelText {
     font-family: var(--second-family);
     font-weight: 600;
@@ -175,27 +176,14 @@
 }
 
 .buy_ads_calendar--active {
-    box-shadow: inset 3px 3px 3px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 25%);
     background: #fff;
     border-radius: 11px;
     font-family: var(--second-family);
     font-weight: 600;
     font-size: 35px;
     letter-spacing: -0.04em;
-    color: rgba(0, 0, 0, .2);
-}
-
-.react-calendar__viewContainer {
-    margin-top: 10px;
-}
-
-.react-calendar__month-view__weekdays__weekday {
-    font-family: var(--second-family);
-    font-weight: 400;
-    font-size: 30px;
-    letter-spacing: -0.04em;
-    color: #000;
-    opacity: .5;
+    color: rgb(0 0 0 / 20%);
 }
 
 .react-calendar__month-view__days {

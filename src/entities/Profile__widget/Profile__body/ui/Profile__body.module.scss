@@ -25,7 +25,7 @@
         }
 
         &::before {
-            content: url(icons/profile__body/profile__avatar__heart.png);
+            content: url("icons/profile__body/profile__avatar__heart.png");
             position: absolute;
             top: -12px;
             left: -12px;
@@ -51,7 +51,7 @@
         height: 328px;
         margin: 20px 0;
         border-radius: 25px;
-        background: linear-gradient(271deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 100%);
+        background: linear-gradient(271deg, rgb(59 130 246 / 10%) 0%, rgb(59 130 246 / 0%) 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
