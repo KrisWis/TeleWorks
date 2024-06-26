@@ -1,0 +1,1 @@
+import{j as e}from"./index-CRoiM-e2.js";const s="_channel_reviews_10ze0_1",_="_channel_reviews__caption_10ze0_6",n={channel_reviews:s,channel_reviews__caption:_},a=()=>e.jsx("section",{className:n.channel_reviews,children:e.jsx("h2",{className:n.channel_reviews__caption,children:"Отзывы канала"})});export{a as Channel_reviews};
