@@ -33,6 +33,7 @@ export const Channel_reviews__item: React.FC<Channel_reviews__item__props> = ({
         ))}
       </div>
       <ProgressBar
+        aria-labelledby={`Рейтинг канала в ${stars_amount} звёздах`}
         className={styles.channel_reviews__starsWrapper__progressbar}
         value={progress_amount}
         showValue={false}

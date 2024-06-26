@@ -1,0 +1,119 @@
+.reviews__item {
+  display: flex;
+  flex-direction: column;
+  height: 241px;
+  width: 100%;
+  border: 3px solid #4266c6;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
+  padding: 20px;
+  padding-right: 50px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__userInfo {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__username {
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: -0.04em;
+    color: #000;
+  }
+
+  &__seniority {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.04em;
+    color: #4470e8;
+    opacity: 0.4;
+  }
+
+  &__date {
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.04em;
+    color: #92acf2;
+    align-self: flex-start;
+  }
+
+  &__text {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 32px;
+    letter-spacing: -0.04em;
+    color: #000;
+    margin-top: 5px;
+    padding-left: 10px;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding-left: 10px;
+    gap: 5px;
+
+    &Wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__rating {
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    color: #000;
+    margin-left: 10px;
+  }
+
+  &__report {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    &__svg {
+      position: relative;
+    }
+
+    &_text {
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: -0.04em;
+      color: rgba(0, 0, 0, 0.2);
+      position: relative;
+      bottom: 3px;
+    }
+
+    &__sign {
+      position: absolute;
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      color: #fff;
+      top: 4px;
+      left: 16px;
+    }
+  }
+}

@@ -6,3 +6,4 @@ export * from "./Buy_ads__widget/Buy_ads_form_select/ui/Buy_ads_form_select";
 export * from "./Channel_stats__widget/Channel_stats__item/ui/Channel_stats_item";
 export * from "./Channel_reviews__widget/Channel_reviews__item/ui/Channel_reviews__item";
 export * from "./Reviews__widget/Reviews__select/ui/Reviews_select";
+export * from "./Reviews__widget/Reviews__item/ui/Reviews__item";
