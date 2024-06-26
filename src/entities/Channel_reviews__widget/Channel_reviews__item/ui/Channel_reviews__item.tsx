@@ -7,23 +7,30 @@ export const Channel_reviews__item: React.FC<Channel_reviews__item__props> = ({
   stars_amount,
   progress_amount,
 }): React.JSX.Element => {
+  const active_stars__array: string[] = Array(stars_amount).fill("active");
+  const disactive_stars__array: string[] = Array(5 - stars_amount).fill(
+    "disactive"
+  );
+
   return (
     <div className={styles.channel_reviews__starsWrapper}>
       <div className={styles.channel_reviews__starsWrapper__stars}>
-        {Array(stars_amount).fill(
+        {active_stars__array.map((_, index) => (
           <img
+            key={_ + index}
             className={styles.channel_reviews__starsWrapper__star}
             src="icons/channel_reviews__item/channel_reviews__item_star_active.png"
             alt="Изображение активной звезды"
           ></img>
-        )}
-        {Array(5 - stars_amount).fill(
+        ))}
+        {disactive_stars__array.map((_, index) => (
           <img
+            key={_ + index}
             className={styles.channel_reviews__starsWrapper__star}
             src="icons/channel_reviews__item/channel_reviews__item_star_disactive.png"
             alt="Изображение пустой звезды"
           ></img>
-        )}
+        ))}
       </div>
       <ProgressBar
         className={styles.channel_reviews__starsWrapper__progressbar}
