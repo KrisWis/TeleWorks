@@ -19,3 +19,8 @@ export const Channel_stats: React.LazyExoticComponent<React.FC> = lazy(() =>
     import('./Channel_stats/ui/Channel_stats')
         .then(({ Channel_stats }) => ({ default: Channel_stats })),
 );
+
+export const Channel_reviews: React.LazyExoticComponent<React.FC> = lazy(() =>
+    import('./Channel_reviews/ui/Channel_reviews')
+        .then(({ Channel_reviews }) => ({ default: Channel_reviews })),
+);
