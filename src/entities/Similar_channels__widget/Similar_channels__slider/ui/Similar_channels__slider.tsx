@@ -5,6 +5,10 @@ import { Similar_channels__item } from "@/entities";
 
 import "swiper/css";
 import "./Simillar_channels__slider.scss";
+import {
+  mobile_mediaQuery,
+  tablet_mediaQuery,
+} from "@/pages/Main/model/Main__data";
 
 export const Similar_channels__slider: React.FC = (): React.JSX.Element => {
   return (
@@ -16,7 +20,9 @@ export const Similar_channels__slider: React.FC = (): React.JSX.Element => {
         }}
         modules={[Navigation]}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={
+          mobile_mediaQuery.matches ? 1 : tablet_mediaQuery.matches ? 2 : 3
+        }
       >
         <SwiperSlide>
           <Similar_channels__item />
