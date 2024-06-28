@@ -1,132 +1,136 @@
 .profile__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 50px;
+  padding: 0 20px;
+
+  &__avatar {
+    height: 143px;
+    width: 143px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    border: 5px solid #f55;
+    position: relative;
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 100%;
+    }
+
+    &::before {
+      content: url("icons/profile__body/profile__avatar__heart.png");
+      position: absolute;
+      top: -12px;
+      left: -12px;
+    }
+
+    &__caption {
+      font-weight: 700;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      color: #000;
+    }
+
+    &__category {
+      font-weight: 400;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: #000;
+      opacity: 0.4;
+    }
+  }
+
+  &__channel_info {
+    height: 328px;
+    margin: 20px 0;
+    border-radius: 25px;
+    background: linear-gradient(
+      271deg,
+      rgb(59, 130, 246, 0.1) 0%,
+      rgb(59, 130, 246, 0) 100%
+    );
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    bottom: 50px;
-    padding: 0 20px;
+    width: 100%;
+    padding: 20px 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
 
-    &__avatar {
-        height: 143px;
-        width: 143px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        border: 5px solid #f55;
+    &_text {
+      font-weight: 400;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      text-align: center;
+      color: #000;
+      white-space: wrap;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    &_line {
+      width: 100%;
+      object-fit: cover;
+      margin-top: 20px;
+      position: relative;
+      right: 30px;
+    }
+
+    &__categories {
+      display: flex;
+      margin-top: 30px;
+      gap: 70px;
+    }
+
+    &__category {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &_caption {
+        font-weight: 500;
+        font-size: 30px;
+        letter-spacing: -0.04em;
+        color: #000;
+      }
+
+      &_desc {
+        font-weight: 700;
+        font-size: 30px;
+        letter-spacing: -0.04em;
+        color: #000;
         position: relative;
+        bottom: 5px;
+      }
+    }
+  }
 
-        &__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            border-radius: 100%;
-        }
+  &__channel_link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
-        &::before {
-            content: url("icons/profile__body/profile__avatar__heart.png");
-            position: absolute;
-            top: -12px;
-            left: -12px;
-        }
-
-        &__caption {
-            font-weight: 700;
-            font-size: 30px;
-            letter-spacing: -0.04em;
-            color: #000;
-        }
-
-        &__category {
-            font-weight: 400;
-            font-size: 24px;
-            letter-spacing: -0.04em;
-            color: #000;
-            opacity: 0.4;
-        }
+    &__text {
+      font-weight: 500;
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      color: #1480ff;
     }
 
-    &__channel_info {
-        height: 328px;
-        margin: 20px 0;
-        border-radius: 25px;
-        background: linear-gradient(271deg, rgb(59 130 246 / 10%) 0%, rgb(59 130 246 / 0%) 100%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        padding: 20px 10px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-        &_text {
-            font-weight: 400;
-            font-size: 30px;
-            letter-spacing: -0.04em;
-            text-align: center;
-            color: #000;
-            white-space: wrap;
-            width: 100%;
-            margin-top: 5px;
-        }
-
-        &_line {
-            width: 100%;
-            object-fit: cover;
-            margin-top: 20px;
-            position: relative;
-            right: 30px;
-        }
-
-        &__categories {
-            display: flex;
-            margin-top: 30px;
-            gap: 70px;
-        }
-
-        &__category {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            &_caption {
-                font-weight: 500;
-                font-size: 30px;
-                letter-spacing: -0.04em;
-                color: #000;
-            }
-
-            &_desc {
-                font-weight: 700;
-                font-size: 30px;
-                letter-spacing: -0.04em;
-                color: #000;
-                position: relative;
-                bottom: 5px;
-            }
-        }
+    &__icon {
+      width: 27px;
+      height: 27px;
+      position: relative;
+      top: 3px;
     }
-
-    &__channel_link {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-
-        &__text {
-            font-weight: 500;
-            font-size: 30px;
-            letter-spacing: -0.04em;
-            text-decoration: underline;
-            text-decoration-skip-ink: none;
-            color: #1480ff;
-        }
-
-        &__icon {
-            width: 27px;
-            height: 27px;
-            position: relative;
-            top: 3px;
-        }
-    }
+  }
 }

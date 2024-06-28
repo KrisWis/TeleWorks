@@ -1,12 +1,8 @@
 import { lazy } from "react";
 
-export const Profile: React.LazyExoticComponent<React.FC> = lazy(() =>
-  import("./Profile/ui/Profile").then(({ Profile }) => ({ default: Profile }))
-);
+export * from "./Profile/ui/Profile";
 
-export const Stats: React.LazyExoticComponent<React.FC> = lazy(() =>
-  import("./Stats/ui/Stats").then(({ Stats }) => ({ default: Stats }))
-);
+export * from "./Stats/ui/Stats";
 
 export const Buy_ads: React.LazyExoticComponent<React.FC> = lazy(() =>
   import("./Buy_ads/ui/Buy_ads").then(({ Buy_ads }) => ({ default: Buy_ads }))
@@ -26,4 +22,10 @@ export const Channel_reviews: React.LazyExoticComponent<React.FC> = lazy(() =>
 
 export const Reviews: React.LazyExoticComponent<React.FC> = lazy(() =>
   import("./Reviews/ui/Reviews").then(({ Reviews }) => ({ default: Reviews }))
+);
+
+export const Similar_channels: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./Similar_channels/ui/Similar_channels").then(
+    ({ Similar_channels }) => ({ default: Similar_channels })
+  )
 );

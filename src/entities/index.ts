@@ -7,3 +7,6 @@ export * from "./Channel_stats__widget/Channel_stats__item/ui/Channel_stats_item
 export * from "./Channel_reviews__widget/Channel_reviews__item/ui/Channel_reviews__item";
 export * from "./Reviews__widget/Reviews__select/ui/Reviews_select";
 export * from "./Reviews__widget/Reviews__item/ui/Reviews__item";
+export * from "./Similar_channels__widget/Similar_channels__header/ui/Similar_channels__header";
+export * from "./Similar_channels__widget/Similar_channels__slider/ui/Similar_channels__slider";
+export * from "./Similar_channels__widget/Similar_channels__item/ui/Similar_channels__item";

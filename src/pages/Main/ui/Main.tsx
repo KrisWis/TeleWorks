@@ -4,6 +4,7 @@ import {
   Channel_stats,
   Profile,
   Reviews,
+  Similar_channels,
   Stats,
 } from "@/widgets";
 import styles from "./Main.module.scss";
@@ -17,6 +18,7 @@ export const Main: React.FC = (): React.JSX.Element => {
       <Channel_stats />
       <Channel_reviews />
       <Reviews />
+      <Similar_channels />
     </main>
   );
 };

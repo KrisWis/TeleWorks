@@ -1,73 +1,77 @@
 .profile__header {
+  display: flex;
+  justify-content: space-between;
+
+  &__share {
+    cursor: pointer;
+  }
+
+  &__left {
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+  }
 
-    &__share {
-        cursor: pointer;
+  &__right {
+    display: flex;
+    gap: 40px;
+    align-items: baseline;
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__icon__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: #f2f7fe;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+
+    &__text {
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: -0.04em;
+      color: #000;
+      opacity: 0.4;
     }
-
-    &__left {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-    }
-
-    &__right {
-        display: flex;
-        gap: 40px;
-        align-items: baseline;
-    }
-
-    &__icons {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    &__icon__circle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 100%;
-        background-color: #f2f7fe;
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
-    }
-
-    &__stat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3px;
-
-        &__text {
-            font-weight: 500;
-            font-size: 16px;
-            letter-spacing: -0.04em;
-            color: #000;
-            opacity: 0.4;
-        }
-    }
+  }
 }
 
 .profile__channel_rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(0deg, rgb(59 130 246 / 10%) 0%, rgb(59 130 246 / 0%) 100%);
-    height: 55px;
-    border: 1.74px solid #4266c6;
-    border-radius: 15px;
-    padding: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(
+    0deg,
+    rgb(59, 130, 246, 0.1) 0%,
+    rgb(59, 130, 246, 0) 100%
+  );
+  height: 55px;
+  border: 1.74px solid #4266c6;
+  border-radius: 15px;
+  padding: 7px;
 
-    &__text {
-        font-family: var(--third-family);
-        font-weight: 400;
-        font-size: 27px;
-        line-height: 150%;
-        letter-spacing: -0.01em;
-        color: #000;
-    }
+  &__text {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
 }
