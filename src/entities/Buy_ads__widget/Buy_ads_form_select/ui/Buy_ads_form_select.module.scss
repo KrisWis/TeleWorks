@@ -1,8 +1,18 @@
 .buy_ads__form__category__form {
-    display: flex;
-    height: 67px;
-    width: 100%;
-    background: #fff;
-    border: 3px solid #4266c6;
-    border-radius: 15px;
+  display: flex;
+  height: 67px;
+  width: 100%;
+  background: #fff;
+  border: 3px solid #4266c6;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.buy_ads__form__category__form__svg {
+  margin-right: 20px;
+  transition: all 0.2s linear;
+
+  &__active {
+    transform: rotate(90deg);
+  }
 }

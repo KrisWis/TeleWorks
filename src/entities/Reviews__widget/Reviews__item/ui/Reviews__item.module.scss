@@ -95,6 +95,17 @@
 
     &__svg {
       position: relative;
+      cursor: pointer;
+
+      * {
+        transition: 0.3s linear all;
+      }
+
+      &:hover {
+        * {
+          fill: #f55;
+        }
+      }
     }
 
     &_text {
@@ -104,6 +115,12 @@
       color: rgba(0, 0, 0, 0.2);
       position: relative;
       bottom: 3px;
+      cursor: pointer;
+      transition: 0.3s linear all;
+
+      &:hover {
+        color: #f55;
+      }
     }
 
     &__sign {

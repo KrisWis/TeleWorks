@@ -43,6 +43,13 @@
     opacity: 1;
     fill: #4266c6;
   }
+
+  &:hover {
+    path {
+      fill: #4e00f7;
+      transform: scale(1.05);
+    }
+  }
 }
 
 .react-calendar__navigation button:disabled {
@@ -87,9 +94,9 @@
   max-width: 82px;
   border-radius: 11px;
   box-shadow:
-    1px 1px 3px 0 rgb(0 0 0 / 25%),
-    inset 3px 3px 3px 0 rgb(247 247 247 / 25%),
-    inset -3px -3px 3px 0 rgb(0 0 0 / 10%);
+    1px 1px 3px 0 rgb(0, 0, 0, 0.25),
+    inset 3px 3px 3px 0 rgb(247, 247, 247, 0.25),
+    inset -3px -3px 3px 0 rgb(0, 0, 0, 0.1);
   background: #fff;
   font-family: var(--second-family);
   font-weight: 600;
@@ -112,7 +119,7 @@
 .react-calendar__decade-view__years__year--neighboringDecade,
 .react-calendar__century-view__decades__decade--neighboringCentury {
   color: #757575;
-  box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 25%);
+  box-shadow: inset 3px 3px 3px 0 rgb(0, 0, 0, 0.25);
   background: #fff;
   border-radius: 11px;
 }
@@ -124,14 +131,14 @@
 }
 
 .react-calendar__tile:disabled {
-  box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 5%);
+  box-shadow: inset 3px 3px 3px 0 rgb(0, 0, 0, 0.05);
   background: #fff;
   border-radius: 11px;
   font-family: var(--second-family);
   font-weight: 500;
   font-size: 35px;
   letter-spacing: -0.04em;
-  color: rgb(0 0 0 / 10%);
+  color: rgb(0, 0, 0, 0.1);
 }
 
 .react-calendar__month-view__days__day--neighboringMonth abbr,
@@ -171,14 +178,14 @@
 }
 
 .buy_ads_calendar--active {
-  box-shadow: inset 3px 3px 3px 0 rgb(0 0 0 / 25%);
+  box-shadow: inset 3px 3px 3px 0 rgb(0, 0, 0, 0.25);
   background: #fff;
   border-radius: 11px;
   font-family: var(--second-family);
   font-weight: 600;
   font-size: 35px;
   letter-spacing: -0.04em;
-  color: rgb(0 0 0 / 20%);
+  color: rgb(0, 0, 0, 0.2);
 }
 
 .react-calendar__month-view__days {
@@ -199,4 +206,12 @@
 
 .react-calendar__navigation__label {
   pointer-events: none;
+}
+
+.react-calendar__tile:not(
+    :disabled,
+    .buy_ads_calendar--active,
+    .react-calendar__month-view__days__day--neighboringMonth
+  ):hover {
+  transform: scale(1.05);
 }

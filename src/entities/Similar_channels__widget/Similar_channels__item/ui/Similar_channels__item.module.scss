@@ -182,5 +182,19 @@
     height: 62px;
     width: 53px;
     cursor: pointer;
+    transition: 0.3s linear all;
+
+    svg * {
+      transition: 0.3s linear all;
+    }
+
+    &:hover {
+      background-color: #fff;
+      border: 1px solid #f55;
+
+      svg * {
+        fill: #f55;
+      }
+    }
   }
 }

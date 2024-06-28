@@ -29,5 +29,12 @@
     color: #fff;
     width: 286px;
     cursor: pointer;
+    transition: 0.3s linear all;
+
+    &:hover {
+      background-color: #fff;
+      color: #f55;
+      border: 1px #f55 solid;
+    }
   }
 }

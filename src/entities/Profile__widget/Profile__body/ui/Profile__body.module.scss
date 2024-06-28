@@ -124,6 +124,11 @@
       text-decoration: underline;
       text-decoration-skip-ink: none;
       color: #1480ff;
+      transition: 0.3s linear all;
+
+      &:hover {
+        color: #9514ff;
+      }
     }
 
     &__icon {

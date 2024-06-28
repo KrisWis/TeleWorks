@@ -1,14 +1,17 @@
 import styles from "./Reviews_select.module.scss";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
 import { reviews_selectOptions } from "../model/Reviews__select__data";
 
 export const Reviews_select: React.FC = (): React.JSX.Element => {
   const [SelectedOption, setSelectedOption] = useState(null);
+  const DropdownIndicatorRef = useRef<SVGSVGElement>(null);
+  const SelectParentRef = useRef<HTMLDivElement>(null);
 
   const DropdownIndicator = (): JSX.Element => {
     return (
       <svg
+        ref={DropdownIndicatorRef}
         className={styles.reviews__select__svg}
         width="24"
         height="14"
@@ -61,17 +64,38 @@ export const Reviews_select: React.FC = (): React.JSX.Element => {
     indicatorSeparator: () => ({}),
   };
 
+  useEffect(() => {
+    document.addEventListener("click", (e) => {
+      if (!SelectParentRef.current?.contains(e.target as Node))
+        DropdownIndicatorRef.current?.classList.remove(
+          styles.reviews__select__svg__active
+        );
+    });
+  }, []);
+
+  const SelectOnClick = (): void => {
+    DropdownIndicatorRef.current?.classList.toggle(
+      styles.reviews__select__svg__active
+    );
+  };
+
   return (
-    <Select
-      className={styles.reviews__select}
-      defaultValue={SelectedOption}
-      onChange={() => {
-        setSelectedOption;
-      }}
-      options={reviews_selectOptions}
-      styles={SelectCustomStyles}
-      placeholder={reviews_selectOptions[0].label}
-      components={{ DropdownIndicator }}
-    />
+    <div
+      className={styles.reviews__selectWrapper}
+      ref={SelectParentRef}
+      onClick={SelectOnClick}
+    >
+      <Select
+        className={styles.reviews__select}
+        defaultValue={SelectedOption}
+        onChange={() => {
+          setSelectedOption;
+        }}
+        options={reviews_selectOptions}
+        styles={SelectCustomStyles}
+        placeholder={reviews_selectOptions[0].label}
+        components={{ DropdownIndicator }}
+      />
+    </div>
   );
 };

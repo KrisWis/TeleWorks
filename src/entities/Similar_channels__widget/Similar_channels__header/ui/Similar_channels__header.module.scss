@@ -31,5 +31,9 @@
     align-items: center;
     cursor: pointer;
     transition: 0.3s linear all;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
