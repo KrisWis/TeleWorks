@@ -42,7 +42,6 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 70px 0;
 }
 
 * {
@@ -67,4 +66,9 @@ button {
 
 abbr {
   text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }

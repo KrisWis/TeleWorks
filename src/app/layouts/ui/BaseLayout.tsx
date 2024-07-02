@@ -6,8 +6,8 @@ import { MainPage } from "@/pages";
 export const App: React.FC = (): React.JSX.Element => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/profile/:id" element={<ProfilePage />} />
+      <Route path="" element={<MainPage />} />
+      <Route path="profile/:id" element={<ProfilePage />} />
     </Routes>
   );
 };
