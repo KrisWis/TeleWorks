@@ -1,5 +1,5 @@
 import styles from "./MainPage.module.scss";
 
 export const MainPage: React.FC = (): React.JSX.Element => {
-  return <main className={styles.main}>Главная страница</main>;
+  return <main className={styles.main}>ГЛАВНАЯ СТРАНИЦА</main>;
 };
