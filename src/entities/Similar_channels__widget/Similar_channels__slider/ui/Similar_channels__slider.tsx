@@ -8,7 +8,7 @@ import "./Simillar_channels__slider.scss";
 import {
   mobile_mediaQuery,
   tablet_mediaQuery,
-} from "@/pages/Main/model/Main__data";
+} from "@/pages/ProfilePage/model/ProfilePage__data";
 
 export const Similar_channels__slider: React.FC = (): React.JSX.Element => {
   return (

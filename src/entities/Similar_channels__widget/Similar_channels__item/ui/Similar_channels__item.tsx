@@ -1,3 +1,4 @@
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Similar_channels__item.module.scss";
 
 export const Similar_channels__item: React.FC = (): React.JSX.Element => {
@@ -74,7 +75,7 @@ export const Similar_channels__item: React.FC = (): React.JSX.Element => {
         <div className={styles.similar_channels__item__avatar}>
           <img
             className={styles.similar_channels__item__img}
-            src="images/other/default-user.png"
+            src={`${URL_PART}/images/other/default-user.png`}
             alt="Изображение пользователя"
           />
         </div>
@@ -88,7 +89,7 @@ export const Similar_channels__item: React.FC = (): React.JSX.Element => {
           <div className={styles.similar_channels__item__info_item}>
             <img
               className={styles.similar_channels__item__info_item_icon}
-              src="icons/similar_channels__item/similar_channels__item_info_subscribers.png"
+              src={`${URL_PART}/icons/similar_channels__item/similar_channels__item_info_subscribers.png`}
               alt="Иконка подписчиков"
             />
             <span className={styles.similar_channels__item__info_item_span}>
@@ -98,14 +99,14 @@ export const Similar_channels__item: React.FC = (): React.JSX.Element => {
 
           <img
             className={styles.similar_channels__item__info_separator}
-            src="icons/similar_channels__item/similar_channels__item_info_separator.png"
+            src={`${URL_PART}/icons/similar_channels__item/similar_channels__item_info_separator.png`}
             alt="Разделитель"
           />
 
           <div className={styles.similar_channels__item__info_item}>
             <img
               className={styles.similar_channels__item__info_item_icon}
-              src="icons/similar_channels__item/similar_channels__item_info_views.png"
+              src={`${URL_PART}/icons/similar_channels__item/similar_channels__item_info_views.png`}
               alt="Иконка подписчиков"
             />
             <span className={styles.similar_channels__item__info_item_span}>
@@ -115,7 +116,7 @@ export const Similar_channels__item: React.FC = (): React.JSX.Element => {
 
           <img
             className={styles.similar_channels__item__info_separator}
-            src="icons/similar_channels__item/similar_channels__item_info_separator.png"
+            src={`${URL_PART}/icons/similar_channels__item/similar_channels__item_info_separator.png`}
             alt="Разделитель"
           />
 
@@ -130,7 +131,7 @@ export const Similar_channels__item: React.FC = (): React.JSX.Element => {
 
           <img
             className={styles.similar_channels__item__info_separator}
-            src="icons/similar_channels__item/similar_channels__item_info_separator.png"
+            src={`${URL_PART}/icons/similar_channels__item/similar_channels__item_info_separator.png`}
             alt="Разделитель"
           />
 

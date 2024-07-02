@@ -7,9 +7,9 @@ import {
   Similar_channels,
   Stats,
 } from "@/widgets";
-import styles from "./Main.module.scss";
+import styles from "./ProfilePage.module.scss";
 
-export const Main: React.FC = (): React.JSX.Element => {
+export const ProfilePage: React.FC = (): React.JSX.Element => {
   return (
     <main className={styles.main}>
       <Profile />

@@ -1,3 +1,4 @@
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__header.module.scss";
 
 export const Profile__header: React.FC = (): React.JSX.Element => {
@@ -160,7 +161,7 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.profile__header__stat}>
           <img
-            src="icons/profile__header/stat__views.jpg"
+            src={`${URL_PART}/icons/profile__header/stat__views.jpg`}
             alt="Иконка просмотров"
           />
 
@@ -169,7 +170,7 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.profile__header__stat}>
           <img
-            src="icons/profile__header/stat__likes.svg"
+            src={`${URL_PART}/icons/profile__header/stat__likes.svg`}
             alt="Иконка лайков"
           />
 
@@ -178,7 +179,7 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
 
         <img
           className={styles.profile__header__share}
-          src="icons/profile__header/stat__share.svg"
+          src={`${URL_PART}/icons/profile__header/stat__share.svg`}
           alt='Иконка "Поделиться"'
         />
       </div>
