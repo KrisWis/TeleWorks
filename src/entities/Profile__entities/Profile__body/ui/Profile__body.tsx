@@ -7,7 +7,7 @@ export const Profile__body: React.FC = (): React.JSX.Element => {
       <div className={styles.profile__body__avatar}>
         <img
           className={styles.profile__body__avatar__img}
-          src={`${URL_PART}/images/other/default-user.png`}
+          src={`${URL_PART}/ProfilePage/images/other/default-user.png`}
           alt="Изображение пользователя"
         />
       </div>
@@ -21,7 +21,7 @@ export const Profile__body: React.FC = (): React.JSX.Element => {
         <div className={styles.profile__body__channel_link}>
           <img
             className={styles.profile__body__channel_link__icon}
-            src={`${URL_PART}/icons/profile__body/channel_link.png`}
+            src={`${URL_PART}/ProfilePage/icons/profile__body/channel_link.png`}
             alt="Изображение иконки ссылки"
           />
           <a className={styles.profile__body__channel_link__text} href="#">
@@ -36,7 +36,7 @@ export const Profile__body: React.FC = (): React.JSX.Element => {
 
         <img
           className={styles.profile__body__channel_info_line}
-          src={`${URL_PART}/icons/profile__body/profile__line_separator.png`}
+          src={`${URL_PART}/ProfilePage/icons/profile__body/profile__line_separator.png`}
           alt="Разделительная строка в профиле"
         />
 

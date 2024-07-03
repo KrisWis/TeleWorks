@@ -1,5 +1,5 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
-import { Stats__item__props } from "@/entities/Stats__widget/Stats__item/model/Stats__item__types";
+import { Stats__item__props } from "@/entities/Stats__entities/Stats__item/model/Stats__item__types";
 
 export const Stats__items: Stats__item__props[] = [
   {
@@ -30,7 +30,7 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "ПОДПИСЧИКИ",
-    graphic_imgURL: `${URL_PART}/images/Stats/Graphics__1.svg`,
+    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__1.svg`,
   },
 
   {
@@ -46,7 +46,7 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "СР.ОХВАТ ПУБЛИКАЦИИ",
-    graphic_imgURL: `${URL_PART}/images/Stats/Graphics__2.svg`,
+    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__2.svg`,
   },
 
   {
@@ -64,7 +64,7 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "ИНДЕКС ЦИТИРОВАНИЯ",
-    graphic_imgURL: `${URL_PART}/images/Stats/Graphics__3.svg`,
+    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__3.svg`,
   },
 
   {
@@ -82,6 +82,6 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "СР.ОХВАТ РЕКАЛМ. ПУБЛИКАЦИИ",
-    graphic_imgURL: `${URL_PART}/images/Stats/Graphics__1.svg`,
+    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__1.svg`,
   },
 ];

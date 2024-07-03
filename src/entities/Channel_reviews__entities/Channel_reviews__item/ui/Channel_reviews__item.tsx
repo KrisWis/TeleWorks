@@ -20,7 +20,7 @@ export const Channel_reviews__item: React.FC<Channel_reviews__item__props> = ({
           <img
             key={_ + index}
             className={styles.channel_reviews__starsWrapper__star}
-            src={`${URL_PART}/icons/channel_reviews__item/channel_reviews__item_star_active.png`}
+            src={`${URL_PART}/ProfilePage/icons/channel_reviews__item/channel_reviews__item_star_active.png`}
             alt="Изображение активной звезды"
           ></img>
         ))}
@@ -28,7 +28,7 @@ export const Channel_reviews__item: React.FC<Channel_reviews__item__props> = ({
           <img
             key={_ + index}
             className={styles.channel_reviews__starsWrapper__star}
-            src={`${URL_PART}/icons/channel_reviews__item/channel_reviews__item_star_disactive.png`}
+            src={`${URL_PART}/ProfilePage/icons/channel_reviews__item/channel_reviews__item_star_disactive.png`}
             alt="Изображение пустой звезды"
           ></img>
         ))}

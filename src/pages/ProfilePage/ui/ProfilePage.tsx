@@ -8,6 +8,7 @@ import {
   Stats,
 } from "@/widgets";
 import styles from "./ProfilePage.module.scss";
+import "../../../shared/ProfilePage.scss";
 
 export const ProfilePage: React.FC = (): React.JSX.Element => {
   return (

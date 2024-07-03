@@ -2,6 +2,7 @@ import styles from "./Header.module.scss";
 import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
+import { Dropdown } from "flowbite-react";
 
 export const Header: React.FC = (): React.JSX.Element => {
   return (
@@ -36,33 +37,151 @@ export const Header: React.FC = (): React.JSX.Element => {
         </Link>
 
         <div className={styles.header__item__navbar}>
-          <svg
-            width="30"
-            height="30"
-            viewBox="0 0 30 30"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+          <Dropdown
+            className={styles.header__item__navbar_dropdown}
+            label=""
+            dismissOnClick={false}
+            renderTrigger={() => (
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_17_16)">
+                  <path
+                    d="M28.125 26.25H1.87501C0.839435 26.25 0 25.4105 0 24.375C0 23.3395 0.839435 22.5 1.87501 22.5H28.1251C29.1606 22.5 30.0001 23.3395 30.0001 24.375C30 25.4105 29.1606 26.25 28.125 26.25Z"
+                    fill="black"
+                  />
+                  <path
+                    d="M28.125 16.875H1.87501C0.839435 16.875 0 16.0355 0 15C0 13.9645 0.839435 13.125 1.87501 13.125H28.1251C29.1606 13.125 30.0001 13.9644 30.0001 15C30.0001 16.0356 29.1606 16.875 28.125 16.875Z"
+                    fill="black"
+                  />
+                  <path
+                    d="M28.125 7.50002H1.87501C0.839435 7.50002 0 6.66059 0 5.62501C0 4.58944 0.839435 3.75 1.87501 3.75H28.1251C29.1606 3.75 30.0001 4.58944 30.0001 5.62501C30.0001 6.66059 29.1606 7.50002 28.125 7.50002Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_17_16">
+                    <rect width="30" height="30" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            )}
           >
-            <g clipPath="url(#clip0_17_16)">
-              <path
-                d="M28.125 26.25H1.87501C0.839435 26.25 0 25.4105 0 24.375C0 23.3395 0.839435 22.5 1.87501 22.5H28.1251C29.1606 22.5 30.0001 23.3395 30.0001 24.375C30 25.4105 29.1606 26.25 28.125 26.25Z"
-                fill="black"
-              />
-              <path
-                d="M28.125 16.875H1.87501C0.839435 16.875 0 16.0355 0 15C0 13.9645 0.839435 13.125 1.87501 13.125H28.1251C29.1606 13.125 30.0001 13.9644 30.0001 15C30.0001 16.0356 29.1606 16.875 28.125 16.875Z"
-                fill="black"
-              />
-              <path
-                d="M28.125 7.50002H1.87501C0.839435 7.50002 0 6.66059 0 5.62501C0 4.58944 0.839435 3.75 1.87501 3.75H28.1251C29.1606 3.75 30.0001 4.58944 30.0001 5.62501C30.0001 6.66059 29.1606 7.50002 28.125 7.50002Z"
-                fill="black"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_17_16">
-                <rect width="30" height="30" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Мой аккаунт TeleWorks
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Мои каналы
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Избранное
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Мои шаблоны
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Заявки
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Мои услуги
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Мой аккаунт TeleWorks
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                История транзакций
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Баланс
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_link}
+                to="/"
+              >
+                Рефералы
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className={styles.header__item__navbar_dropdown_item}
+            >
+              <Link
+                className={styles.header__item__navbar_dropdown_leave}
+                to="/"
+              >
+                Выйти
+              </Link>
+            </Dropdown.Item>
+          </Dropdown>
         </div>
 
         <Link to="/" className={styles.header__item__login}>

@@ -161,7 +161,7 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.profile__header__stat}>
           <img
-            src={`${URL_PART}/icons/profile__header/stat__views.jpg`}
+            src={`${URL_PART}/ProfilePage/icons/profile__header/stat__views.jpg`}
             alt="Иконка просмотров"
           />
 
@@ -170,7 +170,7 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.profile__header__stat}>
           <img
-            src={`${URL_PART}/icons/profile__header/stat__likes.svg`}
+            src={`${URL_PART}/ProfilePage/icons/profile__header/stat__likes.svg`}
             alt="Иконка лайков"
           />
 
@@ -179,7 +179,7 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
 
         <img
           className={styles.profile__header__share}
-          src={`${URL_PART}/icons/profile__header/stat__share.svg`}
+          src={`${URL_PART}/ProfilePage/icons/profile__header/stat__share.svg`}
           alt='Иконка "Поделиться"'
         />
       </div>

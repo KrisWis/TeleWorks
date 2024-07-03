@@ -7,7 +7,7 @@ export const Profile__footer: React.FC = (): React.JSX.Element => {
       <div className={styles.profile__footer__item}>
         <img
           className={styles.profile__footer__item__img}
-          src={`${URL_PART}/icons/profile__footer/geo.png`}
+          src={`${URL_PART}/ProfilePage/icons/profile__footer/geo.png`}
           alt="Иконка гео"
         />
         <h3 className={styles.profile__footer__item__caption}>Гео / Язык</h3>
@@ -19,7 +19,7 @@ export const Profile__footer: React.FC = (): React.JSX.Element => {
       <div className={styles.profile__footer__item}>
         <img
           className={styles.profile__footer__item__img}
-          src={`${URL_PART}/icons/profile__footer/age.png`}
+          src={`${URL_PART}/ProfilePage/icons/profile__footer/age.png`}
           alt="Иконка гео"
         />
         <h3 className={styles.profile__footer__item__caption}>Возраст</h3>
@@ -29,7 +29,7 @@ export const Profile__footer: React.FC = (): React.JSX.Element => {
       <div className={styles.profile__footer__item}>
         <img
           className={styles.profile__footer__item__img}
-          src={`${URL_PART}/icons/profile__footer/posts.png`}
+          src={`${URL_PART}/ProfilePage/icons/profile__footer/posts.png`}
           alt="Иконка гео"
         />
         <h3 className={styles.profile__footer__item__caption}>Постов</h3>

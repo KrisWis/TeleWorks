@@ -9,7 +9,7 @@ export const Reviews__item: React.FC = (): React.JSX.Element => {
         <div className={styles.reviews__item__userInfo}>
           <img
             className={styles.reviews__item__avatar}
-            src={`${URL_PART}/images/other/default-user.png`}
+            src={`${URL_PART}/ProfilePage/images/other/default-user.png`}
             alt="Аватарка пользователя"
           />
           <div className={styles.reviews__item__bio}>
@@ -30,7 +30,7 @@ export const Reviews__item: React.FC = (): React.JSX.Element => {
             <img
               key={_ + index}
               className={styles.reviews__item__star}
-              src={`${URL_PART}/icons/channel_reviews__item/channel_reviews__item_star_active.png`}
+              src={`${URL_PART}/ProfilePage/icons/channel_reviews__item/channel_reviews__item_star_active.png`}
               alt="Изображение звезды"
             ></img>
           ))}

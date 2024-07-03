@@ -52,6 +52,54 @@
     &__navbar {
       cursor: pointer;
       margin-right: 30px;
+
+      &_dropdown {
+        padding: 20px 15px;
+        background-color: #fff;
+        border: 1px solid gray;
+        z-index: 1;
+        outline: none !important;
+        border-radius: 5px;
+        margin-top: 10px;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        &_item {
+          background: none;
+          outline: none !important;
+          border: none !important;
+        }
+
+        &_link {
+          color: #000;
+          font-size: 14px;
+          cursor: pointer;
+          z-index: 1;
+          transition: 0.3s linear all;
+
+          &:hover {
+            color: #f55;
+          }
+        }
+
+        &_leave {
+          color: #0014eb;
+          font-size: 14px;
+          cursor: pointer;
+          z-index: 1;
+          transition: 0.3s linear all;
+          text-decoration: underline;
+
+          &:hover {
+            color: #f55;
+            outline: none;
+          }
+        }
+      }
     }
 
     &__login {
@@ -70,6 +118,7 @@
       cursor: pointer;
       transition: 0.3s linear all;
       margin-right: 15px;
+      border: 1px solid transparent;
 
       &:hover {
         background: #fff;
@@ -93,6 +142,7 @@
       padding: 20px;
       cursor: pointer;
       transition: 0.3s linear all;
+      border: 1px solid transparent;
 
       &:hover {
         background: #fff;

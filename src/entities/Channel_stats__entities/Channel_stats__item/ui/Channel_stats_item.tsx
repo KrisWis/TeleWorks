@@ -23,7 +23,7 @@ export const Channel_stats_item: React.FC<Channel_stats_item_props> = ({
             width={29}
             height={27}
             className={styles.channel_stats_item__star_icon}
-            src={`${URL_PART}/icons/channel_stats__item/Channel_stats__item_star_icon.png`}
+            src={`${URL_PART}/ProfilePage/icons/channel_stats__item/Channel_stats__item_star_icon.png`}
             alt="Изображение рейтинга"
           />
         )}

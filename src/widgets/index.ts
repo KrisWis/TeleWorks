@@ -4,6 +4,7 @@ import { lazy } from "react";
 export * from "./Header/ui/Header";
 
 /* ГЛАВНАЯ СТРАНИЦА */
+export * from "./MainPage__widgets/Advancement/ui/Advancement";
 
 /* СТРАНИЦА ПРОФИЛЯ */
 
