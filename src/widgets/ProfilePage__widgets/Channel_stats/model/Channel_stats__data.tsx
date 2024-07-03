@@ -9,13 +9,13 @@ export const channel_stats__items: Channel_stats_item_props[] = [
   },
 
   {
-    imgURL: `${URL_PART}/ProfilePage/images/Channel_stats/Channel_stats_requests.png`,
+    imgURL: `${URL_PART}/ProfilePage/images/Channel_stats/Channel_stats_requests.webp`,
     caption: "Выполнено заявок",
     amount: "102",
   },
 
   {
-    imgURL: `${URL_PART}/ProfilePage/images/Channel_stats/Channel_stats_stars.png`,
+    imgURL: `${URL_PART}/ProfilePage/images/Channel_stats/Channel_stats_stars.webp`,
     caption: "Оценка отзывов",
     amount: "5.0",
     stars: true,

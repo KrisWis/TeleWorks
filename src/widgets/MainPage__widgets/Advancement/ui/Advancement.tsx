@@ -7,7 +7,7 @@ export const Advancement: React.FC = (): React.JSX.Element => {
     <section className={styles.advancement}>
       <img
         className={styles.advancement__img}
-        src={`${URL_PART}/MainPage/images/Advancement/Advancement__img.png`}
+        src={`${URL_PART}/MainPage/images/Advancement/Advancement__img.webp`}
         alt='Фоновое изображение для секции "Продвижение'
       />
 
