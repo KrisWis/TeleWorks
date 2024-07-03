@@ -5,6 +5,11 @@ export * from "./Header/ui/Header";
 
 /* ГЛАВНАЯ СТРАНИЦА */
 export * from "./MainPage__widgets/Advancement/ui/Advancement";
+export const Buy_placement: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage__widgets/Buy_placement/ui/Buy_placement").then(
+    ({ Buy_placement }) => ({ default: Buy_placement })
+  )
+);
 
 /* СТРАНИЦА ПРОФИЛЯ */
 

@@ -1,6 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Advancement.module.scss";
 import { Link } from "react-router-dom";
+import { MainPage_button_red } from "@/shared/ui-kit/MainPage_button_red/ui/MainPage_button_red";
 
 export const Advancement: React.FC = (): React.JSX.Element => {
   return (
@@ -26,9 +27,11 @@ export const Advancement: React.FC = (): React.JSX.Element => {
           </p>
 
           <div className={styles.advancement__buttons}>
-            <Link className={styles.advancement__buttons__start} to="/">
-              Начать
-            </Link>
+            <MainPage_button_red
+              className={styles.advancement__buttons__start}
+              to="/"
+              text="Начать"
+            />
             <Link className={styles.advancement__buttons__help} to="/">
               Обратиться к специалисту
             </Link>

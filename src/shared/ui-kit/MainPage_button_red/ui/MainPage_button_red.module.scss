@@ -1,0 +1,22 @@
+.MainPage_button_red {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f55;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s linear all;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: #fff;
+    color: #f55;
+    border: 1px solid #f55;
+  }
+}

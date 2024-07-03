@@ -3,6 +3,7 @@ import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
+import { MainPage_button_red } from "@/shared/ui-kit/MainPage_button_red/ui/MainPage_button_red";
 
 export const Header: React.FC = (): React.JSX.Element => {
   return (
@@ -184,9 +185,11 @@ export const Header: React.FC = (): React.JSX.Element => {
           </Dropdown>
         </div>
 
-        <Link to="/" className={styles.header__item__login}>
-          Войти
-        </Link>
+        <MainPage_button_red
+          className={styles.header__item__login}
+          to="/"
+          text="Войти"
+        />
         <Link to="/" className={styles.header__item__reg}>
           Регистрация
         </Link>

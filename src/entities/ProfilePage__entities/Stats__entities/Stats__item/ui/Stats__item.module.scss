@@ -1,0 +1,95 @@
+.stats__item {
+  display: flex;
+  background: #fafafa;
+  height: 267px;
+  border-radius: 24px;
+  width: 100%;
+  padding: 15px 30px;
+  padding-right: 0;
+  justify-content: space-between;
+  overflow-x: hidden;
+
+  &__stats {
+    display: flex;
+    flex-direction: column;
+
+    &__caption {
+      margin-bottom: 35px;
+      font-weight: 600;
+      font-size: 46px;
+      letter-spacing: -0.04em;
+      color: #000;
+    }
+
+    &__dates {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__amounts {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__dates_text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__amount {
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      color: #000;
+    }
+
+    &__amount__subscribers {
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+
+      &__grow {
+        color: #35ec17;
+      }
+
+      &__shrink {
+        color: #ff505e;
+      }
+    }
+
+    &__date {
+      &_text {
+        font-weight: 400;
+        font-size: 22px;
+        letter-spacing: -0.04em;
+        color: #000;
+        opacity: 0.4;
+        white-space: nowrap;
+        position: relative;
+
+        &__postfix {
+          position: absolute;
+          font-size: 15px;
+          bottom: -3px;
+        }
+      }
+    }
+
+    &__graphics {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      &__caption {
+        font-weight: 400;
+        font-size: 19px;
+        letter-spacing: -0.04em;
+        color: #000;
+        opacity: 0.4;
+        padding-right: 30px;
+      }
+    }
+  }
+}
