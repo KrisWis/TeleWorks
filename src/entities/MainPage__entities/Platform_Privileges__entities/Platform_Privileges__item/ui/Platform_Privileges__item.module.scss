@@ -1,0 +1,58 @@
+.platform_Privileges__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 30px 0 rgba(109, 132, 255, 0.25);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  padding-bottom: 0;
+
+  &:nth-child(1) {
+    height: 149px;
+  }
+
+  &:nth-child(2) {
+    height: 149px;
+  }
+
+  &:nth-child(3) {
+    height: 181px;
+  }
+
+  &:nth-child(4) {
+    height: 149px;
+  }
+
+  &__index {
+    position: relative;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #f55;
+    top: -55px;
+  }
+
+  &__caption {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    position: relative;
+    top: -40px;
+    margin-left: 35px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    position: relative;
+    top: -40px;
+    margin-left: 35px;
+  }
+}

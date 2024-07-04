@@ -3,11 +3,17 @@ import {
   Buy_placement,
   HowItWorks,
   MeetAdvantages,
+  Platform_Privileges,
   WeAreTrusted,
 } from "@/widgets";
 import "./MainPage.scss";
+import { useEffect } from "react";
 
 export const MainPage: React.FC = (): React.JSX.Element => {
+  useEffect(() => {
+    document.querySelector("html")!.classList.add("mainPage");
+  }, []);
+
   return (
     <main className="MainPage__main">
       <div className="padding">
@@ -21,6 +27,8 @@ export const MainPage: React.FC = (): React.JSX.Element => {
       <div className="padding">
         <MeetAdvantages />
       </div>
+
+      <Platform_Privileges />
     </main>
   );
 };

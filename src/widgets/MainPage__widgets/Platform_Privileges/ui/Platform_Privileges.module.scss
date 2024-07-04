@@ -1,0 +1,61 @@
+.platform_Privileges {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 100px;
+
+  &__svg {
+    position: absolute;
+    right: -15px;
+    z-index: -1;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 370px;
+
+    @media (max-width: 1900px) {
+      padding: 0 300px;
+    }
+
+    @media (max-width: 1750px) {
+      padding: 0 150px;
+    }
+
+    @media (max-width: 1450px) {
+      padding: 0 50px;
+    }
+
+    @media (max-width: 1000px) {
+      padding: 0 20px;
+    }
+  }
+
+  &__caption {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+    width: 50%;
+
+    &_span {
+      color: #f55;
+    }
+  }
+
+  &__items {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-top: 50px;
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      width: 100%;
+    }
+  }
+}

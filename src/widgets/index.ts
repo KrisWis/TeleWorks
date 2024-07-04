@@ -26,6 +26,15 @@ export const MeetAdvantages: React.LazyExoticComponent<React.FC> = lazy(() =>
   )
 );
 
+export const Platform_Privileges: React.LazyExoticComponent<React.FC> = lazy(
+  () =>
+    import(
+      "./MainPage__widgets/Platform_Privileges/ui/Platform_Privileges"
+    ).then(({ Platform_Privileges }) => ({
+      default: Platform_Privileges,
+    }))
+);
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";

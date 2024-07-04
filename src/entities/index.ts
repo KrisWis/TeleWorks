@@ -1,5 +1,7 @@
 /* ГЛАВНАЯ СТРАНИЦА */
 export * from "./MainPage__entities/Buy_placement__entities/Buy_placement__item/ui/Buy_placement__item";
+export * from "./MainPage__entities/HowItWorks__entities/HowItWorks__item/ui/HowItWorks__item";
+export * from "./MainPage__entities/Platform_Privileges__entities/Platform_Privileges__item/ui/Platform_Privileges__item";
 
 /* СТРАНИЦА ПРОФИЛЯ */
 export * from "./ProfilePage__entities/Profile__entities/Profile__header/ui/Profile__header";

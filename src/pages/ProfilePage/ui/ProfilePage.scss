@@ -39,19 +39,19 @@
   src: url("../shared/fonts/OpenSans/OpenSans.ttf") format("ttf");
 }
 
-:root {
-  --font-family: "Manrope", sans-serif;
-  --second-family: "Montserrat", sans-serif;
-  --third-family: "OpenSans", sans-serif;
-}
-
-html {
+.profilePage {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
 }
 
-body {
+.profilePage:root {
+  --font-family: "Manrope", sans-serif;
+  --second-family: "Montserrat", sans-serif;
+  --third-family: "OpenSans", sans-serif;
+}
+
+.profilePage body {
   overflow-x: hidden;
   font-style: normal;
   margin: 0;
@@ -80,14 +80,14 @@ body {
   }
 }
 
-#root {
+.profilePage #root {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-* {
+.profilePage * {
   box-sizing: border-box;
   font-family: var(--font-family);
 }
