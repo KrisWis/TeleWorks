@@ -7,19 +7,20 @@ import {
   Similar_channels,
   Stats,
 } from "@/widgets";
-import styles from "./ProfilePage.module.scss";
-import "../../../shared/ProfilePage.scss";
+import "./ProfilePage.scss";
 
 export const ProfilePage: React.FC = (): React.JSX.Element => {
   return (
-    <main className={styles.main}>
-      <Profile />
-      <Stats />
-      <Buy_ads />
-      <Channel_stats />
-      <Channel_reviews />
-      <Reviews />
-      <Similar_channels />
+    <main className="ProfilePage__main">
+      <div className="padding">
+        <Profile />
+        <Stats />
+        <Buy_ads />
+        <Channel_stats />
+        <Channel_reviews />
+        <Reviews />
+        <Similar_channels />
+      </div>
     </main>
   );
 };

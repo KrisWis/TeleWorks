@@ -7,6 +7,7 @@ export * from "./Header/ui/Header";
 export * from "./MainPage__widgets/Advancement/ui/Advancement";
 export * from "./MainPage__widgets/Buy_placement/ui/Buy_placement";
 export * from "./MainPage__widgets/WeAreTrusted/ui/WeAreTrusted";
+export * from "./MainPage__widgets/HowItWorks/ui/HowItWorks";
 
 /* СТРАНИЦА ПРОФИЛЯ */
 
