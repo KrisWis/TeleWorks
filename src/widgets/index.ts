@@ -5,9 +5,26 @@ export * from "./Header/ui/Header";
 
 /* ГЛАВНАЯ СТРАНИЦА */
 export * from "./MainPage__widgets/Advancement/ui/Advancement";
+
 export * from "./MainPage__widgets/Buy_placement/ui/Buy_placement";
+
 export * from "./MainPage__widgets/WeAreTrusted/ui/WeAreTrusted";
-export * from "./MainPage__widgets/HowItWorks/ui/HowItWorks";
+
+export const HowItWorks: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage__widgets/HowItWorks/ui/HowItWorks").then(
+    ({ HowItWorks }) => ({
+      default: HowItWorks,
+    })
+  )
+);
+
+export const MeetAdvantages: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage__widgets/MeetAdvantages/ui/MeetAdvantages").then(
+    ({ MeetAdvantages }) => ({
+      default: MeetAdvantages,
+    })
+  )
+);
 
 /* СТРАНИЦА ПРОФИЛЯ */
 
