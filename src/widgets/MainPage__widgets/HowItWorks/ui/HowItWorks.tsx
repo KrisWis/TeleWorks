@@ -7,7 +7,7 @@ import { HowItWorks__item } from "@/entities";
 export const HowItWorks: React.FC = (): React.JSX.Element => {
   return (
     <section className={styles.howItWorks}>
-      <h2 className={styles.howItWorks__caption}>Как работает платформа?</h2>
+      <h2 className="mainPage__caption">Как работает платформа?</h2>
 
       <div className={styles.howItWorks__wrapper}>
         <img

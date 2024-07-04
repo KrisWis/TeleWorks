@@ -35,6 +35,15 @@ export const Platform_Privileges: React.LazyExoticComponent<React.FC> = lazy(
     }))
 );
 
+export const Additional_Services: React.LazyExoticComponent<React.FC> = lazy(
+  () =>
+    import(
+      "./MainPage__widgets/Additional_Services/ui/Additional_Services"
+    ).then(({ Additional_Services }) => ({
+      default: Additional_Services,
+    }))
+);
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";

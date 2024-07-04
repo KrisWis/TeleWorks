@@ -3,10 +3,8 @@ import styles from "./MeetAdvantages.module.scss";
 export const MeetAdvantages: React.FC = (): React.JSX.Element => {
   return (
     <section className={styles.meetAdvantages}>
-      <h3 className={styles.meetAdvantages__caption}>
-        <span className={styles.meetAdvantages__caption_span}>
-          Познакомьтесь с преимуществами {""}
-        </span>
+      <h3 className={`${styles.meetAdvantages__caption} mainPage__caption`}>
+        <span>Познакомьтесь с преимуществами </span>
         работы в TeleWorks
       </h3>
 
@@ -25,7 +23,7 @@ export const MeetAdvantages: React.FC = (): React.JSX.Element => {
           />
         </svg>
 
-        <div className={styles.meetAdvantages__text}>
+        <div className={`mainPage__wrapper ${styles.meetAdvantages__text}`}>
           <h4 className={styles.meetAdvantages__text__caption}>
             <span className={styles.meetAdvantages__text__caption_span}>
               Недостатки

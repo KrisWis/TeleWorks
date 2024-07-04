@@ -5,7 +5,7 @@ export const Platform_Privileges__item: React.FC<
   Platrform_Privileges__itemProps
 > = ({ index, caption, text }): React.JSX.Element => {
   return (
-    <div className={styles.platform_Privileges__item}>
+    <div className={`mainPage__wrapper ${styles.platform_Privileges__item}`}>
       <span className={styles.platform_Privileges__item__index}>{index}</span>
       <h5 className={styles.platform_Privileges__item__caption}>{caption}</h5>
       <p className={styles.platform_Privileges__item__text}>{text}</p>

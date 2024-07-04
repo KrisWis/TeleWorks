@@ -7,12 +7,9 @@ import { MainPage_button_red } from "@/shared/ui-kit/MainPage_button_red/ui/Main
 export const Buy_placement: React.FC = (): React.JSX.Element => {
   return (
     <section className={styles.Buy_placement}>
-      <h3 className={styles.Buy_placement__caption}>
-        Мы помогаем привлечь{" "}
-        <span className={styles.Buy_placement__caption_span}>
-          {" "}
-          качественную целевую аудиторию
-        </span>{" "}
+      <h3 className={`${styles.Buy_placement__caption} mainPage__caption`}>
+        Мы помогаем привлечь
+        <span> качественную целевую аудиторию </span>
         на ваш Telegram-канал и найти надежных профессиональных исполнителей
         услуг
       </h3>

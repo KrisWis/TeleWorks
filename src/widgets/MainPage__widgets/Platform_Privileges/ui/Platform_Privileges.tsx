@@ -21,11 +21,10 @@ export const Platform_Privileges: React.FC = (): React.JSX.Element => {
       </svg>
 
       <div className={styles.platform_Privileges__wrapper}>
-        <h2 className={styles.platform_Privileges__caption}>
-          <span className={styles.platform_Privileges__caption_span}>
-            Привилегии
-          </span>{" "}
-          нашей площадки
+        <h2
+          className={`${styles.platform_Privileges__caption} mainPage__caption`}
+        >
+          <span>Привилегии</span> нашей площадки
         </h2>
 
         <div className={styles.platform_Privileges__items}>

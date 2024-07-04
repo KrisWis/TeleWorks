@@ -11,10 +11,8 @@ export const WeAreTrusted: React.FC = (): React.JSX.Element => {
           src={`${URL_PART}/MainPage/images/WeAreTrusted/WeAreTrusted__img.png`}
           alt='Изображение для секции "Нам доверяют..."'
         />
-        <h4 className={styles.weAreTrusted__caption}>
-          <span className={styles.weAreTrusted__caption_span}>
-            Нам доверяют крупные компании:{" "}
-          </span>
+        <h4 className={`${styles.weAreTrusted__caption} mainPage__caption`}>
+          <span>Нам доверяют крупные компании: </span>
           Предоставляем счета и акты, работаем с ЭДО
         </h4>
       </div>

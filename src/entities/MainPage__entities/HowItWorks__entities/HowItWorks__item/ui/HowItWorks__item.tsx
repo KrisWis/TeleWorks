@@ -9,7 +9,7 @@ export const HowItWorks__item: React.FC<HowItWorksItem> = ({
   list,
 }): React.JSX.Element => {
   return (
-    <div className={styles.howItWorks__item}>
+    <div className={`mainPage__wrapper ${styles.howItWorks__item}`}>
       <span className={styles.howItWorks__item__index}>{index}</span>
 
       <h5 className={styles.howItWorks__item__text}>{text}</h5>

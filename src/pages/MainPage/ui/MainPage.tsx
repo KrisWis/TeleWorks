@@ -1,4 +1,5 @@
 import {
+  Additional_Services,
   Advancement,
   Buy_placement,
   HowItWorks,
@@ -29,6 +30,10 @@ export const MainPage: React.FC = (): React.JSX.Element => {
       </div>
 
       <Platform_Privileges />
+
+      <div className="padding">
+        <Additional_Services />
+      </div>
     </main>
   );
 };
