@@ -50,6 +50,15 @@ export const Ads: React.LazyExoticComponent<React.FC> = lazy(() =>
   }))
 );
 
+export const Guarantor_Services: React.LazyExoticComponent<React.FC> = lazy(
+  () =>
+    import("./MainPage__widgets/Guarantor_Services/ui/Guarantor_Services").then(
+      ({ Guarantor_Services }) => ({
+        default: Guarantor_Services,
+      })
+    )
+);
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";

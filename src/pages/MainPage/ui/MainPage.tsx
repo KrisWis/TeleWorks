@@ -3,6 +3,7 @@ import {
   Ads,
   Advancement,
   Buy_placement,
+  Guarantor_Services,
   HowItWorks,
   MeetAdvantages,
   Platform_Privileges,
@@ -35,6 +36,7 @@ export const MainPage: React.FC = (): React.JSX.Element => {
       <div className="padding">
         <Additional_Services />
         <Ads />
+        <Guarantor_Services />
       </div>
     </main>
   );
