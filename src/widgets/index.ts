@@ -59,6 +59,14 @@ export const Guarantor_Services: React.LazyExoticComponent<React.FC> = lazy(
     )
 );
 
+export const Job_Risks: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage__widgets/Job_Risks/ui/Job_Risks").then(
+    ({ Job_Risks }) => ({
+      default: Job_Risks,
+    })
+  )
+);
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";

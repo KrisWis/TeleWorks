@@ -5,6 +5,7 @@ import {
   Buy_placement,
   Guarantor_Services,
   HowItWorks,
+  Job_Risks,
   MeetAdvantages,
   Platform_Privileges,
   WeAreTrusted,
@@ -37,6 +38,7 @@ export const MainPage: React.FC = (): React.JSX.Element => {
         <Additional_Services />
         <Ads />
         <Guarantor_Services />
+        <Job_Risks />
       </div>
     </main>
   );
