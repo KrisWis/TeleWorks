@@ -8,6 +8,7 @@ import {
   Job_Risks,
   MeetAdvantages,
   Platform_Privileges,
+  Transaction_Advantage,
   WeAreTrusted,
 } from "@/widgets";
 import "./MainPage.scss";
@@ -39,6 +40,7 @@ export const MainPage: React.FC = (): React.JSX.Element => {
         <Ads />
         <Guarantor_Services />
         <Job_Risks />
+        <Transaction_Advantage />
       </div>
     </main>
   );

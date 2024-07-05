@@ -67,6 +67,15 @@ export const Job_Risks: React.LazyExoticComponent<React.FC> = lazy(() =>
   )
 );
 
+export const Transaction_Advantage: React.LazyExoticComponent<React.FC> = lazy(
+  () =>
+    import(
+      "./MainPage__widgets/Transaction_Advantage/ui/Transaction_Advantage"
+    ).then(({ Transaction_Advantage }) => ({
+      default: Transaction_Advantage,
+    }))
+);
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";
