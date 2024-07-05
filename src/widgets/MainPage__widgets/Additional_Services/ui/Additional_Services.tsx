@@ -13,16 +13,14 @@ export const Additional_Services: React.FC = (): React.JSX.Element => {
       >
         <img
           className={`${styles.additionalServices__img}`}
-          src={`${URL_PART}/MainPage/images/Additional_Services/Additional_Services__img.png`}
+          src={`${URL_PART}/MainPage/images/other/TelegramNew__img.png`}
           alt='Изображение для секции "Дополнительные услуги"'
         />
 
         <div className={styles.additionalServices__info}>
-          <h4 className={styles.additionalServices__info__caption}>
-            Создаем каналы{" "}
-            <span className={styles.additionalServices__info__caption_span}>
-              под ключ
-            </span>
+          <h4 className="mainPage__subcaption">
+            Создаем каналы
+            <span> под ключ</span>
           </h4>
 
           <h6 className={styles.additionalServices__info__subcaption}>

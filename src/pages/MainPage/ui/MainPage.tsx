@@ -1,5 +1,6 @@
 import {
   Additional_Services,
+  Ads,
   Advancement,
   Buy_placement,
   HowItWorks,
@@ -33,6 +34,7 @@ export const MainPage: React.FC = (): React.JSX.Element => {
 
       <div className="padding">
         <Additional_Services />
+        <Ads />
       </div>
     </main>
   );

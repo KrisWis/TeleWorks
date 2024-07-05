@@ -25,7 +25,9 @@ export const HowItWorks__item: React.FC<HowItWorksItem> = ({
       {list && (
         <ul className={styles.howItWorks__item__list}>
           {list.map((item: string) => (
-            <li className={styles.howItWorks__item__list_item}>{item}</li>
+            <li key={item} className={styles.howItWorks__item__list_item}>
+              {item}
+            </li>
           ))}
         </ul>
       )}

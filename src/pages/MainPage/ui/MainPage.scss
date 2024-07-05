@@ -98,3 +98,15 @@
   box-shadow: 0 4px 30px 0 rgba(109, 132, 255, 0.25);
   background: rgba(255, 255, 255, 0.5);
 }
+
+.mainPage__subcaption {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+
+  span {
+    color: #f55;
+  }
+}

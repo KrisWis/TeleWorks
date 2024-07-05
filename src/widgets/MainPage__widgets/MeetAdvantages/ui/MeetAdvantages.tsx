@@ -24,10 +24,10 @@ export const MeetAdvantages: React.FC = (): React.JSX.Element => {
         </svg>
 
         <div className={`mainPage__wrapper ${styles.meetAdvantages__text}`}>
-          <h4 className={styles.meetAdvantages__text__caption}>
-            <span className={styles.meetAdvantages__text__caption_span}>
-              Недостатки
-            </span>{" "}
+          <h4
+            className={`mainPage__subcaption ${styles.meetAdvantages__text__caption}`}
+          >
+            <span>Недостатки </span>
             работы вне площадки TeleWorks
           </h4>
 

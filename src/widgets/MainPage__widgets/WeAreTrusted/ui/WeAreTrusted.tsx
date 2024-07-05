@@ -18,8 +18,9 @@ export const WeAreTrusted: React.FC = (): React.JSX.Element => {
       </div>
 
       <div className={styles.weAreTrusted__items}>
-        {weAreTrusted__items.map((item) => (
+        {weAreTrusted__items.map((item, index) => (
           <img
+            key={index}
             className={styles.weAreTrusted__item}
             src={item.src}
             alt={item.alt}

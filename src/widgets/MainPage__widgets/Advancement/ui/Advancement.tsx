@@ -16,9 +16,9 @@ export const Advancement: React.FC = (): React.JSX.Element => {
         <h2 className={styles.advancement__caption}>Продвижение</h2>
 
         <div className={styles.advancement__info}>
-          <span className={styles.advancement__subtitle}>
+          <span className="mainPage__subcaption">
             С Tele
-            <span className={styles.advancement__subtitle__sub}>Works</span>
+            <span>Works</span>
           </span>
 
           <p className={styles.advancement__subtext}>

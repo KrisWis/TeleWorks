@@ -18,7 +18,7 @@ export const HowItWorks: React.FC = (): React.JSX.Element => {
 
         <div className={styles.howItWorks__items}>
           {HowItWorksItems.map((item: HowItWorksItem) => (
-            <HowItWorks__item {...item} />
+            <HowItWorks__item key={item.index} {...item} />
           ))}
         </div>
       </div>

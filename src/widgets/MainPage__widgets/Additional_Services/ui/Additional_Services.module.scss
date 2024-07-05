@@ -27,18 +27,6 @@
     flex-direction: column;
     gap: 25px;
 
-    &__caption {
-      font-weight: 400;
-      font-size: 40px;
-      line-height: 150%;
-      letter-spacing: -0.01em;
-      color: #000;
-
-      &_span {
-        color: #f55;
-      }
-    }
-
     &__subcaption {
       font-weight: 900;
       font-size: 16px;

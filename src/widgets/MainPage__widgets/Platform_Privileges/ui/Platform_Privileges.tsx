@@ -31,7 +31,7 @@ export const Platform_Privileges: React.FC = (): React.JSX.Element => {
           <div className={styles.platform_Privileges__items__col}>
             {Platform_Privileges__items.slice(0, 4).map(
               (item: Platrform_Privileges__itemProps) => (
-                <Platform_Privileges__item {...item} />
+                <Platform_Privileges__item key={item.index} {...item} />
               )
             )}
           </div>
@@ -39,7 +39,7 @@ export const Platform_Privileges: React.FC = (): React.JSX.Element => {
           <div className={styles.platform_Privileges__items__col}>
             {Platform_Privileges__items.slice(4, 8).map(
               (item: Platrform_Privileges__itemProps) => (
-                <Platform_Privileges__item {...item} />
+                <Platform_Privileges__item key={item.index} {...item} />
               )
             )}
           </div>

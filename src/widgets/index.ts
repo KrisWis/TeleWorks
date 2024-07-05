@@ -44,6 +44,12 @@ export const Additional_Services: React.LazyExoticComponent<React.FC> = lazy(
     }))
 );
 
+export const Ads: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage__widgets/Ads/ui/Ads").then(({ Ads }) => ({
+    default: Ads,
+  }))
+);
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";
