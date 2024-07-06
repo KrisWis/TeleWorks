@@ -76,6 +76,16 @@ export const Transaction_Advantage: React.LazyExoticComponent<React.FC> = lazy(
     }))
 );
 
+export const SupportService: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage__widgets/SupportService/ui/SupportService").then(
+    ({ SupportService }) => ({
+      default: SupportService,
+    })
+  )
+);
+
+export * from "./MainPage__widgets/MainPageFooter/ui/MainPageFooter";
+
 /* СТРАНИЦА ПРОФИЛЯ */
 
 export * from "./ProfilePage__widgets/Profile/ui/Profile";

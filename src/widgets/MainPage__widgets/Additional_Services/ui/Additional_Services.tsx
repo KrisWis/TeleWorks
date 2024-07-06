@@ -14,7 +14,7 @@ export const Additional_Services: React.FC = (): React.JSX.Element => {
         <img
           className={`${styles.additionalServices__img}`}
           src={`${URL_PART}/MainPage/images/other/TelegramNew__img.png`}
-          alt='Изображение для секции "Дополнительные услуги"'
+          alt="Изображение Telegram"
         />
 
         <div className={styles.additionalServices__info}>

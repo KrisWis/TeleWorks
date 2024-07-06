@@ -6,8 +6,10 @@ import {
   Guarantor_Services,
   HowItWorks,
   Job_Risks,
+  MainPageFooter,
   MeetAdvantages,
   Platform_Privileges,
+  SupportService,
   Transaction_Advantage,
   WeAreTrusted,
 } from "@/widgets";
@@ -41,6 +43,8 @@ export const MainPage: React.FC = (): React.JSX.Element => {
         <Guarantor_Services />
         <Job_Risks />
         <Transaction_Advantage />
+        <SupportService />
+        <MainPageFooter />
       </div>
     </main>
   );
