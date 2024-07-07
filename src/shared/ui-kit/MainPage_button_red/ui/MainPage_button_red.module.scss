@@ -13,8 +13,10 @@
   cursor: pointer;
   transition: 0.3s linear all;
   border: 1px solid transparent;
+  width: 100px;
 
-  &:hover {
+  &:hover,
+  &__hover {
     background: #fff;
     color: #f55;
     border: 1px solid #f55;

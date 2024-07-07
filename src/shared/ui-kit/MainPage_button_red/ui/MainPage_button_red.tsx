@@ -6,9 +6,13 @@ export const MainPage_button_red: React.FC<MainPage_button_redProps> = ({
   to,
   text,
   className,
+  hover = false,
 }): React.JSX.Element => {
   return (
-    <Link to={to} className={`${styles.MainPage_button_red} ${className}`}>
+    <Link
+      to={to}
+      className={`${styles.MainPage_button_red} ${className} ${hover && styles.MainPage_button_red__hover}`}
+    >
       {text}
     </Link>
   );
