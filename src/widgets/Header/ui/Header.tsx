@@ -15,22 +15,23 @@ export const Header: React.FC = (): React.JSX.Element => {
       <div className={styles.header__items}>
         <div className={styles.header__item__switcher}>
           <span className={styles.header__item__title}>Заказчик</span>
-          <Switch
-            className="header__item__switcherComponent"
-            {...{ inputProps: { "aria-label": 'Свитчер "Заказчик"' } }}
-            defaultChecked
-          />
         </div>
+
+        <Switch
+          data-testid="headerSwitcher"
+          className="header__item__switcherComponent"
+          {...{
+            inputProps: { "aria-label": 'Свитчер "Заказчик/Исполнитель"' },
+          }}
+          defaultChecked
+        />
 
         <div className={styles.header__item__switcher}>
           <span className={styles.header__item__title}>Исполнитель</span>
-          <Switch
-            className="header__item__switcherComponent"
-            {...{ inputProps: { "aria-label": 'Свитчер "Исполнитель"' } }}
-          />
         </div>
 
         <Link
+          data-testid="headerLink"
           to="/"
           className={`${styles.header__item__title} ${styles.header__item__link}`}
         >
@@ -39,6 +40,7 @@ export const Header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.header__item__navbar}>
           <Dropdown
+            data-testid="headerDropDown"
             className={styles.header__item__navbar_dropdown}
             label=""
             dismissOnClick={false}

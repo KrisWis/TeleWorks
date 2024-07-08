@@ -1,3 +1,7 @@
+.css-1uf4bbi.Mui-checked + .MuiSwitch-track {
+  background-color: #f55 !important;
+}
+
 .header__item__switcherComponent
   .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
   color: #f55;
@@ -37,4 +41,8 @@
   width: 58px;
   height: 32px;
   opacity: 1;
+}
+
+.css-1uf4bbi.Mui-checked {
+  color: #f55 !important;
 }
