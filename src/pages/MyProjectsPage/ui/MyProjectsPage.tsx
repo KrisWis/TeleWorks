@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import "./MyProjectsPage.scss";
+import { MyProjects } from "@/widgets";
+import "@/shared/main.scss";
 
 export const MyProjectsPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
@@ -8,7 +10,9 @@ export const MyProjectsPage: React.FC = (): React.JSX.Element => {
 
   return (
     <main className="MainPage__main">
-      <div className="padding"></div>
+      <div className="padding">
+        <MyProjects />
+      </div>
     </main>
   );
 };

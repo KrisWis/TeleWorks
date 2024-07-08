@@ -8,6 +8,7 @@ import {
   Stats,
 } from "@/widgets";
 import "./ProfilePage.scss";
+import "@/shared/main.scss";
 import { useEffect } from "react";
 
 export const ProfilePage: React.FC = (): React.JSX.Element => {

@@ -1,6 +1,7 @@
-import { MainPage_button_red } from "@/shared/ui-kit/MainPage_button_red/ui/MainPage_button_red";
+import { Button } from "@/shared/ui-kit/Button/ui/Button";
 import { HowItWorksItem } from "../model/HowItWorks__types";
 import styles from "./HowItWorks__item.module.scss";
+import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 
 export const HowItWorks__item: React.FC<HowItWorksItem> = ({
   index,
@@ -15,7 +16,8 @@ export const HowItWorks__item: React.FC<HowItWorksItem> = ({
       <h5 className={styles.howItWorks__item__text}>{text}</h5>
 
       {button && (
-        <MainPage_button_red
+        <Button
+          type={ButtonTypes.RED}
           className={styles.howItWorks__item__button}
           to="/"
           text="Создать аккаунт"

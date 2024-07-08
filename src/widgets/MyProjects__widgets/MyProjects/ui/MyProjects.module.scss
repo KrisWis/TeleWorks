@@ -1,0 +1,16 @@
+.myProjects {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+
+  &__tabs {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  &__tab {
+    width: 208px;
+    height: 68px;
+  }
+}

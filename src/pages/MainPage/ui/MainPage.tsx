@@ -14,6 +14,7 @@ import {
   WeAreTrusted,
 } from "@/widgets";
 import "./MainPage.scss";
+import "@/shared/main.scss";
 import { useEffect } from "react";
 
 export const MainPage: React.FC = (): React.JSX.Element => {

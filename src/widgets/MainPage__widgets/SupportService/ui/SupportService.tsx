@@ -1,6 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./SupportService.module.scss";
-import { MainPage_button_red } from "@/shared/ui-kit/MainPage_button_red/ui/MainPage_button_red";
+import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 
 export const SupportService: React.FC = (): React.JSX.Element => {
   return (
@@ -19,10 +20,11 @@ export const SupportService: React.FC = (): React.JSX.Element => {
           src={`${URL_PART}/MainPage/images/other/TelegramNew__img.png`}
           alt="Изображение Telegram"
         />
-        <MainPage_button_red
+        <Button
           className={styles.supportService__support__button}
           to="/"
           text="Тех поддержка"
+          type={ButtonTypes.RED}
         />
       </div>
     </section>

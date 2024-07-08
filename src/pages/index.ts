@@ -1,3 +1,19 @@
-export * from "./ProfilePage/ui/ProfilePage";
-export * from "./MainPage/ui/MainPage";
-export * from "./MyProjectsPage/ui/MyProjectsPage";
+import { lazy } from "react";
+
+export const ProfilePage: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./ProfilePage/ui/ProfilePage").then(({ ProfilePage }) => ({
+    default: ProfilePage,
+  }))
+);
+
+export const MainPage: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MainPage/ui/MainPage").then(({ MainPage }) => ({
+    default: MainPage,
+  }))
+);
+
+export const MyProjectsPage: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./MyProjectsPage/ui/MyProjectsPage").then(({ MyProjectsPage }) => ({
+    default: MyProjectsPage,
+  }))
+);
