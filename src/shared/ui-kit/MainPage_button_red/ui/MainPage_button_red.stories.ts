@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MainPage_button_red } from "./MainPage_button_red";
-import HowItWorksStyles from "../../../../entities/MainPage__entities/HowItWorks__entities/HowItWorks__item/ui/HowItWorks__item.module.scss";
-import headerStyles from "../../../../widgets/Header/ui/Header.module.scss";
-import advancementStyles from "../../../../widgets/MainPage__widgets/Advancement/ui/Advancement.module.scss";
-import BuyPlacementStyles from "../../../../widgets/MainPage__widgets/Buy_placement/ui/Buy_placement.module.scss";
-import SupportStyles from "../../../../widgets/MainPage__widgets/SupportService/ui/SupportService.module.scss";
+import HowItWorksStyles from "@/entities/MainPage__entities/HowItWorks__entities/HowItWorks__item/ui/HowItWorks__item.module.scss";
+import headerStyles from "@/widgets/Header/ui/Header.module.scss";
+import advancementStyles from "@/widgets/MainPage__widgets/Advancement/ui/Advancement.module.scss";
+import BuyPlacementStyles from "@/widgets/MainPage__widgets/Buy_placement/ui/Buy_placement.module.scss";
+import SupportStyles from "@/widgets/MainPage__widgets/SupportService/ui/SupportService.module.scss";
 
 const meta = {
   title: "shared/MainPageButtonRed",
