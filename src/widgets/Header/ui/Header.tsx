@@ -11,7 +11,6 @@ export const Header: React.FC = (): React.JSX.Element => {
       <h1 className={styles.header__caption}>
         Tele<span className={styles.header__caption__span}>Works</span>
       </h1>
-
       <div className={styles.header__items}>
         <div className={styles.header__item__switcher}>
           <span className={styles.header__item__title}>Заказчик</span>
