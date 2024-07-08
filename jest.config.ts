@@ -16,6 +16,7 @@ const config: Config = {
   moduleNameMapper: {
     "^.+\\.(css|scss)$": "<rootDir>/styleMock.js",
     "^@/(.*)$": "<rootDir>/src/$1",
+    "swiper/css": "swiper/swiper.min.css",
   },
   moduleFileExtensions: [
     "js",
