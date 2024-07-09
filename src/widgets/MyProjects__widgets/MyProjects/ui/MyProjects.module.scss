@@ -16,7 +16,7 @@
 
   &__body {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     margin-top: 40px;
   }
 
@@ -110,6 +110,48 @@
           color: #f55;
         }
       }
+    }
+  }
+
+  &__interface {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+  }
+
+  &__search {
+    display: flex;
+    height: 69px;
+    width: 100%;
+    border-radius: 15px;
+
+    &_input {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+      padding: 10px 25px;
+      background-color: #fff;
+      width: 80%;
+      border-radius: 15px 0 0 15px;
+
+      &::placeholder {
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: #000;
+      }
+    }
+
+    &_button {
+      width: 20%;
+      height: 68px;
+      border-radius: 0 15px 15px 0;
+      font-size: 18px;
     }
   }
 }

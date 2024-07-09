@@ -4,6 +4,7 @@ import "@/shared/main.scss";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
 import { Link } from "react-router-dom";
+import { MyProjectsPage__withoutProjects } from "@/entities";
 
 export const MyProjects: React.FC = (): React.JSX.Element => {
   return (
@@ -304,6 +305,24 @@ export const MyProjects: React.FC = (): React.JSX.Element => {
               </Link>
             </div>
           </div>
+        </div>
+
+        <div className={styles.myProjects__interface}>
+          <div className={styles.myProjects__search}>
+            <input
+              className={styles.myProjects__search_input}
+              placeholder="Поиск кампании по названию, id заявки"
+              type="text"
+            />
+
+            <Button
+              className={styles.myProjects__search_button}
+              text="Найти"
+              type={ButtonTypes.RED}
+            />
+          </div>
+
+          <MyProjectsPage__withoutProjects />
         </div>
       </div>
     </section>

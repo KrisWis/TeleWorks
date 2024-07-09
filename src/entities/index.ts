@@ -16,3 +16,6 @@ export * from "./ProfilePage__entities/Reviews__entities/Reviews__item/ui/Review
 export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channels__header/ui/Similar_channels__header";
 export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channels__slider/ui/Similar_channels__slider";
 export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channels__item/ui/Similar_channels__item";
+
+/* СТРАНИЦА "МОИ ПРОЕКТЫ" */
+export * from "./MyProjectsPage__entities/MyProjectsPage__withoutProjects/ui/MyProjectsPage__withoutProjects";
