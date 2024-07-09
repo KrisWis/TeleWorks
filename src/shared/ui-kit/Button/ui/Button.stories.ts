@@ -36,3 +36,11 @@ export const ButtonGray: Story = {
     type: ButtonTypes.GRAY,
   },
 };
+
+export const ButtonBlack: Story = {
+  args: {
+    to: "/",
+    text: "Чёрная кнопка",
+    type: ButtonTypes.BLACK,
+  },
+};

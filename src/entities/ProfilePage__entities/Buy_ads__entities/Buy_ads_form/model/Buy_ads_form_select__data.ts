@@ -1,4 +1,4 @@
-import { Buy_ads_form_select_Option } from "@/entities/Buy_ads__widget/Buy_ads_form_select/model/Buy_ads_form_select__types";
+import { Buy_ads_form_select_Option } from "../../Buy_ads_form_select/model/Buy_ads_form_select__types";
 
 export const buy_ads_form_format_selectOptions: Buy_ads_form_select_Option[] = [
   { value: "1/24", label: "1/24" },

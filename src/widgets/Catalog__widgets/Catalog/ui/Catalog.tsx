@@ -2,6 +2,7 @@ import { Button } from "@/shared/ui-kit/Button/ui/Button";
 import styles from "./Catalog.module.scss";
 import "@/shared/main.scss";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { CatalogFilter } from "@/entities";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
@@ -19,6 +20,10 @@ export const Catalog: React.FC = (): React.JSX.Element => {
           type={ButtonTypes.WHITE}
           className={styles.catalog__category}
         />
+      </div>
+
+      <div className={styles.catalog__body}>
+        <CatalogFilter />
       </div>
     </section>
   );

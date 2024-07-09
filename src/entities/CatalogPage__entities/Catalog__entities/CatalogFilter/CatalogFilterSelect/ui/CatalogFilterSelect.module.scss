@@ -1,0 +1,17 @@
+.CatalogFilterSelect {
+  display: flex;
+  height: 43px;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+
+  &__svg {
+    margin-right: 10px;
+    transition: all 0.2s linear;
+
+    &__active {
+      transform: rotate(-90deg);
+    }
+  }
+}

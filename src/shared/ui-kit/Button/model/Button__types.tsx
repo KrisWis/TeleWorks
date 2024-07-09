@@ -3,6 +3,7 @@ export enum ButtonTypes {
   BLUE = "Button__blue",
   GRAY = "Button__gray",
   WHITE = "Button__white",
+  BLACK = "Button__black",
 }
 
 export interface ButtonProps {

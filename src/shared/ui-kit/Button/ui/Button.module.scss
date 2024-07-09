@@ -64,4 +64,17 @@
       box-shadow: 0 0 15px #9fabb6;
     }
   }
+
+  &__black {
+    color: #000;
+    background: transparent;
+    border: 1px solid #000;
+
+    &:hover {
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+      box-shadow: 0 0 15px #fff;
+    }
+  }
 }

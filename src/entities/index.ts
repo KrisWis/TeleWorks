@@ -19,3 +19,6 @@ export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channe
 
 /* СТРАНИЦА "МОИ ПРОЕКТЫ" */
 export * from "./MyProjectsPage__entities/MyProjectsPage__withoutProjects/ui/MyProjectsPage__withoutProjects";
+
+/* СТРАНИЦА "КАТАЛОГ" */
+export * from "./CatalogPage__entities/Catalog__entities/CatalogFilter/ui/CatalogFilter";
