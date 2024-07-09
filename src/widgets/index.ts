@@ -3,6 +3,12 @@ import { lazy } from "react";
 /* ГЛОБАЛЬНЫЕ КОМПОНЕНТЫ */
 export * from "./Header/ui/Header";
 
+export const Footer: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./Footer/ui/Footer").then(({ Footer }) => ({
+    default: Footer,
+  }))
+);
+
 /* ГЛАВНАЯ СТРАНИЦА */
 export * from "./MainPage__widgets/Advancement/ui/Advancement";
 

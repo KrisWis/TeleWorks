@@ -5,8 +5,12 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
 import { Button } from "@/shared/ui-kit/Button/ui/Button";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { useState } from "react";
 
 export const Header: React.FC = (): React.JSX.Element => {
+  const [headerSwitcherChoice, setHeaderSwitcherChoice] =
+    useState<string>("Исполнитель");
+
   return (
     <header className={styles.header}>
       <h1 className={styles.header__caption}>
@@ -14,10 +18,19 @@ export const Header: React.FC = (): React.JSX.Element => {
       </h1>
       <div className={styles.header__items}>
         <div className={styles.header__item__switcher}>
-          <span className={styles.header__item__title}>Заказчик</span>
+          <span
+            className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" && styles.header__item__title__active}`}
+          >
+            Заказчик
+          </span>
         </div>
 
         <Switch
+          onClick={() =>
+            headerSwitcherChoice == "Исполнитель"
+              ? setHeaderSwitcherChoice("Заказчик")
+              : setHeaderSwitcherChoice("Исполнитель")
+          }
           data-testid="headerSwitcher"
           className="header__item__switcherComponent"
           {...{
@@ -27,7 +40,11 @@ export const Header: React.FC = (): React.JSX.Element => {
         />
 
         <div className={styles.header__item__switcher}>
-          <span className={styles.header__item__title}>Исполнитель</span>
+          <span
+            className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" && styles.header__item__title__active}`}
+          >
+            Исполнитель
+          </span>
         </div>
 
         <Link

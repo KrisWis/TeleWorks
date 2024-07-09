@@ -55,6 +55,11 @@
       line-height: 150%;
       letter-spacing: -0.01em;
       color: #000;
+      transition: 0.3s linear all;
+
+      &__active {
+        color: #f55;
+      }
     }
 
     &__link {
