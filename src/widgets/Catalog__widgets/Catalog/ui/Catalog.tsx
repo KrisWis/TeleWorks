@@ -13,13 +13,26 @@ export const Catalog: React.FC = (): React.JSX.Element => {
 
       <div className={styles.catalog__categories}>
         <Button
-          text="Каналы"
+          text="Реклама"
           type={ButtonTypes.RED}
           className={styles.catalog__category}
         />
+
         <Button
-          text="Тарифные пакеты"
+          text="Услуги"
           type={ButtonTypes.WHITE}
+          className={styles.catalog__category}
+        />
+
+        <Button
+          text="Каналы"
+          type={ButtonTypes.BLUE}
+          className={styles.catalog__category}
+        />
+
+        <Button
+          text="Готовые предложения"
+          type={ButtonTypes.BLACK}
           className={styles.catalog__category}
         />
       </div>
