@@ -1,11 +1,10 @@
-import styles from "./CatalogFilterSelect.module.scss";
+import styles from "./CatalogItemSelect.module.scss";
 import { useEffect, useRef, useState } from "react";
 import Select from "react-select";
-import { CatalogFilterSelect__Props } from "../model/CatalogFilterSelect__types";
+import { CatalogItemSelect__Props } from "../model/CatalogItemSelect__types";
 
-export const CatalogFilterSelect: React.FC<CatalogFilterSelect__Props> = ({
+export const CatalogItemSelect: React.FC<CatalogItemSelect__Props> = ({
   selectedOptions,
-  themes = false,
 }): React.JSX.Element => {
   const DropdownIndicatorRef = useRef<SVGSVGElement>(null);
   const SelectParentRef = useRef<HTMLDivElement>(null);
@@ -14,18 +13,18 @@ export const CatalogFilterSelect: React.FC<CatalogFilterSelect__Props> = ({
     return (
       <svg
         ref={DropdownIndicatorRef}
-        className={styles.CatalogFilterSelect__svg}
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
+        className={styles.CatalogItemSelect__svg}
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M6.46967 9.46967C6.76256 9.17678 7.23744 9.17678 7.53033 9.46967L12 13.9393L16.4697 9.46967C16.7626 9.17678 17.2374 9.17678 17.5303 9.46967C17.8232 9.76256 17.8232 10.2374 17.5303 10.5303L12.5303 15.5303C12.2374 15.8232 11.7626 15.8232 11.4697 15.5303L6.46967 10.5303C6.17678 10.2374 6.17678 9.76256 6.46967 9.46967Z"
-          fill="#001A72"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M5.39131 7.89143C5.63538 7.64736 6.03112 7.64736 6.27519 7.89143L9.99992 11.6161L13.7247 7.89143C13.9688 7.64736 14.3644 7.64736 14.6085 7.89143C14.8526 8.13551 14.8526 8.53121 14.6085 8.77529L10.4418 12.942C10.1978 13.186 9.80208 13.186 9.558 12.942L5.39131 8.77529C5.14723 8.53121 5.14723 8.13551 5.39131 7.89143Z"
+          fill="#C4C4C4"
         />
       </svg>
     );
@@ -43,20 +42,20 @@ export const CatalogFilterSelect: React.FC<CatalogFilterSelect__Props> = ({
     singleValue: () => ({
       fontFamily: "var(--second-family)",
       fontWeight: 400,
-      fontSize: themes == true ? "14px" : "15px",
+      fontSize: "14px",
       letterSpacing: "-0.01em",
       lineHeight: "150%",
-      color: themes == true ? "#b2b2b2" : "#000",
+      color: "#b2b2b2",
       gridArea: "1 / 1 / 2 / 3",
     }),
 
     placeholder: () => ({
       fontFamily: "var(--second-family)",
       fontWeight: 400,
-      fontSize: themes == true ? "14px" : "15px",
+      fontSize: "14px",
       letterSpacing: "-0.01em",
       lineHeight: "150%",
-      color: themes == true ? "#b2b2b2" : "#000",
+      color: "#b2b2b2",
       gridArea: "1 / 1 / 2 / 3",
     }),
 
@@ -74,21 +73,21 @@ export const CatalogFilterSelect: React.FC<CatalogFilterSelect__Props> = ({
     document.addEventListener("click", (e) => {
       if (!SelectParentRef.current?.contains(e.target as Node))
         DropdownIndicatorRef.current?.classList.remove(
-          styles.CatalogFilterSelect__svg__active
+          styles.CatalogItemSelect__svg__active
         );
     });
   }, []);
 
   const SelectOnClick = (): void => {
     DropdownIndicatorRef.current?.classList.toggle(
-      styles.CatalogFilterSelect__svg__active
+      styles.CatalogItemSelect__svg__active
     );
   };
 
   return (
     <div ref={SelectParentRef} onClick={SelectOnClick}>
       <Select
-        className={styles.CatalogFilterSelect}
+        className={styles.CatalogItemSelect}
         defaultValue={SelectedOption}
         onChange={() => {
           setSelectedOption;

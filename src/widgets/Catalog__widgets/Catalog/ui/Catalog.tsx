@@ -2,7 +2,9 @@ import { Button } from "@/shared/ui-kit/Button/ui/Button";
 import styles from "./Catalog.module.scss";
 import "@/shared/main.scss";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
-import { CatalogFilter } from "@/entities";
+import { CatalogFilter, CatalogItem } from "@/entities";
+import { catalog__items } from "../model/Catalog__data";
+import { CatalogItemProps } from "@/entities/CatalogPage__entities/Catalog__entities/CatalogItem/model/CatalogItem__types";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
@@ -24,7 +26,15 @@ export const Catalog: React.FC = (): React.JSX.Element => {
 
       <div className={styles.catalog__body}>
         <CatalogFilter />
+
+        <div className={styles.catalog__items}>
+          {catalog__items.map((item: CatalogItemProps) => (
+            <CatalogItem {...item} />
+          ))}
+        </div>
       </div>
+
+      <button className={styles.catalog__loadMore}>Загрузить еще</button>
     </section>
   );
 };

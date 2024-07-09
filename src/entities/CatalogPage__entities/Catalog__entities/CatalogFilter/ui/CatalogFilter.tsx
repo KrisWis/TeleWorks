@@ -9,6 +9,7 @@ import {
 } from "../model/CatalogFilter__data";
 import { Button } from "@/shared/ui-kit/Button/ui/Button";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { CatalogItemTags } from "../../CatalogItem/model/CatalogItem__types";
 
 export const CatalogFilter: React.FC = (): React.JSX.Element => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -46,8 +47,8 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
 
         <div className={styles.catalog__filter__tags__items}>
           <div
-            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes("tag1") && styles.catalog__filter__tags__item__selected}`}
-            onClick={() => selectTag("tag1")}
+            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG1) && styles.catalog__filter__tags__item__selected}`}
+            onClick={() => selectTag(CatalogItemTags.TAG1)}
           >
             <svg
               width="16"
@@ -75,8 +76,8 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
           </div>
 
           <div
-            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes("tag2") && styles.catalog__filter__tags__item__selected}`}
-            onClick={() => selectTag("tag2")}
+            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG2) && styles.catalog__filter__tags__item__selected}`}
+            onClick={() => selectTag(CatalogItemTags.TAG2)}
           >
             <svg
               width="19"
@@ -93,8 +94,8 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
           </div>
 
           <div
-            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes("tag3") && styles.catalog__filter__tags__item__selected}`}
-            onClick={() => selectTag("tag3")}
+            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG3) && styles.catalog__filter__tags__item__selected}`}
+            onClick={() => selectTag(CatalogItemTags.TAG3)}
           >
             <svg
               width="14"
