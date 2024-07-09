@@ -1,28 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { MyProjectsPage } from "./MyProjectsPage";
+import { CatalogPage } from "./CatalogPage";
 import { Footer, Header } from "@/widgets";
 
-const FullMyProjectsPage: React.FC = (): React.JSX.Element => {
+const FullCatalogPage: React.FC = (): React.JSX.Element => {
   return (
     <>
       <Header />
-      <MyProjectsPage />
+      <CatalogPage />
       <Footer />
     </>
   );
 };
 
 const meta = {
-  title: "Pages/MyProjectsPage",
-  component: FullMyProjectsPage,
+  title: "Pages/CatalogPage",
+  component: FullCatalogPage,
 
   argTypes: {
     backgroundColor: { control: "color" },
   },
 
   args: { onClick: fn() },
-} satisfies Meta<typeof MyProjectsPage>;
+} satisfies Meta<typeof CatalogPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

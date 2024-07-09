@@ -17,3 +17,9 @@ export const MyProjectsPage: React.LazyExoticComponent<React.FC> = lazy(() =>
     default: MyProjectsPage,
   }))
 );
+
+export const CatalogPage: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./CatalogPage/ui/CatalogPage").then(({ CatalogPage }) => ({
+    default: CatalogPage,
+  }))
+);

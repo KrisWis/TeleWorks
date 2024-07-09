@@ -3,13 +3,13 @@
   flex-direction: column;
   margin-top: 70px;
 
-  &__tabs {
+  &__categories {
     display: flex;
     gap: 15px;
     margin-top: 10px;
   }
 
-  &__tab {
+  &__category {
     width: 208px;
     height: 68px;
   }

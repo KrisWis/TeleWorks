@@ -11,20 +11,20 @@ export const MyProjects: React.FC = (): React.JSX.Element => {
     <section className={styles.myProjects}>
       <h1 className="page__caption">Мои проекты</h1>
 
-      <div className={styles.myProjects__tabs}>
+      <div className={styles.myProjects__categories}>
         <Button
           text="Реклама"
-          className={styles.myProjects__tab}
+          className={styles.myProjects__category}
           type={ButtonTypes.RED}
         />
         <Button
           text="Услуги"
-          className={styles.myProjects__tab}
+          className={styles.myProjects__category}
           type={ButtonTypes.BLUE}
         />
         <Button
           text="Готовые предложения"
-          className={styles.myProjects__tab}
+          className={styles.myProjects__category}
           type={ButtonTypes.WHITE}
         />
       </div>

@@ -9,7 +9,7 @@ export const MyProjectsPage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="MainPage__main">
+    <main className="MyProjectsPage__main">
       <div className="padding">
         <MyProjects />
         <ReceiveNotifications />

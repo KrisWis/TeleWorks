@@ -22,7 +22,7 @@ export const ReceiveNotifications: React.FC = (): React.JSX.Element => {
 
       <img
         className={styles.receiveNotifications__img}
-        src={`${URL_PART}/MyProjectsPage/images/MyProjectsPage__notifications.png`}
+        src={`${URL_PART}/global/images/TelegramNotifications.png`}
         alt="Telegram"
       />
 
