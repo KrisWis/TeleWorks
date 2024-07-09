@@ -126,3 +126,4 @@ export const Similar_channels: React.LazyExoticComponent<React.FC> = lazy(() =>
 
 /* СТРАНИЦА "МОИ ПРОЕКТЫ" */
 export * from "./MyProjects__widgets/MyProjects/ui/MyProjects";
+export * from "./MyProjects__widgets/ReceiveNotifications/ui/ReceiveNotifications";
