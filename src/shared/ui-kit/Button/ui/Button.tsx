@@ -15,19 +15,35 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <>
       {to ? (
-        <Link
-          onClick={
-            canSelected
-              ? () => setButtonIsSelected((prev) => !prev)
-              : () => {
-                  return;
-                }
-          }
-          to={to}
-          className={`${styles.Button} ${styles[type]} ${className} ${canSelected && styles.catalog__category__canSelected} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
-        >
-          {text}
-        </Link>
+        to.startsWith("http") ? (
+          <a
+            href={to}
+            onClick={
+              canSelected
+                ? () => setButtonIsSelected((prev) => !prev)
+                : () => {
+                    return;
+                  }
+            }
+            className={`${styles.Button} ${styles[type]} ${className} ${canSelected && styles.catalog__category__canSelected} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
+          >
+            {text}
+          </a>
+        ) : (
+          <Link
+            onClick={
+              canSelected
+                ? () => setButtonIsSelected((prev) => !prev)
+                : () => {
+                    return;
+                  }
+            }
+            to={to}
+            className={`${styles.Button} ${styles[type]} ${className} ${canSelected && styles.catalog__category__canSelected} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
+          >
+            {text}
+          </Link>
+        )
       ) : (
         <div
           onClick={

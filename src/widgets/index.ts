@@ -140,3 +140,4 @@ export * from "./Catalog__widgets/Catalog/ui/Catalog";
 /* СТРАНИЦА "ВНУТРЕННЯЯ" */
 export * from "./InternalPage_widgets/MainSection/ui/MainSection";
 export * from "./InternalPage_widgets/ChannelsExamples/ui/ChannelsExamples";
+export * from "./InternalPage_widgets/OpenAdvantages/ui/OpenAdvantages";
