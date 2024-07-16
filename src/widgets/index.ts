@@ -142,3 +142,4 @@ export * from "./InternalPage_widgets/MainSection/ui/MainSection";
 export * from "./InternalPage_widgets/ChannelsExamples/ui/ChannelsExamples";
 export * from "./InternalPage_widgets/OpenAdvantages/ui/OpenAdvantages";
 export * from "./InternalPage_widgets/EarnInSteps/ui/EarnInSteps";
+export * from "./InternalPage_widgets/MarketPlace/ui/MarketPlace";

@@ -5,6 +5,7 @@ import {
   ChannelsExamples,
   EarnInSteps,
   MainSection,
+  MarketPlace,
   OpenAdvantages,
 } from "@/widgets";
 
@@ -24,6 +25,7 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
 
       <div className="padding">
         <EarnInSteps />
+        <MarketPlace />
       </div>
     </main>
   );

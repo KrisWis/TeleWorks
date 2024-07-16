@@ -16,7 +16,7 @@ export const EarnInSteps: React.FC = (): React.JSX.Element => {
       <div className={styles.earnInSteps__items}>
         {EarnInSteps_items.map(
           (item: EarnInSteps__item_type, index: number) => (
-            <EarnInSteps__item index={index + 1} {...item} />
+            <EarnInSteps__item key={index} index={index + 1} {...item} />
           )
         )}
       </div>
