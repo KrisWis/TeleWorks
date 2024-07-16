@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./InternalPage.scss";
 import "@/shared/main.scss";
-import { MainSection } from "@/widgets";
+import { ChannelsExamples, MainSection } from "@/widgets";
 
 export const InternalPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
@@ -12,6 +12,7 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
     <main className="Internal__main">
       <div className="padding">
         <MainSection />
+        <ChannelsExamples />
       </div>
     </main>
   );

@@ -1,6 +1,5 @@
 import { MainSectionItemProps } from "../model/MainSection_item_types";
 import styles from "./MainSection_item.module.scss";
-import "@/pages/InternalPage/ui/InternalPage.scss";
 
 export const MainSection_item: React.FC<MainSectionItemProps> = ({
   title,
