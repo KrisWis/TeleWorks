@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { Button } from "@/shared";
 import styles from "./Catalog.module.scss";
 import "@/shared/main.scss";
 import { ButtonProps } from "@/shared/ui-kit/Button/model/Button__types";

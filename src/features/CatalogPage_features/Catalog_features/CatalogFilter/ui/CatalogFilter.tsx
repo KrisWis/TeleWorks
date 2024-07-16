@@ -7,7 +7,7 @@ import {
   catalogFilter_rangeOptions,
   catalogFilter_themesOptions,
 } from "../model/CatalogFilter__data";
-import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import { CatalogItemTags } from "@/entities/CatalogPage__entities/Catalog__entities/CatalogItem/model/CatalogItem__types";
 

@@ -1,4 +1,4 @@
-import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { Button } from "@/shared";
 import { HowItWorksItem } from "../model/HowItWorks__types";
 import styles from "./HowItWorks__item.module.scss";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";

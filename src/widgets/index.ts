@@ -136,3 +136,6 @@ export * from "./ReceiveNotifications/ui/ReceiveNotifications";
 
 /* СТРАНИЦА "КАТАЛОГ" */
 export * from "./Catalog__widgets/Catalog/ui/Catalog";
+
+/* СТРАНИЦА "ВНУТРЕННЯЯ" */
+export * from "./InternalPage_widgets/MainSection/ui/MainSection";

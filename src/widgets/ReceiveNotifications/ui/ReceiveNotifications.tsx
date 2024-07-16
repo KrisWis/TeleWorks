@@ -1,7 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./ReceiveNotifications.module.scss";
 import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
-import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 
 export const ReceiveNotifications: React.FC = (): React.JSX.Element => {

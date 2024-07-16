@@ -22,3 +22,6 @@ export * from "./MyProjectsPage__entities/MyProjectsPage__withoutProjects/ui/MyP
 
 /* СТРАНИЦА "КАТАЛОГ" */
 export * from "./CatalogPage__entities/Catalog__entities/CatalogItem/ui/CatalogItem";
+
+/* СТРАНИЦА "ВНУТРЕННЯЯ" */
+export * from "./InternalPage__entities/MainSection__entities/MainSection_item/ui/MainSection_item";

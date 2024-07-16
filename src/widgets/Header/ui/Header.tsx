@@ -3,7 +3,7 @@ import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
-import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import { useState } from "react";
 
