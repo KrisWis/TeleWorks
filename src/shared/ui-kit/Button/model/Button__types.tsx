@@ -11,4 +11,5 @@ export interface ButtonProps {
   text: string;
   className?: string;
   type: ButtonTypes;
+  canSelected?: boolean;
 }

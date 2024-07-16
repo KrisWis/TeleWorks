@@ -9,7 +9,7 @@ import {
 } from "../model/CatalogFilter__data";
 import { Button } from "@/shared/ui-kit/Button/ui/Button";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
-import { CatalogItemTags } from "../../CatalogItem/model/CatalogItem__types";
+import { CatalogItemTags } from "@/entities/CatalogPage__entities/Catalog__entities/CatalogItem/model/CatalogItem__types";
 
 export const CatalogFilter: React.FC = (): React.JSX.Element => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -57,7 +57,7 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_5_197)">
+              <g clipPath="url(#clip0_5_197)">
                 <path
                   d="M8.00005 0.000244141C3.5888 0.000244141 0 3.58899 0 8.00019C0 12.4114 3.5888 16.0001 8.00005 16.0001C12.4112 16.0001 16 12.4114 16 8.00019C16 3.58899 12.4112 0.000244141 8.00005 0.000244141ZM8.00005 14.6887C4.31195 14.6887 1.31147 11.6883 1.31147 8.00019C1.31147 4.31214 4.31195 1.31171 8.00005 1.31171C11.6881 1.31171 14.6885 4.31214 14.6885 8.00019C14.6885 11.6883 11.6881 14.6887 8.00005 14.6887Z"
                   fill="#FF5555"
@@ -104,7 +104,7 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_5_217)">
+              <g clipPath="url(#clip0_5_217)">
                 <path
                   d="M10.3095 0.455244C9.91696 0.255521 9.43674 0.412013 9.23707 0.804759L3.30494 12.4724C3.10527 12.8651 3.26176 13.3452 3.65446 13.5448C3.77027 13.6037 3.89369 13.6316 4.0153 13.6316C4.30595 13.6316 4.58612 13.4722 4.72693 13.1953L10.6591 1.52772C10.8587 1.13502 10.7022 0.654913 10.3095 0.455244Z"
                   fill="#FF5555"

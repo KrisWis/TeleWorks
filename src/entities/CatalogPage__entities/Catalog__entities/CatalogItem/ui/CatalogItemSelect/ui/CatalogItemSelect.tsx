@@ -21,8 +21,8 @@ export const CatalogItemSelect: React.FC<CatalogItemSelect__Props> = ({
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M5.39131 7.89143C5.63538 7.64736 6.03112 7.64736 6.27519 7.89143L9.99992 11.6161L13.7247 7.89143C13.9688 7.64736 14.3644 7.64736 14.6085 7.89143C14.8526 8.13551 14.8526 8.53121 14.6085 8.77529L10.4418 12.942C10.1978 13.186 9.80208 13.186 9.558 12.942L5.39131 8.77529C5.14723 8.53121 5.14723 8.13551 5.39131 7.89143Z"
           fill="#C4C4C4"
         />

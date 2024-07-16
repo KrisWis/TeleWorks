@@ -19,24 +19,38 @@
     color: #fff;
     background: #f55;
 
-    &:hover {
-      background: #fff;
+    &:hover:not(.catalog__category__canSelected) {
       color: #f55;
-      border: 1px solid #f55;
       box-shadow: 0 0 15px #f55;
+      background: #fff;
+      border: 1px solid #f55;
     }
+  }
+
+  &__red.catalog__category__selected {
+    color: #f55;
+    box-shadow: 0 0 15px #f55;
+    background: #fff;
+    border: 1px solid #f55;
   }
 
   &__blue {
     color: #fff;
     background: #4266c6;
 
-    &:hover {
+    &:hover:not(.catalog__category__canSelected) {
       background: #fff;
       color: #4266c6;
       border: 1px solid #4266c6;
       box-shadow: 0 0 15px #4266c6;
     }
+  }
+
+  &__blue.catalog__category__selected {
+    background: #fff;
+    color: #4266c6;
+    border: 1px solid #4266c6;
+    box-shadow: 0 0 15px #4266c6;
   }
 
   &__white {
@@ -45,7 +59,7 @@
     background: #fff;
     font-weight: 100;
 
-    &:hover {
+    &:hover:not(.catalog__category__canSelected) {
       background: gray;
       color: #fff;
       border: 1px solid #fff;
@@ -53,11 +67,18 @@
     }
   }
 
+  &__white.catalog__category__selected {
+    background: gray;
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 15px gray;
+  }
+
   &__gray {
     color: #fff;
     background: #9fabb6;
 
-    &:hover {
+    &:hover:not(.catalog__category__canSelected) {
       background: #fff;
       color: #9fabb6;
       border: 1px solid #9fabb6;
@@ -65,16 +86,30 @@
     }
   }
 
+  &__gray.catalog__category__selected {
+    background: #fff;
+    color: #9fabb6;
+    border: 1px solid #9fabb6;
+    box-shadow: 0 0 15px #9fabb6;
+  }
+
   &__black {
     color: #000;
     background: transparent;
     border: 1px solid #000;
 
-    &:hover {
+    &:hover:not(.catalog__category__canSelected) {
       background: #000;
       color: #fff;
       border: 1px solid #fff;
       box-shadow: 0 0 15px #fff;
     }
+  }
+
+  &__black.catalog__category__selected {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 15px #fff;
   }
 }

@@ -3,6 +3,10 @@ import {
   CatalogItemProps,
   CatalogItemTags,
 } from "@/entities/CatalogPage__entities/Catalog__entities/CatalogItem/model/CatalogItem__types";
+import {
+  ButtonProps,
+  ButtonTypes,
+} from "@/shared/ui-kit/Button/model/Button__types";
 
 export const catalog__items: CatalogItemProps[] = [
   {
@@ -53,7 +57,7 @@ export const catalog__items: CatalogItemProps[] = [
   {
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
-    title: "Санкт-Петербург | Питер Новости",
+    title: "Санкт-Петербург | Питер Новости2",
     desc: "ЦА 30 , платежеспособные.",
     tags: [CatalogItemTags.TAG1, CatalogItemTags.TAG2, CatalogItemTags.TAG3],
     stars: 5.0,
@@ -68,7 +72,7 @@ export const catalog__items: CatalogItemProps[] = [
   {
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
-    title: "Санкт-Петербург | Питер Новости",
+    title: "Санкт-Петербург | Питер Новости3",
     desc: "ЦА 30 , платежеспособные.",
     tags: [CatalogItemTags.TAG1, CatalogItemTags.TAG2, CatalogItemTags.TAG3],
     stars: 5.0,
@@ -83,7 +87,7 @@ export const catalog__items: CatalogItemProps[] = [
   {
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
-    title: "Санкт-Петербург | Питер Новости",
+    title: "Санкт-Петербург | Питер Новости4",
     desc: "ЦА 30 , платежеспособные.",
     tags: [CatalogItemTags.TAG1, CatalogItemTags.TAG2, CatalogItemTags.TAG3],
     stars: 5.0,
@@ -98,7 +102,7 @@ export const catalog__items: CatalogItemProps[] = [
   {
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
-    title: "Санкт-Петербург | Питер Новости",
+    title: "Санкт-Петербург | Питер Новости5",
     desc: "ЦА 30 , платежеспособные.",
     tags: [CatalogItemTags.TAG1, CatalogItemTags.TAG2, CatalogItemTags.TAG3],
     stars: 5.0,
@@ -113,7 +117,7 @@ export const catalog__items: CatalogItemProps[] = [
   {
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
-    title: "Санкт-Петербург | Питер Новости",
+    title: "Санкт-Петербург | Питер Новости6",
     desc: "ЦА 30 , платежеспособные.",
     tags: [CatalogItemTags.TAG1, CatalogItemTags.TAG2, CatalogItemTags.TAG3],
     stars: 5.0,
@@ -124,5 +128,27 @@ export const catalog__items: CatalogItemProps[] = [
     ER: 25.37,
     CPV: 0.35,
     price: "11 048.94",
+  },
+];
+
+export const catalog__categories: ButtonProps[] = [
+  {
+    text: "Реклама",
+    type: ButtonTypes.RED,
+  },
+
+  {
+    text: "Услуги",
+    type: ButtonTypes.WHITE,
+  },
+
+  {
+    text: "Каналы",
+    type: ButtonTypes.BLUE,
+  },
+
+  {
+    text: "Готовые предложения",
+    type: ButtonTypes.BLACK,
   },
 ];

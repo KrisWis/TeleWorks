@@ -23,3 +23,9 @@ export const CatalogPage: React.LazyExoticComponent<React.FC> = lazy(() =>
     default: CatalogPage,
   }))
 );
+
+export const InternalPage: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./InternalPage/ui/InternalPage").then(({ InternalPage }) => ({
+    default: InternalPage,
+  }))
+);

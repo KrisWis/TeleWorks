@@ -1,4 +1,9 @@
-import { CatalogPage, MyProjectsPage, ProfilePage } from "@/pages";
+import {
+  CatalogPage,
+  InternalPage,
+  MyProjectsPage,
+  ProfilePage,
+} from "@/pages";
 import "./BaseLayout.module.scss";
 import { Route, Routes } from "react-router-dom";
 import { MainPage } from "@/pages";
@@ -11,6 +16,7 @@ export const App: React.FC = (): React.JSX.Element => {
       <Route path="profile/:id" element={<ProfilePage />} />
       <Route path="myProjects/:id" element={<MyProjectsPage />} />
       <Route path="catalog" element={<CatalogPage />} />
+      <Route path="internal" element={<InternalPage />} />
     </Routes>
   );
 };
