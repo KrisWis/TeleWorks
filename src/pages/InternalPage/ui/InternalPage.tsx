@@ -4,6 +4,7 @@ import "@/shared/main.scss";
 import {
   ChannelsExamples,
   EarnInSteps,
+  FAQ,
   MainSection,
   MarketPlace,
   OpenAdvantages,
@@ -26,6 +27,7 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
       <div className="padding">
         <EarnInSteps />
         <MarketPlace />
+        <FAQ />
       </div>
     </main>
   );

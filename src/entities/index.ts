@@ -28,3 +28,4 @@ export * from "./InternalPage__entities/MainSection__entities/MainSection_item/u
 export * from "./InternalPage__entities/ChannelsExamples_entities/ChannelsExamples_item/ui/ChannelsExamples_item";
 export * from "./InternalPage__entities/EarnInSteps_entities/EarnInSteps__item/ui/EarnInSteps__item";
 export * from "./InternalPage__entities/MarketPlaceSlider_entities/MarketPlaceSlider_item/ui/MarketPlaceSlider_item";
+export * from "./InternalPage__entities/FAQ_entities/FAQ_Accordion_item/ui/FAQ_Accordion_item";

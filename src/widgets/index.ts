@@ -140,6 +140,27 @@ export * from "./Catalog__widgets/Catalog/ui/Catalog";
 /* СТРАНИЦА "ВНУТРЕННЯЯ" */
 export * from "./InternalPage_widgets/MainSection/ui/MainSection";
 export * from "./InternalPage_widgets/ChannelsExamples/ui/ChannelsExamples";
-export * from "./InternalPage_widgets/OpenAdvantages/ui/OpenAdvantages";
-export * from "./InternalPage_widgets/EarnInSteps/ui/EarnInSteps";
-export * from "./InternalPage_widgets/MarketPlace/ui/MarketPlace";
+
+export const OpenAdvantages: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./InternalPage_widgets/OpenAdvantages/ui/OpenAdvantages").then(
+    ({ OpenAdvantages }) => ({ default: OpenAdvantages })
+  )
+);
+
+export const EarnInSteps: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./InternalPage_widgets/EarnInSteps/ui/EarnInSteps").then(
+    ({ EarnInSteps }) => ({ default: EarnInSteps })
+  )
+);
+
+export const MarketPlace: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./InternalPage_widgets/MarketPlace/ui/MarketPlace").then(
+    ({ MarketPlace }) => ({ default: MarketPlace })
+  )
+);
+
+export const FAQ: React.LazyExoticComponent<React.FC> = lazy(() =>
+  import("./InternalPage_widgets/FAQ/ui/FAQ").then(({ FAQ }) => ({
+    default: FAQ,
+  }))
+);

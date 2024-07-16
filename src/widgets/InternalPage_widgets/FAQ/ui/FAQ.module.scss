@@ -1,0 +1,13 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  margin-bottom: 100px;
+
+  &__accordion {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
