@@ -9,16 +9,16 @@ export const ChannelsExamples_items: ChannelsExamples_item_props[] = [
 
   {
     imgURL: `${URL_PART}/InternalPage/images/ChannelsExamples_item_img.png`,
-    name: "Название канала",
+    name: "Название канала2",
   },
 
   {
     imgURL: `${URL_PART}/InternalPage/images/ChannelsExamples_item_img.png`,
-    name: "Название канала",
+    name: "Название канала3",
   },
 
   {
     imgURL: `${URL_PART}/InternalPage/images/ChannelsExamples_item_img.png`,
-    name: "Название канала",
+    name: "Название канала4",
   },
 ];

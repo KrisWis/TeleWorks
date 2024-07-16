@@ -1,0 +1,12 @@
+.earnInSteps {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+
+  &__items {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    gap: 20px;
+  }
+}

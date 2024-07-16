@@ -15,7 +15,7 @@ export const ChannelsExamples: React.FC = (): React.JSX.Element => {
 
       <div className={styles.ChannelsExamples__items}>
         {ChannelsExamples_items.map((item: ChannelsExamples_item_props) => (
-          <ChannelsExamples_item {...item} />
+          <ChannelsExamples_item key={item.name} {...item} />
         ))}
       </div>
     </section>

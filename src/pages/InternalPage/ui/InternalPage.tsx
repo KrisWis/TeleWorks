@@ -1,7 +1,12 @@
 import { useEffect } from "react";
 import "./InternalPage.scss";
 import "@/shared/main.scss";
-import { ChannelsExamples, MainSection, OpenAdvantages } from "@/widgets";
+import {
+  ChannelsExamples,
+  EarnInSteps,
+  MainSection,
+  OpenAdvantages,
+} from "@/widgets";
 
 export const InternalPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
@@ -16,6 +21,10 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
       </div>
 
       <OpenAdvantages />
+
+      <div className="padding">
+        <EarnInSteps />
+      </div>
     </main>
   );
 };

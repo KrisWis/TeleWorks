@@ -26,3 +26,4 @@ export * from "./CatalogPage__entities/Catalog__entities/CatalogItem/ui/CatalogI
 /* СТРАНИЦА "ВНУТРЕННЯЯ" */
 export * from "./InternalPage__entities/MainSection__entities/MainSection_item/ui/MainSection_item";
 export * from "./InternalPage__entities/ChannelsExamples_entities/ChannelsExamples_item/ui/ChannelsExamples_item";
+export * from "./InternalPage__entities/EarnInSteps_entities/EarnInSteps__item/ui/EarnInSteps__item";
