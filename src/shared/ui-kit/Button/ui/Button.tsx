@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
                     return;
                   }
             }
-            className={`${styles.Button} ${styles[type]} ${className} ${canSelected && styles.catalog__category__canSelected} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
+            className={`${styles.Button} ${styles.Button_a} ${styles[type]} ${className} ${canSelected && styles.catalog__category__canSelected} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
           >
             {text}
           </a>
