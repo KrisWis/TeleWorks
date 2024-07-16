@@ -17,6 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
       {to ? (
         to.startsWith("http") ? (
           <a
+            target="_blank"
             href={to}
             onClick={
               canSelected
