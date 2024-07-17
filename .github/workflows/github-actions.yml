@@ -22,11 +22,15 @@ jobs:
         run: npm install
       - name: build project
         run: npm run build
+      if: always()
       - name: build storybook
         run: npm run build:storybook
+      if: always()
       - name: unit test
         run: npm run test:unit
+      if: always()
       - name: stylelint check
         run: npm run scss:check
+      if: always()
       - name: eslint check
         run: npm run eslint:check
