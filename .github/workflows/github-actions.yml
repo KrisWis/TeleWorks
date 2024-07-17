@@ -7,7 +7,7 @@ on:
     branches: [main]
 jobs:
   init:
-    runs-on:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-varsion: [17.x]
