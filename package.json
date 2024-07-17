@@ -14,8 +14,8 @@
     "eslint:check": "eslint \"**/*.{ts,tsx}\"",
     "eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test": "jest --config jest.config.ts"
+    "build:storybook": "storybook build",
+    "test:unit": "jest --config jest.config.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
