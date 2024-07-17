@@ -86,7 +86,11 @@ export const CatalogFilterSelect: React.FC<CatalogFilterSelect__Props> = ({
   };
 
   return (
-    <div ref={SelectParentRef} onClick={SelectOnClick}>
+    <div
+      ref={SelectParentRef}
+      onClick={SelectOnClick}
+      data-testid="CatalogFilterSelect"
+    >
       <Select
         className={styles.CatalogFilterSelect}
         defaultValue={SelectedOption}

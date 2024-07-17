@@ -13,7 +13,7 @@ export const Header: React.FC = (): React.JSX.Element => {
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.header__caption}>
+      <h1 className={styles.header__caption} data-testid="headerCaption">
         Tele<span className={styles.header__caption__span}>Works</span>
       </h1>
       <div className={styles.header__items}>

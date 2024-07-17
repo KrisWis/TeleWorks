@@ -9,7 +9,7 @@ import { CatalogFilter } from "@/features";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
-    <section className={styles.catalog}>
+    <section className={styles.catalog} data-testid="catalog">
       <h1 className="page__caption">Каталог Telegram-каналов</h1>
 
       <div className={styles.catalog__categories}>

@@ -10,10 +10,23 @@ export const HowItWorks__item: React.FC<HowItWorksItem> = ({
   list,
 }): React.JSX.Element => {
   return (
-    <div className={`mainPage__wrapper ${styles.howItWorks__item}`}>
-      <span className={styles.howItWorks__item__index}>{index}</span>
+    <div
+      className={`mainPage__wrapper ${styles.howItWorks__item}`}
+      data-testid="howItWorks__item"
+    >
+      <span
+        className={styles.howItWorks__item__index}
+        data-testid="howItWorks__item__index"
+      >
+        {index}
+      </span>
 
-      <h5 className={styles.howItWorks__item__text}>{text}</h5>
+      <h5
+        className={styles.howItWorks__item__text}
+        data-testid="howItWorks__item__text"
+      >
+        {text}
+      </h5>
 
       {button && (
         <Button

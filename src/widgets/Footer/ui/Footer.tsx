@@ -2,7 +2,7 @@ import styles from "./Footer.module.scss";
 
 export const Footer: React.FC = (): React.JSX.Element => {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-testid="footer">
       <div className={styles.footer__wrapper}>
         <h5 className={styles.footer__logo}>
           Tele<span>Works</span>
