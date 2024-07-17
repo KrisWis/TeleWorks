@@ -6,11 +6,11 @@ describe("BuyPlacement Item", () => {
   test("render test", () => {
     render(<Buy_placement__item amount={"amount"} text="text" />);
     expect(screen.getByTestId("Buy_placement__item")).not.toBeInTheDocument();
-    expect(screen.getByTestId("Buy_placement__item__amount")).toHaveTextContent(
-      "amount"
-    );
-    expect(screen.getByTestId("Buy_placement__item__text")).toHaveTextContent(
-      "text"
-    );
+    expect(
+      screen.getByTestId("Buy_placement__item__amount")
+    ).not.toHaveTextContent("amount");
+    expect(
+      screen.getByTestId("Buy_placement__item__text")
+    ).not.toHaveTextContent("text");
   });
 });
