@@ -17,6 +17,7 @@ const config: Config = {
     "^.+\\.(css|scss)$": "<rootDir>/styleMock.js",
     "^@/(.*)$": "<rootDir>/src/$1",
     "swiper/css": "swiper/swiper.min.css",
+    "\\.(css|less|scss)$": "identity-obj-proxy",
   },
   moduleFileExtensions: [
     "js",
@@ -28,6 +29,11 @@ const config: Config = {
     "json",
     "node",
   ],
+
+  transform: {
+    "^.+\\.[jt]sx?$": "babel-jest",
+    ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
+  },
 
   // rootDir: "../../",
   // setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],

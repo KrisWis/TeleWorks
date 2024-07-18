@@ -19,6 +19,7 @@ export const Header: React.FC = (): React.JSX.Element => {
       <div className={styles.header__items}>
         <div className={styles.header__item__switcher}>
           <span
+            data-testid="switcher__customer"
             className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" && styles.header__item__title__active}`}
           >
             Заказчик
@@ -41,6 +42,7 @@ export const Header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.header__item__switcher}>
           <span
+            data-testid="switcher__performer"
             className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" && styles.header__item__title__active}`}
           >
             Исполнитель
@@ -55,9 +57,11 @@ export const Header: React.FC = (): React.JSX.Element => {
           Сервисы
         </Link>
 
-        <div className={styles.header__item__navbar}>
+        <div
+          data-testid="headerDropDown"
+          className={styles.header__item__navbar}
+        >
           <Dropdown
-            data-testid="headerDropDown"
             className={styles.header__item__navbar_dropdown}
             label=""
             dismissOnClick={false}
