@@ -30,7 +30,7 @@ jobs:
         run: npm run test:unit
         if: always()
       - name: ui test
-        run: npm run test:ui
+        run: npm run test:ui:ci
         if: always()
       - name: stylelint check
         run: npm run scss:check
