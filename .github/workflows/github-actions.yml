@@ -29,6 +29,9 @@ jobs:
       - name: unit test
         run: npm run test:unit
         if: always()
+      - name: ui test
+        run: npm run test:ui
+        if: always()
       - name: stylelint check
         run: npm run scss:check
         if: always()
