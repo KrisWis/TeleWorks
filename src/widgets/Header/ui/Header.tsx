@@ -7,6 +7,8 @@ import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import { useState } from "react";
 
+console.log(styles);
+
 export const Header: React.FC = (): React.JSX.Element => {
   const [headerSwitcherChoice, setHeaderSwitcherChoice] =
     useState<string>("Исполнитель");

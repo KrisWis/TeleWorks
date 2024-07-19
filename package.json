@@ -15,7 +15,8 @@
     "eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
-    "test:unit": "jest --config jest.config.ts"
+    "test:unit": "jest --config jest.config.ts",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.18.6",
@@ -78,5 +79,11 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
     "vite": "^5.3.1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
