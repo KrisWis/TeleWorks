@@ -22,6 +22,7 @@ export const Header: React.FC = (): React.JSX.Element => {
         <div className={styles.header__item__switcher}>
           <span
             data-testid="switcher__customer"
+            data-disabled={headerSwitcherChoice == "Заказчик"}
             className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" && styles.header__item__title__active}`}
           >
             Заказчик
@@ -44,6 +45,7 @@ export const Header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.header__item__switcher}>
           <span
+            data-disabled={headerSwitcherChoice == "Исполнитель"}
             data-testid="switcher__performer"
             className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" && styles.header__item__title__active}`}
           >
@@ -59,16 +61,14 @@ export const Header: React.FC = (): React.JSX.Element => {
           Сервисы
         </Link>
 
-        <div
-          data-testid="headerDropDown"
-          className={styles.header__item__navbar}
-        >
+        <div className={styles.header__item__navbar}>
           <Dropdown
             className={styles.header__item__navbar_dropdown}
             label=""
             dismissOnClick={false}
             renderTrigger={() => (
               <svg
+                data-testid="header-flowbite-dropdown-trigger"
                 width="30"
                 height="30"
                 viewBox="0 0 30 30"
