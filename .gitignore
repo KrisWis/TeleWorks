@@ -14,6 +14,8 @@ coverage
 dist-ssr
 .vscode
 *.local
+.storybook-static
+.loki
 
 # Editor directories and files
 .vscode/*
