@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CatalogFilterSelect } from "../CatalogFilterSelect/ui/CatalogFilterSelect";
 import styles from "./CatalogFilter.module.scss";
 import {
   catalogFilter_channelsOptions,
@@ -7,9 +6,30 @@ import {
   catalogFilter_rangeOptions,
   catalogFilter_themesOptions,
 } from "../model/CatalogFilter__data";
-import { Button } from "@/shared";
+import { Button, Select, selectStyles } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import { CatalogItemTags } from "@/entities/CatalogPage__entities/Catalog__entities/CatalogItem/model/CatalogItem__types";
+import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+
+const DropdownIndicator = (): JSX.Element => {
+  return (
+    <svg
+      className={selectStyles.Select__svg}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M6.46967 9.46967C6.76256 9.17678 7.23744 9.17678 7.53033 9.46967L12 13.9393L16.4697 9.46967C16.7626 9.17678 17.2374 9.17678 17.5303 9.46967C17.8232 9.76256 17.8232 10.2374 17.5303 10.5303L12.5303 15.5303C12.2374 15.8232 11.7626 15.8232 11.4697 15.5303L6.46967 10.5303C6.17678 10.2374 6.17678 9.76256 6.46967 9.46967Z"
+        fill="#001A72"
+      />
+    </svg>
+  );
+};
 
 export const CatalogFilter: React.FC = (): React.JSX.Element => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -20,6 +40,17 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
     } else {
       setSelectedTags((prev: string[]) => [...prev, tag]);
     }
+  };
+
+  const getTextStyles = (themes: boolean = false): SelectTextStyles => {
+    return {
+      fontFamily: "var(--second-family)",
+      fontWeight: 400,
+      fontSize: themes == true ? "14px" : "15px",
+      letterSpacing: "-0.01em",
+      lineHeight: "150%",
+      color: themes == true ? "#b2b2b2" : "#000",
+    };
   };
 
   return (
@@ -36,8 +67,10 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
 
       <div className={styles.catalog__filter__themes}>
         <span className={styles.catalog__filter__title}>Тематики</span>
-        <CatalogFilterSelect
-          themes={true}
+        <Select
+          className={styles.catalog__filter__select}
+          CustomDropdownIndicator={DropdownIndicator}
+          TextStyles={getTextStyles(true)}
           selectedOptions={catalogFilter_themesOptions}
         />
       </div>
@@ -129,11 +162,26 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
       </div>
 
       <div className={styles.catalog__filter__selects}>
-        <CatalogFilterSelect selectedOptions={catalogFilter_formatOptions} />
+        <Select
+          className={styles.catalog__filter__select}
+          CustomDropdownIndicator={DropdownIndicator}
+          TextStyles={getTextStyles()}
+          selectedOptions={catalogFilter_formatOptions}
+        />
 
-        <CatalogFilterSelect selectedOptions={catalogFilter_rangeOptions} />
+        <Select
+          className={styles.catalog__filter__select}
+          CustomDropdownIndicator={DropdownIndicator}
+          TextStyles={getTextStyles()}
+          selectedOptions={catalogFilter_rangeOptions}
+        />
 
-        <CatalogFilterSelect selectedOptions={catalogFilter_channelsOptions} />
+        <Select
+          className={styles.catalog__filter__select}
+          CustomDropdownIndicator={DropdownIndicator}
+          TextStyles={getTextStyles()}
+          selectedOptions={catalogFilter_channelsOptions}
+        />
       </div>
 
       <Button

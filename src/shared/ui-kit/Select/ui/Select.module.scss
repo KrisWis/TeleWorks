@@ -1,18 +1,16 @@
-.CatalogItemSelect {
+.Select {
   display: flex;
-  height: 38px;
   width: 100%;
-  background: #fff;
   border-radius: 15px;
   cursor: pointer;
-  border: 1px solid #dcdcdc;
 
   &__svg {
-    margin-right: 5px;
     transition: all 0.2s linear;
 
     &__active {
-      transform: rotate(-90deg);
+      svg {
+        transform: rotate(-90deg);
+      }
     }
   }
 }

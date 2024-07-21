@@ -1,11 +1,43 @@
-import { Buy_ads_form_select } from "@/entities";
 import styles from "./Buy_ads_form.module.scss";
 import {
   buy_ads_form_amount_selectOptions,
   buy_ads_form_format_selectOptions,
 } from "../model/Buy_ads_form_select__data";
+import { memo } from "react";
+import { Select, selectStyles } from "@/shared";
+import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
 
-export const Buy_ads_form: React.FC = (): React.JSX.Element => {
+// eslint-disable-next-line react-refresh/only-export-components
+const DropdownIndicator = (): JSX.Element => {
+  return (
+    <svg
+      className={`${selectStyles.Select__svg} ${styles.buy_ads__form__category__form__svg}`}
+      width="14"
+      height="23"
+      viewBox="0 0 14 23"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        opacity="0.4"
+        d="M12.6329 12.5607C13.2187 11.9749 13.2187 11.0251 12.6329 10.4393L3.08698 0.893398C2.5012 0.307611 1.55145 0.307611 0.965664 0.893398C0.379877 1.47919 0.379877 2.42893 0.965664 3.01472L9.45095 11.5L0.965664 19.9853C0.379877 20.5711 0.379877 21.5208 0.965664 22.1066C1.55145 22.6924 2.5012 22.6924 3.08698 22.1066L12.6329 12.5607ZM10.5723 13H11.5723V10H10.5723V13Z"
+        fill="#4266C6"
+      />
+    </svg>
+  );
+};
+
+// eslint-disable-next-line react-refresh/only-export-components
+const TextStyles: SelectTextStyles = {
+  fontFamily: "var(--second-family)",
+  fontWeight: 500,
+  fontSize: "32px",
+  letterSpacing: "-0.04em",
+  color: "#000",
+  opacity: 0.4,
+};
+
+export const Buy_ads_form: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.buy_ads__form}>
       <h2 className={styles.buy_ads__form__caption}>
@@ -14,7 +46,10 @@ export const Buy_ads_form: React.FC = (): React.JSX.Element => {
 
       <div className={styles.buy_ads__form__category}>
         <span className={styles.buy_ads__form__category__span}>Формат:</span>
-        <Buy_ads_form_select
+        <Select
+          TextStyles={TextStyles}
+          CustomDropdownIndicator={DropdownIndicator}
+          className={styles.buy_ads__form__category__form}
           selectedOptions={buy_ads_form_format_selectOptions}
         />
         <span className={styles.buy_ads__form__category__desc}>
@@ -26,7 +61,10 @@ export const Buy_ads_form: React.FC = (): React.JSX.Element => {
         <span className={styles.buy_ads__form__category__span}>
           Количество:
         </span>
-        <Buy_ads_form_select
+        <Select
+          TextStyles={TextStyles}
+          CustomDropdownIndicator={DropdownIndicator}
+          className={styles.buy_ads__form__category__form}
           selectedOptions={buy_ads_form_amount_selectOptions}
         />
       </div>
@@ -56,4 +94,4 @@ export const Buy_ads_form: React.FC = (): React.JSX.Element => {
       </button>
     </div>
   );
-};
+});

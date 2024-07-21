@@ -3,8 +3,9 @@ import styles from "./HowItWorks.module.scss";
 import { HowItWorksItems } from "../model/HowItWorks__data";
 import { HowItWorksItem } from "@/entities/MainPage__entities/HowItWorks__entities/HowItWorks__item/model/HowItWorks__types";
 import { HowItWorks__item } from "@/entities";
+import { memo } from "react";
 
-export const HowItWorks: React.FC = (): React.JSX.Element => {
+export const HowItWorks: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.howItWorks}>
       <h2 className="mainPage__caption">Как работает платформа?</h2>
@@ -24,4 +25,4 @@ export const HowItWorks: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

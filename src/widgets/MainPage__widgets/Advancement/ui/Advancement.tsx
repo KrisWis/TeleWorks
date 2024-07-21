@@ -2,8 +2,9 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Advancement.module.scss";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { memo } from "react";
 
-export const Advancement: React.FC = (): React.JSX.Element => {
+export const Advancement: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.advancement}>
       <img
@@ -45,4 +46,4 @@ export const Advancement: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

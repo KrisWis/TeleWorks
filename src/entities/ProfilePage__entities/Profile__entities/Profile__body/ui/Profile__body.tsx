@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__body.module.scss";
+import { memo } from "react";
 
-export const Profile__body: React.FC = (): React.JSX.Element => {
+export const Profile__body: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__body}>
       <div className={styles.profile__body__avatar}>
@@ -88,4 +89,4 @@ export const Profile__body: React.FC = (): React.JSX.Element => {
       </div>
     </div>
   );
-};
+});

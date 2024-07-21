@@ -1,6 +1,7 @@
+import { memo } from "react";
 import styles from "./MainPageFooter.module.scss";
 
-export const MainPageFooter: React.FC = (): React.JSX.Element => {
+export const MainPageFooter: React.FC = memo((): React.JSX.Element => {
   return (
     <footer className={styles.mainPageFooter}>
       <h2 className={styles.mainPageFooter__caption}>
@@ -8,4 +9,4 @@ export const MainPageFooter: React.FC = (): React.JSX.Element => {
       </h2>
     </footer>
   );
-};
+});

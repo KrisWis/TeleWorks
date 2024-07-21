@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__header.module.scss";
+import { memo } from "react";
 
-export const Profile__header: React.FC = (): React.JSX.Element => {
+export const Profile__header: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__header}>
       <div className={styles.profile__header__left}>
@@ -185,4 +186,4 @@ export const Profile__header: React.FC = (): React.JSX.Element => {
       </div>
     </div>
   );
-};
+});

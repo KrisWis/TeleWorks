@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Guarantor_Services.module.scss";
+import { memo } from "react";
 
-export const Guarantor_Services: React.FC = (): React.JSX.Element => {
+export const Guarantor_Services: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={`mainPage__wrapper ${styles.guarantor_Services}`}>
       <img
@@ -27,4 +28,4 @@ export const Guarantor_Services: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

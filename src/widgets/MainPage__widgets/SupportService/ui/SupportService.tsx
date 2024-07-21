@@ -2,8 +2,9 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./SupportService.module.scss";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { memo } from "react";
 
-export const SupportService: React.FC = (): React.JSX.Element => {
+export const SupportService: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.supportService}>
       <h5 className={`mainPage__caption ${styles.supportService__caption}`}>
@@ -29,4 +30,4 @@ export const SupportService: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

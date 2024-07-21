@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Ads.module.scss";
+import { memo } from "react";
 
-export const Ads: React.FC = (): React.JSX.Element => {
+export const Ads: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={`mainPage__wrapper ${styles.ads}`}>
       <div className={styles.ads__wrapper}>
@@ -34,4 +35,4 @@ export const Ads: React.FC = (): React.JSX.Element => {
       />
     </section>
   );
-};
+});

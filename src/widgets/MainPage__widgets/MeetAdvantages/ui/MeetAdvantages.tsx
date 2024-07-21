@@ -1,6 +1,7 @@
+import { memo } from "react";
 import styles from "./MeetAdvantages.module.scss";
 
-export const MeetAdvantages: React.FC = (): React.JSX.Element => {
+export const MeetAdvantages: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.meetAdvantages}>
       <h3 className={`${styles.meetAdvantages__caption} mainPage__caption`}>
@@ -52,4 +53,4 @@ export const MeetAdvantages: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

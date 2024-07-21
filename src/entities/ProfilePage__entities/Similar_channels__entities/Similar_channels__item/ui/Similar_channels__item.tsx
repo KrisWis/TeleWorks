@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Similar_channels__item.module.scss";
+import { memo } from "react";
 
-export const Similar_channels__item: React.FC = (): React.JSX.Element => {
+export const Similar_channels__item: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.similar_channels__item}>
       <div className={styles.similar_channels__item__header}>
@@ -167,4 +168,4 @@ export const Similar_channels__item: React.FC = (): React.JSX.Element => {
       </div>
     </div>
   );
-};
+});

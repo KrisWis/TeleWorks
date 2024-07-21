@@ -1,8 +1,10 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Reviews__item.module.scss";
+import { memo } from "react";
 
-export const Reviews__item: React.FC = (): React.JSX.Element => {
-  const active_stars__array: string[] = Array(5).fill("active");
+const active_stars__array: string[] = Array(5).fill("active");
+
+export const Reviews__item: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.reviews__item}>
       <div className={styles.reviews__item__header}>
@@ -60,4 +62,4 @@ export const Reviews__item: React.FC = (): React.JSX.Element => {
       </div>
     </div>
   );
-};
+});

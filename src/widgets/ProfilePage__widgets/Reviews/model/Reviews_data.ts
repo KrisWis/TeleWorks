@@ -1,6 +1,6 @@
-import { Reviews_select_Option } from "./Reviews__select__types";
+import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
 
-export const reviews_selectOptions: Reviews_select_Option[] = [
+export const reviews_selectOptions: Select_Option[] = [
   {
     value: "Сортировка: По самым полезным",
     label: "Сортировка: По самым полезным",

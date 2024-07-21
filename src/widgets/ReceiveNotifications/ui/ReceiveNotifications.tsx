@@ -3,8 +3,9 @@ import styles from "./ReceiveNotifications.module.scss";
 import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { memo } from "react";
 
-export const ReceiveNotifications: React.FC = (): React.JSX.Element => {
+export const ReceiveNotifications: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.receiveNotifications__wrapper}>
       <div className={`MyProjectsPage__wrapper ${styles.receiveNotifications}`}>
@@ -41,4 +42,4 @@ export const ReceiveNotifications: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

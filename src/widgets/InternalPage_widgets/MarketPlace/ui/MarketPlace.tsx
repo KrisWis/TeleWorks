@@ -1,7 +1,8 @@
 import { MarketPlaceSlider } from "@/features";
 import styles from "./MarketPlace.module.scss";
+import { memo } from "react";
 
-export const MarketPlace: React.FC = (): React.JSX.Element => {
+export const MarketPlace: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.marketPlace}>
       <h2 className={`InternalPage__caption ${styles.marketPlace__caption}`}>
@@ -12,4 +13,4 @@ export const MarketPlace: React.FC = (): React.JSX.Element => {
       <MarketPlaceSlider />
     </section>
   );
-};
+});

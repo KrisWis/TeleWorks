@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Additional_Services.module.scss";
+import { memo } from "react";
 
-export const Additional_Services: React.FC = (): React.JSX.Element => {
+export const Additional_Services: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.additionalServices}>
       <h2 className={`${styles.additionalServices__caption} mainPage__caption`}>
@@ -62,4 +63,4 @@ export const Additional_Services: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

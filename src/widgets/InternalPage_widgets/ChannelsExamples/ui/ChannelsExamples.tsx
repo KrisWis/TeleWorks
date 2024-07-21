@@ -2,8 +2,9 @@ import { ChannelsExamples_item_props } from "@/entities/InternalPage__entities/C
 import { ChannelsExamples_items } from "../model/ChannelsExamples_data";
 import styles from "./ChannelsExamples.module.scss";
 import { ChannelsExamples_item } from "@/entities";
+import { memo } from "react";
 
-export const ChannelsExamples: React.FC = (): React.JSX.Element => {
+export const ChannelsExamples: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.ChannelsExamples}>
       <h2
@@ -20,4 +21,4 @@ export const ChannelsExamples: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

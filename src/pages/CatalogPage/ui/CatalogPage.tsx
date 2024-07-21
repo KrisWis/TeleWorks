@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./CatalogPage.scss";
-import { Catalog } from "@/widgets";
+import { Catalog, Footer, Header, ReceiveNotifications } from "@/widgets";
 import "@/shared/main.scss";
 
 export const CatalogPage: React.FC = (): React.JSX.Element => {
@@ -9,10 +9,16 @@ export const CatalogPage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="Catalog__main">
-      <div className="padding">
-        <Catalog />
-      </div>
-    </main>
+    <>
+      <Header />
+      <main className="Catalog__main">
+        <div className="padding">
+          <Catalog />
+        </div>
+      </main>
+
+      <ReceiveNotifications />
+      <Footer />
+    </>
   );
 };

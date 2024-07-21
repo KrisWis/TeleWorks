@@ -8,10 +8,8 @@ export * from "./ProfilePage__entities/Profile__entities/Profile__header/ui/Prof
 export * from "./ProfilePage__entities/Profile__entities/Profile__body/ui/Profile__body";
 export * from "./ProfilePage__entities/Profile__entities/Profile__footer/ui/Profile__footer";
 export * from "./ProfilePage__entities/Stats__entities/Stats__item/ui/Stats__item";
-export * from "../features/ProfilePage_features/BuyAds_features/Buy_ads_form_select/ui/Buy_ads_form_select";
 export * from "./ProfilePage__entities/Channel_stats__entities/Channel_stats__item/ui/Channel_stats_item";
 export * from "./ProfilePage__entities/Channel_reviews__entities/Channel_reviews__item/ui/Channel_reviews__item";
-export * from "../features/ProfilePage_features/Reviews_features/Reviews__select/ui/Reviews_select";
 export * from "./ProfilePage__entities/Reviews__entities/Reviews__item/ui/Reviews__item";
 export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channels__header/ui/Similar_channels__header";
 export * from "../features/ProfilePage_features/SimilarChannels_features/Similar_channels__slider/ui/Similar_channels__slider";

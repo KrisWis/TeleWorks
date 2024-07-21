@@ -1,8 +1,9 @@
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import styles from "./OpenAdvantages.module.scss";
 import { Button } from "@/shared";
+import { memo } from "react";
 
-export const OpenAdvantages: React.FC = (): React.JSX.Element => {
+export const OpenAdvantages: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={`padding ${styles.openAdvantages}`}>
       <svg
@@ -341,4 +342,4 @@ export const OpenAdvantages: React.FC = (): React.JSX.Element => {
       />
     </section>
   );
-};
+});

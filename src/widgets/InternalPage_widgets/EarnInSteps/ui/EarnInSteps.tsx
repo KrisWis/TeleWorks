@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   EarnInSteps__item_type,
   EarnInSteps_items,
@@ -5,7 +6,7 @@ import {
 import styles from "./EarnInSteps.module.scss";
 import { EarnInSteps__item } from "@/entities";
 
-export const EarnInSteps: React.FC = (): React.JSX.Element => {
+export const EarnInSteps: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.earnInSteps}>
       <h2 className={`InternalPage__caption`}>
@@ -22,4 +23,4 @@ export const EarnInSteps: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

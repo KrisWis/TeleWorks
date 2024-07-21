@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Transaction_Advantage.module.scss";
+import { memo } from "react";
 
-export const Transaction_Advantage: React.FC = (): React.JSX.Element => {
+export const Transaction_Advantage: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.transaction_Advantage}>
       <div className={styles.transaction_Advantage__wrapper}>
@@ -71,4 +72,4 @@ export const Transaction_Advantage: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

@@ -1,6 +1,7 @@
+import { memo } from "react";
 import styles from "./Job_Risks.module.scss";
 
-export const Job_Risks: React.FC = (): React.JSX.Element => {
+export const Job_Risks: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={`mainPage__wrapper ${styles.job_Risks}`}>
       <h4 className={`mainPage__subcaption ${styles.job_Risks__caption}`}>
@@ -57,4 +58,4 @@ export const Job_Risks: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

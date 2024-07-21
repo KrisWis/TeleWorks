@@ -1,8 +1,9 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./WeAreTrusted.module.scss";
 import { weAreTrusted__items } from "../model/WeAreTrusted__data";
+import { memo } from "react";
 
-export const WeAreTrusted: React.FC = (): React.JSX.Element => {
+export const WeAreTrusted: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.weAreTrusted}>
       <div className={styles.weAreTrusted__wrapper}>
@@ -29,4 +30,4 @@ export const WeAreTrusted: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

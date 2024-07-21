@@ -6,8 +6,9 @@ import { MarketPlaceSlider_items } from "../model/MarketPlaceSlider_data";
 import { MarketPlaceSlider_item_props } from "@/entities/InternalPage__entities/MarketPlaceSlider_entities/MarketPlaceSlider_item/model/MarketPlaceSlider_item_types";
 import { MarketPlaceSlider_item } from "@/entities";
 import "./MarketPlaceSlider.scss";
+import { memo } from "react";
 
-export const MarketPlaceSlider: React.FC = (): React.JSX.Element => {
+export const MarketPlaceSlider: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.marketPlace__slider}>
       <svg
@@ -61,4 +62,4 @@ export const MarketPlaceSlider: React.FC = (): React.JSX.Element => {
       </svg>
     </div>
   );
-};
+});

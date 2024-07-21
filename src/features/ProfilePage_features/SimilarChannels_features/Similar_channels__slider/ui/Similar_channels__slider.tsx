@@ -9,37 +9,40 @@ import {
   mobile_mediaQuery,
   tablet_mediaQuery,
 } from "@/pages/ProfilePage/model/ProfilePage__data";
+import { memo } from "react";
 
-export const Similar_channels__slider: React.FC = (): React.JSX.Element => {
-  return (
-    <div className={styles.similar_channels__slider}>
-      <Swiper
-        navigation={{
-          prevEl: "#similar_channels_prevArrow",
-          nextEl: "#similar_channels_nextArrow",
-        }}
-        modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView={
-          mobile_mediaQuery.matches ? 1 : tablet_mediaQuery.matches ? 2 : 3
-        }
-      >
-        <SwiperSlide>
-          <Similar_channels__item />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Similar_channels__item />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Similar_channels__item />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Similar_channels__item />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Similar_channels__item />
-        </SwiperSlide>
-      </Swiper>
-    </div>
-  );
-};
+export const Similar_channels__slider: React.FC = memo(
+  (): React.JSX.Element => {
+    return (
+      <div className={styles.similar_channels__slider}>
+        <Swiper
+          navigation={{
+            prevEl: "#similar_channels_prevArrow",
+            nextEl: "#similar_channels_nextArrow",
+          }}
+          modules={[Navigation]}
+          spaceBetween={20}
+          slidesPerView={
+            mobile_mediaQuery.matches ? 1 : tablet_mediaQuery.matches ? 2 : 3
+          }
+        >
+          <SwiperSlide>
+            <Similar_channels__item />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Similar_channels__item />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Similar_channels__item />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Similar_channels__item />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Similar_channels__item />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    );
+  }
+);

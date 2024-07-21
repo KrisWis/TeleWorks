@@ -5,9 +5,12 @@ import {
   ChannelsExamples,
   EarnInSteps,
   FAQ,
+  Footer,
+  Header,
   MainSection,
   MarketPlace,
   OpenAdvantages,
+  ReceiveNotifications,
 } from "@/widgets";
 
 export const InternalPage: React.FC = (): React.JSX.Element => {
@@ -16,19 +19,25 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="Internal__main">
-      <div className="padding">
-        <MainSection />
-        <ChannelsExamples />
-      </div>
+    <>
+      <Header />
+      <main className="Internal__main">
+        <div className="padding">
+          <MainSection />
+          <ChannelsExamples />
+        </div>
 
-      <OpenAdvantages />
+        <OpenAdvantages />
 
-      <div className="padding">
-        <EarnInSteps />
-        <MarketPlace />
-        <FAQ />
-      </div>
-    </main>
+        <div className="padding">
+          <EarnInSteps />
+          <MarketPlace />
+          <FAQ />
+        </div>
+      </main>
+
+      <ReceiveNotifications />
+      <Footer />
+    </>
   );
 };

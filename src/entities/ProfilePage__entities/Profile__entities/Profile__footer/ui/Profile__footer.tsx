@@ -1,7 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__footer.module.scss";
+import { memo } from "react";
 
-export const Profile__footer: React.FC = (): React.JSX.Element => {
+export const Profile__footer: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__footer}>
       <div className={styles.profile__footer__item}>
@@ -37,4 +38,4 @@ export const Profile__footer: React.FC = (): React.JSX.Element => {
       </div>
     </div>
   );
-};
+});

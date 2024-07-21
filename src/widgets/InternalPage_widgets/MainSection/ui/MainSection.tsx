@@ -6,8 +6,9 @@ import { MainSectionItemProps } from "@/entities/InternalPage__entities/MainSect
 import { MainSection_item } from "@/entities";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { memo } from "react";
 
-export const MainSection: React.FC = (): React.JSX.Element => {
+export const MainSection: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.mainSection}>
       <h1 className={`${styles.mainSection__caption} page__caption`}>
@@ -45,4 +46,4 @@ export const MainSection: React.FC = (): React.JSX.Element => {
       />
     </section>
   );
-};
+});

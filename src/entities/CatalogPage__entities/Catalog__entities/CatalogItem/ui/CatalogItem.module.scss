@@ -265,4 +265,14 @@
       align-items: center;
     }
   }
+
+  &__select {
+    height: 38px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+
+    &__svg {
+      margin-right: 5px;
+    }
+  }
 }

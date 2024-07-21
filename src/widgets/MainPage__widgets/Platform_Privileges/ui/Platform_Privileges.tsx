@@ -2,8 +2,9 @@ import { Platrform_Privileges__itemProps } from "@/entities/MainPage__entities/P
 import { Platform_Privileges__items } from "../model/Platform_Priveleges__data";
 import styles from "./Platform_Privileges.module.scss";
 import { Platform_Privileges__item } from "@/entities";
+import { memo } from "react";
 
-export const Platform_Privileges: React.FC = (): React.JSX.Element => {
+export const Platform_Privileges: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.platform_Privileges}>
       <svg
@@ -47,4 +48,4 @@ export const Platform_Privileges: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});

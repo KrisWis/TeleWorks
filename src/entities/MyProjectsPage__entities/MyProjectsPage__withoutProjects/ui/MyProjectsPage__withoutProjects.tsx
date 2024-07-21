@@ -2,8 +2,9 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./MyProjectsPage__withoutProjects.module.scss";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { memo } from "react";
 
-export const MyProjectsPage__withoutProjects: React.FC =
+export const MyProjectsPage__withoutProjects: React.FC = memo(
   (): React.JSX.Element => {
     return (
       <div className={styles.myProjects__withoutProjects}>
@@ -36,4 +37,5 @@ export const MyProjectsPage__withoutProjects: React.FC =
         />
       </div>
     );
-  };
+  }
+);

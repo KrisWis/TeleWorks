@@ -4,8 +4,9 @@ import styles from "./Buy_placement.module.scss";
 import { Buy_placement__itemProps } from "@/entities/MainPage__entities/Buy_placement__entities/Buy_placement__item/model/Buy_placement__item__types";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
+import { memo } from "react";
 
-export const Buy_placement: React.FC = (): React.JSX.Element => {
+export const Buy_placement: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.Buy_placement}>
       <h3 className={`${styles.Buy_placement__caption} mainPage__caption`}>
@@ -29,4 +30,4 @@ export const Buy_placement: React.FC = (): React.JSX.Element => {
       />
     </section>
   );
-};
+});

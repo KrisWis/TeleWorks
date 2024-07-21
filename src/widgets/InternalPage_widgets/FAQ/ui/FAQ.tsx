@@ -1,8 +1,9 @@
 import { FAQ_Accordion_item } from "@/entities";
 import styles from "./FAQ.module.scss";
 import { Accordion } from "@szhsin/react-accordion";
+import { memo } from "react";
 
-export const FAQ: React.FC = (): React.JSX.Element => {
+export const FAQ: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.faq}>
       <h2 className={`InternalPage__caption`}>Вопрос-ответ</h2>
@@ -54,4 +55,4 @@ export const FAQ: React.FC = (): React.JSX.Element => {
       </Accordion>
     </section>
   );
-};
+});

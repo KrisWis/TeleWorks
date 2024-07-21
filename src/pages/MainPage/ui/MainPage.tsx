@@ -4,6 +4,7 @@ import {
   Advancement,
   Buy_placement,
   Guarantor_Services,
+  Header,
   HowItWorks,
   Job_Risks,
   MainPageFooter,
@@ -23,30 +24,34 @@ export const MainPage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="MainPage__main">
-      <div className="padding">
-        <Advancement />
-        <Buy_placement />
-        <WeAreTrusted />
-      </div>
+    <>
+      <Header />
 
-      <HowItWorks />
+      <main className="MainPage__main">
+        <div className="padding">
+          <Advancement />
+          <Buy_placement />
+          <WeAreTrusted />
+        </div>
 
-      <div className="padding">
-        <MeetAdvantages />
-      </div>
+        <HowItWorks />
 
-      <Platform_Privileges />
+        <div className="padding">
+          <MeetAdvantages />
+        </div>
 
-      <div className="padding">
-        <Additional_Services />
-        <Ads />
-        <Guarantor_Services />
-        <Job_Risks />
-        <Transaction_Advantage />
-        <SupportService />
-        <MainPageFooter />
-      </div>
-    </main>
+        <Platform_Privileges />
+
+        <div className="padding">
+          <Additional_Services />
+          <Ads />
+          <Guarantor_Services />
+          <Job_Risks />
+          <Transaction_Advantage />
+          <SupportService />
+          <MainPageFooter />
+        </div>
+      </main>
+    </>
   );
 };

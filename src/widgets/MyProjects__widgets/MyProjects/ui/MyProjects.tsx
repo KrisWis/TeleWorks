@@ -5,8 +5,9 @@ import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
 import { Link } from "react-router-dom";
 import { MyProjectsPage__withoutProjects } from "@/entities";
+import { memo } from "react";
 
-export const MyProjects: React.FC = (): React.JSX.Element => {
+export const MyProjects: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.myProjects}>
       <h1 className="page__caption">Мои проекты</h1>
@@ -327,4 +328,4 @@ export const MyProjects: React.FC = (): React.JSX.Element => {
       </div>
     </section>
   );
-};
+});
