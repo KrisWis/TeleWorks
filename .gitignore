@@ -17,6 +17,9 @@ dist-ssr
 storybook-static
 .loki
 
+# TODO: ПОТОМ УДАЛИТЬ:
+.github
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
