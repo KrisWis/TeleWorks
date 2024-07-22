@@ -8,8 +8,8 @@ import {
 } from "../model/CatalogFilter__data";
 import { Button, Select, selectStyles } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
-import { CatalogItemTags } from "@/entities/CatalogPage__entities/Catalog__entities/CatalogItem/model/CatalogItem__types";
 import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import { CatalogItemTags } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
 
 const DropdownIndicator = (): JSX.Element => {
   return (

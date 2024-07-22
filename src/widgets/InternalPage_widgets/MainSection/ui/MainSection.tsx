@@ -2,11 +2,11 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./MainSection.module.scss";
 import "@/shared/main.scss";
 import { MainSection_items } from "../model/MainSection_data";
-import { MainSectionItemProps } from "@/entities/InternalPage__entities/MainSection__entities/MainSection_item/model/MainSection_item_types";
-import { MainSection_item } from "@/entities";
+import { MainSectionItemProps } from "@/widgets/InternalPage_widgets/MainSection/ui/MainSection_item/model/MainSection_item_types";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import { memo } from "react";
+import { MainSection_item } from "./MainSection_item/ui/MainSection_item";
 
 export const MainSection: React.FC = memo((): React.JSX.Element => {
   return (

@@ -4,7 +4,7 @@ import {
   EarnInSteps_items,
 } from "../model/EarnInSteps_data";
 import styles from "./EarnInSteps.module.scss";
-import { EarnInSteps__item } from "@/entities";
+import { EarnInSteps__item } from "./EarnInSteps__item/ui/EarnInSteps__item";
 
 export const EarnInSteps: React.FC = memo((): React.JSX.Element => {
   return (

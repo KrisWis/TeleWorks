@@ -1,29 +1,7 @@
-/* ГЛАВНАЯ СТРАНИЦА */
-export * from "./MainPage__entities/Buy_placement__entities/Buy_placement__item/ui/Buy_placement__item";
-export * from "./MainPage__entities/HowItWorks__entities/HowItWorks__item/ui/HowItWorks__item";
-export * from "./MainPage__entities/Platform_Privileges__entities/Platform_Privileges__item/ui/Platform_Privileges__item";
-
-/* СТРАНИЦА ПРОФИЛЯ */
-export * from "./ProfilePage__entities/Profile__entities/Profile__header/ui/Profile__header";
-export * from "./ProfilePage__entities/Profile__entities/Profile__body/ui/Profile__body";
-export * from "./ProfilePage__entities/Profile__entities/Profile__footer/ui/Profile__footer";
-export * from "./ProfilePage__entities/Stats__entities/Stats__item/ui/Stats__item";
-export * from "./ProfilePage__entities/Channel_stats__entities/Channel_stats__item/ui/Channel_stats_item";
-export * from "./ProfilePage__entities/Channel_reviews__entities/Channel_reviews__item/ui/Channel_reviews__item";
-export * from "./ProfilePage__entities/Reviews__entities/Reviews__item/ui/Reviews__item";
-export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channels__header/ui/Similar_channels__header";
-export * from "../features/ProfilePage_features/SimilarChannels_features/Similar_channels__slider/ui/Similar_channels__slider";
-export * from "./ProfilePage__entities/Similar_channels__entities/Similar_channels__item/ui/Similar_channels__item";
-
-/* СТРАНИЦА "МОИ ПРОЕКТЫ" */
-export * from "./MyProjectsPage__entities/MyProjectsPage__withoutProjects/ui/MyProjectsPage__withoutProjects";
+/* СТРАНИЦА "ПРОФИЛЬ" */
+export * from "./ProfilePage_entities/Profile/ui/Profile";
+export * from "./ProfilePage_entities/Stats__item/ui/Stats__item";
+export * from "./ProfilePage_entities/Similar_channels__item/ui/Similar_channels__item";
 
 /* СТРАНИЦА "КАТАЛОГ" */
-export * from "./CatalogPage__entities/Catalog__entities/CatalogItem/ui/CatalogItem";
-
-/* СТРАНИЦА "ВНУТРЕННЯЯ" */
-export * from "./InternalPage__entities/MainSection__entities/MainSection_item/ui/MainSection_item";
-export * from "./InternalPage__entities/ChannelsExamples_entities/ChannelsExamples_item/ui/ChannelsExamples_item";
-export * from "./InternalPage__entities/EarnInSteps_entities/EarnInSteps__item/ui/EarnInSteps__item";
-export * from "./InternalPage__entities/MarketPlaceSlider_entities/MarketPlaceSlider_item/ui/MarketPlaceSlider_item";
-export * from "./InternalPage__entities/FAQ_entities/FAQ_Accordion_item/ui/FAQ_Accordion_item";
+export * from "./CatalogPage_entities/CatalogItem/ui/CatalogItem";

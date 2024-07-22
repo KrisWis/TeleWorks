@@ -1,8 +1,8 @@
-import { ChannelsExamples_item_props } from "@/entities/InternalPage__entities/ChannelsExamples_entities/ChannelsExamples_item/model/ChannelsExamples_item_types";
+import { ChannelsExamples_item_props } from "@/widgets/InternalPage_widgets/ChannelsExamples/ui/ChannelsExamples_item/model/ChannelsExamples_item_types";
 import { ChannelsExamples_items } from "../model/ChannelsExamples_data";
 import styles from "./ChannelsExamples.module.scss";
-import { ChannelsExamples_item } from "@/entities";
 import { memo } from "react";
+import { ChannelsExamples_item } from "./ChannelsExamples_item/ui/ChannelsExamples_item";
 
 export const ChannelsExamples: React.FC = memo((): React.JSX.Element => {
   return (

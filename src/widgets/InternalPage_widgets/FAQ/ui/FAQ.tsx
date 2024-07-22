@@ -1,7 +1,7 @@
-import { FAQ_Accordion_item } from "@/entities";
 import styles from "./FAQ.module.scss";
 import { Accordion } from "@szhsin/react-accordion";
 import { memo } from "react";
+import { FAQ_Accordion_item } from "./FAQ_Accordion_item/ui/FAQ_Accordion_item";
 
 export const FAQ: React.FC = memo((): React.JSX.Element => {
   return (

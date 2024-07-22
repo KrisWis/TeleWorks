@@ -1,6 +1,6 @@
-import { MarketPlaceSlider } from "@/features";
 import styles from "./MarketPlace.module.scss";
 import { memo } from "react";
+import { MarketPlaceSlider } from "./MarketPlaceSlider/ui/MarketPlaceSlider";
 
 export const MarketPlace: React.FC = memo((): React.JSX.Element => {
   return (

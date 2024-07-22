@@ -1,4 +1,4 @@
-import { EarnInSteps__item_props } from "@/entities/InternalPage__entities/EarnInSteps_entities/EarnInSteps__item/model/EarnInSteps__item_types";
+import { EarnInSteps__item_props } from "@/widgets/InternalPage_widgets/EarnInSteps/ui/EarnInSteps__item/model/EarnInSteps__item_types";
 
 export type EarnInSteps__item_type = Omit<EarnInSteps__item_props, "index">;
 

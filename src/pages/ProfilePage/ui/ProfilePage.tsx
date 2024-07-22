@@ -2,7 +2,6 @@ import {
   Buy_ads,
   Channel_reviews,
   Channel_stats,
-  Profile,
   Reviews,
   Similar_channels,
   Stats,
@@ -10,6 +9,7 @@ import {
 import "./ProfilePage.scss";
 import "@/shared/main.scss";
 import { useEffect } from "react";
+import { Profile } from "@/entities";
 
 export const ProfilePage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
