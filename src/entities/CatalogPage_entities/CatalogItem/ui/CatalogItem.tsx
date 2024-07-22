@@ -10,7 +10,10 @@ import { Link } from "react-router-dom";
 import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
 import { memo } from "react";
 import { Select, selectStyles } from "@/shared";
-import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import {
+  SelectTextStyles,
+  SelectThemesEnum,
+} from "@/shared/ui-kit/Select/model/Select_types";
 
 const DropdownIndicator = (): JSX.Element => {
   return (
@@ -353,6 +356,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               TextStyles={TextStyles}
               CustomDropdownIndicator={DropdownIndicator}
               selectedOptions={catalogItemFormat__selectedOptions}
+              theme={SelectThemesEnum.BLACK}
             />
 
             <Select
@@ -360,6 +364,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               TextStyles={TextStyles}
               CustomDropdownIndicator={DropdownIndicator}
               selectedOptions={catalogItemAmount__selectedOptions}
+              theme={SelectThemesEnum.BLACK}
             />
 
             <span className={styles.catalog__item__price}>{price}₽</span>

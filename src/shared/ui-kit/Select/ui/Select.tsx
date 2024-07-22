@@ -8,7 +8,11 @@ import {
   SingleValueProps,
   StylesConfig,
 } from "react-select";
-import { Select__Props } from "../model/Select_types";
+import {
+  Select__Props,
+  SelectThemes,
+  SelectThemesEnum,
+} from "../model/Select_types";
 
 export const Select: React.FC<Select__Props> = memo(
   ({
@@ -16,6 +20,7 @@ export const Select: React.FC<Select__Props> = memo(
     CustomDropdownIndicator,
     TextStyles,
     className,
+    theme = SelectThemesEnum.BLACK,
   }): React.JSX.Element => {
     const SelectParentRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +39,8 @@ export const Select: React.FC<Select__Props> = memo(
             | PlaceholderProps<unknown, boolean, GroupBase<unknown>>
         ) => CSSObjectWithLabel)
       | undefined = () => ({
+      color: SelectThemes[theme].color,
+      fontSize: SelectThemes[theme].fontSize,
       ...TextStyles,
       gridArea: "1 / 1 / 2 / 3",
     });

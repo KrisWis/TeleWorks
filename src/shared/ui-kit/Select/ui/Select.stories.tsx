@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Select } from "./Select";
 import styles from "./Select.module.scss";
-import { SelectTextStyles } from "../model/Select_types";
-import { catalogFilter_themesOptions } from "@/features/CatalogPage_features/Catalog_features/CatalogFilter/model/CatalogFilter__data";
+import { SelectTextStyles, SelectThemes } from "../model/Select_types";
+import { catalogFilter_themesOptions } from "@/features/Global_features/Filter/model/Filter_data";
 
 const meta = {
   title: "shared/Select",
@@ -46,11 +46,22 @@ const getTextStyles = (themes: boolean = false): SelectTextStyles => {
   };
 };
 
-export const Primary: Story = {
+export const BLACK: Story = {
   args: {
     className: styles.Select,
     CustomDropdownIndicator: DropdownIndicator,
     TextStyles: getTextStyles(true),
     selectedOptions: catalogFilter_themesOptions,
+    theme: SelectThemes.BLACK,
+  },
+};
+
+export const GRAY: Story = {
+  args: {
+    className: styles.Select,
+    CustomDropdownIndicator: DropdownIndicator,
+    TextStyles: getTextStyles(true),
+    selectedOptions: catalogFilter_themesOptions,
+    theme: SelectThemes.GRAY,
   },
 };

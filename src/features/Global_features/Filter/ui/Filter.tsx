@@ -1,20 +1,20 @@
 import { useState } from "react";
-import styles from "./CatalogFilter.module.scss";
-import {
-  catalogFilter_channelsOptions,
-  catalogFilter_formatOptions,
-  catalogFilter_rangeOptions,
-  catalogFilter_themesOptions,
-} from "../model/CatalogFilter__data";
+import styles from "./Filter.module.scss";
+import { catalogFilter_themesOptions } from "../model/Filter_data";
 import { Button, Select, selectStyles } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
-import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import {
+  Select_Option,
+  SelectTextStyles,
+  SelectThemesEnum,
+} from "@/shared/ui-kit/Select/model/Select_types";
 import { CatalogItemTags } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
+import { FilterProps } from "../model/Filter_types";
 
 const DropdownIndicator = (): JSX.Element => {
   return (
     <svg
-      className={selectStyles.Select__svg}
+      className={`${selectStyles.Select__svg} ${styles.Filter__select__svg}`}
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -31,7 +31,9 @@ const DropdownIndicator = (): JSX.Element => {
   );
 };
 
-export const CatalogFilter: React.FC = (): React.JSX.Element => {
+export const Filter: React.FC<FilterProps> = ({
+  bonusFilters,
+}): React.JSX.Element => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const selectTag = (tag: string): void => {
@@ -42,45 +44,42 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
     }
   };
 
-  const getTextStyles = (themes: boolean = false): SelectTextStyles => {
-    return {
-      fontFamily: "var(--second-family)",
-      fontWeight: 400,
-      fontSize: themes == true ? "14px" : "15px",
-      letterSpacing: "-0.01em",
-      lineHeight: "150%",
-      color: themes == true ? "#b2b2b2" : "#000",
-    };
+  const TextStyles: SelectTextStyles = {
+    fontFamily: "var(--second-family)",
+    fontWeight: 400,
+    letterSpacing: "-0.01em",
+    lineHeight: "150%",
   };
 
   return (
-    <div className={`${styles.catalog__filter} CatalogPage__wrapper`}>
-      <h5 className={styles.catalog__filter__caption}>Фильтр</h5>
+    <div className={styles.Filter}>
+      <h5 className={styles.Filter__caption}>Фильтр</h5>
 
-      <div className={styles.catalog__filter__searchWrapper}>
+      <div className={styles.Filter__searchWrapper}>
         <input
-          className={styles.catalog__filter__search}
+          className={styles.Filter__search}
           type="text"
           placeholder="Поиск"
         />
       </div>
 
-      <div className={styles.catalog__filter__themes}>
-        <span className={styles.catalog__filter__title}>Тематики</span>
+      <div className={styles.Filter__themes}>
+        <span className={styles.Filter__title}>Тематики</span>
         <Select
-          className={styles.catalog__filter__select}
+          className={styles.Filter__select}
           CustomDropdownIndicator={DropdownIndicator}
-          TextStyles={getTextStyles(true)}
+          TextStyles={TextStyles}
+          theme={SelectThemesEnum.GRAY}
           selectedOptions={catalogFilter_themesOptions}
         />
       </div>
 
-      <div className={styles.catalog__filter__tags}>
-        <span className={styles.catalog__filter__title}>Метки</span>
+      <div className={styles.Filter__tags}>
+        <span className={styles.Filter__title}>Метки</span>
 
-        <div className={styles.catalog__filter__tags__items}>
+        <div className={styles.Filter__tags__items}>
           <div
-            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG1) && styles.catalog__filter__tags__item__selected}`}
+            className={`${styles.Filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG1) && styles.Filter__tags__item__selected}`}
             onClick={() => selectTag(CatalogItemTags.TAG1)}
           >
             <svg
@@ -109,7 +108,7 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
           </div>
 
           <div
-            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG2) && styles.catalog__filter__tags__item__selected}`}
+            className={`${styles.Filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG2) && styles.Filter__tags__item__selected}`}
             onClick={() => selectTag(CatalogItemTags.TAG2)}
           >
             <svg
@@ -127,7 +126,7 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
           </div>
 
           <div
-            className={`${styles.catalog__filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG3) && styles.catalog__filter__tags__item__selected}`}
+            className={`${styles.Filter__tags__item} ${selectedTags.includes(CatalogItemTags.TAG3) && styles.Filter__tags__item__selected}`}
             onClick={() => selectTag(CatalogItemTags.TAG3)}
           >
             <svg
@@ -161,40 +160,32 @@ export const CatalogFilter: React.FC = (): React.JSX.Element => {
         </div>
       </div>
 
-      <div className={styles.catalog__filter__selects}>
-        <Select
-          className={styles.catalog__filter__select}
-          CustomDropdownIndicator={DropdownIndicator}
-          TextStyles={getTextStyles()}
-          selectedOptions={catalogFilter_formatOptions}
-        />
-
-        <Select
-          className={styles.catalog__filter__select}
-          CustomDropdownIndicator={DropdownIndicator}
-          TextStyles={getTextStyles()}
-          selectedOptions={catalogFilter_rangeOptions}
-        />
-
-        <Select
-          className={styles.catalog__filter__select}
-          CustomDropdownIndicator={DropdownIndicator}
-          TextStyles={getTextStyles()}
-          selectedOptions={catalogFilter_channelsOptions}
-        />
+      <div className={styles.Filter__selects}>
+        {bonusFilters.map((bonusFilter: Select_Option[]) => (
+          <Select
+            key={bonusFilter[0].value}
+            className={styles.Filter__select}
+            CustomDropdownIndicator={DropdownIndicator}
+            TextStyles={TextStyles}
+            theme={SelectThemesEnum.GRAY}
+            selectedOptions={bonusFilter}
+          />
+        ))}
       </div>
 
       <Button
-        className={`${styles.catalog__filter__button} ${styles.catalog__filter__button__save}`}
+        className={`${styles.Filter__button} ${styles.Filter__button__save}`}
         type={ButtonTypes.BLACK}
         text="Сохранить фильтр"
       />
 
       <Button
-        className={styles.catalog__filter__button}
+        className={styles.Filter__button}
         type={ButtonTypes.RED}
         text="Применить фильтр"
       />
+
+      <span className={styles.Filter__more}>+ Ещё фильтры</span>
     </div>
   );
 };

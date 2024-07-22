@@ -18,8 +18,6 @@ export const ReceiveNotifications: React.LazyExoticComponent<React.FC> = lazy(
     }))
 );
 
-export * from "./Global_widgets/Categories/ui/Categories";
-
 /* ГЛАВНАЯ СТРАНИЦА */
 export * from "./MainPage_widgets/Advancement/ui/Advancement";
 

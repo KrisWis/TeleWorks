@@ -2,10 +2,14 @@ import { Button } from "@/shared";
 import styles from "./Catalog.module.scss";
 import "@/shared/main.scss";
 import { ButtonProps } from "@/shared/ui-kit/Button/model/Button__types";
-import { catalog__categories, catalog__items } from "../model/Catalog__data";
-import { CatalogFilter } from "@/features";
+import {
+  catalog__categories,
+  catalog__filters,
+  catalog__items,
+} from "../model/Catalog__data";
 import { CatalogItemProps } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
 import { CatalogItem } from "@/entities";
+import { Filter } from "@/features";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
@@ -25,7 +29,7 @@ export const Catalog: React.FC = (): React.JSX.Element => {
       </div>
 
       <div className={styles.catalog__body}>
-        <CatalogFilter />
+        <Filter bonusFilters={catalog__filters} />
 
         <div className={styles.catalog__items}>
           {catalog__items.map((item: CatalogItemProps) => (
