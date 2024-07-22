@@ -19,7 +19,7 @@ storybook-static
 
 # TODO: ПОТОМ УДАЛИТЬ:
 .github
-.src
+src
 
 # Editor directories and files
 .vscode/*
