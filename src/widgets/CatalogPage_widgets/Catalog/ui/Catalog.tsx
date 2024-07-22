@@ -11,6 +11,8 @@ import { CatalogItemProps } from "@/entities/CatalogPage_entities/CatalogItem/mo
 import { CatalogItem } from "@/entities";
 import { Filter } from "@/features";
 
+console.log(1);
+
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
     <section className={styles.catalog} data-testid="catalog">
