@@ -1,0 +1,80 @@
+.stats__item {
+  display: flex;
+  background: #fafafa;
+  height: 267px;
+  border-radius: 24px;
+  width: 100%;
+  padding: 15px 30px;
+  padding-right: 0;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+.stats__item__stats {
+  display: flex;
+  flex-direction: column;
+}
+.stats__item__stats__caption {
+  margin-bottom: 35px;
+  font-weight: 600;
+  font-size: 46px;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+.stats__item__stats__dates {
+  display: flex;
+  gap: 20px;
+}
+.stats__item__stats__amounts {
+  display: flex;
+  flex-direction: column;
+}
+.stats__item__stats__dates_text {
+  display: flex;
+  flex-direction: column;
+}
+.stats__item__stats__amount {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+.stats__item__stats__amount__subscribers {
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.stats__item__stats__amount__subscribers__grow {
+  color: #35ec17;
+}
+.stats__item__stats__amount__subscribers__shrink {
+  color: #ff505e;
+}
+.stats__item__stats__date_text {
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+  color: #000;
+  opacity: 0.4;
+  white-space: nowrap;
+  position: relative;
+}
+.stats__item__stats__date_text__postfix {
+  position: absolute;
+  font-size: 15px;
+  bottom: -3px;
+}
+.stats__item__stats__graphics {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.stats__item__stats__graphics__caption {
+  font-weight: 400;
+  font-size: 19px;
+  letter-spacing: -0.04em;
+  color: #000;
+  opacity: 0.4;
+  padding-right: 30px;
+}/*# sourceMappingURL=Stats__item.module.css.map */

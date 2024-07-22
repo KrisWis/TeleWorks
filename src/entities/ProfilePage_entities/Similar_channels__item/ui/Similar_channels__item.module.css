@@ -1,0 +1,171 @@
+.similar_channels__item {
+  border-radius: 25px;
+  width: 100%;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
+  padding: 15px;
+  padding-bottom: 0;
+}
+.similar_channels__item__header {
+  display: flex;
+  justify-content: space-between;
+}
+.similar_channels__item_rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(0deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 100%);
+  height: 32px;
+  border: 1px solid #92acf2;
+  border-radius: 10px;
+  padding: 5px;
+}
+.similar_channels__item_rating__text {
+  font-family: var(--third-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.similar_channels__item_stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.similar_channels__item_stars_span {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+.similar_channels__item__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  bottom: 30px;
+  padding: 0 10px;
+}
+.similar_channels__item__avatar {
+  height: 115px;
+  width: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 3px solid var(--main-color);
+  position: relative;
+}
+.similar_channels__item__avatar__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  border-radius: 100%;
+}
+.similar_channels__item__avatar::before {
+  content: url("../../../../../../../../public/ProfilePage/icons/profile__body/profile__avatar__heart.png");
+  position: absolute;
+  top: -12px;
+  left: -12px;
+}
+.similar_channels__item__caption {
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: -0.04em;
+  color: #000;
+  margin-top: 10px;
+}
+.similar_channels__item__category {
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  color: #000;
+  opacity: 0.4;
+}
+.similar_channels__item__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  height: 104px;
+  border: 1px solid #92acf2;
+  border-radius: 15px;
+  background: linear-gradient(0deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 100%);
+}
+.similar_channels__item__info_separator {
+  position: relative;
+  bottom: 35px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.similar_channels__item__info_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.similar_channels__item__info_item_icon {
+  height: 35px;
+  width: 35px;
+}
+.similar_channels__item__info_item_span {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+.similar_channels__item__info_item_title {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+  color: #000;
+  height: 35px;
+  top: 7px;
+  position: relative;
+}
+.similar_channels__item__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.similar_channels__item__price {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.similar_channels__item__toCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background-color: var(--main-color);
+  height: 62px;
+  width: 53px;
+  cursor: pointer;
+  transition: 0.3s linear all;
+}
+.similar_channels__item__toCart svg * {
+  transition: 0.3s linear all;
+}
+.similar_channels__item__toCart:hover {
+  background-color: #fff;
+  border: 1px solid var(--main-color);
+}
+.similar_channels__item__toCart:hover svg * {
+  fill: var(--main-color);
+}/*# sourceMappingURL=Similar_channels__item.module.css.map */

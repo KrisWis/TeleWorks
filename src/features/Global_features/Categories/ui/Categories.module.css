@@ -1,0 +1,68 @@
+.categories {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 60px;
+  background: linear-gradient(271deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 100%);
+  height: 75px;
+  border: 2px solid #4266c6;
+  border-radius: 25px;
+  position: relative;
+}
+.categoriesWrapper {
+  display: flex;
+  gap: 50px;
+  width: 100%;
+  align-items: center;
+}
+.categories__arrow {
+  min-width: 8px;
+  min-height: 15px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 1;
+}
+.categories__arrow * {
+  transition: 0.3s linear all;
+}
+.categories__arrow:hover * {
+  fill: #f55;
+}
+.categories__arrowNext {
+  right: 40px;
+}
+.categories__arrowPrev {
+  left: 40px;
+}
+.categories__item {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: 0.3s linear all;
+  white-space: nowrap;
+}
+.categories__item:hover {
+  color: var(--main-color);
+}
+.categories__item__active {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.categories__item__active:hover {
+  color: #000;
+}
+.categories__item__active::after {
+  content: "";
+  display: block;
+  position: relative;
+  background-color: var(--main-color);
+  width: 100%;
+  height: 4px;
+  top: 20px;
+}/*# sourceMappingURL=Categories.module.css.map */

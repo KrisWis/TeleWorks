@@ -1,0 +1,45 @@
+.additionalServices {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+.additionalServices__caption {
+  width: 60%;
+}
+.additionalServices__wrapper {
+  display: flex;
+  padding: 30px;
+  height: 478px;
+  width: 100%;
+  margin-top: 50px;
+  gap: 45px;
+}
+.additionalServices__img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.additionalServices__info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.additionalServices__info__subcaption {
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.additionalServices__info__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.additionalServices__info__list {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=Additional_Services.module.css.map */

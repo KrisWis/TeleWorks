@@ -1,0 +1,105 @@
+.Button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  padding: 20px;
+  cursor: pointer;
+  transition: 0.3s linear all;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  box-shadow: 0 0 15px transparent;
+}
+.Button__red {
+  color: #fff;
+  background: var(--main-color);
+}
+.Button__red:hover:not(.catalog__category__canSelected) {
+  color: var(--main-color);
+  box-shadow: 0 0 15px var(--main-color);
+  background: #fff;
+  border: 1px solid var(--main-color);
+}
+.Button__red.catalog__category__selected {
+  color: var(--main-color);
+  box-shadow: 0 0 15px var(--main-color);
+  background: #fff;
+  border: 1px solid var(--main-color);
+}
+.Button__blue {
+  color: #fff;
+  background: #4266c6;
+}
+.Button__blue:hover:not(.catalog__category__canSelected) {
+  background: #fff;
+  color: #4266c6;
+  border: 1px solid #4266c6;
+  box-shadow: 0 0 15px #4266c6;
+}
+.Button__blue.catalog__category__selected {
+  background: #fff;
+  color: #4266c6;
+  border: 1px solid #4266c6;
+  box-shadow: 0 0 15px #4266c6;
+}
+.Button__white {
+  border: 1px solid #000;
+  color: gray;
+  background: #fff;
+  font-weight: 100;
+}
+.Button__white:hover:not(.catalog__category__canSelected) {
+  background: gray;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 15px gray;
+}
+.Button__white.catalog__category__selected {
+  background: gray;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 15px gray;
+}
+.Button__gray {
+  color: #fff;
+  background: #9fabb6;
+}
+.Button__gray:hover:not(.catalog__category__canSelected) {
+  background: #fff;
+  color: #9fabb6;
+  border: 1px solid #9fabb6;
+  box-shadow: 0 0 15px #9fabb6;
+}
+.Button__gray.catalog__category__selected {
+  background: #fff;
+  color: #9fabb6;
+  border: 1px solid #9fabb6;
+  box-shadow: 0 0 15px #9fabb6;
+}
+.Button__black {
+  color: #000;
+  background: transparent;
+  border: 1px solid #000;
+}
+.Button__black:hover:not(.catalog__category__canSelected) {
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 15px #fff;
+}
+.Button__black.catalog__category__selected {
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 15px #fff;
+}
+
+.Button_a {
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}/*# sourceMappingURL=Button.module.css.map */

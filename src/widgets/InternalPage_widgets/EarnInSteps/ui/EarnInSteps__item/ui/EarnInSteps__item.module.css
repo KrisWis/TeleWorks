@@ -1,0 +1,32 @@
+.earnInSteps__item {
+  display: flex;
+  flex-direction: column;
+  height: 298px;
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 30px 0 rgba(109, 132, 255, 0.25);
+  background: rgba(255, 255, 255, 0.5);
+  padding: 50px 25px;
+  position: relative;
+}
+.earnInSteps__item__index {
+  font-family: var(--second-family);
+  font-weight: 900;
+  font-size: 110px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-shadow: 0 0 7px #000;
+  position: absolute;
+  top: -80px;
+  left: 10px;
+}
+.earnInSteps__item__title {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #000;
+  margin-top: 50px;
+  height: 65px;
+}/*# sourceMappingURL=EarnInSteps__item.module.css.map */

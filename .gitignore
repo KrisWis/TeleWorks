@@ -17,8 +17,8 @@ dist-ssr
 storybook-static
 .loki
 
-# TODO: ПОТОМ УДАЛИТЬ:
-.github
+# # TODO: ПОТОМ УДАЛИТЬ:
+# .github
 
 # Editor directories and files
 .vscode/*

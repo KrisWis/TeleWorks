@@ -1,0 +1,14 @@
+.marketPlace__slider {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+.marketPlace__slider__arrow {
+  min-width: 51px;
+  min-height: 51px;
+  cursor: pointer;
+  transition: 0.3s linear all;
+}
+.marketPlace__slider__arrow:hover {
+  transform: scale(1.15);
+}/*# sourceMappingURL=MarketPlaceSlider.module.css.map */

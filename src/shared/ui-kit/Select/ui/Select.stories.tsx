@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Select } from "./Select";
 import styles from "./Select.module.scss";
-import { SelectTextStyles, SelectThemes } from "../model/Select_types";
+import { SelectTextStyles, SelectThemesEnum } from "../model/Select_types";
 import { catalogFilter_themesOptions } from "@/features/Global_features/Filter/model/Filter_data";
 
 const meta = {
@@ -35,24 +35,20 @@ const DropdownIndicator = (): JSX.Element => {
   );
 };
 
-const getTextStyles = (themes: boolean = false): SelectTextStyles => {
-  return {
-    fontFamily: "var(--second-family)",
-    fontWeight: 400,
-    fontSize: themes == true ? "14px" : "15px",
-    letterSpacing: "-0.01em",
-    lineHeight: "150%",
-    color: themes == true ? "#b2b2b2" : "#000",
-  };
+const TextStyles: SelectTextStyles = {
+  fontFamily: "var(--second-family)",
+  fontWeight: 400,
+  letterSpacing: "-0.01em",
+  lineHeight: "150%",
 };
 
 export const BLACK: Story = {
   args: {
     className: styles.Select,
     CustomDropdownIndicator: DropdownIndicator,
-    TextStyles: getTextStyles(true),
+    TextStyles: TextStyles,
     selectedOptions: catalogFilter_themesOptions,
-    theme: SelectThemes.BLACK,
+    theme: SelectThemesEnum.BLACK,
   },
 };
 
@@ -60,8 +56,8 @@ export const GRAY: Story = {
   args: {
     className: styles.Select,
     CustomDropdownIndicator: DropdownIndicator,
-    TextStyles: getTextStyles(true),
+    TextStyles: TextStyles,
     selectedOptions: catalogFilter_themesOptions,
-    theme: SelectThemes.GRAY,
+    theme: SelectThemesEnum.GRAY,
   },
 };

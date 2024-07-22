@@ -1,0 +1,46 @@
+.job_Risks {
+  height: 239px;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  padding: 30px;
+}
+.job_Risks__caption {
+  width: 33%;
+}
+.job_Risks__svg {
+  align-self: flex-start;
+  position: relative;
+  min-width: 92px;
+  min-height: 92px;
+  top: -45px;
+}
+.job_Risks__svg:nth-of-type(1) {
+  left: -25px;
+}
+.job_Risks__svg:nth-of-type(2) {
+  left: -15px;
+}
+.job_Risks__subcaption {
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.job_Risks__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+}
+.job_Risks__info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 23%;
+}
+.job_Risks__info:nth-of-type(1) {
+  margin-right: 20px;
+}/*# sourceMappingURL=Job_Risks.module.css.map */
