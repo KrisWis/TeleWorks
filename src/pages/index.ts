@@ -29,3 +29,12 @@ export const InternalPage: React.LazyExoticComponent<React.FC> = lazy(() =>
     default: InternalPage,
   }))
 );
+
+export const SpecialistServicesPage: React.LazyExoticComponent<React.FC> = lazy(
+  () =>
+    import("./SpecialistServicesPage/ui/SpecialistServicesPage").then(
+      ({ SpecialistServicesPage }) => ({
+        default: SpecialistServicesPage,
+      })
+    )
+);

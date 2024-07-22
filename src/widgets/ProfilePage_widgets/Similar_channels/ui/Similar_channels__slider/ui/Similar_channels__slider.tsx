@@ -4,12 +4,12 @@ import { Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "./Simillar_channels__slider.scss";
+import { memo } from "react";
+import { Similar_channels__item } from "@/entities";
 import {
   mobile_mediaQuery,
   tablet_mediaQuery,
-} from "@/pages/ProfilePage/model/ProfilePage__data";
-import { memo } from "react";
-import { Similar_channels__item } from "@/entities";
+} from "@/app/layouts/model/BaseLayout__data";
 
 export const Similar_channels__slider: React.FC = memo(
   (): React.JSX.Element => {

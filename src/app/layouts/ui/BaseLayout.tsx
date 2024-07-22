@@ -3,6 +3,7 @@ import {
   InternalPage,
   MyProjectsPage,
   ProfilePage,
+  SpecialistServicesPage,
 } from "@/pages";
 import "./BaseLayout.module.scss";
 import { Route, Routes } from "react-router-dom";
@@ -13,10 +14,11 @@ export const App: React.FC = (): React.JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="profile/:id" element={<ProfilePage />} />
-      <Route path="myProjects/:id" element={<MyProjectsPage />} />
+      <Route path="profile" element={<ProfilePage />} />
+      <Route path="myProjects" element={<MyProjectsPage />} />
       <Route path="catalog" element={<CatalogPage />} />
       <Route path="internal" element={<InternalPage />} />
+      <Route path="services" element={<SpecialistServicesPage />} />
     </Routes>
   );
 };

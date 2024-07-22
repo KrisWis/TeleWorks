@@ -1,0 +1,20 @@
+.swiper {
+  width: 100%;
+  padding-left: 20px;
+  overflow: hidden;
+  height: 105%;
+  display: flex;
+  align-items: center;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

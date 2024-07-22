@@ -6,25 +6,8 @@
 }
 
 @font-face {
-  font-family: Montserrat;
-  src: url("../shared/fonts/Montserrat/Montserrat-Bold.ttf") format("ttf");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Montserrat;
-  src: url("../shared/fonts/Montserrat/Montserrat-Regular.ttf") format("ttf");
-  font-weight: 400;
-}
-
-@font-face {
   font-family: OpenSans;
   src: url("../shared/fonts/OpenSans/OpenSans.ttf") format("ttf");
-}
-
-@font-face {
-  font-family: BebasNeue;
-  src: url("../shared/fonts/BebasNeue/BebasNeue-Bold.ttf") format("ttf");
 }
 
 .MyProjectsPage {
@@ -35,8 +18,6 @@
 
 .MyProjectsPage:root {
   --font-family: "OpenSans", sans-serif;
-  --second-family: "Montserrat", sans-serif;
-  --third-family: "BebasNeue", sans-serif;
 }
 
 .MyProjectsPage body {
@@ -69,7 +50,7 @@
   color: #000;
 
   span {
-    color: #f55;
+    color: var(--main-color);
   }
 }
 

@@ -16,21 +16,21 @@
 
   &__red {
     color: #fff;
-    background: #f55;
+    background: var(--main-color);
 
     &:hover:not(.catalog__category__canSelected) {
-      color: #f55;
-      box-shadow: 0 0 15px #f55;
+      color: var(--main-color);
+      box-shadow: 0 0 15px var(--main-color);
       background: #fff;
-      border: 1px solid #f55;
+      border: 1px solid var(--main-color);
     }
   }
 
   &__red.catalog__category__selected {
-    color: #f55;
-    box-shadow: 0 0 15px #f55;
+    color: var(--main-color);
+    box-shadow: 0 0 15px var(--main-color);
     background: #fff;
-    border: 1px solid #f55;
+    border: 1px solid var(--main-color);
   }
 
   &__blue {

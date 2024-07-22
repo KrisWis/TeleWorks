@@ -151,7 +151,7 @@
         }
 
         &__women {
-          background-color: #f55;
+          background-color: var(--main-color);
         }
       }
     }
@@ -253,7 +253,7 @@
 
       &:hover {
         * {
-          fill: #f55;
+          fill: var(--main-color);
         }
       }
     }

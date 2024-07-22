@@ -6,6 +6,8 @@ import { Dropdown } from "flowbite-react";
 import { Button } from "@/shared";
 import { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 import { useState } from "react";
+import { dropDownItems } from "../model/Header_data";
+import { dropDownItem } from "../model/Header_types";
 
 export const Header: React.FC = (): React.JSX.Element => {
   const [headerSwitcherChoice, setHeaderSwitcherChoice] =
@@ -95,106 +97,19 @@ export const Header: React.FC = (): React.JSX.Element => {
               </svg>
             )}
           >
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
+            {dropDownItems.map((item: dropDownItem) => (
+              <Dropdown.Item
+                key={item.link + item.text}
+                className={styles.header__item__navbar_dropdown_item}
               >
-                Мой аккаунт TeleWorks
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Мои каналы
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Избранное
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Мои шаблоны
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Заявки
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Мои услуги
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Мой аккаунт TeleWorks
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                История транзакций
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Баланс
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
-              <Link
-                className={styles.header__item__navbar_dropdown_link}
-                to="/"
-              >
-                Рефералы
-              </Link>
-            </Dropdown.Item>
+                <Link
+                  className={styles.header__item__navbar_dropdown_link}
+                  to={item.link}
+                >
+                  {item.text}
+                </Link>
+              </Dropdown.Item>
+            ))}
             <Dropdown.Item
               className={styles.header__item__navbar_dropdown_item}
             >

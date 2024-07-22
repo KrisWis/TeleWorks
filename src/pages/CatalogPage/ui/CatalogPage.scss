@@ -22,11 +22,6 @@
   src: url("../shared/fonts/OpenSans/OpenSans.ttf") format("ttf");
 }
 
-@font-face {
-  font-family: BebasNeue;
-  src: url("../shared/fonts/BebasNeue/BebasNeue-Bold.ttf") format("ttf");
-}
-
 .CatalogPage {
   width: 100%;
   height: 100%;
@@ -36,7 +31,6 @@
 .CatalogPage:root {
   --font-family: "OpenSans", sans-serif;
   --second-family: "Montserrat", sans-serif;
-  --third-family: "BebasNeue", sans-serif;
 }
 
 .CatalogPage body {

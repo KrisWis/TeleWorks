@@ -75,7 +75,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f55;
+      background: var(--main-color);
       transition: 0.3s linear all;
       height: 68px;
       border-radius: 15px;
@@ -88,9 +88,9 @@
 
       &:hover {
         background: #fff;
-        color: #f55;
-        border: 1px solid #f55;
-        box-shadow: 0 0 20px #f55;
+        color: var(--main-color);
+        border: 1px solid var(--main-color);
+        box-shadow: 0 0 20px var(--main-color);
       }
     }
 

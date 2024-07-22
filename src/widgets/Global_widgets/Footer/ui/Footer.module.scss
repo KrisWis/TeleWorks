@@ -37,7 +37,7 @@
     color: #000;
 
     span {
-      color: #f55;
+      color: var(--main-color);
     }
   }
 
@@ -80,10 +80,10 @@
       }
 
       &:hover {
-        color: #f55;
+        color: var(--main-color);
 
         a {
-          color: #f55;
+          color: var(--main-color);
         }
       }
     }

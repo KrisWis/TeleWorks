@@ -22,11 +22,6 @@
   src: url("../shared/fonts/OpenSans/OpenSans.ttf") format("ttf");
 }
 
-@font-face {
-  font-family: BebasNeue;
-  src: url("../shared/fonts/BebasNeue/BebasNeue-Bold.ttf") format("ttf");
-}
-
 .InternalPage {
   width: 100%;
   height: 100%;
@@ -36,7 +31,6 @@
 .InternalPage:root {
   --font-family: "OpenSans", sans-serif;
   --second-family: "Montserrat", sans-serif;
-  --third-family: "BebasNeue", sans-serif;
 }
 
 .InternalPage body {
@@ -69,7 +63,7 @@
   color: #000;
 
   span {
-    color: #f55;
+    color: var(--main-color);
   }
 }
 

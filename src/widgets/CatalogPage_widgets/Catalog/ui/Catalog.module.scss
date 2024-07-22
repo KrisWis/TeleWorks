@@ -53,10 +53,10 @@
     border: 1px solid transparent;
 
     &:hover {
-      color: #f55;
+      color: var(--main-color);
       background: #fff;
-      border: 1px solid #f55;
-      box-shadow: 0 0 15px #f55;
+      border: 1px solid var(--main-color);
+      box-shadow: 0 0 15px var(--main-color);
     }
   }
 }

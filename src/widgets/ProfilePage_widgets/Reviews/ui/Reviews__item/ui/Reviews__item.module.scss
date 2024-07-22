@@ -103,7 +103,7 @@
 
       &:hover {
         * {
-          fill: #f55;
+          fill: var(--main-color);
         }
       }
     }
@@ -119,7 +119,7 @@
       transition: 0.3s linear all;
 
       &:hover {
-        color: #f55;
+        color: var(--main-color);
       }
     }
 

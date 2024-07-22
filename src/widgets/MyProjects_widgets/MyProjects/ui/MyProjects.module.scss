@@ -107,7 +107,7 @@
         transition: 0.3s linear all;
 
         &:hover {
-          color: #f55;
+          color: var(--main-color);
         }
       }
     }
