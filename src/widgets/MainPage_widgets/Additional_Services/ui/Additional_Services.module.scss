@@ -1,0 +1,51 @@
+.additionalServices {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+
+  &__caption {
+    width: 60%;
+  }
+
+  &__wrapper {
+    display: flex;
+    padding: 30px;
+    height: 478px;
+    width: 100%;
+    margin-top: 50px;
+    gap: 45px;
+  }
+
+  &__img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &__subcaption {
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

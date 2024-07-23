@@ -8,8 +8,7 @@ const aliases = {
 
 export default defineConfig({
   plugins: [react()],
-  // TODO: потом добавить обратно base: "/TeleWorks";
-  base: "",
+  base: "/TeleWorks/",
   resolve: {
     alias: aliases,
   },

@@ -1,0 +1,44 @@
+.channel_stats_item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px;
+  background: linear-gradient(
+    271deg,
+    rgb(59, 130, 246, 0.1) 0%,
+    rgb(59, 130, 246, 0) 100%
+  );
+  position: relative;
+  border-radius: 25px;
+
+  &__img {
+    position: absolute;
+    top: -70px;
+  }
+
+  &__caption {
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    color: #000;
+    margin-top: 50px;
+  }
+
+  &__amount {
+    display: flex;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    color: #000;
+    margin-top: 5px;
+  }
+
+  &__star_icon {
+    width: 33px;
+    height: 33px;
+    position: relative;
+    bottom: 3px;
+  }
+}
