@@ -22,7 +22,7 @@
    1. Склонируйте данный репозиторий.
    2. Напишите в терминале команду ```npm run dev```
    
-Или вы можете просто зайти на [сайт](kriswis.github.io/TeleWorks/), загруженный на Github Pages.
+Или вы можете просто зайти на [сайт](https://kriswis.github.io/TeleWorks/), загруженный на Github Pages.
 
 # Макет:
 ![Личный кабинет](https://github.com/KrisWis/TeleWorks/assets/94256853/feae6120-4b47-49c0-922b-26ac15a45109)
