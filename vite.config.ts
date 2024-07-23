@@ -8,7 +8,8 @@ const aliases = {
 
 export default defineConfig({
   plugins: [react()],
-  base: "/TeleWorks/",
+  // TODO: потом добавить обратно base: "/TeleWorks";
+  base: "",
   resolve: {
     alias: aliases,
   },
@@ -30,6 +31,6 @@ export default defineConfig({
     },
   },
   server: {
-    open: true
-  }
+    open: true,
+  },
 });
