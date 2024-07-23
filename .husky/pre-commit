@@ -1,0 +1,5 @@
+npm run build
+npm run test:unit
+npm run test:ui
+npm run stylelint:check
+npm run eslint:check
