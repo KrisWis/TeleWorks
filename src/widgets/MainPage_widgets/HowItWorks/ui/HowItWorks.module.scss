@@ -1,0 +1,42 @@
+.howItWorks {
+  display: flex;
+  flex-direction: column;
+  height: 949px;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #fafafa 0%,
+    rgba(228, 239, 255, 0.6) 92.51%,
+    rgba(228, 239, 255, 0) 100%
+  );
+  margin-top: 30px;
+  padding: 50px 300px;
+
+  @media (max-width: 1800px) {
+    padding: 50px 100px;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 50px 20px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    right: -20px;
+    top: -60px;
+    z-index: 1;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    gap: 100px 30px;
+    margin-top: 130px;
+  }
+}

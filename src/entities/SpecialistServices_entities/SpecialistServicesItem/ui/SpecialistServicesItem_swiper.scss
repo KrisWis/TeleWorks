@@ -1,0 +1,16 @@
+.specialistServicesResults__item .swiper {
+  padding-left: 0 !important;
+  display: flex;
+  align-items: center;
+  height: 100% !important;
+  overflow: hidden;
+}
+
+.specialistServicesResults__item .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.specialistServicesResults__item .swiper-button-disabled {
+  opacity: 0;
+}

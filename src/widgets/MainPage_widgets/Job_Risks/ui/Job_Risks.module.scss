@@ -1,0 +1,54 @@
+.job_Risks {
+  height: 239px;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  padding: 30px;
+
+  &__caption {
+    width: 33%;
+  }
+
+  &__svg {
+    align-self: flex-start;
+    position: relative;
+    min-width: 92px;
+    min-height: 92px;
+    top: -45px;
+
+    &:nth-of-type(1) {
+      left: -25px;
+    }
+
+    &:nth-of-type(2) {
+      left: -15px;
+    }
+  }
+
+  &__subcaption {
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 23%;
+
+    &:nth-of-type(1) {
+      margin-right: 20px;
+    }
+  }
+}

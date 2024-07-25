@@ -1,0 +1,26 @@
+.showFullImage {
+  border-radius: 10px;
+  width: 204px;
+  height: 42px;
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 10px;
+  transition: var(--transition-duration) linear all;
+  box-shadow: 0 0 100px transparent;
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px var(--main-color);
+  }
+}
