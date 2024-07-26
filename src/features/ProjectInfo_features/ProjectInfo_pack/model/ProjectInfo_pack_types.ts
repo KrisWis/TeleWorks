@@ -4,6 +4,12 @@ export enum ProjectInfoPackNames {
   PREMIUM = "Премиум",
 }
 
+export interface ProjectExtraService {
+  title: string;
+  desc: string;
+  price: number;
+  scalability: boolean;
+}
 export interface ProjectInfoPackContent {
   price: number;
   desc: string;
@@ -12,6 +18,7 @@ export interface ProjectInfoPackContent {
   activeServices: string[];
   disactiveServices?: string[];
   descForCheckoutOrder: string;
+  extraServices?: ProjectExtraService[];
 }
 
 export type ProjectInfoPacks = {
@@ -30,4 +37,5 @@ export interface ProjectInfoPack {
   editionsAmount: number;
   activeServices: string[];
   disactiveServices?: string[];
+  extraServices?: ProjectExtraService[];
 }
