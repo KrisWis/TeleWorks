@@ -18,7 +18,7 @@
     &__arrow {
       position: absolute;
       top: 70px;
-      z-index: 2;
+      z-index: var(--z-index-arrows);
       cursor: pointer;
       opacity: 1;
       transition: var(--transition-duration) linear all;

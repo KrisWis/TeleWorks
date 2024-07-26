@@ -1,0 +1,140 @@
+.checkoutOrder {
+  height: 100%;
+  width: 27.5%;
+  position: relative;
+  left: 55%;
+  background: #fff;
+  border-radius: 25px 0 0 25px;
+  padding: 25px;
+
+  &__header {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  &__separator {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #eaf2ff;
+    position: absolute;
+    top: 75px;
+    left: 0;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+  }
+
+  &__packName {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__packPrice {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--main-color);
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+    margin-top: 5px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 25px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__packsAmount {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: fit-content;
+      position: relative;
+      background-color: transparent;
+      margin-bottom: 3px;
+      cursor: pointer;
+
+      * {
+        transition: var(--transition-duration) linear all;
+      }
+
+      &::after {
+        width: 15px;
+        height: 15px;
+        display: flex;
+        color: var(--main-color);
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        transition: var(--transition-duration) linear all;
+      }
+
+      &:hover:not(.checkoutOrder__packsAmount__button__disabled) {
+        circle {
+          stroke: #fff;
+        }
+
+        &::after {
+          color: #fff;
+        }
+
+        svg {
+          fill: var(--main-color);
+        }
+      }
+
+      &__disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+    }
+
+    &__increase::after {
+      content: "+";
+    }
+
+    &__dicrease::after {
+      content: "-";
+    }
+
+    &__text {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+  }
+}

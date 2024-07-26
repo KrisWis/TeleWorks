@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
 import styles from "./MainSection.module.scss";
 import "@/shared/main.scss";
 import { MainSection_items } from "../model/MainSection_data";

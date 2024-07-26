@@ -5,6 +5,9 @@ export * from "./ui-kit/TeleWorksChoice/ui/TeleWorksChoice";
 export * from "./ui-kit/ShowFullImage/ui/ShowFullImage";
 export * from "./ui-kit/Modal/ui/Modal";
 
+/* КАСТОМНЫЕ ХУКИ */
+export { UseLocalStorage } from "@/shared/utils/hooks/UseLocalStorage/UseLocalStorage";
+
 /* ВСЁ ОСТАЛЬНОЕ */
 export { default as selectStyles } from "@/shared/ui-kit/Select/ui/Select.module.scss";
 export { SelectThemesEnum } from "@/shared/ui-kit/Select/model/Select_types";
@@ -13,3 +16,5 @@ export { ButtonTypes } from "@/shared/ui-kit/Button/model/Button__types";
 export { getHomePageURL } from "@/shared/utils/getHomePageURL/getHomePageURL";
 export { renderWithRouter } from "@/shared/utils/renderWithRouter/renderWithRouter";
 export { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath/redirectToAbsolutePath";
+export { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage/UseLocalStorage_types";
+export type { UseLocalStorageCustom } from "@/shared/utils/hooks/UseLocalStorage/UseLocalStorage_types";

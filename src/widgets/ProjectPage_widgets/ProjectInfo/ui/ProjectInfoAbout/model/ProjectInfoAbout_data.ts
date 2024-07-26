@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
 import { ProjectInfoAboutPortfolioCase } from "./ProjectInfoAbout_types";
 
 export const ProjectInfoAbout__imgsURL: string[] = [

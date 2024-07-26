@@ -1,0 +1,17 @@
+.deadline {
+  font-weight: 500;
+
+  &Wrapper {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+}

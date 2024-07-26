@@ -1,11 +1,20 @@
-import { Button, ButtonTypes, Modal } from "@/shared";
+import { Button, ButtonTypes, Modal, UseLocalStorageTypes } from "@/shared";
 import {
   ProjectInfoPackProps,
   ProjectInfoPackNames,
   ProjectInfoPackContent,
 } from "../model/ProjectInfo_pack_types";
 import styles from "./ProjectInfo_pack.module.scss";
-import { memo, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
+import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";
+import { Deadline } from "./Deadline/ui/Deadline";
+import { Editions } from "./Editions/ui/Editions";
+import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
+import { useAppDispatch } from "@/app/AppStore";
+import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
+import { CheckoutOrderSchema } from "@/features";
+import { UseLocalStorageForCheckoutOrder } from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrder/UseLocalStorageForCheckoutOrder";
+import { UseLocalStorageForCheckoutOrderModal } from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrderModal/UseLocalStorageForCheckoutOrderModal";
 
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {
@@ -18,9 +27,36 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
 
     const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-    const openModal = (): void => {
+    const dispatch = useAppDispatch();
+
+    const openModal = useCallback((): void => {
+      const checkoutOrderState = UseLocalStorageForCheckoutOrder(
+        UseLocalStorageTypes.GET
+      );
+
+      if (checkoutOrderState) {
+        dispatch(
+          checkoutOrderSliceActions.setCheckoutOrderState(
+            checkoutOrderState as CheckoutOrderSchema
+          )
+        );
+      }
+
       setModalIsOpen(true);
-    };
+    }, [dispatch]);
+
+    useEffect(() => {
+      if (UseLocalStorageForCheckoutOrderModal(UseLocalStorageTypes.GET)) {
+        openModal();
+      }
+    }, [openModal]);
+
+    useEffect(() => {
+      UseLocalStorageForCheckoutOrderModal(
+        UseLocalStorageTypes.UPDATE,
+        ModalIsOpen
+      );
+    }, [ModalIsOpen]);
 
     return (
       <div className={styles.projectInfo_pack}>
@@ -52,88 +88,18 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
           </p>
 
           <div className={styles.projectInfo_pack__info}>
-            <div className={styles.projectInfo_pack__deadlineWrapper}>
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 8.75V15H18.75M26.25 15C26.25 21.2133 21.2133 26.25 15 26.25C8.7868 26.25 3.75 21.2133 3.75 15C3.75 8.7868 8.7868 3.75 15 3.75C21.2133 3.75 26.25 8.7868 26.25 15Z"
-                  stroke="#FF5555"
-                  strokeWidth="2.16667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <Deadline deadline={ActivePackContent.deadline} />
 
-              <span className={styles.projectInfo_pack__info_text}>
-                Срок выполнения:{" "}
-                <span className={styles.projectInfo_pack__deadline}>
-                  {ActivePackContent.deadline}
-                </span>
-              </span>
-            </div>
-
-            <div className={styles.projectInfo_pack__reviews}>
-              <svg
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.07639 16.2505C5.02532 15.841 4.99902 15.4239 4.99902 15.0005C4.99902 9.47764 9.47617 5.00049 14.999 5.00049C18.1248 5.00049 20.9155 6.43458 22.7493 8.68069M22.7493 8.68069V5.00049M22.7493 8.68069V8.7504L18.9993 8.75049M24.9216 13.7505C24.9728 14.16 24.999 14.5771 24.999 15.0005C24.999 20.5234 20.5219 25.0005 14.999 25.0005C12.0123 25.0005 9.33139 23.6911 7.49902 21.615M7.49902 21.615V21.2505H11.249M7.49902 21.615V25.0005"
-                  stroke="#FF5555"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-
-              <span className={styles.projectInfo_pack__info_text}>
-                {ActivePackContent.revisionsAmount} редакции
-              </span>
-            </div>
+            <Editions editionsAmount={ActivePackContent.editionsAmount} />
           </div>
 
-          <div className={styles.projectInfo_pack__activeServices}>
-            {ActivePackContent.activeServices.map((activeService: string) => (
-              <div
-                key={activeService}
-                className={styles.projectInfo_pack__service}
-              >
-                <svg
-                  width="26"
-                  height="18"
-                  viewBox="0 0 26 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M22.8228 0.529734L9.34109 13.6329L3.1772 7.64215C2.4503 6.93581 1.27196 6.93581 0.545062 7.64215C-0.181687 8.34863 -0.181687 9.49387 0.545062 10.2004L8.02502 17.4702C8.38847 17.8233 8.86478 18 9.34109 18C9.8174 18 10.2937 17.8233 10.6572 17.4702L25.4549 3.08808C26.1817 2.3816 26.1817 1.23636 25.4549 0.529878C24.728 -0.176602 23.5495 -0.176602 22.8228 0.529734Z"
-                    fill="#FF5555"
-                  />
-                </svg>
-
-                <span className={styles.projectInfo_pack__service_text}>
-                  {activeService}
-                </span>
-              </div>
-            ))}
-          </div>
+          <ActiveServices activeServices={ActivePackContent.activeServices} />
 
           {ActivePackContent.disactiveServices && (
             <div className={styles.projectInfo_pack__disactiveServices}>
               {ActivePackContent.disactiveServices.map(
                 (disactiveService: string) => (
-                  <div
-                    key={disactiveService}
-                    className={styles.projectInfo_pack__service}
-                  >
+                  <div key={disactiveService} className="ProjectPage__service">
                     <svg
                       width="26"
                       height="18"
@@ -148,7 +114,7 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
                       />
                     </svg>
 
-                    <span className={styles.projectInfo_pack__service_text}>
+                    <span className="ProjectPage__service_text">
                       {disactiveService}
                     </span>
                   </div>
@@ -170,7 +136,16 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
             type={ButtonTypes.BLACK}
           />
 
-          {ModalIsOpen && <Modal setModalIsOpen={setModalIsOpen}>asas</Modal>}
+          {ModalIsOpen && (
+            <Modal setModalIsOpen={setModalIsOpen}>
+              <CheckoutOrder
+                pack={{
+                  packName: ActivePack as ProjectInfoPackNames,
+                  ...ActivePackContent,
+                }}
+              />
+            </Modal>
+          )}
         </div>
       </div>
     );

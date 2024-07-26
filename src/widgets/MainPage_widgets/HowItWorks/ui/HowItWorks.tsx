@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
 import styles from "./HowItWorks.module.scss";
 import { HowItWorksItems } from "../model/HowItWorks__data";
 import { HowItWorksItem } from "@/widgets/MainPage_widgets/HowItWorks/ui/HowItWorks__item/model/HowItWorks__types";

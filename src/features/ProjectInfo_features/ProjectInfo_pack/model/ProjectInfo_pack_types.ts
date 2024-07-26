@@ -8,9 +8,10 @@ export interface ProjectInfoPackContent {
   price: number;
   desc: string;
   deadline: string;
-  revisionsAmount: number;
+  editionsAmount: number;
   activeServices: string[];
   disactiveServices?: string[];
+  descForCheckoutOrder: string;
 }
 
 export type ProjectInfoPacks = {
@@ -19,4 +20,14 @@ export type ProjectInfoPacks = {
 
 export interface ProjectInfoPackProps {
   packs: ProjectInfoPacks;
+}
+
+export interface ProjectInfoPack {
+  packName: ProjectInfoPackNames;
+  price: number;
+  desc: string;
+  deadline: string;
+  editionsAmount: number;
+  activeServices: string[];
+  disactiveServices?: string[];
 }

@@ -2,7 +2,7 @@ import { Channel_reviews__item__props } from "../model/Channel_reviews__item__ty
 import styles from "./Channel_reviews__item.module.scss";
 import { ProgressBar } from "primereact/progressbar";
 import "./Channel_reviews__item__progressbar.scss";
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
 import { memo, useMemo } from "react";
 
 export const Channel_reviews__item: React.FC<Channel_reviews__item__props> =

@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
 import styles from "./SupportService.module.scss";
 import { Button, ButtonTypes } from "@/shared";
 import { memo } from "react";

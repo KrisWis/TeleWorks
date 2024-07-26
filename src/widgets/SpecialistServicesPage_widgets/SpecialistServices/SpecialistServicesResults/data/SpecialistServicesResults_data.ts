@@ -1,5 +1,5 @@
 import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
 import { ServicesItem } from "@/entities/SpecialistServices_entities/SpecialistServicesItem/model/SpecialistServicesItem_types";
 
 export const sortSelectItems: Select_Option[] = [

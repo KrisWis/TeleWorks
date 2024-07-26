@@ -9,3 +9,5 @@ export * from "./Global_features/Filter/ui/Filter";
 /* СТРАНИЦА ПРОЕКТА */
 export * from "./ProjectInfo_features/ProjectInfo_pack/ui/ProjectInfo_pack";
 export type { ProjectInfoPacks } from "./ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
+export * from "./ProjectInfo_features/CheckoutOrder/ui/CheckoutOrder";
+export type { CheckoutOrderSchema } from "./ProjectInfo_features/CheckoutOrder/model/CheckoutOrder_types";
