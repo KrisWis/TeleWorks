@@ -4,11 +4,15 @@ import { Deadline } from "../../ProjectInfo_pack/ui/Deadline/ui/Deadline";
 import { Editions } from "../../ProjectInfo_pack/ui/Editions/ui/Editions";
 import { CheckoutOrderProps } from "../model/CheckoutOrder_types";
 import styles from "./CheckoutOrder.module.scss";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { checkoutOrderSliceActions } from "../model/CheckoutOrderSlice/CheckoutOrderSlice";
-import { getPackAmounts } from "../model/CheckoutOrderSlice/CheckoutOrderSlice_selectors";
+import {
+  getExtraServiceAmount,
+  getPackAmounts,
+} from "../model/CheckoutOrderSlice/CheckoutOrderSlice_selectors";
 import { ProjectExtraService } from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
+import { CheckoutOrderAmountCounter } from "./CheckoutOrderAmountCounter/ui/CheckoutOrderAmountCounter";
 
 export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
   ({ pack }): React.JSX.Element => {
@@ -16,9 +20,13 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
       getPackAmounts(state, pack.packName)
     );
 
-    const dispatch = useAppDispatch();
+    const GetExtraServiceAmounts = (extraServiceTitle: string): number => {
+      return useSelector((state: StoreSchema) =>
+        getExtraServiceAmount(state, pack.packName, extraServiceTitle)
+      );
+    };
 
-    const canNotDicreasePackAmounts: boolean = PackAmounts == 1;
+    const dispatch = useAppDispatch();
 
     const [ExtraServices, setExtraServices] = useState<ProjectExtraService[]>(
       []
@@ -42,6 +50,15 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
 
       return ExtraServicesModified.includes(extraService);
     };
+
+    useEffect(() => {
+      dispatch(
+        checkoutOrderSliceActions.addExtraServices({
+          packType: pack.packName,
+          extraServices: pack.extraServices!,
+        })
+      );
+    }, [dispatch, pack.extraServices, pack.packName]);
 
     return (
       <div className={styles.checkoutOrder}>
@@ -70,59 +87,25 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
             <Editions editionsAmount={pack.editionsAmount} />
           </div>
 
-          <div className={styles.checkoutOrder__packsAmount}>
-            <button
-              disabled={canNotDicreasePackAmounts}
-              onClick={() =>
-                !canNotDicreasePackAmounts
-                  ? dispatch(
-                      checkoutOrderSliceActions.dicreasePackAmounts({
-                        packType: pack.packName,
-                        amounts: 1,
-                      })
-                    )
-                  : {}
-              }
-              className={`${styles.checkoutOrder__packsAmount__button} ${styles.checkoutOrder__packsAmount__dicrease} 
-              ${canNotDicreasePackAmounts ? styles.checkoutOrder__packsAmount__button__disabled : ""}`}
-            >
-              <svg
-                width="29"
-                height="29"
-                viewBox="0 0 29 29"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="14.5" cy="14.5" r="14" stroke="#FF5555" />
-              </svg>
-            </button>
-
-            <span className={styles.checkoutOrder__packsAmount__text}>
-              {PackAmounts}
-            </span>
-
-            <button
-              onClick={() =>
-                dispatch(
-                  checkoutOrderSliceActions.increasePackAmounts({
-                    packType: pack.packName,
-                    amounts: 1,
-                  })
-                )
-              }
-              className={`${styles.checkoutOrder__packsAmount__button} ${styles.checkoutOrder__packsAmount__increase}`}
-            >
-              <svg
-                width="29"
-                height="29"
-                viewBox="0 0 29 29"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="14.5" cy="14.5" r="14" stroke="#FF5555" />
-              </svg>
-            </button>
-          </div>
+          <CheckoutOrderAmountCounter
+            amount={PackAmounts}
+            dicreaseAmount={() =>
+              dispatch(
+                checkoutOrderSliceActions.changePackAmounts({
+                  packType: pack.packName,
+                  amounts: -1,
+                })
+              )
+            }
+            increaseAmount={() =>
+              dispatch(
+                checkoutOrderSliceActions.changePackAmounts({
+                  packType: pack.packName,
+                  amounts: 1,
+                })
+              )
+            }
+          />
         </div>
 
         <span className={styles.checkoutOrder__separator}></span>
@@ -155,10 +138,42 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
                   ${ExtraServiceInState(extraService) ? styles.checkoutOrder__extraService__select__active : ""}`}
                   ></div>
                 </div>
+
+                <div className={styles.checkoutOrder__extraService__footer}>
+                  <span className={styles.checkoutOrder__extraService__price}>
+                    {extraService.price} ₽
+                  </span>
+
+                  {extraService.scalability && (
+                    <CheckoutOrderAmountCounter
+                      amount={GetExtraServiceAmounts(extraService.title)}
+                      dicreaseAmount={() =>
+                        dispatch(
+                          checkoutOrderSliceActions.changeExtraServiceAmounts({
+                            packType: pack.packName,
+                            extraServiceTitle: extraService.title,
+                            extraServiceAmount: -1,
+                          })
+                        )
+                      }
+                      increaseAmount={() =>
+                        dispatch(
+                          checkoutOrderSliceActions.changeExtraServiceAmounts({
+                            packType: pack.packName,
+                            extraServiceTitle: extraService.title,
+                            extraServiceAmount: 1,
+                          })
+                        )
+                      }
+                    />
+                  )}
+                </div>
               </div>
             ))}
           </div>
         )}
+
+        <span className={styles.checkoutOrder__separator}></span>
       </div>
     );
   }

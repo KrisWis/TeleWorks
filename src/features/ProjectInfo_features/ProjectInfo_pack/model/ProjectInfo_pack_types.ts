@@ -9,7 +9,9 @@ export interface ProjectExtraService {
   desc: string;
   price: number;
   scalability: boolean;
+  amount?: number;
 }
+
 export interface ProjectInfoPackContent {
   price: number;
   desc: string;

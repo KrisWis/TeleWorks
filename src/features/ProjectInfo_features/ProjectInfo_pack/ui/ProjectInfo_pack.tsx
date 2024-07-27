@@ -14,7 +14,10 @@ import { useAppDispatch } from "@/app/AppStore";
 import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
 import { CheckoutOrderSchema } from "@/features";
 import { UseLocalStorageForCheckoutOrder } from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrder/UseLocalStorageForCheckoutOrder";
-import { UseLocalStorageForCheckoutOrderModal } from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrderModal/UseLocalStorageForCheckoutOrderModal";
+import {
+  UseLocalStorageForCheckoutOrderModal,
+  UseLocalStorageForCheckoutOrderModalReturn,
+} from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrderModal/UseLocalStorageForCheckoutOrderModal";
 
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {
@@ -46,17 +49,22 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
     }, [dispatch]);
 
     useEffect(() => {
-      if (UseLocalStorageForCheckoutOrderModal(UseLocalStorageTypes.GET)) {
+      const ModalLSItem = UseLocalStorageForCheckoutOrderModal(
+        UseLocalStorageTypes.GET
+      ) as UseLocalStorageForCheckoutOrderModalReturn;
+
+      if (ModalLSItem.value) {
         openModal();
+        setActivePack(ModalLSItem.activePack);
       }
     }, [openModal]);
 
     useEffect(() => {
-      UseLocalStorageForCheckoutOrderModal(
-        UseLocalStorageTypes.UPDATE,
-        ModalIsOpen
-      );
-    }, [ModalIsOpen]);
+      UseLocalStorageForCheckoutOrderModal(UseLocalStorageTypes.UPDATE, {
+        activePack: ActivePack,
+        value: ModalIsOpen,
+      });
+    }, [ModalIsOpen, ActivePack]);
 
     return (
       <div className={styles.projectInfo_pack}>

@@ -1,5 +1,8 @@
 import { CheckoutOrderSchema } from "@/features";
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
+import {
+  ProjectExtraService,
+  ProjectInfoPackNames,
+} from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
 
 interface CheckoutOrderPackPricePayload {
   price: number;
@@ -22,5 +25,26 @@ export interface CheckoutOrderPackAmountsAction {
 
 export interface CheckoutOrderStateAction {
   payload: CheckoutOrderSchema;
+  type: string;
+}
+
+interface CheckoutOrderExtraServiceAmountPayload {
+  extraServiceTitle: string;
+  extraServiceAmount: number;
+  packType: ProjectInfoPackNames;
+}
+
+export interface CheckoutOrderExtraServiceAmountAction {
+  payload: CheckoutOrderExtraServiceAmountPayload;
+  type: string;
+}
+
+interface CheckoutOrderExtraServicesPayload {
+  extraServices: ProjectExtraService[];
+  packType: ProjectInfoPackNames;
+}
+
+export interface CheckoutOrderExtraServicesAction {
+  payload: CheckoutOrderExtraServicesPayload;
   type: string;
 }

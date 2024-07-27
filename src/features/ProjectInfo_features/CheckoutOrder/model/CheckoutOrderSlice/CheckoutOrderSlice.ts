@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CheckoutOrderSchema } from "@/features";
 import {
+  CheckoutOrderExtraServicesAction,
+  CheckoutOrderExtraServiceAmountAction,
   CheckoutOrderPackAmountsAction,
   CheckoutOrderPackPriceAction,
   CheckoutOrderStateAction,
@@ -13,19 +15,21 @@ const initialState: CheckoutOrderSchema = {
     Базовый: {
       packPrice: 0,
       packAmounts: 1,
+      extraServices: {},
     },
 
     Стандарт: {
       packPrice: 0,
       packAmounts: 1,
+      extraServices: {},
     },
 
     Премиум: {
       packPrice: 0,
       packAmounts: 1,
+      extraServices: {},
     },
   },
-  extraServicesPrice: 0,
   finalPrice: 0,
 };
 
@@ -51,7 +55,7 @@ export const checkoutOrderSlice = createSlice({
       state.packs[action.payload.packType].packPrice = action.payload.price;
     },
 
-    increasePackAmounts: (
+    changePackAmounts: (
       state: CheckoutOrderSchema,
       action: CheckoutOrderPackAmountsAction
     ) => {
@@ -63,14 +67,35 @@ export const checkoutOrderSlice = createSlice({
       UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },
 
-    dicreasePackAmounts: (
+    changeExtraServiceAmounts: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderPackAmountsAction
+      action: CheckoutOrderExtraServiceAmountAction
     ) => {
-      const packState = state.packs[action.payload.packType];
+      let extraServiceAmount =
+        state.packs[action.payload.packType].extraServices[
+          action.payload.extraServiceTitle
+        ].amount;
 
-      state.packs[action.payload.packType].packAmounts =
-        packState.packAmounts - action.payload.amounts;
+      if (!extraServiceAmount) extraServiceAmount = 1;
+
+      state.packs[action.payload.packType].extraServices[
+        action.payload.extraServiceTitle
+      ].amount = extraServiceAmount + action.payload.extraServiceAmount;
+
+      UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
+    },
+
+    addExtraServices: (
+      state: CheckoutOrderSchema,
+      action: CheckoutOrderExtraServicesAction
+    ) => {
+      const extraServices = state.packs[action.payload.packType].extraServices;
+
+      for (const extraService of action.payload.extraServices) {
+        extraServices[extraService.title] = extraService;
+      }
+
+      state.packs[action.payload.packType].extraServices = extraServices;
 
       UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },

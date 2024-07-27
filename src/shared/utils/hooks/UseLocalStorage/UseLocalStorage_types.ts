@@ -5,5 +5,5 @@ export enum UseLocalStorageTypes {
 
 export type UseLocalStorageCustom<ReturnValue> = (
   type: UseLocalStorageTypes,
-  value?: unknown
+  value?: ReturnValue
 ) => boolean | ReturnValue;
