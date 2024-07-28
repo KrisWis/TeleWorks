@@ -3,7 +3,7 @@ import styles from "./ShowFullImage.module.scss";
 import { memo } from "react";
 
 export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
-  ({ imgURL, className }): React.JSX.Element => {
+  ({ className }): React.JSX.Element => {
     return (
       <div className={`${styles.showFullImage} ${className}`}>
         <svg

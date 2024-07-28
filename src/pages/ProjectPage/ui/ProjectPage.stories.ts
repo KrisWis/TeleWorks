@@ -11,6 +11,10 @@ const meta = {
   },
 
   args: { onClick: fn() },
+
+  parameters: {
+    layout: "centered",
+  },
 } satisfies Meta<typeof ProjectPage>;
 
 export default meta;

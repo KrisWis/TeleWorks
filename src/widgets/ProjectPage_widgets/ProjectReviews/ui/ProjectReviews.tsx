@@ -1,7 +1,7 @@
 import styles from "./ProjectReviews.module.scss";
 import { memo } from "react";
 import { ProjectReviewsProps } from "../model/ProjectReviews_types";
-import { Channel_reviews } from "@/widgets";
+import { ReviewsPanel } from "@/widgets";
 import { reviews_selectOptions } from "../model/ProjectReviews_data";
 import { Button, ButtonTypes, ReviewsSelect } from "@/shared";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
@@ -17,7 +17,7 @@ export const ProjectReviews: React.FC<ProjectReviewsProps> = memo(
           <ReviewsSelect reviews_selectOptions={reviews_selectOptions} />
         </div>
 
-        <Channel_reviews {...channelReviewsProps} />
+        <ReviewsPanel {...channelReviewsProps} />
 
         <div className={styles.projectReviews__reviews}>
           {reviewsItems.map((reviewsItem: Reviews__itemProps) => (

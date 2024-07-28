@@ -1,4 +1,4 @@
-import { Button, ButtonTypes, TeleWorksChoice } from "@/shared";
+import { Button, ButtonTypes, CustomItemBadge } from "@/shared";
 import { AuthorCardProps } from "../model/AuthorCard_types";
 import styles from "./AuthorCard.module.scss";
 import { memo } from "react";
@@ -9,7 +9,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
     imgURL,
     authorName,
     online,
-    teleWorksChoice,
+    TeleWorksChoice,
     reputation,
     ordersAmount,
     positiveReviews,
@@ -78,8 +78,12 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
             </div>
           </div>
 
-          {teleWorksChoice && (
-            <TeleWorksChoice className={styles.authorCard__teleWorksChoice} />
+          {TeleWorksChoice && (
+            <CustomItemBadge
+              firstTitle="Выбор"
+              secondTitle="TeleWorks"
+              className={styles.authorCard__CustomItemBadge}
+            />
           )}
         </div>
 

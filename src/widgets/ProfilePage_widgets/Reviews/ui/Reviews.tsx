@@ -13,8 +13,8 @@ export const Reviews: React.FC<ReviewsProps> = memo(
         <ReviewsSelect reviews_selectOptions={reviews_selectOptions} />
 
         <div className={styles.reviews__wrapper}>
-          {reviewsItems.map((reviewItem: Reviews__itemProps) => (
-            <Reviews__item {...reviewItem} />
+          {reviewsItems.map((reviewItem: Reviews__itemProps, index: number) => (
+            <Reviews__item key={reviewItem.text + index} {...reviewItem} />
           ))}
           <button className={styles.reviews__more}>Загрузить ещё</button>
         </div>

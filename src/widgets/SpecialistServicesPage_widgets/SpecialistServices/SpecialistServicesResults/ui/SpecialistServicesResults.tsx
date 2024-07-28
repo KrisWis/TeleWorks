@@ -10,8 +10,8 @@ import {
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { ServicesViewTypes } from "../data/SpecialistServicesResults_types";
-import { SpecialistServicesItem } from "@/entities";
-import { ServicesItem } from "@/entities/SpecialistServices_entities/SpecialistServicesItem/model/SpecialistServicesItem_types";
+import { ProjectItem } from "@/entities";
+import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (
@@ -111,7 +111,7 @@ export const SpecialistServicesResults: React.FC = memo(
           ${activeViewType == ServicesViewTypes.ROW ? styles.specialistServicesResults__items__row : ""}`}
         >
           {servicesItems.map((serviceItem: ServicesItem) => (
-            <SpecialistServicesItem
+            <ProjectItem
               key={serviceItem.title + serviceItem.authorName}
               servicesItem={serviceItem}
               viewType={activeViewType}

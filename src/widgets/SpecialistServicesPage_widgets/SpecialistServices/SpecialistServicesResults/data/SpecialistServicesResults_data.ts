@@ -1,6 +1,6 @@
 import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
-import { ServicesItem } from "@/entities/SpecialistServices_entities/SpecialistServicesItem/model/SpecialistServicesItem_types";
+import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 
 export const sortSelectItems: Select_Option[] = [
   {
@@ -31,6 +31,7 @@ export const servicesItems: ServicesItem[] = [
     authorRating: "5.0",
     authorReviewsAmount: 256,
     authorIsOnline: true,
+    TopOfWeek: false,
   },
 
   {
@@ -44,6 +45,7 @@ export const servicesItems: ServicesItem[] = [
     authorRating: "5.0",
     authorReviewsAmount: 256,
     authorIsOnline: true,
+    TopOfWeek: false,
   },
 
   {
@@ -64,6 +66,7 @@ export const servicesItems: ServicesItem[] = [
     authorRating: "5.0",
     authorReviewsAmount: 256,
     authorIsOnline: false,
+    TopOfWeek: false,
   },
 
   {
@@ -84,6 +87,7 @@ export const servicesItems: ServicesItem[] = [
     authorRating: "5.0",
     authorReviewsAmount: 256,
     authorIsOnline: true,
+    TopOfWeek: false,
   },
 
   {
@@ -104,6 +108,7 @@ export const servicesItems: ServicesItem[] = [
     authorRating: "5.0",
     authorReviewsAmount: 256,
     authorIsOnline: true,
+    TopOfWeek: false,
   },
 
   {
@@ -124,5 +129,6 @@ export const servicesItems: ServicesItem[] = [
     authorRating: "5.0",
     authorReviewsAmount: 256,
     authorIsOnline: true,
+    TopOfWeek: false,
   },
 ];

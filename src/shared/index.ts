@@ -1,7 +1,7 @@
 /* UI KIT КОМПОНЕНТЫ */
 export * from "./ui-kit/Button/ui/Button";
 export * from "./ui-kit/Select/ui/Select";
-export * from "./ui-kit/TeleWorksChoice/ui/TeleWorksChoice";
+export * from "./ui-kit/CustomItemBadge/ui/CustomItemBadge";
 export * from "./ui-kit/ShowFullImage/ui/ShowFullImage";
 export * from "./ui-kit/Modal/ui/Modal";
 export * from "./ui-kit/ReviewsSelect/ui/ReviewsSelect";

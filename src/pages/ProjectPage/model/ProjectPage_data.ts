@@ -1,9 +1,11 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { ProjectItemProps } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
 import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard/model/AuthorCard_types";
 import { ProjectInfoPacks } from "@/features";
-import { Channel_reviewsProps } from "@/widgets/Global_widgets/Channel_reviews/model/Channel_reviews_types";
+import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";
+import { ServicesViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices/SpecialistServicesResults/data/SpecialistServicesResults_types";
 
 export const ProjectInfo_packs: ProjectInfoPacks = {
   Базовый: {
@@ -123,7 +125,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
 export const ProjectInfoAuthor: AuthorCardProps = {
   imgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
   authorName: "Роман Б.",
-  teleWorksChoice: true,
+  TeleWorksChoice: true,
   online: true,
   reputation: 5.0,
   ordersAmount: 256,
@@ -141,7 +143,7 @@ export const ProjectInfoData: ProjectInfoProps = {
   ProjectTags: ["Инфографика", "Карточка товара", "Willdberries"],
 };
 
-export const channelReviewsProps: Channel_reviewsProps = {
+export const channelReviewsProps: ReviewsPanelProps = {
   mark: 5.0,
   reviewsAmount: 384,
   fiveStarsProgress: 100,
@@ -159,5 +161,213 @@ export const ProjectReviews_items: Reviews__itemProps[] = [
     text: "Быстрое выполнение задачи, ответственный!",
     stars: 5.0,
     imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+  },
+];
+
+export const OtherProjectsItems: ProjectItemProps[] = [
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
+      title: "Инфографика для маркетплейсов.",
+      TeleWorksChoice: false,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: true,
+      TopOfWeek: true,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов2.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: true,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/portfolioCase__example_img.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+];
+
+export const SimilarProjectsItems: ProjectItemProps[] = [
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/portfolioCase__example_img.png`],
+      title: "Инфографика для маркетплейсов.",
+      TeleWorksChoice: false,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: true,
+      TopOfWeek: true,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов2.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: true,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
+  },
+
+  {
+    servicesItem: {
+      imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+      title: "Инфографика для маркетплейсов3.",
+      TeleWorksChoice: true,
+      price: "от 3 000 ₽",
+      authorName: "Роман Б.",
+      authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+      authorRank: "высокий рейтинг",
+      authorRating: "5.0",
+      authorReviewsAmount: 256,
+      authorIsOnline: false,
+      TopOfWeek: false,
+    },
+    viewType: ServicesViewTypes.ROW,
   },
 ];

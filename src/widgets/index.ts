@@ -1,7 +1,8 @@
 import { lazy } from "react";
-import { Channel_reviewsProps } from "./Global_widgets/Channel_reviews/model/Channel_reviews_types";
+import { ReviewsPanelProps } from "./Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { ReviewsProps } from "./ProfilePage_widgets/Reviews/model/Reviews_types";
 import { ProjectReviewsProps } from "./ProjectPage_widgets/ProjectReviews/model/ProjectReviews_types";
+import { ItemsSliderProps } from "./Global_widgets/ItemsSlider/model/ItemsSlider_types";
 
 /* ГЛОБАЛЬНЫЕ КОМПОНЕНТЫ */
 export * from "./Global_widgets/Header/ui/Header";
@@ -21,11 +22,19 @@ export const ReceiveNotifications: React.LazyExoticComponent<React.FC> = lazy(
     }))
 );
 
-export const Channel_reviews: React.LazyExoticComponent<
-  React.FC<Channel_reviewsProps>
+export const ReviewsPanel: React.LazyExoticComponent<
+  React.FC<ReviewsPanelProps>
 > = lazy(() =>
-  import("./Global_widgets/Channel_reviews/ui/Channel_reviews").then(
-    ({ Channel_reviews }) => ({ default: Channel_reviews })
+  import("./Global_widgets/ReviewsPanel/ui/ReviewsPanel").then(
+    ({ ReviewsPanel }) => ({ default: ReviewsPanel })
+  )
+);
+
+export const ItemsSlider: React.LazyExoticComponent<
+  React.FC<ItemsSliderProps>
+> = lazy(() =>
+  import("./Global_widgets/ItemsSlider/ui/ItemsSlider").then(
+    ({ ItemsSlider }) => ({ default: ItemsSlider })
   )
 );
 
@@ -133,12 +142,6 @@ export const Reviews: React.LazyExoticComponent<React.FC<ReviewsProps>> = lazy(
     import("./ProfilePage_widgets/Reviews/ui/Reviews").then(({ Reviews }) => ({
       default: Reviews,
     }))
-);
-
-export const Similar_channels: React.LazyExoticComponent<React.FC> = lazy(() =>
-  import("./ProfilePage_widgets/Similar_channels/ui/Similar_channels").then(
-    ({ Similar_channels }) => ({ default: Similar_channels })
-  )
 );
 
 /* СТРАНИЦА "МОИ ПРОЕКТЫ" */

@@ -1,0 +1,26 @@
+.CustomItemBadge {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    271deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 100%
+  );
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+  text-transform: uppercase;
+  gap: 3px;
+  width: fit-content;
+  padding: 0 5px;
+
+  span {
+    color: #f55;
+    text-transform: none;
+    font-weight: 700;
+  }
+}

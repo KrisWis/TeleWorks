@@ -9,7 +9,7 @@ import {
 } from "@/pages";
 import { RouteProps } from "react-router-dom";
 
-enum Routes {
+export enum Routes {
   MAIN = "/",
   PROFILE = "profile",
   MYPROJECTS = "myProjects",

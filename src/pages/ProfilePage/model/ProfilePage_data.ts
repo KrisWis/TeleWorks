@@ -1,8 +1,9 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
-import { Channel_reviewsProps } from "@/widgets/Global_widgets/Channel_reviews/model/Channel_reviews_types";
+import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
+import { Similar_channels__itemProps } from "@/entities/ProfilePage_entities/Similar_channels__item/model/Similar_channels__item__types";
 
-export const channelReviews: Channel_reviewsProps = {
+export const channelReviews: ReviewsPanelProps = {
   mark: 5.0,
   reviewsAmount: 384,
   fiveStarsProgress: 100,
@@ -29,5 +30,72 @@ export const Reviews_items: Reviews__itemProps[] = [
     text: "Быстрое выполнение задачи, ответственный!",
     stars: 5.0,
     imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+  },
+];
+
+export const Similar_channels__items: Similar_channels__itemProps[] = [
+  {
+    rating: 509.2,
+    starsAmount: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    title: "Квартира мечты!",
+    desc: "Интерьер и строительство",
+    subscribersAmount: "205K",
+    views: "104K",
+    ER: 26.7,
+    CPV: 1.39,
+    price: 12048.94,
+  },
+
+  {
+    rating: 509.2,
+    starsAmount: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    title: "Квартира мечты5!",
+    desc: "Интерьер и строительство",
+    subscribersAmount: "205K",
+    views: "104K",
+    ER: 26.7,
+    CPV: 1.39,
+    price: 12048.94,
+  },
+
+  {
+    rating: 509.2,
+    starsAmount: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    title: "Квартира мечты4!",
+    desc: "Интерьер и строительство",
+    subscribersAmount: "205K",
+    views: "104K",
+    ER: 26.7,
+    CPV: 1.39,
+    price: 12048.94,
+  },
+
+  {
+    rating: 509.2,
+    starsAmount: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    title: "Квартира мечты!",
+    desc: "Интерьер и строительство3",
+    subscribersAmount: "205K",
+    views: "104K",
+    ER: 26.7,
+    CPV: 1.39,
+    price: 12048.94,
+  },
+
+  {
+    rating: 509.2,
+    starsAmount: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    title: "Квартира мечты2!",
+    desc: "Интерьер и строительство",
+    subscribersAmount: "205K",
+    views: "104K",
+    ER: 26.7,
+    CPV: 1.39,
+    price: 12048.94,
   },
 ];

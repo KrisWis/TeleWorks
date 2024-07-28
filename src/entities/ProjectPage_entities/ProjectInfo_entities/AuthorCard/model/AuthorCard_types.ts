@@ -2,7 +2,7 @@ export interface AuthorCardProps {
   imgURL: string;
   authorName: string;
   online: boolean;
-  teleWorksChoice: boolean;
+  TeleWorksChoice: boolean;
   reputation: number;
   ordersAmount: number;
   positiveReviews: number;
