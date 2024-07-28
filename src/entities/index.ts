@@ -1,3 +1,15 @@
+import { lazy } from "react";
+import { Reviews__itemProps } from "./Global_entities/Reviews__item/model/Reviews__item_types";
+
+/* ГЛОБАЛЬНЫЕ КОМПОНЕНТЫ */
+export const ReviewsItem: React.LazyExoticComponent<
+  React.FC<Reviews__itemProps>
+> = lazy(() =>
+  import("./Global_entities/Reviews__item/ui/Reviews__item").then(
+    ({ Reviews__item }) => ({ default: Reviews__item })
+  )
+);
+
 /* СТРАНИЦА "ПРОФИЛЬ" */
 export * from "./ProfilePage_entities/Profile/ui/Profile";
 export * from "./ProfilePage_entities/Stats__item/ui/Stats__item";

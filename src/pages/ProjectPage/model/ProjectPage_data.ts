@@ -1,6 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
 import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard/model/AuthorCard_types";
 import { ProjectInfoPacks } from "@/features";
+import { Channel_reviewsProps } from "@/widgets/Global_widgets/Channel_reviews/model/Channel_reviews_types";
 import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";
 
 export const ProjectInfo_packs: ProjectInfoPacks = {
@@ -138,3 +140,24 @@ export const ProjectInfoData: ProjectInfoProps = {
   ProjectInfo_packs: ProjectInfo_packs,
   ProjectTags: ["Инфографика", "Карточка товара", "Willdberries"],
 };
+
+export const channelReviewsProps: Channel_reviewsProps = {
+  mark: 5.0,
+  reviewsAmount: 384,
+  fiveStarsProgress: 100,
+  fourStarsProgress: 80,
+  threeStarsProgress: 0,
+  twoStarsProgress: 0,
+  oneStarsProgress: 0,
+};
+
+export const ProjectReviews_items: Reviews__itemProps[] = [
+  {
+    author: "inan_ivanov",
+    extraInfo: "Доп. информация в виде стажа",
+    date: "16.07.2024",
+    text: "Быстрое выполнение задачи, ответственный!",
+    stars: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+  },
+];

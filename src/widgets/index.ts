@@ -1,4 +1,7 @@
 import { lazy } from "react";
+import { Channel_reviewsProps } from "./Global_widgets/Channel_reviews/model/Channel_reviews_types";
+import { ReviewsProps } from "./ProfilePage_widgets/Reviews/model/Reviews_types";
+import { ProjectReviewsProps } from "./ProjectPage_widgets/ProjectReviews/model/ProjectReviews_types";
 
 /* ГЛОБАЛЬНЫЕ КОМПОНЕНТЫ */
 export * from "./Global_widgets/Header/ui/Header";
@@ -16,6 +19,14 @@ export const ReceiveNotifications: React.LazyExoticComponent<React.FC> = lazy(
     ).then(({ ReceiveNotifications }) => ({
       default: ReceiveNotifications,
     }))
+);
+
+export const Channel_reviews: React.LazyExoticComponent<
+  React.FC<Channel_reviewsProps>
+> = lazy(() =>
+  import("./Global_widgets/Channel_reviews/ui/Channel_reviews").then(
+    ({ Channel_reviews }) => ({ default: Channel_reviews })
+  )
 );
 
 /* ГЛАВНАЯ СТРАНИЦА */
@@ -117,16 +128,11 @@ export const Channel_stats: React.LazyExoticComponent<React.FC> = lazy(() =>
   )
 );
 
-export const Channel_reviews: React.LazyExoticComponent<React.FC> = lazy(() =>
-  import("./ProfilePage_widgets/Channel_reviews/ui/Channel_reviews").then(
-    ({ Channel_reviews }) => ({ default: Channel_reviews })
-  )
-);
-
-export const Reviews: React.LazyExoticComponent<React.FC> = lazy(() =>
-  import("./ProfilePage_widgets/Reviews/ui/Reviews").then(({ Reviews }) => ({
-    default: Reviews,
-  }))
+export const Reviews: React.LazyExoticComponent<React.FC<ReviewsProps>> = lazy(
+  () =>
+    import("./ProfilePage_widgets/Reviews/ui/Reviews").then(({ Reviews }) => ({
+      default: Reviews,
+    }))
 );
 
 export const Similar_channels: React.LazyExoticComponent<React.FC> = lazy(() =>
@@ -174,3 +180,13 @@ export * from "./SpecialistServicesPage_widgets/SpecialistServices/ui/Specialist
 
 /* СТРАНИЦА "ОТКРЫТЫЙ ПРОЕКТ" */
 export * from "./ProjectPage_widgets/ProjectInfo/ui/ProjectInfo";
+
+export const ProjectReviews: React.LazyExoticComponent<
+  React.FC<ProjectReviewsProps>
+> = lazy(() =>
+  import("./ProjectPage_widgets/ProjectReviews/ui/ProjectReviews").then(
+    ({ ProjectReviews }) => ({
+      default: ProjectReviews,
+    })
+  )
+);

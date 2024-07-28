@@ -1,8 +1,12 @@
 import "./ProjectPage.scss";
 import "@/shared/main.scss";
 import { memo, useEffect } from "react";
-import { Footer, Header, ProjectInfo } from "@/widgets";
-import { ProjectInfoData } from "../model/ProjectPage_data";
+import { Footer, Header, ProjectInfo, ProjectReviews } from "@/widgets";
+import {
+  channelReviewsProps,
+  ProjectInfoData,
+  ProjectReviews_items,
+} from "../model/ProjectPage_data";
 
 export const ProjectPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -15,6 +19,10 @@ export const ProjectPage: React.FC = memo((): React.JSX.Element => {
       <main className="ProjectPage__main">
         <div className="padding">
           <ProjectInfo {...ProjectInfoData} />
+          <ProjectReviews
+            reviewsItems={ProjectReviews_items}
+            channelReviewsProps={channelReviewsProps}
+          />
         </div>
       </main>
       <Footer />

@@ -10,6 +10,7 @@ import "./ProfilePage.scss";
 import "@/shared/main.scss";
 import { memo, useEffect } from "react";
 import { Profile } from "@/entities";
+import { channelReviews, Reviews_items } from "../model/ProfilePage_data";
 
 export const ProfilePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -23,8 +24,11 @@ export const ProfilePage: React.FC = memo((): React.JSX.Element => {
         <Stats />
         <Buy_ads />
         <Channel_stats />
-        <Channel_reviews />
-        <Reviews />
+
+        <h2 className="ProfilePage__caption">Отзывы канала</h2>
+
+        <Channel_reviews {...channelReviews} />
+        <Reviews reviewsItems={Reviews_items} />
         <Similar_channels />
       </div>
     </main>
