@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { MarketPlaceSlider_item_props } from "../model/MarketPlaceSlider_item_types";
 import styles from "./MarketPlaceSlider_item.module.scss";
 import { memo, useMemo } from "react";

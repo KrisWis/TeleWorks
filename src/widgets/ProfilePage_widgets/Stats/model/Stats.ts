@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { Stats__item__props } from "@/entities/Stats__entities/Stats__item/model/Stats__item__types";
 
 export const Stats__items: Stats__item__props[] = [

@@ -6,6 +6,8 @@ import {
 
 export interface CheckoutOrderProps {
   pack: ProjectInfoPack;
+  ExtraServices: ProjectExtraService[];
+  setExtraServices: React.Dispatch<React.SetStateAction<ProjectExtraService[]>>;
 }
 
 export type ProjectExtraServices = {
@@ -14,7 +16,7 @@ export type ProjectExtraServices = {
 
 export interface CheckoutOrderPack {
   packPrice: number;
-  packAmounts: number;
+  editionsAmounts: number;
   extraServices: ProjectExtraServices;
 }
 

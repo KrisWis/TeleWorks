@@ -13,13 +13,13 @@ export interface CheckoutOrderPackPriceAction {
   type: string;
 }
 
-interface CheckoutOrderPackAmountsPayload {
+interface CheckoutOrdereditionsAmountsPayload {
   amounts: number;
   packType: ProjectInfoPackNames;
 }
 
-export interface CheckoutOrderPackAmountsAction {
-  payload: CheckoutOrderPackAmountsPayload;
+export interface CheckoutOrdereditionsAmountsAction {
+  payload: CheckoutOrdereditionsAmountsPayload;
   type: string;
 }
 
@@ -46,5 +46,21 @@ interface CheckoutOrderExtraServicesPayload {
 
 export interface CheckoutOrderExtraServicesAction {
   payload: CheckoutOrderExtraServicesPayload;
+  type: string;
+}
+
+interface CheckoutOrderExtraServicePayload {
+  extraService: ProjectExtraService;
+  packType: ProjectInfoPackNames;
+  changeTo: boolean;
+}
+
+export interface CheckoutOrderExtraServiceAction {
+  payload: CheckoutOrderExtraServicePayload;
+  type: string;
+}
+
+export interface CheckoutOrderFinalPriceAction {
+  payload: number;
   type: string;
 }

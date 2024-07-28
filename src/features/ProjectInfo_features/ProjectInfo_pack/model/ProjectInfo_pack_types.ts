@@ -10,6 +10,7 @@ export interface ProjectExtraService {
   price: number;
   scalability: boolean;
   amount?: number;
+  selected: boolean;
 }
 
 export interface ProjectInfoPackContent {

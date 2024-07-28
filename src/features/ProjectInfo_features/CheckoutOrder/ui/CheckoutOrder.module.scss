@@ -6,6 +6,7 @@
   background: #fff;
   border-radius: 25px 0 0 25px;
   padding: 25px;
+  overflow-y: scroll;
 
   &__header {
     font-weight: 600;
@@ -23,6 +24,11 @@
     height: 1px;
     background-color: #eaf2ff;
     margin: 15px 0;
+
+    &_big {
+      height: 3px;
+      margin: 25px 0;
+    }
   }
 
   &__title {
@@ -39,7 +45,7 @@
     color: #000;
   }
 
-  &__packPrice {
+  &__price {
     font-weight: 700;
     font-size: 24px;
     line-height: 150%;
@@ -75,6 +81,14 @@
     margin-top: 10px;
   }
 
+  &__descSpan {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
   &__extraService {
     display: flex;
     flex-direction: column;
@@ -96,22 +110,6 @@
       width: 80%;
     }
 
-    &__title {
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 120%;
-      letter-spacing: -0.01em;
-      color: #000;
-    }
-
-    &__desc {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 120%;
-      letter-spacing: -0.01em;
-      color: #000;
-    }
-
     &__select {
       border: 1px solid #f55;
       border-radius: 5px;
@@ -131,13 +129,71 @@
       border-top: 1px solid #eaf2ff;
       padding-top: 5px;
     }
+  }
 
-    &__price {
-      font-weight: 700;
-      font-size: 24px;
-      line-height: 150%;
-      letter-spacing: -0.01em;
-      color: #f55;
+  &__result {
+    border: 1px solid #eaf2ff;
+    border-radius: 15px;
+    background: linear-gradient(
+      271deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0) 100%
+    );
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
     }
+
+    &Wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &Items {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: var(--transition-duration) linear all;
+      max-height: 0;
+      overflow-y: hidden;
+
+      &__open {
+        cursor: pointer;
+        transition: var(--transition-duration) linear all;
+
+        &__disactive {
+          transform: rotate(180deg);
+        }
+      }
+
+      &__active {
+        max-height: 100px;
+      }
+    }
+
+    &Item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      &_span {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #000;
+      }
+    }
+  }
+
+  &__continue {
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 24px;
+    height: 67px;
   }
 }

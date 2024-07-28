@@ -1,11 +1,11 @@
 import { RootState } from "@/app/AppStore";
 import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
 
-export const getPackAmounts = (
+export const geteditionsAmounts = (
   state: RootState,
   packType: ProjectInfoPackNames
 ): number => {
-  return state.checkoutOrderReducer.packs[packType].packAmounts;
+  return state.checkoutOrderReducer.packs[packType].editionsAmounts;
 };
 
 export const getExtraServiceAmount = (
@@ -28,4 +28,8 @@ export const getExtraServiceAmount = (
   }
 
   return 1;
+};
+
+export const getFinalPrice = (state: RootState): number => {
+  return state.checkoutOrderReducer.finalPrice;
 };

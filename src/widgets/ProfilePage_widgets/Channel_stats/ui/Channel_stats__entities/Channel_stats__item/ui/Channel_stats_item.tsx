@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { Channel_stats_item_props } from "../model/Channel_stats_item__types";
 import styles from "./Channel_stats_item.module.scss";
 import { memo } from "react";

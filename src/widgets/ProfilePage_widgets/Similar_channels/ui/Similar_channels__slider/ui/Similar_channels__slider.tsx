@@ -9,7 +9,7 @@ import { Similar_channels__item } from "@/entities";
 import {
   mobile_mediaQuery,
   tablet_mediaQuery,
-} from "@/app/ui/layouts/model/BaseLayout__data";
+} from "@/app/layouts/model/BaseLayout__data";
 
 export const Similar_channels__slider: React.FC = memo(
   (): React.JSX.Element => {

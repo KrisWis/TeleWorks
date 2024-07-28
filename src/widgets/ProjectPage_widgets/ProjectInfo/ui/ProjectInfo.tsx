@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./ProjectInfo.module.scss";
 import { memo, useState } from "react";
 import { TeleWorksChoice } from "@/shared";

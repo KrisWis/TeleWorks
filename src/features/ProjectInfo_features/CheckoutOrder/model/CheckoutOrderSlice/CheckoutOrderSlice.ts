@@ -3,30 +3,34 @@ import { CheckoutOrderSchema } from "@/features";
 import {
   CheckoutOrderExtraServicesAction,
   CheckoutOrderExtraServiceAmountAction,
-  CheckoutOrderPackAmountsAction,
+  CheckoutOrdereditionsAmountsAction,
   CheckoutOrderPackPriceAction,
   CheckoutOrderStateAction,
+  CheckoutOrderExtraServiceAction,
+  CheckoutOrderFinalPriceAction,
 } from "./CheckoutOrderSlice_types";
 import { UseLocalStorageTypes } from "@/shared";
 import { UseLocalStorageForCheckoutOrder } from "./hooks/UseLocalStorageForCheckoutOrder/UseLocalStorageForCheckoutOrder";
+
+const editionsAmountsMultiplier: number = 1.5;
 
 const initialState: CheckoutOrderSchema = {
   packs: {
     Базовый: {
       packPrice: 0,
-      packAmounts: 1,
+      editionsAmounts: 1,
       extraServices: {},
     },
 
     Стандарт: {
       packPrice: 0,
-      packAmounts: 1,
+      editionsAmounts: 1,
       extraServices: {},
     },
 
     Премиум: {
       packPrice: 0,
-      packAmounts: 1,
+      editionsAmounts: 1,
       extraServices: {},
     },
   },
@@ -48,21 +52,38 @@ export const checkoutOrderSlice = createSlice({
       }
     },
 
+    changeFinalPrice: (
+      state: CheckoutOrderSchema,
+      action: CheckoutOrderFinalPriceAction
+    ) => {
+      state.finalPrice = action.payload;
+      state = initialState;
+    },
+
     setPackPrice: (
       state: CheckoutOrderSchema,
       action: CheckoutOrderPackPriceAction
     ) => {
-      state.packs[action.payload.packType].packPrice = action.payload.price;
+      const actionPrice = action.payload.price;
+
+      state.packs[action.payload.packType].packPrice = actionPrice;
+
+      state.finalPrice += actionPrice;
     },
 
-    changePackAmounts: (
+    changeeditionsAmounts: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderPackAmountsAction
+      action: CheckoutOrdereditionsAmountsAction
     ) => {
-      const packState = state.packs[action.payload.packType];
+      state.packs[action.payload.packType].editionsAmounts +=
+        action.payload.amounts;
 
-      state.packs[action.payload.packType].packAmounts =
-        packState.packAmounts + action.payload.amounts;
+      if (action.payload.amounts > 0) {
+        state.finalPrice *= editionsAmountsMultiplier;
+      } else {
+        state.finalPrice /= editionsAmountsMultiplier;
+      }
+      state.finalPrice = Math.round(state.finalPrice);
 
       UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },
@@ -71,21 +92,31 @@ export const checkoutOrderSlice = createSlice({
       state: CheckoutOrderSchema,
       action: CheckoutOrderExtraServiceAmountAction
     ) => {
-      let extraServiceAmount =
+      const extraServiceAmount =
         state.packs[action.payload.packType].extraServices[
           action.payload.extraServiceTitle
-        ].amount;
+        ].amount!;
 
-      if (!extraServiceAmount) extraServiceAmount = 1;
+      const extraServicePrice =
+        state.packs[action.payload.packType].extraServices[
+          action.payload.extraServiceTitle
+        ].price;
+
+      if (isNaN(extraServiceAmount) || !extraServiceAmount)
+        state.packs[action.payload.packType].extraServices[
+          action.payload.extraServiceTitle
+        ].amount = 1;
 
       state.packs[action.payload.packType].extraServices[
         action.payload.extraServiceTitle
-      ].amount = extraServiceAmount + action.payload.extraServiceAmount;
+      ].amount! += action.payload.extraServiceAmount;
+
+      state.finalPrice += extraServicePrice * action.payload.extraServiceAmount;
 
       UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },
 
-    addExtraServices: (
+    changeExtraServices: (
       state: CheckoutOrderSchema,
       action: CheckoutOrderExtraServicesAction
     ) => {
@@ -96,6 +127,25 @@ export const checkoutOrderSlice = createSlice({
       }
 
       state.packs[action.payload.packType].extraServices = extraServices;
+    },
+
+    changeExtraServiceSelected: (
+      state: CheckoutOrderSchema,
+      action: CheckoutOrderExtraServiceAction
+    ) => {
+      try {
+        state.packs[action.payload.packType].extraServices[
+          action.payload.extraService.title
+        ].selected = action.payload.changeTo;
+      } catch {
+        () => {};
+      }
+
+      if (action.payload.changeTo) {
+        state.finalPrice += action.payload.extraService.price;
+      } else {
+        state.finalPrice -= action.payload.extraService.price;
+      }
 
       UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },

@@ -3,6 +3,7 @@ import {
   ProjectInfoPackProps,
   ProjectInfoPackNames,
   ProjectInfoPackContent,
+  ProjectExtraService,
 } from "../model/ProjectInfo_pack_types";
 import styles from "./ProjectInfo_pack.module.scss";
 import { memo, useCallback, useEffect, useState } from "react";
@@ -10,17 +11,17 @@ import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";
 import { Deadline } from "./Deadline/ui/Deadline";
 import { Editions } from "./Editions/ui/Editions";
 import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
-import { useAppDispatch } from "@/app/AppStore";
-import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
-import { CheckoutOrderSchema } from "@/features";
-import { UseLocalStorageForCheckoutOrder } from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrder/UseLocalStorageForCheckoutOrder";
 import {
   UseLocalStorageForCheckoutOrderModal,
   UseLocalStorageForCheckoutOrderModalReturn,
 } from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrderModal/UseLocalStorageForCheckoutOrderModal";
+import { useAppDispatch } from "@/app/AppStore";
+import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
 
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {
+    const dispatch = useAppDispatch();
+
     const [ActivePack, setActivePack] = useState<ProjectInfoPackNames | string>(
       ProjectInfoPackNames.BASE
     );
@@ -30,20 +31,14 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
 
     const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-    const dispatch = useAppDispatch();
+    const [ExtraServices, setExtraServices] = useState<ProjectExtraService[]>(
+      []
+    );
 
     const openModal = useCallback((): void => {
-      const checkoutOrderState = UseLocalStorageForCheckoutOrder(
-        UseLocalStorageTypes.GET
-      );
+      setExtraServices([]);
 
-      if (checkoutOrderState) {
-        dispatch(
-          checkoutOrderSliceActions.setCheckoutOrderState(
-            checkoutOrderState as CheckoutOrderSchema
-          )
-        );
-      }
+      dispatch(checkoutOrderSliceActions.changeFinalPrice(0));
 
       setModalIsOpen(true);
     }, [dispatch]);
@@ -151,6 +146,8 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
                   packName: ActivePack as ProjectInfoPackNames,
                   ...ActivePackContent,
                 }}
+                ExtraServices={ExtraServices}
+                setExtraServices={setExtraServices}
               />
             </Modal>
           )}

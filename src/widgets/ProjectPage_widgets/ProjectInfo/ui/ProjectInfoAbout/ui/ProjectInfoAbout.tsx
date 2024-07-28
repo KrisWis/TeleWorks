@@ -2,7 +2,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import styles from "./ProjectInfoAbout.module.scss";
 import { memo, useRef, useState } from "react";
 import { Navigation } from "swiper/modules";
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import "./ProjectInfoAbout_swiper.scss";
 import { redirectToAbsolutePath, ShowFullImage } from "@/shared";
 import {

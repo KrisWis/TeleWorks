@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { ChannelsExamples_item_props } from "@/widgets/InternalPage_widgets/ChannelsExamples/ui/ChannelsExamples_item/model/ChannelsExamples_item_types";
 
 export const ChannelsExamples_items: ChannelsExamples_item_props[] = [

@@ -2,7 +2,7 @@ import { ServicesViewTypes } from "@/widgets/SpecialistServicesPage_widgets/Spec
 import { SpecialistServicesItemProps } from "../model/SpecialistServicesItem_types";
 import styles from "./SpecialistServicesItem.module.scss";
 import { memo, useState } from "react";
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "./SpecialistServicesItem_swiper.scss";

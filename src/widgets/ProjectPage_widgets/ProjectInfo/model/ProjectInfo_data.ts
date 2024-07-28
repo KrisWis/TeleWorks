@@ -16,6 +16,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Выполнение проекта за 1 день",
         price: 3000,
         scalability: false,
+        selected: false,
       },
 
       {
@@ -23,6 +24,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Добавьте дополнительную версию, которую продавец предоставит после выполнения.",
         price: 3000,
         scalability: true,
+        selected: false,
       },
 
       {
@@ -30,6 +32,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Получите файл в формате PSD для далнейший редакции",
         price: 3000,
         scalability: false,
+        selected: false,
       },
     ],
   },
@@ -49,6 +52,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Выполнение проекта за 3 дня",
         price: 5000,
         scalability: false,
+        selected: false,
       },
 
       {
@@ -56,6 +60,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Добавьте дополнительную версию, которую продавец предоставит после выполнения.",
         price: 4000,
         scalability: true,
+        selected: false,
       },
 
       {
@@ -63,6 +68,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Получите файл в формате PSD для далнейший редакции",
         price: 4000,
         scalability: false,
+        selected: false,
       },
     ],
   },
@@ -87,6 +93,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Выполнение проекта за 5 дней",
         price: 10000,
         scalability: false,
+        selected: false,
       },
 
       {
@@ -94,6 +101,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Добавьте дополнительную версию, которую продавец предоставит после выполнения.",
         price: 7000,
         scalability: true,
+        selected: false,
       },
 
       {
@@ -101,6 +109,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
         desc: "Получите файл в формате PSD для далнейший редакции",
         price: 8000,
         scalability: false,
+        selected: false,
       },
     ],
   },

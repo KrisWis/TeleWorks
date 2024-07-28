@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./WeAreTrusted.module.scss";
 import { weAreTrusted__items } from "../model/WeAreTrusted__data";
 import { memo } from "react";

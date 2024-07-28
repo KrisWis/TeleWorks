@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/ui/layouts/model/BaseLayout__data";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { weAreTrusted__item } from "./WeAreTrusted__types";
 
 export const weAreTrusted__items: weAreTrusted__item[] = [
