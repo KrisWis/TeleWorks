@@ -2,10 +2,7 @@ import { StoreSchema, useAppDispatch } from "@/app/AppStore";
 import { ActiveServices } from "../../ProjectInfo_pack/ui/ActiveServices/ui/ActiveServices";
 import { Deadline } from "../../ProjectInfo_pack/ui/Deadline/ui/Deadline";
 import { Editions } from "../../ProjectInfo_pack/ui/Editions/ui/Editions";
-import {
-  CheckoutOrderProps,
-  CheckoutOrderSchema,
-} from "../model/CheckoutOrder_types";
+import { CheckoutOrderProps } from "../model/CheckoutOrder_types";
 import styles from "./CheckoutOrder.module.scss";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
@@ -15,10 +12,12 @@ import {
   getFinalPrice,
   geteditionsAmounts,
 } from "../model/CheckoutOrderSlice/CheckoutOrderSlice_selectors";
-import { ProjectExtraService } from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
+import {
+  ProjectExtraService,
+  ProjectInfoPackNames,
+} from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
 import { CheckoutOrderAmountCounter } from "./CheckoutOrderAmountCounter/ui/CheckoutOrderAmountCounter";
-import { UseLocalStorageForCheckoutOrder } from "../model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrder/UseLocalStorageForCheckoutOrder";
-import { Button, ButtonTypes, UseLocalStorageTypes } from "@/shared";
+import { Button, ButtonTypes } from "@/shared";
 
 export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
   ({ pack, ExtraServices, setExtraServices }): React.JSX.Element => {
@@ -33,8 +32,6 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
     const finalPrice = useSelector((state: StoreSchema) =>
       getFinalPrice(state)
     );
-
-    console.log(finalPrice);
 
     const GetExtraServiceAmounts = (extraServiceTitle: string): number => {
       return useSelector((state: StoreSchema) =>
@@ -59,7 +56,10 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
 
     const ToggleExtraService = useCallback(
       (extraService: ProjectExtraService): void => {
-        const ExtraServicesModified = Object.assign([], ExtraServices);
+        const ExtraServicesModified: ProjectExtraService[] = Object.assign(
+          [],
+          ExtraServices
+        );
 
         if (ExtraServiceInState(extraService)) {
           const newExtraServices = ExtraServices.filter(
@@ -67,18 +67,12 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
           );
 
           setExtraServices(newExtraServices);
+
           dispatch(
             checkoutOrderSliceActions.changeExtraServiceSelected({
               packType: pack.packName,
               extraService: extraService,
               changeTo: false,
-            })
-          );
-
-          dispatch(
-            checkoutOrderSliceActions.changeExtraServices({
-              packType: pack.packName,
-              extraServices: newExtraServices,
             })
           );
         } else {
@@ -93,13 +87,6 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
               changeTo: true,
             })
           );
-
-          dispatch(
-            checkoutOrderSliceActions.changeExtraServices({
-              packType: pack.packName,
-              extraServices: ExtraServicesModified,
-            })
-          );
         }
       },
       [
@@ -111,39 +98,54 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
       ]
     );
 
-    useEffect(() => {
-      dispatch(
-        checkoutOrderSliceActions.setPackPrice({
-          packType: pack.packName,
-          price: pack.price,
-        })
+    const changeExtraServiceAmount = (
+      amount: number,
+      packName: ProjectInfoPackNames,
+      extraService: ProjectExtraService
+    ): void => {
+      const ExtraServicesModified: ProjectExtraService[] = Object.assign(
+        [],
+        ExtraServices
       );
 
+      const ExtraServiceModified: ProjectExtraService = Object.assign(
+        [],
+        ExtraServicesModified[
+          ExtraServicesModified.findIndex(
+            (el) => el.title === extraService.title
+          )
+        ]
+      );
+
+      if (!ExtraServiceModified.amount) {
+        ExtraServiceModified.amount = 0;
+      }
+
+      ExtraServiceModified.amount += amount;
+
+      ExtraServicesModified[
+        ExtraServicesModified.findIndex((el) => el.title === extraService.title)
+      ] = ExtraServiceModified;
+
+      setExtraServices(ExtraServicesModified);
+
+      dispatch(
+        checkoutOrderSliceActions.changeExtraServiceAmounts({
+          packType: packName,
+          extraServiceTitle: extraService.title,
+          extraServiceAmount: amount,
+        })
+      );
+    };
+
+    useEffect(() => {
       dispatch(
         checkoutOrderSliceActions.changeExtraServices({
           packType: pack.packName,
           extraServices: pack.extraServices!,
         })
       );
-
-      const checkoutOrderState = UseLocalStorageForCheckoutOrder(
-        UseLocalStorageTypes.GET
-      );
-
-      if (checkoutOrderState) {
-        dispatch(
-          checkoutOrderSliceActions.setCheckoutOrderState(
-            checkoutOrderState as CheckoutOrderSchema
-          )
-        );
-      }
-    }, [
-      ExtraServices,
-      dispatch,
-      pack.extraServices,
-      pack.packName,
-      pack.price,
-    ]);
+    }, [dispatch, pack.extraServices, pack.packName]);
 
     return (
       <div className={styles.checkoutOrder}>
@@ -233,22 +235,14 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
                       isDisabled={!ExtraServiceInState(extraService)}
                       amount={GetExtraServiceAmounts(extraService.title)}
                       dicreaseAmount={() =>
-                        dispatch(
-                          checkoutOrderSliceActions.changeExtraServiceAmounts({
-                            packType: pack.packName,
-                            extraServiceTitle: extraService.title,
-                            extraServiceAmount: -1,
-                          })
+                        changeExtraServiceAmount(
+                          -1,
+                          pack.packName,
+                          extraService
                         )
                       }
                       increaseAmount={() =>
-                        dispatch(
-                          checkoutOrderSliceActions.changeExtraServiceAmounts({
-                            packType: pack.packName,
-                            extraServiceTitle: extraService.title,
-                            extraServiceAmount: 1,
-                          })
-                        )
+                        changeExtraServiceAmount(1, pack.packName, extraService)
                       }
                     />
                   )}
@@ -271,7 +265,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
           <span className={styles.checkoutOrder__descSpan}>
             {pack.packName} пакет{" "}
             {ExtraServices.map((extraService) => (
-              <span key={extraService.title}> + {extraService.title}</span>
+              <span key={extraService.title}> + {extraService.title} </span>
             ))}
           </span>
 

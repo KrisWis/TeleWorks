@@ -1,4 +1,4 @@
-import { Button, ButtonTypes, Modal, UseLocalStorageTypes } from "@/shared";
+import { Button, ButtonTypes, Modal } from "@/shared";
 import {
   ProjectInfoPackProps,
   ProjectInfoPackNames,
@@ -6,15 +6,11 @@ import {
   ProjectExtraService,
 } from "../model/ProjectInfo_pack_types";
 import styles from "./ProjectInfo_pack.module.scss";
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";
 import { Deadline } from "./Deadline/ui/Deadline";
 import { Editions } from "./Editions/ui/Editions";
 import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
-import {
-  UseLocalStorageForCheckoutOrderModal,
-  UseLocalStorageForCheckoutOrderModalReturn,
-} from "../../CheckoutOrder/model/CheckoutOrderSlice/hooks/UseLocalStorageForCheckoutOrderModal/UseLocalStorageForCheckoutOrderModal";
 import { useAppDispatch } from "@/app/AppStore";
 import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
 
@@ -40,26 +36,29 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
 
       dispatch(checkoutOrderSliceActions.changeFinalPrice(0));
 
+      dispatch(
+        checkoutOrderSliceActions.clearEditionsAmounts({
+          packType: ActivePack as ProjectInfoPackNames,
+          amounts: 1,
+        })
+      );
+
+      dispatch(
+        checkoutOrderSliceActions.changeExtraServices({
+          packType: ActivePack as ProjectInfoPackNames,
+          extraServices: [],
+        })
+      );
+
+      dispatch(
+        checkoutOrderSliceActions.setPackPrice({
+          packType: ActivePack as ProjectInfoPackNames,
+          price: packs[ActivePack as ProjectInfoPackNames].price,
+        })
+      );
+
       setModalIsOpen(true);
-    }, [dispatch]);
-
-    useEffect(() => {
-      const ModalLSItem = UseLocalStorageForCheckoutOrderModal(
-        UseLocalStorageTypes.GET
-      ) as UseLocalStorageForCheckoutOrderModalReturn;
-
-      if (ModalLSItem.value) {
-        openModal();
-        setActivePack(ModalLSItem.activePack);
-      }
-    }, [openModal]);
-
-    useEffect(() => {
-      UseLocalStorageForCheckoutOrderModal(UseLocalStorageTypes.UPDATE, {
-        activePack: ActivePack,
-        value: ModalIsOpen,
-      });
-    }, [ModalIsOpen, ActivePack]);
+    }, [ActivePack, dispatch, packs]);
 
     return (
       <div className={styles.projectInfo_pack}>

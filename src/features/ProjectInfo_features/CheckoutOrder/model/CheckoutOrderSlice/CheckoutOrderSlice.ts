@@ -9,8 +9,6 @@ import {
   CheckoutOrderExtraServiceAction,
   CheckoutOrderFinalPriceAction,
 } from "./CheckoutOrderSlice_types";
-import { UseLocalStorageTypes } from "@/shared";
-import { UseLocalStorageForCheckoutOrder } from "./hooks/UseLocalStorageForCheckoutOrder/UseLocalStorageForCheckoutOrder";
 
 const editionsAmountsMultiplier: number = 1.5;
 
@@ -84,8 +82,14 @@ export const checkoutOrderSlice = createSlice({
         state.finalPrice /= editionsAmountsMultiplier;
       }
       state.finalPrice = Math.round(state.finalPrice);
+    },
 
-      UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
+    clearEditionsAmounts: (
+      state: CheckoutOrderSchema,
+      action: CheckoutOrdereditionsAmountsAction
+    ) => {
+      state.packs[action.payload.packType].editionsAmounts =
+        action.payload.amounts;
     },
 
     changeExtraServiceAmounts: (
@@ -112,8 +116,6 @@ export const checkoutOrderSlice = createSlice({
       ].amount! += action.payload.extraServiceAmount;
 
       state.finalPrice += extraServicePrice * action.payload.extraServiceAmount;
-
-      UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },
 
     changeExtraServices: (
@@ -133,21 +135,24 @@ export const checkoutOrderSlice = createSlice({
       state: CheckoutOrderSchema,
       action: CheckoutOrderExtraServiceAction
     ) => {
-      try {
+      state.packs[action.payload.packType].extraServices[
+        action.payload.extraService.title
+      ].selected = action.payload.changeTo;
+
+      let ExtraServiceAmount =
         state.packs[action.payload.packType].extraServices[
           action.payload.extraService.title
-        ].selected = action.payload.changeTo;
-      } catch {
-        () => {};
-      }
+        ].amount;
+
+      if (!ExtraServiceAmount) ExtraServiceAmount = 1;
 
       if (action.payload.changeTo) {
-        state.finalPrice += action.payload.extraService.price;
+        state.finalPrice +=
+          action.payload.extraService.price * ExtraServiceAmount;
       } else {
-        state.finalPrice -= action.payload.extraService.price;
+        state.finalPrice -=
+          action.payload.extraService.price * ExtraServiceAmount;
       }
-
-      UseLocalStorageForCheckoutOrder(UseLocalStorageTypes.UPDATE, state);
     },
   },
 });
