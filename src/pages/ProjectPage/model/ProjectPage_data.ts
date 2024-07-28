@@ -1,4 +1,7 @@
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard/model/AuthorCard_types";
 import { ProjectInfoPacks } from "@/features";
+import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";
 
 export const ProjectInfo_packs: ProjectInfoPacks = {
   Базовый: {
@@ -113,4 +116,25 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
       },
     ],
   },
+};
+
+export const ProjectInfoAuthor: AuthorCardProps = {
+  imgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+  authorName: "Роман Б.",
+  teleWorksChoice: true,
+  online: true,
+  reputation: 5.0,
+  ordersAmount: 256,
+  positiveReviews: 200,
+  negativeReviews: 1,
+  orderInQueue: 1,
+};
+
+export const ProjectInfoData: ProjectInfoProps = {
+  projectTitle: "Инфографика для маркетплейсов.",
+  favouriteAmount: 545,
+  breadcrumbs: ["Дизайн", "Инфографика"],
+  author: ProjectInfoAuthor,
+  ProjectInfo_packs: ProjectInfo_packs,
+  ProjectTags: ["Инфографика", "Карточка товара", "Willdberries"],
 };

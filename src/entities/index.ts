@@ -8,3 +8,7 @@ export * from "./CatalogPage_entities/CatalogItem/ui/CatalogItem";
 
 /* СТРАНИЦА "УСЛУГИ СПЕЦИАЛИСТОВ" */
 export * from "./SpecialistServices_entities/SpecialistServicesItem/ui/SpecialistServicesItem";
+
+/* СТРАНИЦА ПРОЕКТА */
+export * from "./ProjectPage_entities/ProjectInfo_entities/AuthorCard/ui/AuthorCard";
+export * from "./ProjectPage_entities/ProjectInfo_entities/ProjectTag/ui/ProjectTag";

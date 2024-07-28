@@ -9,39 +9,49 @@ import {
 } from "@/pages";
 import { RouteProps } from "react-router-dom";
 
+enum Routes {
+  MAIN = "/",
+  PROFILE = "profile",
+  MYPROJECTS = "myProjects",
+  CATALOG = "catalog",
+  INTERNAL = "internal",
+  SERVICES = "services",
+  PROJECT = "project",
+}
+
 export const routes: RouteProps[] = [
   {
-    path: "/",
+    path: Routes.MAIN,
     element: <MainPage />,
   },
 
   {
-    path: "profile",
+    path: Routes.PROFILE,
     element: <ProfilePage />,
   },
 
   {
-    path: "myProjects",
+    path: Routes.MYPROJECTS,
     element: <MyProjectsPage />,
   },
 
   {
-    path: "catalog",
+    path: Routes.CATALOG,
     element: <CatalogPage />,
   },
 
   {
-    path: "internal",
+    path: Routes.INTERNAL,
     element: <InternalPage />,
   },
 
   {
-    path: "services",
+    path: Routes.SERVICES,
     element: <SpecialistServicesPage />,
   },
 
   {
-    path: "project",
+    path: Routes.PROJECT,
     element: <ProjectPage />,
   },
 ];
