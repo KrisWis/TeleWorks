@@ -4,9 +4,9 @@ import { ProjectReviewsProps } from "../model/ProjectReviews_types";
 import { reviews_selectOptions } from "../model/ProjectReviews_data";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { ReviewsItem } from "@/entities/Global_entities";
 import { ReviewsPanel } from "@/widgets/Global_widgets/ReviewsPanel";
 import { ReviewsSelect } from "@/shared/ui-kit/ReviewsSelect";
+import { ReviewsItem } from "@/entities/Global_entities/Reviews__item";
 
 export const ProjectReviews: React.FC<ProjectReviewsProps> = memo(
   ({ channelReviewsProps, reviewsItems }): React.JSX.Element => {

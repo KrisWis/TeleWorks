@@ -5,7 +5,8 @@ import {
   servicesFilters,
 } from "../model/SpecialistServices_data";
 import { SpecialistServicesResults } from "../SpecialistServicesResults/ui/SpecialistServicesResults";
-import { Categories, Filter } from "@/features/Global_features";
+import { Categories } from "@/features/Global_features/Categories";
+import { Filter } from "@/features/Global_features/Filter";
 
 export const SpecialistServices: React.FC = memo((): React.JSX.Element => {
   return (

@@ -8,10 +8,17 @@ import { dropDownItems } from "../model/Header_data";
 import { dropDownItem } from "../model/Header_types";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { Modal } from "@/shared/ui-kit/Modal";
+import { PopupTemplate } from "@/shared/ui-kit/PopupTemplate";
+import { AuthPopup } from "@/features/Header_features/AuthPopup";
 
 export const Header: React.FC = (): React.JSX.Element => {
   const [headerSwitcherChoice, setHeaderSwitcherChoice] =
     useState<string>("Исполнитель");
+
+  const [LoginIsOpen, setLoginIsOpen] = useState<boolean>(false);
+
+  const [LoginModalAppear, setLoginModalAppear] = useState<boolean>(false);
 
   return (
     <header className={styles.header}>
@@ -126,16 +133,31 @@ export const Header: React.FC = (): React.JSX.Element => {
         <Button
           type={ButtonTypes.RED}
           className={styles.header__item__login}
-          to="/"
           text="Войти"
+          onClick={() => setLoginIsOpen(true)}
         />
 
         <Button
-          to="/"
           className={styles.header__item__reg}
           text="Регистрация"
           type={ButtonTypes.GRAY}
         />
+
+        {LoginIsOpen && (
+          <Modal
+            setModalIsOpen={setLoginIsOpen}
+            CustomSetModalAppear={setLoginModalAppear}
+            CustomModalAppear={LoginModalAppear}
+            className={styles.header__modal}
+          >
+            <PopupTemplate
+              CustomSetModalAppear={setLoginModalAppear}
+              setPopupOpen={setLoginIsOpen}
+            >
+              <AuthPopup />
+            </PopupTemplate>
+          </Modal>
+        )}
       </div>
     </header>
   );

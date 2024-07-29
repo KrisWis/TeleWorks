@@ -6,6 +6,9 @@ import { PortalElement } from "@/shared/utils/PortalElement";
 export const Modal: React.FC<ModalProps> = ({
   children,
   setModalIsOpen,
+  className,
+  CustomModalAppear,
+  CustomSetModalAppear,
 }): React.JSX.Element => {
   const [ModalAppear, setModalAppear] = useState<boolean>(false);
 
@@ -13,21 +16,34 @@ export const Modal: React.FC<ModalProps> = ({
 
   useEffect(() => {
     setTimeout(() => {
-      setModalAppear(true);
+      if (!CustomSetModalAppear) {
+        setModalAppear(true);
+      } else {
+        CustomSetModalAppear(true);
+      }
     }, 0);
 
     return () => {
-      setModalAppear(false);
+      if (!CustomSetModalAppear) {
+        setModalAppear(false);
+      } else {
+        CustomSetModalAppear(false);
+      }
     };
-  }, []);
+  }, [CustomSetModalAppear]);
 
   const modalOnClose: MouseEventHandler<HTMLDivElement> = (e) => {
     if (e.target == ParentRef.current) {
-      setModalAppear(false);
+      if (!CustomSetModalAppear) {
+        setModalAppear(false);
+      } else {
+        CustomSetModalAppear(false);
+      }
 
-      setTimeout(() => {
-        setModalIsOpen(false);
-      }, 500);
+      if (setModalIsOpen)
+        setTimeout(() => {
+          setModalIsOpen(false);
+        }, 500);
     }
   };
 
@@ -36,7 +52,7 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         ref={ParentRef}
         onClick={modalOnClose}
-        className={`${styles.modal} ${ModalAppear ? styles.modal__appear : styles.modal__disappear}`}
+        className={`${styles.modal} ${CustomModalAppear ? styles.modal__appear : ModalAppear ? styles.modal__appear : styles.modal__disappear} ${className}`}
       >
         {children}
       </div>

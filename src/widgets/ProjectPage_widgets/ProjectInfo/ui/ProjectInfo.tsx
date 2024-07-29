@@ -3,9 +3,10 @@ import styles from "./ProjectInfo.module.scss";
 import { memo, useState } from "react";
 import { ProjectInfoAbout } from "./ProjectInfoAbout/ui/ProjectInfoAbout";
 import { ProjectInfoProps } from "../model/ProjectInfo_types";
-import { AuthorCard, ProjectTag } from "@/entities/ProjectPage_entities";
-import { ProjectInfo_pack } from "@/features/ProjectInfo_features";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
+import { ProjectInfo_pack } from "@/features/ProjectInfo_features/ProjectInfo_pack";
+import { AuthorCard } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard";
+import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectInfo_entities/ProjectTag";
 
 export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
   ({

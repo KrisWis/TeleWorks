@@ -1,4 +1,4 @@
-import { Stats__item } from "@/entities/ProfilePage_entities";
+import { Stats__item } from "@/entities/ProfilePage_entities/Stats__item";
 import { Stats__items } from "../model/Stats";
 import styles from "./Stats.module.scss";
 import { memo } from "react";

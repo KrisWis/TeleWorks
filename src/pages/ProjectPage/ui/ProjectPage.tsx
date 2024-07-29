@@ -8,12 +8,12 @@ import {
   ProjectReviews_items,
   SimilarProjectsItems,
 } from "../model/ProjectPage_data";
-import { ProjectItem } from "@/entities/Global_entities";
 import { Header } from "@/widgets/Global_widgets/Header";
 import { ItemsSlider } from "@/widgets/Global_widgets/ItemsSlider";
 import { ProjectInfo } from "@/widgets/ProjectPage_widgets/ProjectInfo";
 import { ProjectReviews } from "@/widgets/ProjectPage_widgets/ProjectReviews";
 import { Footer } from "@/widgets/Global_widgets/Footer";
+import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
 
 export const ProjectPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

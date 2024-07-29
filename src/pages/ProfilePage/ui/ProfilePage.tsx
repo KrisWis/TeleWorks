@@ -6,16 +6,14 @@ import {
   Reviews_items,
   Similar_channels__items,
 } from "../model/ProfilePage_data";
-import {
-  Profile,
-  Similar_channels__item,
-} from "@/entities/ProfilePage_entities";
 import { ItemsSlider } from "@/widgets/Global_widgets/ItemsSlider";
 import { ReviewsPanel } from "@/widgets/Global_widgets/ReviewsPanel";
 import { Buy_ads } from "@/widgets/ProfilePage_widgets/Buy_ads";
 import { Channel_stats } from "@/widgets/ProfilePage_widgets/Channel_stats";
 import { Reviews } from "@/widgets/ProfilePage_widgets/Reviews";
 import { Stats } from "@/widgets/ProfilePage_widgets/Stats";
+import { Profile } from "@/entities/ProfilePage_entities/Profile";
+import { Similar_channels__item } from "@/entities/ProfilePage_entities/Similar_channels__item";
 
 export const ProfilePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

@@ -11,8 +11,8 @@ import {
 } from "../model/Catalog__data";
 import { CatalogItemProps } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
 import { Button } from "@/shared/ui-kit/Button";
-import { CatalogItem } from "@/entities/CatalogPage_entities";
-import { Filter } from "@/features/Global_features";
+import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
+import { Filter } from "@/features/Global_features/Filter";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (

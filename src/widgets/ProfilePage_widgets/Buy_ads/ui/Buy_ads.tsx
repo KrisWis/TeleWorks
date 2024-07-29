@@ -1,9 +1,7 @@
-import {
-  Buy_ads_calendar,
-  Buy_ads_form,
-} from "@/features/ProfilePage_features";
+import { Buy_ads_form } from "@/features/ProfilePage_features/Buy_ads_form";
 import styles from "./Buy_ads.module.scss";
 import { memo } from "react";
+import { Buy_ads_calendar } from "@/features/ProfilePage_features/Buy_ads_calendar";
 
 export const Buy_ads: React.FC = memo((): React.JSX.Element => {
   return (
