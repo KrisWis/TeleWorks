@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CheckoutOrderSchema } from "@/features";
 import {
   CheckoutOrderExtraServicesAction,
   CheckoutOrderExtraServiceAmountAction,
@@ -9,6 +8,7 @@ import {
   CheckoutOrderExtraServiceAction,
   CheckoutOrderFinalPriceAction,
 } from "./CheckoutOrderSlice_types";
+import { CheckoutOrderSchema } from "../CheckoutOrder_types";
 
 const editionsAmountsMultiplier: number = 1.5;
 
@@ -44,7 +44,6 @@ export const checkoutOrderSlice = createSlice({
       action: CheckoutOrderStateAction
     ) => {
       for (const key in action.payload) {
-        // @ts-expect-error ts сбрасывает типы ключа
         state[key as keyof CheckoutOrderSchema] =
           action.payload[key as keyof CheckoutOrderSchema];
       }

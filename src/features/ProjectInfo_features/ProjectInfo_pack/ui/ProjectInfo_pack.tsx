@@ -10,10 +10,10 @@ import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";
 import { Deadline } from "./Deadline/ui/Deadline";
 import { Editions } from "./Editions/ui/Editions";
 import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
-import { useAppDispatch } from "@/app/AppStore";
 import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { Modal } from "@/shared/ui-kit/Modal";
+import { useAppDispatch } from "@/app/store/AppStore";
 
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {

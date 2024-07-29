@@ -1,4 +1,4 @@
-import { RootState } from "@/app/AppStore";
+import { RootState } from "@/app/store/AppStore";
 import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
 
 export const geteditionsAmounts = (
