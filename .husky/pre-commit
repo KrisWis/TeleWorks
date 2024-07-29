@@ -1,4 +1,4 @@
-# npm run test:ui:husky
-# npm run test:unit
-# npm run stylelint:check
-# npm run eslint:check
+npm run test:ui:husky
+npm run test:unit
+npm run stylelint:check
+npm run eslint:check
