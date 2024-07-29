@@ -5,12 +5,12 @@ import { CheckoutOrderProps } from "../model/CheckoutOrder_types";
 import styles from "./CheckoutOrder.module.scss";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import { checkoutOrderSliceActions } from "../model/CheckoutOrderSlice/CheckoutOrderSlice";
+import { checkoutOrderSliceActions } from "../model/slice/CheckoutOrderSlice";
 import {
   getExtraServiceAmount,
   getFinalPrice,
   geteditionsAmounts,
-} from "../model/CheckoutOrderSlice/CheckoutOrderSlice_selectors";
+} from "../model/selectors/CheckoutOrderSlice_selectors";
 import {
   ProjectExtraService,
   ProjectInfoPackNames,

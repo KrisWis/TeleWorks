@@ -10,7 +10,7 @@ import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";
 import { Deadline } from "./Deadline/ui/Deadline";
 import { Editions } from "./Editions/ui/Editions";
 import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
-import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
+import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/slice/CheckoutOrderSlice";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { Modal } from "@/shared/ui-kit/Modal";
 import { useAppDispatch } from "@/app/store/AppStore";

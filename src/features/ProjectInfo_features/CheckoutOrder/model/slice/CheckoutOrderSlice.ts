@@ -7,10 +7,10 @@ import {
   CheckoutOrderStateAction,
   CheckoutOrderExtraServiceAction,
   CheckoutOrderFinalPriceAction,
-} from "./CheckoutOrderSlice_types";
+} from "../types/CheckoutOrderSlice_types";
 import { CheckoutOrderSchema } from "../CheckoutOrder_types";
 
-const editionsAmountsMultiplier: number = 1.5;
+export const editionsAmountsMultiplier: number = 1.5;
 
 const initialState: CheckoutOrderSchema = {
   packs: {
