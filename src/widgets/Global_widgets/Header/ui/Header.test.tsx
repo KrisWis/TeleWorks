@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Header } from "./Header";
-import { renderWithRouter } from "@/shared";
+import { renderWithRouter } from "@/shared/utils/renderWithRouter";
 
 describe("Header", () => {
   test("render test", () => {
