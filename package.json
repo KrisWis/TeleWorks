@@ -19,7 +19,6 @@
     "test:ui": "npx loki test & npm run test:ui:report",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "storybook build && npx loki --requireReference --reactUri file:./storybook-static && npm run test:ui:report",
-    "test:ui:husky": "npx loki test",
     "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html",
     "test:ui:report:json": "node scripts/generate-visual-json-report.cjs",
     "test:ui:report:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
