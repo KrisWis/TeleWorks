@@ -1,7 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./MyProjectsPage__withoutProjects.module.scss";
-import { Button, ButtonTypes } from "@/shared";
 import { memo } from "react";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const MyProjectsPage__withoutProjects: React.FC = memo(
   (): React.JSX.Element => {

@@ -1,4 +1,4 @@
-import { Button, ButtonTypes } from "@/shared";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import styles from "./OpenAdvantages.module.scss";
 import { memo } from "react";
 

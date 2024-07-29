@@ -2,7 +2,7 @@ import styles from "./ReviewsSelect.module.scss";
 import { memo } from "react";
 import { ReviewsSelectProps } from "../model/ReviewsSelect_types";
 import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
-import { Select, selectStyles } from "@/shared";
+import { Select, selectStyles } from "../../Select";
 
 const DropdownIndicator = (): JSX.Element => {
   return (

@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = memo(
 
     const ButtonOnClick = (): void => {
       canSelected
-        ? () => setButtonIsSelected((prev) => !prev)
+        ? setButtonIsSelected(() => !ButtonIsSelected)
         : () => {
             return;
           };
@@ -34,7 +34,7 @@ export const Button: React.FC<ButtonProps> = memo(
               target="_blank"
               href={to}
               onClick={ButtonOnClick}
-              className={`${styles.Button} ${styles.Button_a} ${styles[type]} ${className} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
+              className={`${styles.Button} ${styles.Button_a} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
             >
               {text}
             </a>
@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = memo(
             <Link
               onClick={ButtonOnClick}
               to={to}
-              className={`${styles.Button} ${styles[type]} ${className} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
+              className={`${styles.Button} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
             >
               {text}
             </Link>
@@ -50,7 +50,7 @@ export const Button: React.FC<ButtonProps> = memo(
         ) : (
           <button
             onClick={ButtonOnClick}
-            className={`${styles.Button} ${styles[type]} ${className} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""}`}
+            className={`${styles.Button} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
           >
             {text}
           </button>

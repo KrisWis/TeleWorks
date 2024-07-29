@@ -1,11 +1,11 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./ProjectInfo.module.scss";
 import { memo, useState } from "react";
-import { CustomItemBadge } from "@/shared";
 import { ProjectInfoAbout } from "./ProjectInfoAbout/ui/ProjectInfoAbout";
-import { ProjectInfo_pack } from "@/features";
-import { AuthorCard, ProjectTag } from "@/entities";
 import { ProjectInfoProps } from "../model/ProjectInfo_types";
+import { AuthorCard, ProjectTag } from "@/entities/ProjectPage_entities";
+import { ProjectInfo_pack } from "@/features/ProjectInfo_features";
+import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 
 export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
   ({
@@ -133,8 +133,12 @@ export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
           </div>
 
           <div className={styles.projectInfo__TeleWorksInfo}>
-            {author.CustomItemBadge && (
-              <CustomItemBadge className={styles.projectInfo__TeleWorks} />
+            {author.TeleWorksChoice && (
+              <CustomItemBadge
+                firstTitle="Выбор"
+                secondTitle="TeleWorks"
+                className={styles.projectInfo__TeleWorks}
+              />
             )}
 
             {author.orderInQueue > 0 && (

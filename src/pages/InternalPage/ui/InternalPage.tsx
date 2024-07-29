@@ -1,17 +1,15 @@
 import { memo, useEffect } from "react";
 import "./InternalPage.scss";
 import "@/shared/main.scss";
-import {
-  ChannelsExamples,
-  EarnInSteps,
-  FAQ,
-  Footer,
-  Header,
-  MainSection,
-  MarketPlace,
-  OpenAdvantages,
-  ReceiveNotifications,
-} from "@/widgets";
+import { Header } from "@/widgets/Global_widgets/Header";
+import { ReceiveNotifications } from "@/widgets/Global_widgets/ReceiveNotifications";
+import { ChannelsExamples } from "@/widgets/InternalPage_widgets/ChannelsExamples";
+import { EarnInSteps } from "@/widgets/InternalPage_widgets/EarnInSteps";
+import { FAQ } from "@/widgets/InternalPage_widgets/FAQ";
+import { MainSection } from "@/widgets/InternalPage_widgets/MainSection";
+import { MarketPlace } from "@/widgets/InternalPage_widgets/MarketPlace";
+import { OpenAdvantages } from "@/widgets/InternalPage_widgets/OpenAdvantages";
+import { Footer } from "@/widgets/Global_widgets/Footer";
 
 export const InternalPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

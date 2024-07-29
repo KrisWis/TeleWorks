@@ -4,8 +4,8 @@ import {
   buy_ads_form_format_selectOptions,
 } from "../model/Buy_ads_form_select__data";
 import { memo } from "react";
-import { Select, selectStyles } from "@/shared";
 import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import { Select, selectStyles } from "@/shared/ui-kit/Select";
 
 // eslint-disable-next-line react-refresh/only-export-components
 const DropdownIndicator = (): JSX.Element => {

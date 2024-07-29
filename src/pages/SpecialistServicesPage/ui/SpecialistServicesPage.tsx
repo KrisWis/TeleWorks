@@ -1,6 +1,8 @@
 import "./SpecialistServicesPage.scss";
 import "@/shared/main.scss";
-import { Footer, Header, SpecialistServices } from "@/widgets";
+import { Header } from "@/widgets/Global_widgets/Header";
+import { SpecialistServices } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
+import { Footer } from "@/widgets/Global_widgets/Footer";
 import { memo, useEffect } from "react";
 
 export const SpecialistServicesPage: React.FC = memo((): React.JSX.Element => {

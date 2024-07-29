@@ -1,7 +1,10 @@
 import { memo, useEffect } from "react";
 import "./MyProjectsPage.scss";
-import { Footer, Header, MyProjects, ReceiveNotifications } from "@/widgets";
 import "@/shared/main.scss";
+import { Header } from "@/widgets/Global_widgets/Header";
+import { ReceiveNotifications } from "@/widgets/Global_widgets/ReceiveNotifications";
+import { MyProjects } from "@/widgets/MyProjects_widgets/MyProjects";
+import { Footer } from "@/widgets/Global_widgets/Footer";
 
 export const MyProjectsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

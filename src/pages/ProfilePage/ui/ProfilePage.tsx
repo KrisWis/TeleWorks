@@ -1,20 +1,21 @@
-import {
-  Buy_ads,
-  ReviewsPanel,
-  Channel_stats,
-  Reviews,
-  ItemsSlider,
-  Stats,
-} from "@/widgets";
 import "./ProfilePage.scss";
 import "@/shared/main.scss";
 import { memo, useEffect } from "react";
-import { Profile, Similar_channels__item } from "@/entities";
 import {
   channelReviews,
   Reviews_items,
   Similar_channels__items,
 } from "../model/ProfilePage_data";
+import {
+  Profile,
+  Similar_channels__item,
+} from "@/entities/ProfilePage_entities";
+import { ItemsSlider } from "@/widgets/Global_widgets/ItemsSlider";
+import { ReviewsPanel } from "@/widgets/Global_widgets/ReviewsPanel";
+import { Buy_ads } from "@/widgets/ProfilePage_widgets/Buy_ads";
+import { Channel_stats } from "@/widgets/ProfilePage_widgets/Channel_stats";
+import { Reviews } from "@/widgets/ProfilePage_widgets/Reviews";
+import { Stats } from "@/widgets/ProfilePage_widgets/Stats";
 
 export const ProfilePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

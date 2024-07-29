@@ -4,12 +4,13 @@ import { memo, useRef, useState } from "react";
 import { Navigation } from "swiper/modules";
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import "./ProjectInfoAbout_swiper.scss";
-import { redirectToAbsolutePath, ShowFullImage } from "@/shared";
 import {
   ProjectInfoAbout__imgsURL,
   ProjectInfoAbout__portfolioCases,
 } from "../model/ProjectInfoAbout_data";
 import { ProjectInfoAboutPortfolioCase } from "../model/ProjectInfoAbout_types";
+import { ShowFullImage } from "@/shared/ui-kit/ShowFullImage";
+import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 
 export const ProjectInfoAbout: React.FC = memo((): React.JSX.Element => {
   const [ActiveSlide, setActiveSlide] = useState<number>(0);

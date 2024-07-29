@@ -1,10 +1,11 @@
-import { Button, ButtonTypes } from "@/shared";
 import styles from "./MyProjects.module.scss";
 import "@/shared/main.scss";
 import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
 import { Link } from "react-router-dom";
 import { memo } from "react";
 import { MyProjectsPage__withoutProjects } from "./MyProjectsPage__withoutProjects/ui/MyProjectsPage__withoutProjects";
+import { Button } from "@/shared/ui-kit/Button/ui/Button";
+import { ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const MyProjects: React.FC = memo((): React.JSX.Element => {
   return (

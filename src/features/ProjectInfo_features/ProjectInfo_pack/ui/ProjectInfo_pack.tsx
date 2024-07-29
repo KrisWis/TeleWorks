@@ -1,4 +1,3 @@
-import { Button, ButtonTypes, Modal } from "@/shared";
 import {
   ProjectInfoPackProps,
   ProjectInfoPackNames,
@@ -13,6 +12,8 @@ import { Editions } from "./Editions/ui/Editions";
 import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
 import { useAppDispatch } from "@/app/AppStore";
 import { checkoutOrderSliceActions } from "../../CheckoutOrder/model/CheckoutOrderSlice/CheckoutOrderSlice";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { Modal } from "@/shared/ui-kit/Modal";
 
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {

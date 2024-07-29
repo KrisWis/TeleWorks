@@ -1,4 +1,7 @@
-import { Buy_ads_calendar, Buy_ads_form } from "@/features";
+import {
+  Buy_ads_calendar,
+  Buy_ads_form,
+} from "@/features/ProfilePage_features";
 import styles from "./Buy_ads.module.scss";
 import { memo } from "react";
 

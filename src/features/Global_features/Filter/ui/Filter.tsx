@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styles from "./Filter.module.scss";
 import { catalogFilter_themesOptions } from "../model/Filter_data";
-import { Button, ButtonTypes, Select, selectStyles } from "@/shared";
 import {
   Select_Option,
   SelectTextStyles,
@@ -9,6 +8,8 @@ import {
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { CatalogItemTags } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
 import { FilterProps } from "../model/Filter_types";
+import { Select, selectStyles } from "@/shared/ui-kit/Select";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 const DropdownIndicator = (): JSX.Element => {
   return (

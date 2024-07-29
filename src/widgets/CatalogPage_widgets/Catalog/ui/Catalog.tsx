@@ -1,4 +1,3 @@
-import { Button } from "@/shared";
 import styles from "./Catalog.module.scss";
 import "@/shared/main.scss";
 import {
@@ -11,8 +10,9 @@ import {
   catalog__items,
 } from "../model/Catalog__data";
 import { CatalogItemProps } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
-import { CatalogItem } from "@/entities";
-import { Filter } from "@/features";
+import { Button } from "@/shared/ui-kit/Button";
+import { CatalogItem } from "@/entities/CatalogPage_entities";
+import { Filter } from "@/features/Global_features";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (

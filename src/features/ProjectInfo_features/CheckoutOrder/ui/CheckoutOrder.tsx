@@ -17,7 +17,7 @@ import {
   ProjectInfoPackNames,
 } from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
 import { CheckoutOrderAmountCounter } from "./CheckoutOrderAmountCounter/ui/CheckoutOrderAmountCounter";
-import { Button, ButtonTypes } from "@/shared";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
   ({ pack, ExtraServices, setExtraServices }): React.JSX.Element => {

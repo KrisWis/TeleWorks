@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { MainPage } from "./MainPage";
-import { Header } from "@/widgets";
+import { Header } from "@/widgets/Global_widgets/Header";
 
 const MainPageWithHeader: React.FC = (): React.JSX.Element => {
   return (

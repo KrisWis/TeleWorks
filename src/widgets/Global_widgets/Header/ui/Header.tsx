@@ -3,10 +3,11 @@ import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
-import { Button, ButtonTypes, redirectToAbsolutePath } from "@/shared";
 import { useState } from "react";
 import { dropDownItems } from "../model/Header_data";
 import { dropDownItem } from "../model/Header_types";
+import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const Header: React.FC = (): React.JSX.Element => {
   const [headerSwitcherChoice, setHeaderSwitcherChoice] =

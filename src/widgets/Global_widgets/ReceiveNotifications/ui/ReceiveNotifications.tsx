@@ -1,8 +1,8 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./ReceiveNotifications.module.scss";
 import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
-import { Button, ButtonTypes } from "@/shared";
 import { memo } from "react";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const ReceiveNotifications: React.FC = memo((): React.JSX.Element => {
   return (

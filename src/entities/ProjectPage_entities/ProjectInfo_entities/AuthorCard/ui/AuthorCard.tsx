@@ -1,8 +1,9 @@
-import { Button, ButtonTypes, CustomItemBadge } from "@/shared";
 import { AuthorCardProps } from "../model/AuthorCard_types";
 import styles from "./AuthorCard.module.scss";
 import { memo } from "react";
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 
 export const AuthorCard: React.FC<AuthorCardProps> = memo(
   ({

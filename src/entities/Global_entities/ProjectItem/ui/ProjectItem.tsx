@@ -6,14 +6,15 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "./ProjectItem_swiper.scss";
-import { redirectToAbsolutePath, CustomItemBadge } from "@/shared";
 import { Routes } from "@/app/routes/Routes";
+import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
+import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 
 export const ProjectItem: React.FC<ProjectItemProps> = memo(
   ({ servicesItem, viewType }): React.JSX.Element => {
     const [itemIsFavourite, setItemIsFavourite] = useState<boolean>(false);
 
-    const RedirectOnClickTo: string = Routes.PROFILE;
+    const RedirectOnClickTo: string = Routes.PROJECT;
 
     return (
       <>

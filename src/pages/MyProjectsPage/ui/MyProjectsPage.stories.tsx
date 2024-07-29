@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { MyProjectsPage } from "./MyProjectsPage";
-import { Footer, Header } from "@/widgets";
+import { Header } from "@/widgets/Global_widgets/Header";
+import { Footer } from "@/widgets/Global_widgets/Footer";
 
 const FullMyProjectsPage: React.FC = (): React.JSX.Element => {
   return (

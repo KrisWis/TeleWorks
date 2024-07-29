@@ -1,22 +1,20 @@
-import {
-  CatalogPage,
-  InternalPage,
-  MainPage,
-  MyProjectsPage,
-  ProfilePage,
-  ProjectPage,
-  SpecialistServicesPage,
-} from "@/pages";
+import { CatalogPage } from "@/pages/CatalogPage";
+import { InternalPage } from "@/pages/InternalPage";
+import { MainPage } from "@/pages/MainPage";
+import { MyProjectsPage } from "@/pages/MyProjectsPage";
+import { ProfilePage } from "@/pages/ProfilePage";
+import { ProjectPage } from "@/pages/ProjectPage";
+import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
 import { RouteProps } from "react-router-dom";
 
 export enum Routes {
   MAIN = "/",
-  PROFILE = "profile",
-  MYPROJECTS = "myProjects",
-  CATALOG = "catalog",
-  INTERNAL = "internal",
-  SERVICES = "services",
-  PROJECT = "project",
+  PROFILE = "/profile",
+  MYPROJECTS = "/myProjects",
+  CATALOG = "/catalog",
+  INTERNAL = "/internal",
+  SERVICES = "/services",
+  PROJECT = "/project",
 }
 
 export const routes: RouteProps[] = [

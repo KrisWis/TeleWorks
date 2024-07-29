@@ -1,4 +1,4 @@
-import { getHomePageURL } from "../getHomePageURL/getHomePageURL";
+import { getHomePageURL } from "../../getHomePageURL";
 
 export const redirectToAbsolutePath = (to: string): void => {
   const HomePageURL: string = getHomePageURL();

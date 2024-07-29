@@ -1,6 +1,6 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Advancement.module.scss";
-import { Button, ButtonTypes } from "@/shared";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { memo } from "react";
 
 export const Advancement: React.FC = memo((): React.JSX.Element => {

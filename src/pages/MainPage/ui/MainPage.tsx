@@ -1,21 +1,19 @@
-import {
-  Additional_Services,
-  Ads,
-  Advancement,
-  Buy_placement,
-  Guarantor_Services,
-  Header,
-  HowItWorks,
-  Job_Risks,
-  MainPageFooter,
-  MeetAdvantages,
-  Platform_Privileges,
-  SupportService,
-  Transaction_Advantage,
-  WeAreTrusted,
-} from "@/widgets";
 import "./MainPage.scss";
 import "@/shared/main.scss";
+import { Header } from "@/widgets/Global_widgets/Header";
+import { Additional_Services } from "@/widgets/MainPage_widgets/Additional_Services";
+import { MainPagePublicity } from "@/widgets/MainPage_widgets/MainPagePublicity";
+import { Advancement } from "@/widgets/MainPage_widgets/Advancement";
+import { Buy_placement } from "@/widgets/MainPage_widgets/Buy_placement";
+import { Guarantor_Services } from "@/widgets/MainPage_widgets/Guarantor_Services";
+import { HowItWorks } from "@/widgets/MainPage_widgets/HowItWorks";
+import { Job_Risks } from "@/widgets/MainPage_widgets/Job_Risks";
+import { MainPageFooter } from "@/widgets/MainPage_widgets/MainPageFooter";
+import { MeetAdvantages } from "@/widgets/MainPage_widgets/MeetAdvantages";
+import { Platform_Privileges } from "@/widgets/MainPage_widgets/Platform_Privileges";
+import { SupportService } from "@/widgets/MainPage_widgets/SupportService";
+import { Transaction_Advantage } from "@/widgets/MainPage_widgets/Transaction_Advantage";
+import { WeAreTrusted } from "@/widgets/MainPage_widgets/WeAreTrusted";
 import { memo, useEffect } from "react";
 
 export const MainPage: React.FC = memo((): React.JSX.Element => {
@@ -44,7 +42,7 @@ export const MainPage: React.FC = memo((): React.JSX.Element => {
 
         <div className="padding">
           <Additional_Services />
-          <Ads />
+          <MainPagePublicity />
           <Guarantor_Services />
           <Job_Risks />
           <Transaction_Advantage />

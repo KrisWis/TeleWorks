@@ -1,4 +1,4 @@
-import { Button, ButtonTypes } from "@/shared";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { HowItWorksItem } from "../model/HowItWorks__types";
 import styles from "./HowItWorks__item.module.scss";
 import { memo } from "react";

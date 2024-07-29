@@ -9,11 +9,11 @@ import {
 import { Link } from "react-router-dom";
 import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
 import { memo } from "react";
-import { Select, selectStyles } from "@/shared";
 import {
   SelectTextStyles,
   SelectThemesEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
+import { Select, selectStyles } from "@/shared/ui-kit/Select";
 
 const DropdownIndicator = (): JSX.Element => {
   return (

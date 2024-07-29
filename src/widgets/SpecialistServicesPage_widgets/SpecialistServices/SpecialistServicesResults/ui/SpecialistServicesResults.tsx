@@ -1,4 +1,3 @@
-import { Button, ButtonTypes, Select, selectStyles } from "@/shared";
 import styles from "./SpecialistServicesResults.module.scss";
 import { memo, useState } from "react";
 import {
@@ -10,8 +9,11 @@ import {
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { ServicesViewTypes } from "../data/SpecialistServicesResults_types";
-import { ProjectItem } from "@/entities";
+
 import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
+import { Select, selectStyles } from "@/shared/ui-kit/Select";
+import { ProjectItem } from "@/entities/Global_entities";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (

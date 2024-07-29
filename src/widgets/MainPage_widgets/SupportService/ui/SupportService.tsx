@@ -1,7 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./SupportService.module.scss";
-import { Button, ButtonTypes } from "@/shared";
 import { memo } from "react";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const SupportService: React.FC = memo((): React.JSX.Element => {
   return (
