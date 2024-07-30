@@ -2,6 +2,7 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Reviews__item.module.scss";
 import { memo } from "react";
 import { Reviews__itemProps } from "../model/Reviews__item_types";
+import ReviewsItemReport from "@/shared/assets/icons/Global/ReviewsItem/ReviewsItemReport.svg?react";
 
 export const Reviews__item: React.FC<Reviews__itemProps> = memo(
   ({ author, extraInfo, imgURL, date, text, stars }): React.JSX.Element => {
@@ -46,18 +47,7 @@ export const Reviews__item: React.FC<Reviews__itemProps> = memo(
               Сообщить об ошибке
             </span>
             <div className={styles.reviews__item__report__svg}>
-              <svg
-                width="42"
-                height="36"
-                viewBox="0 0 42 36"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19.268 0.999999C20.0378 -0.333334 21.9622 -0.333333 22.732 1L40.9186 32.5C41.6884 33.8333 40.7261 35.5 39.1865 35.5H2.81347C1.27387 35.5 0.311615 33.8333 1.08142 32.5L19.268 0.999999Z"
-                  fill="#D9D9D9"
-                />
-              </svg>
+              <ReviewsItemReport />
               <span className={styles.reviews__item__report__sign}>!</span>
             </div>
           </div>

@@ -3,14 +3,16 @@ import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { dropDownItems } from "../model/Header_data";
 import { dropDownItem } from "../model/Header_types";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { Modal } from "@/shared/ui-kit/Modal";
-import { PopupTemplate } from "@/shared/ui-kit/PopupTemplate";
-import { AuthPopup } from "@/features/Header_features/AuthPopup";
+import { AuthModal } from "@/features/Header_features/AuthModal";
+import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
+import { RegModal } from "@/features/Header_features/RegModal";
+import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecoveryModal";
 
 export const Header: React.FC = (): React.JSX.Element => {
   const [headerSwitcherChoice, setHeaderSwitcherChoice] =
@@ -19,6 +21,26 @@ export const Header: React.FC = (): React.JSX.Element => {
   const [LoginIsOpen, setLoginIsOpen] = useState<boolean>(false);
 
   const [LoginModalAppear, setLoginModalAppear] = useState<boolean>(false);
+
+  const [RegIsOpen, setRegIsOpen] = useState<boolean>(false);
+
+  const [RegModalAppear, setRegModalAppear] = useState<boolean>(false);
+
+  const [PasswordRecoveryIsOpen, setPasswordRecoveryIsOpen] =
+    useState<boolean>(false);
+
+  const [PasswordRecoveryModalAppear, setPasswordRecoveryModalAppear] =
+    useState<boolean>(false);
+
+  const RedirectToLoginModal = useCallback((): void => {
+    setPasswordRecoveryModalAppear(false);
+
+    setTimeout(() => {
+      setPasswordRecoveryIsOpen(false);
+
+      setLoginIsOpen(true);
+    }, 300);
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -141,6 +163,7 @@ export const Header: React.FC = (): React.JSX.Element => {
           className={styles.header__item__reg}
           text="Регистрация"
           type={ButtonTypes.GRAY}
+          onClick={() => setRegIsOpen(true)}
         />
 
         {LoginIsOpen && (
@@ -150,12 +173,55 @@ export const Header: React.FC = (): React.JSX.Element => {
             CustomModalAppear={LoginModalAppear}
             className={styles.header__modal}
           >
-            <PopupTemplate
+            <ModalTemplate
               CustomSetModalAppear={setLoginModalAppear}
-              setPopupOpen={setLoginIsOpen}
+              setModalOpen={setLoginIsOpen}
             >
-              <AuthPopup />
-            </PopupTemplate>
+              <AuthModal
+                setRegModalOpen={setRegIsOpen}
+                setModalOpen={setLoginIsOpen}
+                CustomSetModalAppear={setLoginModalAppear}
+                setPasswordRecoveryModalOpen={setPasswordRecoveryIsOpen}
+              />
+            </ModalTemplate>
+          </Modal>
+        )}
+
+        {RegIsOpen && (
+          <Modal
+            setModalIsOpen={setRegIsOpen}
+            CustomSetModalAppear={setRegModalAppear}
+            CustomModalAppear={RegModalAppear}
+            className={styles.header__modal}
+          >
+            <ModalTemplate
+              CustomSetModalAppear={setRegModalAppear}
+              setModalOpen={setRegIsOpen}
+            >
+              <RegModal
+                setLoginModalOpen={setLoginIsOpen}
+                setModalOpen={setRegIsOpen}
+                CustomSetModalAppear={setRegModalAppear}
+              />
+            </ModalTemplate>
+          </Modal>
+        )}
+
+        {PasswordRecoveryIsOpen && (
+          <Modal
+            setModalIsOpen={setPasswordRecoveryIsOpen}
+            CustomSetModalAppear={setPasswordRecoveryModalAppear}
+            CustomModalAppear={PasswordRecoveryModalAppear}
+            className={styles.header__modal}
+          >
+            <ModalTemplate
+              className={styles.header__modal__recovery}
+              CustomSetModalAppear={setPasswordRecoveryModalAppear}
+              setModalOpen={setPasswordRecoveryIsOpen}
+              redirectToBack={RedirectToLoginModal}
+            >
+              <PasswordRecoveryModal />
+            </ModalTemplate>
           </Modal>
         )}
       </div>

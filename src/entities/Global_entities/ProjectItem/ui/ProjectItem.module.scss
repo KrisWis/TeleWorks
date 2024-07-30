@@ -11,6 +11,10 @@
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   }
 
+  &__heart path {
+    pointer-events: none;
+  }
+
   &__slider {
     position: relative;
     display: flex;
@@ -37,7 +41,7 @@
 
       &:hover {
         circle {
-          fill: #f55;
+          fill: var(--main-color);
         }
 
         path {
@@ -100,17 +104,18 @@
   &__heart {
     cursor: pointer;
     transition: 0.3s linear all;
+    pointer-events: none;
 
     * {
       transition: 0.3s linear all;
       stroke-width: 1px;
-      stroke: #f55;
+      stroke: var(--main-color);
       fill: transparent;
     }
 
     &__active {
       * {
-        fill: #f55;
+        fill: var(--main-color);
       }
     }
   }
@@ -232,7 +237,7 @@
     font-size: 20px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #f55;
+    color: var(--main-color);
     height: fit-content;
     align-self: flex-end;
   }
@@ -255,6 +260,7 @@
       position: absolute;
       top: 8px;
       right: 8px;
+      pointer-events: all;
 
       * {
         fill: rgba(0, 0, 0, 0.4);
@@ -262,7 +268,7 @@
 
       &__active {
         * {
-          fill: #f55;
+          fill: var(--main-color);
         }
       }
     }

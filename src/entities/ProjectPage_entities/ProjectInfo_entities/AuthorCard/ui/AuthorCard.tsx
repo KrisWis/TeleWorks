@@ -4,6 +4,10 @@ import { memo } from "react";
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
+import AuthorStatusOnlineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatusSVG.svg?react";
+import AuthorStatReviewOnlineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatReviewSVG.svg?react";
+import AuthorStatusOfflineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatusOfflineSVG.svg?react";
+import AuthorStatReviewOfflineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatReviewOfflineSVG.svg?react";
 
 export const AuthorCard: React.FC<AuthorCardProps> = memo(
   ({
@@ -31,22 +35,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
 
               {online ? (
                 <div className={styles.authorCard__author__status}>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="7.74771"
-                      cy="7.74771"
-                      r="6.56881"
-                      fill="#35EC17"
-                      stroke="#F7F7F7"
-                      strokeWidth="1.6422"
-                    />
-                  </svg>
+                  <AuthorStatusOnlineSVG />
 
                   <span className={styles.authorCard__author__status__span}>
                     Онлайн
@@ -54,22 +43,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
                 </div>
               ) : (
                 <div className={styles.authorCard__author__status}>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="7.74771"
-                      cy="7.74771"
-                      r="6.56881"
-                      fill="#FF5555"
-                      stroke="#F7F7F7"
-                      strokeWidth="1.6422"
-                    />
-                  </svg>
+                  <AuthorStatusOfflineSVG />
 
                   <span className={styles.authorCard__author__status__span}>
                     Оффлайн
@@ -130,22 +104,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
 
             <div className={styles.authorCard__stat__reviews}>
               <div className={styles.authorCard__stat__review}>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="7.74771"
-                    cy="7.74771"
-                    r="6.56881"
-                    fill="#35EC17"
-                    stroke="#F7F7F7"
-                    strokeWidth="1.6422"
-                  />
-                </svg>
+                <AuthorStatReviewOnlineSVG />
 
                 <span className={styles.authorCard__stat__value}>
                   {positiveReviews}
@@ -153,22 +112,7 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
               </div>
 
               <div className={styles.authorCard__stat__review}>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="7.74771"
-                    cy="7.74771"
-                    r="6.56881"
-                    fill="#FF5555"
-                    stroke="#F7F7F7"
-                    strokeWidth="1.6422"
-                  />
-                </svg>
+                <AuthorStatReviewOfflineSVG />
 
                 <span className={styles.authorCard__stat__value}>
                   {negativeReviews}

@@ -1,8 +1,8 @@
-import { CheckoutOrderSchema } from "@/features/ProjectInfo_features";
 import { configureStore, EnhancedStore, Reducer } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { createReducerManager, ReducerManager } from "./AppReducerManager";
 import { RootReducer } from "./AppReducer";
+import { CheckoutOrderSchema } from "@/features/ProjectInfo_features/CheckoutOrder";
 
 export interface StoreSchema {
   checkoutOrderReducer: CheckoutOrderSchema;

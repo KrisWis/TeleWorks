@@ -162,5 +162,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &__recovery {
+      width: calc(100vw - 50vw) !important;
+    }
   }
 }

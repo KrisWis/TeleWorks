@@ -139,13 +139,42 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
     };
 
     useEffect(() => {
-      dispatch(
-        checkoutOrderSliceActions.changeExtraServices({
-          packType: pack.packName,
-          extraServices: pack.extraServices!,
-        })
-      );
+      setTimeout(() => {
+        dispatch(
+          checkoutOrderSliceActions.changeExtraServices({
+            packType: pack.packName,
+            extraServices: pack.extraServices!,
+          })
+        );
+      }, 1000);
     }, [dispatch, pack.extraServices, pack.packName]);
+
+    useEffect(() => {
+      setTimeout(() => {
+        dispatch(checkoutOrderSliceActions.changeFinalPrice(0));
+
+        dispatch(
+          checkoutOrderSliceActions.clearEditionsAmounts({
+            packType: pack.packName,
+            amounts: 1,
+          })
+        );
+
+        dispatch(
+          checkoutOrderSliceActions.changeExtraServices({
+            packType: pack.packName,
+            extraServices: [],
+          })
+        );
+
+        dispatch(
+          checkoutOrderSliceActions.setPackPrice({
+            packType: pack.packName,
+            price: pack.price,
+          })
+        );
+      }, 1000);
+    }, [dispatch, pack.packName, pack.price]);
 
     return (
       <div className={styles.checkoutOrder}>

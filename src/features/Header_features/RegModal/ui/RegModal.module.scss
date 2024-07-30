@@ -1,0 +1,180 @@
+.RegModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+
+  &__img {
+    width: 303px;
+    height: 230px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &__inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 3px;
+
+    &__span {
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__input {
+      width: 100%;
+      height: 78px;
+      background: #fff;
+      border: 0.89px solid #eaf2ff;
+      border-radius: 13px;
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+      padding-left: 20px;
+      transition: var(--transition-duration) all linear;
+
+      &::placeholder {
+        font-weight: 500;
+        font-size: 21px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: #000;
+        opacity: 0.4;
+      }
+
+      &__warning {
+        border: 0.89px solid var(--main-color);
+      }
+    }
+  }
+
+  &__RedLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--main-color);
+    cursor: pointer;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  &__loginButton {
+    height: 89px;
+    width: 100%;
+    font-size: 24px;
+    line-height: 150%;
+
+    &Telegram {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &::after {
+        content: url("@/shared/assets/icons/Header/AuthModal/LoginTelegramSVG.svg");
+        display: block;
+        position: relative;
+        top: 8px;
+      }
+    }
+  }
+
+  &__login {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    align-self: center;
+    margin-top: 10px;
+
+    &__span {
+      color: var(--main-color);
+      cursor: pointer;
+    }
+  }
+
+  &__checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  &__checkbox {
+    display: flex;
+    gap: 15px;
+
+    &__block {
+      border: 1px solid var(--main-color);
+      border-radius: 5px;
+      min-width: 25px;
+      min-height: 25px;
+      max-width: 25px;
+      max-height: 25px;
+      background-color: #fff;
+      transition: var(--transition-duration) linear all;
+      box-shadow: 0 0 15px transparent;
+      position: relative;
+      bottom: 3px;
+
+      &__active {
+        background-color: var(--main-color);
+      }
+    }
+
+    &__warn {
+      .RegModal__checkbox__block {
+        box-shadow: 0 0 15px var(--main-color);
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__agree {
+    margin-top: 10px;
+  }
+}

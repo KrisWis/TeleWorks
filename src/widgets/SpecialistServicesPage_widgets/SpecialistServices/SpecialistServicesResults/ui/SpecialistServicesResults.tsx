@@ -41,7 +41,7 @@ const TextStyles: SelectTextStyles = {
   fontSize: "20px",
   letterSpacing: "-0.01em",
   lineHeight: "150%",
-  color: "#f55",
+  color: "var(--main-color)",
 };
 
 export const SpecialistServicesResults: React.FC = memo(

@@ -157,7 +157,7 @@
     transition: all var(--transition-duration) linear;
 
     &:hover {
-      color: #f55;
+      color: var(--main-color);
     }
   }
 }
