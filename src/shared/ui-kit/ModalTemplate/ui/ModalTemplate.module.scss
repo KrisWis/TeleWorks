@@ -6,6 +6,8 @@
   border-radius: 25px;
   background: #fff;
   padding: 10px;
+  max-height: 98vh;
+  overflow-y: auto;
 
   &__close {
     cursor: pointer;

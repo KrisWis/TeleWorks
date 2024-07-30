@@ -14,8 +14,9 @@ const config: Config = {
   collectCoverage: true,
   coverageDirectory: "coverage",
   moduleNameMapper: {
+    "^@/(.*)?react$": "<rootDir>/svg.transform.ts",
     "^.+\\.(css|scss)$": "<rootDir>/styleMock.js",
-    "^@/(.*)$": "<rootDir>/src/$1",
+    "@/(.*)": "<rootDir>/src/$1",
     "swiper/css": "swiper/swiper.min.css",
     "\\.(css|less|scss)$": "identity-obj-proxy",
   },
@@ -34,6 +35,8 @@ const config: Config = {
     "^.+\\.[jt]sx?$": "babel-jest",
     ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
   },
+
+  moduleDirectories: ["node_modules"],
 
   // rootDir: "../../",
   // setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],

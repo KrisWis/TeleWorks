@@ -8,6 +8,16 @@ if (PortNow == "6006") {
 
 export const URL_PART = urlPart;
 
+window.matchMedia =
+  window.matchMedia ||
+  function () {
+    return {
+      matches: false,
+      addListener: function () {},
+      removeListener: function () {},
+    };
+  };
+
 export const tablet_mediaQuery: MediaQueryList = window.matchMedia(
   "(max-width: 1200px)"
 );
