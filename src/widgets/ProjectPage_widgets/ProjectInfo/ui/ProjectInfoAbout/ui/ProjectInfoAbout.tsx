@@ -2,7 +2,6 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import styles from "./ProjectInfoAbout.module.scss";
 import { memo, useRef, useState } from "react";
 import { Navigation } from "swiper/modules";
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import "./ProjectInfoAbout_swiper.scss";
 import {
   ProjectInfoAbout__imgsURL,
@@ -102,8 +101,9 @@ export const ProjectInfoAbout: React.FC = memo((): React.JSX.Element => {
                 />
 
                 <ShowFullImage
-                  imgURL={imgURL}
+                  imgURLs={ProjectInfoAbout__imgsURL}
                   className={styles.projectInfoAbout__slider__imgFull}
+                  ActiveSlideIndex={ActiveSlide}
                 />
               </div>
             </SwiperSlide>
@@ -177,7 +177,7 @@ export const ProjectInfoAbout: React.FC = memo((): React.JSX.Element => {
             }
             key={imgURL + index}
             className={`${styles.projectInfoAbout__otherProjects__img} ${ActiveSlide == index ? styles.projectInfoAbout__otherProjects__img__active : ""}`}
-            src={`${URL_PART}/global/images/serviceExample_img.png`}
+            src={imgURL}
             alt={`Название изображения`}
           />
         ))}

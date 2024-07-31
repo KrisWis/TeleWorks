@@ -1,38 +1,115 @@
 import { ShowFullImageProps } from "../model/ShowFullImage_types";
 import styles from "./ShowFullImage.module.scss";
-import { memo } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
+import FullScreenSVG from "@/shared/assets/icons/Shared/ShowFullImage/FullScreenSVG.svg?react";
+import CloseSVG from "@/shared/assets/icons/Shared/ShowFullImage/CloseSVG.svg?react";
+import NextArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/NextArrowSVG.svg?react";
+import PrevArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/PrevArrowSVG.svg?react";
+import { Modal } from "@/shared/ui-kit/Modal";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
-  ({ className }): React.JSX.Element => {
-    return (
-      <div className={`${styles.showFullImage} ${className}`}>
-        <svg
-          width="28"
-          height="28"
-          viewBox="0 0 28 28"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M24.8333 4.6665C24.8333 2.73351 23.2664 1.1665 21.3333 1.1665H16.6667C16.0223 1.1665 15.5 1.68884 15.5 2.33317C15.5 2.9775 16.0223 3.49984 16.6667 3.49984H21.3333C21.9777 3.49984 22.5 4.02218 22.5 4.6665V9.33317C22.5 9.9775 23.0223 10.4998 23.6667 10.4998C24.311 10.4998 24.8333 9.9775 24.8333 9.33317V4.6665Z"
-            fill="white"
-          />
-          <path
-            d="M24.8333 16.6667C24.8333 16.0223 24.311 15.5 23.6667 15.5C23.0223 15.5 22.5 16.0223 22.5 16.6667V21.3333C22.5 21.9777 21.9777 22.5 21.3333 22.5H16.6667C16.0223 22.5 15.5 23.0223 15.5 23.6667C15.5 24.311 16.0223 24.8333 16.6667 24.8333H21.3333C23.2664 24.8333 24.8333 23.2664 24.8333 21.3333V16.6667Z"
-            fill="white"
-          />
-          <path
-            d="M4.66699 22.5H9.33366C9.97799 22.5 10.5003 23.0223 10.5003 23.6667C10.5003 24.311 9.97799 24.8333 9.33366 24.8333H4.66699C2.734 24.8333 1.16699 23.2664 1.16699 21.3333V16.6667C1.16699 16.0223 1.68933 15.5 2.33366 15.5C2.97799 15.5 3.50033 16.0223 3.50033 16.6667V21.3333C3.50033 21.9777 4.02267 22.5 4.66699 22.5Z"
-            fill="white"
-          />
-          <path
-            d="M1.16699 9.33317C1.16699 9.9775 1.68933 10.4998 2.33366 10.4998C2.97799 10.4998 3.50033 9.9775 3.50033 9.33317V4.6665C3.50033 4.02218 4.02267 3.49984 4.66699 3.49984H9.33366C9.97799 3.49984 10.5003 2.9775 10.5003 2.33317C10.5003 1.68884 9.97799 1.1665 9.33366 1.1665H4.66699C2.734 1.1665 1.16699 2.73351 1.16699 4.6665V9.33317Z"
-            fill="white"
-          />
-        </svg>
+  ({ className, imgURLs, ActiveSlideIndex }): React.JSX.Element => {
+    const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
-        <span className={styles.showFullImage__text}>Полноэкранный</span>
-      </div>
+    const [ModalIsAppear, setModalIsAppear] = useState<boolean>(false);
+
+    const swiperRef = useRef<SwiperClass>();
+
+    const CloseModal = useCallback(() => {
+      setModalIsAppear(false);
+
+      setTimeout(() => {
+        setModalIsOpen(false);
+      }, 300);
+    }, []);
+
+    useEffect(() => {
+      if (ActiveSlideIndex) {
+        swiperRef.current?.slideTo(ActiveSlideIndex);
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ActiveSlideIndex, swiperRef.current]);
+
+    return (
+      <>
+        <div
+          className={`${styles.showFullImage} ${className}`}
+          onClick={() => setModalIsOpen(true)}
+        >
+          <FullScreenSVG />
+
+          <span className={styles.showFullImage__text}>Полноэкранный</span>
+        </div>
+
+        {ModalIsOpen && (
+          <Modal
+            CustomModalAppear={ModalIsAppear}
+            CustomSetModalAppear={setModalIsAppear}
+            setModalIsOpen={setModalIsOpen}
+            className={styles.showFullImage__modal}
+          >
+            <div className={styles.showFullImage__wrapper}>
+              <div className={styles.showFullImage__slider}>
+                {imgURLs.length > 1 && (
+                  <div
+                    id="showFullImage__slider_prevArrow"
+                    className={`${styles.showFullImage__circle} ${styles.showFullImage__slider__PrevArrow}`}
+                  >
+                    <PrevArrowSVG />
+                  </div>
+                )}
+
+                <Swiper
+                  className={styles.showFullImage__swiper}
+                  navigation={{
+                    prevEl: `#showFullImage__slider_prevArrow`,
+                    nextEl: `#showFullImage__slider_nextArrow`,
+                    disabledClass:
+                      styles.showFullImage__slider__arrow__disabled,
+                  }}
+                  modules={[Navigation]}
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  slidesPerGroup={1}
+                  onSwiper={(swiper: SwiperClass) =>
+                    (swiperRef.current = swiper)
+                  }
+                >
+                  {imgURLs.map((imgURL: string, index: number) => (
+                    <SwiperSlide key={imgURL + index}>
+                      <img
+                        className={styles.showFullImage__swiper__slide}
+                        src={imgURL}
+                        alt={`Изображение работы`}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                <div className={styles.showFullImage__column}>
+                  <div
+                    className={styles.showFullImage__circle}
+                    onClick={CloseModal}
+                  >
+                    <CloseSVG />
+                  </div>
+
+                  {imgURLs.length > 1 && (
+                    <div
+                      id="showFullImage__slider_nextArrow"
+                      className={`${styles.showFullImage__circle}`}
+                    >
+                      <NextArrowSVG />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </Modal>
+        )}
+      </>
     );
   }
 );

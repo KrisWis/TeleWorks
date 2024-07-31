@@ -153,6 +153,7 @@
       box-shadow: 0 0 15px transparent;
       position: relative;
       bottom: 3px;
+      cursor: pointer;
 
       &__active {
         background-color: var(--main-color);

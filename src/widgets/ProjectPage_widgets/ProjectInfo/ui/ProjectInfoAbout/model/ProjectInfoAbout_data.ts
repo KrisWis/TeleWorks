@@ -3,7 +3,7 @@ import { ProjectInfoAboutPortfolioCase } from "./ProjectInfoAbout_types";
 
 export const ProjectInfoAbout__imgsURL: string[] = [
   `${URL_PART}/global/images/serviceExample_img_big.png`,
-  `${URL_PART}/global/images/serviceExample_img_big.png`,
+  `${URL_PART}/global/images/portfolioCase__example_img.png`,
   `${URL_PART}/global/images/serviceExample_img_big.png`,
 ];
 

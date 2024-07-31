@@ -1,4 +1,5 @@
 export interface ShowFullImageProps {
-  imgURL: string;
+  imgURLs: string[];
   className?: string;
+  ActiveSlideIndex?: number;
 }

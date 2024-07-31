@@ -149,7 +149,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
 
             <div
               className={`${styles.RegModal__checkbox} 
-            ${TryLogin && !ActiveCheckboxes.includes(RegModalCheckBoxes.MAILING) ? styles.RegModal__checkbox__warn : ""}`}
+            ${TryLogin && !ActiveCheckboxes.includes(RegModalCheckBoxes.AGREEMENT) ? styles.RegModal__checkbox__warn : ""}`}
             >
               <div
                 className={`${styles.RegModal__checkbox__block} 
