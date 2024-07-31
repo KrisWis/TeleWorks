@@ -1,0 +1,121 @@
+.userCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #4266c6;
+  border-radius: 25px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
+  padding: 20px;
+  width: calc(100vw - 80vw);
+  padding-bottom: 0;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 25px;
+    align-items: center;
+  }
+
+  &__authorAvatar {
+    position: relative;
+
+    &::after {
+      display: block;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+
+    &__online::after {
+      content: url("../../../../../shared/assets/icons/UserPage/UserCard/onlineSVG.svg");
+    }
+
+    &__offline::after {
+      content: url("../../../../../shared/assets/icons/UserPage/UserCard/offlineSVG.svg");
+    }
+  }
+
+  &__authorName {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__userName {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    opacity: 0.4;
+  }
+
+  &__userProfession {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    margin-top: 5px;
+  }
+
+  &__TeleWorksChoice {
+    width: 137px;
+    height: 23px;
+    font-size: 12px;
+    line-height: 150%;
+  }
+
+  &__order {
+    font-size: 16px;
+    line-height: 150%;
+    margin-top: 20px;
+    width: 100%;
+    height: 55px;
+  }
+
+  &__authorResponseTime {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    opacity: 0.4;
+  }
+
+  &__authorStats {
+    margin-top: 20px !important;
+  }
+
+  &__reportBug {
+    font-weight: 400;
+    font-size: 14px;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    top: 10px;
+
+    svg {
+      width: 20px;
+      height: 18px;
+    }
+
+    div span {
+      font-size: 14px;
+      left: 8px;
+      top: 1.5px;
+    }
+  }
+}

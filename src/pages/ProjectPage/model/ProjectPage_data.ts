@@ -2,7 +2,7 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { ProjectItemProps } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
 import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard/model/AuthorCard_types";
-import { ProjectInfoPacks } from "@/features";
+import { ProjectInfoPacks } from "@/features/ProjectInfo_features/ProjectInfo_pack";
 import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";
 import { ServicesViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices/SpecialistServicesResults/data/SpecialistServicesResults_types";
@@ -123,7 +123,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
 };
 
 export const ProjectInfoAuthor: AuthorCardProps = {
-  imgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+  authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
   authorName: "Роман Б.",
   TeleWorksChoice: true,
   online: true,

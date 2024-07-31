@@ -115,7 +115,7 @@ export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
             >
               <img
                 className={styles.projectInfo__authorImg}
-                src={author.imgURL}
+                src={author.authorImgURL}
                 alt={author.authorName}
               />
             </div>

@@ -1,0 +1,8 @@
+.Share {
+  cursor: pointer;
+  transition: var(--transition-duration) all linear;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

@@ -5,6 +5,7 @@ import { MyProjectsPage } from "@/pages/MyProjectsPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
+import { UserPage } from "@/pages/UserPage/ui/UserPage";
 import { RouteProps } from "react-router-dom";
 
 export enum Routes {
@@ -15,6 +16,7 @@ export enum Routes {
   INTERNAL = "/internal",
   SERVICES = "/services",
   PROJECT = "/project",
+  USER = "/user",
 }
 
 export const routes: RouteProps[] = [
@@ -51,5 +53,10 @@ export const routes: RouteProps[] = [
   {
     path: Routes.PROJECT,
     element: <ProjectPage />,
+  },
+
+  {
+    path: Routes.USER,
+    element: <UserPage />,
   },
 ];

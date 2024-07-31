@@ -1,0 +1,12 @@
+.Favourite {
+  cursor: pointer;
+  transition: var(--transition-duration) all linear;
+
+  path {
+    transition: var(--transition-duration) all linear;
+  }
+
+  &__selected path {
+    fill: #fff;
+  }
+}

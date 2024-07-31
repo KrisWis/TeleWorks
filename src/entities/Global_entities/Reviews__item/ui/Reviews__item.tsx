@@ -2,8 +2,8 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Reviews__item.module.scss";
 import { memo } from "react";
 import { Reviews__itemProps } from "../model/Reviews__item_types";
-import ReviewsItemReport from "@/shared/assets/icons/Global/ReviewsItem/ReviewsItemReport.svg?react";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
+import { ReportBug } from "@/shared/ui-kit/ReportBug";
 
 export const Reviews__item: React.FC<Reviews__itemProps> = memo(
   ({ author, extraInfo, imgURL, date, text, stars }): React.JSX.Element => {
@@ -40,15 +40,7 @@ export const Reviews__item: React.FC<Reviews__itemProps> = memo(
             </span>
           </div>
 
-          <div className={styles.reviews__item__report}>
-            <span className={styles.reviews__item__report_text}>
-              Сообщить об ошибке
-            </span>
-            <div className={styles.reviews__item__report__svg}>
-              <ReviewsItemReport />
-              <span className={styles.reviews__item__report__sign}>!</span>
-            </div>
-          </div>
+          <ReportBug />
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 export interface AuthorCardProps {
-  imgURL: string;
+  authorImgURL: string;
   authorName: string;
   online: boolean;
   TeleWorksChoice: boolean;

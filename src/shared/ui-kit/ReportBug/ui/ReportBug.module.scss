@@ -1,0 +1,45 @@
+.ReportBug {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+
+  &__svg {
+    position: relative;
+    cursor: pointer;
+
+    * {
+      transition: var(--transition-duration) linear all;
+    }
+
+    &:hover {
+      * {
+        fill: var(--main-color);
+      }
+    }
+  }
+
+  &_text {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.04em;
+    color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    bottom: 3px;
+    cursor: pointer;
+    transition: var(--transition-duration) linear all;
+
+    &:hover {
+      color: var(--main-color);
+    }
+  }
+
+  &__sign {
+    position: absolute;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+    color: #fff;
+    top: 4px;
+    left: 16px;
+  }
+}
