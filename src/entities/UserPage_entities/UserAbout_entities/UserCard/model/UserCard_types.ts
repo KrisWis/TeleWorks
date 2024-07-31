@@ -8,5 +8,5 @@ export interface UserCardProps extends Omit<AuthorCardProps, "orderInQueue"> {
   userName: `@${string}`;
   userProfession: UserProfessions;
   authorResponseTime: string;
-  className: string;
+  className?: string;
 }

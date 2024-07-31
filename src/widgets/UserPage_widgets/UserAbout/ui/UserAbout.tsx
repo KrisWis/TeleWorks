@@ -43,6 +43,27 @@ export const UserAbout: React.FC<UserAboutProps> = memo(
             authorName={authorName}
             className={styles.userAbout__userCard}
           />
+
+          <div className={styles.userAbout__about}>
+            <h5 className="UserPage__subcaption">Обо мне</h5>
+
+            <pre className={styles.userAbout__about__text}>{authorAbout}</pre>
+
+            <h5 className="UserPage__subcaption">Навыки</h5>
+
+            <div className={styles.userAbout__about__skills}>
+              {authorSkills.map((authorSkill) => (
+                <div
+                  key={authorSkill}
+                  className={styles.userAbout__about__skill}
+                >
+                  <span className={styles.userAbout__about__skill__text}>
+                    {authorSkill}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     );
