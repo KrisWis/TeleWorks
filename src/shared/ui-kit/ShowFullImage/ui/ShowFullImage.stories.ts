@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ShowFullImage } from "./ShowFullImage";
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 
 const meta = {
   title: "Shared/ShowFullImage",
@@ -15,6 +14,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    imgURLs: [
+      `/global/images/serviceExample_img_big.png`,
+      `/global/images/portfolioCase__example_img.png`,
+      `/global/images/serviceExample_img_big.png`,
+    ],
   },
 };

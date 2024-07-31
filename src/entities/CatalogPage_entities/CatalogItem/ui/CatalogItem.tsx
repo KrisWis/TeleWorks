@@ -24,6 +24,7 @@ import SubscribersWomen from "@/shared/assets/icons/CatalogPage/CatalogItem/Subs
 import Tag1 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag1.svg?react";
 import Tag2 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag2.svg?react";
 import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";
+import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
@@ -58,11 +59,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
       <div className={styles.catalog__item}>
         <div className={styles.catalog__item__wrapperPadding}>
           <div className={styles.catalog__item__avatar}>
-            <img
-              className={styles.catalog__item__avatar__img}
-              src={imgURL}
-              alt="Аватарка телеграмм канала"
-            />
+            <Avatar imgURL={imgURL} imgSize={AvatarSizes.SMALL} />
 
             <div className={styles.catalog__item__usersAmount}>
               <UsersAmount />

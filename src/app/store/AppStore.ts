@@ -5,7 +5,7 @@ import { RootReducer } from "./AppReducer";
 import { CheckoutOrderSchema } from "@/features/ProjectInfo_features/CheckoutOrder";
 
 export interface StoreSchema {
-  checkoutOrderReducer: CheckoutOrderSchema;
+  checkoutOrderReducer?: CheckoutOrderSchema;
 }
 
 const reducerManager = createReducerManager(RootReducer);

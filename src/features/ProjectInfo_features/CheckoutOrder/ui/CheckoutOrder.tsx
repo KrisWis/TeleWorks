@@ -139,41 +139,37 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
     };
 
     useEffect(() => {
-      setTimeout(() => {
-        dispatch(
-          checkoutOrderSliceActions.changeExtraServices({
-            packType: pack.packName,
-            extraServices: pack.extraServices!,
-          })
-        );
-      }, 1000);
+      dispatch(
+        checkoutOrderSliceActions.changeExtraServices({
+          packType: pack.packName,
+          extraServices: pack.extraServices!,
+        })
+      );
     }, [dispatch, pack.extraServices, pack.packName]);
 
     useEffect(() => {
-      setTimeout(() => {
-        dispatch(checkoutOrderSliceActions.changeFinalPrice(0));
+      dispatch(checkoutOrderSliceActions.changeFinalPrice(0));
 
-        dispatch(
-          checkoutOrderSliceActions.clearEditionsAmounts({
-            packType: pack.packName,
-            amounts: 1,
-          })
-        );
+      dispatch(
+        checkoutOrderSliceActions.clearEditionsAmounts({
+          packType: pack.packName,
+          amounts: 1,
+        })
+      );
 
-        dispatch(
-          checkoutOrderSliceActions.changeExtraServices({
-            packType: pack.packName,
-            extraServices: [],
-          })
-        );
+      dispatch(
+        checkoutOrderSliceActions.changeExtraServices({
+          packType: pack.packName,
+          extraServices: [],
+        })
+      );
 
-        dispatch(
-          checkoutOrderSliceActions.setPackPrice({
-            packType: pack.packName,
-            price: pack.price,
-          })
-        );
-      }, 1000);
+      dispatch(
+        checkoutOrderSliceActions.setPackPrice({
+          packType: pack.packName,
+          price: pack.price,
+        })
+      );
     }, [dispatch, pack.packName, pack.price]);
 
     return (

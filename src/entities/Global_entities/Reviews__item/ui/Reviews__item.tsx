@@ -3,6 +3,7 @@ import styles from "./Reviews__item.module.scss";
 import { memo } from "react";
 import { Reviews__itemProps } from "../model/Reviews__item_types";
 import ReviewsItemReport from "@/shared/assets/icons/Global/ReviewsItem/ReviewsItemReport.svg?react";
+import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 
 export const Reviews__item: React.FC<Reviews__itemProps> = memo(
   ({ author, extraInfo, imgURL, date, text, stars }): React.JSX.Element => {
@@ -12,11 +13,8 @@ export const Reviews__item: React.FC<Reviews__itemProps> = memo(
       <div className={styles.reviews__item}>
         <div className={styles.reviews__item__header}>
           <div className={styles.reviews__item__userInfo}>
-            <img
-              className={styles.reviews__item__avatar}
-              src={imgURL}
-              alt={author}
-            />
+            <Avatar imgURL={imgURL} imgSize={AvatarSizes.MEDIUM} />
+
             <div className={styles.reviews__item__bio}>
               <span className={styles.reviews__item__username}>@{author}</span>
               <span className={styles.reviews__item__seniority}>

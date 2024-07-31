@@ -21,12 +21,6 @@
     align-items: center;
   }
 
-  &__avatar {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-  }
-
   &__bio {
     display: flex;
     flex-direction: column;
