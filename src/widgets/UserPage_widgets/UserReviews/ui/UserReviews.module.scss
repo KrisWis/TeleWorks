@@ -1,0 +1,24 @@
+.UserReviews {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__reviews {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+
+    &__more {
+      font-size: 20px;
+      width: 286px;
+      height: 65px;
+      align-self: center;
+      border-radius: 40px;
+    }
+  }
+}

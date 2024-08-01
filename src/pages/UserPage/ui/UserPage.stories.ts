@@ -1,12 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UserPage } from "./UserPage";
+import { fn } from "@storybook/test";
 
 const meta = {
   title: "Pages/UserPage",
   component: UserPage,
-  parameters: {
-    layout: "centered",
+
+  argTypes: {
+    backgroundColor: { control: "color" },
   },
+
+  args: { onClick: fn() },
 } satisfies Meta<typeof UserPage>;
 
 export default meta;

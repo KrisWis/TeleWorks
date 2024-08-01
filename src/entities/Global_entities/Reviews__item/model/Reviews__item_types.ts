@@ -1,3 +1,9 @@
+export interface ProjectForReview {
+  imgURL: string;
+  title: string;
+  price: number;
+}
+
 export interface Reviews__itemProps {
   author: string;
   extraInfo: string;
@@ -5,4 +11,5 @@ export interface Reviews__itemProps {
   date: string;
   text: string;
   stars: number;
+  project?: ProjectForReview;
 }

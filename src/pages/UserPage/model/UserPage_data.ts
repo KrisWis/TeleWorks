@@ -1,7 +1,9 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
+import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
 import { UserProfessions } from "@/entities/UserPage_entities/UserAbout_entities/UserCard";
 import { PortfolioCaseProps } from "@/shared/ui-kit/PortfolioCase";
+import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { UserAboutProps } from "@/widgets/UserPage_widgets/UserAbout/model/UserAbout_types";
 
 export const userAbout: UserAboutProps = {
@@ -129,5 +131,31 @@ export const UserProjectsItems: ServicesItem[] = [
     authorReviewsAmount: 256,
     authorIsOnline: true,
     TopOfWeek: false,
+  },
+];
+
+export const userReviewsProps: ReviewsPanelProps = {
+  mark: 5.0,
+  reviewsAmount: 384,
+  fiveStarsProgress: 100,
+  fourStarsProgress: 80,
+  threeStarsProgress: 0,
+  twoStarsProgress: 0,
+  oneStarsProgress: 0,
+};
+
+export const userReviews_items: Reviews__itemProps[] = [
+  {
+    author: "inan_ivanov",
+    extraInfo: "Доп. информация в виде стажа",
+    date: "16.07.2024",
+    text: "Быстрое выполнение задачи, ответственный!",
+    stars: 5.0,
+    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    project: {
+      imgURL: `${URL_PART}/global/images/portfolioCase__example_img.png`,
+      title: "UI/UX Дизайн сайта",
+      price: 15000,
+    },
   },
 ];

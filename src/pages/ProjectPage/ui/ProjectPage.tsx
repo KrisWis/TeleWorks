@@ -2,7 +2,7 @@ import "./ProjectPage.scss";
 import "@/shared/main.scss";
 import { useEffect } from "react";
 import {
-  channelReviewsProps,
+  reviewsPanelProps,
   OtherProjectsItems,
   ProjectInfoData,
   ProjectReviews_items,
@@ -29,7 +29,7 @@ export const ProjectPage: React.FC = (): React.JSX.Element => {
 
           <ProjectReviews
             reviewsItems={ProjectReviews_items}
-            channelReviewsProps={channelReviewsProps}
+            ReviewsPanelProps={reviewsPanelProps}
           />
 
           <ItemsSlider

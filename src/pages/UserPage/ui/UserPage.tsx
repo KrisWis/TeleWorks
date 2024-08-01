@@ -9,9 +9,12 @@ import {
   UserPortfolioCases,
   UserPortfolioCategories,
   UserProjectsItems,
+  userReviews_items,
+  userReviewsProps,
 } from "../model/UserPage_data";
 import { UserPortfolio } from "@/widgets/UserPage_widgets/UserPortfolio";
 import { UserProjects } from "@/widgets/UserPage_widgets/UserProjects";
+import { UserReviews } from "@/widgets/UserPage_widgets/UserReviews";
 
 export const UserPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
@@ -31,6 +34,11 @@ export const UserPage: React.FC = (): React.JSX.Element => {
           />
 
           <UserProjects projects={UserProjectsItems} />
+
+          <UserReviews
+            reviewsItems={userReviews_items}
+            ReviewsPanelProps={userReviewsProps}
+          />
         </div>
       </main>
       <Footer />

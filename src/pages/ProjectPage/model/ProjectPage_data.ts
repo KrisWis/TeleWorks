@@ -143,7 +143,7 @@ export const ProjectInfoData: ProjectInfoProps = {
   ProjectTags: ["Инфографика", "Карточка товара", "Willdberries"],
 };
 
-export const channelReviewsProps: ReviewsPanelProps = {
+export const reviewsPanelProps: ReviewsPanelProps = {
   mark: 5.0,
   reviewsAmount: 384,
   fiveStarsProgress: 100,

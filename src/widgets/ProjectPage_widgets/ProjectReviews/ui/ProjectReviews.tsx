@@ -10,7 +10,7 @@ import { ReviewsItem } from "@/entities/Global_entities/Reviews__item";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 
 export const ProjectReviews: React.FC<ProjectReviewsProps> = memo(
-  ({ channelReviewsProps, reviewsItems }): React.JSX.Element => {
+  ({ ReviewsPanelProps, reviewsItems }): React.JSX.Element => {
     return (
       <div className={styles.projectReviews}>
         <div className={styles.projectReviews__header}>
@@ -19,7 +19,7 @@ export const ProjectReviews: React.FC<ProjectReviewsProps> = memo(
           <ReviewsSelect reviews_selectOptions={reviews_selectOptions} />
         </div>
 
-        <ReviewsPanel {...channelReviewsProps} />
+        <ReviewsPanel {...ReviewsPanelProps} />
 
         <div className={styles.projectReviews__reviews}>
           {reviewsItems.map((reviewsItem: Reviews__itemProps) => (
