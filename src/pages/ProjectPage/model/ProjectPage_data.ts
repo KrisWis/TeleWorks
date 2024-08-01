@@ -5,7 +5,7 @@ import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_ent
 import { ProjectInfoPacks } from "@/features/ProjectInfo_features/ProjectInfo_pack";
 import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";
-import { ServicesViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices/SpecialistServicesResults/data/SpecialistServicesResults_types";
+import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
 
 export const ProjectInfo_packs: ProjectInfoPacks = {
   Базовый: {
@@ -179,7 +179,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: true,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -196,7 +196,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -213,7 +213,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -230,7 +230,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -247,7 +247,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -264,7 +264,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 ];
 
@@ -283,7 +283,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: true,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -300,7 +300,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -317,7 +317,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -334,7 +334,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -351,7 +351,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 
   {
@@ -368,6 +368,6 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ServicesViewTypes.ROW,
+    viewType: ProjectItemViewTypes.ROW,
   },
 ];

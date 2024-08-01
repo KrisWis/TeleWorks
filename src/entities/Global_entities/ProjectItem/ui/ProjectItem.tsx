@@ -1,4 +1,3 @@
-import { ServicesViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices/SpecialistServicesResults/data/SpecialistServicesResults_types";
 import { ProjectItemProps } from "../model/ProjectItem_types";
 import styles from "./ProjectItem.module.scss";
 import { memo, useRef, useState } from "react";
@@ -13,6 +12,7 @@ import SliderArrowNext from "@/shared/assets/icons/ProjectPage/ProjectItem/Slide
 import Favourite from "@/shared/assets/icons/ProjectPage/ProjectItem/Favourite.svg?react";
 import Separator from "@/shared/assets/icons/ProjectPage/ProjectItem/Separator.svg?react";
 import SliderArrowPrev from "@/shared/assets/icons/ProjectPage/ProjectItem/SliderArrowPrev.svg?react";
+import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
 
 export const ProjectItem: React.FC<ProjectItemProps> = memo(
   ({ servicesItem, viewType }): React.JSX.Element => {
@@ -32,7 +32,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
 
     return (
       <>
-        {viewType == ServicesViewTypes.COLUMN ? (
+        {viewType == ProjectItemViewTypes.ROW ? (
           <div
             className={`specialistServicesResults__item ${styles.specialistServicesResults__item} 
             ${styles.specialistServicesResults__item__row}`}

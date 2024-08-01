@@ -1,4 +1,5 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { UserProfessions } from "@/entities/UserPage_entities/UserAbout_entities/UserCard";
 import { PortfolioCaseProps } from "@/shared/ui-kit/PortfolioCase";
 import { UserAboutProps } from "@/widgets/UserPage_widgets/UserAbout/model/UserAbout_types";
@@ -56,5 +57,77 @@ export const UserPortfolioCases: PortfolioCaseProps[] = [
     imgURL: `${URL_PART}/global/images/serviceExample_img_2.png`,
     caseName: "Название кейса 3",
     views: 1233,
+  },
+];
+
+export const UserProjectsItems: ServicesItem[] = [
+  {
+    imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
+    title: "Инфографика для маркетплейсов.",
+    TeleWorksChoice: false,
+    price: "от 3 000 ₽",
+    authorName: "Роман Б.",
+    authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+    authorRank: "высокий рейтинг",
+    authorRating: "5.0",
+    authorReviewsAmount: 256,
+    authorIsOnline: true,
+    TopOfWeek: true,
+  },
+
+  {
+    imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
+    title: "Инфографика для маркетплейсов2.",
+    TeleWorksChoice: true,
+    price: "от 3 000 ₽",
+    authorName: "Роман Б.",
+    authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+    authorRank: "высокий рейтинг",
+    authorRating: "5.0",
+    authorReviewsAmount: 256,
+    authorIsOnline: true,
+    TopOfWeek: false,
+  },
+
+  {
+    imgURLs: [
+      `${URL_PART}/global/images/serviceExample_img.png`,
+      `${URL_PART}/global/images/serviceExample_img_2.png`,
+      `${URL_PART}/global/images/serviceExample_img.png`,
+      `${URL_PART}/global/images/serviceExample_img_2.png`,
+      `${URL_PART}/global/images/serviceExample_img.png`,
+      `${URL_PART}/global/images/serviceExample_img_2.png`,
+    ],
+    title: "Инфографика для маркетплейсов3.",
+    TeleWorksChoice: true,
+    price: "от 3 000 ₽",
+    authorName: "Роман Б.",
+    authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+    authorRank: "высокий рейтинг",
+    authorRating: "5.0",
+    authorReviewsAmount: 256,
+    authorIsOnline: false,
+    TopOfWeek: false,
+  },
+
+  {
+    imgURLs: [
+      `${URL_PART}/global/images/serviceExample_img.png`,
+      `${URL_PART}/global/images/serviceExample_img_2.png`,
+      `${URL_PART}/global/images/serviceExample_img.png`,
+      `${URL_PART}/global/images/serviceExample_img_2.png`,
+      `${URL_PART}/global/images/serviceExample_img.png`,
+      `${URL_PART}/global/images/serviceExample_img_2.png`,
+    ],
+    title: "Инфографика для маркетплейсов4.",
+    TeleWorksChoice: true,
+    price: "от 3 000 ₽",
+    authorName: "Роман Б.",
+    authorImgURL: `${URL_PART}/global/images/serviceExample_authorImg.png`,
+    authorRank: "высокий рейтинг",
+    authorRating: "5.0",
+    authorReviewsAmount: 256,
+    authorIsOnline: true,
+    TopOfWeek: false,
   },
 ];

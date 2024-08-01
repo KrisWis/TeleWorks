@@ -8,8 +8,10 @@ import {
   userAbout,
   UserPortfolioCases,
   UserPortfolioCategories,
+  UserProjectsItems,
 } from "../model/UserPage_data";
 import { UserPortfolio } from "@/widgets/UserPage_widgets/UserPortfolio";
+import { UserProjects } from "@/widgets/UserPage_widgets/UserProjects";
 
 export const UserPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
@@ -22,10 +24,13 @@ export const UserPage: React.FC = (): React.JSX.Element => {
       <main className="UserPage__main">
         <div className="padding">
           <UserAbout {...userAbout} />
+
           <UserPortfolio
             categories={UserPortfolioCategories}
             cases={UserPortfolioCases}
           />
+
+          <UserProjects projects={UserProjectsItems} />
         </div>
       </main>
       <Footer />

@@ -8,7 +8,7 @@ import {
   SelectTextStyles,
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
-import { ServicesViewTypes } from "../data/SpecialistServicesResults_types";
+import { ProjectItemViewTypes } from "../data/SpecialistServicesResults_types";
 
 import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
@@ -34,8 +34,8 @@ const TextStyles: SelectTextStyles = {
 
 export const SpecialistServicesResults: React.FC = memo(
   (): React.JSX.Element => {
-    const [activeViewType, setActiveViewType] = useState<ServicesViewTypes>(
-      ServicesViewTypes.COLUMN
+    const [activeViewType, setActiveViewType] = useState<ProjectItemViewTypes>(
+      ProjectItemViewTypes.COLUMN
     );
 
     return (
@@ -47,8 +47,8 @@ export const SpecialistServicesResults: React.FC = memo(
 
           <div className={styles.specialistServicesResults__sort}>
             <svg
-              onClick={() => setActiveViewType(ServicesViewTypes.ROW)}
-              className={`${styles.specialistServicesResults__viewType} ${activeViewType == ServicesViewTypes.ROW ? styles.specialistServicesResults__viewType__active : ""}`}
+              onClick={() => setActiveViewType(ProjectItemViewTypes.COLUMN)}
+              className={`${styles.specialistServicesResults__viewType} ${activeViewType == ProjectItemViewTypes.COLUMN ? styles.specialistServicesResults__viewType__active : ""}`}
               width="14"
               height="14"
               viewBox="0 0 14 14"
@@ -63,8 +63,8 @@ export const SpecialistServicesResults: React.FC = memo(
             </svg>
 
             <svg
-              onClick={() => setActiveViewType(ServicesViewTypes.COLUMN)}
-              className={`${styles.specialistServicesResults__viewType} ${activeViewType == ServicesViewTypes.COLUMN ? styles.specialistServicesResults__viewType__active : ""}`}
+              onClick={() => setActiveViewType(ProjectItemViewTypes.ROW)}
+              className={`${styles.specialistServicesResults__viewType} ${activeViewType == ProjectItemViewTypes.ROW ? styles.specialistServicesResults__viewType__active : ""}`}
               width="15"
               height="14"
               viewBox="0 0 15 14"
@@ -97,8 +97,8 @@ export const SpecialistServicesResults: React.FC = memo(
 
         <div
           className={` ${styles.specialistServicesResults__items} 
-          ${activeViewType == ServicesViewTypes.COLUMN ? styles.specialistServicesResults__items__column : ""}
-          ${activeViewType == ServicesViewTypes.ROW ? styles.specialistServicesResults__items__row : ""}`}
+          ${activeViewType == ProjectItemViewTypes.ROW ? styles.specialistServicesResults__items__column : ""}
+          ${activeViewType == ProjectItemViewTypes.COLUMN ? styles.specialistServicesResults__items__row : ""}`}
         >
           {servicesItems.map((serviceItem: ServicesItem) => (
             <ProjectItem

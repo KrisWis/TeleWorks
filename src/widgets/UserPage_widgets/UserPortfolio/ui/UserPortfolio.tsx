@@ -59,6 +59,7 @@ export const UserPortfolio: React.FC<UserPortfolioProps> = memo(
         <div className={styles.UserPortfolio__cases}>
           {cases.map((Case) => (
             <PortfolioCase
+              key={Case.caseName}
               imgURL={Case.imgURL}
               views={Case.views}
               caseName={Case.caseName}

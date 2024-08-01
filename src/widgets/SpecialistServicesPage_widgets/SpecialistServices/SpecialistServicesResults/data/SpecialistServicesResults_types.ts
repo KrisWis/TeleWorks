@@ -1,4 +1,4 @@
-export enum ServicesViewTypes {
+export enum ProjectItemViewTypes {
   COLUMN = "column",
   ROW = "row",
 }

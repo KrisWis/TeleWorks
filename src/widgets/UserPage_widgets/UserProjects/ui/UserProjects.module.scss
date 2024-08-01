@@ -1,0 +1,12 @@
+.UserProjects {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &__items {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 23.8%);
+    gap: 19px;
+  }
+}
