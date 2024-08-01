@@ -13,7 +13,11 @@ export const SpecialistServices: React.FC = memo((): React.JSX.Element => {
     <section className={styles.specialistServices}>
       <h1 className="page__caption">Услуги специалистов</h1>
 
-      <Categories categories={categoriesItems} />
+      <Categories
+        SliderPrevArrowID="SpecialistServices__sliderPrevArrow"
+        SliderNextArrowID="SpecialistServices__sliderNextArrow"
+        categories={categoriesItems}
+      />
 
       <div className={styles.specialistServices__wrapper}>
         <Filter bonusFilters={servicesFilters} />

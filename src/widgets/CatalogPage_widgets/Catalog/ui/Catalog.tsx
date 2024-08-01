@@ -13,6 +13,7 @@ import { CatalogItemProps } from "@/entities/CatalogPage_entities/CatalogItem/mo
 import { Button } from "@/shared/ui-kit/Button";
 import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 import { Filter } from "@/features/Global_features/Filter";
+import { LoadMore } from "@/shared/ui-kit/LoadMore";
 
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
@@ -41,11 +42,7 @@ export const Catalog: React.FC = (): React.JSX.Element => {
         </div>
       </div>
 
-      <Button
-        type={ButtonTypes.CYAN}
-        className={styles.catalog__loadMore}
-        text="Загрузить еще"
-      />
+      <LoadMore type={ButtonTypes.CYAN} className={styles.catalog__loadMore} />
     </section>
   );
 };

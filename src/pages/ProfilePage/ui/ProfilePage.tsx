@@ -1,6 +1,6 @@
 import "./ProfilePage.scss";
 import "@/shared/main.scss";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import {
   channelReviews,
   Reviews_items,
@@ -15,7 +15,7 @@ import { Stats } from "@/widgets/ProfilePage_widgets/Stats";
 import { Profile } from "@/entities/ProfilePage_entities/Profile";
 import { Similar_channels__item } from "@/entities/ProfilePage_entities/Similar_channels__item";
 
-export const ProfilePage: React.FC = memo((): React.JSX.Element => {
+export const ProfilePage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("profilePage");
   }, []);
@@ -49,4 +49,4 @@ export const ProfilePage: React.FC = memo((): React.JSX.Element => {
       </div>
     </main>
   );
-});
+};

@@ -1,0 +1,64 @@
+.PortfolioCase {
+  &Image {
+    width: 100%;
+    height: 100%;
+    border: 1.13px solid #eaf2ff;
+    border-radius: 15px;
+
+    &Wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__showFullImage {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  }
+
+  &Name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #fff;
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+
+    &Wrapper {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 0 0 20px 20px;
+      width: 100%;
+      height: 110px;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(102, 102, 102, 0) 100%
+      );
+
+      &__views {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        position: absolute;
+        bottom: 15px;
+        right: 10px;
+
+        &__text {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 120%;
+          letter-spacing: -0.01em;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

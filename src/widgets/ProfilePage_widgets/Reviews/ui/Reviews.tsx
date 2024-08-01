@@ -5,6 +5,8 @@ import { reviews_selectOptions } from "../model/Reviews_data";
 import { ReviewsProps } from "../model/Reviews_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
 import { ReviewsSelect } from "@/shared/ui-kit/ReviewsSelect";
+import { ButtonTypes } from "@/shared/ui-kit/Button";
+import { LoadMore } from "@/shared/ui-kit/LoadMore";
 
 export const Reviews: React.FC<ReviewsProps> = memo(
   ({ reviewsItems }): React.JSX.Element => {
@@ -16,7 +18,7 @@ export const Reviews: React.FC<ReviewsProps> = memo(
           {reviewsItems.map((reviewItem: Reviews__itemProps, index: number) => (
             <Reviews__item key={reviewItem.text + index} {...reviewItem} />
           ))}
-          <button className={styles.reviews__more}>Загрузить ещё</button>
+          <LoadMore type={ButtonTypes.RED} className={styles.reviews__more} />
         </div>
       </section>
     );

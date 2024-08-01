@@ -3,9 +3,9 @@ import "@/shared/main.scss";
 import { Header } from "@/widgets/Global_widgets/Header";
 import { SpecialistServices } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
 import { Footer } from "@/widgets/Global_widgets/Footer";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 
-export const SpecialistServicesPage: React.FC = memo((): React.JSX.Element => {
+export const SpecialistServicesPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("SpecialistServicesPage");
   }, []);
@@ -21,4 +21,4 @@ export const SpecialistServicesPage: React.FC = memo((): React.JSX.Element => {
       <Footer />
     </>
   );
-});
+};

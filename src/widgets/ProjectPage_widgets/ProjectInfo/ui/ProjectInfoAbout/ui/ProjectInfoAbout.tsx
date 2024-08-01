@@ -7,9 +7,12 @@ import {
   ProjectInfoAbout__imgsURL,
   ProjectInfoAbout__portfolioCases,
 } from "../model/ProjectInfoAbout_data";
-import { ProjectInfoAboutPortfolioCase } from "../model/ProjectInfoAbout_types";
-import { ShowFullImage } from "@/shared/ui-kit/ShowFullImage";
+import {
+  ShowFullImage,
+  ShowFullImageTypes,
+} from "@/shared/ui-kit/ShowFullImage";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
+import { PortfolioCase } from "@/shared/ui-kit/PortfolioCase";
 
 export const ProjectInfoAbout: React.FC = memo((): React.JSX.Element => {
   const [ActiveSlide, setActiveSlide] = useState<number>(0);
@@ -104,6 +107,7 @@ export const ProjectInfoAbout: React.FC = memo((): React.JSX.Element => {
                   imgURLs={ProjectInfoAbout__imgsURL}
                   className={styles.projectInfoAbout__slider__imgFull}
                   ActiveSlideIndex={ActiveSlide}
+                  type={ShowFullImageTypes.FULL}
                 />
               </div>
             </SwiperSlide>
@@ -204,27 +208,15 @@ export const ProjectInfoAbout: React.FC = memo((): React.JSX.Element => {
         <h3 className="ProjectPage__subcaption">Портфолио</h3>
 
         <div className={styles.projectInfoAbout__portfolio__images}>
-          <div
-            className={styles.projectInfoAbout__portfolio__FirstImageWrapper}
-          >
-            <img
-              className={styles.projectInfoAbout__portfolio__FirstImage}
-              src={ProjectInfoAbout__portfolioCases[0].imgURL}
-              alt={ProjectInfoAbout__portfolioCases[0].caseName}
-            />
-
-            <div
-              className={styles.projectInfoAbout__portfolio__caseNameWrapper}
-            >
-              <span className={styles.projectInfoAbout__portfolio__caseName}>
-                {ProjectInfoAbout__portfolioCases[0].caseName}
-              </span>
-            </div>
-          </div>
+          <PortfolioCase
+            imgURL={ProjectInfoAbout__portfolioCases[0].imgURL}
+            caseName={ProjectInfoAbout__portfolioCases[0].caseName}
+            views={ProjectInfoAbout__portfolioCases[0].views}
+          />
 
           <div className={styles.projectInfoAbout__portfolio__otherImages}>
             {ProjectInfoAbout__portfolioCases.slice(0, 4).map(
-              (portfolioCase: ProjectInfoAboutPortfolioCase) => (
+              (portfolioCase) => (
                 <img
                   key={portfolioCase.caseName}
                   className={styles.projectInfoAbout__portfolio__otherImage}

@@ -23,10 +23,7 @@ export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
       useState<boolean>(false);
 
     return (
-      <DynamicModuleLoader
-        removeAfterUnmount
-        reducers={{ checkoutOrderReducer }}
-      >
+      <DynamicModuleLoader reducers={{ checkoutOrderReducer }}>
         <section className={styles.projectInfo}>
           <div className={styles.projectInfo__header}>
             <h2 className="ProjectPage__subcaption">{projectTitle}</h2>

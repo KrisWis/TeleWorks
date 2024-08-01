@@ -66,6 +66,20 @@ export const Select: React.FC<Select__Props> = memo(
       }),
 
       indicatorSeparator: () => ({}),
+
+      menu: () => ({
+        zIndex: "var(--z-index-dropdown)",
+        top: "100%",
+        position: "absolute",
+        width: "100%",
+        backgroundColor: "hsl(0, 0%, 100%)",
+        borderRadius: "4px",
+        boxShadow:
+          "0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)",
+        marginBottom: "8px",
+        marginTop: "8px",
+        boxSizing: "border-box",
+      }),
     };
 
     useEffect(() => {

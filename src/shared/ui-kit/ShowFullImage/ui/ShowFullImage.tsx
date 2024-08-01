@@ -1,4 +1,7 @@
-import { ShowFullImageProps } from "../model/ShowFullImage_types";
+import {
+  ShowFullImageProps,
+  ShowFullImageTypes,
+} from "../model/ShowFullImage_types";
 import styles from "./ShowFullImage.module.scss";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import FullScreenSVG from "@/shared/assets/icons/Shared/ShowFullImage/FullScreenSVG.svg?react";
@@ -10,7 +13,7 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
 export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
-  ({ className, imgURLs, ActiveSlideIndex }): React.JSX.Element => {
+  ({ className, imgURLs, ActiveSlideIndex, type }): React.JSX.Element => {
     const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
     const [ModalIsAppear, setModalIsAppear] = useState<boolean>(false);
@@ -35,12 +38,14 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
     return (
       <>
         <div
-          className={`${styles.showFullImage} ${className}`}
+          className={`${styles.showFullImage} ${className} ${type == ShowFullImageTypes.FULL ? styles.showFullImage__full : styles.showFullImage__short}`}
           onClick={() => setModalIsOpen(true)}
         >
           <FullScreenSVG />
 
-          <span className={styles.showFullImage__text}>Полноэкранный</span>
+          {type == ShowFullImageTypes.FULL && (
+            <span className={styles.showFullImage__text}>Полноэкранный</span>
+          )}
         </div>
 
         {ModalIsOpen && (
@@ -50,7 +55,7 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
             setModalIsOpen={setModalIsOpen}
             className={styles.showFullImage__modal}
           >
-            <div className={styles.showFullImage__wrapper}>
+            <div className={`showFullImage ${styles.showFullImage__wrapper}`}>
               <div className={styles.showFullImage__slider}>
                 {imgURLs.length > 1 && (
                   <div

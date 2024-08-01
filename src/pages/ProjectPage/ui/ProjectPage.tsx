@@ -1,6 +1,6 @@
 import "./ProjectPage.scss";
 import "@/shared/main.scss";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import {
   channelReviewsProps,
   OtherProjectsItems,
@@ -15,7 +15,7 @@ import { ProjectReviews } from "@/widgets/ProjectPage_widgets/ProjectReviews";
 import { Footer } from "@/widgets/Global_widgets/Footer";
 import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
 
-export const ProjectPage: React.FC = memo((): React.JSX.Element => {
+export const ProjectPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("ProjectPage");
   }, []);
@@ -66,4 +66,4 @@ export const ProjectPage: React.FC = memo((): React.JSX.Element => {
       <Footer />
     </>
   );
-});
+};

@@ -14,9 +14,9 @@ import { Platform_Privileges } from "@/widgets/MainPage_widgets/Platform_Privile
 import { SupportService } from "@/widgets/MainPage_widgets/SupportService";
 import { Transaction_Advantage } from "@/widgets/MainPage_widgets/Transaction_Advantage";
 import { WeAreTrusted } from "@/widgets/MainPage_widgets/WeAreTrusted";
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 
-export const MainPage: React.FC = memo((): React.JSX.Element => {
+export const MainPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("mainPage");
   }, []);
@@ -52,4 +52,4 @@ export const MainPage: React.FC = memo((): React.JSX.Element => {
       </main>
     </>
   );
-});
+};

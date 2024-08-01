@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import "./CatalogPage.scss";
 import "@/shared/main.scss";
 import { Catalog } from "@/widgets/CatalogPage_widgets/Catalog";
@@ -6,7 +6,7 @@ import { Header } from "@/widgets/Global_widgets/Header";
 import { ReceiveNotifications } from "@/widgets/Global_widgets/ReceiveNotifications";
 import { Footer } from "@/widgets/Global_widgets/Footer";
 
-export const CatalogPage: React.FC = memo((): React.JSX.Element => {
+export const CatalogPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("CatalogPage");
   }, []);
@@ -24,4 +24,4 @@ export const CatalogPage: React.FC = memo((): React.JSX.Element => {
       <Footer />
     </>
   );
-});
+};

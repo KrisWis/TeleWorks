@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import "./MyProjectsPage.scss";
 import "@/shared/main.scss";
 import { Header } from "@/widgets/Global_widgets/Header";
@@ -7,7 +7,7 @@ import { MyProjects } from "@/widgets/MyProjects_widgets/MyProjects";
 import { Footer } from "@/widgets/Global_widgets/Footer";
 import { myProjectsStats } from "../model/MyProjectPage_data";
 
-export const MyProjectsPage: React.FC = memo((): React.JSX.Element => {
+export const MyProjectsPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("MyProjectsPage");
   }, []);
@@ -25,4 +25,4 @@ export const MyProjectsPage: React.FC = memo((): React.JSX.Element => {
       <Footer />
     </>
   );
-});
+};

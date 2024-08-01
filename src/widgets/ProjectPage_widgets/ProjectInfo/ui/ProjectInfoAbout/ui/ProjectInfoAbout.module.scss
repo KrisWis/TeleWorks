@@ -120,44 +120,6 @@
       margin-top: 10px;
     }
 
-    &__FirstImage {
-      width: 100%;
-      height: 100%;
-      border: 1.13px solid #eaf2ff;
-      border-radius: 15px;
-
-      &Wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    &__caseName {
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 120%;
-      letter-spacing: -0.01em;
-      color: #fff;
-      position: absolute;
-      bottom: 20px;
-      left: 10px;
-
-      &Wrapper {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        border-radius: 0 0 14px 14px;
-        width: 100%;
-        height: 110px;
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.4) 0%,
-          rgba(102, 102, 102, 0) 100%
-        );
-      }
-    }
-
     &__otherImages {
       display: grid;
       grid-template-columns: repeat(2, 49%);

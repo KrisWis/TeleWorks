@@ -87,7 +87,7 @@ export const Footer: React.FC = (): React.JSX.Element => {
             </li>
 
             <li className={styles.footer__links__item}>
-              <a href="https://telega.in/feedback">Напишите нам</a>
+              <a href="https://t.me/TeleWorksSupportbot">Напишите нам</a>
             </li>
           </ul>
         </div>
