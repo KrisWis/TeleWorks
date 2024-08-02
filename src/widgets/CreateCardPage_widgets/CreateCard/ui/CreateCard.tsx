@@ -1,6 +1,7 @@
 import { CreateCardForm } from "@/features/CreateCardPage_features/CreateCardForm";
 import styles from "./CreateCard.module.scss";
 import { memo } from "react";
+import { WhyNeedINNAndName } from "@/widgets/Global_widgets/WhyNeedINNAndName";
 
 export const CreateCard: React.FC = memo((): React.JSX.Element => {
   return (
@@ -11,6 +12,8 @@ export const CreateCard: React.FC = memo((): React.JSX.Element => {
 
       <div className={styles.createCard__wrapper}>
         <CreateCardForm />
+
+        <WhyNeedINNAndName />
       </div>
     </section>
   );

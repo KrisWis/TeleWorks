@@ -12,7 +12,9 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [CSSResetDecorator, RouterDecorator, ReduxDecorator],
+  tags: ["autodocs"]
 };
 
 export default preview;

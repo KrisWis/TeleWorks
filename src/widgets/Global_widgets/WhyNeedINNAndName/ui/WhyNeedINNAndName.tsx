@@ -1,0 +1,110 @@
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import styles from "./WhyNeedINNAndName.module.scss";
+import { memo, useEffect, useRef, useState } from "react";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "./WhyNeedINNAndName_swiper.scss";
+import "swiper/css/pagination";
+
+export const WhyNeedINNAndName: React.FC = memo((): React.JSX.Element => {
+  const swiperRef = useRef<SwiperClass>();
+
+  const [AllowSlideNext, setAllowSlideNext] = useState<boolean>(true);
+
+  const [ActiveSlide, setActiveSlide] = useState<number>(0);
+
+  useEffect(() => {
+    if (swiperRef.current) {
+      setAllowSlideNext(ActiveSlide != 2);
+    }
+  }, [ActiveSlide, swiperRef]);
+
+  return (
+    <div className={`${styles.whyNeedINNAndName} whyNeedINNAndName`}>
+      <Swiper
+        modules={[Pagination]}
+        spaceBetween={10}
+        slidesPerView={1}
+        slidesPerGroup={1}
+        pagination={{
+          clickable: true,
+        }}
+        onSwiper={(swiper: SwiperClass) => (swiperRef.current = swiper)}
+        onSlideChange={(swiper: SwiperClass) =>
+          setActiveSlide(swiper.activeIndex)
+        }
+      >
+        <SwiperSlide>
+          <div className={styles.whyNeedINNAndName__wrapper}>
+            <img
+              src={`${URL_PART}/global/images/WhyNeedINNAndName_img.png`}
+              alt="Мужчина и женщина показывают на ИНН человека"
+            />
+
+            <h6 className={styles.whyNeedINNAndName__caption}>
+              Зачем нужны ИНН и ФИО?
+            </h6>
+
+            <p className={styles.whyNeedINNAndName__desc}>
+              ИНН, фамилия и инициалы указываются в рекламном посте.
+            </p>
+
+            <p className={styles.whyNeedINNAndName__desc}>
+              Это безопасно и соответствует закону о маркировке рекламы.
+            </p>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={styles.whyNeedINNAndName__wrapper}>
+            <img
+              src={`${URL_PART}/global/images/WhyNeedINNAndName_img.png`}
+              alt="Мужчина и женщина показывают на ИНН человека"
+            />
+
+            <h6 className={styles.whyNeedINNAndName__caption}>
+              Зачем нужны ИНН и ФИО?
+            </h6>
+
+            <p className={styles.whyNeedINNAndName__desc}>
+              ИНН, фамилия и инициалы указываются в рекламном посте.
+            </p>
+
+            <p className={styles.whyNeedINNAndName__desc}>
+              Это безопасно и соответствует закону о маркировке рекламы.
+            </p>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <div className={styles.whyNeedINNAndName__wrapper}>
+            <img
+              src={`${URL_PART}/global/images/WhyNeedINNAndName_img.png`}
+              alt="Мужчина и женщина показывают на ИНН человека"
+            />
+
+            <h6 className={styles.whyNeedINNAndName__caption}>
+              Зачем нужны ИНН и ФИО?
+            </h6>
+
+            <p className={styles.whyNeedINNAndName__desc}>
+              ИНН, фамилия и инициалы указываются в рекламном посте.
+            </p>
+
+            <p className={styles.whyNeedINNAndName__desc}>
+              Это безопасно и соответствует закону о маркировке рекламы.
+            </p>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+
+      <Button
+        className={`${styles.whyNeedINNAndName__button} ${!AllowSlideNext ? styles.whyNeedINNAndName__button__removed : ""}`}
+        text="Далее"
+        type={ButtonTypes.RED}
+        onClick={() => swiperRef.current?.slideNext()}
+      />
+    </div>
+  );
+});
