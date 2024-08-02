@@ -18,7 +18,7 @@ import { LoadMore } from "@/shared/ui-kit/LoadMore";
 export const Catalog: React.FC = (): React.JSX.Element => {
   return (
     <section className={styles.catalog} data-testid="catalog">
-      <h1 className="page__caption">Каталог Telegram-каналов</h1>
+      <h1 className="Page__caption">Каталог Telegram-каналов</h1>
 
       <div className={styles.catalog__categories}>
         {catalog__categories.map((category: ButtonProps) => (

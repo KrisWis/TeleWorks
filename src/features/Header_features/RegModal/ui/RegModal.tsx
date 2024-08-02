@@ -8,6 +8,8 @@ import {
   RegModalCheckBoxesItems,
   RegModalProps,
 } from "../model/RegModal_types";
+import { Input } from "@/shared/ui-kit/Input";
+import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 
 export const RegModal: React.FC<RegModalProps> = memo(
   ({
@@ -91,8 +93,12 @@ export const RegModal: React.FC<RegModalProps> = memo(
                 E-mail
               </span>
 
-              <input
-                className={`${styles.RegModal__inputWrapper__input} ${TryLogin && !EmailInput ? styles.RegModal__inputWrapper__input__warning : ""}`}
+              <Input
+                className={
+                  TryLogin && !EmailInput
+                    ? styles.RegModal__inputWrapper__input__warning
+                    : ""
+                }
                 type="email"
                 placeholder="E-mail"
                 value={EmailInput}
@@ -105,8 +111,12 @@ export const RegModal: React.FC<RegModalProps> = memo(
                 Номер телефона
               </span>
 
-              <input
-                className={`${styles.RegModal__inputWrapper__input} ${TryLogin && !TelInput ? styles.RegModal__inputWrapper__input__warning : ""}`}
+              <Input
+                className={
+                  TryLogin && !TelInput
+                    ? styles.RegModal__inputWrapper__input__warning
+                    : ""
+                }
                 type="tel"
                 placeholder="+7 987 242 23 23"
                 value={TelInput}
@@ -119,8 +129,12 @@ export const RegModal: React.FC<RegModalProps> = memo(
                 Пароль
               </span>
 
-              <input
-                className={`${styles.RegModal__inputWrapper__input} ${TryLogin && !PasswordInput ? styles.RegModal__inputWrapper__input__warning : ""}`}
+              <Input
+                className={
+                  TryLogin && !PasswordInput
+                    ? styles.RegModal__inputWrapper__input__warning
+                    : ""
+                }
                 type="password"
                 placeholder="Пароль"
                 value={PasswordInput}
@@ -130,42 +144,44 @@ export const RegModal: React.FC<RegModalProps> = memo(
           </div>
 
           <div className={styles.RegModal__checkboxes}>
-            <div
-              className={`${styles.RegModal__checkbox} 
-            ${TryLogin && !ActiveCheckboxes.includes(RegModalCheckBoxes.MAILING) ? styles.RegModal__checkbox__warn : ""}`}
-            >
-              <div
-                className={`${styles.RegModal__checkbox__block} 
-                ${ActiveCheckboxes.includes(RegModalCheckBoxes.MAILING) ? styles.RegModal__checkbox__block__active : ""}`}
+            <div className={styles.RegModal__checkbox}>
+              <CheckBoxBlock
+                isActive={ActiveCheckboxes.includes(RegModalCheckBoxes.MAILING)}
+                isWarn={
+                  TryLogin &&
+                  !ActiveCheckboxes.includes(RegModalCheckBoxes.MAILING)
+                }
                 onClick={() =>
                   changeActiveCheckboxes(RegModalCheckBoxes.MAILING)
                 }
-              ></div>
+              />
 
               <p className={styles.RegModal__checkbox__text}>
                 Я хочу получать Email-рассылку от TeleWorks
               </p>
             </div>
 
-            <div
-              className={`${styles.RegModal__checkbox} 
-            ${TryLogin && !ActiveCheckboxes.includes(RegModalCheckBoxes.AGREEMENT) ? styles.RegModal__checkbox__warn : ""}`}
-            >
-              <div
-                className={`${styles.RegModal__checkbox__block} 
-                ${ActiveCheckboxes.includes(RegModalCheckBoxes.AGREEMENT) ? styles.RegModal__checkbox__block__active : ""}`}
+            <div className={styles.RegModal__checkbox}>
+              <CheckBoxBlock
+                isActive={ActiveCheckboxes.includes(
+                  RegModalCheckBoxes.AGREEMENT
+                )}
+                isWarn={
+                  TryLogin &&
+                  !ActiveCheckboxes.includes(RegModalCheckBoxes.AGREEMENT)
+                }
                 onClick={() =>
                   changeActiveCheckboxes(RegModalCheckBoxes.AGREEMENT)
                 }
-              ></div>
+              />
 
               <p className={styles.RegModal__text}>
                 Даю свое согласие на обработку персональных данных{" "}
-                <a href="#" className={styles.RegModal__RedLink}>
+                <a href="#" className="Page__RedLink">
                   с политикой обработки персональных данных
                 </a>{" "}
                 и{" "}
-                <a href="#" className={styles.RegModal__RedLink}>
+                <a href="#" className="Page__RedLink">
                   пользовательским соглашением ознакомлен
                 </a>
               </p>
@@ -174,7 +190,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
 
           <p className={`${styles.RegModal__text} ${styles.RegModal__agree}`}>
             Нажимая на кнопку, вы соглашаетесь с{" "}
-            <a href="#" className={styles.RegModal__RedLink}>
+            <a href="#" className="Page__RedLink">
               Правилами пользования Сервиса
             </a>
           </p>

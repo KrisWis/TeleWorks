@@ -3,6 +3,7 @@ import styles from "./PasswordRecoveryModal.module.scss";
 import { memo, useEffect, useMemo, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
+import { Input } from "@/shared/ui-kit/Input";
 
 export const PasswordRecoveryModal: React.FC = memo((): React.JSX.Element => {
   const [EmailInput, setEmailInput] = useState<string>("");
@@ -37,8 +38,12 @@ export const PasswordRecoveryModal: React.FC = memo((): React.JSX.Element => {
             E-mail
           </span>
 
-          <input
-            className={`${styles.PasswordRecoveryModal__inputWrapper__input} ${TryLogin && !EmailInput ? styles.PasswordRecoveryModal__inputWrapper__input__warning : ""}`}
+          <Input
+            className={
+              TryLogin && !EmailInput
+                ? styles.PasswordRecoveryModal__inputWrapper__input__warning
+                : ""
+            }
             type="email"
             placeholder="E-mail"
             value={EmailInput}

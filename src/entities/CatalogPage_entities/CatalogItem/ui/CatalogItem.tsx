@@ -14,6 +14,7 @@ import {
   SelectThemesEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
+
 import DropdownIndicatorSvg from "@/shared/assets/icons/CatalogPage/CatalogItem/DropdownIndicator.svg?react";
 import UsersAmount from "@/shared/assets/icons/CatalogPage/CatalogItem/UsersAmount.svg?react";
 import FooterBurgerMenu from "@/shared/assets/icons/CatalogPage/CatalogItem/FooterBurgerMenu.svg?react";

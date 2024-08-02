@@ -11,7 +11,7 @@ import { Filter } from "@/features/Global_features/Filter";
 export const SpecialistServices: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.specialistServices}>
-      <h1 className="page__caption">Услуги специалистов</h1>
+      <h1 className="Page__caption">Услуги специалистов</h1>
 
       <Categories
         SliderPrevArrowID="SpecialistServices__sliderPrevArrow"

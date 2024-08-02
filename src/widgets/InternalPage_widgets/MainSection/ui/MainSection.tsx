@@ -10,7 +10,7 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 export const MainSection: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.mainSection}>
-      <h1 className={`${styles.mainSection__caption} page__caption`}>
+      <h1 className={`${styles.mainSection__caption} Page__caption`}>
         <span>Зарабатывайте</span> на своем Телеграм-канале или боте:
       </h1>
 

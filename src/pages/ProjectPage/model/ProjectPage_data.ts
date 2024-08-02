@@ -179,7 +179,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: true,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -196,7 +196,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -213,7 +213,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -230,7 +230,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -247,7 +247,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -264,7 +264,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 ];
 
@@ -283,7 +283,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: true,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -300,7 +300,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: true,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -317,7 +317,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -334,7 +334,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -351,7 +351,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 
   {
@@ -368,6 +368,6 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       authorIsOnline: false,
       TopOfWeek: false,
     },
-    viewType: ProjectItemViewTypes.ROW,
+    viewType: ProjectItemViewTypes.COLUMN,
   },
 ];

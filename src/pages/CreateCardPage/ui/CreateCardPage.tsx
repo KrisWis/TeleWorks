@@ -4,6 +4,7 @@ import "@/shared/main.scss";
 import { Header } from "@/widgets/Global_widgets/Header";
 import { useEffect } from "react";
 import { memo } from "react";
+import { CreateCard } from "@/widgets/CreateCardPage_widgets/CreateCard";
 
 export const CreateCardPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -14,7 +15,9 @@ export const CreateCardPage: React.FC = memo((): React.JSX.Element => {
     <>
       <Header />
       <main className="CreateCardPage__main">
-        <div className="padding"></div>
+        <div className="padding">
+          <CreateCard />
+        </div>
       </main>
       <Footer />
     </>

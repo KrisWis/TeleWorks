@@ -13,7 +13,7 @@ export const MyProjects: React.FC<MyProjectsProps> = memo(
   ({ myProjectsStats }): React.JSX.Element => {
     return (
       <section className={styles.myProjects}>
-        <h1 className="page__caption">Мои проекты</h1>
+        <h1 className="Page__caption">Мои проекты</h1>
 
         <div className={styles.myProjects__categories}>
           <Button

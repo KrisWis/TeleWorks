@@ -4,6 +4,7 @@ import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { AuthModalProps } from "../model/AuthModal_types";
+import { Input } from "@/shared/ui-kit/Input";
 
 export const AuthModal: React.FC<AuthModalProps> = memo(
   ({
@@ -68,8 +69,12 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
                 E-mail
               </span>
 
-              <input
-                className={`${styles.AuthModal__inputWrapper__input} ${TryLogin && !EmailInput ? styles.AuthModal__inputWrapper__input__warning : ""}`}
+              <Input
+                className={
+                  TryLogin && !EmailInput
+                    ? styles.AuthModal__inputWrapper__input__warning
+                    : ""
+                }
                 type="email"
                 placeholder="E-mail"
                 value={EmailInput}
@@ -82,8 +87,12 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
                 Пароль
               </span>
 
-              <input
-                className={`${styles.AuthModal__inputWrapper__input} ${TryLogin && !PasswordInput ? styles.AuthModal__inputWrapper__input__warning : ""}`}
+              <Input
+                className={
+                  TryLogin && !PasswordInput
+                    ? styles.AuthModal__inputWrapper__input__warning
+                    : ""
+                }
                 type="password"
                 placeholder="Пароль"
                 value={PasswordInput}
