@@ -1,0 +1,50 @@
+@font-face {
+  font-family: Manrope;
+  src: url("../shared/fonts/Manrope/Manrope.ttf") format("ttf");
+}
+
+.CreateCardPage {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+
+  &:root {
+    --font-family: "Manrope", sans-serif;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-style: normal;
+    margin: 0;
+    max-width: 100vw;
+    background: url("../../../../public/MainPage/images/other/body_background.webp");
+    background-size: cover;
+  }
+
+  #root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: var(--font-family);
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  &__subcaption {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+}

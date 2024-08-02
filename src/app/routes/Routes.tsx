@@ -1,4 +1,5 @@
 import { CatalogPage } from "@/pages/CatalogPage";
+import { CreateCardPage } from "@/pages/CreateCardPage";
 import { InternalPage } from "@/pages/InternalPage";
 import { MainPage } from "@/pages/MainPage";
 import { MyProjectsPage } from "@/pages/MyProjectsPage";
@@ -17,6 +18,7 @@ export enum Routes {
   SERVICES = "/services",
   PROJECT = "/project",
   USER = "/user",
+  CREATE_CARD = "/create-card",
 }
 
 export const routes: RouteProps[] = [
@@ -58,5 +60,10 @@ export const routes: RouteProps[] = [
   {
     path: Routes.USER,
     element: <UserPage />,
+  },
+
+  {
+    path: Routes.CREATE_CARD,
+    element: <CreateCardPage />,
   },
 ];

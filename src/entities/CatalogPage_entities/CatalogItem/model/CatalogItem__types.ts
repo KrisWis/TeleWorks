@@ -4,6 +4,7 @@ export enum CatalogItemTags {
   TAG3 = "tag3",
 }
 export interface CatalogItemProps {
+  id: number;
   imgURL: string;
   ratingNumber: number;
   title: string;

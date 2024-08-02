@@ -37,7 +37,7 @@ export const Catalog: React.FC = (): React.JSX.Element => {
 
         <div className={styles.catalog__items}>
           {catalog__items.map((item: CatalogItemProps) => (
-            <CatalogItem key={item.title} {...item} />
+            <CatalogItem key={item.id} {...item} />
           ))}
         </div>
       </div>

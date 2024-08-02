@@ -11,6 +11,7 @@ import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
 
 export const catalog__items: CatalogItemProps[] = [
   {
+    id: 1,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости",
@@ -26,6 +27,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "11 048.94",
   },
   {
+    id: 2,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 59.2,
     title: "Санкт-Петербург | Моска Новости",
@@ -41,6 +43,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "1108.94",
   },
   {
+    id: 3,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург",
@@ -56,6 +59,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "118.94",
   },
   {
+    id: 4,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости2",
@@ -71,6 +75,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "11 048.94",
   },
   {
+    id: 5,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости3",
@@ -86,6 +91,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "11 048.94",
   },
   {
+    id: 6,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости4",
@@ -101,6 +107,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "11 048.94",
   },
   {
+    id: 7,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости5",
@@ -116,6 +123,7 @@ export const catalog__items: CatalogItemProps[] = [
     price: "11 048.94",
   },
   {
+    id: 8,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости6",
