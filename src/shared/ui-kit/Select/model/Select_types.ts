@@ -52,4 +52,5 @@ export interface Select__Props {
   className?: string;
   theme?: SelectThemesEnum;
   valueContainerPadding?: valueContainerPaddingEnum;
+  setState?: React.Dispatch<React.SetStateAction<Select_Option>>;
 }

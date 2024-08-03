@@ -10,6 +10,7 @@ import {
 } from "react-select";
 import {
   Select__Props,
+  Select_Option,
   SelectThemes,
   SelectThemesEnum,
   valueContainerPaddingEnum,
@@ -23,11 +24,18 @@ export const Select: React.FC<Select__Props> = memo(
     className,
     theme = SelectThemesEnum.BLACK,
     valueContainerPadding = valueContainerPaddingEnum.MEDIUM,
+    setState,
   }): React.JSX.Element => {
     const SelectParentRef = useRef<HTMLDivElement>(null);
 
-    const [SelectedOption, setSelectedOption] = useState(null);
+    const [SelectedOption, setSelectedOption] = useState<Select_Option>();
     const DropdownIndicatorRef = useRef<HTMLDivElement>(null);
+
+    const SelectOnChange = (newValue: Select_Option): void => {
+      setSelectedOption(newValue);
+
+      if (setState) setState(newValue);
+    };
 
     const DropdownIndicator = (): JSX.Element => {
       return <div ref={DropdownIndicatorRef}>{CustomDropdownIndicator()}</div>;
@@ -109,8 +117,8 @@ export const Select: React.FC<Select__Props> = memo(
         <ReactSelect
           className={`${styles.Select} ${className}`}
           defaultValue={SelectedOption}
-          onChange={() => {
-            setSelectedOption;
+          onChange={(newValue) => {
+            SelectOnChange(newValue as Select_Option);
           }}
           options={selectedOptions}
           styles={CustomStyles}

@@ -1,12 +1,16 @@
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import styles from "./CreateCardForm.module.scss";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorBlueSVG.svg?react";
-import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import {
+  Select_Option,
+  SelectTextStyles,
+} from "@/shared/ui-kit/Select/model/Select_types";
 import { CreateCardFormType__selectedOptions } from "../model/CreateCardForm_data";
 import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { CreateCardFormProps } from "../model/CreateCardForm_types";
 
 const DropdownIndicator = (): JSX.Element => {
   return (
@@ -24,112 +28,207 @@ const TextStyles: SelectTextStyles = {
   opacity: 0.4,
 };
 
-export const CreateCardForm: React.FC = memo((): React.JSX.Element => {
-  const [INNInput, setINNInput] = useState<string>("");
+export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
+  ({ setActiveSlide }): React.JSX.Element => {
+    const [INNInput, setINNInput] = useState<string>("");
 
-  const [NameInput, setNameInput] = useState<string>("");
+    const [NameInput, setNameInput] = useState<string>("");
 
-  const [PatronymicCheckBoxIsActive, setPatronymicCheckBoxIsActive] =
-    useState<boolean>(false);
+    const [OrganizationNameInput, setOrganizationNameInput] =
+      useState<string>("");
 
-  return (
-    <div className={styles.createCardForm}>
-      <h2 className={styles.createCardForm__subcaption}>
-        Заполните для пополнения баланса
-      </h2>
+    const [SignatoryPosition, setSignatoryPosition] = useState<string>("");
 
-      <div className={styles.createCardForm__wrapper}>
-        <div className={styles.createCardForm__item}>
-          <h5 className="CreateCardPage__subcaption">Тип</h5>
+    const [SignatoryName, setSignatoryName] = useState<string>("");
 
-          <Select
-            className={styles.createCardForm__select}
-            selectedOptions={CreateCardFormType__selectedOptions}
-            TextStyles={TextStyles}
-            CustomDropdownIndicator={DropdownIndicator}
-          />
-        </div>
+    const [SignatoryAction, setSignatoryAction] = useState<string>("");
 
-        <div className={styles.createCardForm__item}>
-          <h5 className="CreateCardPage__subcaption">ИНН</h5>
+    const [PatronymicCheckBoxIsActive, setPatronymicCheckBoxIsActive] =
+      useState<boolean>(false);
 
-          <Input
-            value={INNInput}
-            onChange={(e) => setINNInput(e.target.value)}
-            type="number"
-            placeholder="43348348384"
-          />
+    const [SelectTypeValue, setSelectTypeValue] = useState<Select_Option>(
+      CreateCardFormType__selectedOptions[0]
+    );
 
-          <span className={styles.createCardForm__span}>
-            Узнать ИНН физического лица можно на сайте ФНС России
-          </span>
-        </div>
+    const IsLegalEntity = SelectTypeValue.value == "Юр.лицо";
 
-        <div className={styles.createCardForm__item}>
-          <h5 className="CreateCardPage__subcaption">Ваши ФИО</h5>
+    useEffect(() => {
+      setActiveSlide(
+        CreateCardFormType__selectedOptions.findIndex(
+          (item) => item.value == SelectTypeValue.value
+        )
+      );
+    }, [SelectTypeValue, setActiveSlide]);
 
-          <Input
-            value={NameInput}
-            onChange={(e) => setNameInput(e.target.value)}
-            type="text"
-            placeholder="Иван Иванов Иванович"
-          />
+    return (
+      <div className={styles.createCardForm}>
+        <h2 className={styles.createCardForm__subcaption}>
+          Заполните для пополнения баланса
+        </h2>
 
-          <div className={styles.createCardForm__patronymic}>
-            <CheckBoxBlock
-              isActive={PatronymicCheckBoxIsActive}
-              onClick={() =>
-                setPatronymicCheckBoxIsActive(!PatronymicCheckBoxIsActive)
-              }
+        <div className={styles.createCardForm__wrapper}>
+          <div className={styles.createCardForm__item}>
+            <h5 className="CreateCardPage__subcaption">Тип</h5>
+
+            <Select
+              className={styles.createCardForm__select}
+              selectedOptions={CreateCardFormType__selectedOptions}
+              TextStyles={TextStyles}
+              CustomDropdownIndicator={DropdownIndicator}
+              setState={setSelectTypeValue}
+            />
+          </div>
+
+          <div className={styles.createCardForm__item}>
+            <h5 className="CreateCardPage__subcaption">ИНН</h5>
+
+            <Input
+              value={INNInput}
+              onChange={(e) => setINNInput(e.target.value)}
+              type="number"
+              placeholder="43348348384"
             />
 
-            <span className={styles.createCardForm__patronymic__text}>
-              Нет отчества
+            <span className={styles.createCardForm__span}>
+              Узнать ИНН физического лица можно на сайте ФНС России
+            </span>
+          </div>
+
+          <div
+            className={`${styles.createCardForm__item} ${styles.createCardForm__item__canBeClosed} ${IsLegalEntity ? styles.createCardForm__item__closed : ""}`}
+          >
+            <h5 className="CreateCardPage__subcaption">Ваши ФИО</h5>
+
+            <Input
+              value={NameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+              type="text"
+              placeholder="Иван Иванов Иванович"
+            />
+
+            <div className={styles.createCardForm__patronymic}>
+              <CheckBoxBlock
+                isActive={PatronymicCheckBoxIsActive}
+                onClick={() =>
+                  setPatronymicCheckBoxIsActive(!PatronymicCheckBoxIsActive)
+                }
+              />
+
+              <span className={styles.createCardForm__patronymic__text}>
+                Нет отчества
+              </span>
+            </div>
+          </div>
+
+          <div
+            className={`${styles.createCardForm__item} ${styles.createCardForm__item__canBeClosed} ${!IsLegalEntity ? styles.createCardForm__item__closed : ""}`}
+          >
+            <h5 className="CreateCardPage__subcaption">
+              Наименование организации
+            </h5>
+
+            <Input
+              value={OrganizationNameInput}
+              onChange={(e) => setOrganizationNameInput(e.target.value)}
+              type="text"
+              placeholder="ООО “TeleWorks”"
+            />
+
+            <span className={styles.createCardForm__span}>
+              Укажите точное название вашей организации т.к. эти данные будут
+              отражены в платежных документах.
             </span>
           </div>
         </div>
-      </div>
 
-      <div className={styles.createCardForm__tips}>
-        <div className={styles.createCardForm__tip}>
-          <h6 className="CreateCardPage__subcaption">Для агентств</h6>
+        <div
+          className={`${styles.createCardForm__wrapper} ${styles.createCardForm__wrapper__canBeClosed} ${!IsLegalEntity ? styles.createCardForm__wrapper__closed : ""}`}
+        >
+          <h2 className={styles.createCardForm__subcaption}>
+            Данные подписанта
+          </h2>
 
-          <p className={styles.createCardForm__tip__desc}>
-            Если вы не являетесь конечным рекламодателем, зарегистрируйте его в
-            разделе{" "}
-            <a href="#" className="Page__RedLink">
-              Агентский доступ.
-            </a>
-          </p>
+          <div className={styles.createCardForm__item}>
+            <h5 className="CreateCardPage__subcaption">Должность подписанта</h5>
+
+            <Input
+              value={SignatoryPosition}
+              onChange={(e) => setSignatoryPosition(e.target.value)}
+              type="number"
+              placeholder="43348348384"
+            />
+          </div>
+
+          <div className={styles.createCardForm__item}>
+            <h5 className="CreateCardPage__subcaption">ФИО подписанта</h5>
+
+            <Input
+              value={SignatoryName}
+              onChange={(e) => setSignatoryName(e.target.value)}
+              type="text"
+              placeholder="Иван Иванов Иванович"
+            />
+          </div>
+
+          <div className={styles.createCardForm__item}>
+            <h5 className="CreateCardPage__subcaption">
+              Подписант действует на основании
+            </h5>
+
+            <Input
+              value={SignatoryAction}
+              onChange={(e) => setSignatoryAction(e.target.value)}
+              type="text"
+              placeholder="Иван Иванов Иванович"
+            />
+
+            <span className={styles.createCardForm__span}>
+              Например, на основании устава, доверенности
+            </span>
+          </div>
         </div>
 
-        <div className={styles.createCardForm__tip}>
-          <h6 className="CreateCardPage__subcaption">Проверьте данные</h6>
+        <div className={styles.createCardForm__tips}>
+          <div className={styles.createCardForm__tip}>
+            <h6 className="CreateCardPage__subcaption">Для агентств</h6>
 
-          <p className={styles.createCardForm__tip__desc}>
-            Проверьте правильность заполнения данных и сохраните их. После
-            сохранения изменить данные организации будет нельзя.
-          </p>
+            <p className={styles.createCardForm__tip__desc}>
+              Если вы не являетесь конечным рекламодателем, зарегистрируйте его
+              в разделе{" "}
+              <a href="#" className="Page__RedLink">
+                Агентский доступ.
+              </a>
+            </p>
+          </div>
+
+          <div className={styles.createCardForm__tip}>
+            <h6 className="CreateCardPage__subcaption">Проверьте данные</h6>
+
+            <p className={styles.createCardForm__tip__desc}>
+              Проверьте правильность заполнения данных и сохраните их. После
+              сохранения изменить данные организации будет нельзя.
+            </p>
+          </div>
         </div>
+
+        <p className={styles.createCardForm__bottomText}>
+          Нажимая кнопку Сохранить, вы подтверждаете: достоверность данных,
+          ознакомление и принятие условий{" "}
+          <a href="#" className="Page__RedLink">
+            Оферты
+          </a>
+          , согласие на обработку{" "}
+          <a href="#" className="Page__RedLink">
+            Персональных данных.
+          </a>
+        </p>
+
+        <Button
+          className={styles.createCardForm__continue}
+          type={ButtonTypes.RED}
+          text="Сохранить"
+        />
       </div>
-
-      <p className={styles.createCardForm__bottomText}>
-        Нажимая кнопку Сохранить, вы подтверждаете: достоверность данных,
-        ознакомление и принятие условий{" "}
-        <a href="#" className="Page__RedLink">
-          Оферты
-        </a>
-        , согласие на обработку{" "}
-        <a href="#" className="Page__RedLink">
-          Персональных данных.
-        </a>
-      </p>
-
-      <Button
-        className={styles.createCardForm__continue}
-        type={ButtonTypes.RED}
-        text="Сохранить"
-      />
-    </div>
-  );
-});
+    );
+  }
+);
