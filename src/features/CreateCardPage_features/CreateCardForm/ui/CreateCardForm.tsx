@@ -85,7 +85,7 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
             <Input
               value={INNInput}
               onChange={(e) => setINNInput(e.target.value)}
-              type="number"
+              type="text"
               placeholder="43348348384"
             />
 
@@ -154,7 +154,7 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
             <Input
               value={SignatoryPosition}
               onChange={(e) => setSignatoryPosition(e.target.value)}
-              type="number"
+              type="text"
               placeholder="43348348384"
             />
           </div>

@@ -1,10 +1,11 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./AuthModal.module.scss";
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { AuthModalProps } from "../model/AuthModal_types";
 import { Input } from "@/shared/ui-kit/Input";
+import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
 
 export const AuthModal: React.FC<AuthModalProps> = memo(
   ({
@@ -17,15 +18,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
 
     const [PasswordInput, setPasswordInput] = useState<string>("");
 
-    const [TryLogin, setTryLogin] = useState<boolean>(false);
-
-    useEffect(() => {
-      if (TryLogin) {
-        setTimeout(() => {
-          setTryLogin(false);
-        }, 3000);
-      }
-    }, [TryLogin]);
+    const [TryLogin, setTryLogin] = UseTryAction();
 
     const onClickReg = useCallback((): void => {
       CustomSetModalAppear(false);
@@ -70,15 +63,11 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
               </span>
 
               <Input
-                className={
-                  TryLogin && !EmailInput
-                    ? styles.AuthModal__inputWrapper__input__warning
-                    : ""
-                }
                 type="email"
                 placeholder="E-mail"
                 value={EmailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
+                isWarn={TryLogin && !EmailInput}
               />
             </div>
 
@@ -88,15 +77,11 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
               </span>
 
               <Input
-                className={
-                  TryLogin && !PasswordInput
-                    ? styles.AuthModal__inputWrapper__input__warning
-                    : ""
-                }
                 type="password"
                 placeholder="Пароль"
                 value={PasswordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
+                isWarn={TryLogin && !PasswordInput}
               />
 
               <span

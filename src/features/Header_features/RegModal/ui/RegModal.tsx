@@ -1,6 +1,6 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./RegModal.module.scss";
-import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import {
@@ -10,6 +10,7 @@ import {
 } from "../model/RegModal_types";
 import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
+import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
 
 export const RegModal: React.FC<RegModalProps> = memo(
   ({
@@ -23,7 +24,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
 
     const [TelInput, setTelInput] = useState<string>("");
 
-    const [TryLogin, setTryLogin] = useState<boolean>(false);
+    const [TryLogin, setTryLogin] = UseTryAction();
 
     const [ActiveCheckboxes, setActiveCheckboxes] = useState<
       RegModalCheckBoxes[]
@@ -68,14 +69,6 @@ export const RegModal: React.FC<RegModalProps> = memo(
       [AllCheckBoxesIsSelected, EmailInput, PasswordInput, TelInput]
     );
 
-    useEffect(() => {
-      if (TryLogin) {
-        setTimeout(() => {
-          setTryLogin(false);
-        }, 3000);
-      }
-    }, [TryLogin]);
-
     return (
       <div className={styles.RegModal}>
         <img
@@ -94,15 +87,11 @@ export const RegModal: React.FC<RegModalProps> = memo(
               </span>
 
               <Input
-                className={
-                  TryLogin && !EmailInput
-                    ? styles.RegModal__inputWrapper__input__warning
-                    : ""
-                }
                 type="email"
                 placeholder="E-mail"
                 value={EmailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
+                isWarn={TryLogin && !EmailInput}
               />
             </div>
 
@@ -112,15 +101,11 @@ export const RegModal: React.FC<RegModalProps> = memo(
               </span>
 
               <Input
-                className={
-                  TryLogin && !TelInput
-                    ? styles.RegModal__inputWrapper__input__warning
-                    : ""
-                }
                 type="tel"
                 placeholder="+7 987 242 23 23"
                 value={TelInput}
                 onChange={(e) => setTelInput(e.target.value)}
+                isWarn={TryLogin && !TelInput}
               />
             </div>
 
@@ -130,15 +115,11 @@ export const RegModal: React.FC<RegModalProps> = memo(
               </span>
 
               <Input
-                className={
-                  TryLogin && !PasswordInput
-                    ? styles.RegModal__inputWrapper__input__warning
-                    : ""
-                }
                 type="password"
                 placeholder="Пароль"
                 value={PasswordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
+                isWarn={TryLogin && !PasswordInput}
               />
             </div>
           </div>

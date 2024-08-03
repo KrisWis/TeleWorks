@@ -1,0 +1,94 @@
+.createOrderProgress {
+  width: 100%;
+  height: 96px;
+  border: 1px solid #eaf2ff;
+  border-radius: 25px;
+  background: linear-gradient(
+    271deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 100%
+  );
+  padding: 20px 30px;
+  display: flex;
+  gap: 45px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__step {
+      border-radius: 100%;
+      background-color: var(--main-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 39px;
+      height: 39px;
+      transition: all linear var(--transition-duration);
+
+      &::after {
+        display: block;
+        font-weight: 500;
+        font-size: 21px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: #fff;
+        position: relative;
+        top: 1px;
+        transition: all linear var(--transition-duration);
+      }
+    }
+
+    &__title {
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+      transition: all linear var(--transition-duration);
+    }
+
+    &__first {
+      .createOrderProgress__item__step::after {
+        content: "1";
+      }
+    }
+
+    &__second {
+      .createOrderProgress__item__step::after {
+        content: "2";
+      }
+    }
+
+    &__third {
+      .createOrderProgress__item__step::after {
+        content: "3";
+      }
+    }
+
+    &__completed {
+      .createOrderProgress__item__step {
+        &::after {
+          content: url("../../../../shared/assets/icons/CreateOrderPage/CreateOrderProgress/CompleteSVG.svg");
+        }
+      }
+
+      .createOrderProgress__item__title {
+        opacity: 0.4;
+        font-size: 20px;
+      }
+    }
+
+    &__closed {
+      .createOrderProgress__item__step {
+        background-color: #000;
+        opacity: 0.4;
+      }
+
+      .createOrderProgress__item__title {
+        opacity: 0.4;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.createOrderCostContent {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  gap: 20px;
+  margin-top: 40px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

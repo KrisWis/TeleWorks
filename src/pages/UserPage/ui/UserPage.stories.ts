@@ -3,7 +3,7 @@ import { UserPage } from "./UserPage";
 import { fn } from "@storybook/test";
 
 const meta = {
-  title: "Pages/PageOfUser",
+  title: "Pages/UserPage",
   component: UserPage,
 
   argTypes: {
