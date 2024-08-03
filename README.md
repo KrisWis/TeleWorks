@@ -24,10 +24,3 @@
    2. Напишите в терминале команду ```npm run dev```
    
 Или вы можете просто зайти на [сайт](kriswis.github.io/TeleWorks/), загруженный на Github Pages.
-
-# Макет:
-![Личный кабинет](https://github.com/KrisWis/TeleWorks/assets/94256853/feae6120-4b47-49c0-922b-26ac15a45109)
-![teleWork](https://github.com/user-attachments/assets/7e76715c-08cd-4b86-8839-f3f6ba8d6ee0)
-![пример внутренней](https://github.com/user-attachments/assets/9890d36b-eb1a-4230-8cdd-d5d813bf43c9)
-![Личный кабинет](https://github.com/user-attachments/assets/b5e739d1-4b73-4409-ae8c-3fc373c7c6f9)
-![Каталог](https://github.com/user-attachments/assets/b9330485-f65f-44ef-a832-c724b7b72084)
