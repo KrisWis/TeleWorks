@@ -1,6 +1,3 @@
-import { ActiveServices } from "../../ProjectInfo_pack/ui/ActiveServices/ui/ActiveServices";
-import { Deadline } from "../../ProjectInfo_pack/ui/Deadline/ui/Deadline";
-import { Editions } from "../../ProjectInfo_pack/ui/Editions/ui/Editions";
 import { CheckoutOrderProps } from "../model/CheckoutOrder_types";
 import styles from "./CheckoutOrder.module.scss";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
@@ -18,6 +15,9 @@ import {
 import { CheckoutOrderAmountCounter } from "./CheckoutOrderAmountCounter/ui/CheckoutOrderAmountCounter";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { StoreSchema, useAppDispatch } from "@/app/store/AppStore";
+import { ProjectActiveServices } from "@/shared/ui-kit/ProjectActiveServices";
+import { ProjectDeadline } from "@/shared/ui-kit/ProjectDeadline";
+import { ProjectEditions } from "@/shared/ui-kit/ProjectEditions/ui/ProjectEditions";
 
 export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
   ({ pack, ExtraServices, setExtraServices }): React.JSX.Element => {
@@ -151,7 +151,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
       dispatch(checkoutOrderSliceActions.changeFinalPrice(0));
 
       dispatch(
-        checkoutOrderSliceActions.clearEditionsAmounts({
+        checkoutOrderSliceActions.clearProjectEditionsAmounts({
           packType: pack.packName,
           amounts: 1,
         })
@@ -188,13 +188,15 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
           логотип.
         </p>
 
-        <ActiveServices activeServices={pack.activeServices} />
+        <ProjectActiveServices
+          ProjectActiveServices={pack.ProjectActiveServices}
+        />
 
         <div className={styles.checkoutOrder__wrapper}>
           <div className={styles.checkoutOrder__info}>
-            <Deadline deadline={pack.deadline} />
+            <ProjectDeadline deadline={pack.deadline} />
 
-            <Editions editionsAmount={pack.editionsAmount} />
+            <ProjectEditions editionsAmount={pack.editionsAmount} />
           </div>
 
           <CheckoutOrderAmountCounter
@@ -324,11 +326,11 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
               </div>
 
               <div className={styles.checkoutOrder__resultItem}>
-                <Deadline deadline={pack.deadline} />
+                <ProjectDeadline deadline={pack.deadline} />
               </div>
 
               <div className={styles.checkoutOrder__resultItem}>
-                <Editions editionsAmount={pack.editionsAmount} />
+                <ProjectEditions editionsAmount={pack.editionsAmount} />
               </div>
             </div>
 

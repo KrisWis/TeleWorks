@@ -1,7 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { ProjectItemProps } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
-import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard/model/AuthorCard_types";
+import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo/AuthorCard/model/AuthorCard_types";
 import { ProjectInfoPacks } from "@/features/ProjectInfo_features/ProjectInfo_pack";
 import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";
@@ -13,8 +13,8 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
     desc: "1 концепция + файлы PNG и JPG + исходники в формате PSD",
     deadline: "1 день",
     editionsAmount: 3,
-    activeServices: ["Исходный файл", "1 вариант дизайна", "Ресайз"],
-    disactiveServices: ["Правки", "Текст"],
+    ProjectActiveServices: ["Исходный файл", "1 вариант дизайна", "Ресайз"],
+    disProjectActiveServices: ["Правки", "Текст"],
     descForCheckoutOrder:
       "Базовый — для стартапов.  Я разработаю ваш креативный типографский логотип.",
     extraServices: [
@@ -49,8 +49,13 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
     desc: "3 концепции + файлы PNG и JPG + исходники в формате PSD",
     deadline: "3 день",
     editionsAmount: 5,
-    activeServices: ["Исходный файл", "1 вариант дизайна", "Ресайз", "Правки"],
-    disactiveServices: ["Текст"],
+    ProjectActiveServices: [
+      "Исходный файл",
+      "1 вариант дизайна",
+      "Ресайз",
+      "Правки",
+    ],
+    disProjectActiveServices: ["Текст"],
     descForCheckoutOrder:
       "Стандарт — для стартапов.  Я разработаю ваш креативный типографский логотип.",
     extraServices: [
@@ -85,7 +90,7 @@ export const ProjectInfo_packs: ProjectInfoPacks = {
     desc: "5 концепций + файлы PNG и JPG + исходники в формате PSD",
     deadline: "5 день",
     editionsAmount: 10,
-    activeServices: [
+    ProjectActiveServices: [
       "Исходный файл",
       "1 вариант дизайна",
       "Ресайз",

@@ -1,0 +1,21 @@
+.ProjectActiveServices {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 15px;
+
+  &__service {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    &_text {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+      opacity: 0.4;
+    }
+  }
+}

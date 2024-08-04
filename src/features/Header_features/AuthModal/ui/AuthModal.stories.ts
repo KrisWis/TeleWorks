@@ -3,7 +3,7 @@ import { AuthModal } from "./AuthModal";
 import { useState } from "react";
 
 const meta = {
-  title: "Features/AuthModal",
+  title: "Modals/AuthModal",
   component: AuthModal,
   parameters: {
     layout: "centered",

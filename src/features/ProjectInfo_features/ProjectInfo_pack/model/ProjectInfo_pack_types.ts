@@ -18,8 +18,8 @@ export interface ProjectInfoPackContent {
   desc: string;
   deadline: string;
   editionsAmount: number;
-  activeServices: string[];
-  disactiveServices?: string[];
+  ProjectActiveServices: string[];
+  disProjectActiveServices?: string[];
   descForCheckoutOrder: string;
   extraServices?: ProjectExtraService[];
 }
@@ -38,7 +38,8 @@ export interface ProjectInfoPack {
   desc: string;
   deadline: string;
   editionsAmount: number;
-  activeServices: string[];
-  disactiveServices?: string[];
+  ProjectActiveServices: string[];
+  disProjectActiveServices?: string[];
   extraServices?: ProjectExtraService[];
+  descForCheckoutOrder?: string;
 }

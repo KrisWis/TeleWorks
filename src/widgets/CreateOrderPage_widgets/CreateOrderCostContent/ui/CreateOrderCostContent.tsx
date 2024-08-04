@@ -1,25 +1,39 @@
 import styles from "./CreateOrderCostContent.module.scss";
-import { memo, useState } from "react";
-import { CreateOrderCostContentProps } from "../model/CreateOrderCostContent_types";
+import { memo, useContext, useState } from "react";
 import { CreateOrderCostPayment } from "./CreateOrderCostPayment";
 import { UserSavedBankCards } from "@/entities/Global_entities/UserSavedBankCards";
 import { SavedBankCardType } from "@/entities/Global_entities/UserSavedBankCards/model/UserSavedBankCards_types";
+import { OrderPreview } from "@/entities/CreateOrderPage_entities/CreateOrderCostContent/OrderPreview";
+import { createOrderCostFinalPrice } from "../model/CreateOrderCostContent_data";
+import { OrderSecurityGuarantee } from "@/shared/ui-kit/OrderSecurityGuarantee";
+import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
+import { CreateOrderProgressSteps } from "../../CreateOrderProgress";
 
-export const CreateOrderCostContent: React.FC<CreateOrderCostContentProps> =
-  memo(({ price }): React.JSX.Element => {
-    const [SelectedSaveCard, setSelectedSaveCard] =
-      useState<SavedBankCardType | null>(null);
+export const CreateOrderCostContent: React.FC = memo((): React.JSX.Element => {
+  const [SelectedSaveCard, setSelectedSaveCard] =
+    useState<SavedBankCardType | null>(null);
 
-    return (
-      <section className={styles.createOrderCostContent}>
-        <div className={styles.createOrderCostContent__wrapper}>
-          <CreateOrderCostPayment
-            SelectedSaveCard={SelectedSaveCard}
-            price={price}
-          />
+  const { CreateOrderActiveStep } = useContext(CreateOrderPageContext);
 
-          <UserSavedBankCards setSelectedCard={setSelectedSaveCard} />
-        </div>
-      </section>
-    );
-  });
+  return (
+    <section
+      className={`${styles.createOrderCostContent}
+      ${CreateOrderActiveStep == CreateOrderProgressSteps.START ? styles.createOrderCostContent__disappear : ""}`}
+    >
+      <div className={styles.createOrderCostContent__firstCol}>
+        <CreateOrderCostPayment
+          SelectedSaveCard={SelectedSaveCard}
+          FinalPrice={createOrderCostFinalPrice}
+        />
+
+        <UserSavedBankCards setSelectedCard={setSelectedSaveCard} />
+      </div>
+
+      <div className={styles.createOrderCostContent__secondCol}>
+        <OrderPreview FinalPrice={createOrderCostFinalPrice} />
+
+        <OrderSecurityGuarantee />
+      </div>
+    </section>
+  );
+});

@@ -3,7 +3,7 @@ import { RegModal } from "./RegModal";
 import { useState } from "react";
 
 const meta = {
-  title: "Features/RegModal",
+  title: "Modals/RegModal",
   component: RegModal,
   parameters: {
     layout: "centered",

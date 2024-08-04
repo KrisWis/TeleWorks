@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { PasswordRecoveryModal } from "./PasswordRecoveryModal";
 
 const meta = {
-  title: "Features/PasswordRecoveryModal",
+  title: "Modals/PasswordRecoveryModal",
   component: PasswordRecoveryModal,
   parameters: {
     layout: "centered",

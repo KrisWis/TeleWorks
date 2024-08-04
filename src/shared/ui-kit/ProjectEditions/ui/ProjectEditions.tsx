@@ -1,8 +1,8 @@
-import { EditionsProps } from "../model/Editions_types";
-import styles from "./Editions.module.scss";
+import { ProjectEditionsProps } from "../model/ProjectEditions_types";
+import styles from "./ProjectEditions.module.scss";
 import { memo } from "react";
 
-export const Editions: React.FC<EditionsProps> = memo(
+export const ProjectEditions: React.FC<ProjectEditionsProps> = memo(
   ({ editionsAmount }): React.JSX.Element => {
     return (
       <div className={styles.editions}>

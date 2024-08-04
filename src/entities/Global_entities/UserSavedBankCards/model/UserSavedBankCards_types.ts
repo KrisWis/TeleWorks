@@ -4,13 +4,13 @@ export enum BankCardsTypes {
 }
 
 export interface VISABankCard {
-  cardNumber: `${number} ${number} ${number} ${number}`;
+  cardNumber: `${number}${number}${number}${number}`;
   expirationDate: `${number}/${number}`;
   CVC: `${number}`;
 }
 
 export interface MasterCardBankCard {
-  cardNumber: `${number} ${number} ${number} ${number}`;
+  cardNumber: `${number}${number}${number}${number}`;
   expirationDate: `${number}/${number}`;
   CVC: `${number}`;
 }

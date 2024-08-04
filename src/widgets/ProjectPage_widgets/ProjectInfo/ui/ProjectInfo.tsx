@@ -5,8 +5,8 @@ import { ProjectInfoAbout } from "./ProjectInfoAbout/ui/ProjectInfoAbout";
 import { ProjectInfoProps } from "../model/ProjectInfo_types";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { ProjectInfo_pack } from "@/features/ProjectInfo_features/ProjectInfo_pack";
-import { AuthorCard } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard";
-import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectInfo_entities/ProjectTag";
+import { AuthorCard } from "@/entities/ProjectPage_entities/ProjectInfo/AuthorCard";
+import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectInfo/ProjectTag";
 import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
 import { checkoutOrderReducer } from "@/features/ProjectInfo_features/CheckoutOrder/model/slice/CheckoutOrderSlice";
 

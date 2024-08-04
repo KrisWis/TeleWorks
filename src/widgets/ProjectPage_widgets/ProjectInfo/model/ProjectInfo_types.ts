@@ -1,4 +1,4 @@
-import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo_entities/AuthorCard/model/AuthorCard_types";
+import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo/AuthorCard/model/AuthorCard_types";
 import { ProjectInfoPacks } from "@/features/ProjectInfo_features/ProjectInfo_pack";
 
 export interface ProjectInfoProps {

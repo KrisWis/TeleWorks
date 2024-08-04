@@ -136,13 +136,13 @@ describe("checkoutOrder test", () => {
     });
   });
 
-  test("clearEditionsAmounts", () => {
+  test("clearProjectEditionsAmounts", () => {
     const state: CheckoutOrderSchema = initialState;
 
     expect(
       checkoutOrderReducer(
         state,
-        checkoutOrderSliceActions.clearEditionsAmounts({
+        checkoutOrderSliceActions.clearProjectEditionsAmounts({
           packType: ProjectInfoPackNames.BASE,
           amounts: 0,
         })

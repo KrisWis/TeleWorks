@@ -1,13 +1,16 @@
-import { ActiveServicesProps } from "../model/ActiveServices_types";
-import styles from "./ActiveServices.module.scss";
+import { ProjectActiveServicesProps } from "../model/ProjectActiveServices_types";
+import styles from "./ProjectActiveServices.module.scss";
 import { memo } from "react";
 
-export const ActiveServices: React.FC<ActiveServicesProps> = memo(
-  ({ activeServices }): React.JSX.Element => {
+export const ProjectActiveServices: React.FC<ProjectActiveServicesProps> = memo(
+  ({ ProjectActiveServices }): React.JSX.Element => {
     return (
-      <div className={styles.activeServices}>
-        {activeServices.map((activeService: string) => (
-          <div key={activeService} className="ProjectPage__service">
+      <div className={styles.ProjectActiveServices}>
+        {ProjectActiveServices.map((activeService: string) => (
+          <div
+            key={activeService}
+            className={styles.ProjectActiveServices__service}
+          >
             <svg
               width="26"
               height="18"
@@ -21,7 +24,9 @@ export const ActiveServices: React.FC<ActiveServicesProps> = memo(
               />
             </svg>
 
-            <span className="ProjectPage__service_text">{activeService}</span>
+            <span className={styles.ProjectActiveServices__service_text}>
+              {activeService}
+            </span>
           </div>
         ))}
       </div>

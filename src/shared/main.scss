@@ -22,6 +22,9 @@
   --main-color: #f55;
   --secondary-color: #eaf2ff;
   --transition-duration: 0.3s;
+  --transition-duration-medium: 0.7s;
+  --transition-duration-big: 1.2s;
+  --transition-duration-extra: 1.7s;
   --z-index-zero: 0;
   --z-index-one: 1;
   --z-index-arrows: 2;
@@ -77,6 +80,16 @@
   &__BoxShadowWrapper {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.25);
     background: #fff;
+    border-radius: 25px;
+  }
+
+  &__SirineWrapper {
+    background: linear-gradient(
+      271deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0) 100%
+    );
+    border: 1px solid #eaf2ff;
     border-radius: 25px;
   }
 }

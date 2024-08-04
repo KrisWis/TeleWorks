@@ -7,12 +7,12 @@ import {
 import styles from "./ProjectInfo_pack.module.scss";
 import { memo, useCallback, useState } from "react";
 import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";
-import { Deadline } from "./Deadline/ui/Deadline";
-import { Editions } from "./Editions/ui/Editions";
-import { ActiveServices } from "./ActiveServices/ui/ActiveServices";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { Modal } from "@/shared/ui-kit/Modal";
 import DisactiveService from "@/shared/assets/icons/ProjectPage/ProjectInfo_pack/DisactiveService.svg?react";
+import { ProjectDeadline } from "@/shared/ui-kit/ProjectDeadline";
+import { ProjectEditions } from "@/shared/ui-kit/ProjectEditions/ui/ProjectEditions";
+import { ProjectActiveServices } from "@/shared/ui-kit/ProjectActiveServices";
 
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {
@@ -65,16 +65,20 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
           </p>
 
           <div className={styles.projectInfo_pack__info}>
-            <Deadline deadline={ActivePackContent.deadline} />
+            <ProjectDeadline deadline={ActivePackContent.deadline} />
 
-            <Editions editionsAmount={ActivePackContent.editionsAmount} />
+            <ProjectEditions
+              editionsAmount={ActivePackContent.editionsAmount}
+            />
           </div>
 
-          <ActiveServices activeServices={ActivePackContent.activeServices} />
+          <ProjectActiveServices
+            ProjectActiveServices={ActivePackContent.ProjectActiveServices}
+          />
 
-          {ActivePackContent.disactiveServices && (
-            <div className={styles.projectInfo_pack__disactiveServices}>
-              {ActivePackContent.disactiveServices.map(
+          {ActivePackContent.disProjectActiveServices && (
+            <div className={styles.projectInfo_pack__disProjectActiveServices}>
+              {ActivePackContent.disProjectActiveServices.map(
                 (disactiveService: string) => (
                   <div key={disactiveService} className="ProjectPage__service">
                     <DisactiveService />

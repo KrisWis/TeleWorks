@@ -83,7 +83,7 @@ export const checkoutOrderSlice = createSlice({
       state.finalPrice = Math.round(state.finalPrice);
     },
 
-    clearEditionsAmounts: (
+    clearProjectEditionsAmounts: (
       state: CheckoutOrderSchema,
       action: CheckoutOrdereditionsAmountsAction
     ) => {

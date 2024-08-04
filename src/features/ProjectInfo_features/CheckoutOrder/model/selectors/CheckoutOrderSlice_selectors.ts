@@ -5,7 +5,11 @@ export const geteditionsAmounts = (
   state: RootState,
   packType: ProjectInfoPackNames
 ): number => {
-  return state.checkoutOrderReducer.packs[packType].editionsAmounts;
+  if (state.checkoutOrderReducer) {
+    return state.checkoutOrderReducer.packs[packType].editionsAmounts;
+  } else {
+    return 1;
+  }
 };
 
 export const getExtraServiceAmount = (
@@ -13,23 +17,29 @@ export const getExtraServiceAmount = (
   packType: ProjectInfoPackNames,
   extraServiceTitle: string
 ): number => {
-  const extraServices =
-    state.checkoutOrderReducer.packs[packType].extraServices;
+  if (state.checkoutOrderReducer) {
+    const extraServices =
+      state.checkoutOrderReducer.packs[packType].extraServices;
 
-  if (!extraServices) return 1;
+    if (!extraServices) return 1;
 
-  if (Object.keys(extraServices).includes(extraServiceTitle)) {
-    const extraService =
-      state.checkoutOrderReducer.packs[packType].extraServices[
-        extraServiceTitle
-      ];
+    if (Object.keys(extraServices).includes(extraServiceTitle)) {
+      const extraService =
+        state.checkoutOrderReducer.packs[packType].extraServices[
+          extraServiceTitle
+        ];
 
-    return extraService.amount! || 1;
+      return extraService.amount! || 1;
+    }
   }
 
   return 1;
 };
 
 export const getFinalPrice = (state: RootState): number => {
-  return state.checkoutOrderReducer.finalPrice;
+  if (state.checkoutOrderReducer) {
+    return state.checkoutOrderReducer.finalPrice;
+  } else {
+    return 0;
+  }
 };

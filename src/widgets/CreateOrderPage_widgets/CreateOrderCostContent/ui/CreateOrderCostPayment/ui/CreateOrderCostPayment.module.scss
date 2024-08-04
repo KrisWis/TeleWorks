@@ -4,6 +4,11 @@
   width: 100%;
   padding: 10px 45px;
   gap: 30px;
+  transition: var(--transition-duration) linear all;
+
+  &__disappear {
+    transform: translateX(-150%);
+  }
 
   &__header {
     display: flex;

@@ -1,8 +1,8 @@
-import { DeadlineProps } from "../model/Deadline_types";
-import styles from "./Deadline.module.scss";
+import { ProjectDeadlineProps } from "../model/ProjectDeadline_types";
+import styles from "./ProjectDeadline.module.scss";
 import { memo } from "react";
 
-export const Deadline: React.FC<DeadlineProps> = memo(
+export const ProjectDeadline: React.FC<ProjectDeadlineProps> = memo(
   ({ deadline }): React.JSX.Element => {
     return (
       <div className={styles.deadlineWrapper}>

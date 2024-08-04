@@ -7,7 +7,7 @@ import { SemipolarLoading } from "react-loadingg";
 
 export const App: React.FC = (): React.JSX.Element => {
   return (
-    <Suspense fallback={<SemipolarLoading />}>
+    <Suspense fallback={<SemipolarLoading color="var(--main-color)" />}>
       <Routes>
         {routes.map((route: RouteProps) => (
           <Route key={route.path} path={route.path} element={route.element} />

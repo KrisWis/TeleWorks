@@ -1,6 +1,5 @@
 import styles from "./CreateOrderCostPayment.module.scss";
-import { memo, useEffect, useState } from "react";
-import { CreateOrderCostPaymentProps } from "../model/CreateOrderCostPayment_types";
+import { memo, useCallback, useContext, useEffect, useState } from "react";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import {
   SelectTextStyles,
@@ -14,6 +13,9 @@ import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { CreateOrderCostPaymentProps } from "../model/CreateOrderCostPayment_types";
+import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
+import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
 
 const CardSelectDropdownIndicator = (): JSX.Element => {
   return <SelectDropdownIndicatorRedSVG className={selectStyles.Select__svg} />;
@@ -29,7 +31,7 @@ const CardSelectTextStyles: SelectTextStyles = {
 };
 
 export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
-  memo(({ price, SelectedSaveCard }): React.JSX.Element => {
+  memo(({ FinalPrice, SelectedSaveCard }): React.JSX.Element => {
     const [CardNumber, setCardNumber] = useState<string>("");
 
     const [ExpirationDate, setExpirationDate] = useState<string>("");
@@ -40,7 +42,20 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
 
     const [TryPay, setTryPay] = UseTryAction();
 
-    const canPay = CardNumber && ExpirationDate && CVCCode;
+    const { setCreateOrderActiveStep, setCreateOrderCompletedSteps } =
+      useContext(CreateOrderPageContext);
+
+    const CardNumberIsValid = CardNumber.match(
+      /(^4[0-9]{12}(?:[0-9]{3})?$)|(^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$)|(3[47][0-9]{13})|(^3(?:0[0-5]|[68][0-9])[0-9]{11}$)|(^6(?:011|5[0-9]{2})[0-9]{12}$)|(^(?:2131|1800|35\d{3})\d{11}$)/
+    );
+
+    const ExpirationDateIsValid = ExpirationDate.match(
+      /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/
+    );
+
+    const CVCCodeIsValid = CVCCode.match(/^[0-9]{3,4}$/);
+
+    const canPay = CardNumberIsValid && ExpirationDateIsValid && CVCCodeIsValid;
 
     useEffect(() => {
       if (SelectedSaveCard) {
@@ -49,6 +64,23 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
         setCVCCode(SelectedSaveCard.CVC);
       }
     }, [SelectedSaveCard]);
+
+    const ClickPayButton = useCallback((): void => {
+      if (!canPay) {
+        setTryPay(true);
+      } else {
+        setCreateOrderActiveStep(CreateOrderProgressSteps.START);
+        setCreateOrderCompletedSteps((prev) => [
+          ...prev,
+          CreateOrderProgressSteps.COST,
+        ]);
+      }
+    }, [
+      canPay,
+      setCreateOrderActiveStep,
+      setCreateOrderCompletedSteps,
+      setTryPay,
+    ]);
 
     return (
       <div
@@ -76,10 +108,10 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
 
             <Input
               type="text"
-              placeholder="0000    0000    0000    0000"
+              placeholder="0000000000000000"
               value={CardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
-              isWarn={!CardNumber && TryPay}
+              isWarn={!CardNumberIsValid && TryPay}
             />
           </div>
 
@@ -92,7 +124,7 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
                 placeholder="ММ/ГГ"
                 value={ExpirationDate}
                 onChange={(e) => setExpirationDate(e.target.value)}
-                isWarn={!ExpirationDate && TryPay}
+                isWarn={!ExpirationDateIsValid && TryPay}
               />
             </div>
 
@@ -104,7 +136,7 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
                 placeholder="***"
                 value={CVCCode}
                 onChange={(e) => setCVCCode(e.target.value)}
-                isWarn={!CVCCode && TryPay}
+                isWarn={!CVCCodeIsValid && TryPay}
               />
             </div>
           </div>
@@ -123,8 +155,8 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
           <Button
             className={styles.createOrderCostPayment__pay}
             type={ButtonTypes.RED}
-            text={`Оплатить ${price} ₽ `}
-            onClick={!canPay ? () => setTryPay(true) : () => {}}
+            text={`Оплатить ${FinalPrice} ₽ `}
+            onClick={ClickPayButton}
           />
 
           <span className={styles.createOrderCostPayment__writeSupport}>
