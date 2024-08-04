@@ -1,5 +1,5 @@
 import styles from "./CreateOrderCostPayment.module.scss";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { CreateOrderCostPaymentProps } from "../model/CreateOrderCostPayment_types";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import {
@@ -14,7 +14,6 @@ import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
-import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 
 const CardSelectDropdownIndicator = (): JSX.Element => {
   return <SelectDropdownIndicatorRedSVG className={selectStyles.Select__svg} />;
@@ -30,7 +29,7 @@ const CardSelectTextStyles: SelectTextStyles = {
 };
 
 export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
-  memo(({ price }): React.JSX.Element => {
+  memo(({ price, SelectedSaveCard }): React.JSX.Element => {
     const [CardNumber, setCardNumber] = useState<string>("");
 
     const [ExpirationDate, setExpirationDate] = useState<string>("");
@@ -43,9 +42,17 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
 
     const canPay = CardNumber && ExpirationDate && CVCCode;
 
+    useEffect(() => {
+      if (SelectedSaveCard) {
+        setCardNumber(SelectedSaveCard.cardNumber);
+        setExpirationDate(SelectedSaveCard.expirationDate);
+        setCVCCode(SelectedSaveCard.CVC);
+      }
+    }, [SelectedSaveCard]);
+
     return (
       <div
-        className={`CreateOrderPage__wrapper ${styles.createOrderCostPayment}`}
+        className={`Page__BoxShadowWrapper ${styles.createOrderCostPayment}`}
       >
         <div className={styles.createOrderCostPayment__header}>
           <h6 className="CreateOrderPage__caption">Оплата заказа</h6>
@@ -117,11 +124,7 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
             className={styles.createOrderCostPayment__pay}
             type={ButtonTypes.RED}
             text={`Оплатить ${price} ₽ `}
-            onClick={
-              !canPay
-                ? () => setTryPay(true)
-                : () => redirectToAbsolutePath("/")
-            }
+            onClick={!canPay ? () => setTryPay(true) : () => {}}
           />
 
           <span className={styles.createOrderCostPayment__writeSupport}>

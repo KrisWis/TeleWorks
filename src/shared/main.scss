@@ -73,4 +73,10 @@
       height: 24px;
     }
   }
+
+  &__BoxShadowWrapper {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.25);
+    background: #fff;
+    border-radius: 25px;
+  }
 }

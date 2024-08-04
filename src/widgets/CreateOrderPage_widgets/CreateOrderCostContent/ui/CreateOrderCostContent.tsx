@@ -1,14 +1,24 @@
 import styles from "./CreateOrderCostContent.module.scss";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { CreateOrderCostContentProps } from "../model/CreateOrderCostContent_types";
 import { CreateOrderCostPayment } from "./CreateOrderCostPayment";
+import { UserSavedBankCards } from "@/entities/Global_entities/UserSavedBankCards";
+import { SavedBankCardType } from "@/entities/Global_entities/UserSavedBankCards/model/UserSavedBankCards_types";
 
 export const CreateOrderCostContent: React.FC<CreateOrderCostContentProps> =
-  memo(({ CreateOrderCostPaymentProps }): React.JSX.Element => {
+  memo(({ price }): React.JSX.Element => {
+    const [SelectedSaveCard, setSelectedSaveCard] =
+      useState<SavedBankCardType | null>(null);
+
     return (
       <section className={styles.createOrderCostContent}>
         <div className={styles.createOrderCostContent__wrapper}>
-          <CreateOrderCostPayment {...CreateOrderCostPaymentProps} />
+          <CreateOrderCostPayment
+            SelectedSaveCard={SelectedSaveCard}
+            price={price}
+          />
+
+          <UserSavedBankCards setSelectedCard={setSelectedSaveCard} />
         </div>
       </section>
     );

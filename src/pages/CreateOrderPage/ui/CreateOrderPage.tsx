@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { memo } from "react";
 import { CreateOrderProgress } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
 import { CreateOrderCostContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderCostContent";
-import { createOrderCostPaymentProps } from "../model/CreateOrderPage_data";
+import { createOrderCostPaymentPrice } from "../model/CreateOrderPage_data";
 
 export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -20,9 +20,7 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
         <div className="padding">
           <CreateOrderProgress />
 
-          <CreateOrderCostContent
-            CreateOrderCostPaymentProps={createOrderCostPaymentProps}
-          />
+          <CreateOrderCostContent price={createOrderCostPaymentPrice} />
         </div>
       </main>
       <Footer />
