@@ -1,6 +1,6 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./AuthModal.module.scss";
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { AuthModalProps } from "../model/AuthModal_types";
@@ -20,10 +20,14 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
 
     const [TryLogin, setTryLogin] = UseTryAction();
 
+    const RegTimeOutRef = useRef<NodeJS.Timeout>();
+
+    const PasswordRecoveryTimeOutRef = useRef<NodeJS.Timeout>();
+
     const onClickReg = useCallback((): void => {
       CustomSetModalAppear(false);
 
-      setTimeout(() => {
+      RegTimeOutRef.current = setTimeout(() => {
         setModalOpen(false);
 
         setRegModalOpen(true);
@@ -33,7 +37,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
     const onClickPasswordRecovery = useCallback((): void => {
       CustomSetModalAppear(false);
 
-      setTimeout(() => {
+      PasswordRecoveryTimeOutRef.current = setTimeout(() => {
         setModalOpen(false);
 
         setPasswordRecoveryModalOpen(true);
@@ -44,6 +48,13 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
       () => !EmailInput || !PasswordInput,
       [EmailInput, PasswordInput]
     );
+
+    useEffect(() => {
+      return () => {
+        clearTimeout(RegTimeOutRef.current);
+        clearTimeout(PasswordRecoveryTimeOutRef.current);
+      };
+    }, []);
 
     return (
       <div className={styles.AuthModal}>

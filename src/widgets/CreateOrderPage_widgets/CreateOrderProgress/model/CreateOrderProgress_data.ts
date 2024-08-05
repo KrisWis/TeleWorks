@@ -18,7 +18,7 @@ export const createOrderProgressSteps: CreateOrderProgressStep[] = [
   },
 
   {
-    step: CreateOrderProgressSteps.START,
+    step: CreateOrderProgressSteps.TechnicalInformation,
     title: "Заказ начат",
     postfix: CreateOrderProgressStepsPostfixs.THIRD,
   },

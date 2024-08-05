@@ -3,7 +3,7 @@ import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { dropDownItems } from "../model/Header_data";
 import { dropDownItem } from "../model/Header_types";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
@@ -32,14 +32,22 @@ export const Header: React.FC = (): React.JSX.Element => {
   const [PasswordRecoveryModalAppear, setPasswordRecoveryModalAppear] =
     useState<boolean>(false);
 
+  const PasswordRecoveryTimeOutRef = useRef<NodeJS.Timeout>();
+
   const RedirectToLoginModal = useCallback((): void => {
     setPasswordRecoveryModalAppear(false);
 
-    setTimeout(() => {
+    PasswordRecoveryTimeOutRef.current = setTimeout(() => {
       setPasswordRecoveryIsOpen(false);
 
       setLoginIsOpen(true);
     }, 300);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(PasswordRecoveryTimeOutRef.current);
+    };
   }, []);
 
   return (

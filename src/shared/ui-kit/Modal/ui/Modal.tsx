@@ -14,8 +14,12 @@ export const Modal: React.FC<ModalProps> = ({
 
   const ParentRef = useRef<HTMLDivElement>(null);
 
+  const ModalTimeOutRef = useRef<NodeJS.Timeout>();
+
+  const ModalOnCloseTimeOutRef = useRef<NodeJS.Timeout>();
+
   useEffect(() => {
-    setTimeout(() => {
+    ModalTimeOutRef.current = setTimeout(() => {
       if (!CustomSetModalAppear) {
         setModalAppear(true);
       } else {
@@ -41,11 +45,18 @@ export const Modal: React.FC<ModalProps> = ({
       }
 
       if (setModalIsOpen)
-        setTimeout(() => {
+        ModalOnCloseTimeOutRef.current = setTimeout(() => {
           setModalIsOpen(false);
         }, 500);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(ModalTimeOutRef.current);
+      clearTimeout(ModalOnCloseTimeOutRef.current);
+    };
+  }, []);
 
   return PortalElement({
     children: (

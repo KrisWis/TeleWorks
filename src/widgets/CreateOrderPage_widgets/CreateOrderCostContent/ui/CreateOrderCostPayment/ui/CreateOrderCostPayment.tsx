@@ -69,7 +69,7 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
       if (!canPay) {
         setTryPay(true);
       } else {
-        setCreateOrderActiveStep(CreateOrderProgressSteps.START);
+        setCreateOrderActiveStep(CreateOrderProgressSteps.TechnicalInformation);
         setCreateOrderCompletedSteps((prev) => [
           ...prev,
           CreateOrderProgressSteps.COST,

@@ -1,7 +1,7 @@
 export enum CreateOrderProgressSteps {
   CREATE = "Заказ создан",
   COST = "Стоимость",
-  START = "Заказ начат",
+  TechnicalInformation = "Заказ начат",
 }
 
 export enum CreateOrderProgressStepsPostfixs {

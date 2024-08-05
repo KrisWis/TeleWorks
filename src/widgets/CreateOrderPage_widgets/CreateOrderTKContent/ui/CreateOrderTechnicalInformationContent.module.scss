@@ -1,0 +1,16 @@
+.createOrderTechnicalInformationContent {
+  display: flex;
+  flex-direction: column;
+  transform: translateX(130%) translateY(-760%);
+  transition: var(--transition-duration-medium) linear all;
+  margin: 0;
+  gap: 0;
+  position: relative;
+  top: 0;
+
+  &__appear {
+    transform: translateX(0) translateY(0);
+    gap: 10px;
+    margin-top: 20px;
+  }
+}

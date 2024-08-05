@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const UseTryAction = (): [
   boolean,
@@ -6,13 +6,21 @@ export const UseTryAction = (): [
 ] => {
   const [TryAction, setTryAction] = useState<boolean>(false);
 
+  const TryActionTimeOutRef = useRef<NodeJS.Timeout>();
+
   useEffect(() => {
     if (TryAction) {
-      setTimeout(() => {
+      TryActionTimeOutRef.current = setTimeout(() => {
         setTryAction(false);
       }, 3000);
     }
   }, [TryAction]);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(TryActionTimeOutRef.current);
+    };
+  }, []);
 
   return [TryAction, setTryAction];
 };

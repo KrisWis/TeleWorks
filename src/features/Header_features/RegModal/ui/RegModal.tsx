@@ -1,6 +1,6 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./RegModal.module.scss";
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import {
@@ -30,10 +30,12 @@ export const RegModal: React.FC<RegModalProps> = memo(
       RegModalCheckBoxes[]
     >([]);
 
+    const LoginTimeOutRef = useRef<NodeJS.Timeout>();
+
     const onClickLogin = useCallback((): void => {
       CustomSetModalAppear(false);
 
-      setTimeout(() => {
+      LoginTimeOutRef.current = setTimeout(() => {
         setModalOpen(false);
 
         setLoginModalOpen(true);
@@ -68,6 +70,12 @@ export const RegModal: React.FC<RegModalProps> = memo(
 
       [AllCheckBoxesIsSelected, EmailInput, PasswordInput, TelInput]
     );
+
+    useEffect(() => {
+      return () => {
+        clearTimeout(LoginTimeOutRef.current);
+      };
+    }, []);
 
     return (
       <div className={styles.RegModal}>

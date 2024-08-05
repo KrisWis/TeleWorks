@@ -20,10 +20,12 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
 
     const swiperRef = useRef<SwiperClass>();
 
+    const ShowFullImageOnCloseTimeOutRef = useRef<NodeJS.Timeout>();
+
     const CloseModal = useCallback(() => {
       setModalIsAppear(false);
 
-      setTimeout(() => {
+      ShowFullImageOnCloseTimeOutRef.current = setTimeout(() => {
         setModalIsOpen(false);
       }, 300);
     }, []);
@@ -34,6 +36,12 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ActiveSlideIndex, swiperRef.current]);
+
+    useEffect(() => {
+      return () => {
+        clearTimeout(ShowFullImageOnCloseTimeOutRef.current);
+      };
+    }, []);
 
     return (
       <>
