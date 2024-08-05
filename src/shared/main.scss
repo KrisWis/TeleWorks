@@ -21,6 +21,7 @@
 :root {
   --main-color: #f55;
   --secondary-color: #eaf2ff;
+  --white-color: #fff;
   --transition-duration: 0.3s;
   --transition-duration-medium: 0.7s;
   --transition-duration-big: 1.2s;
@@ -79,7 +80,7 @@
 
   &__BoxShadowWrapper {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.25);
-    background: #fff;
+    background: var(--white-color);
     border-radius: 25px;
   }
 

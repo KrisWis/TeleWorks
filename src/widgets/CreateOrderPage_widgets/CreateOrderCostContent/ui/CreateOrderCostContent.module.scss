@@ -5,12 +5,14 @@
   margin-top: 40px;
   transition: var(--transition-duration-medium) linear all;
   max-height: 1000px;
+  opacity: 1;
 
   &__disappear {
     transform: translateX(-130%);
     max-height: 0;
     margin: 0;
     gap: 0;
+    opacity: 0;
   }
 
   &__firstCol {

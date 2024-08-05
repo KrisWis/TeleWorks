@@ -37,11 +37,11 @@
 
     &:hover:not(.checkoutOrder__packsAmount__button__disabled) {
       circle {
-        stroke: #fff;
+        stroke: var(--white-color);
       }
 
       &::after {
-        color: #fff;
+        color: var(--white-color);
       }
 
       svg {

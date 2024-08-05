@@ -46,3 +46,11 @@ address {
 pre {
   margin: 0;
 }
+
+textarea {
+  resize: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+}

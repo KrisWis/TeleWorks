@@ -25,7 +25,7 @@
       align-items: center;
       width: 39px;
       height: 39px;
-      transition: all linear var(--transition-duration);
+      transition: all linear var(--transition-duration-big);
 
       &::after {
         display: block;
@@ -33,7 +33,7 @@
         font-size: 21px;
         line-height: 150%;
         letter-spacing: -0.01em;
-        color: #fff;
+        color: var(--white-color);
         position: relative;
         top: 1px;
         transition: all linear var(--transition-duration);

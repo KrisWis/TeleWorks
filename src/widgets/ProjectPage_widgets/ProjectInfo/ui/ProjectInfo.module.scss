@@ -52,7 +52,7 @@
 
     &:hover {
       path:nth-of-type(2) {
-        fill: #fff;
+        fill: var(--white-color);
       }
     }
   }

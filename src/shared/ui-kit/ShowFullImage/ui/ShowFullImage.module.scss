@@ -25,7 +25,7 @@
     font-size: 16px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #fff;
+    color: var(--white-color);
   }
 
   &:hover {
@@ -52,7 +52,7 @@
     max-width: 56px;
     max-height: 56px;
     border-radius: 100%;
-    background-color: #fff;
+    background-color: var(--white-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,7 @@
       border: none;
 
       * {
-        fill: #fff;
+        fill: var(--white-color);
       }
     }
   }
@@ -91,7 +91,7 @@
   }
 
   &__swiper {
-    background: #fff;
+    background: var(--white-color);
     border-radius: 25px;
     height: 100%;
     width: 100%;

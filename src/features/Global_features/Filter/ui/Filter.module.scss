@@ -24,7 +24,7 @@
   &__search {
     height: 43px;
     width: 100%;
-    background: #fff;
+    background: var(--white-color);
     border-radius: 15px;
     font-family: var(--second-family);
     font-weight: 400;
@@ -82,7 +82,7 @@
 
     &__item {
       border-radius: 100%;
-      background-color: #fff;
+      background-color: var(--white-color);
       width: 29px;
       height: 29px;
       display: flex;
@@ -99,7 +99,7 @@
         background-color: var(--main-color);
 
         svg * {
-          fill: #fff;
+          fill: var(--white-color);
         }
       }
     }
@@ -139,7 +139,7 @@
 
   &__select {
     height: 43px;
-    background: #fff;
+    background: var(--white-color);
 
     &__svg {
       margin-right: 10px;

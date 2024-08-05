@@ -1,16 +1,25 @@
 .createOrderTechnicalInformationContent {
   display: flex;
   flex-direction: column;
-  transform: translateX(130%) translateY(-760%);
+  transform: translateX(130%);
   transition: var(--transition-duration-medium) linear all;
   margin: 0;
   gap: 0;
   position: relative;
   top: 0;
+  opacity: 0;
 
   &__appear {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0);
     gap: 10px;
     margin-top: 20px;
+    opacity: 1;
+  }
+
+  &__wrapper {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 66% 33%;
+    gap: 20px;
   }
 }

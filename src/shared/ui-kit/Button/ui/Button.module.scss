@@ -15,13 +15,13 @@
   box-shadow: 0 0 15px transparent;
 
   &__red {
-    color: #fff;
+    color: var(--white-color);
     background: var(--main-color);
 
     &:hover:not(.catalog__category__canSelected) {
       color: var(--main-color);
       box-shadow: 0 0 15px var(--main-color);
-      background: #fff;
+      background: var(--white-color);
       border: 1px solid var(--main-color);
     }
   }
@@ -29,16 +29,16 @@
   &__red.catalog__category__selected {
     color: var(--main-color);
     box-shadow: 0 0 15px var(--main-color);
-    background: #fff;
+    background: var(--white-color);
     border: 1px solid var(--main-color);
   }
 
   &__blue {
-    color: #fff;
+    color: var(--white-color);
     background: #4266c6;
 
     &:hover:not(.catalog__category__canSelected) {
-      background: #fff;
+      background: var(--white-color);
       color: #4266c6;
       border: 1px solid #4266c6;
       box-shadow: 0 0 15px #4266c6;
@@ -46,7 +46,7 @@
   }
 
   &__blue.catalog__category__selected {
-    background: #fff;
+    background: var(--white-color);
     color: #4266c6;
     border: 1px solid #4266c6;
     box-shadow: 0 0 15px #4266c6;
@@ -55,30 +55,30 @@
   &__white {
     border: 1px solid #000;
     color: gray;
-    background: #fff;
+    background: var(--white-color);
     font-weight: 100;
 
     &:hover:not(.catalog__category__canSelected) {
       background: gray;
-      color: #fff;
-      border: 1px solid #fff;
+      color: var(--white-color);
+      border: 1px solid var(--white-color);
       box-shadow: 0 0 15px gray;
     }
   }
 
   &__white.catalog__category__selected {
     background: gray;
-    color: #fff;
-    border: 1px solid #fff;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
     box-shadow: 0 0 15px gray;
   }
 
   &__gray {
-    color: #fff;
+    color: var(--white-color);
     background: #9fabb6;
 
     &:hover:not(.catalog__category__canSelected) {
-      background: #fff;
+      background: var(--white-color);
       color: #9fabb6;
       border: 1px solid #9fabb6;
       box-shadow: 0 0 15px #9fabb6;
@@ -86,7 +86,7 @@
   }
 
   &__gray.catalog__category__selected {
-    background: #fff;
+    background: var(--white-color);
     color: #9fabb6;
     border: 1px solid #9fabb6;
     box-shadow: 0 0 15px #9fabb6;
@@ -99,17 +99,17 @@
 
     &:hover:not(.catalog__category__canSelected) {
       background: #000;
-      color: #fff;
-      border: 1px solid #fff;
+      color: var(--white-color);
+      border: 1px solid var(--white-color);
       box-shadow: 0 0 15px #000;
     }
   }
 
   &__black.catalog__category__selected {
     background: #000;
-    color: #fff;
-    border: 1px solid #fff;
-    box-shadow: 0 0 15px #fff;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    box-shadow: 0 0 15px var(--white-color);
   }
 
   &__cyan {
@@ -126,7 +126,7 @@
 
     &:hover:not(.catalog__category__canSelected) {
       color: var(--main-color);
-      background: #fff;
+      background: var(--white-color);
       border: 1px solid var(--main-color);
       box-shadow: 0 0 15px var(--main-color);
     }
@@ -134,9 +134,9 @@
 
   &__cyan.catalog__category__selected {
     background: #000;
-    color: #fff;
-    border: 1px solid #fff;
-    box-shadow: 0 0 15px #fff;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    box-shadow: 0 0 15px var(--white-color);
   }
 }
 
