@@ -1,45 +1,160 @@
-import { LoadedFile } from "../../../model/CreateOrderTechnicalInformationContainer_types";
+import { CreateOrderTechnicalInformationLoadedFileProps } from "../../../model/CreateOrderTechnicalInformationContainer_types";
 import styles from "./CreateOrderTechnicalInformationLoadedFile.module.scss";
-import { memo } from "react";
+import { memo, useRef } from "react";
 import ChangeFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/ChangeFileSVG.svg?react";
 import DeleteFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/DeleteFileSVG.svg?react";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 
-export const CreateOrderTechnicalInformationLoadedFile: React.FC<LoadedFile> =
-  memo(({ FileData, FileName, FileSize }): React.JSX.Element => {
-    return (
-      <div className={styles.CreateOrderTechnicalInformationLoadedFile}>
-        <div className={styles.CreateOrderTechnicalInformationLoadedFile__info}>
-          <img
-            className={styles.CreateOrderTechnicalInformationLoadedFile__img}
-            src={FileData}
-            alt={FileName}
-          />
+export const CreateOrderTechnicalInformationLoadedFile: React.FC<CreateOrderTechnicalInformationLoadedFileProps> =
+  memo(
+    ({ loadedFile, FormInputFiles, setFormInputFiles }): React.JSX.Element => {
+      // Функционал изменения файла
+      const ChangeInputRef = useRef<HTMLInputElement>(null);
+
+      const FileOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+        const UserInputFile = e.target.files;
+
+        if (UserInputFile && UserInputFile.length) {
+          if (
+            !FormInputFiles.find(
+              (file) => file.FileName == UserInputFile[0].name
+            )
+          ) {
+            const fileReader = new FileReader();
+
+            const FormInputFilesCopy = FormInputFiles.slice();
+
+            const FormInputFilesCopyForLoading = FormInputFiles.slice();
+
+            const PastFileIndex = FormInputFilesCopy.findIndex(
+              (file) => loadedFile.FileName === file.FileName
+            );
+
+            FormInputFilesCopyForLoading[PastFileIndex] = {
+              FileData: "",
+              FileName: "",
+              FileSize: 0,
+              FileType: "",
+            };
+
+            setFormInputFiles(FormInputFilesCopyForLoading);
+
+            FormInputFilesCopy[PastFileIndex].FileName = UserInputFile[0].name;
+            FormInputFilesCopy[PastFileIndex].FileSize = UserInputFile[0].size;
+            FormInputFilesCopy[PastFileIndex].FileType = UserInputFile[0].type;
+
+            fileReader.onload = function () {
+              FormInputFilesCopy[PastFileIndex].FileData =
+                fileReader.result as string;
+
+              setFormInputFiles(FormInputFilesCopy);
+            };
+            fileReader.readAsDataURL(UserInputFile[0]);
+          }
+        }
+      };
+
+      // Функционал удаления файла
+      const FileOnDelete = (): void => {
+        const FormInputFilesCopy = FormInputFiles.slice();
+
+        const PastFileIndex = FormInputFilesCopy.findIndex(
+          (file) => loadedFile.FileName === file.FileName
+        );
+
+        FormInputFilesCopy.splice(PastFileIndex, 1);
+
+        setFormInputFiles(FormInputFilesCopy);
+      };
+
+      const loadedFileIsImage: boolean =
+        loadedFile.FileType.split("/")[0] == "image";
+
+      return (
+        <div className={styles.CreateOrderTechnicalInformationLoadedFile}>
+          <div
+            className={styles.CreateOrderTechnicalInformationLoadedFile__info}
+          >
+            {loadedFileIsImage ? (
+              <img
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__img
+                }
+                src={loadedFile.FileData}
+                alt={loadedFile.FileName}
+              />
+            ) : (
+              <img
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__iconFile
+                }
+                src={`${URL_PART}/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/file.png`}
+                alt={loadedFile.FileName}
+              />
+            )}
+
+            <div
+              className={
+                styles.CreateOrderTechnicalInformationLoadedFile__infoWrapper
+              }
+            >
+              <span
+                className={`CreateOrderPage__caption ${styles.CreateOrderTechnicalInformationLoadedFile__caption}`}
+              >
+                {loadedFile.FileName}
+              </span>
+
+              <span
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__size
+                }
+              >
+                {(loadedFile.FileSize / 1048576).toFixed(1)} Мб
+              </span>
+            </div>
+          </div>
 
           <div
             className={
-              styles.CreateOrderTechnicalInformationLoadedFile__infoWrapper
+              styles.CreateOrderTechnicalInformationLoadedFile__buttons
             }
           >
-            <span className={`CreateOrderPage__caption`}>{FileName}</span>
-
-            <span
-              className={styles.CreateOrderTechnicalInformationLoadedFile__size}
+            <div
+              className={
+                styles.CreateOrderTechnicalInformationLoadedFile__changeWrapper
+              }
             >
-              {(FileSize / 1048576).toFixed(1)} Мб
-            </span>
+              <input
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__changeWrapper__input
+                }
+                type="file"
+                name="createOrderTechnicalInformationContainer_changeFiles_input"
+                ref={ChangeInputRef}
+                onChange={FileOnChange}
+              />
+
+              <ChangeFileSVG
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__change
+                }
+              />
+            </div>
+
+            <div
+              className={
+                styles.CreateOrderTechnicalInformationLoadedFile__deleteWrapper
+              }
+              onClick={FileOnDelete}
+            >
+              <DeleteFileSVG
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__delete
+                }
+              />
+            </div>
           </div>
         </div>
-
-        <div
-          className={styles.CreateOrderTechnicalInformationLoadedFile__buttons}
-        >
-          <ChangeFileSVG
-            className={styles.CreateOrderTechnicalInformationLoadedFile__change}
-          />
-          <DeleteFileSVG
-            className={styles.CreateOrderTechnicalInformationLoadedFile__delete}
-          />
-        </div>
-      </div>
-    );
-  });
+      );
+    }
+  );

@@ -4,3 +4,9 @@ export interface LoadedFile {
   FileSize: number;
   FileType: string;
 }
+
+export interface CreateOrderTechnicalInformationLoadedFileProps {
+  loadedFile: LoadedFile;
+  FormInputFiles: LoadedFile[];
+  setFormInputFiles: React.Dispatch<React.SetStateAction<LoadedFile[]>>;
+}

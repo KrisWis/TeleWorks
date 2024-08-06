@@ -3,6 +3,7 @@ import { memo, useRef, useState } from "react";
 import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationContent/CreateOrderTechnicalInformationContainer/PaperclipSVG.svg?react";
 import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
 import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
+import { SemipolarLoading } from "react-loadingg";
 
 export const CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount = 1200;
 
@@ -61,18 +62,34 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
         FileType: "",
       };
 
-      if (UserInputFiles) {
-        const fileReader = new FileReader();
-        loadedFile.FileName = UserInputFiles[0].name;
-        loadedFile.FileSize = UserInputFiles[0].size;
-        loadedFile.FileType = UserInputFiles[0].type;
+      if (UserInputFiles && UserInputFiles.length) {
+        if (
+          !FormInputFiles.find(
+            (file) => file.FileName == UserInputFiles[0].name
+          )
+        ) {
+          setFormInputFiles([
+            ...FormInputFiles,
+            {
+              FileData: "",
+              FileName: "",
+              FileSize: 0,
+              FileType: "",
+            },
+          ]);
 
-        fileReader.onload = function () {
-          loadedFile.FileData = fileReader.result as string;
+          const fileReader = new FileReader();
+          loadedFile.FileName = UserInputFiles[0].name;
+          loadedFile.FileSize = UserInputFiles[0].size;
+          loadedFile.FileType = UserInputFiles[0].type;
 
-          setFormInputFiles([...FormInputFiles, loadedFile]);
-        };
-        fileReader.readAsDataURL(UserInputFiles[0]);
+          fileReader.onload = function () {
+            loadedFile.FileData = fileReader.result as string;
+
+            setFormInputFiles([...FormInputFiles, loadedFile]);
+          };
+          fileReader.readAsDataURL(UserInputFiles[0]);
+        }
       }
     };
 
@@ -200,27 +217,32 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
               className={`${styles.createOrderTechnicalInformationContainer__files}
               ${!FormInputFiles.length ? styles.createOrderTechnicalInformationContainer__files__closed : ""}`}
             >
-              <div
-                className={
-                  styles.createOrderTechnicalInformationContainer__header
-                }
-              >
-                <h6
-                  className={`${styles.createOrderTechnicalInformationContainer__caption} 
+              <h6
+                className={`${styles.createOrderTechnicalInformationContainer__caption} 
                   ${styles.createOrderTechnicalInformationContainer__files__caption} CreateOrderPage__caption`}
-                >
-                  Загруженные файлы
-                </h6>
-              </div>
+              >
+                Загруженные файлы
+              </h6>
 
               <div
                 className={`${styles.createOrderTechnicalInformationContainer__files__items}`}
               >
                 {FormInputFiles.map((file) => (
-                  <CreateOrderTechnicalInformationLoadedFile
-                    key={file.FileName}
-                    {...file}
-                  />
+                  <div key={file.FileName}>
+                    {file.FileName != "" ? (
+                      <CreateOrderTechnicalInformationLoadedFile
+                        loadedFile={file}
+                        FormInputFiles={FormInputFiles}
+                        setFormInputFiles={setFormInputFiles}
+                      />
+                    ) : (
+                      <SemipolarLoading
+                        style={{ margin: "auto", marginBottom: 20 }}
+                        color="var(--main-color)"
+                        size="small"
+                      />
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
