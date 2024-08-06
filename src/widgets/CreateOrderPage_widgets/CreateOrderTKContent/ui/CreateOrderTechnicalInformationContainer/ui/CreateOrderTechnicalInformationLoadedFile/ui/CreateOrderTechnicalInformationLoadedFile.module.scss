@@ -29,6 +29,12 @@
     object-position: center center;
   }
 
+  &__video {
+    height: 99px;
+    min-width: 25%;
+    max-width: 25%;
+  }
+
   &__iconFile {
     height: 65px;
     width: 65px;

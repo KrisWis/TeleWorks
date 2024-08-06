@@ -70,6 +70,9 @@ export const CreateOrderTechnicalInformationLoadedFile: React.FC<CreateOrderTech
       const loadedFileIsImage: boolean =
         loadedFile.FileType.split("/")[0] == "image";
 
+      const loadedFileIsVideo: boolean =
+        loadedFile.FileType.split("/")[0] == "video";
+
       return (
         <div className={styles.CreateOrderTechnicalInformationLoadedFile}>
           <div
@@ -83,6 +86,14 @@ export const CreateOrderTechnicalInformationLoadedFile: React.FC<CreateOrderTech
                 src={loadedFile.FileData}
                 alt={loadedFile.FileName}
               />
+            ) : loadedFileIsVideo ? (
+              <video
+                className={
+                  styles.CreateOrderTechnicalInformationLoadedFile__video
+                }
+                src={loadedFile.FileData}
+                controls
+              ></video>
             ) : (
               <img
                 className={
