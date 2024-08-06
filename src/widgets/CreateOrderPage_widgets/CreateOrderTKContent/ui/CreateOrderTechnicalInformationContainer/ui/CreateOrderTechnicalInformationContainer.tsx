@@ -4,6 +4,8 @@ import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechn
 import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
 import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
 import { SemipolarLoading } from "react-loadingg";
+import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount = 1200;
 
@@ -87,11 +89,17 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
             loadedFile.FileData = fileReader.result as string;
 
             setFormInputFiles([...FormInputFiles, loadedFile]);
+
+            FormInputRef.current!.files = null;
           };
           fileReader.readAsDataURL(UserInputFiles[0]);
         }
       }
     };
+
+    // Функционал нажатия на чекбокс о соглашении
+    const [AgreeCheckboxIsActive, setAgreeCheckboxIsActive] =
+      useState<boolean>(false);
 
     return (
       <div className={styles.createOrderTechnicalInformationContainer}>
@@ -247,6 +255,39 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
               </div>
             </div>
           </div>
+        </div>
+
+        <div className={styles.createOrderTechnicalInformationContainer__agree}>
+          <CheckBoxBlock
+            isActive={AgreeCheckboxIsActive}
+            onClick={() => setAgreeCheckboxIsActive(!AgreeCheckboxIsActive)}
+          />
+
+          <p
+            className={
+              styles.createOrderTechnicalInformationContainer__agree__text
+            }
+          >
+            Предоставленная мной информация является точной и полной. Любые
+            изменения требуют согласования с продавцом и могут потребовать
+            дополнительной оплаты.
+          </p>
+        </div>
+
+        <div
+          className={styles.createOrderTechnicalInformationContainer__buttons}
+        >
+          <Button
+            className={styles.createOrderTechnicalInformationContainer__button}
+            type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
+            text="Заполнить позже"
+          />
+
+          <Button
+            className={styles.createOrderTechnicalInformationContainer__button}
+            type={ButtonTypes.RED}
+            text="Подтвердить"
+          />
         </div>
       </div>
     );

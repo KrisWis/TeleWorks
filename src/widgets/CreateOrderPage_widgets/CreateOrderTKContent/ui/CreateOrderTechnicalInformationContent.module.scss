@@ -22,4 +22,11 @@
     grid-template-columns: 66% 33%;
     gap: 20px;
   }
+
+  &__secondCol {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }

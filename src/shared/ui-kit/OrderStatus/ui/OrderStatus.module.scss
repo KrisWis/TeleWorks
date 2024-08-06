@@ -1,0 +1,26 @@
+.orderStatus {
+  height: 23px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  width: 137px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__process {
+    background: linear-gradient(
+      271deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0) 100%
+    );
+  }
+
+  &__contestation {
+    background: linear-gradient(271deg, #fdbc03 0%, rgba(246, 227, 59, 0) 100%);
+  }
+}

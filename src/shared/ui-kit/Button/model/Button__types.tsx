@@ -5,6 +5,7 @@ export enum ButtonTypes {
   WHITE = "Button__white",
   BLACK = "Button__black",
   CYAN = "Button__cyan",
+  BLACK_WITHOUT_OUTLINE = "Button__black__withoutOuline",
 }
 
 export interface ButtonProps {

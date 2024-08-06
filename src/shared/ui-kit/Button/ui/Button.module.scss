@@ -103,6 +103,16 @@
       border: 1px solid var(--white-color);
       box-shadow: 0 0 15px #000;
     }
+
+    &__withoutOuline {
+      border: 1px solid transparent;
+      background: transparent;
+      color: #000;
+
+      &:hover:not(.catalog__category__canSelected) {
+        transform: scale(1.05);
+      }
+    }
   }
 
   &__black.catalog__category__selected {
