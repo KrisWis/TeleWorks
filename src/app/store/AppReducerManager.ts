@@ -6,11 +6,14 @@ import {
 } from "@reduxjs/toolkit";
 import { StoreSchema, StoreSchemaKey } from "./AppStore";
 
+export type MountedReducers = OptionalRecord<StoreSchemaKey, boolean>;
+
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StoreSchema>;
   reduce: (state: StoreSchema, action: Action) => StoreSchema;
   add: (key: StoreSchemaKey, reducer: Reducer) => void;
   remove: (key: StoreSchemaKey) => void;
+  getMountedReducers: () => MountedReducers;
 }
 
 export function createReducerManager(
@@ -21,9 +24,11 @@ export function createReducerManager(
   let combinedReducer = combineReducers(reducers);
 
   let keysToRemove: Array<StoreSchemaKey> = [];
+  const mountedReducers: MountedReducers = {};
 
   return {
     getReducerMap: () => reducers,
+    getMountedReducers: () => mountedReducers,
     reduce: (state: StoreSchema, action: Action) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
@@ -40,6 +45,7 @@ export function createReducerManager(
         return;
       }
       reducers[key] = reducer;
+      mountedReducers[key] = true;
 
       combinedReducer = combineReducers(reducers);
     },

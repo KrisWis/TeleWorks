@@ -20,11 +20,15 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
 }) => {
   const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();
+  const mountedReducers = store.reducerManager.getMountedReducers();
 
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StoreSchemaKey, reducer);
-      dispatch({ type: `@INIT ${name} reducer` });
+      const mounted = mountedReducers[name as StoreSchemaKey];
+      if (!mounted) {
+        store.reducerManager.add(name as StoreSchemaKey, reducer);
+        dispatch({ type: `@INIT ${name} reducer` });
+      }
     });
 
     return () => {
@@ -35,7 +39,13 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
         });
       }
     };
-  }, [dispatch, reducers, removeAfterUnmount, store.reducerManager]);
+  }, [
+    dispatch,
+    mountedReducers,
+    reducers,
+    removeAfterUnmount,
+    store.reducerManager,
+  ]);
 
   return <>{children}</>;
 };

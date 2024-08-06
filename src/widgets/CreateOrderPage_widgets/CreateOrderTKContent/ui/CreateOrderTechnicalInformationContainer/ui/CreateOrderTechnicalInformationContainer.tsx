@@ -1,6 +1,8 @@
 import styles from "./CreateOrderTechnicalInformationContainer.module.scss";
 import { memo, useRef, useState } from "react";
 import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationContent/CreateOrderTechnicalInformationContainer/PaperclipSVG.svg?react";
+import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
+import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
 
 export const CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount = 1200;
 
@@ -41,6 +43,36 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       ) {
         FormTextAreaRef.current.style.height =
           1 + FormTextAreaRef.current.scrollHeight + "px";
+      }
+    };
+
+    // Загрузка и отображение, загруженных пользователем, изображений:
+    const FormInputRef = useRef<HTMLInputElement>(null);
+
+    const [FormInputFiles, setFormInputFiles] = useState<LoadedFile[]>([]);
+
+    const FormInputOnLoad = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const UserInputFiles = e.target.files;
+
+      const loadedFile: LoadedFile = {
+        FileData: "",
+        FileName: "",
+        FileSize: 0,
+        FileType: "",
+      };
+
+      if (UserInputFiles) {
+        const fileReader = new FileReader();
+        loadedFile.FileName = UserInputFiles[0].name;
+        loadedFile.FileSize = UserInputFiles[0].size;
+        loadedFile.FileType = UserInputFiles[0].type;
+
+        fileReader.onload = function () {
+          loadedFile.FileData = fileReader.result as string;
+
+          setFormInputFiles([...FormInputFiles, loadedFile]);
+        };
+        fileReader.readAsDataURL(UserInputFiles[0]);
       }
     };
 
@@ -121,18 +153,34 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
               >
                 <div
                   className={
-                    styles.createOrderTechnicalInformationContainer__form__attachFiles
+                    styles.createOrderTechnicalInformationContainer__form__attachFilesWrapper
                   }
                 >
-                  <PaperClipSVG />
-
-                  <span
+                  <input
                     className={
-                      styles.createOrderTechnicalInformationContainer__form__attachFiles__text
+                      styles.createOrderTechnicalInformationContainer__form__attachFiles__input
+                    }
+                    type="file"
+                    name="createOrderTechnicalInformationContainer_loadFiles_input"
+                    ref={FormInputRef}
+                    onChange={FormInputOnLoad}
+                  />
+
+                  <div
+                    className={
+                      styles.createOrderTechnicalInformationContainer__form__attachFiles
                     }
                   >
-                    Прикрепить файл
-                  </span>
+                    <PaperClipSVG />
+
+                    <span
+                      className={
+                        styles.createOrderTechnicalInformationContainer__form__attachFiles__text
+                      }
+                    >
+                      Прикрепить файл
+                    </span>
+                  </div>
                 </div>
 
                 <span
@@ -145,6 +193,35 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                   символов (минимум{" "}
                   {CreateOrderTechnicalInformationFormTextAreaMinSymbolsAmount})
                 </span>
+              </div>
+            </div>
+
+            <div
+              className={`${styles.createOrderTechnicalInformationContainer__files}
+              ${!FormInputFiles.length ? styles.createOrderTechnicalInformationContainer__files__closed : ""}`}
+            >
+              <div
+                className={
+                  styles.createOrderTechnicalInformationContainer__header
+                }
+              >
+                <h6
+                  className={`${styles.createOrderTechnicalInformationContainer__caption} 
+                  ${styles.createOrderTechnicalInformationContainer__files__caption} CreateOrderPage__caption`}
+                >
+                  Загруженные файлы
+                </h6>
+              </div>
+
+              <div
+                className={`${styles.createOrderTechnicalInformationContainer__files__items}`}
+              >
+                {FormInputFiles.map((file) => (
+                  <CreateOrderTechnicalInformationLoadedFile
+                    key={file.FileName}
+                    {...file}
+                  />
+                ))}
               </div>
             </div>
           </div>
