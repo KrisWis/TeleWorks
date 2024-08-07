@@ -14,6 +14,13 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
         size={LoadImageBlockSizes.BIG}
         title="Загрузить шапку профиля"
       />
+
+      <div className={styles.userEditGeneral__info}>
+        <LoadImageBlock
+          size={LoadImageBlockSizes.SMALL}
+          title="Загрузите аватарку"
+        />
+      </div>
     </div>
   );
 });

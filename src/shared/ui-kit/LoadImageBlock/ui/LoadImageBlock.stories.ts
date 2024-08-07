@@ -13,9 +13,16 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const HeaderImage: Story = {
+export const BIG: Story = {
   args: {
     size: LoadImageBlockSizes.BIG,
-    title: "Загрузить шапку профиля",
+    title: "Загрузить изображение",
+  },
+};
+
+export const SMALL: Story = {
+  args: {
+    size: LoadImageBlockSizes.SMALL,
+    title: "Загрузить изображение",
   },
 };

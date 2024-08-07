@@ -75,7 +75,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
       >
         <div
           className={`${styles.loadImageBlock__wrapper} Page__SirineWrapper 
-        ${LoadedImage ? styles.loadImageBlock__wrapper__withImg : ""}`}
+        ${LoadedImage && LoadedImage != LoadingConst ? styles.loadImageBlock__wrapper__withImg : ""}`}
         >
           {!LoadedImage || LoadedImageErrors.length ? (
             <div className={styles.loadImageBlock__wrapperPadding}>
@@ -112,11 +112,9 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
               </span>
             </div>
           ) : LoadedImage == LoadingConst ? (
-            <SemipolarLoading
-              style={{ margin: "auto", marginTop: "7%" }}
-              color="var(--main-color)"
-              size="small"
-            />
+            <div className={styles.loadImageBlock__wrapper__loadingWrapper}>
+              <SemipolarLoading color="var(--main-color)" size="small" />
+            </div>
           ) : (
             <div className={styles.loadImageBlock__wrapper__imgWrapper}>
               <img
@@ -136,13 +134,18 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
           )}
         </div>
 
-        <div className={styles.loadImageBlock__wrapper__errors}>
-          {LoadedImageErrors.map((error) => (
-            <span key={error} className={styles.loadImageBlock__wrapper__error}>
-              {error}
-            </span>
-          ))}
-        </div>
+        {LoadedImageErrors.length > 0 && (
+          <div className={styles.loadImageBlock__wrapper__errors}>
+            {LoadedImageErrors.map((error) => (
+              <span
+                key={error}
+                className={styles.loadImageBlock__wrapper__error}
+              >
+                {error}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     );
   }
