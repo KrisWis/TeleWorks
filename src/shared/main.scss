@@ -22,6 +22,7 @@
   --main-color: #f55;
   --secondary-color: #eaf2ff;
   --white-color: #fff;
+  --black-color: #000;
   --transition-duration: 0.3s;
   --transition-duration-medium: 0.7s;
   --transition-duration-big: 1.2s;
@@ -63,7 +64,7 @@
     font-size: 48px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     width: fit-content;
 

@@ -30,7 +30,7 @@ export type SelectThemesList = {
 export const SelectThemes: SelectThemesList = {
   black: {
     fontSize: "15px",
-    color: "#000",
+    color: "var(--black-color)",
   },
 
   gray: {

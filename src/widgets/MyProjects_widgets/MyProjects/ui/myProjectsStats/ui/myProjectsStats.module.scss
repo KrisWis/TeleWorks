@@ -17,7 +17,7 @@
     font-size: 16px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__items {
@@ -48,7 +48,7 @@
       font-size: 16px;
       line-height: 200%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
 
     &__amount {
@@ -57,7 +57,7 @@
       line-height: 200%;
       letter-spacing: -0.01em;
       text-align: right;
-      color: #000;
+      color: var(--black-color);
     }
   }
 
@@ -82,7 +82,7 @@
       font-size: 16px;
       line-height: 200%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       transition: var(--transition-duration) linear all;
 
       &:hover {

@@ -16,7 +16,7 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--white-color);
-    text-shadow: 0 0 7px #000;
+    text-shadow: 0 0 7px var(--black-color);
     position: absolute;
     top: -80px;
     left: 10px;
@@ -27,7 +27,7 @@
     font-size: 18px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     margin-top: 50px;
     height: 65px;
   }

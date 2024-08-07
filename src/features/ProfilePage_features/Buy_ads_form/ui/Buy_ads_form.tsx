@@ -33,7 +33,7 @@ const TextStyles: SelectTextStyles = {
   fontWeight: 500,
   fontSize: "32px",
   letterSpacing: "-0.04em",
-  color: "#000",
+  color: "var(--black-color)",
   opacity: 0.4,
 };
 

@@ -35,7 +35,7 @@
         font-size: 15px;
         line-height: 150%;
         letter-spacing: -0.01em;
-        color: #000;
+        color: var(--black-color);
         opacity: 0.4;
       }
     }
@@ -50,7 +50,7 @@
       font-size: 16px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       padding: 10px 20px;
       transition: var(--transition-duration) linear all;
       overflow: hidden;
@@ -115,14 +115,14 @@
       font-size: 16px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
   }
 
   &__files {
     display: flex;
     flex-direction: column;
-    border: 1px solid #eaf2ff;
+    border: 1px solid var(--secondary-color);
     border-radius: 25px;
     width: 100%;
     margin-top: 20px;
@@ -157,7 +157,7 @@
       font-size: 16px;
       line-height: 120%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
   }
 

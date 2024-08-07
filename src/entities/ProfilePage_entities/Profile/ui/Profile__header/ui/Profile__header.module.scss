@@ -65,7 +65,7 @@
       font-weight: 500;
       font-size: 16px;
       letter-spacing: -0.04em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
     }
   }
@@ -92,6 +92,6 @@
     font-size: 27px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 }

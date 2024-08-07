@@ -10,7 +10,7 @@
     line-height: 100%;
     letter-spacing: -0.04em;
     text-align: center;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__wrapper {
@@ -50,7 +50,7 @@
     line-height: 100%;
     letter-spacing: -0.04em;
     text-align: center;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__stars {

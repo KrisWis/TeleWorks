@@ -1,11 +1,16 @@
 import styles from "./CreateOrderTechnicalInformationContainer.module.scss";
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationContent/CreateOrderTechnicalInformationContainer/PaperclipSVG.svg?react";
 import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
 import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
 import { SemipolarLoading } from "react-loadingg";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import {
+  UseLocalStorage,
+  UseLocalStorageTypes,
+} from "@/shared/utils/hooks/UseLocalStorage";
+import { LocalStorageKeys } from "@/app/layouts/model/LocalStorageKeys";
 
 export const CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount = 1200;
 
@@ -15,7 +20,15 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
     // Валидация текстового поля в форме
     const FormTextAreaRef = useRef<HTMLTextAreaElement>(null);
-    const [FormTextAreaValue, setFormTextAreaValue] = useState<string>("");
+
+    const FormTextAreaValueLI: string =
+      UseLocalStorage(
+        UseLocalStorageTypes.GET,
+        LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_FORM
+      ) || "";
+
+    const [FormTextAreaValue, setFormTextAreaValue] =
+      useState<string>(FormTextAreaValueLI);
 
     const [FormTextAreaIsWarn, setFormTextAreaIsWarn] =
       useState<boolean>(false);
@@ -31,6 +44,12 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       ) {
         setFormTextAreaValue(user_text);
         setFormTextAreaIsWarn(false);
+
+        UseLocalStorage(
+          UseLocalStorageTypes.UPDATE,
+          LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_FORM,
+          user_text
+        );
       } else {
         setFormTextAreaIsWarn(true);
       }
@@ -52,7 +71,14 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     // Загрузка и отображение, загруженных пользователем, изображений:
     const FormInputRef = useRef<HTMLInputElement>(null);
 
-    const [FormInputFiles, setFormInputFiles] = useState<LoadedFile[]>([]);
+    const FormInputFilesLI: LoadedFile[] =
+      UseLocalStorage(
+        UseLocalStorageTypes.GET,
+        LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_LOADED_FILES
+      ) || [];
+
+    const [FormInputFiles, setFormInputFiles] =
+      useState<LoadedFile[]>(FormInputFilesLI);
 
     const FormInputOnLoad = (e: React.ChangeEvent<HTMLInputElement>) => {
       const UserInputFiles = e.target.files;
@@ -96,6 +122,15 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
         }
       }
     };
+
+    // Сохранение загруженных пользователем файлов в Local Storage:
+    useEffect(() => {
+      UseLocalStorage(
+        UseLocalStorageTypes.UPDATE,
+        LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_LOADED_FILES,
+        FormInputFiles
+      );
+    }, [FormInputFiles]);
 
     // Функционал нажатия на чекбокс о соглашении
     const [AgreeCheckboxIsActive, setAgreeCheckboxIsActive] =

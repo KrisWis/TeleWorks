@@ -29,7 +29,7 @@
     font-size: 110px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     text-align: center;
 
@@ -60,7 +60,7 @@
     font-size: 16px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     margin-top: 10px;
   }
 
@@ -98,7 +98,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid #000;
+      border: 1px solid var(--black-color);
       border-radius: 15px;
       min-width: 272px;
       height: 68px;
@@ -107,14 +107,14 @@
       font-size: 18px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       background: var(--white-color);
 
       &:hover {
         color: var(--white-color);
         border: 1px solid var(--white-color);
-        background: #000;
-        box-shadow: 0 0 20px #000;
+        background: var(--black-color);
+        box-shadow: 0 0 20px var(--black-color);
       }
     }
   }

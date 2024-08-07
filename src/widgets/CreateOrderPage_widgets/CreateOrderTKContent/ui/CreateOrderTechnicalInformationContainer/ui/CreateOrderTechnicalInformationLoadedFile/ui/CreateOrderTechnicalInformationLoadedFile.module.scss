@@ -21,7 +21,7 @@
 
   &__img {
     height: 99px;
-    border: 1px solid #eaf2ff;
+    border: 1px solid var(--secondary-color);
     border-radius: 15px;
     min-width: 25%;
     max-width: 25%;
@@ -45,7 +45,7 @@
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
   }
 

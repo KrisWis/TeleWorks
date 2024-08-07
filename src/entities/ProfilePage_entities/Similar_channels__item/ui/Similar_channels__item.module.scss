@@ -32,7 +32,7 @@
       font-size: 16px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
   }
 
@@ -46,7 +46,7 @@
       font-weight: 700;
       font-size: 20px;
       letter-spacing: -0.04em;
-      color: #000;
+      color: var(--black-color);
     }
   }
 
@@ -81,7 +81,7 @@
     font-weight: 600;
     font-size: 30px;
     letter-spacing: -0.04em;
-    color: #000;
+    color: var(--black-color);
     margin-top: 10px;
   }
 
@@ -89,7 +89,7 @@
     font-weight: 400;
     font-size: 24px;
     letter-spacing: -0.04em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
   }
 
@@ -132,7 +132,7 @@
         font-weight: 500;
         font-size: 20px;
         letter-spacing: -0.04em;
-        color: #000;
+        color: var(--black-color);
       }
 
       &_title {
@@ -140,7 +140,7 @@
         font-weight: 600;
         font-size: 20px;
         letter-spacing: -0.04em;
-        color: #000;
+        color: var(--black-color);
         height: 35px;
         top: 7px;
         position: relative;
@@ -162,7 +162,7 @@
     font-size: 40px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__toCart {

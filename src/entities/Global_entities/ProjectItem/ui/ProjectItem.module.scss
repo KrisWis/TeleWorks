@@ -98,7 +98,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__heart {
@@ -180,7 +180,7 @@
       font-size: 14px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
 
     &Rank {
@@ -188,7 +188,7 @@
       font-size: 14px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
       position: relative;
       bottom: 4px;
@@ -214,7 +214,7 @@
       font-size: 14px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
 
     &ReviewsAmount {
@@ -222,7 +222,7 @@
       font-size: 14px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
     }
   }

@@ -8,7 +8,7 @@
   font-size: 21px;
   line-height: 150%;
   letter-spacing: -0.01em;
-  color: #000;
+  color: var(--black-color);
   padding-left: 20px;
   transition: var(--transition-duration) all linear;
 
@@ -17,7 +17,7 @@
     font-size: 21px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
   }
 

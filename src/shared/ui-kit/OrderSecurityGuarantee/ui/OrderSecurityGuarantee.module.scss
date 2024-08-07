@@ -18,7 +18,7 @@
     font-size: 18px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__text {
@@ -26,7 +26,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
     position: relative;
     bottom: 5px;

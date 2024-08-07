@@ -1,0 +1,54 @@
+.userEditTabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-right: 1px solid var(--secondary-color);
+  padding-top: 15px;
+
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-duration) linear all;
+    cursor: pointer;
+    width: fit-content;
+    padding-bottom: 10px;
+    padding-left: 20px;
+
+    &Wrapper {
+      border-bottom: 1px solid var(--secondary-color);
+      width: 100%;
+    }
+
+    &__caption {
+      font-weight: 600;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: var(--black-color);
+    }
+
+    &:hover {
+      transform: translateX(-5%);
+    }
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 15px 0;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.04em;
+    color: var(--black-color);
+    opacity: 0.4;
+    cursor: pointer;
+    padding-left: 20px;
+    transition: var(--transition-duration) linear all;
+
+    &__active {
+      opacity: 1;
+      font-weight: 600;
+    }
+  }
+}

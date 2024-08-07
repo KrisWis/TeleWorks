@@ -115,7 +115,7 @@
       font-size: 22px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
 
     &Rating {
@@ -138,7 +138,7 @@
       font-size: 17px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
 
     &ReviewsAmount {
@@ -146,7 +146,7 @@
       font-size: 17px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
     }
   }
@@ -173,7 +173,7 @@
       font-size: 16px;
       line-height: 120%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
     }
   }

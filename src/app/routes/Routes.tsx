@@ -7,19 +7,31 @@ import { MyProjectsPage } from "@/pages/MyProjectsPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
+import { UserEditPage } from "@/pages/UserEditPage";
 import { UserPage } from "@/pages/UserPage/ui/UserPage";
 import { RouteProps } from "react-router-dom";
 
 export enum Routes {
   MAIN = "/",
+
   PROFILE = "/profile",
+
   MYPROJECTS = "/myProjects",
+
   CATALOG = "/catalog",
+
   INTERNAL = "/internal",
+
   SERVICES = "/services",
+
   PROJECT = "/project",
+
   USER = "/user",
+
+  USER_EDIT = "/user/edit",
+
   CREATE_CARD = "/create-card",
+
   CREATE_ORDER = "/create-order",
 }
 
@@ -72,5 +84,10 @@ export const routes: RouteProps[] = [
   {
     path: Routes.CREATE_ORDER,
     element: <CreateOrderPage />,
+  },
+
+  {
+    path: Routes.USER_EDIT,
+    element: <UserEditPage />,
   },
 ];

@@ -22,7 +22,7 @@
     font-size: 22px;
     line-height: 100%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
   }
 
@@ -42,7 +42,7 @@
     font-size: 17px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__reviews {

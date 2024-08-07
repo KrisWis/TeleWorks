@@ -28,7 +28,7 @@ const CardSelectTextStyles: SelectTextStyles = {
   fontSize: "20px",
   letterSpacing: "-0.01em",
   lineHeight: "150%",
-  color: "#000",
+  color: "var(--black-color)",
 };
 
 export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
@@ -87,7 +87,7 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
         className={`Page__BoxShadowWrapper ${styles.createOrderCostPayment}`}
       >
         <div className={styles.createOrderCostPayment__header}>
-          <h6 className="CreateOrderPage__caption">Оплата заказа</h6>
+          <h6 className="CreateOrderPage__caption">Пополнение баланса</h6>
 
           <div className={styles.createOrderCostPayment__cardChoice}>
             <BankCardSVG />

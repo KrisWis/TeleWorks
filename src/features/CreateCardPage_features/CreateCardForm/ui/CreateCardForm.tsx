@@ -24,7 +24,7 @@ const TextStyles: SelectTextStyles = {
   fontSize: "20px",
   letterSpacing: "-0.01em",
   lineHeight: "150%",
-  color: "#000",
+  color: "var(--black-color)",
   opacity: 0.4,
 };
 
