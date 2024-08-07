@@ -1,0 +1,114 @@
+.loadImageBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__big {
+    height: 204px;
+    width: 100%;
+  }
+
+  &__small {
+    width: 250px;
+    height: 250px;
+  }
+
+  &__wrapper {
+    margin-top: 10px;
+    cursor: pointer;
+    transition: var(--transition-duration) linear all;
+    position: relative;
+    height: 100%;
+
+    &__errors {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 15px;
+    }
+
+    &__error {
+      color: var(--main-color);
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+    }
+
+    &Wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: var(--transition-duration) linear all;
+      opacity: 0;
+      background: linear-gradient(271deg, #ef3b36, rgb(241, 185, 185));
+      box-shadow: 0 0 100px var(--main-color);
+      border-radius: 25px;
+      z-index: -1;
+    }
+
+    &Padding {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    &__requirements {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1px;
+    }
+
+    &__input {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    &__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 25px;
+
+      &Wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+      }
+    }
+
+    &:hover:not(.loadImageBlock__wrapper__withImg) {
+      transform: scale(1.03);
+
+      .loadImageBlock__wrapperWrapper {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: -0.04em;
+    color: var(--black-color);
+    line-height: 150%;
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    opacity: 0.4;
+  }
+}

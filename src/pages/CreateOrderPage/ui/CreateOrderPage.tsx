@@ -10,7 +10,7 @@ import {
 } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
 import { CreateOrderCostContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderCostContent";
 import { CreateOrderPageContext } from "../model/CreateOrderPageContext";
-import { CreateOrderTechnicalInformationContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderTKContent";
+import { CreateOrderTechnicalInformationContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderTechnicalInformationContent";
 
 export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

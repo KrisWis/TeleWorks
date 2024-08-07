@@ -1,0 +1,11 @@
+<div style="position: relative">
+
+  <svg style="position: absolute; top: 15px; left: 11.5px;" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10.5 18C14.6421 18 18 14.6421 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18Z" stroke="#FF5555" stroke-width="5" stroke-linejoin="round" />
+  </svg>
+
+  <svg width="74" height="74" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M71 52.1111V67.2222C71 69.3087 69.3087 71 67.2222 71H6.77778C4.69139 71 3 69.3087 3 67.2222V59.6667M71 52.1111V6.77778C71 4.69139 69.3087 3 67.2222 3H6.77778C4.69139 3 3 4.69139 3 6.77778V59.6667M71 52.1111L50.1576 38.2161C49.0296 37.4639 47.585 37.374 46.3723 37.9803L3 59.6667" stroke="#FF5555" stroke-width="5" stroke-linejoin="round" />
+  </svg>
+
+</div>

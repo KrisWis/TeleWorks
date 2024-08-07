@@ -5,6 +5,7 @@ import {
   ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { StoreSchema, StoreSchemaKey } from "./AppStore";
+import { OptionalRecord } from "@/shared/types";
 
 export type MountedReducers = OptionalRecord<StoreSchemaKey, boolean>;
 

@@ -27,6 +27,7 @@ export const UserEditTabs: React.FC = memo((): React.JSX.Element => {
         Object.keys(UserEditTabsEnum) as Array<keyof typeof UserEditTabsEnum>
       ).map((tab) => (
         <span
+          key={tab}
           className={`${styles.userEditTabs__tab} 
           ${ActiveUserEditTab == UserEditTabsEnum[tab] ? styles.userEditTabs__tab__active : ""}`}
           onClick={() => setActiveUserEditTab(UserEditTabsEnum[tab])}
