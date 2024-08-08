@@ -56,11 +56,12 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
     }, [SelectTypeValue.value]);
 
     useEffect(() => {
-      setActiveSlide(
-        CreateCardFormType__selectedOptions.findIndex(
-          (item) => item.value == SelectTypeValue.value
-        )
-      );
+      if (setActiveSlide)
+        setActiveSlide(
+          CreateCardFormType__selectedOptions.findIndex(
+            (item) => item.value == SelectTypeValue.value
+          )
+        );
     }, [SelectTypeValue, setActiveSlide]);
 
     return (
