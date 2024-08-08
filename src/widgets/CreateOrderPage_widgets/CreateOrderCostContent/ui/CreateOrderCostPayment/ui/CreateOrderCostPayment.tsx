@@ -1,5 +1,12 @@
 import styles from "./CreateOrderCostPayment.module.scss";
-import { memo, useCallback, useContext, useEffect, useState } from "react";
+import {
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import {
   SelectTextStyles,
@@ -16,7 +23,9 @@ import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
 import { CreateOrderCostPaymentProps } from "../model/CreateOrderCostPayment_types";
 import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
-import { isNumber } from "@/shared/utils/IsNumber/IsNumber";
+import { CardNumberIsValidCheck } from "../model/CardNumberIsValidCheck/CardNumberIsValidCheck";
+import { ExpirationDateIsValidCheck } from "../model/ExpirationDateIsValidCheck/ExpirationDateIsValidCheck";
+import { CVCCodeIsValidCheck } from "../model/CVCCodeIsValidCheck/CVCCodeIsValidCheck";
 
 const CardSelectDropdownIndicator = (): JSX.Element => {
   return <SelectDropdownIndicatorRedSVG className={selectStyles.Select__svg} />;
@@ -46,14 +55,17 @@ export const CreateOrderCostPayment: React.FC<CreateOrderCostPaymentProps> =
     const { setCreateOrderActiveStep, setCreateOrderCompletedSteps } =
       useContext(CreateOrderPageContext);
 
-    const CardNumberIsValid =
-      isNumber(CardNumber) && String(CardNumber).length == 16;
+    const CardNumberIsValid = useMemo(() => {
+      return CardNumberIsValidCheck(CardNumber);
+    }, [CardNumber]);
 
-    const ExpirationDateIsValid = ExpirationDate.match(
-      /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/
-    );
+    const ExpirationDateIsValid = useMemo(() => {
+      return ExpirationDateIsValidCheck(ExpirationDate);
+    }, [ExpirationDate]);
 
-    const CVCCodeIsValid = CVCCode.match(/^[0-9]{3,4}$/);
+    const CVCCodeIsValid = useMemo(() => {
+      return CVCCodeIsValidCheck(CVCCode);
+    }, [CVCCode]);
 
     const canPay = CardNumberIsValid && ExpirationDateIsValid && CVCCodeIsValid;
 

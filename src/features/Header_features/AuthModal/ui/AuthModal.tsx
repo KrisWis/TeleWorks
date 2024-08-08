@@ -6,6 +6,7 @@ import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { AuthModalProps } from "../model/AuthModal_types";
 import { Input } from "@/shared/ui-kit/Input";
 import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { AuthModalCanLogin } from "../model/AuthModalCanLogin/AuthModalCanLogin";
 
 export const AuthModal: React.FC<AuthModalProps> = memo(
   ({
@@ -45,7 +46,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
     }, [CustomSetModalAppear, setModalOpen, setPasswordRecoveryModalOpen]);
 
     const CanLogin = useMemo(
-      () => !EmailInput || !PasswordInput,
+      () => AuthModalCanLogin(EmailInput, PasswordInput),
       [EmailInput, PasswordInput]
     );
 
@@ -110,7 +111,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
               text="Войти"
               type={ButtonTypes.RED}
               onClick={
-                CanLogin
+                !CanLogin
                   ? () => setTryLogin(true)
                   : () => redirectToAbsolutePath("/")
               }

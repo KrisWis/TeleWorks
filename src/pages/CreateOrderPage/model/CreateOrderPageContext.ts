@@ -1,7 +1,7 @@
 import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
 import { createContext, useState } from "react";
 
-interface CreateOrderPageContext {
+export interface CreateOrderPageContext {
   CreateOrderActiveStep: CreateOrderProgressSteps;
   setCreateOrderActiveStep: React.Dispatch<
     React.SetStateAction<CreateOrderProgressSteps>

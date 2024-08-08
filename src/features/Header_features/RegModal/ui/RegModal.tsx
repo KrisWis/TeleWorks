@@ -11,6 +11,7 @@ import {
 import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { RegModalCanReg } from "../model/RegModalCanReg/RegModalCanReg";
 
 export const RegModal: React.FC<RegModalProps> = memo(
   ({
@@ -66,7 +67,12 @@ export const RegModal: React.FC<RegModalProps> = memo(
 
     const CanReg = useMemo(
       () =>
-        !EmailInput || !PasswordInput || !TelInput || !AllCheckBoxesIsSelected,
+        RegModalCanReg(
+          EmailInput,
+          PasswordInput,
+          TelInput,
+          AllCheckBoxesIsSelected
+        ),
 
       [AllCheckBoxesIsSelected, EmailInput, PasswordInput, TelInput]
     );
@@ -190,7 +196,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
               text="Зарегистрироваться"
               type={ButtonTypes.RED}
               onClick={
-                CanReg
+                !CanReg
                   ? () => setTryLogin(true)
                   : () => redirectToAbsolutePath("/")
               }

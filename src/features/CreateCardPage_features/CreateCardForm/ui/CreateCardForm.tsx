@@ -1,6 +1,6 @@
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import styles from "./CreateCardForm.module.scss";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorBlueSVG.svg?react";
 import {
   Select_Option,
@@ -11,6 +11,7 @@ import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { CreateCardFormProps } from "../model/CreateCardForm_types";
+import { IsLegalEntityCheck } from "../model/IsLegalEntityCheck/IsLegalEntityCheck";
 
 const DropdownIndicator = (): JSX.Element => {
   return (
@@ -50,7 +51,9 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
       CreateCardFormType__selectedOptions[0]
     );
 
-    const IsLegalEntity = SelectTypeValue.value == "Юр.лицо";
+    const IsLegalEntity = useMemo<boolean>(() => {
+      return IsLegalEntityCheck(SelectTypeValue.value);
+    }, [SelectTypeValue.value]);
 
     useEffect(() => {
       setActiveSlide(

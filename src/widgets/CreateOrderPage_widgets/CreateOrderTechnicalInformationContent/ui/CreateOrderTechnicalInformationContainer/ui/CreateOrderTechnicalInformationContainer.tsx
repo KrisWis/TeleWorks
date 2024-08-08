@@ -1,34 +1,34 @@
 import styles from "./CreateOrderTechnicalInformationContainer.module.scss";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useRef, useState } from "react";
 import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationContent/CreateOrderTechnicalInformationContainer/PaperclipSVG.svg?react";
 import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
 import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
 import { SemipolarLoading } from "react-loadingg";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import {
-  UseLocalStorage,
-  UseLocalStorageTypes,
-} from "@/shared/utils/hooks/UseLocalStorage";
-import { LocalStorageKeys } from "@/app/layouts/model/LocalStorageKeys";
-
-export const CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount = 1200;
-
-export const CreateOrderTechnicalInformationFormTextAreaMinSymbolsAmount = 100;
+  CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount,
+  CreateOrderTechnicalInformationFormTextAreaMinSymbolsAmount,
+  FormTextAreaIsValid,
+} from "../model/FormTextAreaIsValid/FormTextAreaIsValid";
+import { DataIsCorrectCheck } from "../model/DataIsCorrectCheck/DataIsCorrectCheck";
+import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
+import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { useCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
     // Валидация текстового поля в форме
     const FormTextAreaRef = useRef<HTMLTextAreaElement>(null);
 
-    const FormTextAreaValueLI: string =
-      UseLocalStorage(
-        UseLocalStorageTypes.GET,
-        LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_FORM
-      ) || "";
+    const FormTextAreaValueLI = useCreateOrderTIFormLocalStorage(
+      UseLocalStorageTypes.GET
+    );
 
-    const [FormTextAreaValue, setFormTextAreaValue] =
-      useState<string>(FormTextAreaValueLI);
+    const [FormTextAreaValue, setFormTextAreaValue] = useState<string>(
+      FormTextAreaValueLI || ""
+    );
 
     const [FormTextAreaIsWarn, setFormTextAreaIsWarn] =
       useState<boolean>(false);
@@ -38,18 +38,14 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     ): void => {
       const user_text = e.target.value;
 
+      useCreateOrderTIFormLocalStorage(UseLocalStorageTypes.UPDATE, user_text);
+
       if (
         user_text.length <=
         CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount
       ) {
         setFormTextAreaValue(user_text);
         setFormTextAreaIsWarn(false);
-
-        UseLocalStorage(
-          UseLocalStorageTypes.UPDATE,
-          LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_FORM,
-          user_text
-        );
       } else {
         setFormTextAreaIsWarn(true);
       }
@@ -71,14 +67,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     // Загрузка и отображение, загруженных пользователем, изображений:
     const FormInputRef = useRef<HTMLInputElement>(null);
 
-    const FormInputFilesLI: LoadedFile[] =
-      UseLocalStorage(
-        UseLocalStorageTypes.GET,
-        LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_LOADED_FILES
-      ) || [];
-
-    const [FormInputFiles, setFormInputFiles] =
-      useState<LoadedFile[]>(FormInputFilesLI);
+    const [FormInputFiles, setFormInputFiles] = useState<LoadedFile[]>([]);
 
     const FormInputOnLoad = (e: React.ChangeEvent<HTMLInputElement>) => {
       const UserInputFiles = e.target.files;
@@ -123,18 +112,25 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       }
     };
 
-    // Сохранение загруженных пользователем файлов в Local Storage:
-    useEffect(() => {
-      UseLocalStorage(
-        UseLocalStorageTypes.UPDATE,
-        LocalStorageKeys.CREATE_ORDER_TECHNICAL_INFORMATION_CONTAINER_LOADED_FILES,
-        FormInputFiles
-      );
-    }, [FormInputFiles]);
-
     // Функционал нажатия на чекбокс о соглашении
     const [AgreeCheckboxIsActive, setAgreeCheckboxIsActive] =
       useState<boolean>(false);
+
+    // Нажатие на кнопку "Подтвердить"
+    const [TryAgreeWithUncorrectData, setTryAgreeWithUncorrectData] =
+      UseTryAction();
+
+    const AgreeButtonOnClick = useCallback(() => {
+      if (DataIsCorrectCheck(FormTextAreaValue, AgreeCheckboxIsActive)) {
+        redirectToAbsolutePath("/");
+      } else {
+        setTryAgreeWithUncorrectData(true);
+      }
+    }, [
+      AgreeCheckboxIsActive,
+      FormTextAreaValue,
+      setTryAgreeWithUncorrectData,
+    ]);
 
     return (
       <div className={styles.createOrderTechnicalInformationContainer}>
@@ -200,7 +196,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
               <textarea
                 ref={FormTextAreaRef}
                 className={`${styles.createOrderTechnicalInformationContainer__form__textarea}
-                ${FormTextAreaIsWarn ? styles.createOrderTechnicalInformationContainer__form__textarea__warn : ""}`}
+                ${FormTextAreaIsWarn || (TryAgreeWithUncorrectData && !FormTextAreaIsValid(FormTextAreaValue)) ? styles.createOrderTechnicalInformationContainer__form__textarea__warn : ""}`}
                 name="createOrderTechnicalInformationContainer__form__textarea"
                 value={FormTextAreaValue}
                 onChange={OnChangeFormTextArea}
@@ -267,27 +263,29 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                 Загруженные файлы
               </h6>
 
-              <div
-                className={`${styles.createOrderTechnicalInformationContainer__files__items}`}
-              >
-                {FormInputFiles.map((file) => (
-                  <div key={file.FileName}>
-                    {file.FileName != "" ? (
-                      <CreateOrderTechnicalInformationLoadedFile
-                        loadedFile={file}
-                        FormInputFiles={FormInputFiles}
-                        setFormInputFiles={setFormInputFiles}
-                      />
-                    ) : (
-                      <SemipolarLoading
-                        style={{ margin: "auto", marginBottom: 20 }}
-                        color="var(--main-color)"
-                        size="small"
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
+              {FormInputFiles && (
+                <div
+                  className={`${styles.createOrderTechnicalInformationContainer__files__items}`}
+                >
+                  {FormInputFiles.map((file) => (
+                    <div key={file.FileName}>
+                      {file.FileName != "" ? (
+                        <CreateOrderTechnicalInformationLoadedFile
+                          loadedFile={file}
+                          FormInputFiles={FormInputFiles}
+                          setFormInputFiles={setFormInputFiles}
+                        />
+                      ) : (
+                        <SemipolarLoading
+                          style={{ margin: "auto", marginBottom: "1%" }}
+                          color="var(--main-color)"
+                          size="small"
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -296,6 +294,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
           <CheckBoxBlock
             isActive={AgreeCheckboxIsActive}
             onClick={() => setAgreeCheckboxIsActive(!AgreeCheckboxIsActive)}
+            isWarn={TryAgreeWithUncorrectData && !AgreeCheckboxIsActive}
           />
 
           <p
@@ -322,6 +321,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
             className={styles.createOrderTechnicalInformationContainer__button}
             type={ButtonTypes.RED}
             text="Подтвердить"
+            onClick={AgreeButtonOnClick}
           />
         </div>
       </div>

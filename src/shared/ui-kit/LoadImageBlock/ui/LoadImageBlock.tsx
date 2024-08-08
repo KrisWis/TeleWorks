@@ -7,12 +7,13 @@ import styles from "./LoadImageBlock.module.scss";
 import { memo, useRef, useState } from "react";
 import ImgSVG from "@/shared/assets/icons/Global/ImgSVG.svg?react";
 import { SemipolarLoading } from "react-loadingg";
-
-// Переменные для валидации
-const LoadImageBlockMinWidth: number = 660;
-const LoadImageBlockMinHeight: number = 440;
-const LoadImageBlockMinSize: number = 30720;
-const LoadImageBlockMaxSize: number = 10485760;
+import {
+  LoadImageBlockMinSize,
+  LoadImageBlockMaxSize,
+  LoadImageBlockMinWidth,
+  LoadImageBlockMinHeight,
+  LoadImageIsValidCheck,
+} from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
   ({ title, size }): React.JSX.Element => {
@@ -50,7 +51,13 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
               imageForCheck.naturalWidth >= LoadImageBlockMinWidth &&
               imageForCheck.naturalHeight >= LoadImageBlockMinHeight;
 
-            if (ImageResolutionCheck && ImageSizeCheck) {
+            if (
+              LoadImageIsValidCheck(
+                UserInputFile[0].size,
+                imageForCheck.naturalWidth,
+                imageForCheck.naturalHeight
+              )
+            ) {
               setLoadedImage(fileReader.result as string);
             } else {
               if (!ImageResolutionCheck)

@@ -5,13 +5,17 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { Input } from "@/shared/ui-kit/Input";
 import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { PasswordRecoveryModalCanRecover } from "../model/PasswordRecoveryModalCanRecover/PasswordRecoveryModalCanRecover";
 
 export const PasswordRecoveryModal: React.FC = memo((): React.JSX.Element => {
   const [EmailInput, setEmailInput] = useState<string>("");
 
   const [TryLogin, setTryLogin] = UseTryAction();
 
-  const canRecover = useMemo(() => EmailInput != "", [EmailInput]);
+  const canRecover = useMemo(
+    () => PasswordRecoveryModalCanRecover(EmailInput),
+    [EmailInput]
+  );
 
   return (
     <div className={styles.PasswordRecoveryModal}>

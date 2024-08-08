@@ -14,6 +14,7 @@ export const store = configureStore<StoreSchema>({
   reducer: reducerManager.reduce as Reducer<StoreSchema>,
 });
 
+// @ts-expect-error Неправильный тип редюсер менеджера
 store.reducerManager = reducerManager;
 
 export type RootState = ReturnType<typeof store.getState>;
