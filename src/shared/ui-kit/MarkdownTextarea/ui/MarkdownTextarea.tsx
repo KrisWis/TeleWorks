@@ -1,10 +1,15 @@
-import {
-  MarkdownTextareaProps,
-  MarkdownTextareaTabsEnum,
-} from "../model/MarkdownTextarea_types";
+import { MarkdownTextareaProps } from "../model/MarkdownTextarea_types";
 import styles from "./MarkdownTextarea.module.scss";
-import { memo, useCallback, useState } from "react";
-import { markdownTextareaTabs } from "../model/MarkdownTextarea_data";
+import { memo, useEffect, useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import "./MarkdownTextarea.scss";
+
+const modules = {
+  toolbar: [["bold", "italic"], [{ list: "ordered" }]],
+};
+
+const formats = ["bold", "italic", "list"];
 
 export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
   ({
@@ -13,77 +18,46 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
     maxSymbolsAmount,
     minSymbolsAmount,
   }): React.JSX.Element => {
-    // TODO: Сделать функционал табов
-    // Функционал табов
-    const [MarkdownTextareaTabs, setMarkdownTextareaTabs] = useState<
-      MarkdownTextareaTabsEnum[]
-    >([]);
+    // Валидация и управление формой
+    const [MarkDownTextAreaHtmlData, setMarkDownTextAreaHtmlData] =
+      useState<string>("");
 
-    const MarkdownTextareaTabOnClick = useCallback(
-      (tab: MarkdownTextareaTabsEnum) => {
-        if (MarkdownTextareaTabs.includes(tab)) {
-          setMarkdownTextareaTabs(
-            MarkdownTextareaTabs.filter((tabItem) => tabItem != tab)
-          );
-        } else {
-          setMarkdownTextareaTabs([...MarkdownTextareaTabs, tab]);
-        }
-      },
-      [MarkdownTextareaTabs]
-    );
+    const [TextareaValuePast, setTextareaValuePast] = useState<string>("");
 
-    // Валидация формы
-    const [MarkdownTextAreaIsWarn, setMarkdownTextAreaIsWarn] =
-      useState<boolean>(false);
-
-    const OnChangeMarkdownTextarea = (
-      e: React.ChangeEvent<HTMLTextAreaElement>
-    ): void => {
-      const user_text = e.target.value;
-
-      if (user_text.length <= maxSymbolsAmount) {
-        setTextareaValue(user_text);
-        setMarkdownTextAreaIsWarn(false);
+    const OnChangeMarkdownTextarea = (html: string, value: string): void => {
+      if (value.length <= maxSymbolsAmount) {
+        setTextareaValue(value);
+        setMarkDownTextAreaHtmlData(html);
+        setTextareaValuePast(value);
       } else {
-        setMarkdownTextAreaIsWarn(true);
+        setMarkDownTextAreaHtmlData(TextareaValuePast);
+        setTextareaValue(TextareaValuePast);
       }
     };
 
+    useEffect(() => {
+      if (
+        TextareaValue ==
+        `
+`
+      ) {
+        setTextareaValue("");
+      }
+    }, [TextareaValue, setTextareaValue]);
+
     return (
       <div className={styles.markdownTextareaWrapper}>
-        <div className={styles.markdownTextarea}>
-          <div className={styles.markdownTextarea__tabs}>
-            {(
-              Object.keys(markdownTextareaTabs) as Array<
-                keyof typeof markdownTextareaTabs
-              >
-            ).map((tab) => (
-              <div
-                key={tab}
-                className={`${styles.markdownTextarea__tab} 
-              ${MarkdownTextareaTabs.includes(tab) ? styles.markdownTextarea__tab__active : ""}
-              ${tab == MarkdownTextareaTabsEnum.BOLD ? styles.markdownTextarea__tab__bold : ""}`}
-                onClick={() => MarkdownTextareaTabOnClick(tab)}
-              >
-                {tab == MarkdownTextareaTabsEnum.ORDERED_LIST ? (
-                  <>{markdownTextareaTabs[tab]}</>
-                ) : (
-                  <span className={styles.markdownTextarea__tab__title}>
-                    {markdownTextareaTabs[tab]}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <textarea
-            className={`${styles.markdownTextarea__textarea} ${MarkdownTextAreaIsWarn ? styles.markdownTextarea__textarea__warn : ""}`}
-            name="MarkdownTextarea"
-            value={TextareaValue}
-            onChange={OnChangeMarkdownTextarea}
-          ></textarea>
-        </div>
-
+        <ReactQuill
+          className={`${styles.markdownTextarea__textarea} ${TextareaValue.length >= maxSymbolsAmount ? styles.markdownTextarea__textarea__warn : ""}`}
+          theme="snow"
+          defaultValue={MarkDownTextAreaHtmlData}
+          value={MarkDownTextAreaHtmlData}
+          onChange={(value, _2, _3, editor) =>
+            OnChangeMarkdownTextarea(value, editor.getText())
+          }
+          formats={formats}
+          modules={modules}
+        />
         <span
           className={`UserEditPage__desc ${styles.markdownTextarea__symbols}`}
         >
