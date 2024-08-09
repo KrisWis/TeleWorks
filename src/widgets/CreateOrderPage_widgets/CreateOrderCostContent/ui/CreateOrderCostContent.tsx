@@ -1,11 +1,11 @@
 import styles from "./CreateOrderCostContent.module.scss";
 import { memo, useContext, useEffect, useRef, useState } from "react";
 import { CreateOrderCostPayment } from "./CreateOrderCostPayment";
-import { OrderPreview } from "@/entities/CreateOrderPage_entities/CreateOrderCostContent/OrderPreview";
 import { createOrderCostFinalPrice } from "../model/CreateOrderCostContent_data";
 import { OrderSecurityGuarantee } from "@/shared/ui-kit/OrderSecurityGuarantee";
 import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "../../CreateOrderProgress";
+import { OrderPreview } from "@/entities/CreateOrderPage_entities/OrderPreview";
 
 export const CreateOrderCostContent: React.FC = memo((): React.JSX.Element => {
   const { CreateOrderActiveStep } = useContext(CreateOrderPageContext);

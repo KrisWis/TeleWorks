@@ -1,7 +1,7 @@
 import styles from "./UserAbout.module.scss";
 import { memo } from "react";
 import { UserAboutProps } from "../model/UserAbout_types";
-import { UserCard } from "@/entities/UserPage_entities/UserAbout_entities/UserCard";
+import { UserCard } from "@/entities/UserPage_entities/UserCard";
 
 export const UserAbout: React.FC<UserAboutProps> = memo(
   ({

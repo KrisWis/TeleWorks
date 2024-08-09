@@ -1,5 +1,6 @@
 export enum LoadImageBlockSizes {
   SMALL = "small",
+  MEDIUM = "medium",
   BIG = "big",
 }
 
@@ -9,6 +10,8 @@ export enum LoadedImageErrorsTypes {
 }
 
 export interface LoadImageBlockProps {
-  title: string;
+  title?: string;
   size: LoadImageBlockSizes;
+  requirements?: boolean;
+  className?: string;
 }

@@ -1,0 +1,60 @@
+.changeablePortfolioCase {
+  display: flex;
+  border: 1px solid var(--secondary-color);
+  border-radius: 20px;
+  width: 100%;
+  height: 182px;
+  background: #fff;
+  padding: 8px;
+  gap: 15px;
+
+  &__img {
+    border: 1.13px solid var(--secondary-color);
+    border-radius: 15px;
+    background: linear-gradient(
+      271deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0) 100%
+    );
+    height: 100%;
+    width: 31%;
+    object-fit: cover;
+    object-position: center center;
+    cursor: pointer;
+  }
+
+  &__wrapper {
+    display: flex;
+    width: 68%;
+    height: 100%;
+    flex-direction: column;
+    margin-top: 5px;
+
+    &__header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+  }
+
+  &__delete {
+    transition: var(--transition-duration) linear all;
+    cursor: pointer;
+    min-width: 12px;
+    min-height: 12px;
+    margin-right: 5px;
+    margin-top: 5px;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}

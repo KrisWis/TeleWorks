@@ -89,12 +89,14 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
       <h4 className="UserEditPage__caption">Основная информация:</h4>
 
       <LoadImageBlock
+        className={styles.userEditGeneral__headerImage}
         size={LoadImageBlockSizes.BIG}
         title="Загрузить шапку профиля"
       />
 
       <div className={styles.userEditGeneral__info}>
         <LoadImageBlock
+          className={styles.userEditGeneral__avatar}
           size={LoadImageBlockSizes.SMALL}
           title="Загрузите аватарку"
         />

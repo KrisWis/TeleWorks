@@ -5,7 +5,7 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { AuthModalProps } from "../model/AuthModal_types";
 import { Input } from "@/shared/ui-kit/Input";
-import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { AuthModalCanLogin } from "../model/AuthModalCanLogin/AuthModalCanLogin";
 
 export const AuthModal: React.FC<AuthModalProps> = memo(

@@ -10,7 +10,7 @@ import {
 } from "../model/RegModal_types";
 import { Input } from "@/shared/ui-kit/Input";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
-import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { RegModalCanReg } from "../model/RegModalCanReg/RegModalCanReg";
 
 export const RegModal: React.FC<RegModalProps> = memo(

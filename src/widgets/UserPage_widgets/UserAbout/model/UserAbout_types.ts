@@ -1,4 +1,4 @@
-import { UserCardProps } from "@/entities/UserPage_entities/UserAbout_entities/UserCard/model/UserCard_types";
+import { UserCardProps } from "@/entities/UserPage_entities/UserCard/model/UserCard_types";
 
 export interface UserAboutProps extends UserCardProps {
   HeaderImgURL: string;

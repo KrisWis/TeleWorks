@@ -1,7 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { ProjectItemProps } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
-import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo/AuthorCard/model/AuthorCard_types";
+import { AuthorCardProps } from "@/entities/ProjectPage_entities/AuthorCard/model/AuthorCard_types";
 import { ProjectInfoPacks } from "@/features/ProjectInfo_features/ProjectInfo_pack";
 import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { ProjectInfoProps } from "@/widgets/ProjectPage_widgets/ProjectInfo/model/ProjectInfo_types";

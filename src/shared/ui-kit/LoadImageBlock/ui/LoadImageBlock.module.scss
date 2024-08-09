@@ -4,7 +4,6 @@
   gap: 10px;
 
   &__wrapper {
-    margin-top: 10px;
     cursor: pointer;
     transition: var(--transition-duration) linear all;
     position: relative;
@@ -52,6 +51,7 @@
     &__requirements {
       display: flex;
       flex-direction: column;
+      align-items: center;
       margin-top: 1px;
     }
 
@@ -91,6 +91,13 @@
     .loadImageBlock__wrapper {
       height: 204px;
       width: 100%;
+    }
+  }
+
+  &__medium {
+    .loadImageBlock__wrapper {
+      width: 251px;
+      height: 164px;
     }
   }
 

@@ -14,7 +14,7 @@ import {
 } from "../model/FormTextAreaIsValid/FormTextAreaIsValid";
 import { DataIsCorrectCheck } from "../model/DataIsCorrectCheck/DataIsCorrectCheck";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
-import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { useCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(

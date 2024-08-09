@@ -50,7 +50,6 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
         <ReactQuill
           className={`${styles.markdownTextarea__textarea} ${TextareaValue.length >= maxSymbolsAmount ? styles.markdownTextarea__textarea__warn : ""}`}
           theme="snow"
-          defaultValue={MarkDownTextAreaHtmlData}
           value={MarkDownTextAreaHtmlData}
           onChange={(value, _2, _3, editor) =>
             OnChangeMarkdownTextarea(value, editor.getText())

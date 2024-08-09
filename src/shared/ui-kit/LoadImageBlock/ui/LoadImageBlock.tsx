@@ -1,4 +1,4 @@
-import { LoadingConst, LoadingType } from "@/shared/types";
+import { LoadingConst } from "@/shared/types";
 import {
   LoadedImageErrorsTypes,
   LoadImageBlockProps,
@@ -14,13 +14,14 @@ import {
   LoadImageBlockMinHeight,
   LoadImageIsValidCheck,
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
+import { UseLoadedImage } from "..";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
-  ({ title, size }): React.JSX.Element => {
+  ({ title, size, requirements = true, className }): React.JSX.Element => {
     // Загрузка/отображение и валидация изображения шапки
     const HeaderInputRef = useRef<HTMLInputElement>(null);
 
-    const [LoadedImage, setLoadedImage] = useState<string | LoadingType>("");
+    const [LoadedImage, setLoadedImage] = UseLoadedImage();
 
     const [LoadedImageErrors, setLoadedImageErrors] = useState<
       LoadedImageErrorsTypes[]
@@ -78,7 +79,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
 
     return (
       <div
-        className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]}`}
+        className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]} ${className ? className : ""}`}
       >
         <div
           className={`${styles.loadImageBlock__wrapper} Page__SirineWrapper 
@@ -100,23 +101,23 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
 
               <h4 className={styles.loadImageBlock__caption}>{title}</h4>
 
-              <div
-                className={styles.loadImageBlock__wrapper__requirements}
-              ></div>
+              {requirements && (
+                <div className={styles.loadImageBlock__wrapper__requirements}>
+                  <span className={styles.loadImageBlock__desc}>
+                    Минимальный размер: {LoadImageBlockMinWidth} х{" "}
+                    {LoadImageBlockMinHeight} px
+                  </span>
 
-              <span className={styles.loadImageBlock__desc}>
-                Минимальный размер: {LoadImageBlockMinWidth} х{" "}
-                {LoadImageBlockMinHeight} px
-              </span>
+                  <span className={styles.loadImageBlock__desc}>
+                    Вес: {Math.round(LoadImageBlockMinSize / 1024)} кб —{" "}
+                    {Math.round(LoadImageBlockMaxSize / 1048576)} Мб
+                  </span>
 
-              <span className={styles.loadImageBlock__desc}>
-                Вес: {Math.round(LoadImageBlockMinSize / 1024)} кб —{" "}
-                {Math.round(LoadImageBlockMaxSize / 1048576)} Мб
-              </span>
-
-              <span className={styles.loadImageBlock__desc}>
-                Форматы: jpg, jpeg, png, gif
-              </span>
+                  <span className={styles.loadImageBlock__desc}>
+                    Форматы: jpg, jpeg, png, gif
+                  </span>
+                </div>
+              )}
             </div>
           ) : LoadedImage == LoadingConst ? (
             <div className={styles.loadImageBlock__wrapper__loadingWrapper}>

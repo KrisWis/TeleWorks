@@ -1,7 +1,7 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
-import { UserProfessions } from "@/entities/UserPage_entities/UserAbout_entities/UserCard";
+import { UserProfessions } from "@/entities/UserPage_entities/UserCard";
 import { PortfolioCaseProps } from "@/shared/ui-kit/PortfolioCase";
 import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
 import { UserAboutProps } from "@/widgets/UserPage_widgets/UserAbout/model/UserAbout_types";

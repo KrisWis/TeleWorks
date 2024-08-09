@@ -4,7 +4,7 @@ import { memo, useMemo, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { Input } from "@/shared/ui-kit/Input";
-import { UseTryAction } from "@/shared/utils/hooks/useTryAction";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { PasswordRecoveryModalCanRecover } from "../model/PasswordRecoveryModalCanRecover/PasswordRecoveryModalCanRecover";
 
 export const PasswordRecoveryModal: React.FC = memo((): React.JSX.Element => {

@@ -1,4 +1,4 @@
-import { AuthorCardProps } from "@/entities/ProjectPage_entities/ProjectInfo/AuthorCard";
+import { AuthorCardProps } from "@/entities/ProjectPage_entities/AuthorCard";
 
 export enum UserProfessions {
   GRAPHIC_DESIGNER = "Графический дизайнер",
