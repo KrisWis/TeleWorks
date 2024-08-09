@@ -15,4 +15,5 @@ export interface ButtonProps {
   type: ButtonTypes;
   canSelected?: boolean;
   onClick?: () => void;
+  ariaDisabled?: boolean;
 }

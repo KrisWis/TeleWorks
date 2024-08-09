@@ -42,27 +42,24 @@
     gap: 5px;
   }
 
-  &__inputsWrapper {
-    display: grid;
-    grid-template-columns: 48.8% 48.8%;
-    gap: 20px;
-    margin-top: 10px;
-  }
-
-  &__saveCard {
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-
   &__pay {
     font-size: 20px;
+    max-height: 73px;
     height: 73px;
     margin-top: 10px;
     align-self: center;
     width: 55%;
+    transition: var(--transition-duration) linear all;
+
+    &__disabled {
+      max-height: 0;
+      padding: 0;
+      margin: 0;
+      height: 0;
+      border: none;
+      pointer-events: none;
+      opacity: 0;
+    }
   }
 
   &__writeSupport {

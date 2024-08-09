@@ -11,6 +11,7 @@ export const Button: React.FC<ButtonProps> = memo(
     type,
     canSelected = false,
     onClick,
+    ariaDisabled,
   }): React.JSX.Element => {
     const [ButtonIsSelected, setButtonIsSelected] = useState<boolean>(false);
 
@@ -31,6 +32,7 @@ export const Button: React.FC<ButtonProps> = memo(
         {to ? (
           to.startsWith("http") ? (
             <a
+              aria-disabled={ariaDisabled}
               target="_blank"
               href={to}
               onClick={ButtonOnClick}
@@ -40,6 +42,7 @@ export const Button: React.FC<ButtonProps> = memo(
             </a>
           ) : (
             <Link
+              aria-disabled={ariaDisabled}
               onClick={ButtonOnClick}
               to={to}
               className={`${styles.Button} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
@@ -49,6 +52,7 @@ export const Button: React.FC<ButtonProps> = memo(
           )
         ) : (
           <button
+            aria-disabled={ariaDisabled}
             onClick={ButtonOnClick}
             className={`${styles.Button} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
           >

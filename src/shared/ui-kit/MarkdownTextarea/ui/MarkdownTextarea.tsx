@@ -59,6 +59,7 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
               >
             ).map((tab) => (
               <div
+                key={tab}
                 className={`${styles.markdownTextarea__tab} 
               ${MarkdownTextareaTabs.includes(tab) ? styles.markdownTextarea__tab__active : ""}
               ${tab == MarkdownTextareaTabsEnum.BOLD ? styles.markdownTextarea__tab__bold : ""}`}
