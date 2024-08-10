@@ -1,6 +1,7 @@
-export interface Select_Option {
-  value: string;
-  label: string;
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export interface Select_Option<OptionType = string> {
+  value: OptionType;
+  label: OptionType;
 }
 
 export interface SelectTextStyles {
@@ -52,5 +53,9 @@ export interface Select__Props {
   className?: string;
   theme?: SelectThemesEnum;
   valueContainerPadding?: valueContainerPaddingEnum;
-  setState?: React.Dispatch<React.SetStateAction<Select_Option>>;
+  DefaultSelectedOption?: Select_Option;
+  setState?:
+    | undefined
+    | React.Dispatch<React.SetStateAction<Select_Option<any>>>
+    | ((arg0: string | any) => void);
 }

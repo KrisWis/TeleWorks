@@ -64,14 +64,4 @@
     color: var(--black-color);
     opacity: 0.4;
   }
-
-  &__wrapper {
-    display: grid;
-    grid-template-columns: 25% 75%;
-    width: 100%;
-    margin-top: 50px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 25px;
-    background: #fff;
-  }
 }

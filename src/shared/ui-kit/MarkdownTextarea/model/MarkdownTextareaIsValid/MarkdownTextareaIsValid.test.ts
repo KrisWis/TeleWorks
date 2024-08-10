@@ -2,11 +2,11 @@ import { MarkdownTextAreaIsValid } from "./MarkdownTextareaIsValid";
 
 describe("MarkdownTextAreaIsValid", () => {
   test("with empty string", () => {
-    expect(MarkdownTextAreaIsValid("", 100, 500)).toBe(false);
+    expect(MarkdownTextAreaIsValid("", 500, 100)).toBe(false);
   });
 
   test("with less than min string", () => {
-    expect(MarkdownTextAreaIsValid("ewww", 100, 500)).toBe(false);
+    expect(MarkdownTextAreaIsValid("ewww", 500, 100)).toBe(false);
   });
 
   test("with more than max string", () => {
@@ -23,8 +23,8 @@ Lorem Ipsum - это текст-"рыба", часто используемый 
 Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur", и занялся его поисками в классической латинской литературе. В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э. Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum, "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32
 
 Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже. Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum" Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.`,
-        100,
-        500
+        500,
+        100
       )
     ).toBe(false);
   });
@@ -33,8 +33,8 @@ Lorem Ipsum - это текст-"рыба", часто используемый 
     expect(
       MarkdownTextAreaIsValid(
         `Что такое Lorem Ipsum? Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.`,
-        100,
-        500
+        500,
+        50
       )
     ).toBe(true);
   });

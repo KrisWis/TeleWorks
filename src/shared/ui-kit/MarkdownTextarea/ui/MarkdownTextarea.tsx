@@ -45,6 +45,13 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
       }
     }, [TextareaValue, setTextareaValue]);
 
+    useEffect(() => {
+      if (TextareaValue) {
+        setMarkDownTextAreaHtmlData(TextareaValue);
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
       <div className={styles.markdownTextareaWrapper}>
         <ReactQuill

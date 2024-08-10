@@ -1,5 +1,12 @@
 import styles from "./UserEditGeneral.module.scss";
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import {
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   LoadImageBlock,
   LoadImageBlockSizes,
@@ -10,11 +17,20 @@ import { Input } from "@/shared/ui-kit/Input";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import SelectDropdownIndicatorDarkBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorDarkBlueSVG.svg?react";
 import {
+  Select_Option,
   SelectTextStyles,
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
-import { ProfessionSelect__selectedOptions } from "../model/UserEditGeneral_data";
+import {
+  ProfessionSelect__selectedOptions,
+  SelectProfessionsEnum,
+} from "../model/UserEditGeneral_data";
 import RedCrossSVG from "@/shared/assets/icons/UserEditPage/UserEdit/RedCrossSVG.svg?react";
+import { UserEditPageContext } from "@/pages/UserEditPage";
+import { UserEditTabsEnum } from "@/widgets/UserEditPage_widgets/UserEditTabs";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
+import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
+import { UseUserEditGeneralLocalStorage } from "../model/UseUserEditGeneralLocalStorage/UseUserEditGeneralLocalStorage";
 
 const ProfessionSelectDropdownIndicator = (): JSX.Element => {
   return (
@@ -32,15 +48,58 @@ const ProfessionSelectTextStyles: SelectTextStyles = {
 };
 
 export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
-  // Ввод данных в инпуты
-  const [NameInputValue, setNameInputValue] = useState<string>("");
+  // Ввод данных в инпуты и добавление/взятие данных из Local Storage
+  const LocalStorageGeneralDebounce = UseDebounce(() => {
+    UseUserEditGeneralLocalStorage(UseLocalStorageTypes.UPDATE, {
+      name: NameInputValue,
+      surname: SurnameInputValue,
+      profession: {
+        value: ProfessionSelect?.value,
+        label: ProfessionSelect?.label,
+      },
+      tags: SelectedTags,
+    });
+  }, 1000);
 
-  const [SurnameInputValue, setSurnameInputValue] = useState<string>("");
+  const UserEditGeneralLSItem = UseUserEditGeneralLocalStorage(
+    UseLocalStorageTypes.GET
+  );
+  const [NameInputValue, setNameInputValue] = useState<string>(
+    UserEditGeneralLSItem ? UserEditGeneralLSItem.name : ""
+  );
+
+  const [ProfessionSelect, setProfessionSelect] = useState<
+    Select_Option<SelectProfessionsEnum>
+  >(
+    UserEditGeneralLSItem
+      ? UserEditGeneralLSItem.profession
+      : ProfessionSelect__selectedOptions[0]
+  );
+
+  const ProfessionSelectOnChange = (
+    newValue: Select_Option<SelectProfessionsEnum>
+  ) => {
+    setProfessionSelect(newValue);
+  };
+
+  const NameInputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNameInputValue(e.target.value);
+  };
+
+  const [SurnameInputValue, setSurnameInputValue] = useState<string>(
+    UserEditGeneralLSItem ? UserEditGeneralLSItem.surname : ""
+  );
+
+  const SurNameInputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSurnameInputValue(e.target.value);
+  };
 
   // Ввод и отображение тегов
   const [TagsInputValue, setTagsInputValue] = useState<string>("");
   const TagInputRef = useRef<HTMLInputElement>(null);
-  const [SelectedTags, setSelectedTags] = useState<string[]>([]);
+  const [SelectedTags, setSelectedTags] = useState<string[]>(
+    UserEditGeneralLSItem ? UserEditGeneralLSItem.tags : []
+  );
 
   const TagInputkeyboardEvent = useCallback(
     (event: KeyboardEvent): void => {
@@ -86,6 +145,30 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     [SelectedTags]
   );
 
+  // Удаление последнего тега на клавиатуру
+  const DeleteTagWithBackspace = useCallback(
+    (e: KeyboardEvent): void => {
+      if (document.activeElement == TagInputRef.current && !TagsInputValue) {
+        const keyboardKey = e.keyCode || e.charCode;
+
+        if (keyboardKey == 8 || keyboardKey == 46) {
+          const SelectedTagsCopy = SelectedTags.slice();
+          SelectedTagsCopy.pop();
+          setSelectedTags(SelectedTagsCopy);
+        }
+      }
+    },
+    [SelectedTags, TagsInputValue]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", DeleteTagWithBackspace);
+
+    return () => {
+      document.removeEventListener("keydown", DeleteTagWithBackspace);
+    };
+  }, [DeleteTagWithBackspace]);
+
   // Стейты для загрузки изображений
   const [HeaderLoadedImage, setHeaderLoadedImage] = UseLoadedImage();
 
@@ -97,8 +180,25 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   const [AvatarLoadedImageErrors, setAvatarLoadedImageErrors] =
     UseLoadedImageErrors();
 
+  // Добавление рефа для скроллинга
+  const { refs } = useContext(UserEditPageContext);
+
+  // Добавление в Local Storage
+  useEffect(() => {
+    LocalStorageGeneralDebounce();
+  }, [
+    LocalStorageGeneralDebounce,
+    NameInputValue,
+    SurnameInputValue,
+    ProfessionSelect,
+    SelectedTags,
+  ]);
+
   return (
-    <div className={styles.userEditGeneral}>
+    <div
+      ref={refs[UserEditTabsEnum.GENERAL]}
+      className={styles.userEditGeneral}
+    >
       <h4 className="UserEditPage__caption">Основная информация:</h4>
 
       <LoadImageBlock
@@ -131,7 +231,7 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
 
               <Input
                 value={NameInputValue}
-                onChange={(e) => setNameInputValue(e.target.value)}
+                onChange={NameInputOnChange}
                 type="text"
                 placeholder="Иван"
                 className={styles.userEditGeneral__inputWrapper__input}
@@ -145,7 +245,7 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
 
               <Input
                 value={SurnameInputValue}
-                onChange={(e) => setSurnameInputValue(e.target.value)}
+                onChange={SurNameInputOnChange}
                 type="text"
                 placeholder="Иванов"
                 className={styles.userEditGeneral__inputWrapper__input}
@@ -164,6 +264,8 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
               CustomDropdownIndicator={ProfessionSelectDropdownIndicator}
               TextStyles={ProfessionSelectTextStyles}
               valueContainerPadding={valueContainerPaddingEnum.SMALL}
+              setState={ProfessionSelectOnChange}
+              DefaultSelectedOption={ProfessionSelect}
             />
           </div>
 

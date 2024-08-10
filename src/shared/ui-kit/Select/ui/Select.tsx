@@ -25,18 +25,25 @@ export const Select: React.FC<Select__Props> = memo(
     theme = SelectThemesEnum.BLACK,
     valueContainerPadding = valueContainerPaddingEnum.MEDIUM,
     setState,
+    DefaultSelectedOption,
   }): React.JSX.Element => {
+    // Объявление переменных и событие при изменение
     const SelectParentRef = useRef<HTMLDivElement>(null);
 
-    const [SelectedOption, setSelectedOption] = useState<Select_Option>();
+    const [SelectedOption, setSelectedOption] = useState<Select_Option | null>(
+      DefaultSelectedOption || null
+    );
     const DropdownIndicatorRef = useRef<HTMLDivElement>(null);
 
     const SelectOnChange = (newValue: Select_Option): void => {
       setSelectedOption(newValue);
 
-      if (setState) setState(newValue);
+      if (setState) {
+        setState(newValue);
+      }
     };
 
+    // Стилилизация
     const DropdownIndicator = (): JSX.Element => {
       return <div ref={DropdownIndicatorRef}>{CustomDropdownIndicator()}</div>;
     };
@@ -90,6 +97,7 @@ export const Select: React.FC<Select__Props> = memo(
       }),
     };
 
+    // Закрытие дропдауна
     useEffect(() => {
       const closeDropDown = (e: Event) => {
         if (!SelectParentRef.current?.contains(e.target as Node)) {
@@ -106,6 +114,7 @@ export const Select: React.FC<Select__Props> = memo(
       };
     }, []);
 
+    // Событие при выборе селекта
     const SelectOnClick = (): void => {
       (DropdownIndicatorRef.current! as HTMLElement).classList.toggle(
         styles.Select__svg__active

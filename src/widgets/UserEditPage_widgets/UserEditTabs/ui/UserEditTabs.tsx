@@ -1,14 +1,14 @@
 import styles from "./UserEditTabs.module.scss";
-import { memo, useState } from "react";
+import { memo, useContext } from "react";
 import BackSVG from "@/shared/assets/icons/UserEditPage/UserEditTabs/BackSVG.svg?react";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { UserEditTabsEnum } from "../model/UserEditTabs_types";
+import { UserEditPageContext } from "@/pages/UserEditPage/model/UserEditPageContext";
 
 export const UserEditTabs: React.FC = memo((): React.JSX.Element => {
   // Переключение табов
-  const [ActiveUserEditTab, setActiveUserEditTab] = useState<UserEditTabsEnum>(
-    UserEditTabsEnum.GENERAL
-  );
+  const { ActiveUserEditTab, setActiveUserEditTab } =
+    useContext(UserEditPageContext);
 
   return (
     <div className={styles.userEditTabs}>
