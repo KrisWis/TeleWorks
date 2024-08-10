@@ -39,14 +39,6 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
       : [CreateOrderProgressSteps.CREATE]
   );
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useCreateOrderStepLocalStorage(UseLocalStorageTypes.UPDATE, {
-      CreateOrderActiveStep,
-      CreateOrderCompletedSteps,
-    });
-  }, [CreateOrderActiveStep, CreateOrderCompletedSteps]);
-
   return (
     <CreateOrderPageContext.Provider
       value={{

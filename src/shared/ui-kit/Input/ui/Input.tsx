@@ -10,6 +10,7 @@ export const Input: React.FC<InputProps> = memo(
     value,
     onChange,
     isWarn,
+    refInput,
   }): React.JSX.Element => {
     return (
       <input
@@ -18,6 +19,7 @@ export const Input: React.FC<InputProps> = memo(
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        ref={refInput}
       />
     );
   }

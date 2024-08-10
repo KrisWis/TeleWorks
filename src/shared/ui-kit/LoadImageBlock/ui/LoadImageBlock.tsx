@@ -1,10 +1,7 @@
 import { LoadingConst } from "@/shared/types";
-import {
-  LoadedImageErrorsTypes,
-  LoadImageBlockProps,
-} from "../model/LoadImageBlock_types";
+import { LoadImageBlockProps } from "../model/LoadImageBlock_types";
 import styles from "./LoadImageBlock.module.scss";
-import { memo, useRef, useState } from "react";
+import { memo, useRef } from "react";
 import ImgSVG from "@/shared/assets/icons/Global/ImgSVG.svg?react";
 import { SemipolarLoading } from "react-loadingg";
 import {
@@ -12,70 +9,22 @@ import {
   LoadImageBlockMaxSize,
   LoadImageBlockMinWidth,
   LoadImageBlockMinHeight,
-  LoadImageIsValidCheck,
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
-import { UseLoadedImage } from "..";
+import { LoadedImageOnLoad } from "..";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
-  ({ title, size, requirements = true, className }): React.JSX.Element => {
+  ({
+    title,
+    size,
+    requirements = true,
+    className,
+    LoadedImage,
+    setLoadedImage,
+    LoadedImageErrors,
+    setLoadedImageErrors,
+  }): React.JSX.Element => {
     // Загрузка/отображение и валидация изображения шапки
     const HeaderInputRef = useRef<HTMLInputElement>(null);
-
-    const [LoadedImage, setLoadedImage] = UseLoadedImage();
-
-    const [LoadedImageErrors, setLoadedImageErrors] = useState<
-      LoadedImageErrorsTypes[]
-    >([]);
-
-    const LoadedImageOnLoad = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setLoadedImage(LoadingConst);
-
-      const UserInputFile = e.target.files;
-
-      const LoadedImageErrorsCopy: LoadedImageErrorsTypes[] = [];
-
-      setLoadedImageErrors([]);
-
-      if (UserInputFile && UserInputFile.length) {
-        const fileReader = new FileReader();
-
-        const ImageSizeCheck: boolean =
-          UserInputFile[0].size >= LoadImageBlockMinSize &&
-          UserInputFile[0].size <= LoadImageBlockMaxSize;
-
-        fileReader.onload = function () {
-          const imageForCheck = new Image();
-          imageForCheck.src = fileReader.result as string;
-
-          imageForCheck.onload = function () {
-            const ImageResolutionCheck: boolean =
-              imageForCheck.naturalWidth >= LoadImageBlockMinWidth &&
-              imageForCheck.naturalHeight >= LoadImageBlockMinHeight;
-
-            if (
-              LoadImageIsValidCheck(
-                UserInputFile[0].size,
-                imageForCheck.naturalWidth,
-                imageForCheck.naturalHeight
-              )
-            ) {
-              setLoadedImage(fileReader.result as string);
-            } else {
-              if (!ImageResolutionCheck)
-                LoadedImageErrorsCopy.push(
-                  LoadedImageErrorsTypes.RESOLUTION_ERROR
-                );
-
-              if (!ImageSizeCheck)
-                LoadedImageErrorsCopy.push(LoadedImageErrorsTypes.SIZE_ERROR);
-
-              setLoadedImageErrors(LoadedImageErrorsCopy);
-            }
-          };
-        };
-        fileReader.readAsDataURL(UserInputFile[0]);
-      }
-    };
 
     return (
       <div
@@ -86,14 +35,16 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
         ${LoadedImage && LoadedImage != LoadingConst ? styles.loadImageBlock__wrapper__withImg : ""}`}
         >
           {!LoadedImage || LoadedImageErrors.length ? (
-            <div className={styles.loadImageBlock__wrapperPadding}>
+            <label className={styles.loadImageBlock__wrapperPadding}>
               <div className={`${styles.loadImageBlock__wrapperWrapper}`}></div>
 
               <input
                 ref={HeaderInputRef}
                 className={styles.loadImageBlock__wrapper__input}
                 type="file"
-                onChange={LoadedImageOnLoad}
+                onChange={(e) =>
+                  LoadedImageOnLoad(e, setLoadedImage, setLoadedImageErrors)
+                }
                 accept="image/png, image/gif, image/jpeg, image/jpg"
               />
 
@@ -118,13 +69,13 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
                   </span>
                 </div>
               )}
-            </div>
+            </label>
           ) : LoadedImage == LoadingConst ? (
             <div className={styles.loadImageBlock__wrapper__loadingWrapper}>
               <SemipolarLoading color="var(--main-color)" size="small" />
             </div>
           ) : (
-            <div className={styles.loadImageBlock__wrapper__imgWrapper}>
+            <label className={styles.loadImageBlock__wrapper__imgWrapper}>
               <img
                 className={styles.loadImageBlock__wrapper__img}
                 src={LoadedImage}
@@ -135,10 +86,12 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
                 ref={HeaderInputRef}
                 className={styles.loadImageBlock__wrapper__input}
                 type="file"
-                onChange={LoadedImageOnLoad}
+                onChange={(e) =>
+                  LoadedImageOnLoad(e, setLoadedImage, setLoadedImageErrors)
+                }
                 accept="image/png, image/gif, image/jpeg, image/jpg"
               />
-            </div>
+            </label>
           )}
         </div>
 

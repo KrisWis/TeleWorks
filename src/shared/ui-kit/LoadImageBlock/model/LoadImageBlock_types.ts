@@ -14,4 +14,10 @@ export interface LoadImageBlockProps {
   size: LoadImageBlockSizes;
   requirements?: boolean;
   className?: string;
+  LoadedImage: string;
+  setLoadedImage: React.Dispatch<React.SetStateAction<string>>;
+  LoadedImageErrors: LoadedImageErrorsTypes[];
+  setLoadedImageErrors: React.Dispatch<
+    React.SetStateAction<LoadedImageErrorsTypes[]>
+  >;
 }

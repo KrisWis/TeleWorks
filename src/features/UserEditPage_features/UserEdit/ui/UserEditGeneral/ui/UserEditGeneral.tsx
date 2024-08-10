@@ -3,6 +3,8 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 import {
   LoadImageBlock,
   LoadImageBlockSizes,
+  UseLoadedImage,
+  UseLoadedImageErrors,
 } from "@/shared/ui-kit/LoadImageBlock";
 import { Input } from "@/shared/ui-kit/Input";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
@@ -84,6 +86,17 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     [SelectedTags]
   );
 
+  // Стейты для загрузки изображений
+  const [HeaderLoadedImage, setHeaderLoadedImage] = UseLoadedImage();
+
+  const [HeaderLoadedImageErrors, setHeaderLoadedImageErrors] =
+    UseLoadedImageErrors();
+
+  const [AvatarLoadedImage, setAvatarLoadedImage] = UseLoadedImage();
+
+  const [AvatarLoadedImageErrors, setAvatarLoadedImageErrors] =
+    UseLoadedImageErrors();
+
   return (
     <div className={styles.userEditGeneral}>
       <h4 className="UserEditPage__caption">Основная информация:</h4>
@@ -92,6 +105,10 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
         className={styles.userEditGeneral__headerImage}
         size={LoadImageBlockSizes.BIG}
         title="Загрузить шапку профиля"
+        LoadedImage={HeaderLoadedImage}
+        setLoadedImage={setHeaderLoadedImage}
+        LoadedImageErrors={HeaderLoadedImageErrors}
+        setLoadedImageErrors={setHeaderLoadedImageErrors}
       />
 
       <div className={styles.userEditGeneral__info}>
@@ -99,6 +116,10 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
           className={styles.userEditGeneral__avatar}
           size={LoadImageBlockSizes.SMALL}
           title="Загрузите аватарку"
+          LoadedImage={AvatarLoadedImage}
+          setLoadedImage={setAvatarLoadedImage}
+          LoadedImageErrors={AvatarLoadedImageErrors}
+          setLoadedImageErrors={setAvatarLoadedImageErrors}
         />
 
         <div className={styles.userEditGeneral__inputs}>

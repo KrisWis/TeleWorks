@@ -3,6 +3,7 @@ import { СhangeablePortfolioCaseInterface } from "@/entities/UserEditPage_entit
 
 export const portfolioExistedCases: СhangeablePortfolioCaseInterface[] = [
   {
+    index: 222,
     caseImgURL: `${URL_PART}/global/images/portfolioCase__example_img.png`,
     caseName: "Инфографика",
   },

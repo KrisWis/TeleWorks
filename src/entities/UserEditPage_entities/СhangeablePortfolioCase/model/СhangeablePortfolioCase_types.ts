@@ -1,6 +1,7 @@
 export interface СhangeablePortfolioCaseInterface {
   caseImgURL?: string;
   caseName?: string;
+  index: number;
 }
 
 export interface СhangeablePortfolioCaseProps {
@@ -8,4 +9,5 @@ export interface СhangeablePortfolioCaseProps {
   setExistedCases: React.Dispatch<
     React.SetStateAction<СhangeablePortfolioCaseInterface[]>
   >;
+  ExistedCases: СhangeablePortfolioCaseInterface[];
 }

@@ -3,13 +3,21 @@ import {
   СhangeablePortfolioCaseInterface,
 } from "@/entities/UserEditPage_entities/СhangeablePortfolioCase";
 import styles from "./UserEditPortfolio.module.scss";
-import { memo, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { portfolioExistedCases } from "../model/UserEditPortfolio_data";
 
 export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
+  // Добавление новых кейсов
   const [ExistedCases, setExistedCases] = useState<
     СhangeablePortfolioCaseInterface[]
   >(portfolioExistedCases);
+
+  const addNewCase = useCallback(
+    (index: number): void => {
+      setExistedCases([{ index: index }, ...ExistedCases]);
+    },
+    [ExistedCases]
+  );
 
   return (
     <div className={styles.userEditPortfolio}>
@@ -17,7 +25,7 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
         <h4 className="UserEditPage__caption">Портфолио</h4>
 
         <span
-          onClick={() => setExistedCases([{}, ...ExistedCases])}
+          onClick={() => addNewCase(ExistedCases.length)}
           className={styles.userEditPortfolio__addCase}
         >
           + Добавить кейс
@@ -25,7 +33,7 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
       </div>
 
       <div className={styles.userEditPortfolio__cases}>
-        {!ExistedCases ? (
+        {!ExistedCases.length ? (
           <div className={styles.userEditPortfolio__cases__empty}>
             <span className={styles.userEditPortfolio__cases__empty__text}>
               Проектов ещё нет!
@@ -35,8 +43,10 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
           (ExistedCases as СhangeablePortfolioCaseInterface[]).map(
             (portfolioCase) => (
               <СhangeablePortfolioCase
+                key={portfolioCase.index}
                 setExistedCases={setExistedCases}
                 Case={portfolioCase}
+                ExistedCases={ExistedCases}
               />
             )
           )

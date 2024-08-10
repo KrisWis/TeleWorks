@@ -1,5 +1,5 @@
 import styles from "./CreateOrderCostPayment.module.scss";
-import { memo, useCallback, useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import {
   SelectTextStyles,
@@ -13,6 +13,8 @@ import { Input } from "@/shared/ui-kit/Input";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
+import { useCreateOrderStepLocalStorage } from "@/pages/CreateOrderPage/model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 
 const CardSelectDropdownIndicator = (): JSX.Element => {
   return <SelectDropdownIndicatorRedSVG className={selectStyles.Select__svg} />;
@@ -30,17 +32,27 @@ const CardSelectTextStyles: SelectTextStyles = {
 export const CreateOrderCostPayment: React.FC = memo((): React.JSX.Element => {
   const [ReplenishmentAmount, setReplenishmentAmount] = useState<string>("");
 
-  const { setCreateOrderActiveStep, setCreateOrderCompletedSteps } = useContext(
-    CreateOrderPageContext
-  );
+  const {
+    setCreateOrderActiveStep,
+    setCreateOrderCompletedSteps,
+    CreateOrderCompletedSteps,
+  } = useContext(CreateOrderPageContext);
 
-  const ClickPayButton = useCallback((): void => {
+  const ClickPayButton = (): void => {
     setCreateOrderActiveStep(CreateOrderProgressSteps.TechnicalInformation);
-    setCreateOrderCompletedSteps((prev) => [
-      ...prev,
+    setCreateOrderCompletedSteps(() => [
+      ...CreateOrderCompletedSteps,
       CreateOrderProgressSteps.COST,
     ]);
-  }, [setCreateOrderActiveStep, setCreateOrderCompletedSteps]);
+
+    useCreateOrderStepLocalStorage(UseLocalStorageTypes.UPDATE, {
+      CreateOrderActiveStep: CreateOrderProgressSteps.TechnicalInformation,
+      CreateOrderCompletedSteps: [
+        ...CreateOrderCompletedSteps,
+        CreateOrderProgressSteps.COST,
+      ],
+    });
+  };
 
   return (
     <div className={`Page__BoxShadowWrapper ${styles.createOrderCostPayment}`}>
