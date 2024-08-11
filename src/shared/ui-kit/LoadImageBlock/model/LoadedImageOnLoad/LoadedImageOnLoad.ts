@@ -9,7 +9,7 @@ import {
 } from "../LoadImageIsValidCheck/LoadImageIsValidCheck";
 
 export const LoadedImageOnLoad = (
-  e: React.ChangeEvent<HTMLInputElement>,
+  e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
   setLoadedImage: React.Dispatch<React.SetStateAction<string>>,
   setLoadedImageErrors: React.Dispatch<
     React.SetStateAction<LoadedImageErrorsTypes[]>
@@ -17,7 +17,9 @@ export const LoadedImageOnLoad = (
 ) => {
   setLoadedImage(LoadingConst);
 
-  const UserInputFile = e.target.files;
+  const UserInputFile =
+    (e as React.ChangeEvent<HTMLInputElement>).target.files ||
+    (e as React.DragEvent<HTMLDivElement>).dataTransfer?.files;
 
   const LoadedImageErrorsCopy: LoadedImageErrorsTypes[] = [];
 

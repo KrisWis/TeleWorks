@@ -7,6 +7,7 @@ export enum LoadImageBlockSizes {
 export enum LoadedImageErrorsTypes {
   SIZE_ERROR = "Некорректный размер файла!",
   RESOLUTION_ERROR = "Неправильное разрешение изображения!",
+  FORMAT_ERROR = "Неправильный формат файла!",
 }
 
 export interface LoadImageBlockProps {

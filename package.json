@@ -44,7 +44,6 @@
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.25.1",
     "react-select": "^5.8.0",
-    "react-trumbowyg": "^1.1.0",
     "swiper": "^11.1.4",
     "vite-plugin-svgr": "^4.2.0"
   },
