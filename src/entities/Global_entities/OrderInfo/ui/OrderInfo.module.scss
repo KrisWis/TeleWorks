@@ -63,9 +63,9 @@
     padding-bottom: 20px;
 
     &__block {
-      border: 1px solid #f55;
+      border: 1px solid var(--main-color);
       border-radius: 5px;
-      background: #f55;
+      background: var(--main-color);
       width: 25px;
       height: 25px;
     }

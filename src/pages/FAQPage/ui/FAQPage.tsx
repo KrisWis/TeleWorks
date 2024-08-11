@@ -6,6 +6,7 @@ import { Footer } from "@/widgets/Global_widgets/Footer";
 import { memo } from "react";
 import { FAQHeader, FAQTabs } from "@/widgets/FAQPage_widgets/FAQHeader";
 import { FAQPageContext } from "../model/FAQPageContext";
+import { FAQTab } from "@/widgets/FAQPage_widgets/FAQTab";
 
 export const FAQPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -13,6 +14,8 @@ export const FAQPage: React.FC = memo((): React.JSX.Element => {
   }, []);
 
   const [ActiveFAQTab, setActiveFAQTab] = useState<FAQTabs>(FAQTabs.GENERAL);
+
+  // TODO: Добавить последний виджет и прогнать хуки
 
   return (
     <FAQPageContext.Provider
@@ -25,6 +28,7 @@ export const FAQPage: React.FC = memo((): React.JSX.Element => {
       <main className="FAQ__main">
         <div className="padding">
           <FAQHeader />
+          <FAQTab />
         </div>
       </main>
       <Footer />

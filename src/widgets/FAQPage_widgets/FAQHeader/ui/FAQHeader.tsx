@@ -22,6 +22,7 @@ export const FAQHeader: React.FC = memo((): React.JSX.Element => {
       <div className={`${styles.FAQHeader__tabs} Page__SirineWrapper`}>
         {(Object.keys(FAQTabs) as Array<keyof typeof FAQTabs>).map((tab) => (
           <span
+            key={tab}
             className={`${styles.FAQHeader__tab} ${ActiveFAQTab == FAQTabs[tab] ? styles.FAQHeader__tab__active : ""}`}
             onClick={() => setActiveFAQTab(FAQTabs[tab])}
           >

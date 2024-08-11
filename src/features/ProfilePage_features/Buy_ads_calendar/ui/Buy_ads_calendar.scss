@@ -41,7 +41,7 @@
   path {
     transition: var(--transition-duration) linear all;
     opacity: 1;
-    fill: #4266c6;
+    fill: var(--inverted-color);
   }
 
   &:hover {

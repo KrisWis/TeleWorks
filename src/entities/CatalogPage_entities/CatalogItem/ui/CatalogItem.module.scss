@@ -141,7 +141,7 @@
         flex-direction: row-reverse;
 
         &__men {
-          background-color: #4266c6;
+          background-color: var(--inverted-color);
         }
 
         &__women {
@@ -231,7 +231,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: #4266c6;
+    background-color: var(--inverted-color);
     border-radius: 15px;
     width: 7%;
     height: 100%;

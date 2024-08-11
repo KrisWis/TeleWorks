@@ -35,21 +35,21 @@
 
   &__blue {
     color: var(--white-color);
-    background: #4266c6;
+    background: var(--inverted-color);
 
     &:hover:not(.catalog__category__canSelected) {
       background: var(--white-color);
-      color: #4266c6;
-      border: 1px solid #4266c6;
-      box-shadow: 0 0 15px #4266c6;
+      color: var(--inverted-color);
+      border: 1px solid var(--inverted-color);
+      box-shadow: 0 0 15px var(--inverted-color);
     }
   }
 
   &__blue.catalog__category__selected {
     background: var(--white-color);
-    color: #4266c6;
-    border: 1px solid #4266c6;
-    box-shadow: 0 0 15px #4266c6;
+    color: var(--inverted-color);
+    border: 1px solid var(--inverted-color);
+    box-shadow: 0 0 15px var(--inverted-color);
   }
 
   &__white {
