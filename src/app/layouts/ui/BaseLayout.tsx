@@ -1,5 +1,5 @@
 import "./BaseLayout.module.scss";
-import { Route, RouteProps, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "@/shared/reset.scss";
 import { routes } from "@/app/routes/Routes";
 import { Suspense } from "react";
@@ -9,8 +9,8 @@ export const App: React.FC = (): React.JSX.Element => {
   return (
     <Suspense fallback={<SemipolarLoading color="var(--main-color)" />}>
       <Routes>
-        {routes.map((route: RouteProps) => (
-          <Route key={route.path} path={route.path} element={route.element} />
+        {(Object.keys(routes) as Array<keyof typeof routes>).map((route) => (
+          <Route key={route} path={route} element={routes[route]} />
         ))}
       </Routes>
     </Suspense>

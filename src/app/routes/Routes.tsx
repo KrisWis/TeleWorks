@@ -1,6 +1,7 @@
 import { CatalogPage } from "@/pages/CatalogPage";
 import { CreateCardPage } from "@/pages/CreateCardPage";
 import { CreateOrderPage } from "@/pages/CreateOrderPage";
+import { FAQPage } from "@/pages/FAQPage";
 import { InternalPage } from "@/pages/InternalPage";
 import { MainPage } from "@/pages/MainPage";
 import { MyProjectsPage } from "@/pages/MyProjectsPage";
@@ -8,8 +9,8 @@ import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
 import { UserEditPage } from "@/pages/UserEditPage";
-import { UserPage } from "@/pages/UserPage/ui/UserPage";
-import { RouteProps } from "react-router-dom";
+import { UserPage } from "@/pages/UserPage/";
+import { ReactElement } from "react";
 
 export enum Routes {
   MAIN = "/",
@@ -33,61 +34,25 @@ export enum Routes {
   CREATE_CARD = "/create-card",
 
   CREATE_ORDER = "/create-order",
+
+  FAQ = "/faq",
 }
 
-export const routes: RouteProps[] = [
-  {
-    path: Routes.MAIN,
-    element: <MainPage />,
-  },
+type routesList = {
+  [route in Routes]: ReactElement;
+};
 
-  {
-    path: Routes.PROFILE,
-    element: <ProfilePage />,
-  },
-
-  {
-    path: Routes.MYPROJECTS,
-    element: <MyProjectsPage />,
-  },
-
-  {
-    path: Routes.CATALOG,
-    element: <CatalogPage />,
-  },
-
-  {
-    path: Routes.INTERNAL,
-    element: <InternalPage />,
-  },
-
-  {
-    path: Routes.SERVICES,
-    element: <SpecialistServicesPage />,
-  },
-
-  {
-    path: Routes.PROJECT,
-    element: <ProjectPage />,
-  },
-
-  {
-    path: Routes.USER,
-    element: <UserPage />,
-  },
-
-  {
-    path: Routes.CREATE_CARD,
-    element: <CreateCardPage />,
-  },
-
-  {
-    path: Routes.CREATE_ORDER,
-    element: <CreateOrderPage />,
-  },
-
-  {
-    path: Routes.USER_EDIT,
-    element: <UserEditPage />,
-  },
-];
+export const routes: routesList = {
+  [Routes.MAIN]: <MainPage />,
+  [Routes.PROFILE]: <ProfilePage />,
+  [Routes.MYPROJECTS]: <MyProjectsPage />,
+  [Routes.CATALOG]: <CatalogPage />,
+  [Routes.INTERNAL]: <InternalPage />,
+  [Routes.SERVICES]: <SpecialistServicesPage />,
+  [Routes.PROJECT]: <ProjectPage />,
+  [Routes.USER]: <UserPage />,
+  [Routes.USER_EDIT]: <UserEditPage />,
+  [Routes.CREATE_CARD]: <CreateCardPage />,
+  [Routes.CREATE_ORDER]: <CreateOrderPage />,
+  [Routes.FAQ]: <FAQPage />,
+};
