@@ -3,7 +3,6 @@ import { memo, useCallback, useRef, useState } from "react";
 import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationContent/CreateOrderTechnicalInformationContainer/PaperclipSVG.svg?react";
 import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
 import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
-import { SemipolarLoading } from "react-loadingg";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
@@ -16,6 +15,7 @@ import { DataIsCorrectCheck } from "../model/DataIsCorrectCheck/DataIsCorrectChe
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { useCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
+import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
@@ -276,9 +276,8 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                           setFormInputFiles={setFormInputFiles}
                         />
                       ) : (
-                        <SemipolarLoading
+                        <PageLoadingComponent
                           style={{ margin: "auto", marginBottom: "1%" }}
-                          color="var(--main-color)"
                           size="small"
                         />
                       )}

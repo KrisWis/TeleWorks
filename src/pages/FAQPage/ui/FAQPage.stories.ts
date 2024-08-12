@@ -4,9 +4,6 @@ import { FAQPage } from "./FAQPage";
 const meta = {
   title: "Pages/FAQPage",
   component: FAQPage,
-  parameters: {
-    layout: "centered",
-  },
 } satisfies Meta<typeof FAQPage>;
 
 export default meta;

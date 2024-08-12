@@ -14,7 +14,7 @@ const preview: Preview = {
   },
 
   decorators: [CSSResetDecorator, RouterDecorator, ReduxDecorator],
-  tags: ["autodocs"]
+  tags: ["autodocs", "autodocs"]
 };
 
 export default preview;

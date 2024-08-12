@@ -6,7 +6,6 @@ import {
 import styles from "./LoadImageBlock.module.scss";
 import { memo, useEffect, useRef } from "react";
 import ImgSVG from "@/shared/assets/icons/Global/ImgSVG.svg?react";
-import { SemipolarLoading } from "react-loadingg";
 import {
   LoadImageBlockMinSize,
   LoadImageBlockMaxSize,
@@ -14,6 +13,7 @@ import {
   LoadImageBlockMinHeight,
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { LoadedImageOnLoad } from "..";
+import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
   ({
@@ -129,7 +129,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
             </label>
           ) : LoadedImage == LoadingConst ? (
             <div className={styles.loadImageBlock__wrapper__loadingWrapper}>
-              <SemipolarLoading color="var(--main-color)" size="small" />
+              <PageLoadingComponent size="small" />
             </div>
           ) : (
             <label className={styles.loadImageBlock__wrapper__imgWrapper}>

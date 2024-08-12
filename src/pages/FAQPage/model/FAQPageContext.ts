@@ -2,11 +2,11 @@ import { FAQTabs } from "@/widgets/FAQPage_widgets/FAQHeader";
 import { createContext, useState } from "react";
 
 export interface FAQPageContext {
-  ActiveFAQTab: FAQTabs;
+  ActiveFAQTab: FAQTabs | null;
   setActiveFAQTab: React.Dispatch<React.SetStateAction<FAQTabs>>;
 }
 
 export const FAQPageContext = createContext<FAQPageContext>({
-  ActiveFAQTab: FAQTabs.GENERAL,
+  ActiveFAQTab: null,
   setActiveFAQTab: useState,
 });
