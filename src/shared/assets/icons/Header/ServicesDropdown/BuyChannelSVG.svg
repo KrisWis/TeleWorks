@@ -1,0 +1,18 @@
+<div style="position: relative; display: flex">
+  <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13 1H3C1.89543 1 1 1.89543 1 3V16C1 17.1046 1.89543 18 3 18H13C14.1046 18 15 17.1046 15 16V3C15 1.89543 14.1046 1 13 1Z" stroke="#FF5555" stroke-width="1.33" />
+  </svg>
+
+  <svg style="position: absolute; top: 4px; left: 6px; min-width: 8; min-height: 2" width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1H7" stroke="#FF5555" stroke-width="1.33" stroke-linecap="round" />
+  </svg>
+
+  <svg style="position: absolute; top: 9px; left: 6px; min-width: 8; min-height: 2" width="8" height="2" viewBox="0 0 8 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1H7" stroke="#FF5555" stroke-width="1.33" stroke-linecap="round" />
+  </svg>
+
+  <svg style="position: absolute; top: 13px; left: 6px; min-width: 6; min-height: 2" width="6" height="2" viewBox="0 0 6 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 1H5" stroke="#FF5555" stroke-width="1.33" stroke-linecap="round" />
+  </svg>
+
+</div>

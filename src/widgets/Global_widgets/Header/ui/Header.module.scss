@@ -20,6 +20,125 @@
     padding: 0 20px;
   }
 
+  &__services {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+
+    &__dropdownSVG {
+      max-width: 16px;
+      max-height: 9px;
+      transform: rotate(-90deg);
+      transition: var(--transition-duration) linear transform;
+    }
+
+    &__dropdownSetActive {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    &__dropdown {
+      transition: var(--transition-duration) linear;
+      transition-property: height, opacity, padding;
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      overflow-y: hidden;
+      height: 0;
+      z-index: var(--z-index-dropdown);
+      width: 234px;
+      opacity: 0;
+
+      &__category {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+        &__title {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 150%;
+          letter-spacing: -0.01em;
+          color: #000;
+          opacity: 0.4;
+          position: relative;
+          left: 3px;
+        }
+
+        &__wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        &__value {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          &__text {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 150%;
+            letter-spacing: -0.01em;
+            color: #000;
+            white-space: nowrap;
+            cursor: pointer;
+
+            &::after {
+              content: "";
+              display: block;
+              width: 0;
+              transition: var(--transition-duration) linear width;
+              background-color: var(--main-color);
+              height: 2px;
+              border-radius: 10px;
+            }
+
+            &:hover {
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+
+          &__svg {
+            min-width: 20px;
+            min-height: 20px;
+            max-width: 20px;
+            max-height: 20px;
+            position: relative;
+            bottom: 1px;
+          }
+        }
+      }
+    }
+
+    &__active {
+      .header__services__dropdownSVG {
+        transform: rotate(0);
+      }
+
+      .header__services__dropdown {
+        padding: 15px;
+        height: 310px;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
   &__caption {
     font-weight: 700;
     font-size: 40px;

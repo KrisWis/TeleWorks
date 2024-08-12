@@ -8,7 +8,6 @@ describe("Header", () => {
     renderWithRouter(<Header />);
     expect(screen.getByTestId("headerCaption")).toBeInTheDocument();
     expect(screen.getByTestId("headerSwitcher")).toBeInTheDocument();
-    expect(screen.getByTestId("headerLink")).toBeInTheDocument();
     expect(screen.getByTestId("switcher__customer")).toBeInTheDocument();
     expect(screen.getByTestId("switcher__performer")).toBeInTheDocument();
   });
