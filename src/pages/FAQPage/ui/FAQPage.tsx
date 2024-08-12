@@ -5,6 +5,8 @@ import { memo } from "react";
 import { FAQHeader, FAQTabs } from "@/widgets/FAQPage_widgets/FAQHeader";
 import { FAQPageContext } from "../model/FAQPageContext";
 import { FAQTab } from "@/widgets/FAQPage_widgets/FAQTab";
+import { AskQuestion } from "@/widgets/Global_widgets/AskQuestion";
+import styles from "./FAQPage.module.scss";
 
 export const FAQPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -24,6 +26,7 @@ export const FAQPage: React.FC = memo((): React.JSX.Element => {
         <div className="padding">
           <FAQHeader />
           <FAQTab />
+          <AskQuestion className={styles.FAQ__AskQuestion} />
         </div>
       </main>
     </FAQPageContext.Provider>
