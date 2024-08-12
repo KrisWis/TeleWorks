@@ -1,7 +1,5 @@
-import { Footer } from "@/widgets/Global_widgets/Footer";
 import "./UserPage.scss";
 import "@/shared/main.scss";
-import { Header } from "@/widgets/Global_widgets/Header";
 import { useEffect } from "react";
 import { UserAbout } from "@/widgets/UserPage_widgets/UserAbout";
 import {
@@ -22,26 +20,22 @@ export const UserPage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <>
-      <Header />
-      <main className="UserPage__main">
-        <div className="padding">
-          <UserAbout {...userAbout} />
+    <main className="UserPage__main">
+      <div className="padding">
+        <UserAbout {...userAbout} />
 
-          <UserPortfolio
-            categories={UserPortfolioCategories}
-            cases={UserPortfolioCases}
-          />
+        <UserPortfolio
+          categories={UserPortfolioCategories}
+          cases={UserPortfolioCases}
+        />
 
-          <UserProjects projects={UserProjectsItems} />
+        <UserProjects projects={UserProjectsItems} />
 
-          <UserReviews
-            reviewsItems={userReviews_items}
-            ReviewsPanelProps={userReviewsProps}
-          />
-        </div>
-      </main>
-      <Footer />
-    </>
+        <UserReviews
+          reviewsItems={userReviews_items}
+          ReviewsPanelProps={userReviewsProps}
+        />
+      </div>
+    </main>
   );
 };

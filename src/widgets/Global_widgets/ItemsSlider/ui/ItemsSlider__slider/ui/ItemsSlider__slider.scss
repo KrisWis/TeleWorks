@@ -1,13 +1,16 @@
-.swiper-button-disabled {
+.ItemsSlider__slider .swiper-button-disabled {
   opacity: 0.4;
 }
 
-.swiper-wrapper {
-  display: flex;
-  align-items: center;
+.ItemsSlider__slider .swiper {
+  padding: 10px;
 }
 
-.swiper-slide {
+.ItemsSlider__slider .swiper-wrapper {
+  display: flex;
+}
+
+.ItemsSlider__slider .swiper-slide {
   display: flex;
   align-items: center;
 }

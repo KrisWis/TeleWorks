@@ -1,6 +1,5 @@
 import "./MainPage.scss";
 import "@/shared/main.scss";
-import { Header } from "@/widgets/Global_widgets/Header";
 import { Additional_Services } from "@/widgets/MainPage_widgets/Additional_Services";
 import { MainPagePublicity } from "@/widgets/MainPage_widgets/MainPagePublicity";
 import { Advancement } from "@/widgets/MainPage_widgets/Advancement";
@@ -8,7 +7,6 @@ import { Buy_placement } from "@/widgets/MainPage_widgets/Buy_placement";
 import { Guarantor_Services } from "@/widgets/MainPage_widgets/Guarantor_Services";
 import { HowItWorks } from "@/widgets/MainPage_widgets/HowItWorks";
 import { Job_Risks } from "@/widgets/MainPage_widgets/Job_Risks";
-import { MainPageFooter } from "@/widgets/MainPage_widgets/MainPageFooter";
 import { MeetAdvantages } from "@/widgets/MainPage_widgets/MeetAdvantages";
 import { Platform_Privileges } from "@/widgets/MainPage_widgets/Platform_Privileges";
 import { SupportService } from "@/widgets/MainPage_widgets/SupportService";
@@ -23,8 +21,6 @@ export const MainPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <Header />
-
       <main className="MainPage__main">
         <div className="padding">
           <Advancement />
@@ -47,7 +43,6 @@ export const MainPage: React.FC = (): React.JSX.Element => {
           <Job_Risks />
           <Transaction_Advantage />
           <SupportService />
-          <MainPageFooter />
         </div>
       </main>
     </>

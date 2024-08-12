@@ -20,7 +20,7 @@ export const ItemsSlider__slider: React.FC<ItemsSlider__sliderProps> = memo(
     nextArrowId,
   }): React.JSX.Element => {
     return (
-      <div className={styles.ItemsSlider__slider}>
+      <div className={`${styles.ItemsSlider__slider} ItemsSlider__slider`}>
         <Swiper
           navigation={{
             prevEl: `#${prevArrowId}`,

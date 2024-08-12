@@ -37,6 +37,11 @@
   --z-index-dropdown: 5;
 }
 
+#root,
+body {
+  overflow-x: hidden;
+}
+
 .Page {
   &__transitionToMainColor {
     transition: var(--transition-duration) all linear;

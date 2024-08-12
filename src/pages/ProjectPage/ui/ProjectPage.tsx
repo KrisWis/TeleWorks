@@ -8,11 +8,9 @@ import {
   ProjectReviews_items,
   SimilarProjectsItems,
 } from "../model/ProjectPage_data";
-import { Header } from "@/widgets/Global_widgets/Header";
 import { ItemsSlider } from "@/widgets/Global_widgets/ItemsSlider";
 import { ProjectInfo } from "@/widgets/ProjectPage_widgets/ProjectInfo";
 import { ProjectReviews } from "@/widgets/ProjectPage_widgets/ProjectReviews";
-import { Footer } from "@/widgets/Global_widgets/Footer";
 import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
 
 export const ProjectPage: React.FC = (): React.JSX.Element => {
@@ -22,7 +20,6 @@ export const ProjectPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <Header />
       <main className="ProjectPage__main">
         <div className="padding">
           <ProjectInfo {...ProjectInfoData} />
@@ -63,7 +60,6 @@ export const ProjectPage: React.FC = (): React.JSX.Element => {
           />
         </div>
       </main>
-      <Footer />
     </>
   );
 };

@@ -1,7 +1,5 @@
-import { Footer } from "@/widgets/Global_widgets/Footer";
 import "./CreateOrderPage.scss";
 import "@/shared/main.scss";
-import { Header } from "@/widgets/Global_widgets/Header";
 import { useEffect, useState } from "react";
 import { memo } from "react";
 import {
@@ -48,7 +46,6 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
         setCreateOrderCompletedSteps,
       }}
     >
-      <Header />
       <main className="CreateOrderPage__main">
         <div className="padding">
           <CreateOrderProgress />
@@ -60,7 +57,6 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
           </div>
         </div>
       </main>
-      <Footer />
     </CreateOrderPageContext.Provider>
   );
 });

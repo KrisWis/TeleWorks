@@ -5,6 +5,7 @@ import { FAQPage } from "@/pages/FAQPage";
 import { InternalPage } from "@/pages/InternalPage";
 import { MainPage } from "@/pages/MainPage";
 import { MyProjectsPage } from "@/pages/MyProjectsPage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
@@ -36,6 +37,8 @@ export enum Routes {
   CREATE_ORDER = "/create-order",
 
   FAQ = "/faq",
+
+  NOT_FOUND = "*",
 }
 
 type routesList = {
@@ -55,4 +58,5 @@ export const routes: routesList = {
   [Routes.CREATE_CARD]: <CreateCardPage />,
   [Routes.CREATE_ORDER]: <CreateOrderPage />,
   [Routes.FAQ]: <FAQPage />,
+  [Routes.NOT_FOUND]: <NotFoundPage />,
 };
