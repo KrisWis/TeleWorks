@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./Button.module.scss";
 import { ButtonProps } from "../model/Button__types";
 import { memo, useState } from "react";
+import { URLIsAbsolute } from "@/shared/utils/URLIsAbsolute";
 
 export const Button: React.FC<ButtonProps> = memo(
   ({
@@ -31,7 +32,7 @@ export const Button: React.FC<ButtonProps> = memo(
     return (
       <>
         {to ? (
-          to.startsWith("http") ? (
+          URLIsAbsolute(to) ? (
             <a
               aria-disabled={ariaDisabled}
               target="_blank"

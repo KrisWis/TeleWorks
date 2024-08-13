@@ -74,9 +74,10 @@
   --z-index-zero: 0;
   --z-index-one: 1;
   --z-index-arrows: 2;
-  --z-index-modal: 3;
-  --z-index-modal-inner: 4;
-  --z-index-dropdown: 5;
+  --z-index-header: 3;
+  --z-index-modal: 4;
+  --z-index-modal-inner: 5;
+  --z-index-dropdown: 6;
 
   // Fonts
   --font-family: "OpenSans", sans-serif;
@@ -111,6 +112,10 @@ body {
 * {
   box-sizing: border-box;
   font-family: var(--font-family);
+}
+
+main {
+  margin-top: 100px !important;
 }
 
 .Page {

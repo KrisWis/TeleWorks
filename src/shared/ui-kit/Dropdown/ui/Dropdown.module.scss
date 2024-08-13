@@ -27,6 +27,7 @@
     overflow-y: hidden;
     z-index: var(--z-index-dropdown);
     opacity: 1;
+    cursor: default;
   }
 
   &__disactive {

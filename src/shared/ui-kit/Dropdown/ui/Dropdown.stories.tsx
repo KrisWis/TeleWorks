@@ -17,8 +17,7 @@ export const Closed: Story = {
   args: {
     DropdownIsOpen: false,
     setDropdownIsOpen: useState,
-    title: "Dropdown",
-    children: <></>,
+    children: <>Dropdown</>,
   },
 };
 
@@ -26,7 +25,6 @@ export const Open: Story = {
   args: {
     DropdownIsOpen: true,
     setDropdownIsOpen: useState,
-    title: "Dropdown",
-    children: <></>,
+    children: <>Dropdown</>,
   },
 };
