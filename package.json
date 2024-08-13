@@ -30,7 +30,6 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.21",
     "@szhsin/react-accordion": "^1.2.4",
-    "flowbite-react": "^0.10.1",
     "jest-css-modules-transform": "^4.4.2",
     "jest-html-reporter": "^3.10.2",
     "jquery": "^3.7.1",

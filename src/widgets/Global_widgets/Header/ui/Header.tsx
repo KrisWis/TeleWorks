@@ -2,7 +2,6 @@ import styles from "./Header.module.scss";
 import Switch from "@mui/material/Switch";
 import "./Header__switcher.scss";
 import { Link } from "react-router-dom";
-import { Dropdown } from "flowbite-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { dropDownItems } from "../model/Header_data";
 import { dropDownItem } from "../model/Header_types";
@@ -13,7 +12,7 @@ import { AuthModal } from "@/features/Header_features/AuthModal";
 import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
 import { RegModal } from "@/features/Header_features/RegModal";
 import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecoveryModal";
-import SelectDropdownIndicatorRedSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorRedSVG.svg?react";
+import TriggerIcon from "@/shared/assets/icons/Header/NavbarDropdown/TriggerIcon.svg?react";
 
 // Иконки дропдауна
 import BuyAdsSVG from "@/shared/assets/icons/Header/ServicesDropdown/BuyAdsSVG.svg?react";
@@ -23,6 +22,7 @@ import GuarantorServicesSVG from "@/shared/assets/icons/Header/ServicesDropdown/
 import ProcurementAdsSVG from "@/shared/assets/icons/Header/ServicesDropdown/ProcurementAdsSVG.svg?react";
 import TurnKeyChannelsSVG from "@/shared/assets/icons/Header/ServicesDropdown/TurnKeyChannelsSVG.svg?react";
 import TurnKeyWebsiteSVG from "@/shared/assets/icons/Header/ServicesDropdown/TurnKeyWebsiteSVG.svg?react";
+import { Dropdown } from "@/shared/ui-kit/Dropdown";
 
 export const Header: React.FC = (): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
@@ -66,6 +66,9 @@ export const Header: React.FC = (): React.JSX.Element => {
   const [DropdownServicesIsOpen, setDropdownServicesIsOpen] =
     useState<boolean>(false);
 
+  // Открытия дропдауна "Меню"
+  const [DropdownMenuIsOpen, setDropdownMenuIsOpen] = useState<boolean>(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.header__wrapper}>
@@ -73,178 +76,169 @@ export const Header: React.FC = (): React.JSX.Element => {
           Tele<span className={styles.header__caption__span}>Works</span>
         </h1>
 
-        <div
-          className={`${styles.header__services} ${DropdownServicesIsOpen ? styles.header__services__active : ""}`}
-          onClick={() => setDropdownServicesIsOpen(!DropdownServicesIsOpen)}
+        <Dropdown
+          DropdownIsOpen={DropdownServicesIsOpen}
+          setDropdownIsOpen={setDropdownServicesIsOpen}
+          trigger={<span className={styles.header__item__title}>Сервисы</span>}
+          className={styles.header__services__dropdown}
         >
-          <div className={styles.header__services__dropdownSetActive}>
-            <span className={styles.header__item__title}>Сервисы</span>
-            <SelectDropdownIndicatorRedSVG
-              className={styles.header__services__dropdownSVG}
-            />
-          </div>
+          <div className={styles.header__services__dropdown__category}>
+            <span
+              className={styles.header__services__dropdown__category__title}
+            >
+              Каталоги
+            </span>
 
-          <div
-            className={`${styles.header__services__dropdown} Page__BoxShadowWrapper`}
-          >
-            <div className={styles.header__services__dropdown__category}>
-              <span
-                className={styles.header__services__dropdown__category__title}
-              >
-                Каталоги
-              </span>
-
+            <div
+              className={styles.header__services__dropdown__category__wrapper}
+            >
               <div
-                className={styles.header__services__dropdown__category__wrapper}
+                className={styles.header__services__dropdown__category__value}
               >
-                <div
-                  className={styles.header__services__dropdown__category__value}
+                <BuyAdsSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
+
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
                 >
-                  <BuyAdsSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
-
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Купить рекламу
-                  </a>
-                </div>
-
-                <div
-                  className={styles.header__services__dropdown__category__value}
-                >
-                  <BuyChannelSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
-
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Купить канал
-                  </a>
-                </div>
-
-                <div
-                  className={styles.header__services__dropdown__category__value}
-                >
-                  <BuyServiceSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
-
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Купить услугу
-                  </a>
-                </div>
+                  Купить рекламу
+                </a>
               </div>
-            </div>
-
-            <div className={styles.header__services__dropdown__category}>
-              <span
-                className={styles.header__services__dropdown__category__title}
-              >
-                Другое
-              </span>
 
               <div
-                className={styles.header__services__dropdown__category__wrapper}
+                className={styles.header__services__dropdown__category__value}
               >
-                <div
-                  className={styles.header__services__dropdown__category__value}
+                <BuyChannelSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
+
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
                 >
-                  <TurnKeyChannelsSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
+                  Купить канал
+                </a>
+              </div>
 
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Каналы под ключ
-                  </a>
-                </div>
+              <div
+                className={styles.header__services__dropdown__category__value}
+              >
+                <BuyServiceSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
 
-                <div
-                  className={styles.header__services__dropdown__category__value}
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
                 >
-                  <ProcurementAdsSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
-
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Закуп рекламы
-                  </a>
-                </div>
-
-                <div
-                  className={styles.header__services__dropdown__category__value}
-                >
-                  <GuarantorServicesSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
-
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Услуги гаранта
-                  </a>
-                </div>
-
-                <div
-                  className={styles.header__services__dropdown__category__value}
-                >
-                  <TurnKeyWebsiteSVG
-                    className={
-                      styles.header__services__dropdown__category__value__svg
-                    }
-                  />
-
-                  <a
-                    href="#"
-                    className={
-                      styles.header__services__dropdown__category__value__text
-                    }
-                  >
-                    Сайт под ключ
-                  </a>
-                </div>
+                  Купить услугу
+                </a>
               </div>
             </div>
           </div>
-        </div>
+
+          <div className={styles.header__services__dropdown__category}>
+            <span
+              className={styles.header__services__dropdown__category__title}
+            >
+              Другое
+            </span>
+
+            <div
+              className={styles.header__services__dropdown__category__wrapper}
+            >
+              <div
+                className={styles.header__services__dropdown__category__value}
+              >
+                <TurnKeyChannelsSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
+
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
+                >
+                  Каналы под ключ
+                </a>
+              </div>
+
+              <div
+                className={styles.header__services__dropdown__category__value}
+              >
+                <ProcurementAdsSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
+
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
+                >
+                  Закуп рекламы
+                </a>
+              </div>
+
+              <div
+                className={styles.header__services__dropdown__category__value}
+              >
+                <GuarantorServicesSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
+
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
+                >
+                  Услуги гаранта
+                </a>
+              </div>
+
+              <div
+                className={styles.header__services__dropdown__category__value}
+              >
+                <TurnKeyWebsiteSVG
+                  className={
+                    styles.header__services__dropdown__category__value__svg
+                  }
+                />
+
+                <a
+                  href="#"
+                  className={
+                    styles.header__services__dropdown__category__value__text
+                  }
+                >
+                  Сайт под ключ
+                </a>
+              </div>
+            </div>
+          </div>
+        </Dropdown>
       </div>
       <div className={styles.header__items}>
         <div className={styles.header__item__switcher}>
@@ -283,42 +277,14 @@ export const Header: React.FC = (): React.JSX.Element => {
 
         <div className={styles.header__item__navbar}>
           <Dropdown
-            className={styles.header__item__navbar_dropdown}
-            label=""
-            dismissOnClick={false}
-            renderTrigger={() => (
-              <svg
-                data-testid="header-flowbite-dropdown-trigger"
-                width="30"
-                height="30"
-                viewBox="0 0 30 30"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_17_16)">
-                  <path
-                    d="M28.125 26.25H1.87501C0.839435 26.25 0 25.4105 0 24.375C0 23.3395 0.839435 22.5 1.87501 22.5H28.1251C29.1606 22.5 30.0001 23.3395 30.0001 24.375C30 25.4105 29.1606 26.25 28.125 26.25Z"
-                    fill="black"
-                  />
-                  <path
-                    d="M28.125 16.875H1.87501C0.839435 16.875 0 16.0355 0 15C0 13.9645 0.839435 13.125 1.87501 13.125H28.1251C29.1606 13.125 30.0001 13.9644 30.0001 15C30.0001 16.0356 29.1606 16.875 28.125 16.875Z"
-                    fill="black"
-                  />
-                  <path
-                    d="M28.125 7.50002H1.87501C0.839435 7.50002 0 6.66059 0 5.62501C0 4.58944 0.839435 3.75 1.87501 3.75H28.1251C29.1606 3.75 30.0001 4.58944 30.0001 5.62501C30.0001 6.66059 29.1606 7.50002 28.125 7.50002Z"
-                    fill="black"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_17_16">
-                    <rect width="30" height="30" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            )}
+            DropdownIsOpen={DropdownMenuIsOpen}
+            setDropdownIsOpen={setDropdownMenuIsOpen}
+            withArrow={false}
+            trigger={<TriggerIcon />}
+            className={styles.header__menu__dropdown}
           >
             {dropDownItems.map((item: dropDownItem) => (
-              <Dropdown.Item
+              <div
                 key={item.link + item.text}
                 className={styles.header__item__navbar_dropdown_item}
               >
@@ -328,18 +294,16 @@ export const Header: React.FC = (): React.JSX.Element => {
                 >
                   {item.text}
                 </div>
-              </Dropdown.Item>
+              </div>
             ))}
-            <Dropdown.Item
-              className={styles.header__item__navbar_dropdown_item}
-            >
+            <div className={styles.header__item__navbar_dropdown_item}>
               <Link
                 className={styles.header__item__navbar_dropdown_leave}
                 to="/"
               >
                 Выйти
               </Link>
-            </Dropdown.Item>
+            </div>
           </Dropdown>
         </div>
 
