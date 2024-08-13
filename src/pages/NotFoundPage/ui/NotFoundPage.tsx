@@ -10,7 +10,7 @@ export const NotFoundPage: React.FC = memo((): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="NotFoundPage__main">
+    <main className="Page NotFoundPage__main">
       <div className="padding">
         <NotFoundContainer />
       </div>

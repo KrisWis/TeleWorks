@@ -33,7 +33,9 @@ export const WhyNeedINNAndName: React.FC<WhyNeedINNAndNameProps> = memo(
           }}
           onSwiper={(swiper: SwiperClass) => (swiperRef.current = swiper)}
           onSlideChange={(swiper: SwiperClass) =>
-            setActiveSlide(swiper.activeIndex)
+            setActiveSlide
+              ? setActiveSlide(swiper.activeIndex)
+              : swiperRef.current!.slideTo(swiper.activeIndex)
           }
         >
           <SwiperSlide>

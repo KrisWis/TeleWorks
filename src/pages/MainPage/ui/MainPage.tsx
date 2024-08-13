@@ -21,7 +21,7 @@ export const MainPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="MainPage__main">
+      <main className="Page MainPage__main">
         <div className="padding">
           <Advancement />
           <Buy_placement />

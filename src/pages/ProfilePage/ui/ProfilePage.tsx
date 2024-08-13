@@ -21,7 +21,7 @@ export const ProfilePage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="ProfilePage__main">
+    <main className="Page ProfilePage__main">
       <div className="padding">
         <Profile />
         <Stats />

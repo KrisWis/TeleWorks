@@ -22,7 +22,7 @@ export const FAQPage: React.FC = memo((): React.JSX.Element => {
         setActiveFAQTab,
       }}
     >
-      <main className="FAQ__main">
+      <main className="Page FAQ__main">
         <div className="padding">
           <FAQHeader />
           <FAQTab />

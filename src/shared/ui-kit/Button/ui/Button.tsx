@@ -12,6 +12,7 @@ export const Button: React.FC<ButtonProps> = memo(
     canSelected = false,
     onClick,
     ariaDisabled,
+    children,
   }): React.JSX.Element => {
     const [ButtonIsSelected, setButtonIsSelected] = useState<boolean>(false);
 
@@ -38,7 +39,7 @@ export const Button: React.FC<ButtonProps> = memo(
               onClick={ButtonOnClick}
               className={`${styles.Button} ${styles.Button_a} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
             >
-              {text}
+              {text ? text : children}
             </a>
           ) : (
             <Link
@@ -47,7 +48,7 @@ export const Button: React.FC<ButtonProps> = memo(
               to={to}
               className={`${styles.Button} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
             >
-              {text}
+              {text ? text : children}
             </Link>
           )
         ) : (
@@ -56,7 +57,7 @@ export const Button: React.FC<ButtonProps> = memo(
             onClick={ButtonOnClick}
             className={`${styles.Button} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
           >
-            {text}
+            {text ? text : children}
           </button>
         )}
       </>

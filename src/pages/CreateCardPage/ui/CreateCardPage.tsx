@@ -10,7 +10,7 @@ export const CreateCardPage: React.FC = memo((): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="CreateCardPage__main">
+    <main className="Page CreateCardPage__main">
       <div className="padding">
         <CreateCard />
       </div>

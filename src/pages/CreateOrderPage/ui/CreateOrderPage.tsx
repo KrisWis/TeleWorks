@@ -46,7 +46,7 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
         setCreateOrderCompletedSteps,
       }}
     >
-      <main className="CreateOrderPage__main">
+      <main className="Page CreateOrderPage__main">
         <div className="padding">
           <CreateOrderProgress />
 

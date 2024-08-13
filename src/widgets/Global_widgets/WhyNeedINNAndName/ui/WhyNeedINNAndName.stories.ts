@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { WhyNeedINNAndName } from "./WhyNeedINNAndName";
-import { useState } from "react";
+import "./WhyNeedINNAndName_swiper.scss";
 
 const meta = {
   title: "Global Widgets/WhyNeedINNAndName",
@@ -16,6 +16,5 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     ActiveSlide: 1,
-    setActiveSlide: useState,
   },
 };

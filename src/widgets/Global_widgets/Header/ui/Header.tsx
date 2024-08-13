@@ -13,6 +13,7 @@ import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
 import { RegModal } from "@/features/Header_features/RegModal";
 import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecoveryModal";
 import TriggerIcon from "@/shared/assets/icons/Header/NavbarDropdown/TriggerIcon.svg?react";
+import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 
 // Иконки дропдауна
 import BuyAdsSVG from "@/shared/assets/icons/Header/ServicesDropdown/BuyAdsSVG.svg?react";
@@ -241,39 +242,55 @@ export const Header: React.FC = (): React.JSX.Element => {
         </Dropdown>
       </div>
       <div className={styles.header__items}>
-        <div className={styles.header__item__switcher}>
-          <span
-            data-testid="switcher__customer"
-            data-disabled={headerSwitcherChoice == "Заказчик"}
-            className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" ? styles.header__item__title__active : ""}`}
-          >
-            Заказчик
-          </span>
+        <div className={styles.header__item__switcherWrapper}>
+          <div className={styles.header__item__switcher}>
+            <span
+              data-testid="switcher__customer"
+              data-disabled={headerSwitcherChoice == "Заказчик"}
+              className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" ? styles.header__item__title__active : ""}`}
+            >
+              Заказчик
+            </span>
+          </div>
+
+          <Switch
+            onClick={() =>
+              headerSwitcherChoice == "Исполнитель"
+                ? setHeaderSwitcherChoice("Заказчик")
+                : setHeaderSwitcherChoice("Исполнитель")
+            }
+            data-testid="headerSwitcher"
+            className="header__item__switcherComponent"
+            {...{
+              inputProps: { "aria-label": 'Свитчер "Заказчик/Исполнитель"' },
+            }}
+            defaultChecked
+          />
+
+          <div className={styles.header__item__switcher}>
+            <span
+              data-disabled={headerSwitcherChoice == "Исполнитель"}
+              data-testid="switcher__performer"
+              className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" ? styles.header__item__title__active : ""}`}
+            >
+              Исполнитель
+            </span>
+          </div>
         </div>
 
-        <Switch
-          onClick={() =>
-            headerSwitcherChoice == "Исполнитель"
-              ? setHeaderSwitcherChoice("Заказчик")
-              : setHeaderSwitcherChoice("Исполнитель")
-          }
-          data-testid="headerSwitcher"
-          className="header__item__switcherComponent"
-          {...{
-            inputProps: { "aria-label": 'Свитчер "Заказчик/Исполнитель"' },
-          }}
-          defaultChecked
-        />
-
-        <div className={styles.header__item__switcher}>
-          <span
-            data-disabled={headerSwitcherChoice == "Исполнитель"}
-            data-testid="switcher__performer"
-            className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" ? styles.header__item__title__active : ""}`}
-          >
-            Исполнитель
+        <Button type={ButtonTypes.RED} className={styles.header__item__balance}>
+          <span className={styles.header__item__balance__amount}>
+            0
+            <span className={styles.header__item__balance__amount__pennies}>
+              .00
+            </span>
+            ₽
           </span>
-        </div>
+
+          <span className={styles.header__item__balance__increase}>
+            Пополнить
+          </span>
+        </Button>
 
         <div className={styles.header__item__navbar}>
           <Dropdown
@@ -307,19 +324,16 @@ export const Header: React.FC = (): React.JSX.Element => {
           </Dropdown>
         </div>
 
-        <Button
-          type={ButtonTypes.RED}
-          className={styles.header__item__login}
-          text="Войти"
-          onClick={() => setLoginIsOpen(true)}
-        />
+        <div onClick={() => setLoginIsOpen(true)}>
+          <LoginSVG className={styles.header__item__login} />
+        </div>
 
-        <Button
-          className={styles.header__item__reg}
-          text="Регистрация"
-          type={ButtonTypes.GRAY}
+        <span
           onClick={() => setRegIsOpen(true)}
-        />
+          className={styles.header__item__reg}
+        >
+          login
+        </span>
 
         {LoginIsOpen && (
           <Modal

@@ -16,7 +16,7 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="Internal__main">
+      <main className="Page Internal__main">
         <div className="padding">
           <MainSection />
           <ChannelsExamples />

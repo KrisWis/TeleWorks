@@ -11,7 +11,7 @@ export const CatalogPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="CatalogPage__main">
+      <main className="Page CatalogPage__main">
         <div className="padding">
           <Catalog />
         </div>

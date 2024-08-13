@@ -9,7 +9,7 @@ export const SpecialistServicesPage: React.FC = (): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="SpecialistServicesPage__main">
+    <main className="Page SpecialistServicesPage__main">
       <div className="padding">
         <SpecialistServices />
       </div>

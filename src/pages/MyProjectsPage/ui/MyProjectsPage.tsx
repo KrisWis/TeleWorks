@@ -12,7 +12,7 @@ export const MyProjectsPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="MyProjectsPage__main">
+      <main className="Page MyProjectsPage__main">
         <div className="padding">
           <MyProjects myProjectsStats={myProjectsStats} />
         </div>

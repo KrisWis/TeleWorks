@@ -10,10 +10,11 @@ export enum ButtonTypes {
 
 export interface ButtonProps {
   to?: string;
-  text: string;
+  text?: string;
   className?: string;
   type: ButtonTypes;
   canSelected?: boolean;
   onClick?: () => void;
   ariaDisabled?: boolean;
+  children?: React.ReactNode;
 }

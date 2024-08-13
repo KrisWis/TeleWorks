@@ -20,7 +20,7 @@ export const ProjectPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="ProjectPage__main">
+      <main className="Page ProjectPage__main">
         <div className="padding">
           <ProjectInfo {...ProjectInfoData} />
 
