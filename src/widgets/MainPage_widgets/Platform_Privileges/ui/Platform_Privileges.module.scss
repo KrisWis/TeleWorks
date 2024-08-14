@@ -7,7 +7,7 @@
   &__svg {
     position: absolute;
     right: -15px;
-    z-index: -1;
+    z-index: var(--z-index-hidden);
   }
 
   &__wrapper {

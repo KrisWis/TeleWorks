@@ -9,6 +9,7 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
+import { TurnkeyWebsitesPage } from "@/pages/TurnkeyWebsitesPage";
 import { UserEditPage } from "@/pages/UserEditPage";
 import { UserPage } from "@/pages/UserPage/";
 import { ReactElement } from "react";
@@ -38,6 +39,8 @@ export enum Routes {
 
   FAQ = "/faq",
 
+  TURNKEY_WEBSITES = "/turnkey-websites",
+
   NOT_FOUND = "*",
 }
 
@@ -58,5 +61,6 @@ export const routes: routesList = {
   [Routes.CREATE_CARD]: <CreateCardPage />,
   [Routes.CREATE_ORDER]: <CreateOrderPage />,
   [Routes.FAQ]: <FAQPage />,
+  [Routes.TURNKEY_WEBSITES]: <TurnkeyWebsitesPage />,
   [Routes.NOT_FOUND]: <NotFoundPage />,
 };

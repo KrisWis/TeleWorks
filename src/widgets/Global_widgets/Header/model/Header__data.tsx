@@ -29,6 +29,7 @@ import GuarantorServicesSVG from "@/shared/assets/icons/Header/ServicesDropdown/
 import ProcurementAdsSVG from "@/shared/assets/icons/Header/ServicesDropdown/ProcurementAdsSVG.svg?react";
 import TurnKeyChannelsSVG from "@/shared/assets/icons/Header/ServicesDropdown/TurnKeyChannelsSVG.svg?react";
 import TurnKeyWebsiteSVG from "@/shared/assets/icons/Header/ServicesDropdown/TurnKeyWebsiteSVG.svg?react";
+import { Routes } from "@/app/routes/Routes";
 
 export const userIsAuth = true;
 export const username: `@${string}` = "@TeleWorks";
@@ -75,7 +76,7 @@ export const headerServicesItems: HeaderServicesItems = {
     {
       icon: <TurnKeyWebsiteSVG />,
       title: "Сайт под ключ",
-      link: "/",
+      link: Routes.TURNKEY_WEBSITES,
     },
   ],
 };
@@ -114,7 +115,7 @@ export const headerMenuItems: HeaderMenuItems = {
     {
       icon: <GuarantorChatSVG />,
       title: "Мои проекты",
-      link: "myProjects",
+      link: Routes.MYPROJECTS,
     },
 
     {
@@ -172,7 +173,7 @@ export const headerMenuItems: HeaderMenuItems = {
     {
       icon: <FAQSVG />,
       title: "FAQ",
-      link: "/faq",
+      link: Routes.FAQ,
     },
 
     {

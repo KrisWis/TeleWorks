@@ -1,0 +1,209 @@
+.TurnkeyWebsitesPageInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    bottom: 50px;
+  }
+
+  &__desc {
+    margin-top: 10px;
+
+    &Wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  &__caption {
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  &__button {
+    height: 58px;
+    font-size: 20px;
+    width: 35%;
+  }
+
+  &__imgWrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    right: -120px;
+  }
+
+  &__imgPrimary {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__imgSecondary {
+    width: 37%;
+    height: 30%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    left: 21%;
+    top: 22%;
+  }
+
+  &__items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    gap: 25px;
+    position: relative;
+    bottom: 30px;
+  }
+
+  &__item {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    height: 191px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 25px;
+    position: relative;
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 85%;
+    }
+
+    &__svg {
+      min-width: 54px;
+      min-height: 54px;
+      max-width: 54px;
+      max-height: 54px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    &__large {
+      grid-column: 1/4;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      height: 234px;
+      border: 2px solid var(--secondary-color);
+      border-radius: 20px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 1px;
+
+      &__svg {
+        position: relative;
+      }
+
+      &__info {
+        width: 50%;
+        display: flex;
+        gap: 25px;
+        padding: 20px;
+
+        &__wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          margin-top: 20px;
+        }
+
+        &__caption {
+          font-weight: 600;
+          font-size: 34px;
+          line-height: 110%;
+          letter-spacing: -0.01em;
+          color: #000;
+        }
+
+        &__desc {
+          font-weight: 500;
+          font-size: 21px;
+          line-height: 120%;
+          letter-spacing: -0.01em;
+          color: #000;
+          opacity: 0.4;
+        }
+      }
+
+      &__imgWrapper {
+        width: 40%;
+        position: relative;
+        height: 100%;
+        display: flex;
+      }
+
+      &__imgPrimary {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        transform: translateY(20px);
+
+        &Wrapper {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          width: 100%;
+          height: 90%;
+          align-self: flex-end;
+          align-items: center;
+          overflow-y: hidden;
+          border-radius: 15px 0 20px;
+        }
+
+        &Header {
+          width: 99%;
+          height: 31px;
+          border-radius: 13px 0 0;
+          background: #b9bfc1;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          gap: 5px;
+          position: absolute;
+          margin-top: 10px;
+          z-index: var(--z-index-one);
+          box-shadow: 0 -7px 7px 0 rgba(0, 0, 0, 0.25);
+        }
+      }
+
+      &__imgSecondary {
+        border: 2px solid #fff;
+        border-radius: 15px 0 25px;
+        width: 95%;
+        height: 91.5%;
+        object-fit: cover;
+        object-position: center center;
+        position: absolute;
+        z-index: var(--z-index-hidden);
+        align-self: flex-end;
+        right: 0;
+      }
+    }
+  }
+}
