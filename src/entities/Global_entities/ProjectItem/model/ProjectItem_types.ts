@@ -1,4 +1,4 @@
-import { ServicesViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices/SpecialistServicesResults/data/SpecialistServicesResults_types";
+import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices/SpecialistServicesResults/data/SpecialistServicesResults_types";
 
 export type authorRank =
   | "низкий рейтинг"
@@ -21,5 +21,5 @@ export interface ServicesItem {
 
 export interface ProjectItemProps {
   servicesItem: ServicesItem;
-  viewType: ServicesViewTypes;
+  viewType: ProjectItemViewTypes;
 }

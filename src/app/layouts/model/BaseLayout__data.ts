@@ -18,6 +18,10 @@ window.matchMedia =
     };
   };
 
+export const laptop_mediaQuery: MediaQueryList = window.matchMedia(
+  "(max-width: 1600px)"
+);
+
 export const tablet_mediaQuery: MediaQueryList = window.matchMedia(
   "(max-width: 1200px)"
 );

@@ -1,0 +1,71 @@
+.TurnkeyWebsitesPageOurCases {
+  .swiper {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .swiper-wrapper {
+      display: flex;
+      align-items: center;
+      height: 650px;
+    }
+
+    .swiper-button-disabled {
+      opacity: 0;
+    }
+
+    .swiper-slide {
+      height: 586px;
+      border-radius: 25px 0 0 25px;
+      transition: var(--transition-duration) linear all;
+      width: 19vw !important;
+
+      @media (max-width: 1700px) {
+        width: 24vw !important;
+      }
+
+      @media (max-width: 1400px) {
+        width: 27vw !important;
+      }
+
+      .swiper-slide-img {
+        border-radius: 25px 0 0 25px;
+      }
+
+      .swiper-slide-footer {
+        opacity: 0;
+      }
+    }
+
+    .swiper-slide-active {
+      border-radius: 0 25px 25px 0;
+
+      .swiper-slide-img {
+        border-radius: 0 25px 25px 0;
+      }
+    }
+
+    .swiper-slide-next {
+      height: 650px;
+      width: 40vw !important;
+      border: 1px solid #4266c6;
+      border-radius: 25px;
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+
+      @media (max-width: 1400px) {
+        width: 50vw !important;
+      }
+
+      .swiper-slide-img {
+        border: 1px solid #4266c6;
+        border-radius: 25px;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .swiper-slide-footer {
+        opacity: 1;
+      }
+    }
+  }
+}
