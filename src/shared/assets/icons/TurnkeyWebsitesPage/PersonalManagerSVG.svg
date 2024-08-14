@@ -1,4 +1,4 @@
-<div style="position: relative; display: flex;">
+<div style="position: relative; display: flex; height: fit-content;">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="25" cy="25" r="22.9054" stroke="#FF5555" stroke-width="4.18919" />
     </svg>

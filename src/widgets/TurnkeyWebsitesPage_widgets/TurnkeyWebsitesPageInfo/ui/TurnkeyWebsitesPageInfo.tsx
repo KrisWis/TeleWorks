@@ -60,7 +60,9 @@ export const TurnkeyWebsitesPageInfo: React.FC = memo((): React.JSX.Element => {
           className={`${styles.TurnkeyWebsitesPageInfo__item} Page__SirineWrapper`}
         >
           <div className={styles.TurnkeyWebsitesPageInfo__item__info}>
-            <h5 className="TurnkeyWebsitesPage__caption">Думаем о бизнесе</h5>
+            <h5 className="TurnkeyWebsitesPage__subcaption">
+              Думаем о бизнесе
+            </h5>
 
             <p className="TurnkeyWebsitesPage__desc">
               Разработаем сайт любой сложности, который приносит новых клиентов
@@ -77,7 +79,9 @@ export const TurnkeyWebsitesPageInfo: React.FC = memo((): React.JSX.Element => {
           className={`${styles.TurnkeyWebsitesPageInfo__item} Page__SirineWrapper`}
         >
           <div className={styles.TurnkeyWebsitesPageInfo__item__info}>
-            <h5 className="TurnkeyWebsitesPage__caption">Ценим ваше время</h5>
+            <h5 className="TurnkeyWebsitesPage__subcaption">
+              Ценим ваше время
+            </h5>
 
             <p className="TurnkeyWebsitesPage__desc">
               Пока вы развиваете бизнес, создадим сайт, который легко обновлять
@@ -94,7 +98,9 @@ export const TurnkeyWebsitesPageInfo: React.FC = memo((): React.JSX.Element => {
           className={`${styles.TurnkeyWebsitesPageInfo__item} Page__SirineWrapper`}
         >
           <div className={styles.TurnkeyWebsitesPageInfo__item__info}>
-            <h5 className="TurnkeyWebsitesPage__caption">Настроим под ключ</h5>
+            <h5 className="TurnkeyWebsitesPage__subcaption">
+              Настроим под ключ
+            </h5>
 
             <p className="TurnkeyWebsitesPage__desc">
               Передадим вам полностью настроенный и оптимизированный ресурс

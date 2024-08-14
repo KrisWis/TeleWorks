@@ -1,3 +1,4 @@
+import { TurnkeyWebsitesPageHowWeWorks } from "@/widgets/TurnkeyWebsitesPage_widgets/TurnkeyWebsitesPageHowWeWorks";
 import "./TurnkeyWebsitesPage.scss";
 import "@/shared/main.scss";
 import { TurnkeyWebsitesPageInfo } from "@/widgets/TurnkeyWebsitesPage_widgets/TurnkeyWebsitesPageInfo";
@@ -13,6 +14,7 @@ export const TurnkeyWebsitesPage: React.FC = memo((): React.JSX.Element => {
     <main className="Page TurnkeyWebsitesPage__main">
       <div className="padding">
         <TurnkeyWebsitesPageInfo />
+        <TurnkeyWebsitesPageHowWeWorks />
       </div>
     </main>
   );
