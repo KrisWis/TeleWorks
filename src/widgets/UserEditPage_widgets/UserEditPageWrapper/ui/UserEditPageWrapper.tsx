@@ -77,6 +77,13 @@ export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
     };
   }, [observer, refs]);
 
+  useEffect(() => {
+    document.body.scrollIntoView();
+    setTimeout(() => {
+      RefCanBeScroll.current = true;
+    }, 100);
+  }, []);
+
   return (
     <UserEditPageContext.Provider
       value={{

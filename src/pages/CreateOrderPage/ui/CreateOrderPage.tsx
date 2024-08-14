@@ -9,8 +9,8 @@ import {
 import { CreateOrderCostContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderCostContent";
 import { CreateOrderPageContext } from "../model/CreateOrderPageContext";
 import { CreateOrderTechnicalInformationContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderTechnicalInformationContent";
-import { useCreateOrderStepLocalStorage } from "../model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
+import { UseCreateOrderStepLocalStorage } from "../model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
 
 export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -18,7 +18,7 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   }, []);
 
   // Сохранение и загрузка этапов, используя LocalStorage
-  const CreateOrderStepLI = useCreateOrderStepLocalStorage(
+  const CreateOrderStepLI = UseCreateOrderStepLocalStorage(
     UseLocalStorageTypes.GET
   );
 

@@ -5,10 +5,11 @@ import {
 import { CreateOrderPageContext } from "../CreateOrderPageContext";
 import { LocalStorageKeys } from "@/app/layouts/model/LocalStorageKeys";
 
-export const useCreateOrderStepLocalStorage: UseLocalStorageCustom<
+export const UseCreateOrderStepLocalStorage: UseLocalStorageCustom<
   Omit<
     CreateOrderPageContext,
     "setCreateOrderActiveStep" | "setCreateOrderCompletedSteps"
   >
-> = (type, value) =>
-  UseLocalStorage(type, LocalStorageKeys.CREATE_ORDER_STEP, value);
+> = (type, value) => {
+  return UseLocalStorage(type, LocalStorageKeys.CREATE_ORDER_STEP, value);
+};

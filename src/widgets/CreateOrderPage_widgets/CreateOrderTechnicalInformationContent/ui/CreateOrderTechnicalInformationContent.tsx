@@ -9,10 +9,14 @@ import { OrderSecurityGuarantee } from "@/shared/ui-kit/OrderSecurityGuarantee";
 import { OrderInfo } from "@/entities/Global_entities/OrderInfo";
 import { orderInfoData } from "../model/CreateOrderTechnicalInformationContent_data";
 import { OrderStatuses } from "@/shared/ui-kit/OrderStatus";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
+import { UseCreateOrderStepLocalStorage } from "@/pages/CreateOrderPage/model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
 
 export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnicalInformationContentProps> =
   memo((): React.JSX.Element => {
-    const { CreateOrderActiveStep } = useContext(CreateOrderPageContext);
+    const { CreateOrderActiveStep, CreateOrderCompletedSteps } = useContext(
+      CreateOrderPageContext
+    );
 
     const [IsVisible, setIsVisible] = useState<boolean>(false);
 
@@ -29,6 +33,14 @@ export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnic
         }, 700);
       }
     }, [CreateOrderActiveStep]);
+
+    UseCreateOrderStepLocalStorage(UseLocalStorageTypes.UPDATE, {
+      CreateOrderActiveStep: CreateOrderProgressSteps.TechnicalInformation,
+      CreateOrderCompletedSteps: [
+        ...CreateOrderCompletedSteps,
+        CreateOrderProgressSteps.COST,
+      ],
+    });
 
     return (
       <>

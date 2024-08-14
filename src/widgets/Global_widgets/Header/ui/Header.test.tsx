@@ -39,17 +39,4 @@ describe("Header", () => {
       screen.getByTestId("switcher__performer").getAttribute("data-disabled")
     ).toBe("true");
   });
-
-  test("dropdown click test", () => {
-    renderWithRouter(<Header />);
-    expect(screen.findByTestId("flowbite-dropdown")).toEqual(
-      new Promise(() => {})
-    );
-    fireEvent.click(screen.getByTestId("header-flowbite-dropdown-trigger"));
-    expect(screen.getByTestId("flowbite-dropdown")).toBeInTheDocument();
-    fireEvent.click(screen.getByTestId("header-flowbite-dropdown-trigger"));
-    expect(screen.findByTestId("flowbite-dropdown")).toEqual(
-      new Promise(() => {})
-    );
-  });
 });

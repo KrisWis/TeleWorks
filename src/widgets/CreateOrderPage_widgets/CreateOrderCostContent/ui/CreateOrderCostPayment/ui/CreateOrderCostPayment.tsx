@@ -1,37 +1,25 @@
 import styles from "./CreateOrderCostPayment.module.scss";
-import { memo, useContext, useState } from "react";
-import { Select, selectStyles } from "@/shared/ui-kit/Select";
-import {
-  SelectTextStyles,
-  valueContainerPaddingEnum,
-} from "@/shared/ui-kit/Select/model/Select_types";
-
-import BankCardSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderCostPayment/BankCardSVG.svg?react";
-import SelectDropdownIndicatorRedSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorRedSVG.svg?react";
-import { CreateOrderCostPaymentBankCard__selectedOptions } from "../model/CreateOrderCostPayment_data";
+import { memo, useContext, useMemo, useState } from "react";
+import { userHaveEnoughMoney } from "../model/CreateOrderCostPayment_data";
 import { Input } from "@/shared/ui-kit/Input";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
-import { useCreateOrderStepLocalStorage } from "@/pages/CreateOrderPage/model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
-import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
-
-const CardSelectDropdownIndicator = (): JSX.Element => {
-  return <SelectDropdownIndicatorRedSVG className={selectStyles.Select__svg} />;
-};
-
-const CardSelectTextStyles: SelectTextStyles = {
-  fontFamily: "var(--font-family)",
-  fontWeight: 500,
-  fontSize: "20px",
-  letterSpacing: "-0.01em",
-  lineHeight: "150%",
-  color: "var(--black-color)",
-};
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
+import { EmailIsValid } from "@/shared/utils/EmailIsValid/EmailIsValid";
 
 export const CreateOrderCostPayment: React.FC = memo((): React.JSX.Element => {
-  const [ReplenishmentAmount, setReplenishmentAmount] = useState<string>("");
+  // Ввод данных в инпут
+  const [EmailInputValue, setEmailInputValue] = useState<string>("");
 
+  const [TryPay, setTryPay] = UseTryAction();
+
+  const canPay = useMemo(
+    () => EmailIsValid(EmailInputValue),
+    [EmailInputValue]
+  );
+
+  // Перенаправление на второй этап
   const {
     setCreateOrderActiveStep,
     setCreateOrderCompletedSteps,
@@ -44,53 +32,67 @@ export const CreateOrderCostPayment: React.FC = memo((): React.JSX.Element => {
       ...CreateOrderCompletedSteps,
       CreateOrderProgressSteps.COST,
     ]);
-
-    useCreateOrderStepLocalStorage(UseLocalStorageTypes.UPDATE, {
-      CreateOrderActiveStep: CreateOrderProgressSteps.TechnicalInformation,
-      CreateOrderCompletedSteps: [
-        ...CreateOrderCompletedSteps,
-        CreateOrderProgressSteps.COST,
-      ],
-    });
   };
 
   return (
     <div className={`Page__BoxShadowWrapper ${styles.createOrderCostPayment}`}>
       <div className={styles.createOrderCostPayment__header}>
-        <h6 className="CreateOrderPage__caption">Пополнение баланса</h6>
+        <h6
+          className={`CreateOrderPage__caption ${styles.createOrderCostPayment__header__caption}`}
+        >
+          {userHaveEnoughMoney ? "Оплата заказа" : "Пополнение баланса"}
+        </h6>
 
-        <div className={styles.createOrderCostPayment__cardChoice}>
-          <BankCardSVG />
+        {userHaveEnoughMoney && (
+          <div className={styles.createOrderCostPayment__header__balance}>
+            <span
+              className={styles.createOrderCostPayment__header__balance__text}
+            >
+              Баланс TeleWorks
+            </span>
 
-          <Select
-            className={styles.createOrderCostPayment__cardChoice__select}
-            selectedOptions={CreateOrderCostPaymentBankCard__selectedOptions}
-            CustomDropdownIndicator={CardSelectDropdownIndicator}
-            TextStyles={CardSelectTextStyles}
-            valueContainerPadding={valueContainerPaddingEnum.SMALL}
-          />
-        </div>
+            <span
+              className={styles.createOrderCostPayment__header__balance__amount}
+            >
+              120000
+              <span
+                className={
+                  styles.createOrderCostPayment__header__balance__amount__pennies
+                }
+              >
+                .00
+              </span>
+              ₽
+            </span>
+          </div>
+        )}
       </div>
 
       <div className={styles.createOrderCostPayment__wrapper}>
         <div className={styles.createOrderCostPayment__inputWrapper}>
-          <span className="CreateOrderPage__subcaption">Сумма пополнения</span>
+          <span
+            className={styles.createOrderCostPayment__inputWrapper__subcaption}
+          >
+            Ваш e-mail
+          </span>
 
           <Input
-            type="number"
-            placeholder="6000₽"
-            value={ReplenishmentAmount}
-            onChange={(e) => setReplenishmentAmount(e.target.value)}
+            type="email"
+            value={EmailInputValue}
+            onChange={(e) => setEmailInputValue(e.target.value)}
+            isWarn={!EmailIsValid(EmailInputValue) && TryPay}
           />
+
+          <span className={styles.createOrderCostPayment__inputWrapper__desc}>
+            На данный e-mail вышлем чек об оплате.
+          </span>
         </div>
 
         <Button
-          className={`${styles.createOrderCostPayment__pay} 
-          ${!ReplenishmentAmount ? styles.createOrderCostPayment__pay__disabled : ""}`}
+          className={styles.createOrderCostPayment__pay}
           type={ButtonTypes.RED}
-          text={`Оплатить ${ReplenishmentAmount} ₽ `}
-          onClick={ClickPayButton}
-          ariaDisabled={!ReplenishmentAmount}
+          text={`${userHaveEnoughMoney ? "Оплатить" : "Пополнить"} 6000 ₽ `}
+          onClick={canPay ? ClickPayButton : () => setTryPay(true)}
         />
 
         <span className={styles.createOrderCostPayment__writeSupport}>
