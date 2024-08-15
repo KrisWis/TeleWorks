@@ -1,0 +1,14 @@
+.FAQ_accordion {
+  &__accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__wrapper {
+    border: 1px solid var(--secondary-color);
+    width: 100%;
+    padding: 30px 33px;
+    padding-bottom: 37px;
+  }
+}

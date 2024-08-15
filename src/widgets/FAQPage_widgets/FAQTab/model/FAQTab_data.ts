@@ -1,5 +1,5 @@
+import { FAQTabsInterface } from "@/widgets/Global_widgets/FAQ_accordion/ui/FAQTab_Accordion_item/model/FAQTab_Accordion_item_types";
 import { FAQTabs } from "../../FAQHeader";
-import { FAQTabsInterface } from "./FAQTab_types";
 
 export const faqTabs: FAQTabsInterface = {
   [FAQTabs.GENERAL]: [

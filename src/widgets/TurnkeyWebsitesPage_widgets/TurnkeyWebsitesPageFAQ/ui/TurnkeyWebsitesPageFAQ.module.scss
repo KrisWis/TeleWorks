@@ -1,0 +1,10 @@
+.TurnkeyWebsitesPageFAQ {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+  gap: 40px;
+
+  &__caption {
+    align-self: center;
+  }
+}

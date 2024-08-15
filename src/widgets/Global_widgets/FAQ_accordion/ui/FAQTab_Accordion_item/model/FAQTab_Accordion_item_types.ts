@@ -1,4 +1,4 @@
-import { FAQTabs } from "../../FAQHeader";
+import { FAQTabs } from "../../../../../FAQPage_widgets/FAQHeader";
 
 export interface FAQTabItem {
   title: string;

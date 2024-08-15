@@ -5,6 +5,7 @@ import { TurnkeyWebsitesPageInfo } from "@/widgets/TurnkeyWebsitesPage_widgets/T
 import { useEffect } from "react";
 import { memo } from "react";
 import { TurnkeyWebsitesPageOurCases } from "@/widgets/TurnkeyWebsitesPage_widgets/TurnkeyWebsitesPageOurCases";
+import { TurnkeyWebsitesPageFAQ } from "@/widgets/TurnkeyWebsitesPage_widgets/TurnkeyWebsitesPageFAQ";
 
 export const TurnkeyWebsitesPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -17,6 +18,7 @@ export const TurnkeyWebsitesPage: React.FC = memo((): React.JSX.Element => {
         <TurnkeyWebsitesPageInfo />
         <TurnkeyWebsitesPageHowWeWorks />
         <TurnkeyWebsitesPageOurCases />
+        <TurnkeyWebsitesPageFAQ />
       </div>
     </main>
   );

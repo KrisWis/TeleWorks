@@ -16,7 +16,7 @@
     "storybook": "storybook dev -p 6006 --ci",
     "storybook:build": "storybook build",
     "test:unit": "jest --config jest.config.ts",
-    "test:ui": "npx loki test --port 6006 & npm run test:ui:report",
+    "test:ui": "npx loki test --port 6007 & npm run test:ui:report",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "storybook build && npx loki --requireReference --reactUri file:./storybook-static && npm run test:ui:report",
     "test:ui:report": "npm run test:ui:report:json && npm run test:ui:report:html",
@@ -93,7 +93,6 @@
     "storybook": "^8.2.8",
     "stylelint": "^16.6.1",
     "stylelint-config-standard-scss": "^13.1.0",
-    "ts-jest": "^29.2.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.2.2",
     "vite": "^5.3.1"

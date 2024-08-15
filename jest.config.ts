@@ -19,6 +19,8 @@ const config: Config = {
     "@/(.*)": "<rootDir>/src/$1",
     "swiper/css": "swiper/swiper.min.css",
     "\\.(css|less|scss)$": "identity-obj-proxy",
+    "^swiper/react": "<rootDir>/node_modules/swiper/swiper-react.d.ts",
+    "^swiper/modules": "<rootDir>/node_modules/swiper/types/modules/index.d.ts",
   },
   moduleFileExtensions: [
     "js",
