@@ -61,7 +61,9 @@ export const Flex = (props: FlexProps) => {
   ];
 
   return (
-    <div className={`${styles.Flex} ${max ? styles.max : ""} ${classes}`}>
+    <div
+      className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
+    >
       {children}
     </div>
   );

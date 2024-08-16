@@ -8,7 +8,7 @@ import {
 } from "../model/CatalogItem__data";
 import { Link } from "react-router-dom";
 import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
-import { memo } from "react";
+import { memo, useState } from "react";
 import {
   SelectTextStyles,
   SelectThemesEnum,
@@ -26,6 +26,7 @@ import Tag1 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag1.svg?react";
 import Tag2 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag2.svg?react";
 import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
+import { MoveToOpenCart } from "@/features/Global_features/MoveToOpenCart";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
@@ -56,6 +57,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
     CPV,
     price,
   }): React.JSX.Element => {
+    const [MoveToOpenCartIsVisible, setMoveToOpenCartIsVisible] =
+      useState<boolean>(false);
+
     return (
       <div className={styles.catalog__item}>
         <div className={styles.catalog__item__wrapperPadding}>
@@ -219,9 +223,14 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
           </Link>
 
           <div className={styles.catalog__item__footerWrapper}>
-            <Link className={styles.catalog__item__footer__item} to="/">
+            <div
+              className={styles.catalog__item__footer__item}
+              onClick={() => setMoveToOpenCartIsVisible(true)}
+            >
               <FooterCart />
-            </Link>
+            </div>
+
+            {MoveToOpenCartIsVisible && <MoveToOpenCart />}
 
             <Link className={styles.catalog__item__footer__item} to="/">
               <FooterFavourite />

@@ -240,6 +240,7 @@
 
     &__item {
       transition: var(--transition-duration) linear all;
+      cursor: pointer;
 
       * {
         transition: var(--transition-duration) linear all;
