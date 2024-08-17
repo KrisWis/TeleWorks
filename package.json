@@ -13,7 +13,7 @@
     "stylelint:fix": "npx stylelint \"**/*.scss\" --fix",
     "eslint:check": "eslint \"**/*.{ts,tsx}\"",
     "eslint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "storybook": "storybook dev -p 6006 --ci",
+    "storybook": "storybook dev -p 6007 --ci",
     "storybook:build": "storybook build",
     "test:unit": "jest --config jest.config.ts",
     "test:ui": "npx loki test --port 6007 & npm run test:ui:report",

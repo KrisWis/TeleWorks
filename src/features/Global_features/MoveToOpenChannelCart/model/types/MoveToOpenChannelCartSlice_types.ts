@@ -12,7 +12,7 @@ export interface addChannelToCartAction {
 }
 
 interface removeChannelToCartPayload {
-  id: number;
+  channelID: number;
 }
 
 export interface removeChannelToCartAction {

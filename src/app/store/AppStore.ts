@@ -16,6 +16,7 @@ export const store = configureStore<StoreSchema>({
   reducer: reducerManager.reduce as Reducer<StoreSchema>,
 });
 
+// TODO: под конец проекта пофиксить это, если до этого от улби не узнаю как это сделать
 store.reducerManager = reducerManager;
 
 export type RootState = ReturnType<typeof store.getState>;

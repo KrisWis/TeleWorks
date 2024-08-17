@@ -90,12 +90,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    pack: packExample,
-
-    ExtraServices: ExtraServicesExample,
-
-    setExtraServices: useState,
-  },
-};
+export const Primary: Story = {};

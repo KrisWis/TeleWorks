@@ -13,7 +13,7 @@ import { Button } from "@/shared/ui-kit/Button";
 import { Filter } from "@/features/Global_features/Filter";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 import { RootState, useAppDispatch } from "@/app/store/AppStore";
-import { useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 import {
   getAllChannelsInCart,
   MoveToOpenChannelCart,
@@ -28,8 +28,6 @@ export const Catalog: React.FC = memo((): React.JSX.Element => {
   // Функционал добавления предмета в корзину
   const [MoveToOpenChannelCartIsAppear, setMoveToOpenChannelCartIsAppear] =
     useState<boolean>(false);
-
-  // TODO: пофиксить то, что происходит 3 ререндера
 
   const dispatch = useAppDispatch();
   const allChannelsIdsInCartFromLS = UseMoveToOpenChannelCartLocalStorage(
@@ -53,10 +51,9 @@ export const Catalog: React.FC = memo((): React.JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // TODO: убрать потом штуку для убирания логов
   const allChannelsIDsInCart = useSelector(
     (state: RootState) => getAllChannelsInCart(state),
-    { devModeChecks: { stabilityCheck: "never" } }
+    shallowEqual
   );
 
   return (

@@ -29,7 +29,7 @@ export const MoveToOpenChannelCartSlice = createSlice({
       state: MoveToOpenChannelCartSchema,
       action: addChannelToCartAction
     ) => {
-      state.channelsIDs = [...state.channelsIDs, action.payload.channelID];
+      state.channelsIDs.push(action.payload.channelID);
 
       UseMoveToOpenChannelCartLocalStorage(
         UseLocalStorageTypes.UPDATE,
@@ -41,8 +41,9 @@ export const MoveToOpenChannelCartSlice = createSlice({
       state: MoveToOpenChannelCartSchema,
       action: removeChannelToCartAction
     ) => {
-      state.channelsIDs = state.channelsIDs.filter(
-        (channelID) => channelID !== action.payload.id
+      state.channelsIDs.splice(
+        state.channelsIDs.findIndex((item) => item == action.payload.channelID),
+        1
       );
 
       UseMoveToOpenChannelCartLocalStorage(

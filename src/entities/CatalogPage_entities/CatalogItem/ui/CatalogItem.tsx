@@ -31,11 +31,11 @@ import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { MoveToOpenChannelCartActions } from "@/features/Global_features/MoveToOpenChannelCart";
 import { RootState, useAppDispatch } from "@/app/store/AppStore";
-import { useSelector } from "react-redux";
+import { shallowEqual, useSelector } from "react-redux";
 import {
+  checkChannelInCart,
   getAllChannelsInCart,
-  getChannelInCartById,
-} from "@/features/Global_features/MoveToOpenChannelCart/model/selectors/MoveToOpenChannelCartSlice_selectors";
+} from "@/features/Global_features/MoveToOpenChannelCart/";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
@@ -56,13 +56,12 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
     const dispatch = useAppDispatch();
 
     const ChannelInCart = useSelector((state: RootState) =>
-      getChannelInCartById(state, catalogItem.id)
+      checkChannelInCart(state, catalogItem.id)
     );
 
-    // TODO: убрать потом штуку для убирания логов
     const allChannelsIDsInCart = useSelector(
       (state: RootState) => getAllChannelsInCart(state),
-      { devModeChecks: { stabilityCheck: "never" } }
+      shallowEqual
     );
 
     const removeChannelFromCartTimeoutRef = useRef<NodeJS.Timeout>();
@@ -75,7 +74,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
           removeChannelFromCartTimeoutRef.current = setTimeout(() => {
             dispatch(
               MoveToOpenChannelCartActions.removeChannelFromCart({
-                id: channel_id,
+                channelID: channel_id,
               })
             );
 
@@ -84,7 +83,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
         } else {
           dispatch(
             MoveToOpenChannelCartActions.removeChannelFromCart({
-              id: channel_id,
+              channelID: channel_id,
             })
           );
         }

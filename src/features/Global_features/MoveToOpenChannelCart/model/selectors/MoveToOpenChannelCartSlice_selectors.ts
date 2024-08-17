@@ -8,15 +8,13 @@ export const getAllChannelsInCart = (state: RootState): number[] => {
   }
 };
 
-export const getChannelInCartById = (
-  state: RootState,
-  id: number
-): number | undefined | null => {
+export const checkChannelInCart = (state: RootState, id: number): boolean => {
   if (state.MoveToOpenChannelCartReducer) {
-    return state.MoveToOpenChannelCartReducer.channelsIDs.find(
-      (channelID) => channelID == id
+    return Boolean(
+      state.MoveToOpenChannelCartReducer.channelsIDs.find(
+        (channelID) => channelID == id
+      )
     );
-  } else {
-    return null;
   }
+  return false;
 };

@@ -27,6 +27,8 @@ export function createReducerManager(
   let keysToRemove: Array<StoreSchemaKey> = [];
   const mountedReducers: MountedReducers = {};
 
+  // TODO: если под конец проекта так и не появится глобальных редюсеров, то пофиксить это и ошибку в консоли
+
   return {
     getReducerMap: () => reducers,
     getMountedReducers: () => mountedReducers,
