@@ -31,3 +31,5 @@ export const tablet_mediaQuery: MediaQueryList = window.matchMedia(
 
 export const mobile_mediaQuery: MediaQueryList =
   window.matchMedia("(max-width: 600px)");
+
+export const transitionDuration: number = 300;

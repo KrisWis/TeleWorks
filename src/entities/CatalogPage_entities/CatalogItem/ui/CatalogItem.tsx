@@ -1,4 +1,7 @@
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
+import {
+  transitionDuration,
+  URL_PART,
+} from "@/app/layouts/model/BaseLayout__data";
 import styles from "./CatalogItem.module.scss";
 import { ProgressBar } from "primereact/progressbar";
 import "./CatalogItemProgressBar.scss";
@@ -8,7 +11,7 @@ import {
 } from "../model/CatalogItem__data";
 import { Link } from "react-router-dom";
 import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
-import { memo, useState } from "react";
+import { memo, useCallback, useRef } from "react";
 import {
   SelectTextStyles,
   SelectThemesEnum,
@@ -26,7 +29,13 @@ import Tag1 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag1.svg?react";
 import Tag2 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag2.svg?react";
 import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
-import { MoveToOpenCart } from "@/features/Global_features/MoveToOpenCart";
+import { MoveToOpenChannelCartActions } from "@/features/Global_features/MoveToOpenChannelCart";
+import { RootState, useAppDispatch } from "@/app/store/AppStore";
+import { useSelector } from "react-redux";
+import {
+  getAllChannelsInCart,
+  getChannelInCartById,
+} from "@/features/Global_features/MoveToOpenChannelCart/model/selectors/MoveToOpenChannelCartSlice_selectors";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
@@ -42,58 +51,83 @@ const TextStyles: SelectTextStyles = {
 };
 
 export const CatalogItem: React.FC<CatalogItemProps> = memo(
-  ({
-    imgURL,
-    ratingNumber,
-    title,
-    desc,
-    tags,
-    stars,
-    subscribersAmount,
-    menPercent,
-    womenPercent,
-    ThousandsViews,
-    ER,
-    CPV,
-    price,
-  }): React.JSX.Element => {
-    const [MoveToOpenCartIsVisible, setMoveToOpenCartIsVisible] =
-      useState<boolean>(false);
+  ({ catalogItem, setMoveToOpenChannelCartIsAppear }): React.JSX.Element => {
+    // Функционал добавления предмета в корзину
+    const dispatch = useAppDispatch();
+
+    const ChannelInCart = useSelector((state: RootState) =>
+      getChannelInCartById(state, catalogItem.id)
+    );
+
+    // TODO: убрать потом штуку для убирания логов
+    const allChannelsIDsInCart = useSelector(
+      (state: RootState) => getAllChannelsInCart(state),
+      { devModeChecks: { stabilityCheck: "never" } }
+    );
+
+    const removeChannelFromCartTimeoutRef = useRef<NodeJS.Timeout>();
+
+    const removeChannelFromCart = useCallback(
+      (channel_id: number) => {
+        if (allChannelsIDsInCart.length == 1) {
+          setMoveToOpenChannelCartIsAppear(false);
+
+          removeChannelFromCartTimeoutRef.current = setTimeout(() => {
+            dispatch(
+              MoveToOpenChannelCartActions.removeChannelFromCart({
+                id: channel_id,
+              })
+            );
+
+            clearTimeout(removeChannelFromCartTimeoutRef.current);
+          }, transitionDuration);
+        } else {
+          dispatch(
+            MoveToOpenChannelCartActions.removeChannelFromCart({
+              id: channel_id,
+            })
+          );
+        }
+      },
+      [allChannelsIDsInCart.length, dispatch, setMoveToOpenChannelCartIsAppear]
+    );
 
     return (
       <div className={styles.catalog__item}>
         <div className={styles.catalog__item__wrapperPadding}>
           <div className={styles.catalog__item__avatar}>
-            <Avatar imgURL={imgURL} imgSize={AvatarSizes.SMALL} />
+            <Avatar imgURL={catalogItem.imgURL} imgSize={AvatarSizes.SMALL} />
 
             <div className={styles.catalog__item__usersAmount}>
               <UsersAmount />
 
               <span className={styles.catalog__item__usersAmount__text}>
-                {ratingNumber}
+                {catalogItem.ratingNumber}
               </span>
             </div>
           </div>
 
           <div className={styles.catalog__item__info}>
             <div className={styles.catalog__item__infoHeader}>
-              <h6 className={styles.catalog__item__title}>{title}</h6>
-              <p className={styles.catalog__item__desc}>{desc}</p>
+              <h6 className={styles.catalog__item__title}>
+                {catalogItem.title}
+              </h6>
+              <p className={styles.catalog__item__desc}>{catalogItem.desc}</p>
             </div>
 
             <div className={styles.catalog__item__infoFooter}>
               <div className={styles.catalog__item__tags}>
-                {tags.includes(CatalogItemTags.TAG1) && (
+                {catalogItem.tags.includes(CatalogItemTags.TAG1) && (
                   <div className={styles.catalog__item__tag}>
                     <Tag1 />
                   </div>
                 )}
-                {tags.includes(CatalogItemTags.TAG2) && (
+                {catalogItem.tags.includes(CatalogItemTags.TAG2) && (
                   <div className={styles.catalog__item__tag}>
                     <Tag2 />
                   </div>
                 )}
-                {tags.includes(CatalogItemTags.TAG3) && (
+                {catalogItem.tags.includes(CatalogItemTags.TAG3) && (
                   <div className={styles.catalog__item__tag}>
                     <Tag3 />
                   </div>
@@ -108,7 +142,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
                 />
 
                 <span className={styles.catalog__item__stars__text}>
-                  {stars}
+                  {catalogItem.stars}
                 </span>
               </div>
             </div>
@@ -122,34 +156,34 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
             </span>
 
             <span className={styles.catalog__item__category__amount}>
-              {subscribersAmount}
+              {catalogItem.subscribersAmount}
             </span>
 
             <div className={styles.catalog__item__subscribers__genders}>
               <div
                 className={styles.catalog__item__subscribers__gender}
-                style={{ width: `${menPercent}%` }}
+                style={{ width: `${catalogItem.menPercent}%` }}
               >
                 <SubscribersMen />
 
                 <ProgressBar
                   aria-labelledby={`Соотношение мужчин в канале`}
                   className={`${styles.catalog__item__subscribers__gender__progressbar} ${styles.catalog__item__subscribers__gender__progressbar__men}`}
-                  value={menPercent}
+                  value={catalogItem.menPercent}
                   showValue={false}
                 />
               </div>
 
               <div
                 className={`${styles.catalog__item__subscribers__gender} ${styles.catalog__item__subscribers__gender__women}`}
-                style={{ width: `${womenPercent}%` }}
+                style={{ width: `${catalogItem.womenPercent}%` }}
               >
                 <SubscribersWomen />
 
                 <ProgressBar
                   aria-labelledby={`Соотношение женщин в канале`}
                   className={`${styles.catalog__item__subscribers__gender__progressbar} ${styles.catalog__item__subscribers__gender__progressbar__women}`}
-                  value={womenPercent}
+                  value={catalogItem.womenPercent}
                   showValue={false}
                 />
               </div>
@@ -167,7 +201,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               <span
                 className={`${styles.catalog__item__category__amount} ${styles.catalog__item__views__amount}`}
               >
-                {ThousandsViews}K
+                {catalogItem.ThousandsViews}K
               </span>
             </div>
 
@@ -179,7 +213,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               <span
                 className={`${styles.catalog__item__category__amount} ${styles.catalog__item__views__amount}`}
               >
-                {ER}%
+                {catalogItem.ER}%
               </span>
             </div>
           </div>
@@ -192,7 +226,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
             <span
               className={`${styles.catalog__item__category__amount} ${styles.catalog__item__views__amount}`}
             >
-              {CPV}₽
+              {catalogItem.CPV}₽
             </span>
           </div>
 
@@ -213,11 +247,15 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               theme={SelectThemesEnum.BLACK}
             />
 
-            <span className={styles.catalog__item__price}>{price}₽</span>
+            <span className={styles.catalog__item__price}>
+              {catalogItem.price}₽
+            </span>
           </div>
         </div>
 
-        <div className={styles.catalog__item__footer}>
+        <div
+          className={`${styles.catalog__item__footer} ${ChannelInCart ? styles.catalog__item__footer__inCart : ""}`}
+        >
           <Link className={styles.catalog__item__footer__item} to="/">
             <FooterBurgerMenu />
           </Link>
@@ -225,12 +263,18 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
           <div className={styles.catalog__item__footerWrapper}>
             <div
               className={styles.catalog__item__footer__item}
-              onClick={() => setMoveToOpenCartIsVisible(true)}
+              onClick={() =>
+                ChannelInCart
+                  ? removeChannelFromCart(catalogItem.id)
+                  : dispatch(
+                      MoveToOpenChannelCartActions.addChannelToCart({
+                        channelID: catalogItem.id,
+                      })
+                    )
+              }
             >
               <FooterCart />
             </div>
-
-            {MoveToOpenCartIsVisible && <MoveToOpenCart />}
 
             <Link className={styles.catalog__item__footer__item} to="/">
               <FooterFavourite />

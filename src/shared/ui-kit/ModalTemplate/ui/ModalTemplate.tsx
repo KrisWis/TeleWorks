@@ -3,6 +3,7 @@ import styles from "./ModalTemplate.module.scss";
 import { memo, MouseEventHandler, useCallback, useEffect, useRef } from "react";
 import Close from "@/shared/assets/icons/Shared/ModalTemplate/close.svg?react";
 import Back from "@/shared/assets/icons/Shared/ModalTemplate/back.svg?react";
+import { transitionDuration } from "@/app/layouts/model/BaseLayout__data";
 
 export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
   ({
@@ -19,7 +20,7 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
 
       ModalOnOpenTimeOutRef.current = setTimeout(() => {
         setModalOpen(false);
-      }, 300);
+      }, transitionDuration);
     }, [CustomSetModalAppear, setModalOpen]);
 
     useEffect(() => {

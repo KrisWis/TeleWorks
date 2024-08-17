@@ -26,6 +26,7 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
   const dispatch = useDispatch();
   const mountedReducers = store.reducerManager.getMountedReducers();
 
+  // TODO: убрать логи, когда будет закончена разработка
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
       const mounted = mountedReducers[name as StoreSchemaKey];

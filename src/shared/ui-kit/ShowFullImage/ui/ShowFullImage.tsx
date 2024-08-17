@@ -11,6 +11,7 @@ import PrevArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/PrevArrowSV
 import { Modal } from "@/shared/ui-kit/Modal";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { transitionDuration } from "@/app/layouts/model/BaseLayout__data";
 
 export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
   ({ className, imgURLs, ActiveSlideIndex, type }): React.JSX.Element => {
@@ -27,7 +28,7 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
 
       ShowFullImageOnCloseTimeOutRef.current = setTimeout(() => {
         setModalIsOpen(false);
-      }, 300);
+      }, transitionDuration);
     }, []);
 
     useEffect(() => {

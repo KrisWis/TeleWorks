@@ -2,6 +2,7 @@ import styles from "./OrderSuccessfullyPaid.module.scss";
 import { memo, useEffect, useRef, useState } from "react";
 import OrderSuccessfullyPaidSVG from "@/shared/assets/icons/Shared/OrderSuccessfullyPaid/OrderSuccessfullyPaidSVG.svg?react";
 import CloseSVG from "@/shared/assets/icons/Shared/OrderSuccessfullyPaid/CloseSVG.svg?react";
+import { transitionDuration } from "@/app/layouts/model/BaseLayout__data";
 
 export const OrderSuccessfullyPaid: React.FC = memo((): React.JSX.Element => {
   const [IsClose, setIsClose] = useState<boolean>(false);
@@ -14,7 +15,7 @@ export const OrderSuccessfullyPaid: React.FC = memo((): React.JSX.Element => {
     if (IsClose) {
       timeOutRef.current = setTimeout(() => {
         setIsVisible(false);
-      }, 300);
+      }, transitionDuration);
     }
 
     return () => {

@@ -11,6 +11,7 @@ import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecove
 import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 import { HeaderServicesDropdown } from "./HeaderServicesDropdown";
 import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
+import { transitionDuration } from "@/app/layouts/model/BaseLayout__data";
 
 export const Header: React.FC = (): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
@@ -40,7 +41,7 @@ export const Header: React.FC = (): React.JSX.Element => {
       setPasswordRecoveryIsOpen(false);
 
       setLoginIsOpen(true);
-    }, 300);
+    }, transitionDuration);
   }, []);
 
   // Очищение таймаута

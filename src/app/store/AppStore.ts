@@ -3,9 +3,11 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { createReducerManager, ReducerManager } from "./AppReducerManager";
 import { RootReducer } from "./AppReducer";
 import { CheckoutOrderSchema } from "@/features/ProjectInfo_features/CheckoutOrder";
+import { MoveToOpenChannelCartSchema } from "@/features/Global_features/MoveToOpenChannelCart";
 
 export interface StoreSchema {
   checkoutOrderReducer?: CheckoutOrderSchema;
+  MoveToOpenChannelCartReducer?: MoveToOpenChannelCartSchema;
 }
 
 const reducerManager = createReducerManager(RootReducer);
@@ -14,7 +16,6 @@ export const store = configureStore<StoreSchema>({
   reducer: reducerManager.reduce as Reducer<StoreSchema>,
 });
 
-// @ts-expect-error Неправильный тип редюсер менеджера
 store.reducerManager = reducerManager;
 
 export type RootState = ReturnType<typeof store.getState>;

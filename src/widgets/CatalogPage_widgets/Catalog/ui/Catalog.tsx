@@ -9,13 +9,56 @@ import {
   catalog__filters,
   catalog__items,
 } from "../model/Catalog__data";
-import { CatalogItemProps } from "@/entities/CatalogPage_entities/CatalogItem/model/CatalogItem__types";
 import { Button } from "@/shared/ui-kit/Button";
-import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 import { Filter } from "@/features/Global_features/Filter";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
+import { RootState, useAppDispatch } from "@/app/store/AppStore";
+import { useSelector } from "react-redux";
+import {
+  getAllChannelsInCart,
+  MoveToOpenChannelCart,
+  MoveToOpenChannelCartActions,
+  UseMoveToOpenChannelCartLocalStorage,
+} from "@/features/Global_features/MoveToOpenChannelCart";
+import { memo, useEffect, useRef, useState } from "react";
+import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 
-export const Catalog: React.FC = (): React.JSX.Element => {
+export const Catalog: React.FC = memo((): React.JSX.Element => {
+  // Функционал добавления предмета в корзину
+  const [MoveToOpenChannelCartIsAppear, setMoveToOpenChannelCartIsAppear] =
+    useState<boolean>(false);
+
+  // TODO: пофиксить то, что происходит 3 ререндера
+
+  const dispatch = useAppDispatch();
+  const allChannelsIdsInCartFromLS = UseMoveToOpenChannelCartLocalStorage(
+    UseLocalStorageTypes.GET
+  );
+
+  const allChannelsIdsInCartFromLSTimeoutRef = useRef<NodeJS.Timeout>();
+
+  useEffect(() => {
+    if (allChannelsIdsInCartFromLS && allChannelsIdsInCartFromLS.length) {
+      allChannelsIdsInCartFromLSTimeoutRef.current = setTimeout(() => {
+        dispatch(
+          MoveToOpenChannelCartActions.setChannelsForCart({
+            channelsIDs: allChannelsIdsInCartFromLS,
+          })
+        );
+
+        clearTimeout(allChannelsIdsInCartFromLSTimeoutRef.current);
+      }, 0);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // TODO: убрать потом штуку для убирания логов
+  const allChannelsIDsInCart = useSelector(
+    (state: RootState) => getAllChannelsInCart(state),
+    { devModeChecks: { stabilityCheck: "never" } }
+  );
+
   return (
     <section className={styles.catalog} data-testid="catalog">
       <h1 className="Page__caption">Каталог Telegram-каналов</h1>
@@ -36,13 +79,26 @@ export const Catalog: React.FC = (): React.JSX.Element => {
         <Filter bonusFilters={catalog__filters} />
 
         <div className={styles.catalog__items}>
-          {catalog__items.map((item: CatalogItemProps) => (
-            <CatalogItem key={item.id} {...item} />
+          {catalog__items.map((item) => (
+            <CatalogItem
+              setMoveToOpenChannelCartIsAppear={
+                setMoveToOpenChannelCartIsAppear
+              }
+              key={item.id}
+              catalogItem={item}
+            />
           ))}
         </div>
       </div>
 
       <LoadMore type={ButtonTypes.CYAN} className={styles.catalog__loadMore} />
+
+      {allChannelsIDsInCart.length > 0 && (
+        <MoveToOpenChannelCart
+          MoveToOpenChannelCartIsAppear={MoveToOpenChannelCartIsAppear}
+          setMoveToOpenChannelCartIsAppear={setMoveToOpenChannelCartIsAppear}
+        />
+      )}
     </section>
   );
-};
+});
