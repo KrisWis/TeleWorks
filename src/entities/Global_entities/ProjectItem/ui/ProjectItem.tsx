@@ -5,7 +5,6 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "./ProjectItem_swiper.scss";
-import { Routes } from "@/app/routes/Routes";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import SliderArrowNext from "@/shared/assets/icons/ProjectPage/ProjectItem/SliderArrowNext.svg?react";
@@ -13,6 +12,7 @@ import Favourite from "@/shared/assets/icons/ProjectPage/ProjectItem/Favourite.s
 import Separator from "@/shared/assets/icons/ProjectPage/ProjectItem/Separator.svg?react";
 import SliderArrowPrev from "@/shared/assets/icons/ProjectPage/ProjectItem/SliderArrowPrev.svg?react";
 import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
+import { AppRoutes } from "@/app/routes/AppRoutes";
 
 export const ProjectItem: React.FC<ProjectItemProps> = memo(
   ({ servicesItem, viewType }): React.JSX.Element => {
@@ -20,7 +20,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
 
     const FavouriteRef = useRef<HTMLDivElement>(null);
 
-    const RedirectOnClickTo: string = Routes.PROJECT;
+    const RedirectOnClickTo: string = AppRoutes.PROJECT;
 
     const RedirectToProjectPage = (
       e: React.MouseEvent<HTMLDivElement, MouseEvent>

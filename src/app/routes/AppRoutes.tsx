@@ -9,12 +9,13 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
+import { TelegramChannelStatsPage } from "@/pages/TelegramChannelStatsPage";
 import { TurnkeyWebsitesPage } from "@/pages/TurnkeyWebsitesPage";
 import { UserEditPage } from "@/pages/UserEditPage";
 import { UserPage } from "@/pages/UserPage/";
 import { ReactElement } from "react";
 
-export enum Routes {
+export enum AppRoutes {
   MAIN = "/",
 
   PROFILE = "/profile",
@@ -41,26 +42,29 @@ export enum Routes {
 
   TURNKEY_WEBSITES = "/turnkey-websites",
 
+  TELEGRAM_CHANNEL_STATS = "/channel/stats",
+
   NOT_FOUND = "*",
 }
 
 type routesList = {
-  [route in Routes]: ReactElement;
+  [route in AppRoutes]: ReactElement;
 };
 
 export const routes: routesList = {
-  [Routes.MAIN]: <MainPage />,
-  [Routes.PROFILE]: <ProfilePage />,
-  [Routes.MYPROJECTS]: <MyProjectsPage />,
-  [Routes.CATALOG]: <CatalogPage />,
-  [Routes.INTERNAL]: <InternalPage />,
-  [Routes.SERVICES]: <SpecialistServicesPage />,
-  [Routes.PROJECT]: <ProjectPage />,
-  [Routes.USER]: <UserPage />,
-  [Routes.USER_EDIT]: <UserEditPage />,
-  [Routes.CREATE_CARD]: <CreateCardPage />,
-  [Routes.CREATE_ORDER]: <CreateOrderPage />,
-  [Routes.FAQ]: <FAQPage />,
-  [Routes.TURNKEY_WEBSITES]: <TurnkeyWebsitesPage />,
-  [Routes.NOT_FOUND]: <NotFoundPage />,
+  [AppRoutes.MAIN]: <MainPage />,
+  [AppRoutes.PROFILE]: <ProfilePage />,
+  [AppRoutes.MYPROJECTS]: <MyProjectsPage />,
+  [AppRoutes.CATALOG]: <CatalogPage />,
+  [AppRoutes.INTERNAL]: <InternalPage />,
+  [AppRoutes.SERVICES]: <SpecialistServicesPage />,
+  [AppRoutes.PROJECT]: <ProjectPage />,
+  [AppRoutes.USER]: <UserPage />,
+  [AppRoutes.USER_EDIT]: <UserEditPage />,
+  [AppRoutes.CREATE_CARD]: <CreateCardPage />,
+  [AppRoutes.CREATE_ORDER]: <CreateOrderPage />,
+  [AppRoutes.FAQ]: <FAQPage />,
+  [AppRoutes.TURNKEY_WEBSITES]: <TurnkeyWebsitesPage />,
+  [AppRoutes.TELEGRAM_CHANNEL_STATS]: <TelegramChannelStatsPage />,
+  [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };

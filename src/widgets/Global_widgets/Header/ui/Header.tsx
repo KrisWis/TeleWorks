@@ -12,8 +12,9 @@ import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 import { HeaderServicesDropdown } from "./HeaderServicesDropdown";
 import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
 import { transitionDuration } from "@/app/layouts/model/BaseLayout__data";
+import { HeaderProps } from "../model/Header_props";
 
-export const Header: React.FC = (): React.JSX.Element => {
+export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
   const [headerSwitcherChoice, setHeaderSwitcherChoice] =
     useState<string>("Исполнитель");
@@ -58,8 +59,10 @@ export const Header: React.FC = (): React.JSX.Element => {
   // Открытия дропдауна "Меню"
   const [DropdownMenuIsOpen, setDropdownMenuIsOpen] = useState<boolean>(false);
 
+  // TODO: сделать хедер для статы, убрать заглушку
   return (
     <header className={styles.header}>
+      {view && "стата"}
       <div className={styles.header__wrapper}>
         <h1 className={styles.header__caption} data-testid="headerCaption">
           Tele<span className={styles.header__caption__span}>Works</span>
