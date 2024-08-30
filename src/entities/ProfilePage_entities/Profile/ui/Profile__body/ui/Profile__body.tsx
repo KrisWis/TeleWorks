@@ -1,17 +1,16 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__body.module.scss";
 import { memo } from "react";
-import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
+import { AvatarSizes } from "@/shared/ui-kit/Avatar";
+import { ProfileAvatar } from "@/shared/ui-kit/ProfileAvatar";
 
 export const Profile__body: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__body}>
-      <div className={styles.profile__body__avatar}>
-        <Avatar
-          imgURL={`${URL_PART}/ProfilePage/images/other/default-user.png`}
-          imgSize={AvatarSizes.BIG}
-        />
-      </div>
+      <ProfileAvatar
+        src={`${URL_PART}/ProfilePage/images/other/default-user.png`}
+        size={AvatarSizes.BIG}
+      />
 
       <h2 className={styles.profile__body__avatar__caption}>Квартира мечты!</h2>
       <span className={styles.profile__body__avatar__category}>

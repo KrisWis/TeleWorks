@@ -1,21 +1,17 @@
 import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__header.module.scss";
 import { memo } from "react";
-import ProfileChannelRating from "@/shared/assets/icons/ProfilePage/Profile/ProfileChannelRating.svg?react";
 import ProfileHeaderIconCircle1 from "@/shared/assets/icons/ProfilePage/Profile/ProfileHeaderIconCircle1.svg?react";
 import ProfileHeaderIconCircle2 from "@/shared/assets/icons/ProfilePage/Profile/ProfileHeaderIconCircle2.svg?react";
 import ProfileHeaderIconCircle3 from "@/shared/assets/icons/ProfilePage/Profile/ProfileHeaderIconCircle3.svg?react";
 import ProfileHeaderStat from "@/shared/assets/icons/ProfilePage/Profile/ProfileHeaderStat.svg?react";
+import { ProfileChannelRating } from "@/shared/ui-kit/ProfileChannelRating";
 
 export const Profile__header: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__header}>
       <div className={styles.profile__header__left}>
-        <div className={styles.profile__channel_rating}>
-          <ProfileChannelRating />
-
-          <span className={styles.profile__channel_rating__text}>509.2</span>
-        </div>
+        <ProfileChannelRating backgroundIsVisible={true} />
 
         <div className={styles.profile__header__icons}>
           <div className={styles.profile__header__icon__circle}>

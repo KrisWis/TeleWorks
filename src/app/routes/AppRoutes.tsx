@@ -18,7 +18,7 @@ import { ReactElement } from "react";
 export enum AppRoutes {
   MAIN = "/",
 
-  PROFILE = "/profile",
+  CHANNEL_PROFILE = "/channel",
 
   MYPROJECTS = "/myProjects",
 
@@ -53,7 +53,7 @@ type routesList = {
 
 export const routes: routesList = {
   [AppRoutes.MAIN]: <MainPage />,
-  [AppRoutes.PROFILE]: <ProfilePage />,
+  [AppRoutes.CHANNEL_PROFILE]: <ProfilePage />,
   [AppRoutes.MYPROJECTS]: <MyProjectsPage />,
   [AppRoutes.CATALOG]: <CatalogPage />,
   [AppRoutes.INTERNAL]: <InternalPage />,

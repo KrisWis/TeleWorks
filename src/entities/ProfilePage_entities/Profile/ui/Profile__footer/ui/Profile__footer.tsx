@@ -1,41 +1,18 @@
-import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 import styles from "./Profile__footer.module.scss";
 import { memo } from "react";
+import { GeoLanguageBlock } from "@/shared/ui-kit/GeoLanguageBlock";
+import { GeoLanguageTypes } from "@/shared/ui-kit/GeoLanguageBlock/model/GeoLanguageBlock_types";
+import { AgeBlock } from "@/shared/ui-kit/AgeBlock";
+import { PostsBlock } from "@/shared/ui-kit/PostsBlock";
 
 export const Profile__footer: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__footer}>
-      <div className={styles.profile__footer__item}>
-        <img
-          className={styles.profile__footer__item__img}
-          src={`${URL_PART}/ProfilePage/icons/profile__footer/geo.png`}
-          alt="Иконка гео"
-        />
-        <h3 className={styles.profile__footer__item__caption}>Гео / Язык</h3>
-        <span className={styles.profile__footer__item__desc}>
-          Россия / Русский
-        </span>
-      </div>
+      <GeoLanguageBlock geoLanguage={GeoLanguageTypes.RUSSIAN} />
 
-      <div className={styles.profile__footer__item}>
-        <img
-          className={styles.profile__footer__item__img}
-          src={`${URL_PART}/ProfilePage/icons/profile__footer/age.png`}
-          alt="Иконка гео"
-        />
-        <h3 className={styles.profile__footer__item__caption}>Возраст</h3>
-        <span className={styles.profile__footer__item__desc}>1 год.</span>
-      </div>
+      <AgeBlock age={"1 год."} />
 
-      <div className={styles.profile__footer__item}>
-        <img
-          className={styles.profile__footer__item__img}
-          src={`${URL_PART}/ProfilePage/icons/profile__footer/posts.png`}
-          alt="Иконка гео"
-        />
-        <h3 className={styles.profile__footer__item__caption}>Постов</h3>
-        <span className={styles.profile__footer__item__desc}>1 573</span>
-      </div>
+      <PostsBlock postsAmount={1573} />
     </div>
   );
 });

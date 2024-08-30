@@ -5,7 +5,8 @@ import { Similar_channels__itemProps } from "../model/Similar_channels__item__ty
 import SimilarChannelsItemRating from "@/shared/assets/icons/ProfilePage/SimilarChannelsItem/SimilarChannelsItemRating.svg?react";
 import SimilarChannelsItemStars from "@/shared/assets/icons/ProfilePage/SimilarChannelsItem/SimilarChannelsItemStars.svg?react";
 import SimilarChannelsItemToCart from "@/shared/assets/icons/ProfilePage/SimilarChannelsItem/SimilarChannelsItemToCart.svg?react";
-import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
+import { AvatarSizes } from "@/shared/ui-kit/Avatar";
+import { ProfileAvatar } from "@/shared/ui-kit/ProfileAvatar";
 
 export const Similar_channels__item: React.FC<Similar_channels__itemProps> =
   memo(
@@ -41,9 +42,8 @@ export const Similar_channels__item: React.FC<Similar_channels__itemProps> =
           </div>
 
           <div className={styles.Similar_channels__item__body}>
-            <div className={styles.Similar_channels__item__avatar}>
-              <Avatar imgURL={imgURL} imgSize={AvatarSizes.MEDIUM} />
-            </div>
+            <ProfileAvatar src={imgURL} size={AvatarSizes.MEDIUM} />
+
             <h2 className={styles.Similar_channels__item__caption}>{title}</h2>
             <span className={styles.Similar_channels__item__category}>
               {desc}
