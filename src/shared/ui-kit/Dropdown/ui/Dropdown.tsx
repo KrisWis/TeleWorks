@@ -3,6 +3,8 @@ import { memo } from "react";
 import { DropdownProps } from "../model/Dropdown_types";
 import SelectDropdownIndicatorRedSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorRedSVG.svg?react";
 
+// TODO: Сделать доступность для дропдауна, мб юзнуть headless ui.
+
 export const Dropdown: React.FC<DropdownProps> = memo(
   ({
     DropdownIsOpen,

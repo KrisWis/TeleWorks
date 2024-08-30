@@ -12,7 +12,9 @@ import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 import { HeaderServicesDropdown } from "./HeaderServicesDropdown";
 import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
 import { transitionDuration } from "@/app/layouts/model/BaseLayout__data";
-import { HeaderProps } from "../model/Header_props";
+import { HeaderProps, HeaderViews } from "../model/Header_props";
+import { Flex } from "@/shared/ui-kit/Stack";
+import { Input } from "@/shared/ui-kit/Input";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
@@ -59,14 +61,27 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Открытия дропдауна "Меню"
   const [DropdownMenuIsOpen, setDropdownMenuIsOpen] = useState<boolean>(false);
 
-  // TODO: сделать хедер для статы, убрать заглушку
+  // Стейт для инпута "Поиск канала"
+  const [ChannelSearchInputValue, setChannelSearchInputValue] =
+    useState<string>("");
+
   return (
     <header className={styles.header}>
-      {view && "стата"}
       <div className={styles.header__wrapper}>
         <h1 className={styles.header__caption} data-testid="headerCaption">
           Tele<span className={styles.header__caption__span}>Works</span>
         </h1>
+
+        {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+          <Flex
+            className={`${styles.header__stats} Page__SirineWrapper`}
+            direction={"row"}
+            justify="center"
+            align="center"
+          >
+            Статистика
+          </Flex>
+        )}
 
         <HeaderServicesDropdown
           DropdownIsOpen={DropdownServicesIsOpen}
@@ -74,55 +89,82 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
         ></HeaderServicesDropdown>
       </div>
       <div className={styles.header__items}>
-        <div className={styles.header__item__switcherWrapper}>
-          <div className={styles.header__item__switcher}>
-            <span
-              data-testid="switcher__customer"
-              data-disabled={headerSwitcherChoice == "Заказчик"}
-              className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" ? styles.header__item__title__active : ""}`}
-            >
-              Заказчик
-            </span>
-          </div>
+        {!view && (
+          <div className={styles.header__item__switcherWrapper}>
+            <div className={styles.header__item__switcher}>
+              <span
+                data-testid="switcher__customer"
+                data-disabled={headerSwitcherChoice == "Заказчик"}
+                className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" ? styles.header__item__title__active : ""}`}
+              >
+                Заказчик
+              </span>
+            </div>
 
-          <Switch
-            onClick={() =>
-              headerSwitcherChoice == "Исполнитель"
-                ? setHeaderSwitcherChoice("Заказчик")
-                : setHeaderSwitcherChoice("Исполнитель")
-            }
-            data-testid="headerSwitcher"
-            className="header__item__switcherComponent"
-            {...{
-              inputProps: { "aria-label": 'Свитчер "Заказчик/Исполнитель"' },
-            }}
-            defaultChecked
+            <Switch
+              onClick={() =>
+                headerSwitcherChoice == "Исполнитель"
+                  ? setHeaderSwitcherChoice("Заказчик")
+                  : setHeaderSwitcherChoice("Исполнитель")
+              }
+              data-testid="headerSwitcher"
+              className="header__item__switcherComponent"
+              {...{
+                inputProps: { "aria-label": 'Свитчер "Заказчик/Исполнитель"' },
+              }}
+              defaultChecked
+            />
+
+            <div className={styles.header__item__switcher}>
+              <span
+                data-disabled={headerSwitcherChoice == "Исполнитель"}
+                data-testid="switcher__performer"
+                className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" ? styles.header__item__title__active : ""}`}
+              >
+                Исполнитель
+              </span>
+            </div>
+          </div>
+        )}
+
+        {!view && (
+          <Button
+            type={ButtonTypes.RED}
+            className={styles.header__item__balance}
+          >
+            <span className={styles.header__item__balance__amount}>
+              0
+              <span className={styles.header__item__balance__amount__pennies}>
+                .00
+              </span>
+              ₽
+            </span>
+
+            <span className={styles.header__item__balance__increase}>
+              Пополнить
+            </span>
+          </Button>
+        )}
+
+        {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+          <div className={styles.header__channelSearchInputWrapper}>
+            <Input
+              className={styles.header__channelSearchInput}
+              type={"text"}
+              placeholder="Поиск канала..."
+              value={ChannelSearchInputValue}
+              onChange={(e) => setChannelSearchInputValue(e.target.value)}
+            />
+          </div>
+        )}
+
+        {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+          <Button
+            className={styles.header__toMarketplace}
+            text="На биржу"
+            type={ButtonTypes.BLUE}
           />
-
-          <div className={styles.header__item__switcher}>
-            <span
-              data-disabled={headerSwitcherChoice == "Исполнитель"}
-              data-testid="switcher__performer"
-              className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" ? styles.header__item__title__active : ""}`}
-            >
-              Исполнитель
-            </span>
-          </div>
-        </div>
-
-        <Button type={ButtonTypes.RED} className={styles.header__item__balance}>
-          <span className={styles.header__item__balance__amount}>
-            0
-            <span className={styles.header__item__balance__amount__pennies}>
-              .00
-            </span>
-            ₽
-          </span>
-
-          <span className={styles.header__item__balance__increase}>
-            Пополнить
-          </span>
-        </Button>
+        )}
 
         <div onClick={() => setRegIsOpen(true)}>
           <LoginSVG className={styles.header__item__login} />
