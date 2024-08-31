@@ -1,0 +1,144 @@
+.orderPreview {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 3px solid var(--secondary-color);
+
+    &Wrapper {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__finalPrice {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--main-color);
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    position: relative;
+    bottom: 8px;
+    padding: 0 20px;
+  }
+
+  &__project {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    height: fit-content;
+    padding-bottom: 0;
+
+    &__img {
+      height: 100%;
+      border-radius: 5px;
+      width: 32%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+    }
+
+    &__multiplier {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+      opacity: 0.4;
+    }
+
+    &__price {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--main-color);
+    }
+  }
+
+  &__wrapper {
+    padding-top: 5px;
+    border-bottom: 1px solid var(--secondary-color);
+
+    &_padding {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 20px;
+      gap: 10px;
+    }
+  }
+
+  &__extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &Wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    &__title {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+      opacity: 0.4;
+
+      &Wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      &__block {
+        background: var(--main-color);
+        border: 1px solid var(--main-color);
+        border-radius: 5px;
+        width: 25px;
+        height: 25px;
+      }
+    }
+
+    &__price {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--main-color);
+    }
+  }
+}

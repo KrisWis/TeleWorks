@@ -1,0 +1,9 @@
+<div style="position: relative; display: flex; height: fit-content;">
+    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="25" cy="25" r="22.9054" stroke="#FF5555" stroke-width="4.18919" />
+    </svg>
+
+    <svg style="position: absolute; min-width: 28px; min-height: 22px; top: 30px; left: -3px;" width="28" height="22" viewBox="0 0 28 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24.5784 0.647452L10.0596 16.6624L3.4216 9.3404C2.63879 8.4771 1.3698 8.4771 0.58699 9.3404C-0.195663 10.2039 -0.195663 11.6036 0.58699 12.4671L8.64233 21.3525C9.03374 21.784 9.54669 22 10.0596 22C10.5726 22 11.0855 21.784 11.4769 21.3525L27.413 3.77432C28.1957 2.91085 28.1957 1.5111 27.413 0.647629C26.6302 -0.215847 25.3611 -0.215847 24.5784 0.647452Z" fill="#FF5555" />
+    </svg>
+</div>

@@ -1,0 +1,9 @@
+<div style="position: relative; display: flex;">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8 15C11.866 15 15 11.866 15 8C15 6.72502 14.6591 5.52963 14.0635 4.5M1 8C1 4.13404 4.13404 1 8 1C9.27498 1 10.4704 1.3409 11.5 1.93646" stroke="black" stroke-width="1.33" stroke-linecap="round" />
+  </svg>
+
+  <svg style="position: absolute; bottom: 0px; left: 0px" width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.42969 1.56523L1.12969 7.86523M1.12969 7.86523H4.87035M1.12969 7.86523V4.12461" stroke="black" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</div>

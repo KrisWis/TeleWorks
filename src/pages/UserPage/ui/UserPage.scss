@@ -1,0 +1,29 @@
+.UserPage {
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+
+    * {
+      font-family: var(--third-family);
+    }
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    white-space: nowrap;
+  }
+
+  &__subcaption {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+  }
+}

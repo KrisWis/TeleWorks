@@ -1,0 +1,28 @@
+.myProjects {
+  display: flex;
+  flex-direction: column;
+  margin-top: 70px;
+
+  &__categories {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  &__category {
+    width: 208px;
+    height: 68px;
+  }
+
+  &__body {
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  &__interface {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+  }
+}

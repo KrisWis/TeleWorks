@@ -1,0 +1,41 @@
+.mainSection_item {
+  display: flex;
+  flex-direction: column;
+  height: 189px;
+  border-radius: 6px 0 6px 6px;
+  width: 280px;
+  padding: 20px;
+  gap: 10px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+  }
+
+  &__span {
+    position: relative;
+
+    &::after {
+      content: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23FF5555' /%3E%3C/svg%3E");
+      display: block;
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__desc {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    width: 81%;
+  }
+}

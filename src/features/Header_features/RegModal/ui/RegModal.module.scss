@@ -1,0 +1,119 @@
+.RegModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 25px;
+
+  &__img {
+    width: 303px;
+    height: 230px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &__inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 3px;
+
+    &__span {
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  &__loginButton {
+    height: 89px;
+    width: 100%;
+    font-size: 24px;
+    line-height: 150%;
+
+    &Telegram {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &::after {
+        content: url("@/shared/assets/icons/Header/AuthModal/LoginTelegramSVG.svg");
+        display: block;
+        position: relative;
+        top: 8px;
+      }
+    }
+  }
+
+  &__login {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    align-self: center;
+    margin-top: 10px;
+
+    &__span {
+      color: var(--main-color);
+      cursor: pointer;
+    }
+  }
+
+  &__checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  &__checkbox {
+    display: flex;
+    gap: 15px;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+  }
+
+  &__agree {
+    margin-top: 10px;
+  }
+}

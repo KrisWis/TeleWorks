@@ -1,0 +1,1 @@
+export * from './ui/FAQ_accordion';

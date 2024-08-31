@@ -1,0 +1,217 @@
+.TurnkeyWebsitesPageHowWeWorks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+  height: 100%;
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 40%;
+    margin-top: 30px;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__blocks {
+    width: 45%;
+    position: relative;
+    min-height: 100%;
+    display: flex;
+  }
+
+  &__block {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 326px;
+
+    &YourProject {
+      top: 140px;
+      align-self: center;
+
+      &__header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid var(--secondary-color);
+
+        &__caption {
+          padding: 10px 20px;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #000;
+          height: fit-content;
+        }
+      }
+
+      &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        padding-top: 15px;
+      }
+
+      &__item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        &__block {
+          background: var(--main-color);
+          border-radius: 5px;
+          width: 17px;
+          height: 15px;
+        }
+
+        &__title {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #000;
+        }
+      }
+    }
+
+    &NewRequests {
+      top: 0;
+      right: 14%;
+      padding: 20px;
+      padding-bottom: 10px;
+
+      &__header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__caption {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #000;
+        }
+      }
+
+      &__amount {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+        color: var(--main-color);
+      }
+
+      &__graphic {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: 50px;
+
+        &__img {
+          width: 100%;
+          object-fit: cover;
+          object-position: center center;
+          height: 100%;
+        }
+
+        &__border {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+
+        &__dashed {
+          width: 100%;
+          border-bottom: 1px dashed rgba(88, 88, 90, 0.11);
+          position: absolute;
+
+          &:nth-of-type(1) {
+            top: 0;
+          }
+
+          &:nth-of-type(2) {
+            top: 30%;
+          }
+
+          &:nth-of-type(3) {
+            top: 70%;
+          }
+
+          &:nth-of-type(4) {
+            top: 100%;
+          }
+        }
+      }
+
+      &__items {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        gap: 10px;
+        width: 100%;
+      }
+
+      &__item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__date {
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #000;
+          opacity: 0.4;
+        }
+
+        &__wrapper {
+          display: flex;
+          width: 37%;
+          gap: 40px;
+          align-items: center;
+        }
+
+        &__price {
+          font-weight: 600;
+          font-size: 10px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #000;
+          opacity: 0.4;
+        }
+
+        &__percents {
+          font-weight: 600;
+          font-size: 10px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          color: #34e018;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.authorCard {
+  border: 1px solid var(--secondary-color);
+  border-radius: 15px;
+  background: linear-gradient(
+    271deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 100%;
+  padding-bottom: 10px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__author {
+    display: flex;
+    gap: 10px;
+
+    &__img {
+      border-radius: 100%;
+      width: 55px;
+      height: 55px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__name {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+    }
+
+    &__status {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+      position: relative;
+      bottom: 7px;
+
+      &__span {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        letter-spacing: -0.01em;
+        color: var(--black-color);
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &__CustomItemBadge {
+    font-size: 12px;
+    line-height: 150%;
+    width: 137px;
+    height: 23px;
+  }
+
+  &__individualOffer {
+    font-size: 16px;
+    line-height: 150%;
+    height: 55px;
+    margin-top: 5px;
+  }
+}

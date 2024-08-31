@@ -1,0 +1,38 @@
+.supportService {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 25%;
+
+  &__caption {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  &__support {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    margin-top: 35px;
+
+    &__img {
+      width: 75px;
+      height: 75px;
+    }
+
+    &__button {
+      width: 280px;
+      height: 68px;
+    }
+  }
+}

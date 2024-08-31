@@ -1,0 +1,222 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 370px;
+  position: fixed;
+  background-color: var(--white-color);
+  width: 100vw;
+  z-index: var(--z-index-header);
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+
+  @media (max-width: 1900px) {
+    padding: 0 300px;
+  }
+
+  @media (max-width: 1750px) {
+    padding: 0 150px;
+  }
+
+  @media (max-width: 1450px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 0 20px;
+  }
+
+  &__menu__dropdown {
+    gap: 10px;
+    height: 275px;
+    top: 40px;
+    padding: 15px;
+    left: -50px;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    gap: 20px;
+  }
+
+  &__caption {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+
+    &__span {
+      color: var(--main-color);
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    width: 55%;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  &__item {
+    margin-right: 30px;
+
+    &__balance {
+      height: 58px;
+      width: 35%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &__amount {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+
+        &__pennies {
+          opacity: 0.4;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: -0.01em;
+          margin-right: 3px;
+        }
+      }
+
+      &__increase {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+      }
+    }
+
+    &__switcher {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 10px;
+      margin-left: 10px;
+
+      &Wrapper {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &__title {
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+      transition: var(--transition-duration) linear all;
+
+      &__active {
+        color: var(--main-color);
+      }
+    }
+
+    &__link {
+      cursor: pointer;
+      transition: 0.2s linear all;
+      margin-right: 70px;
+      margin-left: 30px;
+
+      &:hover {
+        color: var(--main-color);
+      }
+    }
+
+    &__login {
+      cursor: pointer;
+
+      path {
+        transition: var(--transition-duration) linear fill;
+      }
+
+      &:hover {
+        path {
+          fill: var(--main-color);
+        }
+      }
+    }
+
+    &__reg {
+      cursor: pointer;
+      transition: var(--transition-duration) linear color;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+      font-family: var(--second-family);
+
+      &:hover {
+        color: var(--main-color);
+      }
+    }
+  }
+
+  &__modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__recovery {
+      width: calc(100vw - 50vw) !important;
+    }
+  }
+
+  &__stats {
+    height: 28px;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+  }
+
+  &__channelSearchInput {
+    border: 1px solid #4266c6 !important;
+    height: 55px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100% !important;
+
+    &Wrapper {
+      position: relative;
+      width: 35%;
+
+      &::after {
+        content: url("@/shared/assets/icons/Header/ChannelSearch/ChannelSearchSVG.svg");
+        display: block;
+        position: absolute;
+        top: 35%;
+        right: 15px;
+      }
+    }
+
+    &::placeholder {
+      opacity: 0.4;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+  }
+
+  &__toMarketplace {
+    height: 57px;
+    width: 25%;
+    font-size: 24px;
+  }
+}

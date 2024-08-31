@@ -1,0 +1,61 @@
+                <svg
+                  width="33"
+                  height="33"
+                  viewBox="0 0 33 33"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_d_280_460)">
+                    <circle
+                      cx="16.5"
+                      cy="12.5"
+                      r="12.5"
+                      transform="rotate(-180 16.5 12.5)"
+                      fill="white"
+                    />
+                  </g>
+                  <path
+                    opacity="0.8"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M19.7634 6.22922C20.0789 6.53484 20.0789 7.03037 19.7634 7.336L14.95 12L19.7634 16.6641C20.0789 16.9697 20.0789 17.4651 19.7634 17.7708C19.448 18.0764 18.9366 18.0764 18.6212 17.7708L13.2366 12.5534C12.9211 12.2477 12.9211 11.7523 13.2366 11.4467L18.6212 6.22922C18.9366 5.92359 19.448 5.92359 19.7634 6.22922Z"
+                    fill="#040404"
+                  />
+                  <defs>
+                    <filter
+                      id="filter0_d_280_460"
+                      x="0"
+                      y="0"
+                      width="33"
+                      height="33"
+                      filterUnits="userSpaceOnUse"
+                      colorInterpolationFilters="sRGB"
+                    >
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feColorMatrix
+                        in="SourceAlpha"
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                        result="hardAlpha"
+                      />
+                      <feOffset dy="4" />
+                      <feGaussianBlur stdDeviation="2" />
+                      <feComposite in2="hardAlpha" operator="out" />
+                      <feColorMatrix
+                        type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in2="BackgroundImageFix"
+                        result="effect1_dropShadow_280_460"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_dropShadow_280_460"
+                        result="shape"
+                      />
+                    </filter>
+                  </defs>
+                </svg>

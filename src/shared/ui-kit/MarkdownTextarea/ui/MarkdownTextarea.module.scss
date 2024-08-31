@@ -1,0 +1,30 @@
+.markdownTextarea {
+  border: 1px solid var(--secondary-color);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  min-height: 330px;
+  transition: var(--transition-duration) linear all;
+
+  &Wrapper {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+  }
+
+  &__textarea {
+    height: fit-content;
+    width: 100%;
+    border-radius: 0 0 25px 25px;
+
+    &__warn {
+      border: 1px solid var(--main-color);
+    }
+  }
+
+  &__symbols {
+    margin-top: 5px;
+    align-self: flex-end;
+    margin-right: 20px;
+  }
+}

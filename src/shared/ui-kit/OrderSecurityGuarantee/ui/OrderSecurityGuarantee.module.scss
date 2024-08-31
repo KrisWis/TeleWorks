@@ -1,0 +1,34 @@
+.orderSecurityGuarantee {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  &__header {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__svg {
+    position: relative;
+    bottom: 15px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    opacity: 0.4;
+    position: relative;
+    bottom: 5px;
+  }
+}

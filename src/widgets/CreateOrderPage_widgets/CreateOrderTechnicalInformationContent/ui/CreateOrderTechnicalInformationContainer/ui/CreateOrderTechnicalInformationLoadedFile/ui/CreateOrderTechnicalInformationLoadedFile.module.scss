@@ -1,0 +1,92 @@
+.CreateOrderTechnicalInformationLoadedFile {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px;
+  width: 100%;
+  height: fit-content;
+  border-top: 1px solid var(--secondary-color);
+
+  &__info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+
+    &Wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__img {
+    height: 99px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 15px;
+    min-width: 25%;
+    max-width: 25%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__video {
+    height: 99px;
+    min-width: 25%;
+    max-width: 25%;
+  }
+
+  &__iconFile {
+    height: 65px;
+    width: 65px;
+  }
+
+  &__size {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    opacity: 0.4;
+  }
+
+  &__caption {
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    max-width: 450px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    width: 10%;
+    gap: 10px;
+  }
+
+  &__change,
+  &__delete {
+    cursor: pointer;
+    transition: var(--transition-duration) linear all;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &Wrapper {
+      position: relative;
+
+      &__input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+
+        &::-webkit-file-upload-button {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

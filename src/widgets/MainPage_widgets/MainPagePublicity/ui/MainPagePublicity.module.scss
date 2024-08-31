@@ -1,0 +1,37 @@
+.MainPagePublicity {
+  display: flex;
+  height: 478px;
+  width: 100%;
+  padding: 30px 80px;
+  margin-top: 50px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__subcaption {
+    width: 85%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &__text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+      width: 85%;
+    }
+  }
+
+  &__img {
+    width: 350px;
+    height: 350px;
+  }
+}

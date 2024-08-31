@@ -1,0 +1,20 @@
+.CheckBoxBlock {
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  min-width: 25px;
+  min-height: 25px;
+  max-width: 25px;
+  max-height: 25px;
+  background-color: var(--white-color);
+  transition: var(--transition-duration) linear all;
+  box-shadow: 0 0 15px transparent;
+  cursor: pointer;
+
+  &__active {
+    background-color: var(--main-color);
+  }
+
+  &__warn {
+    box-shadow: 0 0 15px var(--main-color);
+  }
+}
