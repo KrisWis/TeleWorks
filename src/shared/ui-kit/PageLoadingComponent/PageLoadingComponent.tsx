@@ -188,7 +188,11 @@ export const PageLoadingComponent: React.FC<PageLoadingComponentProps> = ({
   size = "default",
 }) => {
   return (
-    <LoadContainer style={style} speed={speed} size={size}>
+    <LoadContainer
+      style={{ zIndex: "var(--z-index-zero)", ...style }}
+      speed={speed}
+      size={size}
+    >
       {Array.from(Array(5)).map((_, index) => (
         <HalfCircle color={color} speed={speed} size={size} key={index} />
       ))}

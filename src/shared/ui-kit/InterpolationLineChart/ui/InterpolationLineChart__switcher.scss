@@ -1,0 +1,53 @@
+.InterpolationLineChart__switcherComponent
+  .css-1uf4bbi.Mui-checked
+  + .MuiSwitch-track {
+  background-color: var(--main-color) !important;
+}
+
+.InterpolationLineChart__switcherComponent .css-jsexje-MuiSwitch-thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.InterpolationLineChart__switcherComponent
+  .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked
+  + .MuiSwitch-track {
+  background-color: #f1f1f1;
+  width: 38px;
+  height: 20px;
+  opacity: 1;
+}
+
+.css-julti5-MuiSwitch-root.InterpolationLineChart__switcherComponent {
+  height: 20px;
+  padding: 0;
+  border: 1px solid #4266c6;
+  border-radius: 100px;
+  width: 38px;
+}
+
+.InterpolationLineChart__switcherComponent
+  .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase {
+  color: #dce3e9;
+  position: relative;
+  bottom: 3px;
+  transition: var(--transition-duration) linear all;
+  padding: 3px;
+}
+
+.InterpolationLineChart__switcherComponent .css-1yjjitx-MuiSwitch-track {
+  background-color: #f1f1f1;
+  width: 38px;
+  height: 20px;
+  opacity: 1;
+}
+
+.css-1uf4bbi.Mui-checked {
+  color: var(--main-color) !important;
+}
+
+.InterpolationLineChart__switcherComponent
+  .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+  color: var(--main-color);
+  padding: 0;
+}

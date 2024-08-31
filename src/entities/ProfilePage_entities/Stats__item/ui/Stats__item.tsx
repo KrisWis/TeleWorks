@@ -1,6 +1,8 @@
 import { memo } from "react";
 import { Stats__item__props } from "../model/Stats__item__types";
 import styles from "./Stats__item.module.scss";
+import { Flex } from "@/shared/ui-kit/Stack";
+import { InterpolationLineChartSecondary } from "@/shared/ui-kit/InterpolationLineChartSecondary";
 
 export const Stats__item: React.FC<Stats__item__props> = memo(
   ({
@@ -10,18 +12,24 @@ export const Stats__item: React.FC<Stats__item__props> = memo(
     stats,
     caption,
     graphic_imgURL,
+    graphicChart,
   }): React.JSX.Element => {
     return (
       <div className={styles.stats__item}>
-        <div className={styles.stats__item__stats}>
+        <Flex align="start" justify="between">
           <span className={styles.stats__item__stats__caption}>{amount}</span>
 
+          <h4 className={styles.stats__item__stats__graphics__caption}>
+            {caption}
+          </h4>
+        </Flex>
+
+        <div className={styles.stats__item__stats__graphics}>
           <div className={styles.stats__item__stats__dates}>
-            <div className={styles.stats__item__stats__amounts}>
-              {amounts__subscribers
-                ? amounts__subscribers.map((amount__subscribers, index) => (
+            {amounts__subscribers
+              ? amounts__subscribers.map((amount__subscribers, index) => (
+                  <div key={index} className={styles.stats__item__stats__date}>
                     <span
-                      key={index}
                       className={`${styles.stats__item__stats__amount__subscribers} ${
                         amount__subscribers.prefix == "+"
                           ? styles.stats__item__stats__amount__subscribers__grow
@@ -31,48 +39,55 @@ export const Stats__item: React.FC<Stats__item__props> = memo(
                       {amount__subscribers.prefix +
                         String(amount__subscribers.number)}
                     </span>
-                  ))
-                : amounts?.map((amount, index) => (
-                    <span
-                      key={index}
-                      className={styles.stats__item__stats__amount}
-                    >
+
+                    <span className={styles.stats__item__stats__date_text}>
+                      {stats[index].stat}
+
+                      {stats[index].postfix && (
+                        <span
+                          className={
+                            styles.stats__item__stats__date_text__postfix
+                          }
+                        >
+                          {stats[index].postfix}
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                ))
+              : amounts?.map((amount, index) => (
+                  <div key={index} className={styles.stats__item__stats__date}>
+                    <span className={styles.stats__item__stats__amount}>
                       {amount}
                     </span>
-                  ))}
-            </div>
 
-            <div className={styles.stats__item__stats__dates_text}>
-              {stats.map((stat, index) => (
-                <span
-                  key={index}
-                  className={styles.stats__item__stats__date_text}
-                >
-                  {stat.stat}
+                    <span className={styles.stats__item__stats__date_text}>
+                      {stats[index].stat}
 
-                  {stat.postfix && (
-                    <span
-                      className={styles.stats__item__stats__date_text__postfix}
-                    >
-                      {stat.postfix}
+                      {stats[index].postfix && (
+                        <span
+                          className={
+                            styles.stats__item__stats__date_text__postfix
+                          }
+                        >
+                          {stats[index].postfix}
+                        </span>
+                      )}
                     </span>
-                  )}
-                </span>
-              ))}
-            </div>
+                  </div>
+                ))}
           </div>
-        </div>
 
-        <div className={styles.stats__item__stats__graphics}>
-          <h4 className={styles.stats__item__stats__graphics__caption}>
-            {caption}
-          </h4>
-
-          <img
-            className={styles.stats__item__stats__graphics__img}
-            src={graphic_imgURL}
-            alt="Изображение графика"
-          />
+          {graphic_imgURL ? (
+            <img src={graphic_imgURL} alt="Изображение графика" />
+          ) : (
+            graphicChart && (
+              <InterpolationLineChartSecondary
+                className={styles.stats__item__stats__chart}
+                chartDataSets={graphicChart}
+              />
+            )
+          )}
         </div>
       </div>
     );
