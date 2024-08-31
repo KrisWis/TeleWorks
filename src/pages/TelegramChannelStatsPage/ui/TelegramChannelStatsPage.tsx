@@ -11,7 +11,9 @@ export const TelegramChannelStatsPage: React.FC = memo(
 
     return (
       <main className="Page TelegramChannelStatsPage__main">
-        <div className="padding"></div>
+        <div className="padding">
+          <></>
+        </div>
       </main>
     );
   }
