@@ -58,6 +58,7 @@ export const Flex = (props: FlexProps) => {
     direction = "row",
     gap,
     max,
+    onClick,
   } = props;
 
   const classes = [
@@ -71,6 +72,7 @@ export const Flex = (props: FlexProps) => {
   return (
     <div
       className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
+      onClick={onClick}
     >
       {children}
     </div>
