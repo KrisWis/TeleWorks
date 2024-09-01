@@ -1,7 +1,13 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import styles from "./Flex.module.scss";
 
-export type FlexJustify = "start" | "center" | "end" | "between";
+export type FlexJustify =
+  | "start"
+  | "center"
+  | "end"
+  | "between"
+  | "evenly"
+  | "around";
 export type FlexAlign = "start" | "center" | "end";
 export type FlexDirection = "row" | "column";
 export type FlexGap = "3" | "5" | "10" | "15" | "20" | "30" | "50";
@@ -11,6 +17,8 @@ const justifyClasses: Record<FlexJustify, string> = {
   center: styles.justifyCenter,
   end: styles.justifyEnd,
   between: styles.justifyBetween,
+  evenly: styles.justifyEvenly,
+  around: styles.justifyAround,
 };
 
 const alignClasses: Record<FlexAlign, string> = {
@@ -54,7 +62,7 @@ export const Flex = (props: FlexProps) => {
     className,
     children,
     justify = "start",
-    align = "center",
+    align = "start",
     direction = "row",
     gap,
     max,

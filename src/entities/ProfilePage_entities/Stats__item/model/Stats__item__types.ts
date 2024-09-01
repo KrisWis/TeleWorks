@@ -10,6 +10,11 @@ interface Stats__item__props__Stat {
   postfix?: string;
 }
 
+export enum Stats__item__types {
+  MEDIUM = "medium",
+  SMALL = "small",
+}
+
 export interface Stats__item__props {
   amount: string;
   stats: readonly Stats__item__props__Stat[];
@@ -18,4 +23,5 @@ export interface Stats__item__props {
   amounts?: readonly string[];
   amounts__subscribers?: readonly Stats__item__props__subscribersAmount[];
   graphicChart?: InterpolationLineChartDataSet[];
+  type?: Stats__item__types;
 }

@@ -1,0 +1,73 @@
+.MenAndWomenPercentsProgressBarBlock {
+  padding: 15px;
+  width: 100%;
+
+  &__title {
+    font-weight: 500;
+    font-size: 12px;
+    color: #000;
+    opacity: 0.4;
+    align-self: flex-end;
+    text-transform: uppercase;
+  }
+
+  &__percents {
+    width: 100%;
+  }
+
+  &__percent {
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+
+    &Title {
+      font-weight: 500;
+      font-size: 20px;
+      color: #000;
+      opacity: 0.4;
+      position: relative;
+      bottom: 8px;
+    }
+  }
+
+  &__genders {
+    display: flex;
+    width: 100%;
+    position: relative;
+    bottom: 25px;
+    padding: 0 30px;
+  }
+
+  &__gender {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__women {
+      svg {
+        align-self: flex-end;
+      }
+    }
+
+    &__progressbar {
+      height: 6px;
+      display: flex;
+      flex-direction: row-reverse;
+
+      &__men {
+        background-color: var(--inverted-color);
+      }
+
+      &__women {
+        background-color: var(--main-color);
+      }
+    }
+  }
+}

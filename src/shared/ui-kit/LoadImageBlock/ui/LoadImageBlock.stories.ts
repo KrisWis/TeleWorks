@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LoadImageBlock } from "./LoadImageBlock";
 import { LoadImageBlockSizes } from "../model/LoadImageBlock_types";
 import { useState } from "react";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 
 const meta = {
   title: "Shared/LoadImageBlock",
@@ -19,7 +20,7 @@ export const BIG: Story = {
     size: LoadImageBlockSizes.BIG,
     title: "Загрузить изображение",
     requirements: true,
-    LoadedImage: `/global/images/serviceExample_img_big.png`,
+    LoadedImage: `${URL_PART}/global/images/serviceExample_img_big.png`,
     setLoadedImage: useState,
     LoadedImageErrors: [],
     setLoadedImageErrors: useState,
@@ -31,7 +32,7 @@ export const SMALL: Story = {
     size: LoadImageBlockSizes.SMALL,
     title: "Загрузить изображение",
     requirements: true,
-    LoadedImage: `/global/images/serviceExample_img_big.png`,
+    LoadedImage: `${URL_PART}/global/images/serviceExample_img_big.png`,
     setLoadedImage: useState,
     LoadedImageErrors: [],
     setLoadedImageErrors: useState,

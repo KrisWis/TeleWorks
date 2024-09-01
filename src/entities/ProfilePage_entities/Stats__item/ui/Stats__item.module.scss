@@ -5,12 +5,13 @@
   padding-right: 0;
   flex-direction: column;
   min-height: 280px;
-  border: 1px solid var(--secondary-color);
-  border-radius: 15px;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-  background: #fafafa;
   padding-bottom: 0;
   overflow: hidden;
+
+  &__small {
+    padding: 15px 20px;
+    min-height: 250px;
+  }
 
   &__stats {
     display: flex;
@@ -18,16 +19,38 @@
 
     &__chart {
       height: 196px !important;
-      position: relative;
       top: 12px;
+      position: relative;
+
+      &__small {
+        height: 150px !important;
+        top: 26px;
+        left: -40px;
+      }
+
+      &Img {
+        position: relative;
+        top: 20px;
+        right: 0;
+
+        &__small {
+          height: 165px;
+          object-fit: cover;
+        }
+      }
     }
 
     &__caption {
       margin-bottom: 35px;
+      color: var(--black-color);
       font-weight: 600;
       font-size: 46px;
       letter-spacing: -0.04em;
-      color: var(--black-color);
+
+      &__small {
+        font-family: var(--third-family);
+        font-size: 32px;
+      }
     }
 
     &__dates {
@@ -44,6 +67,12 @@
       font-size: 22px;
       letter-spacing: -0.04em;
       color: var(--black-color);
+      width: 70px;
+
+      &__small {
+        font-size: 15px;
+        width: 50px;
+      }
     }
 
     &__amount__subscribers {
@@ -51,6 +80,12 @@
       font-size: 22px;
       letter-spacing: -0.04em;
       white-space: nowrap;
+      width: 70px;
+
+      &__small {
+        font-size: 15px;
+        width: 50px;
+      }
 
       &__grow {
         color: #35ec17;
@@ -64,7 +99,6 @@
     &__date {
       align-items: center;
       display: flex;
-      gap: 25px;
 
       &_text {
         font-weight: 400;
@@ -74,6 +108,10 @@
         opacity: 0.4;
         white-space: nowrap;
         position: relative;
+
+        &__small {
+          font-size: 15px;
+        }
 
         &__postfix {
           position: absolute;
@@ -88,12 +126,17 @@
       justify-content: space-between;
 
       &__caption {
-        font-weight: 400;
-        font-size: 19px;
-        letter-spacing: -0.04em;
+        font-weight: 500;
         color: var(--black-color);
         opacity: 0.4;
-        padding-right: 30px;
+        font-size: 19px;
+        letter-spacing: -0.04em;
+        padding-right: 10px;
+
+        &__small {
+          font-size: 12px;
+          padding-right: 0;
+        }
       }
     }
   }

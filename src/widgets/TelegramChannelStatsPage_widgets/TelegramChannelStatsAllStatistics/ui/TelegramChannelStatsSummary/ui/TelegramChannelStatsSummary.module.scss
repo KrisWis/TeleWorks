@@ -1,3 +1,16 @@
 .TelegramChannelStatsSummary {
+  padding: 20px;
+  width: 100%;
+  padding-right: 45px;
 
+  &__graphics {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    width: 100%;
+    gap: 20px;
+  }
+
+  &__wenAndWomenProgressbar {
+    grid-column: 1/3;
+  }
 }

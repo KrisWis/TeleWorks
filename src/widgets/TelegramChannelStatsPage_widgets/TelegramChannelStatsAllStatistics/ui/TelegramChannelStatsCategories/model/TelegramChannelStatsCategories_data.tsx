@@ -8,6 +8,7 @@ import ViewsAnalyzeSVG from "@/shared/assets/icons/TelegramChannelStatsPage/Prof
 import SubscribersAttractionSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/SubscribersAttractionSVG.svg?react";
 import ADSEffectivitySVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/ADSEffectivitySVG.svg?react";
 import { TelegramChannelStatsSummary } from "../../TelegramChannelStatsSummary";
+import { TelegramChannelStatsSubscribersAttraction } from "../../TelegramChannelStatsSubscribersAttraction";
 
 export const telegramChannelStatsCategories: TelegramChannelStatsCategory[] = [
   {
@@ -19,6 +20,7 @@ export const telegramChannelStatsCategories: TelegramChannelStatsCategory[] = [
   {
     icon: <SubscribersAttractionSVG />,
     title: TelegramChannelStatsCategories.SUBSCRIBERS_ATTRACTION,
+    block: <TelegramChannelStatsSubscribersAttraction />,
   },
 
   {
