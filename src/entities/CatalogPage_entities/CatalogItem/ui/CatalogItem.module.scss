@@ -141,7 +141,7 @@
         flex-direction: row-reverse;
 
         &__men {
-          background-color: var(--inverted-color);
+          background-color: var(--violet-color);
         }
 
         &__women {
@@ -231,7 +231,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--inverted-color);
+    background-color: var(--violet-color);
     border-radius: 15px;
     width: 7%;
     height: 100%;
@@ -260,7 +260,7 @@
       .catalog__item__footer__item {
         &:hover {
           * {
-            fill: var(--inverted-color);
+            fill: var(--violet-color);
           }
         }
       }

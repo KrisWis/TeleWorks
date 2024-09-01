@@ -1,10 +1,11 @@
+import { telegramChannelsCategories } from "@/app/layouts/model/BaseLayout__types";
 import { GeoLanguageTypes } from "@/shared/ui-kit/GeoLanguageBlock/model/GeoLanguageBlock_types";
 
 export interface TelegramChannelStatsProps {
   rating: number;
   imgURL: string;
   title: string;
-  category: string;
+  category: telegramChannelsCategories;
   favouritesAmount: number;
   desc: string;
   geoLanguage: GeoLanguageTypes;

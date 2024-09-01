@@ -3,7 +3,11 @@ import { memo } from "react";
 import { IncreaseScaleHoverProps } from "../model/IncreaseScaleHover_types";
 
 export const IncreaseScaleHover: React.FC<IncreaseScaleHoverProps> = memo(
-  ({ children }): React.JSX.Element => {
-    return <div className={styles.IncreaseScaleHover}>{children}</div>;
+  ({ children, className }): React.JSX.Element => {
+    return (
+      <div className={`${styles.IncreaseScaleHover} ${className}`}>
+        {children}
+      </div>
+    );
   }
 );

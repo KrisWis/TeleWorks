@@ -10,7 +10,7 @@ import "./InterpolationLineChart__switcher.scss";
 Chart.register(LineController, LineElement);
 
 export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
-  memo(({ charts }): React.JSX.Element => {
+  memo(({ charts, className }): React.JSX.Element => {
     // Переключение свитчеров
     const [
       InterpolationLineChartSwitcherChoiceIndex,
@@ -68,6 +68,17 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
           });
 
           setGradientIsAdded(true);
+
+          // Добавление фантомного значения для нужной стилизации
+          for (const chartCategory in charts) {
+            for (const chart of charts[chartCategory]) {
+              chart.dataSets.push({
+                id: chart.dataSets[chart.dataSets.length - 1].id + 1,
+                label: "",
+                value: chart.dataSets[chart.dataSets.length - 1].value,
+              });
+            }
+          }
         }
       }
     }, [
@@ -80,6 +91,7 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
       gradientIsAdded,
     ]);
 
+    // Обновление данных по нажатию на категорию
     useEffect(() => {
       setChartData({
         labels: charts[chartsKeys[InterpolationLineChartSwitcherChoiceIndex]][
@@ -92,13 +104,13 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
             ].dataSets.map((data) => data.value),
             tension: 0.5,
             backgroundColor: chartGradient.current,
-            borderColor: "var(--inverted-color)",
+            borderColor: "#4266c6",
             pointBorderColor: "transparent",
             pointBackgroundColor: "rgba(0, 0, 0, 0)",
             pointBorderWidth: 1,
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "var(--white-color)",
-            pointHoverBorderColor: "var(--inverted-color)",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#4266c6",
             pointRadius: 15,
             fill: true,
           },
@@ -108,7 +120,7 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
     }, [InterpolationLineChartSwitcherChoiceIndex, chartCategoryIndex, charts]);
 
     return (
-      <div className={styles.InterpolationLineChart}>
+      <div className={`${styles.InterpolationLineChart} ${className}`}>
         <Flex direction="row" justify="between" align="center">
           <Flex direction="row" gap="5" align="center">
             {charts[chartsKeys[InterpolationLineChartSwitcherChoiceIndex]].map(

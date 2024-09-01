@@ -35,21 +35,21 @@
 
   &__blue {
     color: var(--white-color);
-    background: var(--inverted-color);
+    background: var(--violet-color);
 
     &:hover:not(.catalog__category__canSelected) {
       background: var(--white-color);
-      color: var(--inverted-color);
-      border: 1px solid var(--inverted-color);
-      box-shadow: 0 0 15px var(--inverted-color);
+      color: var(--violet-color);
+      border: 1px solid var(--violet-color);
+      box-shadow: 0 0 15px var(--violet-color);
     }
   }
 
   &__blue.catalog__category__selected {
     background: var(--white-color);
-    color: var(--inverted-color);
-    border: 1px solid var(--inverted-color);
-    box-shadow: 0 0 15px var(--inverted-color);
+    color: var(--violet-color);
+    border: 1px solid var(--violet-color);
+    box-shadow: 0 0 15px var(--violet-color);
   }
 
   &__white {

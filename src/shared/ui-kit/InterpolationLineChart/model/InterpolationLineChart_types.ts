@@ -15,4 +15,5 @@ export type InterpolationLineChartType = {
 
 export interface InterpolationLineChartProps {
   charts: InterpolationLineChartType;
+  className?: string;
 }

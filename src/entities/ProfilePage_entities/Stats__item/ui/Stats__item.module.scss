@@ -88,11 +88,11 @@
       }
 
       &__grow {
-        color: #35ec17;
+        color: var(--inverted-color);
       }
 
       &__shrink {
-        color: #ff505e;
+        color: var(--main-color);
       }
     }
 

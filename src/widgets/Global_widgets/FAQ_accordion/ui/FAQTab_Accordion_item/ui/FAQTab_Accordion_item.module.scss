@@ -5,7 +5,7 @@
   transition: all 0.25s cubic-bezier(0, 0, 0, 1);
 
   &__active {
-    border: 1px solid var(--inverted-color);
+    border: 1px solid var(--violet-color);
   }
 
   &__btn {
@@ -31,7 +31,7 @@
     border-top: 1px solid transparent;
 
     &__active {
-      border-top: 1px solid var(--inverted-color);
+      border-top: 1px solid var(--violet-color);
     }
   }
 
