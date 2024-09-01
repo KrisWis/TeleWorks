@@ -24,4 +24,9 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
   }
+
+  &__svg {
+    position: relative;
+    bottom: 3px;
+  }
 }

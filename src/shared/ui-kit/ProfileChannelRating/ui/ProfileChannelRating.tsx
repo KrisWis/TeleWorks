@@ -4,14 +4,16 @@ import { ProfileChannelRatingProps } from "../model/ProfileChannelRating_types";
 import ProfileChannelRatingSVG from "@/shared/assets/icons/ProfilePage/Profile/ProfileChannelRating.svg?react";
 
 export const ProfileChannelRating: React.FC<ProfileChannelRatingProps> = memo(
-  ({ backgroundIsVisible }): React.JSX.Element => {
+  ({ backgroundIsVisible, rating }): React.JSX.Element => {
     return (
       <div
         className={`${styles.ProfileChannelRating} ${backgroundIsVisible ? styles.ProfileChannelRating__background : ""}`}
       >
-        <ProfileChannelRatingSVG />
+        <ProfileChannelRatingSVG className={styles.ProfileChannelRating__svg} />
 
-        <span className={styles.ProfileChannelRating__text}>509.2</span>
+        <span className={styles.ProfileChannelRating__text}>
+          {rating.toFixed(1)}
+        </span>
       </div>
     );
   }

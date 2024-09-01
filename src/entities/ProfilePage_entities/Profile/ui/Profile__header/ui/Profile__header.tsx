@@ -11,7 +11,7 @@ export const Profile__header: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.profile__header}>
       <div className={styles.profile__header__left}>
-        <ProfileChannelRating backgroundIsVisible={true} />
+        <ProfileChannelRating rating={509.2} backgroundIsVisible={true} />
 
         <div className={styles.profile__header__icons}>
           <div className={styles.profile__header__icon__circle}>

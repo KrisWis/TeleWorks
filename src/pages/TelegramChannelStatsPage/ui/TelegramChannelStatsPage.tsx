@@ -1,7 +1,9 @@
 import "./TelegramChannelStatsPage.scss";
 import "@/shared/main.scss";
+import { TelegramChannelStats } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStats";
 import { useEffect } from "react";
 import { memo } from "react";
+import { telegramChannelStatsData } from "../model/TelegramChannelStatsPage_data";
 
 export const TelegramChannelStatsPage: React.FC = memo(
   (): React.JSX.Element => {
@@ -11,7 +13,9 @@ export const TelegramChannelStatsPage: React.FC = memo(
 
     return (
       <main className="Page TelegramChannelStatsPage__main">
-        <div className="padding"></div>
+        <div className="padding">
+          <TelegramChannelStats {...telegramChannelStatsData} />
+        </div>
       </main>
     );
   }

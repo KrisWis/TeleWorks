@@ -1,0 +1,8 @@
+.IncreaseScaleHover {
+  transition: var(--transition-duration) linear all;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
