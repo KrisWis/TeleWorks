@@ -12,7 +12,7 @@ export const TelegramChannelStatsAllStatistics: React.FC = memo(
         telegramChannelStatsCategories[0].title
       );
 
-    // TODO: сделать из категорий отдельный компонент, сделать контекст, каждый блок будет отдельным компонентом
+    // TODO: сделать из категорий отдельный компонент, сделать общий контекст, каждый блок будет отдельным компонентом
 
     return (
       <Flex
