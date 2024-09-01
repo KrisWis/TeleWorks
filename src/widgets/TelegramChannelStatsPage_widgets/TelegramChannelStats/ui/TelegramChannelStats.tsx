@@ -14,10 +14,17 @@ import { GeoLanguageBlock } from "@/shared/ui-kit/GeoLanguageBlock";
 import { GeoLanguageTypes } from "@/shared/ui-kit/GeoLanguageBlock/model/GeoLanguageBlock_types";
 import { AgeBlock } from "@/shared/ui-kit/AgeBlock";
 import { PostsBlock } from "@/shared/ui-kit/PostsBlock";
+import { Dropdown } from "@/shared/ui-kit/Dropdown";
+import AcceptSVG from "@/shared/assets/icons/Global/AcceptSVG.svg?react";
+import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";
+import { Link } from "react-router-dom";
 
 export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
   ({ favouritesAmount, imgURL, title, category, desc }): React.JSX.Element => {
+    // Нажатие на кнопку фаворита и открытие дропдауна
     const [isFavourite, setIsFavourite] = useState<boolean>(false);
+
+    const [dropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false);
 
     return (
       <Flex
@@ -43,11 +50,40 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
             </span>
           </Flex>
 
-          <IncreaseScaleHover>
-            <ProfileChannelMoreSVG
-              className={styles.TelegramChannelStats__more}
-            />
-          </IncreaseScaleHover>
+          <Dropdown
+            DropdownIsOpen={dropdownIsOpen}
+            setDropdownIsOpen={setDropdownIsOpen}
+            withArrow={false}
+            trigger={
+              <IncreaseScaleHover>
+                <ProfileChannelMoreSVG />
+              </IncreaseScaleHover>
+            }
+            className={styles.TelegramChannelStats__more}
+          >
+            <Flex gap="5" align="center">
+              <AcceptSVG className={styles.TelegramChannelStats__more__icon} />
+              <span className={styles.TelegramChannelStats__more__text}>
+                Это ваш канал?
+              </span>
+              <Link
+                className={`${styles.TelegramChannelStats__more__text} ${styles.TelegramChannelStats__more__link}`}
+                to="/"
+              >
+                Подтвердить
+              </Link>
+            </Flex>
+
+            <Flex gap="5" align="center">
+              <HistorySVG className={styles.TelegramChannelStats__more__icon} />
+              <Link
+                to="/"
+                className={`${styles.TelegramChannelStats__more__text} ${styles.TelegramChannelStats__more__link}`}
+              >
+                История канала
+              </Link>
+            </Flex>
+          </Dropdown>
         </Flex>
 
         <Flex className={styles.TelegramChannelStats__info} gap="30">
@@ -59,9 +95,9 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
             <ProfileChannelRating rating={509.2} backgroundIsVisible={false} />
           </Flex>
 
-          <Flex direction="column">
+          <Flex align="start" direction="column">
             <Flex gap="50">
-              <Flex direction="column">
+              <Flex align="start" direction="column">
                 <h6 className={styles.TelegramChannelStats__title}>{title}</h6>
                 <span className={styles.TelegramChannelStats__category}>
                   {category}
