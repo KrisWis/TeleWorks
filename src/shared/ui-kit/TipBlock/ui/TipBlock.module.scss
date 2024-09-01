@@ -6,7 +6,7 @@
     rgba(59, 130, 246, 0.1) 0%,
     rgba(59, 130, 246, 0) 100%
   );
-  border: 1px solid #4266c6;
+  border: 1px solid var(--inverted-color);
   border-radius: 15px;
 
   &__icon {
@@ -29,6 +29,6 @@
     font-size: 17px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 }

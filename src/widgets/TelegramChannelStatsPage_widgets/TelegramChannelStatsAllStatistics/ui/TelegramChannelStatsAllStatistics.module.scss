@@ -2,46 +2,9 @@
   width: 100%;
   margin-top: 30px;
 
-  &__categories {
-    width: 30%;
-    height: 100%;
-    border-right: 3px solid #eaf2ff;
-    padding: 20px 0;
-  }
-
-  &__category {
-    cursor: pointer;
-    width: 100%;
-    height: 55px;
-    border-bottom: 1px solid #eaf2ff;
-    padding-left: 20px;
-
-    &__text {
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-      color: #000;
-      opacity: 0.4;
-      transition: var(--transition-duration) linear opacity;
-    }
-
-    &__icon {
-      opacity: 0.4;
-      transition: var(--transition-duration) linear opacity;
-
-      svg {
-        min-width: 20px;
-        min-height: 20px;
-        max-width: 20px;
-        max-height: 20px;
-      }
-    }
-
-    &__active {
-      .TelegramChannelStatsAllStatistics__category__icon,
-      .TelegramChannelStatsAllStatistics__category__text {
-        opacity: 1;
-      }
-    }
+  &__data {
+    padding: 20px 30px;
+    width: 70%;
+    background-color: var(--white-color);
   }
 }

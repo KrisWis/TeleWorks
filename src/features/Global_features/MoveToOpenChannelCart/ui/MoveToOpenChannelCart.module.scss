@@ -26,7 +26,7 @@
     font-size: 20px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__value {
@@ -34,7 +34,7 @@
     font-size: 20px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     position: relative;
     bottom: 5px;
   }
@@ -44,7 +44,7 @@
     font-size: 24px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     margin-top: 15px;
     align-self: center;
   }

@@ -1,7 +1,7 @@
 .InterpolationLineChart {
   height: 100%;
   width: 100%;
-  border: 1.04px solid #eaf2ff;
+  border: 1.04px solid var(--secondary-color);
   border-radius: 15px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
   background: #fafafa;
@@ -12,7 +12,7 @@
   gap: 40px;
 
   &__category {
-    border: 1px solid #eaf2ff;
+    border: 1px solid var(--secondary-color);
     border-radius: 15px;
     padding: 15px;
     height: 27px;
@@ -32,14 +32,14 @@
       font-size: 14px;
       line-height: 120%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
       transition: var(--transition-duration) linear;
       transition-property: font-weight, opacity;
     }
 
     &__active {
-      border: 1px solid #4266c6;
+      border: 1px solid var(--inverted-color);
 
       .InterpolationLineChart__category_text {
         opacity: 1;
@@ -69,7 +69,7 @@
       font-weight: 500;
       font-size: 10px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       transition: var(--transition-duration) linear all;
 
       &__active {

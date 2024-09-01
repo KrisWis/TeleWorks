@@ -1,6 +1,7 @@
 export interface TelegramChannelStatsCategory {
   title: TelegramChannelStatsCategories;
   icon: React.ReactNode;
+  block: React.ReactNode;
 }
 
 export enum TelegramChannelStatsCategories {

@@ -27,7 +27,7 @@
     font-size: 40px;
     line-height: 110%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__buttons {
@@ -137,7 +137,7 @@
           font-size: 34px;
           line-height: 110%;
           letter-spacing: -0.01em;
-          color: #000;
+          color: var(--black-color);
         }
 
         &__desc {
@@ -145,7 +145,7 @@
           font-size: 21px;
           line-height: 120%;
           letter-spacing: -0.01em;
-          color: #000;
+          color: var(--black-color);
           opacity: 0.4;
         }
       }
@@ -193,7 +193,7 @@
       }
 
       &__imgSecondary {
-        border: 2px solid #fff;
+        border: 2px solid var(--white-color);
         border-radius: 15px 0 25px;
         width: 95%;
         height: 91.5%;

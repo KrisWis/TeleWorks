@@ -29,7 +29,9 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
     ].findIndex((item) => item.category == chartCategory);
 
     // Добавление градиента и нужная стилизация
-    const chartGradient = useRef<CanvasGradient | "#fff">("#fff");
+    const chartGradient = useRef<CanvasGradient | "var(--white-color)">(
+      "var(--white-color)"
+    );
 
     const [chartData, setChartData] = useState<ChartData<"line">>({
       labels: charts[chartsKeys[InterpolationLineChartSwitcherChoiceIndex]][
@@ -90,13 +92,13 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
             ].dataSets.map((data) => data.value),
             tension: 0.5,
             backgroundColor: chartGradient.current,
-            borderColor: "#4266C6",
+            borderColor: "var(--inverted-color)",
             pointBorderColor: "transparent",
             pointBackgroundColor: "rgba(0, 0, 0, 0)",
             pointBorderWidth: 1,
             pointHoverRadius: 10,
-            pointHoverBackgroundColor: "#fff",
-            pointHoverBorderColor: "#4266c6",
+            pointHoverBackgroundColor: "var(--white-color)",
+            pointHoverBorderColor: "var(--inverted-color)",
             pointRadius: 15,
             fill: true,
           },

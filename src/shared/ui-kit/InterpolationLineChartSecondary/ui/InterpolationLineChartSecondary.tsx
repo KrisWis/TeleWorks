@@ -8,7 +8,9 @@ Chart.register(LineController, LineElement);
 export const InterpolationLineChartSecondary: React.FC<InterpolationLineChartSecondaryProps> =
   memo(({ chartDataSets, className }): React.JSX.Element => {
     // Добавление градиента и нужная стилизация
-    const chartGradient = useRef<CanvasGradient | "#fff">("#fff");
+    const chartGradient = useRef<CanvasGradient | "var(--white-color)">(
+      "var(--white-color)"
+    );
 
     const [chartData, setChartData] = useState<ChartData<"line">>({
       labels: chartDataSets.map((data) => data.label),
@@ -23,7 +25,7 @@ export const InterpolationLineChartSecondary: React.FC<InterpolationLineChartSec
           pointBorderWidth: 1,
           pointHoverRadius: 5,
           pointHoverBackgroundColor: "#f55",
-          pointHoverBorderColor: "#fff",
+          pointHoverBorderColor: "var(--white-color)",
           pointRadius: 10,
           fill: true,
         },

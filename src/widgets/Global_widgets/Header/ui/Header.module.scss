@@ -155,7 +155,7 @@
       font-size: 14px;
       line-height: 150%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       font-family: var(--second-family);
 
       &:hover {
@@ -185,7 +185,7 @@
   }
 
   &__channelSearchInput {
-    border: 1px solid #4266c6 !important;
+    border: 1px solid var(--inverted-color) !important;
     height: 55px !important;
     display: flex;
     align-items: center;
@@ -210,7 +210,7 @@
       font-weight: 500;
       font-size: 20px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
     }
   }
 

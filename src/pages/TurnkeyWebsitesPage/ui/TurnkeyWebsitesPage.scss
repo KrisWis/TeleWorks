@@ -16,7 +16,7 @@
     font-size: 48px;
     line-height: 100%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__subcaption {
@@ -24,7 +24,7 @@
     font-size: 30px;
     line-height: 100%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
   }
 
   &__desc {
@@ -32,7 +32,7 @@
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
   }
 }
