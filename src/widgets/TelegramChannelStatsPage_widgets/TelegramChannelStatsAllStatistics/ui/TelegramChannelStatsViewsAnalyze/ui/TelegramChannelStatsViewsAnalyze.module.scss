@@ -1,3 +1,53 @@
 .TelegramChannelStatsViewsAnalyze {
-  padding: 10px;
+  &__caption {
+    padding: 10px 25px;
+
+    &Wrapper {
+      border-bottom: 1px solid #eaf2ff;
+      width: 100%;
+    }
+  }
+
+  &__header {
+    width: 100%;
+    padding: 10px 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  &__format {
+    &Text {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+
+      &__value {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #000;
+      }
+    }
+
+    &__select {
+      background: linear-gradient(
+        271deg,
+        rgba(59, 130, 246, 0.1) 0%,
+        rgba(59, 130, 246, 0) 100%
+      );
+      border: 1px solid #eaf2ff;
+      border-radius: 15px;
+      height: 50px;
+      padding: 10px;
+
+      &__svg {
+        position: relative;
+        top: 4px;
+        margin-left: 30px;
+      }
+    }
+  }
 }

@@ -1,0 +1,102 @@
+.TelegramChannelStatsViewsAnalyzeStats {
+  padding: 10px;
+  width: 100%;
+
+  &__more {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #4266c6;
+    transition: var(--transition-duration) linear color;
+    width: 100%;
+    height: 65px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--main-color);
+    }
+  }
+
+  &__post {
+    width: 100%;
+    border-bottom: 1px solid #eaf2ff;
+    max-width: 100%;
+    padding-left: 5px;
+
+    &__info {
+      padding: 15px 0;
+    }
+
+    &__swiper {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    &__id {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: var(--main-color);
+      white-space: nowrap;
+    }
+
+    &__date {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+      opacity: 0.4;
+      white-space: nowrap;
+    }
+
+    &__amount {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__graphic {
+      height: 31px;
+      object-fit: cover;
+      object-position: center center;
+      width: 20%;
+    }
+
+    &__hour {
+      padding: 5px;
+      border-radius: 5px;
+      height: 50px;
+      width: 5vw;
+
+      &__hour {
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #000;
+      }
+
+      &__percent {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #000;
+      }
+
+      &__views {
+        opacity: 0.4;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #000;
+      }
+    }
+  }
+}

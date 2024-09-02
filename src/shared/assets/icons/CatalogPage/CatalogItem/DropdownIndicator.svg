@@ -1,5 +1,5 @@
+<div style="rotate: -90deg">
 <svg
-    className={selectStyles.Select__svg}
     width="20"
     height="20"
     viewBox="0 0 20 20"
@@ -13,3 +13,4 @@
     fill="#C4C4C4"
     />
 </svg>
+</div>

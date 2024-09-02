@@ -6,8 +6,8 @@ export interface TelegramChannelStatsCategory {
 
 export enum TelegramChannelStatsCategories {
   SUMMARY = "Сводная",
-  INVOLVEMENT = "Привлечения подписчиков",
+  INVOLVEMENT = "Вовлеченность подписчиков",
   VIEWS_ANALYZE = "Анализ просмотров",
-  SUBSCRIBERS_ATTRACTION = "Вовлеченность подписчиков",
+  SUBSCRIBERS_ATTRACTION = "Привлечения подписчиков",
   ADS_EFFECTIVITY = "Эффективность рекламы",
 }
