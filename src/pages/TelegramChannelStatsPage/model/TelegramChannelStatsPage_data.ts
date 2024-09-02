@@ -369,4 +369,5 @@ export const telegramChannelStatsData: TelegramChannelStatsProps = {
   geoLanguage: GeoLanguageTypes.RUSSIAN,
   age: "1 год.",
   postsAmount: 1573,
+  channelLink: "/channel",
 };

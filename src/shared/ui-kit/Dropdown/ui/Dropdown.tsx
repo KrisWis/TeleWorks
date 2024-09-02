@@ -13,14 +13,17 @@ export const Dropdown: React.FC<DropdownProps> = memo(
     withArrow = true,
     children,
     className,
+    style,
+    dropdownClassname,
   }): React.JSX.Element => {
     return (
       <div
-        className={`${styles.Dropdown} ${!DropdownIsOpen ? styles.Dropdown__disactive : ""}`}
-        onClick={() => setDropdownIsOpen(!DropdownIsOpen)}
+        className={`${styles.Dropdown} ${!DropdownIsOpen ? styles.Dropdown__disactive + " Dropdown__disactive" : ""} ${dropdownClassname}`}
       >
         <div className={styles.Dropdown__dropdownSetActive}>
-          {trigger}
+          <div onClick={() => setDropdownIsOpen(!DropdownIsOpen)}>
+            {trigger}
+          </div>
 
           {withArrow && (
             <SelectDropdownIndicatorRedSVG
@@ -31,6 +34,7 @@ export const Dropdown: React.FC<DropdownProps> = memo(
 
         <div
           className={`${styles.Dropdown__dropdown} Page__BoxShadowWrapper ${className}`}
+          style={style}
         >
           {children}
         </div>

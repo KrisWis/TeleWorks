@@ -11,4 +11,5 @@ export interface TelegramChannelStatsProps {
   geoLanguage: GeoLanguageTypes;
   age: string;
   postsAmount: number;
+  channelLink: string;
 }

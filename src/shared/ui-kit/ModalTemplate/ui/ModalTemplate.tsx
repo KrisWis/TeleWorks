@@ -13,6 +13,7 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
     className,
     redirectToBack,
   }): React.JSX.Element => {
+    // Закрытие модалки
     const ModalOnOpenTimeOutRef = useRef<NodeJS.Timeout>();
 
     const CloseModal: MouseEventHandler<SVGSVGElement> = useCallback(() => {

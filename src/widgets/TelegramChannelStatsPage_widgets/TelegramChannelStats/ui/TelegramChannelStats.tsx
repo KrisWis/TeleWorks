@@ -20,7 +20,14 @@ import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";
 import { Link } from "react-router-dom";
 
 export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
-  ({ favouritesAmount, imgURL, title, category, desc }): React.JSX.Element => {
+  ({
+    favouritesAmount,
+    imgURL,
+    title,
+    category,
+    desc,
+    channelLink,
+  }): React.JSX.Element => {
     // Нажатие на кнопку фаворита и открытие дропдауна
     const [isFavourite, setIsFavourite] = useState<boolean>(false);
 
@@ -108,7 +115,7 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
                 className={styles.TelegramChannelStats__view}
                 type={ButtonTypes.CYAN}
                 text="Просмотр канала"
-                to="/channel"
+                to={channelLink}
               />
             </Flex>
 

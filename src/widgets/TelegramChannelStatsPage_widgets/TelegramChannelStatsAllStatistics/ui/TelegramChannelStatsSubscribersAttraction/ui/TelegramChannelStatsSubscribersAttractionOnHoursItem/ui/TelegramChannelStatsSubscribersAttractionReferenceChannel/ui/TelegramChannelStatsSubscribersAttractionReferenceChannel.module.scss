@@ -1,0 +1,62 @@
+.TelegramChannelStatsSubscribersAttractionReferenceChannel {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  background: linear-gradient(
+    271deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 100%
+  );
+  cursor: pointer;
+  text-align: center;
+  min-height: 25px;
+  max-height: 25px;
+  transition: var(--transition-duration) linear all;
+  align-items: center;
+
+  &:hover {
+    box-shadow: 0 0 10px var(--violet-color) inset;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 220%;
+    letter-spacing: -0.01em;
+    color: #000;
+    white-space: nowrap;
+
+    &Wrapper {
+      height: 16px;
+      border: 1px solid #eaf2ff;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 220%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__referenceIcon {
+    width: 14px;
+    height: 14px;
+    background-color: var(--white-color);
+    border-radius: 100%;
+    border: 1px solid #eaf2ff;
+    margin-left: 30px;
+
+    &Text {
+      font-weight: 600;
+      font-size: 8px;
+      line-height: 220%;
+      letter-spacing: -0.01em;
+      color: var(--main-color);
+    }
+  }
+}

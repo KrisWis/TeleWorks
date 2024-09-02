@@ -21,6 +21,7 @@ export interface TelegramChannelStatsSubscribersAttractionOnHoursReferencesChann
   postViewsAmount: number;
   postRepostsAmount: number;
   postCommentsAmount: number;
+  channelLink: string;
 }
 
 export interface TelegramChannelStatsSubscribersAttractionOnHoursItem {

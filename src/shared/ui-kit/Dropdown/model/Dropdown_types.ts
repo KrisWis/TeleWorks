@@ -7,4 +7,6 @@ export interface DropdownProps {
   trigger: React.ReactNode;
   withArrow?: boolean;
   className?: string;
+  style?: React.CSSProperties;
+  dropdownClassname?: string;
 }

@@ -36,7 +36,7 @@
     }
 
     .Dropdown__dropdown {
-      height: 0;
+      height: 0 !important;
       opacity: 0;
     }
   }
