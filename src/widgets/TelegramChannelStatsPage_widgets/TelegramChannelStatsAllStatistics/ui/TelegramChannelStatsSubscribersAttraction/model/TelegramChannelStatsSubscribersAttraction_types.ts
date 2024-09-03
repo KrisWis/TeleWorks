@@ -1,13 +1,12 @@
 import { telegramChannelsCategories } from "@/app/layouts/model/BaseLayout__types";
 import { Hours } from "@/shared/types";
-
-export type TelegramChannelStatsSubscribersAttractionChangeType = "+" | "-";
+import { TelegramChannelStatsChangeType } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStats/model/TelegramChannelStats_types";
 
 export interface TelegramChannelStatsSubscribersAttractionOnDaysItem {
   date: Date;
   subscribersAmount: number;
   changesAmount: number;
-  changeType?: TelegramChannelStatsSubscribersAttractionChangeType;
+  changeType?: TelegramChannelStatsChangeType;
 }
 
 export interface TelegramChannelStatsSubscribersAttractionOnHoursReferencesChannel {
@@ -29,7 +28,7 @@ export interface TelegramChannelStatsSubscribersAttractionOnHoursItem {
   referencesAmount: number;
   repostsAmount: number;
   changesAmount: number;
-  changeType?: TelegramChannelStatsSubscribersAttractionChangeType;
+  changeType?: TelegramChannelStatsChangeType;
   referencesChannels?: TelegramChannelStatsSubscribersAttractionOnHoursReferencesChannel[];
 }
 

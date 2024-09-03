@@ -42,7 +42,7 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
     const redirectToChannelPage = useCallback(() => {
       CloseModal();
       window.location.replace(channel.channelLink);
-    }, []);
+    }, [CloseModal, channel.channelLink]);
 
     return (
       <Flex

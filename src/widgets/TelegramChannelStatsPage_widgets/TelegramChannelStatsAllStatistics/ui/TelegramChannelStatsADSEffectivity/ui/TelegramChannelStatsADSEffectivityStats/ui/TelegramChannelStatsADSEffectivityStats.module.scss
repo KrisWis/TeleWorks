@@ -1,0 +1,130 @@
+.TelegramChannelStatsADSEffectivityStats {
+  width: 100%;
+
+  &__header {
+    height: 51px;
+    width: 100%;
+    border: 1px solid #eaf2ff;
+    border-radius: 15px 15px 0 0;
+    background: linear-gradient(
+      271deg,
+      rgba(59, 130, 246, 0.1) 0%,
+      rgba(59, 130, 246, 0) 100%
+    );
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    justify-content: space-around;
+    align-items: center;
+
+    &__text {
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: #000;
+      text-align: center;
+    }
+  }
+
+  &__items {
+    width: 100%;
+  }
+
+  &__item {
+    height: 90px;
+    border-bottom: 1px solid #eaf2ff;
+    width: 100%;
+    padding: 5px 15px;
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    justify-content: space-around;
+    align-items: center;
+
+    &__img {
+      border-radius: 100%;
+      width: 55px;
+      height: 55px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    &__name {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__category {
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: #000;
+      opacity: 0.4;
+    }
+
+    &__date {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__inTop {
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: #000;
+      opacity: 0.4;
+    }
+
+    &__stats {
+      width: 100%;
+    }
+
+    &__stat {
+      height: 71px;
+      width: 30%;
+      border-radius: 5px;
+
+      &__text {
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        color: #000;
+
+        &__increase {
+          color: var(--inverted-color);
+        }
+
+        &__dicrease {
+          color: var(--main-color);
+        }
+      }
+
+      &__svg {
+        width: 40px;
+        height: 25px;
+      }
+    }
+  }
+
+  &__more {
+    width: 100%;
+    height: 70px;
+
+    &__text {
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-duration) linear color;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #4266c6;
+
+      &:hover {
+        color: var(--main-color);
+      }
+    }
+  }
+}

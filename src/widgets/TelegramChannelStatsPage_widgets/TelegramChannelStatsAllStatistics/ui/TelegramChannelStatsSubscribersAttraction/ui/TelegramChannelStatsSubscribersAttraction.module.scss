@@ -13,19 +13,22 @@
     margin-top: 25px;
 
     &__more {
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 120%;
-      letter-spacing: -0.01em;
-      color: #4266c6;
       width: 100%;
       padding: 10px 0;
       text-align: center;
-      cursor: pointer;
-      transition: var(--transition-duration) linear color;
 
-      &:hover {
-        color: var(--main-color);
+      &__text {
+        cursor: pointer;
+        transition: var(--transition-duration) linear color;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #4266c6;
+
+        &:hover {
+          color: var(--main-color);
+        }
       }
     }
 

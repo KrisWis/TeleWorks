@@ -37,11 +37,11 @@
     }
 
     &__online::after {
-      content: url("../../../../../shared/assets/icons/UserPage/UserCard/onlineSVG.svg");
+      content: url("../../../../../src/shared/assets/icons/UserPage/UserCard/onlineSVG.svg");
     }
 
     &__offline::after {
-      content: url("../../../../../shared/assets/icons/UserPage/UserCard/offlineSVG.svg");
+      content: url("../../../../../src/shared/assets/icons/UserPage/UserCard/offlineSVG.svg");
     }
   }
 

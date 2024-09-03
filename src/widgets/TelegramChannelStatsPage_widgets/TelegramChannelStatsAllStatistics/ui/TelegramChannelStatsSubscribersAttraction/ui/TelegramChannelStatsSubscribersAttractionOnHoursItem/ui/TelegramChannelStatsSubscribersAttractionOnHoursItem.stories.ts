@@ -34,6 +34,7 @@ export const Primary: Story = {
           postViewsAmount: 11222,
           postRepostsAmount: 11222,
           postCommentsAmount: 11222,
+          channelLink: "/channel",
         },
 
         {
@@ -49,6 +50,7 @@ export const Primary: Story = {
           postViewsAmount: 11222,
           postRepostsAmount: 11222,
           postCommentsAmount: 11222,
+          channelLink: "/channel",
         },
 
         {
@@ -62,6 +64,7 @@ export const Primary: Story = {
           postViewsAmount: 11222,
           postRepostsAmount: 11222,
           postCommentsAmount: 11222,
+          channelLink: "/channel",
         },
       ],
     },

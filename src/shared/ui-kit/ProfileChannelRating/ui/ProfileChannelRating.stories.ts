@@ -14,12 +14,14 @@ type Story = StoryObj<typeof meta>;
 
 export const WithoutBackground: Story = {
   args: {
+    rating: 509.2,
     backgroundIsVisible: false,
   },
 };
 
 export const WithBackground: Story = {
   args: {
+    rating: 509.2,
     backgroundIsVisible: true,
   },
 };

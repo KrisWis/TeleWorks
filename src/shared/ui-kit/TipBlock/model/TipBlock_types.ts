@@ -1,4 +1,4 @@
 export interface TipBlockProps {
-  text: string;
+  text: string[];
   className?: string;
 }

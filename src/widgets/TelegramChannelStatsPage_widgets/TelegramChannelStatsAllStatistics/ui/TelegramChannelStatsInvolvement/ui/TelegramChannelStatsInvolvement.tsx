@@ -26,7 +26,9 @@ export const TelegramChannelStatsInvolvement: React.FC = memo(
 
         <TipBlock
           className={styles.TelegramChannelStatsInvolvement__tip}
-          text="Процент читателей, совершивших любое из действий (пересылка, комментарий, реакция). Считается как отношение количества всех взаимодействий читателей к количеству просмотров публикации."
+          text={[
+            "Процент читателей, совершивших любое из действий (пересылка, комментарий, реакция). Считается как отношение количества всех взаимодействий читателей к количеству просмотров публикации.",
+          ]}
         />
 
         <h5 className="TelegramChannelStatsPage__caption">
@@ -40,7 +42,9 @@ export const TelegramChannelStatsInvolvement: React.FC = memo(
 
         <TipBlock
           className={styles.TelegramChannelStatsInvolvement__tip__second}
-          text="Среднее количество взаимодействий читателя (пересылка / комментарий / реакция) с постами, опубликованными за выбранный период"
+          text={[
+            "Среднее количество взаимодействий читателя (пересылка / комментарий / реакция) с постами, опубликованными за выбранный период",
+          ]}
         />
       </Flex>
     );

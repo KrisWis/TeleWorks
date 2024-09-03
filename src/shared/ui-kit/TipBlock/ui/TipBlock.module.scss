@@ -30,5 +30,9 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    &Wrapper {
+      align-self: center;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TelegramChannelStatsSubscribersAttractionPopup } from "./TelegramChannelStatsSubscribersAttractionPopup";
 import { useState } from "react";
+import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 
 const meta = {
   title: "Popups/TelegramChannelStatsSubscribersAttractionPopup",
@@ -18,9 +19,9 @@ export const Primary: Story = {
     channel: {
       channelName: "Название канала",
       channelCategory: "Интерьер и строительство",
-      channelImgURL: `/global/serviceExample_authorImg.png`,
+      channelImgURL: `${URL_PART}/global/serviceExample_authorImg.png`,
       channelLink: "/channel",
-      channelPostImgURL: `/global/portfolioCase__example_img.png`,
+      channelPostImgURL: `${URL_PART}/global/portfolioCase__example_img.png`,
       commentsAmount: 11222,
       viewsAmount: 11222,
       repostsAmount: 11222,

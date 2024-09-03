@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { InterpolationLineChart } from "./InterpolationLineChart";
-import { interpolationLineChartData } from "@/pages/TelegramChannelStatsPage/model/TelegramChannelStatsPage_data";
+import { telegramChannelStatsInvolvementAverageAmountGraphic } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics/ui/TelegramChannelStatsInvolvement/model/TelegramChannelStatsInvolvement_data";
 
 const meta = {
   title: "Shared/InterpolationLineChart",
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    charts: interpolationLineChartData,
+    charts: telegramChannelStatsInvolvementAverageAmountGraphic,
   },
 };

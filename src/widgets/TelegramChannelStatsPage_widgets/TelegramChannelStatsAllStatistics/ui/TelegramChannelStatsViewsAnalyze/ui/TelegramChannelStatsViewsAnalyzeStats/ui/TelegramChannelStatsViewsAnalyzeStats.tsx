@@ -4,6 +4,7 @@ import { TelegramChannelStatsViewsAnalyzeStatsProps } from "../model/TelegramCha
 import { Flex } from "@/shared/ui-kit/Stack";
 import SirineSeparatorLineSVG from "@/shared/assets/icons/Global/SirineSeparatorLineSVG.svg?react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
 
 export const TelegramChannelStatsViewsAnalyzeStats: React.FC<TelegramChannelStatsViewsAnalyzeStatsProps> =
   memo(({ formatsData, currentFormat }): React.JSX.Element => {
@@ -47,13 +48,7 @@ export const TelegramChannelStatsViewsAnalyzeStats: React.FC<TelegramChannelStat
                       styles.TelegramChannelStatsViewsAnalyzeStats__post__date
                     }
                   >
-                    {item.postDate.getDate()}.
-                    {item.postDate.getMonth() < 10 ? "0" : ""}
-                    {item.postDate.getMonth()}.{item.postDate.getFullYear()}{" "}
-                    {item.postDate.getHours() < 10 ? "0" : ""}
-                    {item.postDate.getHours()}:
-                    {item.postDate.getMinutes() < 10 ? "0" : ""}
-                    {item.postDate.getMinutes()}
+                    {TransformDateToString(item.postDate)}
                   </span>
                 </Flex>
 
@@ -130,11 +125,15 @@ export const TelegramChannelStatsViewsAnalyzeStats: React.FC<TelegramChannelStat
         ))}
 
         <Flex
-          align="center"
           justify="center"
+          align="center"
           className={styles.TelegramChannelStatsViewsAnalyzeStats__more}
         >
-          Показать больше
+          <span
+            className={styles.TelegramChannelStatsViewsAnalyzeStats__more__text}
+          >
+            Показать больше
+          </span>
         </Flex>
       </Flex>
     );

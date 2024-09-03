@@ -7,9 +7,10 @@ import {
   telegramChannelStatsSubscribersAttractionOnHoursData,
 } from "../model/TelegramChannelStatsSubscribersAttraction_data";
 import { Flex } from "@/shared/ui-kit/Stack";
-import { TelegramChannelStatsSubscribersAttractionChangeType } from "../model/TelegramChannelStatsSubscribersAttraction_types";
 import { TelegramChannelStatsSubscribersAttractionOnHoursItem } from "./TelegramChannelStatsSubscribersAttractionOnHoursItem";
 import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";
+import { TelegramChannelStatsChangeType } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStats/model/TelegramChannelStats_types";
+import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
 
 export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
   (): React.JSX.Element => {
@@ -42,8 +43,10 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
       []
     );
 
-    const changesAmountTypeData: TelegramChannelStatsSubscribersAttractionChangeType =
-      useMemo(() => (changesAmountData > 0 ? "+" : "-"), [changesAmountData]);
+    const changesAmountTypeData: TelegramChannelStatsChangeType = useMemo(
+      () => (changesAmountData > 0 ? "+" : "-"),
+      [changesAmountData]
+    );
 
     return (
       <div className={styles.TelegramChannelStatsSubscribersAttraction}>
@@ -109,9 +112,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
                         styles.TelegramChannelStatsSubscribersAttraction__stats__block__item__text
                       }
                     >
-                      {item.date.getDate() < 10 ? "0" : ""}
-                      {item.date.getDate()}.0{item.date.getMonth()}.
-                      {item.date.getFullYear()}
+                      {TransformDateToString(item.date, false)}
                     </span>
 
                     <span
@@ -134,13 +135,21 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
                 )
               )}
 
-              <span
+              <Flex
+                justify="center"
+                align="center"
                 className={
                   styles.TelegramChannelStatsSubscribersAttraction__stats__more
                 }
               >
-                Показать больше
-              </span>
+                <span
+                  className={
+                    styles.TelegramChannelStatsSubscribersAttraction__stats__more__text
+                  }
+                >
+                  Показать больше
+                </span>
+              </Flex>
             </Flex>
           </Flex>
 
