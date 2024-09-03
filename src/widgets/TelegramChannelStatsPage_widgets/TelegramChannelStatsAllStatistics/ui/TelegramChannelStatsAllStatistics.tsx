@@ -20,6 +20,7 @@ export const TelegramChannelStatsAllStatistics: React.FC = memo(
 
     return (
       <Flex
+        align="stretch"
         className={`${styles.TelegramChannelStatsAllStatistics} Page__BoxShadowWrapper`}
       >
         <TelegramChannelStatsCategories />

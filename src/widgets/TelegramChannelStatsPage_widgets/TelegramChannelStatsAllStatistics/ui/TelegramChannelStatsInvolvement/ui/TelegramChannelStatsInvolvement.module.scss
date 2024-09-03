@@ -1,3 +1,17 @@
 .TelegramChannelStatsInvolvement {
-  padding: 10px 30px;
+  padding: 10px 15px;
+
+  &__chart {
+    margin-top: 25px;
+  }
+
+  &__tip {
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    &__second {
+      margin-top: 20px;
+      margin-bottom: 120px;
+    }
+  }
 }

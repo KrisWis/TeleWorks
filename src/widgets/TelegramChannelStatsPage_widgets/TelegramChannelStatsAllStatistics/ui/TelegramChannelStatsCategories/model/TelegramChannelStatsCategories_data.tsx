@@ -11,6 +11,7 @@ import { TelegramChannelStatsSummary } from "../../TelegramChannelStatsSummary";
 import { TelegramChannelStatsSubscribersAttraction } from "../../TelegramChannelStatsSubscribersAttraction";
 import { TelegramChannelStatsViewsAnalyze } from "../../TelegramChannelStatsViewsAnalyze";
 import { TelegramChannelStatsInvolvement } from "../../TelegramChannelStatsInvolvement";
+import { TelegramChannelStatsADSEffectivity } from "../../TelegramChannelStatsADSEffectivity";
 
 export const telegramChannelStatsCategories: TelegramChannelStatsCategory[] = [
   {
@@ -40,5 +41,6 @@ export const telegramChannelStatsCategories: TelegramChannelStatsCategory[] = [
   {
     icon: <ADSEffectivitySVG />,
     title: TelegramChannelStatsCategories.ADS_EFFECTIVITY,
+    block: <TelegramChannelStatsADSEffectivity />,
   },
 ];

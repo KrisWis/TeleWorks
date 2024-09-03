@@ -8,7 +8,7 @@ export type FlexJustify =
   | "between"
   | "evenly"
   | "around";
-export type FlexAlign = "start" | "center" | "end";
+export type FlexAlign = "start" | "center" | "end" | "stretch";
 export type FlexDirection = "row" | "column";
 export type FlexGap = "3" | "5" | "10" | "15" | "20" | "30" | "50";
 
@@ -25,6 +25,7 @@ const alignClasses: Record<FlexAlign, string> = {
   start: styles.alignStart,
   center: styles.alignCenter,
   end: styles.alignEnd,
+  stretch: styles.alignStretch,
 };
 
 const directionClasses: Record<FlexDirection, string> = {

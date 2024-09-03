@@ -14,7 +14,6 @@ export const TelegramChannelStatsCategories: React.FC = memo(
       <Flex
         className={styles.TelegramChannelStatsCategories}
         direction="column"
-        align="start"
       >
         {telegramChannelStatsCategories.map((category) => (
           <Flex
