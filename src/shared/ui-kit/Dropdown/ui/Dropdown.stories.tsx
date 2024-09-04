@@ -18,6 +18,7 @@ export const Closed: Story = {
     DropdownIsOpen: false,
     setDropdownIsOpen: useState,
     children: <>Dropdown</>,
+    trigger: <>Клик</>,
   },
 };
 
@@ -26,5 +27,6 @@ export const Open: Story = {
     DropdownIsOpen: true,
     setDropdownIsOpen: useState,
     children: <>Dropdown</>,
+    trigger: <>Клик</>,
   },
 };
