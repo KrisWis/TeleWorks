@@ -16,6 +16,9 @@ import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { useCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
 import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
+import { Flex } from "@/shared/ui-kit/Stack";
+import { ProgressBar } from "primereact/progressbar";
+import "./CreateOrderTechnicalInformationContainerLoadingProgress.scss";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
@@ -64,6 +67,10 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       }
     };
 
+    // Индикатор загрузки при загрузке файлов
+    const [FormInputFileProgress, setFormInputFileProgress] =
+      useState<number>(0);
+
     // Загрузка и отображение, загруженных пользователем, изображений:
     const FormInputRef = useRef<HTMLInputElement>(null);
 
@@ -100,6 +107,13 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
           loadedFile.FileSize = UserInputFiles[0].size;
           loadedFile.FileType = UserInputFiles[0].type;
 
+          fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
+            if (e.lengthComputable) {
+              const percentLoaded = Math.round((e.loaded / e.total) * 100);
+              setFormInputFileProgress(percentLoaded);
+            }
+          };
+
           fileReader.onload = function () {
             loadedFile.FileData = fileReader.result as string;
 
@@ -133,7 +147,9 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     ]);
 
     return (
-      <div className={styles.createOrderTechnicalInformationContainer}>
+      <div
+        className={`${styles.createOrderTechnicalInformationContainer} createOrderTechnicalInformationContainer`}
+      >
         <div
           className={`Page__BoxShadowWrapper ${styles.createOrderTechnicalInformationContainer__wrapper}`}
         >
@@ -265,7 +281,9 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
 
               {FormInputFiles && (
                 <div
-                  className={`${styles.createOrderTechnicalInformationContainer__files__items}`}
+                  className={
+                    styles.createOrderTechnicalInformationContainer__files__items
+                  }
                 >
                   {FormInputFiles.map((file) => (
                     <div key={file.FileName}>
@@ -274,12 +292,23 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                           loadedFile={file}
                           FormInputFiles={FormInputFiles}
                           setFormInputFiles={setFormInputFiles}
+                          setFormInputFileProgress={setFormInputFileProgress}
                         />
                       ) : (
-                        <PageLoadingComponent
-                          style={{ margin: "auto", marginBottom: "1%" }}
-                          size="small"
-                        />
+                        <Flex gap="5" direction="column">
+                          <PageLoadingComponent
+                            style={{ margin: "auto", marginBottom: "1%" }}
+                            size="small"
+                          />
+
+                          <ProgressBar
+                            style={{ width: `${FormInputFileProgress}%` }}
+                            className={
+                              styles.createOrderTechnicalInformationContainer__files__loadingProgressBar
+                            }
+                            value={FormInputFileProgress}
+                          ></ProgressBar>
+                        </Flex>
                       )}
                     </div>
                   ))}

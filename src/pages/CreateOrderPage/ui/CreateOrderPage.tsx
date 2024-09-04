@@ -1,5 +1,3 @@
-// TODO: в этапе, где заказчик может прикрепить файлы, сделать анимацию загрузки в зависимости от того, сколько процентов файла загрузилось вместо обычного индикатора загрузки
-
 import "./CreateOrderPage.scss";
 import "@/shared/main.scss";
 import { useEffect, useState } from "react";

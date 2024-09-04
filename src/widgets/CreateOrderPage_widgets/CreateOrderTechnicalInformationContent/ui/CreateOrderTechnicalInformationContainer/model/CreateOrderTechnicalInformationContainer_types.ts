@@ -9,4 +9,5 @@ export interface CreateOrderTechnicalInformationLoadedFileProps {
   loadedFile: LoadedFile;
   FormInputFiles: LoadedFile[];
   setFormInputFiles: React.Dispatch<React.SetStateAction<LoadedFile[]>>;
+  setFormInputFileProgress: React.Dispatch<React.SetStateAction<number>>;
 }

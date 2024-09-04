@@ -7,7 +7,12 @@ import { URL_PART } from "@/app/layouts/model/BaseLayout__data";
 
 export const CreateOrderTechnicalInformationLoadedFile: React.FC<CreateOrderTechnicalInformationLoadedFileProps> =
   memo(
-    ({ loadedFile, FormInputFiles, setFormInputFiles }): React.JSX.Element => {
+    ({
+      loadedFile,
+      FormInputFiles,
+      setFormInputFiles,
+      setFormInputFileProgress,
+    }): React.JSX.Element => {
       // Функционал изменения файла
       const ChangeInputRef = useRef<HTMLInputElement>(null);
 
@@ -21,6 +26,14 @@ export const CreateOrderTechnicalInformationLoadedFile: React.FC<CreateOrderTech
             )
           ) {
             const fileReader = new FileReader();
+
+            // Индикатор загрузки при изменении файла
+            fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
+              if (e.lengthComputable) {
+                const percentLoaded = Math.round((e.loaded / e.total) * 100);
+                setFormInputFileProgress(percentLoaded);
+              }
+            };
 
             const FormInputFilesCopy = FormInputFiles.slice();
 
