@@ -1,7 +1,7 @@
 import styles from "./ProfileChannelRating.module.scss";
 import { memo } from "react";
 import { ProfileChannelRatingProps } from "../model/ProfileChannelRating_types";
-import ProfileChannelRatingSVG from "@/shared/assets/icons/ProfilePage/Profile/ProfileChannelRating.svg?react";
+import ProfileChannelRatingSVG from "@/shared/assets/icons/Shared/ProfileChannelRating/ProfileChannelRating.svg?react";
 
 export const ProfileChannelRating: React.FC<ProfileChannelRatingProps> = memo(
   ({ backgroundIsVisible, rating }): React.JSX.Element => {

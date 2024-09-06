@@ -3,8 +3,8 @@ import { memo } from "react";
 import { MenAndWomenPercentsProgressBarBlockProps } from "../model/MenAndWomenPercentsProgressBarBlock_types";
 import { Flex } from "../../Stack";
 import { ProgressBar } from "primereact/progressbar";
-import SubscribersMen from "@/shared/assets/icons/CatalogPage/CatalogItem/SubscribersMen.svg?react";
-import SubscribersWomen from "@/shared/assets/icons/CatalogPage/CatalogItem/SubscribersWomen.svg?react";
+import SubscribersMen from "@/shared/assets/icons/Global/SubscribersMen.svg?react";
+import SubscribersWomen from "@/shared/assets/icons/Global/SubscribersWomen.svg?react";
 
 export const MenAndWomenPercentsProgressBarBlock: React.FC<MenAndWomenPercentsProgressBarBlockProps> =
   memo(({ className, title, menPercent, womenPercent }): React.JSX.Element => {

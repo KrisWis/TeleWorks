@@ -23,8 +23,8 @@ import UsersAmount from "@/shared/assets/icons/CatalogPage/CatalogItem/UsersAmou
 import FooterBurgerMenu from "@/shared/assets/icons/CatalogPage/CatalogItem/FooterBurgerMenu.svg?react";
 import FooterFavourite from "@/shared/assets/icons/CatalogPage/CatalogItem/FooterFavourite.svg?react";
 import FooterCart from "@/shared/assets/icons/CatalogPage/CatalogItem/FooterCart.svg?react";
-import SubscribersMen from "@/shared/assets/icons/CatalogPage/CatalogItem/SubscribersMen.svg?react";
-import SubscribersWomen from "@/shared/assets/icons/CatalogPage/CatalogItem/SubscribersWomen.svg?react";
+import SubscribersMen from "@/shared/assets/icons/Global/SubscribersMen.svg?react";
+import SubscribersWomen from "@/shared/assets/icons/Global/SubscribersWomen.svg?react";
 import Tag1 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag1.svg?react";
 import Tag2 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag2.svg?react";
 import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";

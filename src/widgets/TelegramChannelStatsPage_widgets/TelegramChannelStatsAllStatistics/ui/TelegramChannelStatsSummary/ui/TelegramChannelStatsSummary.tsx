@@ -1,7 +1,7 @@
 import {
   Stats__item,
   Stats__item__types,
-} from "@/entities/ProfilePage_entities/Stats__item";
+} from "@/entities/Global_entities/Stats__item";
 import {
   telegramChannelStatsSummaryGraphics,
   telegramChannelStatsSummaryMenPercent,
