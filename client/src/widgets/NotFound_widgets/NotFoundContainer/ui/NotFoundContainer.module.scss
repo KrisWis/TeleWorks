@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .NotFoundContainer {
   display: flex;
   flex-direction: column;
@@ -15,7 +17,7 @@
     object-fit: cover;
     object-position: center center;
 
-    @media (max-width: 1200px) {
+    @media (max-width: $tablet-mediaquery-maxwidth) {
       width: 50%;
     }
 
@@ -34,7 +36,7 @@
     position: relative;
     bottom: 50px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: $tablet-mediaquery-maxwidth) {
       font-size: 40px;
     }
   }

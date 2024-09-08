@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .Dropdown {
   display: flex;
   align-items: center;
@@ -10,6 +12,13 @@
     max-height: 9px;
     transform: rotate(0deg);
     transition: var(--transition-duration) linear transform;
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      max-width: 11px;
+      max-height: 6px;
+      position: relative;
+      top: 1.5px;
+    }
   }
 
   &__dropdownSetActive {

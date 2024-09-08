@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .header__services {
   &__caption {
     font-family: var(--second-family);
@@ -6,6 +8,10 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      font-size: 11px;
+    }
   }
 
   &__dropdown {
@@ -15,6 +21,10 @@
     left: -20px;
     padding: 15px;
     padding-right: 35px;
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      height: 270px;
+    }
 
     &__category {
       display: flex;
@@ -51,6 +61,10 @@
           color: var(--black-color);
           white-space: nowrap;
           cursor: pointer;
+
+          @media (max-width: $mobile-mediaquery-maxwidth) {
+            font-size: 14px;
+          }
 
           &::after {
             content: "";

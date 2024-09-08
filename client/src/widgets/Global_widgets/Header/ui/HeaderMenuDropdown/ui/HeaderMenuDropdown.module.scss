@@ -1,13 +1,25 @@
+@import "@/shared/vars";
+
 .header__userMenu {
   padding: 15px;
   align-items: center;
   height: 80vh;
   max-height: 80vh;
   top: 50px;
-  width: 19.5vw;
-  left: -140px;
+  width: 20vw;
+  left: -10vw;
   gap: 5px;
   overflow-y: auto !important;
+
+  @media (max-width: $tablet-mediaquery-maxwidth) {
+    width: 30vw;
+    left: -20vw;
+  }
+
+  @media (max-width: $mobile-mediaquery-maxwidth) {
+    width: 60vw;
+    left: -45vw;
+  }
 
   &__trigger {
     font-weight: 500;
@@ -15,6 +27,10 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      font-size: 12px;
+    }
   }
 
   &__img {

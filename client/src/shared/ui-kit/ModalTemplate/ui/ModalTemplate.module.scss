@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .ModalTemplate {
   display: flex;
   flex-direction: column;
@@ -9,9 +11,22 @@
   max-height: calc(100vh - 4vh);
   overflow-y: auto;
 
+  @media (max-width: $tablet-mediaquery-maxwidth) {
+    width: calc(100vw - 35vw);
+  }
+
+  @media (max-width: $mobile-mediaquery-maxwidth) {
+    width: calc(100vw - 10vw);
+  }
+
   &__close {
     cursor: pointer;
     transition: var(--transition-duration) all linear;
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      width: 10px;
+      height: 10px;
+    }
 
     &:hover {
       transform: scale(1.1);
@@ -21,6 +36,11 @@
   &__back {
     cursor: pointer;
     transition: var(--transition-duration) all linear;
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      width: 12px;
+      height: 8px;
+    }
 
     &:hover {
       transform: scale(1.1);

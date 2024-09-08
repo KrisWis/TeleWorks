@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -38,6 +40,10 @@
     align-items: center;
     width: 30%;
     gap: 20px;
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      gap: 10px;
+    }
   }
 
   &__caption {
@@ -46,6 +52,10 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      font-size: 14px;
+    }
 
     &__span {
       color: var(--main-color);
@@ -69,6 +79,14 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+
+      @media (max-width: $tablet-mediaquery-maxwidth) {
+        width: 50%;
+      }
+
+      @media (max-width: $mobile-mediaquery-maxwidth) {
+        display: none;
+      }
 
       &__amount {
         display: flex;
@@ -124,6 +142,13 @@
     &__login {
       cursor: pointer;
 
+      @media (max-width: $mobile-mediaquery-maxwidth) {
+        width: 15px;
+        height: 15px;
+        position: relative;
+        top: 3px;
+      }
+
       path {
         transition: var(--transition-duration) linear fill;
       }
@@ -158,6 +183,14 @@
 
     &__recovery {
       width: calc(100vw - 50vw) !important;
+
+      @media (max-width: $tablet-mediaquery-maxwidth) {
+        width: calc(100vw - 35vw) !important;
+      }
+
+      @media (max-width: $mobile-mediaquery-maxwidth) {
+        width: calc(100vw - 10vw) !important;
+      }
     }
   }
 

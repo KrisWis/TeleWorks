@@ -151,7 +151,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
                 }
               />
 
-              <p className={styles.RegModal__checkbox__text}>
+              <p className={styles.RegModal__text}>
                 Я хочу получать Email-рассылку от TeleWorks
               </p>
             </div>

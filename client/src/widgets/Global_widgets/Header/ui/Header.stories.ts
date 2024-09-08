@@ -4,9 +4,6 @@ import { Header } from "./Header";
 const meta = {
   title: "Global Widgets/Header",
   component: Header,
-  parameters: {
-    layout: "centered",
-  },
 } satisfies Meta<typeof Header>;
 
 export default meta;

@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .CheckBoxBlock {
   border: 1px solid var(--main-color);
   border-radius: 5px;
@@ -9,6 +11,14 @@
   transition: var(--transition-duration) linear all;
   box-shadow: 0 0 15px transparent;
   cursor: pointer;
+
+  @media (max-width: $mobile-mediaquery-maxwidth) {
+    min-width: 11px;
+    min-height: 11px;
+    max-width: 11px;
+    max-height: 11px;
+    border-radius: 2px;
+  }
 
   &__active {
     background-color: var(--main-color);

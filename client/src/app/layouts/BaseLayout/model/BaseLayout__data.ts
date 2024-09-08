@@ -26,11 +26,11 @@ export const laptop_mediaQuery: MediaQueryList = window.matchMedia(
 );
 
 export const tablet_mediaQuery: MediaQueryList = window.matchMedia(
-  "(max-width: 1200px)"
+  "(max-width: 1300px)"
 );
 
 export const mobile_mediaQuery: MediaQueryList =
-  window.matchMedia("(max-width: 600px)");
+  window.matchMedia("(max-width: 700px)");
 
 export const transitionDuration: number = 300;
 

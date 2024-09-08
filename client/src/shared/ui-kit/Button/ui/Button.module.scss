@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .Button {
   display: flex;
   align-items: center;
@@ -13,6 +15,10 @@
   border: 1px solid transparent;
   white-space: nowrap;
   box-shadow: 0 0 15px transparent;
+
+  @media (max-width: $mobile-mediaquery-maxwidth) {
+    border-radius: 7px;
+  }
 
   &__red {
     color: var(--white-color);
