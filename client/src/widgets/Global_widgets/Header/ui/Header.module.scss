@@ -96,19 +96,6 @@
       }
     }
 
-    &__switcher {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-right: 10px;
-      margin-left: 10px;
-
-      &Wrapper {
-        display: flex;
-        align-items: center;
-      }
-    }
-
     &__title {
       font-family: var(--second-family);
       font-weight: 400;

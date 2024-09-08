@@ -1,6 +1,6 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import styles from "./Header.module.scss";
-import Switch from "@mui/material/Switch";
-import "./Header__switcher.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { Modal } from "@/shared/ui-kit/Modal";
@@ -11,15 +11,13 @@ import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecove
 import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 import { HeaderServicesDropdown } from "./HeaderServicesDropdown";
 import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
-import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import { HeaderProps, HeaderViews } from "../model/Header_props";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { Input } from "@/shared/ui-kit/Input";
+import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
-  const [headerSwitcherChoice, setHeaderSwitcherChoice] =
-    useState<string>("Исполнитель");
 
   const [LoginIsOpen, setLoginIsOpen] = useState<boolean>(false);
 
@@ -89,44 +87,6 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
         ></HeaderServicesDropdown>
       </div>
       <div className={styles.header__items}>
-        {!view && (
-          <div className={styles.header__item__switcherWrapper}>
-            <div className={styles.header__item__switcher}>
-              <span
-                data-testid="switcher__customer"
-                data-disabled={headerSwitcherChoice == "Заказчик"}
-                className={`${styles.header__item__title} ${headerSwitcherChoice == "Заказчик" ? styles.header__item__title__active : ""}`}
-              >
-                Заказчик
-              </span>
-            </div>
-
-            <Switch
-              onClick={() =>
-                headerSwitcherChoice == "Исполнитель"
-                  ? setHeaderSwitcherChoice("Заказчик")
-                  : setHeaderSwitcherChoice("Исполнитель")
-              }
-              data-testid="headerSwitcher"
-              className="header__item__switcherComponent"
-              {...{
-                inputProps: { "aria-label": 'Свитчер "Заказчик/Исполнитель"' },
-              }}
-              defaultChecked
-            />
-
-            <div className={styles.header__item__switcher}>
-              <span
-                data-disabled={headerSwitcherChoice == "Исполнитель"}
-                data-testid="switcher__performer"
-                className={`${styles.header__item__title} ${headerSwitcherChoice == "Исполнитель" ? styles.header__item__title__active : ""}`}
-              >
-                Исполнитель
-              </span>
-            </div>
-          </div>
-        )}
-
         {!view && (
           <Button
             type={ButtonTypes.RED}
