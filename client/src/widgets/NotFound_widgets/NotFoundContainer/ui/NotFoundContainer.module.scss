@@ -1,0 +1,41 @@
+.NotFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+
+  @media (max-width: 600px) {
+    gap: 30px;
+  }
+
+  &__img {
+    width: 40%;
+    object-fit: cover;
+    object-position: center center;
+
+    @media (max-width: 1200px) {
+      width: 50%;
+    }
+
+    @media (max-width: 600px) {
+      width: 70%;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--black-color);
+    text-align: center;
+    position: relative;
+    bottom: 50px;
+
+    @media (max-width: 1200px) {
+      font-size: 40px;
+    }
+  }
+}
