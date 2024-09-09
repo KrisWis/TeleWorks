@@ -17,7 +17,7 @@
     object-fit: cover;
     object-position: center center;
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       width: 50%;
     }
 
@@ -36,7 +36,7 @@
     position: relative;
     bottom: 50px;
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       font-size: 40px;
     }
   }

@@ -16,7 +16,7 @@
   white-space: nowrap;
   box-shadow: 0 0 15px transparent;
 
-  @media (max-width: $mobile-mediaquery-maxwidth) {
+  @media (max-width: $mobile-mediaquery-width) {
     border-radius: 7px;
   }
 

@@ -51,17 +51,17 @@
       gap: 20px;
       align-items: center;
 
-      @media (max-width: $tablet-mediaquery-maxwidth) {
+      @media (max-width: $tablet-mediaquery-width) {
         gap: 0;
         flex-direction: column;
       }
 
-      @media (max-width: $mobile-mediaquery-maxwidth) {
+      @media (max-width: $mobile-mediaquery-width) {
         gap: 10px;
       }
     }
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       gap: 10px;
     }
   }
@@ -73,11 +73,11 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       font-size: 30px;
     }
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       font-size: 14px;
     }
 
@@ -93,7 +93,7 @@
     gap: 10px;
     justify-content: flex-end;
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       width: 65%;
     }
   }
@@ -129,7 +129,7 @@
     &__login {
       cursor: pointer;
 
-      @media (max-width: $mobile-mediaquery-maxwidth) {
+      @media (max-width: $mobile-mediaquery-width) {
         width: 15px;
         height: 15px;
         position: relative;
@@ -171,11 +171,11 @@
     &__recovery {
       width: calc(100vw - 50vw) !important;
 
-      @media (max-width: $tablet-mediaquery-maxwidth) {
+      @media (max-width: $tablet-mediaquery-width) {
         width: calc(100vw - 35vw) !important;
       }
 
-      @media (max-width: $mobile-mediaquery-maxwidth) {
+      @media (max-width: $mobile-mediaquery-width) {
         width: calc(100vw - 10vw) !important;
       }
     }
@@ -190,14 +190,14 @@
     letter-spacing: -0.01em;
     color: var(--color-black);
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       border-radius: 5px;
       position: relative;
       bottom: 5px;
       width: 100%;
     }
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       font-size: 8px;
       height: 15px;
     }
@@ -211,11 +211,11 @@
     justify-content: space-around;
     width: 100% !important;
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       height: 44px !important;
     }
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       height: 30px !important;
     }
 
@@ -223,14 +223,14 @@
       position: relative;
       width: 35%;
 
-      @media (max-width: $mobile-mediaquery-maxwidth) {
+      @media (max-width: $mobile-mediaquery-width) {
         display: none;
       }
 
       &__adaptive {
         display: none;
 
-        @media (max-width: $mobile-mediaquery-maxwidth) {
+        @media (max-width: $mobile-mediaquery-width) {
           display: block;
           width: 100%;
         }
@@ -243,7 +243,7 @@
         top: 35%;
         right: 15px;
 
-        @media (max-width: $mobile-mediaquery-maxwidth) {
+        @media (max-width: $mobile-mediaquery-width) {
           content: url("@/shared/assets/icons/Header/ChannelSearch/ChannelSearchAdaptiveSVG.svg");
           top: 20%;
         }
@@ -264,12 +264,12 @@
     width: 25%;
     font-size: 24px;
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       font-size: 14px;
       height: 40px;
     }
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       border-radius: 6px;
       height: 19px;
       font-size: 8px;

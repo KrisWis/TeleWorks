@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .ProfileAvatar {
   display: flex;
   justify-content: center;
@@ -7,10 +9,21 @@
   position: relative;
   padding: 3px;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    border-width: 1px;
+    padding: 1px;
+  }
+
   &::before {
     content: url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20010904//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3E%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='35.000000pt' height='35.000000pt' viewBox='0 0 46.000000 46.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cg transform='translate(0.000000,46.000000) scale(0.100000,-0.100000)'%0Afill='%23f55' stroke='none'%3E%3Cpath d='M104 381 c-32 -14 -64 -60 -64 -93 0 -17 7 -45 16 -64 18 -37 101%0A-117 147 -140 27 -14 31 -14 77 16 127 81 173 184 112 250 -39 43 -78 48 -126%0A15 l-39 -26 -21 20 c-26 24 -72 34 -102 22z'/%3E%3C/g%3E%3C/svg%3E%0A");
     position: absolute;
     top: -12px;
     left: -10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      content: url("data:image/svg+xml,%3C%3Fxml version='1.0' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20010904//EN' 'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3E%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' width='10.000000pt' height='10.000000pt' viewBox='0 0 46.000000 46.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cg transform='translate(0.000000,46.000000) scale(0.100000,-0.100000)'%0Afill='%23f55' stroke='none'%3E%3Cpath d='M104 381 c-32 -14 -64 -60 -64 -93 0 -17 7 -45 16 -64 18 -37 101%0A-117 147 -140 27 -14 31 -14 77 16 127 81 173 184 112 250 -39 43 -78 48 -126%0A15 l-39 -26 -21 20 c-26 24 -72 34 -102 22z'/%3E%3C/g%3E%3C/svg%3E%0A");
+      top: -5px;
+      left: -3px;
+    }
   }
 }

@@ -1,9 +1,16 @@
+@import "@/shared/vars";
+
 .ProfileChannelRating {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   height: 55px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    height: 12px;
+    gap: 3px;
+  }
 
   &__background {
     border: 1.74px solid var(--violet-color);
@@ -23,10 +30,19 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__svg {
     position: relative;
     bottom: 3px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 7px;
+      height: 7px;
+    }
   }
 }

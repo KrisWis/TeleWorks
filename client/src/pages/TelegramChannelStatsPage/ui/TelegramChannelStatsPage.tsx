@@ -34,15 +34,9 @@ export const TelegramChannelStatsPage: React.FC = memo(
         }}
       >
         <main className="Page TelegramChannelStatsPage__main">
+          <TelegramChannelStats channelId={Number(id)} />
           <div className="padding">
-            {id ? (
-              <>
-                <TelegramChannelStats channelId={Number(id)} />
-                <TelegramChannelStatsAllStatistics />
-              </>
-            ) : (
-              <span className="Page__error">Неверный идентификатор канала</span>
-            )}
+            <TelegramChannelStatsAllStatistics />
           </div>
         </main>
       </TelegramChannelStatsPageContext.Provider>

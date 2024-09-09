@@ -9,7 +9,7 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       font-size: 11px;
     }
   }
@@ -22,7 +22,7 @@
     padding: 15px;
     padding-right: 35px;
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       height: 270px;
     }
 
@@ -62,7 +62,7 @@
           white-space: nowrap;
           cursor: pointer;
 
-          @media (max-width: $mobile-mediaquery-maxwidth) {
+          @media (max-width: $mobile-mediaquery-width) {
             font-size: 14px;
           }
 

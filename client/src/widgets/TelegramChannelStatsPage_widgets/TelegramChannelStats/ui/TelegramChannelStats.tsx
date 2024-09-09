@@ -18,147 +18,171 @@ import AcceptSVG from "@/shared/assets/icons/Global/AcceptSVG.svg?react";
 import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";
 import { Link } from "react-router-dom";
 import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
-import { useGetChannelQuery } from "../api/telegramChannelStatsApi";
 import { TelegramChannelStatsProps } from "../model/TelegramChannelStats_types";
+import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+
+// TODO: убрать рыбу, раскомментить хук ниже
+const channelInfo = {
+  rating: 0,
+  imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+  title: "Квартира мечты!",
+  category: "Интерьер и строительство",
+  favouritesAmount: 134,
+  desc: "Пример описание чем занимается канала и прочие Например: Поможем найти вашу квартиру мечты по самым низким ценнам, на рынке уже более 10 лет. Помогли найти квартиру 30млн клиентам...",
+  geoLanguage: GeoLanguageTypes.RUSSIAN,
+  age: "1 год.",
+  postsAmount: 1573,
+  channelLink: "/channel",
+};
 
 export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
-  ({ channelId }): React.JSX.Element => {
+  (): React.JSX.Element => {
     // Нажатие на кнопку фаворита и открытие дропдауна
     const [isFavourite, setIsFavourite] = useState<boolean>(false);
 
     const [dropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false);
 
     // Получение данных с бекенда по id
-    const {
-      data: channelInfo,
-      isLoading,
-      error,
-    } = useGetChannelQuery(channelId);
+    // const {
+    //   data: channelInfo,
+    //   isLoading,
+    //   error,
+    // } = useGetChannelQuery(channelId);
+    const isLoading = false;
+    const error = false;
 
     return (
       <Flex
-        className={`${styles.TelegramChannelStats} Page__BoxShadowWrapper`}
+        className={styles.TelegramChannelStats}
         align="center"
         justify="center"
       >
-        {!isLoading && !error ? (
-          <Flex align="start" direction="column">
-            <Flex
-              className={styles.TelegramChannelStats__icons}
-              align="center"
-              gap="20"
-            >
-              <Share type={ShareTypes.RED} />
-
-              <Flex gap="3" direction="column">
-                <Favourite
-                  IsFavourite={isFavourite}
-                  setIsFavourite={setIsFavourite}
-                />
-
-                <span className={styles.TelegramChannelStats__favouriteText}>
-                  {channelInfo!.favouritesAmount}
-                </span>
-              </Flex>
-
-              <Dropdown
-                DropdownIsOpen={dropdownIsOpen}
-                setDropdownIsOpen={setDropdownIsOpen}
-                withArrow={false}
-                trigger={
-                  <IncreaseScaleHover>
-                    <ProfileChannelMoreSVG />
-                  </IncreaseScaleHover>
-                }
-                className={styles.TelegramChannelStats__more}
-              >
-                <Flex gap="5" align="center">
-                  <AcceptSVG
-                    className={styles.TelegramChannelStats__more__icon}
-                  />
-                  <span className={styles.TelegramChannelStats__more__text}>
-                    Это ваш канал?
-                  </span>
-                  <Link
-                    className={`${styles.TelegramChannelStats__more__text} ${styles.TelegramChannelStats__more__link}`}
-                    to="/"
-                  >
-                    Подтвердить
-                  </Link>
-                </Flex>
-
-                <Flex gap="5" align="center">
-                  <HistorySVG
-                    className={styles.TelegramChannelStats__more__icon}
-                  />
-                  <Link
-                    to="/"
-                    className={`${styles.TelegramChannelStats__more__text} ${styles.TelegramChannelStats__more__link}`}
-                  >
-                    История канала
-                  </Link>
-                </Flex>
-              </Dropdown>
-            </Flex>
-
-            <Flex className={styles.TelegramChannelStats__info} gap="30">
+        <div
+          className={`${styles.TelegramChannelStats__wrapper} Page__BoxShadowWrapper`}
+        >
+          {!isLoading && !error ? (
+            <Flex align="start" direction="column">
               <Flex
-                className={styles.TelegramChannelStats__avatar}
-                direction="column"
+                className={styles.TelegramChannelStats__icons}
+                align="center"
               >
-                <ProfileAvatar
-                  src={channelInfo!.imgURL}
-                  size={AvatarSizes.MEDIUM}
-                />
-                <ProfileChannelRating
-                  rating={509.2}
-                  backgroundIsVisible={false}
-                />
-              </Flex>
+                <Share type={ShareTypes.RED} />
 
-              <Flex align="start" direction="column">
-                <Flex gap="50">
-                  <Flex align="start" direction="column">
-                    <h6 className={styles.TelegramChannelStats__title}>
-                      {channelInfo!.title}
-                    </h6>
-                    <span className={styles.TelegramChannelStats__category}>
-                      {channelInfo!.category}
+                <Flex
+                  className={styles.TelegramChannelStats__favouriteWrapper}
+                  direction="column"
+                  align="center"
+                >
+                  <Favourite
+                    IsFavourite={isFavourite}
+                    setIsFavourite={setIsFavourite}
+                  />
+
+                  <span className={styles.TelegramChannelStats__favouriteText}>
+                    {channelInfo!.favouritesAmount}
+                  </span>
+                </Flex>
+
+                <Dropdown
+                  DropdownIsOpen={dropdownIsOpen}
+                  setDropdownIsOpen={setDropdownIsOpen}
+                  withArrow={false}
+                  trigger={
+                    <IncreaseScaleHover>
+                      <ProfileChannelMoreSVG />
+                    </IncreaseScaleHover>
+                  }
+                  className={styles.TelegramChannelStats__more}
+                >
+                  <Flex gap="5" align="center">
+                    <AcceptSVG
+                      className={styles.TelegramChannelStats__more__icon}
+                    />
+                    <span className={styles.TelegramChannelStats__more__text}>
+                      Это ваш канал?
                     </span>
+                    <Link
+                      className={`${styles.TelegramChannelStats__more__text} ${styles.TelegramChannelStats__more__link}`}
+                      to="/"
+                    >
+                      Подтвердить
+                    </Link>
                   </Flex>
 
-                  <Button
-                    className={styles.TelegramChannelStats__view}
-                    type={ButtonTypes.CYAN}
-                    text="Просмотр канала"
-                    to={channelInfo!.channelLink}
+                  <Flex gap="5" align="center">
+                    <HistorySVG
+                      className={styles.TelegramChannelStats__more__icon}
+                    />
+                    <Link
+                      to="/"
+                      className={`${styles.TelegramChannelStats__more__text} ${styles.TelegramChannelStats__more__link}`}
+                    >
+                      История канала
+                    </Link>
+                  </Flex>
+                </Dropdown>
+              </Flex>
+
+              <Flex className={styles.TelegramChannelStats__info}>
+                <Flex
+                  className={styles.TelegramChannelStats__avatar}
+                  direction="column"
+                >
+                  <ProfileAvatar
+                    src={channelInfo!.imgURL}
+                    size={AvatarSizes.MEDIUM}
+                  />
+                  <ProfileChannelRating
+                    rating={509.2}
+                    backgroundIsVisible={false}
                   />
                 </Flex>
 
-                <p className={styles.TelegramChannelStats__desc}>
-                  {channelInfo!.desc}
-                </p>
-              </Flex>
-            </Flex>
+                <Flex align="start" direction="column">
+                  <Flex className={styles.TelegramChannelStats__titleWrapper}>
+                    <Flex align="start" direction="column">
+                      <h6 className={styles.TelegramChannelStats__title}>
+                        {channelInfo!.title}
+                      </h6>
+                      <span className={styles.TelegramChannelStats__category}>
+                        {channelInfo!.category}
+                      </span>
+                    </Flex>
 
-            <Flex
-              className={styles.TelegramChannelStats__blocks}
-              justify="between"
-            >
-              <GeoLanguageBlock geoLanguage={GeoLanguageTypes.RUSSIAN} />
-              <AgeBlock age="1 год." />
-              <PostsBlock postsAmount={1573} />
+                    <Button
+                      className={styles.TelegramChannelStats__view}
+                      type={ButtonTypes.CYAN}
+                      text="Просмотр канала"
+                      to={channelInfo!.channelLink}
+                    />
+                  </Flex>
+
+                  <p className={styles.TelegramChannelStats__desc}>
+                    {channelInfo!.desc}
+                  </p>
+                </Flex>
+              </Flex>
+
+              <div className={styles.TelegramChannelStats__blocks}>
+                <GeoLanguageBlock geoLanguage={GeoLanguageTypes.RUSSIAN} />
+
+                <AgeBlock age="1 год." />
+
+                <div className={styles.TelegramChannelStats__blocks__post}>
+                  <PostsBlock postsAmount={1573} />
+                </div>
+              </div>
             </Flex>
-          </Flex>
-        ) : (
-          <>
-            {error ? (
-              <span className="Page__error">Ошибка при получении данных</span>
-            ) : (
-              <PageLoadingComponent />
-            )}
-          </>
-        )}
+          ) : (
+            <>
+              {error ? (
+                <span className="Page__error">Ошибка при получении данных</span>
+              ) : (
+                <PageLoadingComponent />
+              )}
+            </>
+          )}
+        </div>
       </Flex>
     );
   }

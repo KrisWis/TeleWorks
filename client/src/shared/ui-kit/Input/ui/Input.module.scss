@@ -14,11 +14,11 @@
   padding-left: 20px;
   transition: var(--transition-duration) all linear;
 
-  @media (max-width: $tablet-mediaquery-maxwidth) {
+  @media (max-width: $tablet-mediaquery-width) {
     font-size: 16px;
   }
 
-  @media (max-width: $mobile-mediaquery-maxwidth) {
+  @media (max-width: $mobile-mediaquery-width) {
     height: 37px;
     padding-left: 10px;
     font-size: 12px;
@@ -33,11 +33,11 @@
     color: var(--black-color);
     opacity: 0.4;
 
-    @media (max-width: $tablet-mediaquery-maxwidth) {
+    @media (max-width: $tablet-mediaquery-width) {
       font-size: 16px;
     }
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       font-size: 12px;
     }
   }

@@ -12,7 +12,7 @@
   box-shadow: 0 0 15px transparent;
   cursor: pointer;
 
-  @media (max-width: $mobile-mediaquery-maxwidth) {
+  @media (max-width: $mobile-mediaquery-width) {
     min-width: 11px;
     min-height: 11px;
     max-width: 11px;

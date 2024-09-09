@@ -11,12 +11,12 @@
   gap: 5px;
   overflow-y: auto !important;
 
-  @media (max-width: $tablet-mediaquery-maxwidth) {
+  @media (max-width: $tablet-mediaquery-width) {
     width: 30vw;
     left: -20vw;
   }
 
-  @media (max-width: $mobile-mediaquery-maxwidth) {
+  @media (max-width: $mobile-mediaquery-width) {
     width: 60vw;
     left: -45vw;
   }
@@ -28,7 +28,7 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    @media (max-width: $mobile-mediaquery-width) {
       font-size: 12px;
     }
   }
