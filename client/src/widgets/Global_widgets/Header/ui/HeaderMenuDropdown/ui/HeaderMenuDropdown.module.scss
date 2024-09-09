@@ -198,6 +198,41 @@
       width: 100%;
     }
   }
+
+  &__balance {
+    height: 58px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    margin-top: 5px;
+    border-radius: 15px;
+
+    &__amount {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 100%;
+      letter-spacing: -0.01em;
+
+      &__pennies {
+        opacity: 0.4;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: -0.01em;
+        margin-right: 3px;
+      }
+    }
+
+    &__increase {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: -0.01em;
+    }
+  }
 }
 
 .header__item__reg {

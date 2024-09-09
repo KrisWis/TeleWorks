@@ -13,6 +13,7 @@ import TelegramSVG from "@/shared/assets/icons/Global/TelegramSVG.svg?react";
 import RedTickSVG from "@/shared/assets/icons/Global/RedTickSVG.svg?react";
 import LeaveSVG from "@/shared/assets/icons/Header/Menu/LeaveSVG.svg?react";
 import { HeaderMenuDropdownProps } from "../model/HeaderMenuDropdown_types";
+import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
   ({
@@ -92,6 +93,25 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
                 </span>
               </div>
             </div>
+
+            <Button
+              type={ButtonTypes.RED}
+              className={styles.header__userMenu__balance}
+            >
+              <span className={styles.header__userMenu__balance__amount}>
+                0
+                <span
+                  className={styles.header__userMenu__balance__amount__pennies}
+                >
+                  .00
+                </span>
+                ₽
+              </span>
+
+              <span className={styles.header__userMenu__balance__increase}>
+                Пополнить
+              </span>
+            </Button>
 
             <div className={styles.header__userMenu__categoryWrapper}>
               {(

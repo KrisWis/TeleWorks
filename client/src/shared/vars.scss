@@ -1,3 +1,15 @@
+/* Vars for adaptive */
 $laptop-mediaquery-maxwidth: 1600px;
 $tablet-mediaquery-maxwidth: 1300px;
 $mobile-mediaquery-maxwidth: 700px;
+
+/* Vars for padding */
+$padding-default-value: 0 370px;
+$padding-first-mediaquery: 1900px;
+$padding-first-mediaquery-value: 0 300px;
+$padding-second-mediaquery: 1750px;
+$padding-second-mediaquery-value: 0 150px;
+$padding-third-mediaquery: 1450px;
+$padding-third-mediaquery-value: 0 50px;
+$padding-fourth-mediaquery: 1000px;
+$padding-fourth-mediaquery-value: 0 20px;

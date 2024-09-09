@@ -1,21 +1,23 @@
+@import "@/shared/vars";
+
 // Padding
 .padding {
   padding: 0 370px;
 
-  @media (max-width: 1900px) {
-    padding: 0 300px;
+  @media (max-width: $padding-first-mediaquery) {
+    padding: $padding-first-mediaquery-value;
   }
 
-  @media (max-width: 1750px) {
-    padding: 0 150px;
+  @media (max-width: $padding-second-mediaquery) {
+    padding: $padding-second-mediaquery-value;
   }
 
-  @media (max-width: 1450px) {
-    padding: 0 50px;
+  @media (max-width: $padding-third-mediaquery) {
+    padding: $padding-third-mediaquery-value;
   }
 
-  @media (max-width: 1000px) {
-    padding: 0 20px;
+  @media (max-width: $padding-fourth-mediaquery) {
+    padding: $padding-fourth-mediaquery-value;
   }
 }
 

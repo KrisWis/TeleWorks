@@ -1,30 +1,35 @@
 @import "@/shared/vars";
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 370px;
   position: fixed;
-  background-color: var(--white-color);
   width: 100vw;
   z-index: var(--z-index-header);
+  padding: $padding-default-value;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
+  background-color: var(--white-color);
 
-  @media (max-width: 1900px) {
-    padding: 0 300px;
+  @media (max-width: $padding-first-mediaquery) {
+    padding: $padding-first-mediaquery-value;
   }
 
-  @media (max-width: 1750px) {
-    padding: 0 150px;
+  @media (max-width: $padding-second-mediaquery) {
+    padding: $padding-second-mediaquery-value;
   }
 
-  @media (max-width: 1450px) {
-    padding: 0 50px;
+  @media (max-width: $padding-third-mediaquery) {
+    padding: $padding-third-mediaquery-value;
   }
 
-  @media (max-width: 1000px) {
-    padding: 0 20px;
+  @media (max-width: $padding-fourth-mediaquery) {
+    padding: $padding-fourth-mediaquery-value;
+    padding-bottom: 10px !important;
+  }
+
+  &Wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 
   &__menu__dropdown {
@@ -41,7 +46,22 @@
     width: 30%;
     gap: 20px;
 
-    @media (max-width: $mobile-mediaquery-maxwidth) {
+    &__logo {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      @media (max-width: $tablet-mediaquery-maxwidth) {
+        gap: 0;
+        flex-direction: column;
+      }
+
+      @media (max-width: $mobile-mediaquery-maxwidth) {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: $tablet-mediaquery-maxwidth) {
       gap: 10px;
     }
   }
@@ -52,6 +72,10 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $tablet-mediaquery-maxwidth) {
+      font-size: 30px;
+    }
 
     @media (max-width: $mobile-mediaquery-maxwidth) {
       font-size: 14px;
@@ -68,51 +92,14 @@
     width: 55%;
     gap: 10px;
     justify-content: flex-end;
+
+    @media (max-width: $tablet-mediaquery-maxwidth) {
+      width: 65%;
+    }
   }
 
   &__item {
     margin-right: 30px;
-
-    &__balance {
-      height: 58px;
-      width: 35%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-
-      @media (max-width: $tablet-mediaquery-maxwidth) {
-        width: 50%;
-      }
-
-      @media (max-width: $mobile-mediaquery-maxwidth) {
-        display: none;
-      }
-
-      &__amount {
-        display: flex;
-        align-items: center;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 100%;
-        letter-spacing: -0.01em;
-
-        &__pennies {
-          opacity: 0.4;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 100%;
-          letter-spacing: -0.01em;
-          margin-right: 3px;
-        }
-      }
-
-      &__increase {
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 100%;
-        letter-spacing: -0.01em;
-      }
-    }
 
     &__title {
       font-family: var(--second-family);
@@ -202,6 +189,18 @@
     font-size: 14px;
     letter-spacing: -0.01em;
     color: var(--color-black);
+
+    @media (max-width: $tablet-mediaquery-maxwidth) {
+      border-radius: 5px;
+      position: relative;
+      bottom: 5px;
+      width: 100%;
+    }
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      font-size: 8px;
+      height: 15px;
+    }
   }
 
   &__channelSearchInput {
@@ -212,9 +211,30 @@
     justify-content: space-around;
     width: 100% !important;
 
+    @media (max-width: $tablet-mediaquery-maxwidth) {
+      height: 44px !important;
+    }
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      height: 30px !important;
+    }
+
     &Wrapper {
       position: relative;
       width: 35%;
+
+      @media (max-width: $mobile-mediaquery-maxwidth) {
+        display: none;
+      }
+
+      &__adaptive {
+        display: none;
+
+        @media (max-width: $mobile-mediaquery-maxwidth) {
+          display: block;
+          width: 100%;
+        }
+      }
 
       &::after {
         content: url("@/shared/assets/icons/Header/ChannelSearch/ChannelSearchSVG.svg");
@@ -222,6 +242,11 @@
         position: absolute;
         top: 35%;
         right: 15px;
+
+        @media (max-width: $mobile-mediaquery-maxwidth) {
+          content: url("@/shared/assets/icons/Header/ChannelSearch/ChannelSearchAdaptiveSVG.svg");
+          top: 20%;
+        }
       }
     }
 
@@ -238,5 +263,17 @@
     height: 57px;
     width: 25%;
     font-size: 24px;
+
+    @media (max-width: $tablet-mediaquery-maxwidth) {
+      font-size: 14px;
+      height: 40px;
+    }
+
+    @media (max-width: $mobile-mediaquery-maxwidth) {
+      border-radius: 6px;
+      height: 19px;
+      font-size: 8px;
+      padding: 12px;
+    }
   }
 }
