@@ -30,9 +30,11 @@ const telegramChannelStatsViewsAnalyzeFormatSelectTextStyles: SelectTextStyles =
 const telegramChannelStatsViewsAnalyzeFormatSelectDropdownIndicator =
   (): JSX.Element => {
     return (
-      <SelectDropdownIndicatorBlueSVG
+      <div
         className={`${selectStyles.Select__svg} ${styles.TelegramChannelStatsViewsAnalyze__format__select__svg}`}
-      />
+      >
+        <SelectDropdownIndicatorBlueSVG />
+      </div>
     );
   };
 

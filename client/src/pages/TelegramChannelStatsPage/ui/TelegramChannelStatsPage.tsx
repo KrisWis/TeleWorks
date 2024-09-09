@@ -4,10 +4,6 @@ import { TelegramChannelStats } from "@/widgets/TelegramChannelStatsPage_widgets
 import { useEffect, useState } from "react";
 import { memo } from "react";
 import { TelegramChannelStatsAllStatistics } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics";
-import {
-  TelegramChannelStatsCategories,
-  telegramChannelStatsCategories,
-} from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics/ui/TelegramChannelStatsCategories";
 import { TelegramChannelStatsPageContext } from "../model/context/TelegramChannelStatsPageContext";
 import { useParams } from "react-router-dom";
 
@@ -18,10 +14,8 @@ export const TelegramChannelStatsPage: React.FC = memo(
     }, []);
 
     // Выбор категории
-    const [selectedCategory, setSelectedCategory] =
-      useState<TelegramChannelStatsCategories>(
-        telegramChannelStatsCategories[0].title
-      );
+    const [selectedCategoryIndex, setSelectedCategoryIndex] =
+      useState<number>(0);
 
     // Получение id страницы
     const { id } = useParams<{ id: string }>();
@@ -29,8 +23,8 @@ export const TelegramChannelStatsPage: React.FC = memo(
     return (
       <TelegramChannelStatsPageContext.Provider
         value={{
-          selectedCategory,
-          setSelectedCategory,
+          selectedCategoryIndex,
+          setSelectedCategoryIndex,
         }}
       >
         <main className="Page TelegramChannelStatsPage__main">

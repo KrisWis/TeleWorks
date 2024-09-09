@@ -14,9 +14,11 @@ import { TelegramChannelStatsADSEffectivityStats } from "./TelegramChannelStatsA
 
 const SortDropdownIndicator = (): JSX.Element => {
   return (
-    <SelectDropdownIndicatorBlueSVG
+    <div
       className={`${selectStyles.Select__svg} ${styles.TelegramChannelStatsADSEffectivity__sort__svg}`}
-    />
+    >
+      <SelectDropdownIndicatorBlueSVG />
+    </div>
   );
 };
 

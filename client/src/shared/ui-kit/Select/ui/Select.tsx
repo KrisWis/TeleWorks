@@ -100,7 +100,10 @@ export const Select: React.FC<Select__Props> = memo(
     // Закрытие дропдауна
     useEffect(() => {
       const closeDropDown = (e: Event) => {
-        if (!SelectParentRef.current?.contains(e.target as Node)) {
+        if (
+          !SelectParentRef.current?.contains(e.target as Node) &&
+          DropdownIndicatorRef.current!
+        ) {
           (DropdownIndicatorRef.current! as HTMLElement).classList.remove(
             styles.Select__svg__active
           );

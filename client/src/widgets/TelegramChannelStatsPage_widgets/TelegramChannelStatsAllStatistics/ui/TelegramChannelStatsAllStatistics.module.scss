@@ -1,11 +1,22 @@
+@import "@/shared/vars";
+
 .TelegramChannelStatsAllStatistics {
   width: 100%;
   margin-top: 30px;
   margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 28% 72%;
+
+  @media (max-width: $tablet-mediaquery-width) {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
 
   &__data {
     padding: 20px;
-    width: 72%;
+    width: 100%;
     background-color: var(--white-color);
     padding-top: 0;
   }

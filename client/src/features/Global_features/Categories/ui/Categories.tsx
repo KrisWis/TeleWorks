@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { CategoriesProps } from "../model/Categories_types";
 import styles from "./Categories.module.scss";
-import { memo, useState } from "react";
+import { memo, useMemo } from "react";
 import { Navigation } from "swiper/modules";
 import "./Categories_swiper.scss";
 
@@ -11,10 +11,13 @@ export const Categories: React.FC<CategoriesProps> = memo(
     className,
     SliderPrevArrowID,
     SliderNextArrowID,
+    activeCategoryIndex,
+    setActiveCategoryIndex,
   }): React.JSX.Element => {
-    const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
-
-    const SliderIsVisible = categories.length >= 5;
+    const SliderIsVisible = useMemo(
+      () => categories.length >= 5,
+      [categories.length]
+    );
 
     return (
       <div className={`${styles.categories} categories ${className}`}>

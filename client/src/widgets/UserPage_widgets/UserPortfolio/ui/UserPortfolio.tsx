@@ -1,5 +1,5 @@
 import styles from "./UserPortfolio.module.scss";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { UserPortfolioProps } from "../model/UserPortfolio_types";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import SortSelectDropdownIndicatorSVG from "@/shared/assets/icons/Global/SortSelectDropdownIndicatorSVG.svg?react";
@@ -30,6 +30,8 @@ const SortSelectTextStyles: SelectTextStyles = {
 
 export const UserPortfolio: React.FC<UserPortfolioProps> = memo(
   ({ categories, cases }): React.JSX.Element => {
+    const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
+
     return (
       <section className={styles.UserPortfolio}>
         <div className={styles.UserPortfolio__header}>
@@ -54,6 +56,8 @@ export const UserPortfolio: React.FC<UserPortfolioProps> = memo(
           categories={categories}
           SliderPrevArrowID="UserPortfolio__sliderPrevArrow"
           SliderNextArrowID="UserPortfolio__sliderNextArrow"
+          activeCategoryIndex={activeCategoryIndex}
+          setActiveCategoryIndex={setActiveCategoryIndex}
         />
 
         <div className={styles.UserPortfolio__cases}>

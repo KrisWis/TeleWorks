@@ -52,12 +52,10 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
     const error = false;
 
     return (
-      <Flex
-        className={styles.TelegramChannelStats}
-        align="center"
-        justify="center"
-      >
-        <div
+      <div className={styles.TelegramChannelStats}>
+        <Flex
+          align="center"
+          justify="center"
           className={`${styles.TelegramChannelStats__wrapper} Page__BoxShadowWrapper`}
         >
           {!isLoading && !error ? (
@@ -182,8 +180,8 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
               )}
             </>
           )}
-        </div>
-      </Flex>
+        </Flex>
+      </div>
     );
   }
 );
