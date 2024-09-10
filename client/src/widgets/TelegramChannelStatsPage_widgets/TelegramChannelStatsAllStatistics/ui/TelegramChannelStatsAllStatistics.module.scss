@@ -2,10 +2,35 @@
 
 .TelegramChannelStatsAllStatistics {
   width: 100%;
-  margin-top: 30px;
-  margin-bottom: 100px;
   display: grid;
   grid-template-columns: 28% 72%;
+
+  &__wrapper {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+
+    @media (max-width: $padding-first-mediaquery) {
+      padding: $padding-first-mediaquery-value;
+    }
+
+    @media (max-width: $padding-second-mediaquery) {
+      padding: $padding-second-mediaquery-value;
+    }
+
+    @media (max-width: $padding-third-mediaquery) {
+      padding: $padding-third-mediaquery-value;
+    }
+
+    @media (max-width: $padding-fourth-mediaquery) {
+      padding: $padding-fourth-mediaquery-value;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding: $padding-none-value;
+      margin-top: 0;
+    }
+  }
 
   @media (max-width: $tablet-mediaquery-width) {
     display: flex;
@@ -19,5 +44,9 @@
     width: 100%;
     background-color: var(--white-color);
     padding-top: 0;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      padding: 0;
+    }
   }
 }

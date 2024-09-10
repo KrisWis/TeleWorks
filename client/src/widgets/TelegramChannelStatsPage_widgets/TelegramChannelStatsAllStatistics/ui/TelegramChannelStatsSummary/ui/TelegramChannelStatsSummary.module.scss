@@ -1,13 +1,24 @@
+@import "@/shared/vars";
+
 .TelegramChannelStatsSummary {
   padding: 20px;
   width: 100%;
   padding-right: 45px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 10px;
+  }
 
   &__graphics {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     width: 100%;
     gap: 20px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 8px;
+      grid-template-columns: repeat(2, 49%);
+    }
   }
 
   &__wenAndWomenProgressbar {

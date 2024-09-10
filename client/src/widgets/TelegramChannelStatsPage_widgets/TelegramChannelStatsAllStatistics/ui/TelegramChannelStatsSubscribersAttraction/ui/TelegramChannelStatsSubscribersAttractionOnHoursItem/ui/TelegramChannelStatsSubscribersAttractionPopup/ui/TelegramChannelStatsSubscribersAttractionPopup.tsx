@@ -121,7 +121,6 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
           className={
             styles.TelegramChannelStatsSubscribersAttractionPopup__channel
           }
-          align="center"
           gap="15"
         >
           <img
@@ -132,31 +131,39 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
             alt={channel.channelName}
           />
 
-          <Flex gap="3" direction="column">
-            <h6
-              className={
-                styles.TelegramChannelStatsSubscribersAttractionPopup__channel__name
-              }
-            >
-              {channel.channelName}
-            </h6>
-            <span
-              className={
-                styles.TelegramChannelStatsSubscribersAttractionPopup__channel__category
-              }
-            >
-              {channel.channelCategory}
-            </span>
-          </Flex>
-
-          <Button
+          <Flex
             className={
-              styles.TelegramChannelStatsSubscribersAttractionPopup__channel__link
+              styles.TelegramChannelStatsSubscribersAttractionPopup__channel__wrapper
             }
-            type={ButtonTypes.CYAN}
-            text="Просмотр канала"
-            onClick={redirectToChannelPage}
-          />
+            align="center"
+            justify="between"
+          >
+            <Flex gap="3" direction="column">
+              <h6
+                className={
+                  styles.TelegramChannelStatsSubscribersAttractionPopup__channel__name
+                }
+              >
+                {channel.channelName}
+              </h6>
+              <span
+                className={
+                  styles.TelegramChannelStatsSubscribersAttractionPopup__channel__category
+                }
+              >
+                {channel.channelCategory}
+              </span>
+            </Flex>
+
+            <Button
+              className={
+                styles.TelegramChannelStatsSubscribersAttractionPopup__channel__link
+              }
+              type={ButtonTypes.CYAN}
+              text="Просмотр канала"
+              onClick={redirectToChannelPage}
+            />
+          </Flex>
         </Flex>
 
         <img

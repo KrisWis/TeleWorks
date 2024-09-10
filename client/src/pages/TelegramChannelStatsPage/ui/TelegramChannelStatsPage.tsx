@@ -29,9 +29,7 @@ export const TelegramChannelStatsPage: React.FC = memo(
       >
         <main className="Page TelegramChannelStatsPage__main">
           <TelegramChannelStats channelId={Number(id)} />
-          <div className="padding">
-            <TelegramChannelStatsAllStatistics />
-          </div>
+          <TelegramChannelStatsAllStatistics />
         </main>
       </TelegramChannelStatsPageContext.Provider>
     );

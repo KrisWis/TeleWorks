@@ -22,15 +22,17 @@ export const TelegramChannelStatsAllStatistics: React.FC = memo(
     );
 
     return (
-      <div
-        className={`${styles.TelegramChannelStatsAllStatistics} ${!tablet_mediaQuery.matches ? "Page__BoxShadowWrapper" : ""}`}
-      >
-        <TelegramChannelStatsCategories />
-
+      <div className={styles.TelegramChannelStatsAllStatistics__wrapper}>
         <div
-          className={`${styles.TelegramChannelStatsAllStatistics__data} ${tablet_mediaQuery.matches ? "Page__BoxShadowWrapper" : ""}`}
+          className={`${styles.TelegramChannelStatsAllStatistics} ${!tablet_mediaQuery.matches ? "Page__BoxShadowWrapper" : ""}`}
         >
-          {selectedCategoryBlock}
+          <TelegramChannelStatsCategories />
+
+          <div
+            className={`${styles.TelegramChannelStatsAllStatistics__data} ${tablet_mediaQuery.matches ? "Page__BoxShadowWrapper" : ""}`}
+          >
+            {selectedCategoryBlock}
+          </div>
         </div>
       </div>
     );

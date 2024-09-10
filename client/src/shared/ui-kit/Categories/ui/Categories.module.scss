@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .categories {
   display: flex;
   align-items: center;
@@ -13,6 +15,13 @@
   border-radius: 25px;
   position: relative;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 0 20px;
+    height: 33px;
+    border-radius: 10px;
+    border-width: 1px;
+  }
+
   &Wrapper {
     display: flex;
     gap: 50px;
@@ -21,8 +30,8 @@
   }
 
   &__arrow {
-    min-width: 8px;
-    min-height: 15px;
+    width: 8px;
+    height: 15px;
     cursor: pointer;
     position: absolute;
     z-index: var(--z-index-one);
@@ -38,12 +47,25 @@
       }
     }
 
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 5px;
+      height: 9px;
+    }
+
     &Next {
       right: 40px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        right: 10px;
+      }
     }
 
     &Prev {
       left: 40px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        left: 10px;
+      }
     }
   }
 
@@ -57,15 +79,16 @@
     transition: var(--transition-duration) linear all;
     white-space: nowrap;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
+
     &:hover {
       color: var(--main-color);
     }
 
     &__active {
       font-weight: 600;
-      font-size: 20px;
-      line-height: 150%;
-      letter-spacing: -0.01em;
       color: var(--black-color);
 
       &:hover {
@@ -80,6 +103,11 @@
         width: 100%;
         height: 4px;
         top: 20px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          height: 2px;
+          top: 7px;
+        }
       }
     }
   }

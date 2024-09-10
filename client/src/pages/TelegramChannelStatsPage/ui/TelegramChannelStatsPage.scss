@@ -1,9 +1,15 @@
+@import "@/shared/vars";
+
 .TelegramChannelStatsPage {
   &__main {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin: 20px 0;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 3px;
+    }
   }
 
   &__caption {

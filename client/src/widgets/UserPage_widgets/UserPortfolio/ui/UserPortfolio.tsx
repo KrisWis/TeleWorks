@@ -8,7 +8,7 @@ import {
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { userPortfolioSortSelectItems } from "../model/UserPortfolio_data";
-import { Categories } from "@/features/Global_features/Categories";
+import { Categories } from "@/shared/ui-kit/Categories";
 import { PortfolioCase } from "@/shared/ui-kit/PortfolioCase";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 import { ButtonTypes } from "@/shared/ui-kit/Button";

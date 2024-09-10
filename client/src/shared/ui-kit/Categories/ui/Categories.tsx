@@ -4,6 +4,7 @@ import styles from "./Categories.module.scss";
 import { memo, useMemo } from "react";
 import { Navigation } from "swiper/modules";
 import "./Categories_swiper.scss";
+import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const Categories: React.FC<CategoriesProps> = memo(
   ({
@@ -27,8 +28,6 @@ export const Categories: React.FC<CategoriesProps> = memo(
               <svg
                 id={SliderPrevArrowID}
                 className={`${styles.categories__arrow} ${styles.categories__arrowPrev}`}
-                width="8"
-                height="15"
                 viewBox="0 0 8 15"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +48,9 @@ export const Categories: React.FC<CategoriesProps> = memo(
                 nextEl: `#${SliderNextArrowID}`,
               }}
               modules={[Navigation]}
-              spaceBetween={60}
+              spaceBetween={!mobile_mediaQuery.matches ? 60 : 20}
               slidesPerView={"auto"}
-              slidesPerGroup={5.2}
+              slidesPerGroup={!mobile_mediaQuery.matches ? 5.2 : 2.8}
             >
               {categories.map((category: string, index: number) => (
                 <SwiperSlide key={category}>
@@ -69,8 +68,6 @@ export const Categories: React.FC<CategoriesProps> = memo(
               <svg
                 id={SliderNextArrowID}
                 className={`${styles.categories__arrow} ${styles.categories__arrowNext}`}
-                width="8"
-                height="15"
                 viewBox="0 0 8 15"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

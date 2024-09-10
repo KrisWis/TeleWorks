@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .stats__item {
   display: flex;
   width: 100%;
@@ -11,6 +13,11 @@
   &__small {
     padding: 15px 20px;
     min-height: 250px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      min-height: 81px;
+      padding: 5px;
+    }
   }
 
   &__stats {
@@ -26,6 +33,12 @@
         height: 150px !important;
         top: 26px;
         left: -40px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          height: 80px !important;
+          top: 17px;
+          left: -55px;
+        }
       }
 
       &Img {
@@ -36,6 +49,15 @@
         &__small {
           height: 165px;
           object-fit: cover;
+          width: 20vw;
+          right: 10%;
+
+          @media (max-width: $mobile-mediaquery-width) {
+            height: 60px !important;
+            top: 10px;
+            width: 30vw;
+            right: -3%;
+          }
         }
       }
     }
@@ -50,6 +72,11 @@
       &__small {
         font-family: var(--third-family);
         font-size: 32px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
       }
     }
 
@@ -60,6 +87,10 @@
       max-height: 100px;
       gap: 10px;
       width: 100%;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        max-height: 60px;
+      }
     }
 
     &__amount {
@@ -72,6 +103,11 @@
       &__small {
         font-size: 15px;
         width: 50px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 8px;
+          width: 30px;
+        }
       }
     }
 
@@ -85,6 +121,11 @@
       &__small {
         font-size: 15px;
         width: 50px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 8px;
+          width: 25px;
+        }
       }
 
       &__grow {
@@ -113,10 +154,18 @@
           font-size: 15px;
         }
 
+        @media (max-width: $tablet-mediaquery-width) {
+          font-size: 8px;
+        }
+
         &__postfix {
           position: absolute;
           font-size: 15px;
           bottom: -3px;
+
+          @media (max-width: $mobile-mediaquery-width) {
+            font-size: 8px;
+          }
         }
       }
     }
@@ -136,6 +185,10 @@
         &__small {
           font-size: 12px;
           padding-right: 0;
+
+          @media (max-width: $tablet-mediaquery-width) {
+            font-size: 6px;
+          }
         }
       }
     }

@@ -10,6 +10,10 @@
     padding: 0;
   }
 
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 0 10px;
+  }
+
   &__category {
     cursor: pointer;
     width: 100%;
