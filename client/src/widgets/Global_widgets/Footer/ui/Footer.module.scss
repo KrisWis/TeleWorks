@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .footer {
   display: flex;
   background-color: var(--white-color);
@@ -5,21 +7,35 @@
   height: 400px;
   margin-top: 50px;
   justify-content: space-between;
+  gap: 100px;
+  padding-top: 25px !important;
 
-  @media (max-width: 1900px) {
-    padding: 50px 300px;
+  @media (max-width: $padding-first-mediaquery) {
+    padding: $padding-first-mediaquery-value;
   }
 
-  @media (max-width: 1750px) {
-    padding: 50px 150px;
+  @media (max-width: $padding-second-mediaquery) {
+    padding: $padding-second-mediaquery-value;
   }
 
-  @media (max-width: 1450px) {
-    padding: 50px;
+  @media (max-width: $padding-third-mediaquery) {
+    padding: $padding-third-mediaquery-value;
   }
 
-  @media (max-width: 1000px) {
-    padding: 50px 20px;
+  @media (max-width: $padding-fourth-mediaquery) {
+    padding: $padding-fourth-mediaquery-value;
+  }
+
+  @media (max-width: $tablet-mediaquery-width) {
+    gap: 50px;
+  }
+
+  @media (max-width: $mobile-mediaquery-width) {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+    gap: 20px;
   }
 
   &__wrapper {
@@ -36,6 +52,10 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
 
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 30px;
+    }
+
     span {
       color: var(--main-color);
     }
@@ -48,12 +68,35 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 12px;
+      text-align: center;
+    }
   }
 
   &__links {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: $mobile-small-mediaquery-width) {
+      align-items: center;
+      gap: 5px;
+    }
+
+    &Wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 30%);
+      justify-content: space-between;
+      width: 100%;
+
+      @media (max-width: $mobile-small-mediaquery-width) {
+        grid-template-columns: 100%;
+        gap: 20px;
+        align-items: center;
+      }
+    }
 
     &__items {
       display: flex;
@@ -77,6 +120,10 @@
         text-decoration-skip-ink: none;
         color: var(--black-color);
         transition: var(--transition-duration) linear all;
+
+        @media (max-width: $tablet-mediaquery-width) {
+          font-size: 12px;
+        }
       }
 
       &:hover {

@@ -19,9 +19,9 @@ export const Primary: Story = {
     channel: {
       channelName: "Название канала",
       channelCategory: "Интерьер и строительство",
-      channelImgURL: `${URL_PART}/global/serviceExample_authorImg.png`,
+      channelImgURL: `${URL_PART}global/serviceExample_authorImg.png`,
       channelLink: "/",
-      channelPostImgURL: `${URL_PART}/global/portfolioCase__example_img.png`,
+      channelPostImgURL: `${URL_PART}global/portfolioCase__example_img.png`,
       commentsAmount: 11222,
       viewsAmount: 11222,
       repostsAmount: 11222,

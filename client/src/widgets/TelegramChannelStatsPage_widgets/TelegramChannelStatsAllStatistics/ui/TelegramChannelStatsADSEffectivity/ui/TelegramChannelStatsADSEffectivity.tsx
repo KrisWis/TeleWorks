@@ -5,12 +5,16 @@ import { TipBlock } from "@/shared/ui-kit/TipBlock";
 import { Input } from "@/shared/ui-kit/Input";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorBlueSVG.svg?react";
-import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import {
+  SelectTextStyles,
+  valueContainerPaddingEnum,
+} from "@/shared/ui-kit/Select/model/Select_types";
 import {
   telegramChannelStatsADSEffectivitySortSelectedOptions,
   telegramChannelStatsADSEffectivityStatItems,
 } from "../model/TelegramChannelStatsADSEffectivity_data";
 import { TelegramChannelStatsADSEffectivityStats } from "./TelegramChannelStatsADSEffectivityStats";
+import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 const SortDropdownIndicator = (): JSX.Element => {
   return (
@@ -25,11 +29,12 @@ const SortDropdownIndicator = (): JSX.Element => {
 const SortTextStyles: SelectTextStyles = {
   fontFamily: "var(--second-family)",
   fontWeight: 500,
-  fontSize: "20px",
+  fontSize: !mobile_mediaQuery.matches ? "20px" : "9px",
   letterSpacing: "-0.01em",
   lineHeight: "150%",
   color: "#000",
   opacity: 0.4,
+  bottom: !mobile_mediaQuery.matches ? 0 : 2,
 };
 
 export const TelegramChannelStatsADSEffectivity: React.FC = memo(
@@ -41,7 +46,6 @@ export const TelegramChannelStatsADSEffectivity: React.FC = memo(
       <Flex
         direction="column"
         className={styles.TelegramChannelStatsADSEffectivity}
-        gap="20"
       >
         <h5 className="TelegramChannelStatsPage__caption">
           Эффективность рекламы
@@ -77,6 +81,11 @@ export const TelegramChannelStatsADSEffectivity: React.FC = memo(
             CustomDropdownIndicator={SortDropdownIndicator}
             TextStyles={SortTextStyles}
             className={styles.TelegramChannelStatsADSEffectivity__sort}
+            valueContainerPadding={
+              !mobile_mediaQuery.matches
+                ? valueContainerPaddingEnum.MEDIUM
+                : valueContainerPaddingEnum.SMALL
+            }
           />
         </Flex>
 

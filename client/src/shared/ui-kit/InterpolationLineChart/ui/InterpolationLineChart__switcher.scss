@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .InterpolationLineChart__switcherComponent
   .css-1uf4bbi.Mui-checked
   + .MuiSwitch-track {
@@ -7,6 +9,21 @@
 .InterpolationLineChart__switcherComponent .css-jsexje-MuiSwitch-thumb {
   width: 14px;
   height: 14px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    width: 7px;
+    height: 7px;
+    position: relative;
+    right: 0;
+  }
+}
+
+.InterpolationLineChart__switcherComponent
+  .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked
+  .css-jsexje-MuiSwitch-thumb {
+  @media (max-width: $mobile-mediaquery-width) {
+    right: 11px;
+  }
 }
 
 .InterpolationLineChart__switcherComponent
@@ -16,6 +33,11 @@
   width: 38px;
   height: 20px;
   opacity: 1;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    width: 20px;
+    height: 10px;
+  }
 }
 
 .css-julti5-MuiSwitch-root.InterpolationLineChart__switcherComponent {
@@ -24,6 +46,11 @@
   border: 1px solid var(--violet-color);
   border-radius: 100px;
   width: 38px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    width: 20px;
+    height: 10px;
+  }
 }
 
 .InterpolationLineChart__switcherComponent
@@ -40,6 +67,11 @@
   width: 38px;
   height: 20px;
   opacity: 1;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    width: 20px;
+    height: 10px;
+  }
 }
 
 .css-1uf4bbi.Mui-checked {

@@ -6,6 +6,7 @@ import { Chart, LineController, LineElement, ChartData } from "chart.js/auto";
 import { Flex } from "../../Stack";
 import Switch from "@mui/material/Switch";
 import "./InterpolationLineChart__switcher.scss";
+import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 Chart.register(LineController, LineElement);
 
@@ -53,9 +54,19 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
             .getContext("2d")!
             .createLinearGradient(0, 0, 0, 400);
 
-          chartGradient.current.addColorStop(0, "rgba(66, 102, 198, 1)");
+          if (mobile_mediaQuery.matches) {
+            chartGradient.current.addColorStop(0, "rgba(66, 102, 198, 1)");
 
-          chartGradient.current.addColorStop(1, "rgba(66, 102, 198, 0)");
+            chartGradient.current.addColorStop(1, "rgba(66, 102, 198, 0)");
+
+            chartGradient.current.addColorStop(1, "rgba(66, 102, 198, 0)");
+
+            chartGradient.current.addColorStop(1, "rgba(66, 102, 198, 0)");
+          } else {
+            chartGradient.current.addColorStop(0, "rgba(66, 102, 198, 1)");
+
+            chartGradient.current.addColorStop(1, "rgba(66, 102, 198, 0)");
+          }
 
           setChartData({
             labels: chartData.labels,

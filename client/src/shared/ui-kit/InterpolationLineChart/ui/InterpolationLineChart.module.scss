@@ -49,9 +49,10 @@
       opacity: 0.4;
       transition: var(--transition-duration) linear;
       transition-property: font-weight, opacity;
+      white-space: nowrap;
 
       @media (max-width: $mobile-mediaquery-width) {
-        font-size: 8px;
+        font-size: 9px;
       }
     }
 
@@ -74,6 +75,7 @@
     @media (max-width: $mobile-mediaquery-width) {
       right: 0;
       width: 104% !important;
+      height: 100% !important;
     }
 
     @media (max-width: $mobile-small-mediaquery-width) {
@@ -88,6 +90,11 @@
     margin-right: 10px;
     margin-left: 10px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+
     &Wrapper {
       display: flex;
       align-items: center;
@@ -99,6 +106,10 @@
       letter-spacing: -0.01em;
       color: var(--black-color);
       transition: var(--transition-duration) linear all;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 8px;
+      }
 
       &__active {
         color: var(--main-color);
