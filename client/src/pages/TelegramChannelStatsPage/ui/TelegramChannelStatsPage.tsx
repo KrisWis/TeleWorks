@@ -6,6 +6,8 @@ import { memo } from "react";
 import { TelegramChannelStatsAllStatistics } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics";
 import { TelegramChannelStatsPageContext } from "../model/context/TelegramChannelStatsPageContext";
 import { useParams } from "react-router-dom";
+import { isNumber } from "@/shared/utils/IsNumber";
+import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
 
 export const TelegramChannelStatsPage: React.FC = memo(
   (): React.JSX.Element => {
@@ -28,8 +30,14 @@ export const TelegramChannelStatsPage: React.FC = memo(
         }}
       >
         <main className="Page TelegramChannelStatsPage__main">
-          <TelegramChannelStats channelId={Number(id)} />
-          <TelegramChannelStatsAllStatistics />
+          {id && isNumber(id) ? (
+            <>
+              <TelegramChannelStats channelId={Number(id)} />
+              <TelegramChannelStatsAllStatistics />
+            </>
+          ) : (
+            <NotFoundContainer />
+          )}
         </main>
       </TelegramChannelStatsPageContext.Provider>
     );
