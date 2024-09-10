@@ -1,10 +1,20 @@
+@import "@/shared/vars";
+
 .TelegramChannelStatsViewsAnalyzeStats {
   padding: 10px;
   width: 100%;
 
+  @media (max-width: $tablet-mediaquery-width) {
+    padding: 10px;
+  }
+
   &__more {
     width: 100%;
     height: 65px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      height: 40px;
+    }
 
     &__text {
       cursor: pointer;
@@ -14,6 +24,10 @@
       letter-spacing: -0.01em;
       color: #4266c6;
       transition: var(--transition-duration) linear color;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 14px;
+      }
 
       &:hover {
         color: var(--main-color);
@@ -26,6 +40,10 @@
     border-bottom: 1px solid #eaf2ff;
     max-width: 100%;
     padding-left: 5px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 10px !important;
+    }
 
     &__info {
       padding: 15px 0;
@@ -43,6 +61,10 @@
       letter-spacing: -0.01em;
       color: var(--main-color);
       white-space: nowrap;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+      }
     }
 
     &__date {
@@ -53,6 +75,10 @@
       color: #000;
       opacity: 0.4;
       white-space: nowrap;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 8px;
+      }
     }
 
     &__amount {
@@ -61,6 +87,10 @@
       line-height: 120%;
       letter-spacing: -0.01em;
       color: #000;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 8px;
+      }
     }
 
     &__graphic {
@@ -68,6 +98,10 @@
       object-fit: cover;
       object-position: center center;
       width: 20%;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        height: 20px;
+      }
     }
 
     &__hour {
@@ -76,12 +110,21 @@
       height: 50px;
       width: 5vw;
 
+      @media (max-width: $mobile-mediaquery-width) {
+        height: 35px;
+        width: 10vw;
+      }
+
       &__hour {
         font-weight: 600;
         font-size: 10px;
         line-height: 120%;
         letter-spacing: -0.01em;
         color: #000;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 7px;
+        }
       }
 
       &__percent {
@@ -90,6 +133,10 @@
         line-height: 120%;
         letter-spacing: -0.01em;
         color: #000;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 9px;
+        }
       }
 
       &__views {
@@ -99,6 +146,10 @@
         line-height: 120%;
         letter-spacing: -0.01em;
         color: #000;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 7px;
+        }
       }
     }
   }

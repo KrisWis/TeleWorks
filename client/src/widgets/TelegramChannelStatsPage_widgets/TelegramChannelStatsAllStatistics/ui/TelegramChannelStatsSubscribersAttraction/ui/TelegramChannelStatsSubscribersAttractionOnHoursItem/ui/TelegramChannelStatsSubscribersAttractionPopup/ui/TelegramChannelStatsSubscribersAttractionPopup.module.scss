@@ -10,10 +10,28 @@
   width: 55vw;
   left: 25%;
 
+  @media (max-width: $tablet-mediaquery-width) {
+    width: 70vw;
+    left: 15%;
+  }
+
+  @media (max-width: $mobile-mediaquery-width) {
+    width: 95vw;
+    left: 2.5%;
+    top: 30%;
+  }
+
   &__icons {
     align-self: flex-end;
     position: relative;
     z-index: var(--z-index-one);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
   }
 
   &__more {
@@ -23,17 +41,40 @@
     gap: 10px;
     height: 75px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      left: -30vw;
+      height: 65px;
+    }
+
+    @media (max-width: $mobile-small-mediaquery-width) {
+      left: -45vw;
+    }
+
     &__icon {
       max-width: 15px;
       max-height: 15px;
       min-width: 15px;
       min-height: 15px;
 
+      @media (max-width: $mobile-mediaquery-width) {
+        max-width: 10px;
+        max-height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+      }
+
       &Trigger {
         max-width: 20px;
         max-height: 20px;
         min-width: 20px;
         min-height: 20px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          max-width: 10px;
+          max-height: 10px;
+          min-width: 10px;
+          min-height: 10px;
+        }
       }
     }
 
@@ -44,6 +85,10 @@
       letter-spacing: -0.01em;
       color: var(--black-color);
       white-space: nowrap;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 12px;
+      }
     }
 
     &__link {
@@ -62,7 +107,7 @@
     width: 100%;
 
     &__wrapper {
-      @media (max-width: $tablet-mediaquery-width) {
+      @media (max-width: $tablet-mediaquery-width) and (min-width: $mobile-mediaquery-width) {
         flex-direction: column;
         gap: 10px;
       }
@@ -74,6 +119,11 @@
       object-position: center center;
       object-fit: cover;
       border-radius: 100%;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 25px;
+        height: 25px;
+      }
     }
 
     &__name {
@@ -81,6 +131,11 @@
       font-size: 16px;
       letter-spacing: -0.01em;
       color: #000;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+        white-space: nowrap;
+      }
     }
 
     &__category {
@@ -89,6 +144,11 @@
       letter-spacing: -0.01em;
       color: #000;
       opacity: 0.4;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 8px;
+        white-space: nowrap;
+      }
     }
 
     &__link {
@@ -101,6 +161,15 @@
       @media (max-width: $tablet-mediaquery-width) {
         width: 100%;
       }
+
+      @media (max-width: $mobile-mediaquery-width) {
+        height: 19px;
+        border-radius: 5px;
+        font-size: 8px;
+        padding: 5px !important;
+        width: 60%;
+        margin-left: 10px;
+      }
     }
 
     &__postImg {
@@ -110,6 +179,12 @@
       object-fit: cover;
       border: 1px solid #eaf2ff;
       border-radius: 20px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        border: 0.37px solid #eaf2ff;
+        border-radius: 7px;
+        height: 132px;
+      }
     }
 
     &__postDesc {
@@ -123,6 +198,11 @@
 
       @media (max-width: $tablet-mediaquery-width) {
         font-size: 14px;
+      }
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+        padding: 10px 5px;
       }
 
       &__link {
@@ -151,9 +231,21 @@
         rgba(59, 130, 246, 0) 100%
       );
 
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 40px;
+        height: 14px;
+        border: 0.5px solid #4266c6;
+        border-radius: 5px;
+      }
+
       &__icon {
         width: 15px;
         height: 15px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          width: 9px;
+          height: 6px;
+        }
       }
 
       &__text {
@@ -161,6 +253,10 @@
         font-size: 14px;
         letter-spacing: -0.01em;
         color: #000;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 8px;
+        }
       }
     }
   }

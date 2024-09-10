@@ -60,6 +60,8 @@ export const Select: React.FC<Select__Props> = memo(
       fontSize: SelectThemes[theme].fontSize,
       ...TextStyles,
       gridArea: "1 / 1 / 2 / 3",
+      whiteSpace: "nowrap",
+      position: "relative",
     });
 
     const CustomStyles: StylesConfig = {

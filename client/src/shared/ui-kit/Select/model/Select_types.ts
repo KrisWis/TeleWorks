@@ -12,6 +12,7 @@ export interface SelectTextStyles {
   lineHeight?: string;
   color?: string;
   opacity?: number;
+  left?: number;
 }
 
 export interface SelectTheme {
@@ -44,6 +45,7 @@ export enum valueContainerPaddingEnum {
   BIG = "2px 20px",
   MEDIUM = "2px 15px",
   SMALL = "2px 7px",
+  NONE = "0px",
 }
 
 export interface Select__Props {

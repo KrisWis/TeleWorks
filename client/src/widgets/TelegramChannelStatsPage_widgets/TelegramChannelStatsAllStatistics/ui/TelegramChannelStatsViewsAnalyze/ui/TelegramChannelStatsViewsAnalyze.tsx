@@ -15,16 +15,18 @@ import {
 } from "@/shared/ui-kit/Select/model/Select_types";
 import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorBlueSVG.svg?react";
 import { TelegramChannelStatsViewsAnalyzeStats } from "./TelegramChannelStatsViewsAnalyzeStats";
+import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 const telegramChannelStatsViewsAnalyzeFormatSelectTextStyles: SelectTextStyles =
   {
     fontFamily: "var(--font-family)",
     fontWeight: 500,
-    fontSize: "20px",
+    fontSize: !mobile_mediaQuery.matches ? "20px" : "9px",
     letterSpacing: "-0.01em",
     lineHeight: "120%",
     color: "#000",
     opacity: 0.4,
+    left: 5,
   };
 
 const telegramChannelStatsViewsAnalyzeFormatSelectDropdownIndicator =
@@ -118,7 +120,11 @@ export const TelegramChannelStatsViewsAnalyze: React.FC = memo(
               label: "Выберите период",
             }}
             className={styles.TelegramChannelStatsViewsAnalyze__format__select}
-            valueContainerPadding={valueContainerPaddingEnum.SMALL}
+            valueContainerPadding={
+              !mobile_mediaQuery
+                ? valueContainerPaddingEnum.SMALL
+                : valueContainerPaddingEnum.NONE
+            }
           />
         </Flex>
 

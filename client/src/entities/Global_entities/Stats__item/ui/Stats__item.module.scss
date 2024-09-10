@@ -34,10 +34,18 @@
         top: 26px;
         left: -40px;
 
+        @media (max-width: $padding-third-mediaquery) {
+          left: 8%;
+        }
+
         @media (max-width: $mobile-mediaquery-width) {
           height: 80px !important;
           top: 17px;
-          left: -55px;
+          left: 5%;
+        }
+
+        @media (max-width: $mobile-small-mediaquery-width) {
+          left: -30%;
         }
       }
 
@@ -51,6 +59,11 @@
           object-fit: cover;
           width: 20vw;
           right: 10%;
+
+          @media (max-width: $padding-third-mediaquery) {
+            right: -5%;
+            width: 30vw;
+          }
 
           @media (max-width: $mobile-mediaquery-width) {
             height: 60px !important;
@@ -74,7 +87,7 @@
         font-size: 32px;
 
         @media (max-width: $mobile-mediaquery-width) {
-          font-size: 14px;
+          font-size: 16px;
           margin-bottom: 10px;
         }
       }
@@ -105,8 +118,8 @@
         width: 50px;
 
         @media (max-width: $mobile-mediaquery-width) {
-          font-size: 8px;
-          width: 30px;
+          font-size: 10px;
+          width: 35px;
         }
       }
     }
@@ -123,8 +136,8 @@
         width: 50px;
 
         @media (max-width: $mobile-mediaquery-width) {
-          font-size: 8px;
-          width: 25px;
+          font-size: 10px;
+          width: 30px;
         }
       }
 
@@ -155,7 +168,7 @@
         }
 
         @media (max-width: $tablet-mediaquery-width) {
-          font-size: 8px;
+          font-size: 10px;
         }
 
         &__postfix {
@@ -164,7 +177,7 @@
           bottom: -3px;
 
           @media (max-width: $mobile-mediaquery-width) {
-            font-size: 8px;
+            font-size: 10px;
           }
         }
       }
@@ -187,7 +200,7 @@
           padding-right: 0;
 
           @media (max-width: $tablet-mediaquery-width) {
-            font-size: 6px;
+            font-size: 7px;
           }
         }
       }

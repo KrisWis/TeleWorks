@@ -1,8 +1,14 @@
+@import "@/shared/vars";
+
 .TelegramChannelStatsSubscribersAttraction {
   padding: 15px;
 
   &__chart {
     margin-top: 25px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      margin-top: 15px;
+    }
   }
 
   &__stats {
@@ -11,6 +17,10 @@
     gap: 15px;
     width: 100%;
     margin-top: 25px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      grid-template-columns: 100%;
+    }
 
     &__more {
       width: 100%;
@@ -29,6 +39,12 @@
         &:hover {
           color: var(--main-color);
         }
+      }
+    }
+
+    &__caption {
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 21px;
       }
     }
 
@@ -54,6 +70,11 @@
         align-items: center;
         grid-template-columns: repeat(3, 1fr);
         justify-content: space-between;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          border-radius: 5px 5px 0 0;
+          height: 31px;
+        }
       }
 
       &__category {
@@ -64,6 +85,10 @@
         color: #000;
         text-align: center;
         white-space: nowrap;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 12px;
+        }
       }
 
       &__item {
@@ -117,6 +142,10 @@
           text-align: center;
           white-space: nowrap;
 
+          @media (max-width: $mobile-mediaquery-width) {
+            font-size: 13px;
+          }
+
           &__increase {
             color: var(--inverted-color);
           }
@@ -133,6 +162,10 @@
 
           &__small {
             font-size: 10px;
+
+            @media (max-width: $mobile-mediaquery-width) {
+              font-size: 9px;
+            }
           }
         }
 

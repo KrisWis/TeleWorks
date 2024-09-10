@@ -71,7 +71,7 @@
       opacity: 0.4;
 
       @media (max-width: $mobile-mediaquery-width) {
-        font-size: 7px;
+        font-size: 9px;
       }
     }
   }
@@ -103,7 +103,7 @@
     opacity: 0.4;
 
     @media (max-width: $mobile-mediaquery-width) {
-      font-size: 8px;
+      font-size: 10px;
     }
   }
 
@@ -128,7 +128,7 @@
       height: 19px;
       border-radius: 5px !important;
       padding: 10px !important;
-      font-size: 8px !important;
+      font-size: 10px !important;
     }
   }
 
@@ -146,7 +146,7 @@
     }
 
     @media (max-width: $mobile-mediaquery-width) {
-      font-size: 8px;
+      font-size: 10px;
       margin-top: 10px;
       width: 70%;
     }
@@ -227,7 +227,7 @@
       white-space: nowrap;
 
       @media (max-width: $mobile-mediaquery-width) {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
 

@@ -63,7 +63,11 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
           className={styles.TelegramChannelStatsSubscribersAttraction__stats}
         >
           <Flex direction="column" gap="5">
-            <h6 className="TelegramChannelStatsPage__caption">По дням</h6>
+            <h6
+              className={`TelegramChannelStatsPage__caption ${styles.TelegramChannelStatsSubscribersAttraction__stats__caption}`}
+            >
+              По дням
+            </h6>
 
             <Flex
               className={`Page__GrayBorderWrapper ${styles.TelegramChannelStatsSubscribersAttraction__stats__block}`}
@@ -154,7 +158,11 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
           </Flex>
 
           <Flex direction="column" gap="5">
-            <h6 className="TelegramChannelStatsPage__caption">По часам</h6>
+            <h6
+              className={`TelegramChannelStatsPage__caption ${styles.TelegramChannelStatsSubscribersAttraction__stats__caption}`}
+            >
+              По часам
+            </h6>
 
             <Flex
               className={`Page__GrayBorderWrapper ${styles.TelegramChannelStatsSubscribersAttraction__stats__block}`}

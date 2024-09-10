@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .InterpolationLineChart {
   height: 100%;
   width: 100%;
@@ -10,6 +12,10 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 40px;
+
+  @media (max-width: $padding-third-mediaquery) {
+    gap: 5px;
+  }
 
   &__category {
     border: 1px solid var(--secondary-color);
@@ -27,6 +33,13 @@
     cursor: pointer;
     transition: var(--transition-duration) linear border;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      height: 15px;
+      border: 0.45px solid var(--secondary-color);
+      border-radius: 7px;
+      padding: 8px;
+    }
+
     &_text {
       font-weight: 500;
       font-size: 14px;
@@ -36,6 +49,10 @@
       opacity: 0.4;
       transition: var(--transition-duration) linear;
       transition-property: font-weight, opacity;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 8px;
+      }
     }
 
     &__active {
@@ -53,6 +70,15 @@
     height: 80% !important;
     position: relative;
     right: -26px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      right: 0;
+      width: 104% !important;
+    }
+
+    @media (max-width: $mobile-small-mediaquery-width) {
+      width: 109% !important;
+    }
   }
 
   &__switcher {
