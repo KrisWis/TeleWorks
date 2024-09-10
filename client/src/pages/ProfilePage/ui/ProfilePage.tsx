@@ -14,38 +14,50 @@ import { Reviews } from "@/widgets/ProfilePage_widgets/Reviews";
 import { Stats } from "@/widgets/ProfilePage_widgets/Stats";
 import { Profile } from "@/entities/ProfilePage_entities/Profile";
 import { Similar_channels__item } from "@/entities/ProfilePage_entities/Similar_channels__item";
+import { useParams } from "react-router-dom";
+import { isNumber } from "@/shared/utils/IsNumber";
+import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
 
 export const ProfilePage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("profilePage");
   }, []);
 
+  // Получение id страницы
+  const { id } = useParams<{ id: string }>();
+
   return (
     <main className="Page ProfilePage__main">
       <div className="padding">
-        <Profile />
-        <Stats />
-        <Buy_ads />
-        <Channel_stats />
+        {id && isNumber(id) ? (
+          <>
+            <Profile />
+            <Stats />
+            <Buy_ads />
+            <Channel_stats />
 
-        <h2 className="ProfilePage__caption">Отзывы канала</h2>
+            <h2 className="ProfilePage__caption">Отзывы канала</h2>
 
-        <ReviewsPanel {...channelReviews} />
-        <Reviews reviewsItems={Reviews_items} />
-        <ItemsSlider
-          ItemsSlider__headerProps={{
-            title: "Похожие каналы",
-            prevArrowId: "Similar_channels__items__prev",
-            nextArrowId: "Similar_channels__items__next",
-          }}
-          ItemsSlider__sliderProps={{
-            componentProps: Similar_channels__items,
-            Component: Similar_channels__item,
-            visibleItems: 3,
-            prevArrowId: "Similar_channels__items__prev",
-            nextArrowId: "Similar_channels__items__next",
-          }}
-        />
+            <ReviewsPanel {...channelReviews} />
+            <Reviews reviewsItems={Reviews_items} />
+            <ItemsSlider
+              ItemsSlider__headerProps={{
+                title: "Похожие каналы",
+                prevArrowId: "Similar_channels__items__prev",
+                nextArrowId: "Similar_channels__items__next",
+              }}
+              ItemsSlider__sliderProps={{
+                componentProps: Similar_channels__items,
+                Component: Similar_channels__item,
+                visibleItems: 3,
+                prevArrowId: "Similar_channels__items__prev",
+                nextArrowId: "Similar_channels__items__next",
+              }}
+            />
+          </>
+        ) : (
+          <NotFoundContainer />
+        )}
       </div>
     </main>
   );
