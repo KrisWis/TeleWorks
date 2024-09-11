@@ -48,7 +48,7 @@
 
     &__logo {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       align-items: center;
 
       @media (max-width: $tablet-mediaquery-width) {
@@ -203,9 +203,42 @@
     }
   }
 
+  &__blog {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+    border: 1px solid #4266c6;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      border-radius: 5px;
+      position: relative;
+      bottom: 5px;
+      width: 100%;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+      height: 15px;
+    }
+  }
+
+  &__createPost {
+    height: 51px;
+    font-weight: 600;
+    font-size: 20px;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-left: 5px;
+  }
+
   &__channelSearchInput {
     border: 1px solid var(--violet-color) !important;
-    height: 55px !important;
+    height: 51px !important;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -260,7 +293,7 @@
   }
 
   &__toMarketplace {
-    height: 57px;
+    height: 51px;
     width: 25%;
     font-size: 24px;
 

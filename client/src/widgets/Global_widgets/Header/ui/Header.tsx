@@ -15,6 +15,7 @@ import { HeaderProps, HeaderViews } from "../model/Header_props";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { Input } from "@/shared/ui-kit/Input";
 import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import CreatePostSVG from "@/shared/assets/icons/Header/Items/CreatePostSVG.svg?react";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
@@ -82,12 +83,25 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
                 Статистика
               </Flex>
             )}
+
+            {view == HeaderViews.BLOG && (
+              <Flex
+                className={`${styles.header__blog} Page__SirineWrapper`}
+                direction={"row"}
+                justify="center"
+                align="center"
+              >
+                Блог
+              </Flex>
+            )}
           </div>
 
-          <HeaderServicesDropdown
-            DropdownIsOpen={DropdownServicesIsOpen}
-            setDropdownIsOpen={setDropdownServicesIsOpen}
-          ></HeaderServicesDropdown>
+          {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+            <HeaderServicesDropdown
+              DropdownIsOpen={DropdownServicesIsOpen}
+              setDropdownIsOpen={setDropdownServicesIsOpen}
+            ></HeaderServicesDropdown>
+          )}
         </div>
         <div className={styles.header__items}>
           {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
@@ -102,12 +116,23 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
             </div>
           )}
 
-          {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+          {(view == HeaderViews.TELEGRAM_CHANNEL_STATS ||
+            view == HeaderViews.BLOG) && (
             <Button
               className={styles.header__toMarketplace}
               text="На биржу"
               type={ButtonTypes.BLUE}
             />
+          )}
+
+          {view == HeaderViews.BLOG && (
+            <Button
+              type={ButtonTypes.RED}
+              className={styles.header__createPost}
+            >
+              <CreatePostSVG />
+              Написать
+            </Button>
           )}
 
           <div onClick={() => setRegIsOpen(true)}>

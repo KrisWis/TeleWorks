@@ -16,6 +16,11 @@ export const App: React.FC = (): React.JSX.Element => {
           path={AppRoutes.TELEGRAM_CHANNEL_STATS}
           element={<Header view={HeaderViews.TELEGRAM_CHANNEL_STATS} />}
         />
+
+        <Route
+          path={AppRoutes.BLOG}
+          element={<Header view={HeaderViews.BLOG} />}
+        />
         <Route path="*" element={<Header />} />
       </Routes>
 

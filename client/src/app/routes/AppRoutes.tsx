@@ -1,3 +1,4 @@
+import { BlogPage } from "@/pages/BlogPage";
 import { CatalogPage } from "@/pages/CatalogPage";
 import { CreateCardPage } from "@/pages/CreateCardPage";
 import { CreateOrderPage } from "@/pages/CreateOrderPage";
@@ -44,6 +45,11 @@ export enum AppRoutes {
 
   TELEGRAM_CHANNEL_STATS = "/channel/:id/stats",
 
+  BLOG = "/blog",
+
+  // blog/:id
+  // blog/create
+
   NOT_FOUND = "*",
 }
 
@@ -66,5 +72,6 @@ export const routes: routesList = {
   [AppRoutes.FAQ]: <FAQPage />,
   [AppRoutes.TURNKEY_WEBSITES]: <TurnkeyWebsitesPage />,
   [AppRoutes.TELEGRAM_CHANNEL_STATS]: <TelegramChannelStatsPage />,
+  [AppRoutes.BLOG]: <BlogPage />,
   [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };
