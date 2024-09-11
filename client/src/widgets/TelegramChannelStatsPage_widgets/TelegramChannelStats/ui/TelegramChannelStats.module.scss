@@ -204,6 +204,10 @@
       left: -50vw;
     }
 
+    @media (max-width: $mobile-small-mediaquery-width) {
+      left: -60vw;
+    }
+
     &__icon {
       max-width: 15px;
       max-height: 15px;
