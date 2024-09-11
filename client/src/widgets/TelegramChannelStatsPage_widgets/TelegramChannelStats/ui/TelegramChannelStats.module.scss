@@ -186,26 +186,15 @@
   }
 
   &__more {
-    left: -8vw;
+    left: -2000%;
     top: 50px;
     padding: 15px;
     gap: 10px;
     height: 75px;
 
-    @media (max-width: $laptop-mediaquery-width) {
-      left: -15vw;
-    }
-
-    @media (max-width: $tablet-mediaquery-width) {
-      left: -25vw;
-    }
-
     @media (max-width: $mobile-mediaquery-width) {
-      left: -50vw;
-    }
-
-    @media (max-width: $mobile-small-mediaquery-width) {
-      left: -60vw;
+      left: -1400%;
+      top: 25px;
     }
 
     &__icon {

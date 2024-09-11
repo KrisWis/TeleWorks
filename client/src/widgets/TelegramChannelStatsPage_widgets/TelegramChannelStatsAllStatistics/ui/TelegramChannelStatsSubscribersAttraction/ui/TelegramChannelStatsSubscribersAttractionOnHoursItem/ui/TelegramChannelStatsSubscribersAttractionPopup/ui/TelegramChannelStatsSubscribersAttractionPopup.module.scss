@@ -35,19 +35,16 @@
   }
 
   &__more {
-    left: -8vw;
+    left: -900%;
     top: 35px;
     padding: 15px;
     gap: 10px;
     height: 75px;
 
     @media (max-width: $mobile-mediaquery-width) {
-      left: -30vw;
+      left: -1700%;
+      top: 25px;
       height: 65px;
-    }
-
-    @media (max-width: $mobile-small-mediaquery-width) {
-      left: -45vw;
     }
 
     &__icon {
