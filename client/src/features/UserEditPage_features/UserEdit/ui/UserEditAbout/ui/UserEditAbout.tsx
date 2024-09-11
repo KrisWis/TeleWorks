@@ -11,6 +11,7 @@ const UserEditAboutTextareaMinSymbolsAmount: number = 100;
 const UserEditAboutTextareaMaxSymbolsAmount: number = 500;
 
 export const UserEditAbout: React.FC = memo((): React.JSX.Element => {
+  // Получение из Local Storage текста для textarea
   const UserEditAboutLSItem = UseUserEditAboutLocalStorage(
     UseLocalStorageTypes.GET
   );
