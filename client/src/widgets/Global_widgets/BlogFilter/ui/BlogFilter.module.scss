@@ -1,0 +1,91 @@
+.BlogFilter {
+  padding: 20px 15px;
+  width: 341px;
+  height: 711px;
+
+  &__SearchInput {
+    border: 1px solid var(--violet-color) !important;
+    height: 51px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100% !important;
+
+    &Wrapper {
+      position: relative;
+      width: 100%;
+
+      &::after {
+        content: url("@/shared/assets/icons/Global/SearchSVG.svg");
+        display: block;
+        position: absolute;
+        top: 35%;
+        right: 15px;
+      }
+    }
+
+    &::placeholder {
+      opacity: 0.4;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+    }
+  }
+
+  &__category {
+    cursor: pointer;
+    opacity: 0.4;
+    transition: var(--transition-duration) linear opacity;
+
+    path {
+      transition: var(--transition-duration) linear;
+      transition-property: fill, stroke-width;
+    }
+
+    &__title {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__active {
+      opacity: 1;
+
+      path {
+        fill: var(--main-color);
+        stroke-width: 0;
+      }
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__subcategory {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+    opacity: 0.4;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: var(--transition-duration) linear opacity;
+
+    &__active {
+      opacity: 1;
+    }
+  }
+}

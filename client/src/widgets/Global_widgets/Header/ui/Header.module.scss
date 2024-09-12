@@ -270,14 +270,14 @@
       }
 
       &::after {
-        content: url("@/shared/assets/icons/Header/ChannelSearch/ChannelSearchSVG.svg");
+        content: url("@/shared/assets/icons/Global/SearchSVG.svg");
         display: block;
         position: absolute;
         top: 35%;
         right: 15px;
 
         @media (max-width: $mobile-mediaquery-width) {
-          content: url("@/shared/assets/icons/Header/ChannelSearch/ChannelSearchAdaptiveSVG.svg");
+          content: url("@/shared/assets/icons/Global/ChannelSearchAdaptiveSVG.svg");
           top: 20%;
         }
       }
