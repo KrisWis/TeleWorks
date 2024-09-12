@@ -1,0 +1,80 @@
+.BlogActualPostItem {
+  padding: 10px;
+  border: 1.46px solid #eaf2ff;
+  border-radius: 15px;
+  background: #fff;
+  width: 100%;
+
+  &__header {
+    width: 100%;
+  }
+
+  &__username {
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__userImgURL {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 100%;
+    position: relative;
+    bottom: 3px;
+  }
+
+  &__postDate {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+    opacity: 0.4;
+    position: relative;
+    bottom: 10px;
+  }
+
+  &__postTitle {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__footer {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  &__amount {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+    opacity: 0.4;
+    position: relative;
+    top: 1.5px;
+  }
+
+  &__bookmark {
+    cursor: pointer;
+
+    path {
+      transition: var(--transition-duration) linear;
+      transition-property: fill, stroke-width;
+    }
+
+    &__active {
+      path {
+        fill: var(--main-color);
+        stroke-width: 0;
+      }
+    }
+  }
+}
