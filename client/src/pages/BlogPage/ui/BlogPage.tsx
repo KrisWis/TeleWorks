@@ -10,6 +10,8 @@ import { memo } from "react";
 import { BlogPageContext } from "../model/BlogPageContext";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { BlogActualPosts } from "@/widgets/BlogPage_widgets/BlogActualPosts";
+import { blogPostItems } from "../model/BlogPage_data";
+import { BlogPost } from "@/widgets/BlogPage_widgets/BlogPost";
 
 export const BlogPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -36,6 +38,12 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
 
             <Flex className="BlogPage__mainWrapper" direction="column" gap="20">
               <BlogActualPosts />
+
+              <div className="BlogPage__items">
+                {blogPostItems.slice(0, 4).map((post) => (
+                  <BlogPost key={post.id} {...post} />
+                ))}
+              </div>
             </Flex>
           </div>
         </div>

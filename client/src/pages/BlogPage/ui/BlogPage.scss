@@ -24,4 +24,13 @@
   &__mainWrapper {
     width: 69%;
   }
+
+  &__items {
+    width: 100%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 48.5% 48.5%;
+    grid-template-rows: 48% 48%;
+    margin-top: 20px;
+  }
 }

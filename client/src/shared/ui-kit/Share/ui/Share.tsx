@@ -4,6 +4,8 @@ import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";
 import { ShareProps, ShareTypes } from "../model/Share_types";
 import { IncreaseScaleHover } from "../../IncreaseScaleHover";
 
+// TODO: сделать функционал кнопки "Поделиться"
+
 export const Share: React.FC<ShareProps> = memo(
   ({ type = ShareTypes.DEFAULT }): React.JSX.Element => {
     return (
