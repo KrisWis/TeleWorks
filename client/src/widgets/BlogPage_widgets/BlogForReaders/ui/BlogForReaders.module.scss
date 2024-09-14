@@ -27,6 +27,15 @@
   }
 
   &__item {
+    cursor: pointer;
+    box-shadow: 0 0 50px transparent;
+    transition: var(--transition-duration) linear box-shadow;
+    border-radius: 15px;
+
+    &:hover {
+      box-shadow: 0 0 100px var(--main-color);
+    }
+
     &__img {
       border-radius: 15px;
       width: 100%;
@@ -41,6 +50,7 @@
       line-height: 120%;
       letter-spacing: -0.01em;
       color: #000;
+      padding: 10px 5px;
     }
   }
 }

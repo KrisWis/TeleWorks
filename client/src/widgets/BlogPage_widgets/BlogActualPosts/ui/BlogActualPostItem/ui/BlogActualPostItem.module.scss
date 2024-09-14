@@ -4,6 +4,13 @@
   border-radius: 15px;
   background: #fff;
   width: 100%;
+  cursor: pointer;
+  transition: var(--transition-duration) linear box-shadow;
+  box-shadow: 0 0 50px transparent;
+
+  &__hover {
+    box-shadow: 0 0 20px var(--main-color);
+  }
 
   &__header {
     width: 100%;

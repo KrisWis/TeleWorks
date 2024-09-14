@@ -35,13 +35,16 @@ export const Share: React.FC<ShareProps> = memo(
 
     return (
       <>
-        <div onClick={() => setShareModalIsOpen(true)}>
-          <IncreaseScaleHover>
+        <IncreaseScaleHover>
+          <div
+            className={styles.Share}
+            onClick={() => setShareModalIsOpen(true)}
+          >
             <ShareSVG
               className={`${type == ShareTypes.RED ? styles.Share__red : ""}`}
             />
-          </IncreaseScaleHover>
-        </div>
+          </div>
+        </IncreaseScaleHover>
 
         {shareModalIsOpen && (
           <Modal

@@ -5,4 +5,5 @@ export interface BlogActualPostItemProps {
   postTitle: string;
   likesAmount: number;
   commentsAmount: number;
+  id: number;
 }

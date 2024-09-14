@@ -1,4 +1,8 @@
 .Share {
+  * {
+    pointer-events: none;
+  }
+
   &__red {
     path {
       fill: var(--main-color);

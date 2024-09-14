@@ -1,0 +1,37 @@
+.BlogDiscussedPost {
+  border-bottom: 1px solid #eaf2ff;
+  padding: 15px 0;
+  width: 100%;
+
+  &__title {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__elipse {
+    position: relative;
+    right: 12px;
+
+    &__third {
+      position: relative;
+      right: 22px;
+    }
+  }
+
+  &__commentsAmount {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+    opacity: 0.4;
+  }
+
+  &__commentsSvg {
+    width: 25px;
+    height: 25px;
+  }
+}

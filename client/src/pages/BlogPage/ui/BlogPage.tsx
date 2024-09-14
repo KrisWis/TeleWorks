@@ -14,6 +14,7 @@ import { blogPostItems } from "../model/BlogPage_data";
 import { BlogPost } from "@/widgets/BlogPage_widgets/BlogPost";
 import { BlogForReaders } from "@/widgets/BlogPage_widgets/BlogForReaders";
 import { BlogADSBlock } from "@/widgets/BlogPage_widgets/BlogADSBlock";
+import { BlogDiscussedPosts } from "@/widgets/BlogPage_widgets/BlogDiscussedPosts";
 
 export const BlogPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -56,6 +57,8 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
               </div>
 
               <BlogADSBlock />
+
+              <BlogDiscussedPosts />
             </Flex>
           </div>
         </div>

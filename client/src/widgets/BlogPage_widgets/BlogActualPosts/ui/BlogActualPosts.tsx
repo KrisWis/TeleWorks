@@ -53,10 +53,10 @@ export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
           {actualPostsItems.map((itemsSlide) => (
             <SwiperSlide
               className={styles.BlogActualPosts__slider__slide}
-              key={itemsSlide[0].username}
+              key={itemsSlide[0].id}
             >
               {itemsSlide.map((item) => (
-                <BlogActualPostItem key={item.username} {...item} />
+                <BlogActualPostItem key={item.id} {...item} />
               ))}
             </SwiperSlide>
           ))}

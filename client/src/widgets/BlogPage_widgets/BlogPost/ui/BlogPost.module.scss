@@ -1,5 +1,13 @@
 .BlogPost {
   width: 100%;
+  cursor: pointer;
+  box-shadow: 0 0 50px transparent;
+  transition: var(--transition-duration) linear box-shadow;
+  border-radius: 15px;
+
+  &__hover {
+    box-shadow: 0 0 20px var(--main-color);
+  }
 
   &__img {
     height: 150px;

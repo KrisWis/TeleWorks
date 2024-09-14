@@ -9,5 +9,4 @@ export interface BlogPostProps {
   likesAmount: number;
   commentsAmount: number;
   bookmarksAmount: number;
-  postLink: string;
 }
