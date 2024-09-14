@@ -1,0 +1,21 @@
+.BlogPopularPosts .swiper {
+  padding-left: 0 !important;
+  display: flex;
+  align-items: center;
+  height: 100% !important;
+  overflow: hidden;
+}
+
+.BlogPopularPosts__slider_prevArrow,
+.BlogPopularPosts__slider_nextArrow {
+  transition: var(--transition-duration) linear opacity;
+}
+
+.BlogPopularPosts .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.BlogPopularPosts .swiper-button-disabled {
+  opacity: 0;
+}
