@@ -20,6 +20,9 @@ const shareSocialStyles = {
   copyUrl: {
     color: "#000",
   },
+  copyIcon: {
+    color: "var(--main-color)",
+  },
 };
 
 export const Share: React.FC<ShareProps> = memo(

@@ -13,6 +13,7 @@ import { BlogActualPosts } from "@/widgets/BlogPage_widgets/BlogActualPosts";
 import { blogPostItems } from "../model/BlogPage_data";
 import { BlogPost } from "@/widgets/BlogPage_widgets/BlogPost";
 import { BlogForReaders } from "@/widgets/BlogPage_widgets/BlogForReaders";
+import { BlogADSBlock } from "@/widgets/BlogPage_widgets/BlogADSBlock";
 
 export const BlogPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -53,6 +54,8 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
                   <BlogPost key={post.id} {...post} />
                 ))}
               </div>
+
+              <BlogADSBlock />
             </Flex>
           </div>
         </div>
