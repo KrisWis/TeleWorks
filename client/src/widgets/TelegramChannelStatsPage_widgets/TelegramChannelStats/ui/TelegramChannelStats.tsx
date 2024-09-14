@@ -48,7 +48,7 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
                 className={styles.TelegramChannelStats__icons}
                 align="center"
               >
-                <Share type={ShareTypes.RED} />
+                <Share url={`channel/${channelId}`} type={ShareTypes.RED} />
 
                 <Flex
                   className={styles.TelegramChannelStats__favouriteWrapper}

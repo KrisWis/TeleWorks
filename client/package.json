@@ -39,6 +39,7 @@
     "react-quill-new": "^3.3.0",
     "react-router-dom": "^6.25.1",
     "react-select": "^5.8.0",
+    "react-share-social": "^0.1.60",
     "swiper": "^11.1.4"
   },
   "devDependencies": {

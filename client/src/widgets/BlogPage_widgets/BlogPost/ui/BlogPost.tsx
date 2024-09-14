@@ -17,6 +17,7 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
     likesAmount,
     bookmarksAmount,
     commentsAmount,
+    postLink,
   }): React.JSX.Element => {
     return (
       <Flex direction="column" className={styles.BlogPost}>
@@ -69,7 +70,7 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
               </Flex>
             </Flex>
 
-            <Share type={ShareTypes.RED} />
+            <Share url={postLink} type={ShareTypes.RED} />
           </Flex>
         </Flex>
       </Flex>

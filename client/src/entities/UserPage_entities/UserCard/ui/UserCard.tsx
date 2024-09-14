@@ -34,7 +34,7 @@ export const UserCard: React.FC<UserCardProps> = memo(
             setIsFavourite={setIsFavourite}
           />
 
-          <Share />
+          <Share url="/" />
         </div>
 
         <div className={styles.userCard__user}>
