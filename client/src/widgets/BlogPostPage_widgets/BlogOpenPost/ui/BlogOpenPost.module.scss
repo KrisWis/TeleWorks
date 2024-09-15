@@ -1,4 +1,146 @@
 .BlogOpenPost {
-  width: 100%;
   padding: 10px 20px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+
+  &__theme {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--gray-color);
+  }
+
+  &__date {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--gray-color);
+  }
+
+  &__bookmark {
+    transition: var(--transition-duration) linear;
+    transition-property: fill, stroke-width;
+    cursor: pointer;
+
+    &__active {
+      fill: var(--main-color);
+      stroke-width: 0;
+    }
+  }
+
+  &__share {
+    width: 20px;
+    height: 19px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+  }
+
+  &__amount {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 120%;
+    color: var(--gray-color);
+
+    &__svg {
+      width: 20px;
+      height: 20px;
+
+      &__gray {
+        path {
+          fill: var(--gray-color);
+        }
+      }
+
+      &__stroke {
+        path {
+          stroke: var(--gray-color);
+        }
+      }
+    }
+  }
+
+  &__postImgURL {
+    border: 1px solid #eaf2ff;
+    border-radius: 15px;
+    height: 261px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    margin: 10px 0;
+  }
+
+  &__authorName {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  &__authorCategory {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--gray-color);
+  }
+
+  &__subscribeButton {
+    width: 202px;
+    height: 41px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: var(--transition-duration) linear all;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 120%;
+    margin-top: 10px;
+    white-space: pre-line;
+    padding-bottom: 20px;
+  }
+
+  &__tags {
+    flex-wrap: wrap;
+    width: 60%;
+  }
+
+  &__tag {
+    padding: 0 25px;
+    height: 49px;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 120%;
+    border-radius: 15px;
+  }
+
+  &__footer {
+    &__amount {
+      font-weight: 500;
+      font-size: 23px;
+      line-height: 120%;
+      color: var(--gray-color);
+
+      &__svg {
+        width: 27px;
+        height: 27px;
+
+        &__gray {
+          path {
+            fill: var(--gray-color);
+          }
+        }
+
+        &__stroke {
+          path {
+            stroke: var(--gray-color);
+          }
+        }
+      }
+    }
+  }
 }

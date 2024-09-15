@@ -6,4 +6,5 @@ export enum ShareTypes {
 export interface ShareProps {
   type?: ShareTypes;
   url: string;
+  IconClassName?: string;
 }

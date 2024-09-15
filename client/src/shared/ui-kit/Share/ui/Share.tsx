@@ -11,6 +11,7 @@ const shareSocialStyles = {
   root: {
     borderRadius: 5,
     boxShadow: "0 3px 10px 2px rgba(255, 105, 135, .3)",
+    minWidth: "100%",
   },
   copyContainer: {
     border: "1px solid rgba(255, 105, 135, .5)",
@@ -26,7 +27,7 @@ const shareSocialStyles = {
 };
 
 export const Share: React.FC<ShareProps> = memo(
-  ({ type = ShareTypes.DEFAULT, url }): React.JSX.Element => {
+  ({ type = ShareTypes.DEFAULT, url, IconClassName }): React.JSX.Element => {
     // Нажатие на кнопку "Поделиться"
     const [shareModalAppearIsOpen, setShareModalAppearIsOpen] =
       useState<boolean>(false);
@@ -41,7 +42,7 @@ export const Share: React.FC<ShareProps> = memo(
             onClick={() => setShareModalIsOpen(true)}
           >
             <ShareSVG
-              className={`${type == ShareTypes.RED ? styles.Share__red : ""}`}
+              className={`${type == ShareTypes.RED ? styles.Share__red : ""} ${IconClassName}`}
             />
           </div>
         </IncreaseScaleHover>
