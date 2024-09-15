@@ -21,6 +21,7 @@ export const TelegramChannelStatsPage: React.FC = memo(
 
     // Получение id страницы
     const { id } = useParams<{ id: string }>();
+
     return (
       <TelegramChannelStatsPageContext.Provider
         value={{

@@ -27,7 +27,9 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
 
     const redirectToPostPage = useCallback(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-        if (shareRef.current!.parentElement == e.target) {
+        const eTarget: HTMLDivElement = e.target as HTMLDivElement;
+
+        if (shareRef.current != eTarget.parentElement!.parentElement) {
           navigate(`${id}`);
         }
       },

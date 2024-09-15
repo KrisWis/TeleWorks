@@ -1,0 +1,27 @@
+.BlogPostPage {
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  &__mainWrapper {
+    width: 69%;
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+}

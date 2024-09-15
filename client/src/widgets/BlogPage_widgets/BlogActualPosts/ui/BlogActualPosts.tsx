@@ -14,7 +14,7 @@ export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
     <Flex
       direction="column"
       gap="10"
-      className={`${styles.BlogActualPosts} BlogActualPosts`}
+      className={`${styles.BlogActualPosts} BlogActualPosts Page__GrayBorderWithWhiteBGWrapper`}
     >
       <h6 className={styles.BlogActualPosts__caption}>Актуальное</h6>
 

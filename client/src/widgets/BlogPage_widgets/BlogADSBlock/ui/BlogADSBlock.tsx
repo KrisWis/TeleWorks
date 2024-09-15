@@ -6,7 +6,11 @@ import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const BlogADSBlock: React.FC = memo((): React.JSX.Element => {
   return (
-    <Flex align="center" justify="between" className={styles.BlogADSBlock}>
+    <Flex
+      align="center"
+      justify="between"
+      className={`${styles.BlogADSBlock} Page__GrayBorderWithWhiteBGWrapper`}
+    >
       <Flex gap="5" justify="between" direction="column">
         <span className={styles.BlogADSBlock__category}>
           Категория или обучение

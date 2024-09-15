@@ -21,6 +21,12 @@ export const App: React.FC = (): React.JSX.Element => {
           path={AppRoutes.BLOG}
           element={<Header view={HeaderViews.BLOG} />}
         />
+
+        <Route
+          path={AppRoutes.BLOG_POST}
+          element={<Header view={HeaderViews.BLOG} />}
+        />
+
         <Route path="*" element={<Header />} />
       </Routes>
 

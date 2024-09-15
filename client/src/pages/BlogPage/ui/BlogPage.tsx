@@ -10,7 +10,7 @@ import { memo } from "react";
 import { BlogPageContext } from "../model/BlogPageContext";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { BlogActualPosts } from "@/widgets/BlogPage_widgets/BlogActualPosts";
-import { blogPostItems } from "../model/BlogPage_data";
+import { blogPopularPosts, blogPostItems } from "../model/BlogPage_data";
 import { BlogPost } from "@/widgets/BlogPage_widgets/BlogPost";
 import { BlogForReaders } from "@/widgets/BlogPage_widgets/BlogForReaders";
 import { BlogADSBlock } from "@/widgets/BlogPage_widgets/BlogADSBlock";
@@ -61,7 +61,7 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
 
               <BlogDiscussedPosts />
 
-              <BlogPopularPosts />
+              <BlogPopularPosts blogPopularPosts={blogPopularPosts} />
             </Flex>
           </div>
         </div>

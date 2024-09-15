@@ -50,4 +50,5 @@ export interface BlogFilterProps {
   setSelectedCategory: React.Dispatch<
     React.SetStateAction<BlogFilterAllCategories>
   >;
+  canReturn?: boolean;
 }

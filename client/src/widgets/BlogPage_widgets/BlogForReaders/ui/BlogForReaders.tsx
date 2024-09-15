@@ -9,7 +9,7 @@ export const BlogForReaders: React.FC = memo((): React.JSX.Element => {
   return (
     <Flex
       direction="column"
-      className={`${styles.BlogForReaders} Page__GrayBorderWrapper`}
+      className={`${styles.BlogForReaders} Page__GrayBorderWithWhiteBGWrapper`}
     >
       <Flex
         className={styles.BlogForReaders__header}
