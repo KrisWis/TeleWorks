@@ -13,6 +13,7 @@ import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer"
 import { isNumber } from "@/shared/utils/IsNumber";
 import { useParams } from "react-router-dom";
 import { BlogOpenPost } from "@/widgets/BlogPostPage_widgets/BlogOpenPost";
+import { BlogOpenPostComments } from "@/widgets/BlogPostPage_widgets/BlogOpenPostComments";
 
 export const BlogPostPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -48,6 +49,8 @@ export const BlogPostPage: React.FC = memo((): React.JSX.Element => {
                 gap="20"
               >
                 <BlogOpenPost id={Number(id)} />
+
+                <BlogOpenPostComments />
               </Flex>
             </div>
           ) : (

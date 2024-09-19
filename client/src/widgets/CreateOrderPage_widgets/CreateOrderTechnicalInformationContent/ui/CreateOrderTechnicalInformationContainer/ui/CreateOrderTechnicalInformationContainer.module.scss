@@ -131,23 +131,8 @@
     overflow: hidden;
     margin-bottom: 30px;
 
-    &__loadingProgressBar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--main-color);
-      border-radius: 15px;
-      height: 40px;
-      color: #fff;
-    }
-
     &__caption {
       padding: 10px 20px;
-    }
-
-    &__items {
-      display: flex;
-      flex-direction: column;
     }
 
     &__closed {

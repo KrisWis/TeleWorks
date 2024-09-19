@@ -1,8 +1,6 @@
 import styles from "./CreateOrderTechnicalInformationContainer.module.scss";
 import { memo, useCallback, useRef, useState } from "react";
-import PaperClipSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationContent/CreateOrderTechnicalInformationContainer/PaperclipSVG.svg?react";
-import { LoadedFile } from "../model/CreateOrderTechnicalInformationContainer_types";
-import { CreateOrderTechnicalInformationLoadedFile } from "./CreateOrderTechnicalInformationLoadedFile";
+import AttachSVG from "@/shared/assets/icons/Global/AttachSVG.svg?react";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
@@ -15,10 +13,12 @@ import { DataIsCorrectCheck } from "../model/DataIsCorrectCheck/DataIsCorrectChe
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { useCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
-import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
-import { Flex } from "@/shared/ui-kit/Stack";
-import { ProgressBar } from "primereact/progressbar";
 import "./CreateOrderTechnicalInformationContainerLoadingProgress.scss";
+import {
+  AttachFileContainer,
+  LoadedFile,
+} from "@/widgets/Global_widgets/AttachFileContainer";
+import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
@@ -67,65 +67,6 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       }
     };
 
-    // Индикатор загрузки при загрузке файлов
-    const [FormInputFileProgress, setFormInputFileProgress] =
-      useState<number>(0);
-
-    // Загрузка и отображение, загруженных пользователем, изображений:
-    const FormInputRef = useRef<HTMLInputElement>(null);
-
-    const [FormInputFiles, setFormInputFiles] = useState<LoadedFile[]>([]);
-
-    const FormInputOnLoad = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const UserInputFiles = e.target.files;
-
-      const loadedFile: LoadedFile = {
-        FileData: "",
-        FileName: "",
-        FileSize: 0,
-        FileType: "",
-      };
-
-      if (UserInputFiles && UserInputFiles.length) {
-        if (
-          !FormInputFiles.find(
-            (file) => file.FileName == UserInputFiles[0].name
-          )
-        ) {
-          setFormInputFiles([
-            ...FormInputFiles,
-            {
-              FileData: "",
-              FileName: "",
-              FileSize: 0,
-              FileType: "",
-            },
-          ]);
-
-          const fileReader = new FileReader();
-          loadedFile.FileName = UserInputFiles[0].name;
-          loadedFile.FileSize = UserInputFiles[0].size;
-          loadedFile.FileType = UserInputFiles[0].type;
-
-          fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
-            if (e.lengthComputable) {
-              const percentLoaded = Math.round((e.loaded / e.total) * 100);
-              setFormInputFileProgress(percentLoaded);
-            }
-          };
-
-          fileReader.onload = function () {
-            loadedFile.FileData = fileReader.result as string;
-
-            setFormInputFiles([...FormInputFiles, loadedFile]);
-
-            FormInputRef.current!.files = null;
-          };
-          fileReader.readAsDataURL(UserInputFiles[0]);
-        }
-      }
-    };
-
     // Функционал нажатия на чекбокс о соглашении
     const [AgreeCheckboxIsActive, setAgreeCheckboxIsActive] =
       useState<boolean>(false);
@@ -145,6 +86,14 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       FormTextAreaValue,
       setTryAgreeWithUncorrectData,
     ]);
+
+    // Загрузка и отображение, загруженных пользователем, файлов:
+    const FormInputRef = useRef<HTMLInputElement>(null);
+
+    const [FormInputFiles, setFormInputFiles] = useState<LoadedFile[]>([]);
+
+    // Индикатор загрузки при загрузке файлов
+    const [inputFileProgress, setInputFileProgress] = useState<number>(0);
 
     return (
       <div
@@ -228,14 +177,11 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                     styles.createOrderTechnicalInformationContainer__form__attachFilesWrapper
                   }
                 >
-                  <input
-                    className={
-                      styles.createOrderTechnicalInformationContainer__form__attachFiles__input
-                    }
-                    type="file"
-                    name="createOrderTechnicalInformationContainer_loadFiles_input"
-                    ref={FormInputRef}
-                    onChange={FormInputOnLoad}
+                  <AttachFileContainer
+                    inputRef={FormInputRef}
+                    InputFiles={FormInputFiles}
+                    setInputFiles={setFormInputFiles}
+                    setInputFileProgress={setInputFileProgress}
                   />
 
                   <div
@@ -243,7 +189,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                       styles.createOrderTechnicalInformationContainer__form__attachFiles
                     }
                   >
-                    <PaperClipSVG />
+                    <AttachSVG />
 
                     <span
                       className={
@@ -279,41 +225,12 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                 Загруженные файлы
               </h6>
 
-              {FormInputFiles && (
-                <div
-                  className={
-                    styles.createOrderTechnicalInformationContainer__files__items
-                  }
-                >
-                  {FormInputFiles.map((file) => (
-                    <div key={file.FileName}>
-                      {file.FileName != "" ? (
-                        <CreateOrderTechnicalInformationLoadedFile
-                          loadedFile={file}
-                          FormInputFiles={FormInputFiles}
-                          setFormInputFiles={setFormInputFiles}
-                          setFormInputFileProgress={setFormInputFileProgress}
-                        />
-                      ) : (
-                        <Flex gap="5" direction="column">
-                          <PageLoadingComponent
-                            style={{ margin: "auto", marginBottom: "1%" }}
-                            size="small"
-                          />
-
-                          <ProgressBar
-                            style={{ width: `${FormInputFileProgress}%` }}
-                            className={
-                              styles.createOrderTechnicalInformationContainer__files__loadingProgressBar
-                            }
-                            value={FormInputFileProgress}
-                          ></ProgressBar>
-                        </Flex>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
+              <AttachFileContainerItems
+                setInputFileProgress={setInputFileProgress}
+                InputFileProgress={inputFileProgress}
+                setInputFiles={setFormInputFiles}
+                files={FormInputFiles}
+              />
             </div>
           </div>
         </div>
