@@ -1,0 +1,64 @@
+.BlogPostComment {
+  margin: 15px 0;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+
+  &__answer {
+    padding-left: 40px;
+  }
+
+  &__authorName {
+    font-weight: 600;
+    font-size: 20px;
+    color: #000;
+  }
+
+  &__createdDate {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray-color);
+  }
+
+  &__text {
+    white-space: pre-line;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+  }
+
+  &__block {
+    margin-left: 7%;
+  }
+
+  &__answerButton {
+    font-weight: 500;
+    font-size: 16px;
+    color: #f55;
+  }
+
+  &__amount {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--gray-color);
+
+    &__icon {
+      path {
+        transition: var(--transition-duration) linear;
+        transition-property: fill, opacity, stroke;
+      }
+
+      &__active {
+        path {
+          fill: #000;
+          opacity: 1;
+          stroke: #fff;
+        }
+      }
+    }
+  }
+
+  &__dislike {
+    position: relative;
+    top: 3px;
+  }
+}

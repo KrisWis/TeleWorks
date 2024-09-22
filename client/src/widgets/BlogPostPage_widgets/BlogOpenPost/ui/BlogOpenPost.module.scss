@@ -129,6 +129,19 @@
         width: 27px;
         height: 27px;
 
+        path {
+          transition: var(--transition-duration) linear;
+          transition-property: fill, opacity, stroke;
+        }
+
+        &__active {
+          path {
+            fill: #000;
+            opacity: 1;
+            stroke: #fff;
+          }
+        }
+
         &__gray {
           path {
             fill: var(--gray-color);

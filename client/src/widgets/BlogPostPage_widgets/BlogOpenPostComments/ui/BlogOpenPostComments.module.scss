@@ -4,6 +4,18 @@
   letter-spacing: -0.01em;
   color: #000;
 
+  &__commentAnswer {
+    color: var(--gray-color);
+    font-size: 16px;
+    font-weight: 500;
+
+    &__without {
+      color: var(--main-color);
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+
   &__sorting {
     &_text {
       font-weight: 500;

@@ -8,6 +8,7 @@ import { TelegramChannelStatsPageContext } from "../model/context/TelegramChanne
 import { useParams } from "react-router-dom";
 import { isNumber } from "@/shared/utils/IsNumber";
 import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
+import { PortNow } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const TelegramChannelStatsPage: React.FC = memo(
   (): React.JSX.Element => {
@@ -30,7 +31,7 @@ export const TelegramChannelStatsPage: React.FC = memo(
         }}
       >
         <main className="Page TelegramChannelStatsPage__main">
-          {id && isNumber(id) ? (
+          {(id && isNumber(id)) || PortNow == "6007" ? (
             <>
               <TelegramChannelStats channelId={Number(id)} />
               <TelegramChannelStatsAllStatistics />

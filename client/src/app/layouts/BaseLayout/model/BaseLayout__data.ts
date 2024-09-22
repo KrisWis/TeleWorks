@@ -1,11 +1,11 @@
-export const Storybook_URL_PART: string = "http://26.193.232.147:6007/";
+export const Storybook_URL_PART: string = "http://26.193.232.147:6007";
 
-const PortNow: string = location.port;
+export const PortNow: string = location.port;
 let urlPart: string;
 if (PortNow == "6006") {
   urlPart = "";
 } else if (PortNow == "6007") {
-  urlPart = Storybook_URL_PART;
+  urlPart = "";
 } else {
   urlPart = "/TeleWorks";
 }

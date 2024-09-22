@@ -5,6 +5,11 @@
   object-fit: cover;
   object-position: center center;
 
+  &__smaller {
+    width: 45px;
+    height: 45px;
+  }
+
   &__small {
     width: 58px;
     height: 59px;

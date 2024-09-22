@@ -1,18 +1,14 @@
-import {
-  BlogFilterAllCategories,
-  blogFilterCategoryTitles,
-} from "@/widgets/Global_widgets/BlogFilter";
+import { BlogPostCommentInterface } from "@/widgets/BlogPostPage_widgets/BlogOpenPostComments/ui/BlogPostComment";
 import { createContext, useState } from "react";
 
 export interface BlogPostPageContext {
-  blogFilterSelectedCategory: BlogFilterAllCategories;
-  setBlogFilterSelectedCategory: React.Dispatch<
-    React.SetStateAction<BlogFilterAllCategories>
+  answeredComment: BlogPostCommentInterface | null;
+  setAnsweredComment: React.Dispatch<
+    React.SetStateAction<BlogPostCommentInterface | null>
   >;
 }
 
 export const BlogPostPageContext = createContext<BlogPostPageContext>({
-  blogFilterSelectedCategory:
-    blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles,
-  setBlogFilterSelectedCategory: useState,
+  answeredComment: null,
+  setAnsweredComment: useState,
 });

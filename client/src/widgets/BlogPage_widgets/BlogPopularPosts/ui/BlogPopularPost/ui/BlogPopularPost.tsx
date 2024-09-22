@@ -17,7 +17,7 @@ export const BlogPopularPost: React.FC<BlogPopularPostProps> = memo(
     title,
   }): React.JSX.Element => {
     return (
-      <Link to={`${id}`}>
+      <Link to={`/blog/${id}`}>
         <Flex direction="column" gap="10" className={styles.BlogPopularPost}>
           <img
             className={styles.BlogPopularPost__img}
@@ -27,7 +27,11 @@ export const BlogPopularPost: React.FC<BlogPopularPostProps> = memo(
 
           <span className={styles.BlogPopularPost__title}>{title}</span>
 
-          <Flex align="center" gap="10">
+          <Flex
+            className={styles.BlogPopularPost__footer}
+            align="center"
+            gap="10"
+          >
             <Flex align="center">
               <LikeSVG />
 

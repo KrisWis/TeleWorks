@@ -57,6 +57,7 @@ export interface FlexProps extends DivProps {
   gap?: FlexGap;
   max?: boolean;
   innerRef?: React.LegacyRef<HTMLDivElement>;
+  id?: string;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -70,6 +71,7 @@ export const Flex = (props: FlexProps) => {
     max,
     innerRef,
     onClick,
+    id,
   } = props;
 
   const classes = [
@@ -85,6 +87,7 @@ export const Flex = (props: FlexProps) => {
       ref={innerRef}
       className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
       onClick={onClick}
+      id={id}
     >
       {children}
     </div>

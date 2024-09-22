@@ -96,6 +96,12 @@
     @media (max-width: $tablet-mediaquery-width) {
       width: 65%;
     }
+
+    &__blog {
+      @media (max-width: $tablet-mediaquery-width) {
+        gap: 0;
+      }
+    }
   }
 
   &__item {
@@ -192,9 +198,9 @@
 
     @media (max-width: $tablet-mediaquery-width) {
       border-radius: 5px;
-      position: relative;
-      bottom: 5px;
       width: 100%;
+      position: relative;
+      right: 4px;
     }
 
     @media (max-width: $mobile-mediaquery-width) {
@@ -214,8 +220,6 @@
 
     @media (max-width: $tablet-mediaquery-width) {
       border-radius: 5px;
-      position: relative;
-      bottom: 5px;
       width: 100%;
     }
 
@@ -234,6 +238,25 @@
     align-items: center;
     gap: 7px;
     margin-left: 5px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 14px;
+      height: 40px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 6px;
+      height: 19px;
+      font-size: 8px;
+      padding: 12px;
+
+      svg {
+        min-width: 10px;
+        min-height: 10px;
+        max-width: 10px;
+        max-height: 10px;
+      }
+    }
   }
 
   &__channelSearchInput {
@@ -307,6 +330,17 @@
       height: 19px;
       font-size: 8px;
       padding: 12px;
+    }
+  }
+
+  &__servicesWrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      flex-direction: column;
+      gap: 0;
     }
   }
 }

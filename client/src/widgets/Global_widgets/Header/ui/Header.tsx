@@ -72,7 +72,9 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
             <h1 className={styles.header__caption} data-testid="headerCaption">
               Tele<span className={styles.header__caption__span}>Works</span>
             </h1>
+          </div>
 
+          <div className={styles.header__servicesWrapper}>
             {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
               <Flex
                 className={`${styles.header__stats} Page__SirineWrapper`}
@@ -94,16 +96,19 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
                 Блог
               </Flex>
             )}
-          </div>
 
-          {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
-            <HeaderServicesDropdown
-              DropdownIsOpen={DropdownServicesIsOpen}
-              setDropdownIsOpen={setDropdownServicesIsOpen}
-            ></HeaderServicesDropdown>
-          )}
+            {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+              <HeaderServicesDropdown
+                DropdownIsOpen={DropdownServicesIsOpen}
+                setDropdownIsOpen={setDropdownServicesIsOpen}
+              ></HeaderServicesDropdown>
+            )}
+          </div>
         </div>
-        <div className={styles.header__items}>
+        <div
+          className={`${styles.header__items} 
+          ${view == HeaderViews.BLOG ? styles.header__items__blog : ""}`}
+        >
           {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
             <div className={styles.header__channelSearchInputWrapper}>
               <Input

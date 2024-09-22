@@ -50,8 +50,6 @@ export enum AppRoutes {
 
   BLOG_POST = "/blog/:id",
 
-  // blog/create
-
   NOT_FOUND = "*",
 }
 

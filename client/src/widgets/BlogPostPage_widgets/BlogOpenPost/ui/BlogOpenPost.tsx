@@ -6,12 +6,14 @@ import { blogOpenPostExample } from "../model/BlogOpenPost_data";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
 import BookmarkSVG from "@/shared/assets/icons/Global/BookmarkSVG.svg?react";
 import LikeSVG from "@/shared/assets/icons/Global/LikeSVG.svg?react";
+import LikeSecondarySVG from "@/shared/assets/icons/Global/LikeSecondarySVG.svg?react";
 import ViewsSVG from "@/shared/assets/icons/Global/ViewsSVG.svg?react";
 import PostCommentsSVG from "@/shared/assets/icons/Global/PostCommentsSVG.svg?react";
 import { Share, ShareTypes } from "@/shared/ui-kit/Share";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import parse from "html-react-parser";
+import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 
 export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
   (): React.JSX.Element => {
@@ -21,6 +23,9 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
 
     /* Функционал добавления автора в подписки */
     const [userIsSubscribed, setUserIsSubscribed] = useState<boolean>(false);
+
+    // Функционал нажатия на лайк на посте
+    const [postIsLiked, setPostIsLiked] = useState<boolean>(false);
 
     return (
       <Flex max direction="column" gap="15">
@@ -140,9 +145,13 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
 
           <Flex align="center" gap="20">
             <Flex gap="3">
-              <LikeSVG
-                className={`${styles.BlogOpenPost__footer__amount__svg} ${styles.BlogOpenPost__amount__svg__stroke}`}
-              />
+              <IncreaseScaleHover
+                onClick={() => setPostIsLiked(!postIsLiked)}
+                className={`${styles.BlogOpenPost__footer__amount__svg} 
+                ${postIsLiked ? styles.BlogOpenPost__footer__amount__svg__active : ""}`}
+              >
+                <LikeSecondarySVG />
+              </IncreaseScaleHover>
               <span className={styles.BlogOpenPost__footer__amount}>
                 {blogOpenPostExample.likesAmount}
               </span>
