@@ -11,7 +11,7 @@ import GuarantorChatSVG from "@/shared/assets/icons/Header/Menu/GuarantorChatSVG
 import PersonSVG from "@/shared/assets/icons/Header/Menu/PersonSVG.svg?react";
 import ReportsSVG from "@/shared/assets/icons/Header/Menu/ReportsSVG.svg?react";
 import SupportChatSVG from "@/shared/assets/icons/Header/Menu/SupportChatSVG.svg?react";
-import BlogSVG from "@/shared/assets/icons/Header/Menu/BlogSVG.svg?react";
+import MenuBlogSVG from "@/shared/assets/icons/Header/Menu/BlogSVG.svg?react";
 import FAQSVG from "@/shared/assets/icons/Header/Menu/FAQSVG.svg?react";
 import IncreaseBalanceSVG from "@/shared/assets/icons/Header/Menu/IncreaseBalanceSVG.svg?react";
 import MyActsSVG from "@/shared/assets/icons/Header/Menu/MyActsSVG.svg?react";
@@ -29,6 +29,9 @@ import GuarantorServicesSVG from "@/shared/assets/icons/Header/ServicesDropdown/
 import ProcurementAdsSVG from "@/shared/assets/icons/Header/ServicesDropdown/ProcurementAdsSVG.svg?react";
 import TurnKeyChannelsSVG from "@/shared/assets/icons/Header/ServicesDropdown/TurnKeyChannelsSVG.svg?react";
 import TurnKeyWebsiteSVG from "@/shared/assets/icons/Header/ServicesDropdown/TurnKeyWebsiteSVG.svg?react";
+import StatsSVG from "@/shared/assets/icons/Header/ServicesDropdown/StatsSVG.svg?react";
+import BlogSVG from "@/shared/assets/icons/Header/ServicesDropdown/BlogSVG.svg?react";
+import KindDeedsSVG from "@/shared/assets/icons/Header/ServicesDropdown/KindDeedsSVG.svg?react";
 import { AppRoutes } from "@/app/routes/AppRoutes";
 
 export const userIsAuth = true;
@@ -77,6 +80,26 @@ export const headerServicesItems: HeaderServicesItems = {
       icon: <TurnKeyWebsiteSVG />,
       title: "Сайт под ключ",
       link: AppRoutes.TURNKEY_WEBSITES,
+    },
+  ],
+
+  [HeaderServicesCategories.USEFUL]: [
+    {
+      icon: <StatsSVG />,
+      title: "Статистика",
+      link: "/",
+    },
+
+    {
+      icon: <BlogSVG />,
+      title: "Блог",
+      link: AppRoutes.BLOG,
+    },
+
+    {
+      icon: <KindDeedsSVG />,
+      title: "Добрые дела",
+      link: "/",
     },
   ],
 };
@@ -177,9 +200,9 @@ export const headerMenuItems: HeaderMenuItems = {
     },
 
     {
-      icon: <BlogSVG />,
+      icon: <MenuBlogSVG />,
       title: "Блог",
-      link: "/",
+      link: AppRoutes.BLOG,
     },
 
     {

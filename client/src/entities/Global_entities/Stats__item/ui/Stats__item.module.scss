@@ -48,31 +48,6 @@
           left: -30%;
         }
       }
-
-      &Img {
-        position: relative;
-        top: 20px;
-        right: 0;
-
-        &__small {
-          height: 165px;
-          object-fit: cover;
-          width: 20vw;
-          right: 10%;
-
-          @media (max-width: $padding-third-mediaquery) {
-            right: -5%;
-            width: 30vw;
-          }
-
-          @media (max-width: $mobile-mediaquery-width) {
-            height: 60px !important;
-            top: 10px;
-            width: 30vw;
-            right: -3%;
-          }
-        }
-      }
     }
 
     &__caption {

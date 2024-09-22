@@ -14,7 +14,6 @@ export const Stats__item: React.FC<Stats__item__props> = memo(
     amounts,
     stats,
     caption,
-    graphic_imgURL,
     graphicChart,
     type = Stats__item__types.MEDIUM,
   }): React.JSX.Element => {
@@ -95,20 +94,10 @@ export const Stats__item: React.FC<Stats__item__props> = memo(
                 ))}
           </div>
 
-          {graphic_imgURL ? (
-            <img
-              className={`${styles.stats__item__stats__chartImg} ${type == Stats__item__types.SMALL ? styles.stats__item__stats__chartImg__small : ""}`}
-              src={graphic_imgURL}
-              alt="Изображение графика"
-            />
-          ) : (
-            graphicChart && (
-              <InterpolationLineChartSecondary
-                className={`${styles.stats__item__stats__chart} ${type == Stats__item__types.SMALL ? styles.stats__item__stats__chart__small : ""}`}
-                chartDataSets={graphicChart}
-              />
-            )
-          )}
+          {graphicChart && <InterpolationLineChartSecondary
+            className={`${styles.stats__item__stats__chart} ${type == Stats__item__types.SMALL ? styles.stats__item__stats__chart__small : ""}`}
+            chartDataSets={graphicChart}
+          />}
         </div>
       </div>
     );

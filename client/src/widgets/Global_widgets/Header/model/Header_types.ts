@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 export enum HeaderServicesCategories {
   CATALOGS = "Каталоги",
   OTHER = "Другое",
+  USEFUL = "Полезное"
 }
 
 export interface HeaderServicesItem {
