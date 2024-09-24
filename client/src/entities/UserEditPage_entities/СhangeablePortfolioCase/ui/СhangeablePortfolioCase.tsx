@@ -6,12 +6,12 @@ import ChangeImageSVG from "@/shared/assets/icons/UserEditPage/UserEdit/ChangeIm
 import {
   LoadedImageOnLoad,
   LoadImageBlock,
-  LoadImageBlockSizes,
   UseLoadedImage,
   UseLoadedImageErrors,
 } from "@/shared/ui-kit/LoadImageBlock";
 import { Input } from "@/shared/ui-kit/Input";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
+import { LoadImageBlockSizes } from "@/shared/ui-kit/LoadImageBlockWithoutLoading";
 
 export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
   memo(({ Case, setExistedCases, ExistedCases }): React.JSX.Element => {

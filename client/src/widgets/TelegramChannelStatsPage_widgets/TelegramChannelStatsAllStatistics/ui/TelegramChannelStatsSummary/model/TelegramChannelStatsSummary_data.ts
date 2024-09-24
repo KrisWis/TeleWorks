@@ -1,4 +1,3 @@
-
 import { Stats__item__props } from "@/entities/Global_entities/Stats__item/model/Stats__item__types";
 
 export const telegramChannelStatsSummaryGraphics: Stats__item__props[] = [

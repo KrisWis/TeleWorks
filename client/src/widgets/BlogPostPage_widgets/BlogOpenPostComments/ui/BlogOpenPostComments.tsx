@@ -48,7 +48,6 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
 
   const [FileInputFiles, setFileInputFiles] = useState<LoadedFile[]>([]);
 
-  // Индикатор загрузки при загрузке файлов
   const [FileInputProgress, setFileInputProgress] = useState<number>(0);
 
   /* Стейт для открытия пикера эмодзи */

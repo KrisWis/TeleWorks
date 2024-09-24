@@ -1,8 +1,4 @@
-export enum LoadImageBlockSizes {
-  SMALL = "small",
-  MEDIUM = "medium",
-  BIG = "big",
-}
+import { LoadImageBlockSizes } from "../../LoadImageBlockWithoutLoading";
 
 export enum LoadedImageErrorsTypes {
   SIZE_ERROR = "Некорректный размер файла!",

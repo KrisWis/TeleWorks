@@ -1,3 +1,4 @@
+import { BlogCreatePage } from "@/pages/BlogCreatePage";
 import { BlogPage } from "@/pages/BlogPage";
 import { BlogPostPage } from "@/pages/BlogPostPage";
 import { CatalogPage } from "@/pages/CatalogPage";
@@ -50,8 +51,16 @@ export enum AppRoutes {
 
   BLOG_POST = "/blog/:id",
 
+  BLOG_CREATE = "/blog/create",
+
   NOT_FOUND = "*",
 }
+
+export const BlogRoutes = [
+  AppRoutes.BLOG,
+  AppRoutes.BLOG_POST,
+  AppRoutes.BLOG_CREATE,
+];
 
 type routesList = {
   [route in AppRoutes]: ReactElement;
@@ -74,5 +83,6 @@ export const routes: routesList = {
   [AppRoutes.TELEGRAM_CHANNEL_STATS]: <TelegramChannelStatsPage />,
   [AppRoutes.BLOG]: <BlogPage />,
   [AppRoutes.BLOG_POST]: <BlogPostPage />,
+  [AppRoutes.BLOG_CREATE]: <BlogCreatePage />,
   [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };

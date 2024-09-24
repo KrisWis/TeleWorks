@@ -16,6 +16,7 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import { Input } from "@/shared/ui-kit/Input";
 import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import CreatePostSVG from "@/shared/assets/icons/Header/Items/CreatePostSVG.svg?react";
+import { AppRoutes } from "@/app/routes/AppRoutes";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
@@ -72,9 +73,7 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
             <h1 className={styles.header__caption} data-testid="headerCaption">
               Tele<span className={styles.header__caption__span}>Works</span>
             </h1>
-          </div>
 
-          <div className={styles.header__servicesWrapper}>
             {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
               <Flex
                 className={`${styles.header__stats} Page__SirineWrapper`}
@@ -96,13 +95,16 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
                 Блог
               </Flex>
             )}
+          </div>
 
-            {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
-              <HeaderServicesDropdown
-                DropdownIsOpen={DropdownServicesIsOpen}
-                setDropdownIsOpen={setDropdownServicesIsOpen}
-              ></HeaderServicesDropdown>
-            )}
+          <div className={styles.header__servicesWrapper}>
+            {view == HeaderViews.TELEGRAM_CHANNEL_STATS ||
+              (view == HeaderViews.BLOG && (
+                <HeaderServicesDropdown
+                  DropdownIsOpen={DropdownServicesIsOpen}
+                  setDropdownIsOpen={setDropdownServicesIsOpen}
+                ></HeaderServicesDropdown>
+              ))}
           </div>
         </div>
         <div
@@ -134,6 +136,7 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
             <Button
               type={ButtonTypes.RED}
               className={styles.header__createPost}
+              to={AppRoutes.BLOG_CREATE}
             >
               <CreatePostSVG />
               Написать

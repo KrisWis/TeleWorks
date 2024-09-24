@@ -45,7 +45,7 @@
         }
 
         @media (max-width: $mobile-small-mediaquery-width) {
-          left: -30%;
+          left: -15%;
         }
       }
     }
@@ -56,6 +56,7 @@
       font-weight: 600;
       font-size: 46px;
       letter-spacing: -0.04em;
+      white-space: nowrap;
 
       &__small {
         font-family: var(--third-family);
@@ -173,6 +174,7 @@
         &__small {
           font-size: 12px;
           padding-right: 0;
+          text-align: right;
 
           @media (max-width: $mobile-mediaquery-width) {
             font-size: 7px;

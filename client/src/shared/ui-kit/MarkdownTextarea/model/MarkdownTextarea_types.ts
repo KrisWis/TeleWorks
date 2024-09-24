@@ -3,6 +3,8 @@ export interface MarkdownTextareaProps {
   setTextareaValue: React.Dispatch<React.SetStateAction<string>>;
   maxSymbolsAmount: number;
   minSymbolsAmount: number;
+  className?: string;
+  placeholder?: string;
 }
 
 export enum MarkdownTextareaTabsEnum {

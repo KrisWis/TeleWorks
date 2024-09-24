@@ -4,6 +4,7 @@ import { memo, useEffect, useState } from "react";
 import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 import "./MarkdownTextarea.scss";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 
 const modules = {
   toolbar: [["bold", "italic"], [{ list: "ordered" }]],
@@ -17,6 +18,8 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
     setTextareaValue,
     maxSymbolsAmount,
     minSymbolsAmount,
+    className,
+    placeholder,
   }): React.JSX.Element => {
     // Валидация и управление формой
     const [MarkDownTextAreaHtmlData, setMarkDownTextAreaHtmlData] =
@@ -24,14 +27,24 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
 
     const [TextareaValuePast, setTextareaValuePast] = useState<string>("");
 
+    const [TextareaIsWarn, setTextareaIsWarn] = UseTryAction();
+
     const OnChangeMarkdownTextarea = (html: string, value: string): void => {
       if (value.length <= maxSymbolsAmount) {
         setTextareaValue(value);
         setMarkDownTextAreaHtmlData(html);
         setTextareaValuePast(value);
       } else {
-        setMarkDownTextAreaHtmlData(TextareaValuePast);
+        setMarkDownTextAreaHtmlData("");
+        if (!TextareaIsWarn) {
+          setTimeout(() => {
+            alert(
+              "Вы превысили ограничение по символам! Если хотите вернуть текст, нажмите CTRL+Z"
+            );
+          }, 0);
+        }
         setTextareaValue(TextareaValuePast);
+        setTextareaIsWarn(true);
       }
     };
 
@@ -53,9 +66,9 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
     }, []);
 
     return (
-      <div className={styles.markdownTextareaWrapper}>
+      <div className={`${styles.markdownTextareaWrapper} ${className}`}>
         <ReactQuill
-          className={`${styles.markdownTextarea__textarea} ${TextareaValue.length >= maxSymbolsAmount ? styles.markdownTextarea__textarea__warn : ""}`}
+          className={`${styles.markdownTextarea__textarea} ${TextareaIsWarn ? styles.markdownTextarea__textarea__warn : ""}`}
           theme="snow"
           value={MarkDownTextAreaHtmlData}
           onChange={(value, _2, _3, editor) =>
@@ -63,6 +76,7 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
           }
           formats={formats}
           modules={modules}
+          placeholder={placeholder}
         />
         <span
           className={`UserEditPage__desc ${styles.markdownTextarea__symbols}`}

@@ -1,15 +1,7 @@
 import styles from "./UserEditGeneral.module.scss";
-import {
-  memo,
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import {
   LoadImageBlock,
-  LoadImageBlockSizes,
   UseLoadedImage,
   UseLoadedImageErrors,
 } from "@/shared/ui-kit/LoadImageBlock";
@@ -25,12 +17,13 @@ import {
   ProfessionSelect__selectedOptions,
   SelectProfessionsEnum,
 } from "../model/UserEditGeneral_data";
-import RedCrossSVG from "@/shared/assets/icons/UserEditPage/UserEdit/RedCrossSVG.svg?react";
 import { UserEditPageContext } from "@/pages/UserEditPage";
 import { UserEditTabsEnum } from "@/widgets/UserEditPage_widgets/UserEditTabs";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 import { UseUserEditGeneralLocalStorage } from "../model/UseUserEditGeneralLocalStorage/UseUserEditGeneralLocalStorage";
+import { LoadImageBlockSizes } from "@/shared/ui-kit/LoadImageBlockWithoutLoading";
+import { TagsInput } from "@/shared/ui-kit/TagsInput";
 
 const ProfessionSelectDropdownIndicator = (): JSX.Element => {
   return (
@@ -94,80 +87,10 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     setSurnameInputValue(e.target.value);
   };
 
-  // Ввод и отображение тегов
-  const [TagsInputValue, setTagsInputValue] = useState<string>("");
-  const TagInputRef = useRef<HTMLInputElement>(null);
+  // Ввод данных в теги
   const [SelectedTags, setSelectedTags] = useState<string[]>(
     UserEditGeneralLSItem ? UserEditGeneralLSItem.tags : []
   );
-
-  const TagInputkeyboardEvent = useCallback(
-    (event: KeyboardEvent): void => {
-      event.preventDefault();
-
-      if (
-        event.keyCode === 13 &&
-        TagsInputValue &&
-        document.activeElement == TagInputRef.current
-      ) {
-        if (!SelectedTags.includes(TagsInputValue)) {
-          setSelectedTags([...SelectedTags, TagsInputValue]);
-          setTagsInputValue("");
-          TagInputRef.current!.focus();
-        }
-      }
-    },
-    [SelectedTags, TagsInputValue]
-  );
-
-  useEffect(() => {
-    if (document.activeElement == TagInputRef.current && TagsInputValue) {
-      document.addEventListener("keyup", TagInputkeyboardEvent);
-    } else {
-      document.removeEventListener("keyup", TagInputkeyboardEvent);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [document.activeElement, TagsInputValue]);
-
-  useEffect(() => {
-    return () => {
-      document.removeEventListener("keyup", TagInputkeyboardEvent);
-    };
-  }, [TagInputkeyboardEvent]);
-
-  // Удаление тега
-  const DeleteTag = useCallback(
-    (tag: string): void => {
-      setSelectedTags(SelectedTags.filter((item) => item != tag));
-
-      TagInputRef.current!.focus();
-    },
-    [SelectedTags]
-  );
-
-  // Удаление последнего тега на клавиатуру
-  const DeleteTagWithBackspace = useCallback(
-    (e: KeyboardEvent): void => {
-      if (document.activeElement == TagInputRef.current && !TagsInputValue) {
-        const keyboardKey = e.keyCode || e.charCode;
-
-        if (keyboardKey == 8 || keyboardKey == 46) {
-          const SelectedTagsCopy = SelectedTags.slice();
-          SelectedTagsCopy.pop();
-          setSelectedTags(SelectedTagsCopy);
-        }
-      }
-    },
-    [SelectedTags, TagsInputValue]
-  );
-
-  useEffect(() => {
-    document.addEventListener("keydown", DeleteTagWithBackspace);
-
-    return () => {
-      document.removeEventListener("keydown", DeleteTagWithBackspace);
-    };
-  }, [DeleteTagWithBackspace]);
 
   // Стейты для загрузки изображений
   const [HeaderLoadedImage, setHeaderLoadedImage] = UseLoadedImage();
@@ -274,29 +197,10 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
               Навыки
             </span>
 
-            <div className={styles.userEditGeneral__tagsInputWrapper}>
-              {SelectedTags.map((tag) => (
-                <div key={tag} className={styles.userEditGeneral__tag}>
-                  <span className={styles.userEditGeneral__tag__text}>
-                    {tag}
-                  </span>
-                  <div
-                    onClick={() => DeleteTag(tag)}
-                    className={styles.userEditGeneral__tag__delete}
-                  >
-                    <RedCrossSVG />
-                  </div>
-                </div>
-              ))}
-
-              <input
-                className={styles.userEditGeneral__tagsInput}
-                type="text"
-                value={TagsInputValue}
-                onChange={(e) => setTagsInputValue(e.target.value)}
-                ref={TagInputRef}
-              />
-            </div>
+            <TagsInput
+              setSelectedTags={setSelectedTags}
+              SelectedTags={SelectedTags}
+            />
 
             <span className={`UserEditPage__desc`}>
               Начните вводить название программ в которых вы работаете.

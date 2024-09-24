@@ -1,7 +1,7 @@
 import "./BaseLayout.module.scss";
 import { Route, Routes } from "react-router-dom";
 import "@/shared/reset.scss";
-import { AppRoutes, routes } from "@/app/routes/AppRoutes";
+import { AppRoutes, BlogRoutes, routes } from "@/app/routes/AppRoutes";
 import { Suspense } from "react";
 import { Header } from "@/widgets/Global_widgets/Header";
 import { Footer } from "@/widgets/Global_widgets/Footer";
@@ -17,15 +17,13 @@ export const App: React.FC = (): React.JSX.Element => {
           element={<Header view={HeaderViews.TELEGRAM_CHANNEL_STATS} />}
         />
 
-        <Route
-          path={AppRoutes.BLOG}
-          element={<Header view={HeaderViews.BLOG} />}
-        />
-
-        <Route
-          path={AppRoutes.BLOG_POST}
-          element={<Header view={HeaderViews.BLOG} />}
-        />
+        {BlogRoutes.map((route) => (
+          <Route
+            key={route}
+            path={route}
+            element={<Header view={HeaderViews.BLOG} />}
+          />
+        ))}
 
         <Route path="*" element={<Header />} />
       </Routes>

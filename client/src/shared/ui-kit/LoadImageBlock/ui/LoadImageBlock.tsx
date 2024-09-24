@@ -14,6 +14,7 @@ import {
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { LoadedImageOnLoad } from "..";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
+import { Flex } from "../../Stack";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
   ({
@@ -71,8 +72,10 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
     };
 
     return (
-      <div
-        className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]} ${className ? className : ""}`}
+      <Flex
+        direction="column"
+        gap="10"
+        className={`${styles[`loadImageBlock__${size}`]} ${className ? className : ""}`}
         onDragEnter={() =>
           loadImageBlockWrapperRef.current?.classList.add(
             styles.loadImageBlock__wrapper__active
@@ -163,7 +166,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
             ))}
           </div>
         )}
-      </div>
+      </Flex>
     );
   }
 );

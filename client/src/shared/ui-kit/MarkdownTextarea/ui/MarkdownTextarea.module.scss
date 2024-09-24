@@ -10,12 +10,14 @@
     display: flex;
     gap: 5px;
     flex-direction: column;
+    width: 100%;
+    height: 48%;
   }
 
   &__textarea {
     height: fit-content;
     width: 100%;
-    border-radius: 0 0 25px 25px;
+    border-radius: 25px;
 
     &__warn {
       border: 1px solid var(--main-color);
@@ -26,5 +28,12 @@
     margin-top: 5px;
     align-self: flex-end;
     margin-right: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--gray-color);
+    position: relative;
+    bottom: 40px;
   }
 }

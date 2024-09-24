@@ -41,6 +41,7 @@ export const UserEditAbout: React.FC = memo((): React.JSX.Element => {
         maxSymbolsAmount={UserEditAboutTextareaMaxSymbolsAmount}
         TextareaValue={TextareaValue}
         setTextareaValue={setTextareaValue}
+        placeholder="Ваш текст..."
       />
     </div>
   );
