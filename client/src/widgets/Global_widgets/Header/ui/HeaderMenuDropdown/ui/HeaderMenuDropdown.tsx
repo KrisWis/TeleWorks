@@ -14,6 +14,7 @@ import RedTickSVG from "@/shared/assets/icons/Global/RedTickSVG.svg?react";
 import LeaveSVG from "@/shared/assets/icons/Header/Menu/LeaveSVG.svg?react";
 import { HeaderMenuDropdownProps } from "../model/HeaderMenuDropdown_types";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 
 export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
   ({
@@ -27,12 +28,9 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
     return (
       <>
         {!IsAuth ? (
-          <span
-            onClick={() => setLoginIsOpen(true)}
-            className={styles.header__item__reg}
-          >
-            login
-          </span>
+          <div onClick={() => setLoginIsOpen(true)}>
+            <LoginSVG className={styles.header__userMenu__login} />
+          </div>
         ) : (
           <Dropdown
             className={styles.header__userMenu}

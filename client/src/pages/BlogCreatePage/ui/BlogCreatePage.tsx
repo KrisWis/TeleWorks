@@ -1,6 +1,6 @@
 import "./BlogCreatePage.scss";
 import "@/shared/main.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { memo } from "react";
 import {
   BlogFilter,
@@ -12,7 +12,9 @@ import { BlogCreatePageContainer } from "@/widgets/BlogCreatePage_widgets/BlogCr
 import {
   BlogCreatePageContext,
   BlogCreatePagePostTypes,
+  CreatePostProgressSteps,
 } from "../model/BlogCreatePageContext";
+import { BlogPostIsCreated } from "@/widgets/BlogCreatePage_widgets/BlogPostIsCreated";
 
 export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -29,26 +31,64 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
   const [selectedPostType, setSelectedPostType] =
     useState<BlogCreatePagePostTypes>("Пост");
 
+  // Функционал переключения с блока создания заказа и на блок, когда заказ уже создан
+  const [CreatePostActiveStep, setCreatePostActiveStep] =
+    useState<CreatePostProgressSteps>("Создание заказа");
+
+  const [IsVisible, setIsVisible] = useState<boolean>(true);
+
+  const isVisibleTimeOutRef = useRef<NodeJS.Timeout>();
+
+  useEffect(() => {
+    if (CreatePostActiveStep == "Заказ создан") {
+      isVisibleTimeOutRef.current = setTimeout(() => {
+        setIsVisible(false);
+      }, 700);
+    }
+  }, [CreatePostActiveStep]);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(isVisibleTimeOutRef.current);
+    };
+  }, []);
+
   return (
     <BlogCreatePageContext.Provider
-      value={{ selectedPostType, setSelectedPostType }}
+      value={{
+        selectedPostType,
+        setSelectedPostType,
+        CreatePostActiveStep,
+        setCreatePostActiveStep,
+      }}
     >
       <main className="Page BlogCreatePage__main">
         <div className="padding">
-          <div className="BlogCreatePage__container">
-            <BlogFilter
-              selectedCategory={blogFilterSelectedCategory}
-              setSelectedCategory={setBlogFilterSelectedCategory}
-              canReturn
-            />
+          <div className="Page__contentWrapper">
+            <>
+              {IsVisible && (
+                <div
+                  className={`${"BlogCreatePage__container"} 
+      ${CreatePostActiveStep == "Заказ создан" ? "BlogCreatePage__container__disappear" : ""}`}
+                >
+                  <BlogFilter
+                    selectedCategory={blogFilterSelectedCategory}
+                    setSelectedCategory={setBlogFilterSelectedCategory}
+                    canReturn
+                  />
 
-            <Flex
-              className="BlogCreatePage__mainWrapper"
-              direction="column"
-              gap="20"
-            >
-              <BlogCreatePageContainer />
-            </Flex>
+                  <Flex
+                    className="BlogCreatePage__mainWrapper"
+                    direction="column"
+                    gap="20"
+                  >
+                    <BlogCreatePageContainer />
+                  </Flex>
+                </div>
+              )}
+            </>
+
+            <BlogPostIsCreated />
           </div>
         </div>
       </main>

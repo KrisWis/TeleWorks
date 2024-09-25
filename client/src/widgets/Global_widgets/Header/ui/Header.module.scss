@@ -95,7 +95,6 @@
 
     &__blog {
       @media (max-width: $tablet-mediaquery-width) {
-        gap: 0;
         width: 50%;
       }
     }
@@ -126,27 +125,6 @@
 
       &:hover {
         color: var(--main-color);
-      }
-    }
-
-    &__login {
-      cursor: pointer;
-
-      @media (max-width: $mobile-mediaquery-width) {
-        width: 15px;
-        height: 15px;
-        position: relative;
-        top: 3px;
-      }
-
-      path {
-        transition: var(--transition-duration) linear fill;
-      }
-
-      &:hover {
-        path {
-          fill: var(--main-color);
-        }
       }
     }
 
@@ -244,6 +222,7 @@
       height: 19px;
       font-size: 8px;
       padding: 12px;
+      width: 40%;
 
       svg {
         min-width: 10px;
@@ -308,24 +287,6 @@
       font-size: 20px;
       letter-spacing: -0.01em;
       color: var(--black-color);
-    }
-  }
-
-  &__toMarketplace {
-    height: 51px;
-    width: 25%;
-    font-size: 24px;
-
-    @media (max-width: $tablet-mediaquery-width) {
-      font-size: 14px;
-      height: 40px;
-    }
-
-    @media (max-width: $mobile-mediaquery-width) {
-      border-radius: 6px;
-      height: 19px;
-      font-size: 8px;
-      padding: 12px;
     }
   }
 

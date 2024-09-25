@@ -1,6 +1,6 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./BlogCreatePageContainer.module.scss";
-import { memo, useContext, useRef, useState } from "react";
+import { memo, useCallback, useContext, useRef, useState } from "react";
 import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import RedArrowRightSVG from "@/shared/assets/icons/Global/RedArrowRightSVG.svg?react";
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
@@ -41,6 +41,15 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
 
   // Ввод данных в теги
   const [SelectedTags, setSelectedTags] = useState<string[]>([]);
+
+  // Перемещение на стадию "пост создан"
+  const { setCreatePostActiveStep } = useContext(BlogCreatePageContext);
+
+  // Нажатие на кнопку "Опубликовать"
+  const onClickPublish = useCallback(() => {
+    setCreatePostActiveStep("Заказ создан");
+    document.body.scrollIntoView({ behavior: "smooth" });
+  }, [setCreatePostActiveStep]);
 
   return (
     <Flex
@@ -114,7 +123,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           setTextareaValue={setTextareaValue}
           minSymbolsAmount={100}
           maxSymbolsAmount={500}
-          placeholder="Ваш текст поста..."
+          placeholder="Ваш текст..."
         />
 
         <Flex max gap="10" direction="column">
@@ -174,6 +183,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           />
 
           <Button
+            onClick={onClickPublish}
             className={styles.BlogCreatePageContainer__button}
             text="Опубликовать"
             type={ButtonTypes.RED}

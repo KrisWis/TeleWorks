@@ -239,6 +239,27 @@
       letter-spacing: -0.01em;
     }
   }
+
+  &__login {
+    cursor: pointer;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 15px;
+      height: 15px;
+      position: relative;
+      top: 3px;
+    }
+
+    path {
+      transition: var(--transition-duration) linear fill;
+    }
+
+    &:hover {
+      path {
+        fill: var(--main-color);
+      }
+    }
+  }
 }
 
 .header__item__reg {

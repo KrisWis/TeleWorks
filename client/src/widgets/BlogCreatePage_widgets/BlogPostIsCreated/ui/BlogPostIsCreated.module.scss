@@ -1,0 +1,18 @@
+.BlogPostIsCreated {
+  height: 599px;
+  transform: translateX(130%);
+  transition: var(--transition-duration-medium) linear all;
+  margin: 0;
+  gap: 0;
+  position: relative;
+  top: 0;
+  overflow-y: hidden;
+  opacity: 0;
+
+  &__appear {
+    transform: translateX(0);
+    gap: 10px;
+    margin-top: 30px;
+    opacity: 1;
+  }
+}

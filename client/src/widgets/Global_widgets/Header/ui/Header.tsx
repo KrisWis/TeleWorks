@@ -8,7 +8,6 @@ import { AuthModal } from "@/features/Header_features/AuthModal";
 import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
 import { RegModal } from "@/features/Header_features/RegModal";
 import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecoveryModal";
-import LoginSVG from "@/shared/assets/icons/Header/Items/LoginSVG.svg?react";
 import { HeaderServicesDropdown } from "./HeaderServicesDropdown";
 import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
 import { HeaderProps, HeaderViews } from "../model/Header_props";
@@ -123,15 +122,6 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
             </div>
           )}
 
-          {(view == HeaderViews.TELEGRAM_CHANNEL_STATS ||
-            view == HeaderViews.BLOG) && (
-            <Button
-              className={styles.header__toMarketplace}
-              text="На биржу"
-              type={ButtonTypes.BLUE}
-            />
-          )}
-
           {view == HeaderViews.BLOG && (
             <Button
               type={ButtonTypes.RED}
@@ -142,10 +132,6 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
               Написать
             </Button>
           )}
-
-          <div onClick={() => setRegIsOpen(true)}>
-            <LoginSVG className={styles.header__item__login} />
-          </div>
 
           <HeaderMenuDropdown
             DropdownIsOpen={DropdownMenuIsOpen}
