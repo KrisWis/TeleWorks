@@ -1,10 +1,16 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./BlogCreatePageContainer.module.scss";
 import { memo, useCallback, useContext, useRef, useState } from "react";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import {
+  transitionDuration,
+  URL_PART,
+} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import RedArrowRightSVG from "@/shared/assets/icons/Global/RedArrowRightSVG.svg?react";
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
-import { BlogCreatePageContext } from "@/pages/BlogCreatePage";
+import {
+  BlogCreatePageContext,
+  useBlogCreatePageLocalStorage,
+} from "@/pages/BlogCreatePage";
 import { blogCreatePagePostTypes } from "@/pages/BlogCreatePage/model/BlogCreatePageContext";
 import { Input } from "@/shared/ui-kit/Input";
 import { MarkdownTextarea } from "@/shared/ui-kit/MarkdownTextarea";
@@ -20,6 +26,7 @@ import {
 import { TagsInput } from "@/shared/ui-kit/TagsInput";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 
 export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   // Функционал переключения типа поста
@@ -27,10 +34,18 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
     BlogCreatePageContext
   );
 
-  // Стейты для инпутов и textarea
-  const [titleInputValue, setTitleInputValue] = useState<string>("");
+  // Стейты для инпутов и textarea, и загрузка данных из Local Storage
+  const BlogCreatePageLI = useBlogCreatePageLocalStorage(
+    UseLocalStorageTypes.GET
+  );
 
-  const [textareaValue, setTextareaValue] = useState<string>("");
+  const [titleInputValue, setTitleInputValue] = useState<string>(
+    BlogCreatePageLI ? BlogCreatePageLI.title : ""
+  );
+
+  const [textareaValue, setTextareaValue] = useState<string>(
+    BlogCreatePageLI ? BlogCreatePageLI.textareaValue : ""
+  );
 
   // Загрузка и отображение, загруженных пользователем, файлов:
   const FileInputRef = useRef<HTMLInputElement>(null);
@@ -39,8 +54,10 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
 
   const [FileInputProgress, setFileInputProgress] = useState<number>(0);
 
-  // Ввод данных в теги
-  const [SelectedTags, setSelectedTags] = useState<string[]>([]);
+  // Ввод данных в теги и их загрузка данных из Local Storage
+  const [SelectedTags, setSelectedTags] = useState<string[]>(
+    BlogCreatePageLI ? BlogCreatePageLI.tags : []
+  );
 
   // Перемещение на стадию "пост создан"
   const { setCreatePostActiveStep } = useContext(BlogCreatePageContext);
@@ -48,8 +65,21 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   // Нажатие на кнопку "Опубликовать"
   const onClickPublish = useCallback(() => {
     setCreatePostActiveStep("Заказ создан");
-    document.body.scrollIntoView({ behavior: "smooth" });
+
+    setTimeout(() => {
+      document
+        .getElementById("BlogPostIsCreated")!
+        .scrollIntoView({ behavior: "smooth" });
+    }, transitionDuration);
   }, [setCreatePostActiveStep]);
+
+  // Сохранение в Local Storage вводимых данных
+
+  useBlogCreatePageLocalStorage(UseLocalStorageTypes.UPDATE, {
+    title: titleInputValue,
+    textareaValue: textareaValue,
+    tags: SelectedTags,
+  });
 
   return (
     <Flex

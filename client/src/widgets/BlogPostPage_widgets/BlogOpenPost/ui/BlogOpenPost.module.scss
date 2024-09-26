@@ -71,6 +71,10 @@
     object-fit: cover;
     object-position: center center;
     margin: 10px 0;
+
+    &__storybook {
+      width: auto;
+    }
   }
 
   &__authorName {

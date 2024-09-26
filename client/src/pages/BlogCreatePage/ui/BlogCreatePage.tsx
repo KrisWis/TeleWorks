@@ -64,7 +64,7 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
     >
       <main className="Page BlogCreatePage__main">
         <div className="padding">
-          <div className="Page__contentWrapper">
+          <Flex max className="BlogCreatePage__contentWrapper">
             <>
               {IsVisible && (
                 <div
@@ -88,8 +88,12 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
               )}
             </>
 
+            <div
+              style={{ opacity: 0, position: "absolute", top: 195 }}
+              id="BlogPostIsCreated"
+            ></div>
             <BlogPostIsCreated />
-          </div>
+          </Flex>
         </div>
       </main>
     </BlogCreatePageContext.Provider>

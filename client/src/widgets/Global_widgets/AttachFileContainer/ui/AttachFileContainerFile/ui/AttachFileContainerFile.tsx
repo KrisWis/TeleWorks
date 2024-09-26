@@ -1,6 +1,6 @@
 import { AttachFileContainerFileProps } from "../model/AttachFileContainerFile_types";
 import styles from "./AttachFileContainerFile.module.scss";
-import { memo, useRef } from "react";
+import { memo, useCallback, useRef } from "react";
 import ChangeFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/ChangeFileSVG.svg?react";
 import DeleteFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/DeleteFileSVG.svg?react";
 import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
@@ -17,54 +17,57 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
       // Функционал изменения файла
       const ChangeInputRef = useRef<HTMLInputElement>(null);
 
-      const FileOnChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const UserInputFile = e.target.files;
+      const FileOnChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>): void => {
+          const UserInputFile = e.target.files;
 
-        if (UserInputFile && UserInputFile.length) {
-          if (
-            !InputFiles.find((file) => file.FileName == UserInputFile[0].name)
-          ) {
-            const fileReader = new FileReader();
+          if (UserInputFile && UserInputFile.length) {
+            if (
+              !InputFiles.find((file) => file.FileName == UserInputFile[0].name)
+            ) {
+              const fileReader = new FileReader();
 
-            // Индикатор загрузки при изменении файла
-            fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
-              if (e.lengthComputable) {
-                const percentLoaded = Math.round((e.loaded / e.total) * 100);
-                setInputFileProgress(percentLoaded);
-              }
-            };
+              // Индикатор загрузки при изменении файла
+              fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
+                if (e.lengthComputable) {
+                  const percentLoaded = Math.round((e.loaded / e.total) * 100);
+                  setInputFileProgress(percentLoaded);
+                }
+              };
 
-            const InputFilesCopy = InputFiles.slice();
+              const InputFilesCopy = InputFiles.slice();
 
-            const InputFilesCopyForLoading = InputFiles.slice();
+              const InputFilesCopyForLoading = InputFiles.slice();
 
-            const PastFileIndex = InputFilesCopy.findIndex(
-              (file) => loadedFile.FileName === file.FileName
-            );
+              const PastFileIndex = InputFilesCopy.findIndex(
+                (file) => loadedFile.FileName === file.FileName
+              );
 
-            InputFilesCopyForLoading[PastFileIndex] = {
-              FileData: "",
-              FileName: "",
-              FileSize: 0,
-              FileType: "",
-            };
+              InputFilesCopyForLoading[PastFileIndex] = {
+                FileData: "",
+                FileName: "",
+                FileSize: 0,
+                FileType: "",
+              };
 
-            setInputFiles(InputFilesCopyForLoading);
+              setInputFiles(InputFilesCopyForLoading);
 
-            InputFilesCopy[PastFileIndex].FileName = UserInputFile[0].name;
-            InputFilesCopy[PastFileIndex].FileSize = UserInputFile[0].size;
-            InputFilesCopy[PastFileIndex].FileType = UserInputFile[0].type;
+              InputFilesCopy[PastFileIndex].FileName = UserInputFile[0].name;
+              InputFilesCopy[PastFileIndex].FileSize = UserInputFile[0].size;
+              InputFilesCopy[PastFileIndex].FileType = UserInputFile[0].type;
 
-            fileReader.onload = function () {
-              InputFilesCopy[PastFileIndex].FileData =
-                fileReader.result as string;
+              fileReader.onload = function () {
+                InputFilesCopy[PastFileIndex].FileData =
+                  fileReader.result as string;
 
-              setInputFiles(InputFilesCopy);
-            };
-            fileReader.readAsDataURL(UserInputFile[0]);
+                setInputFiles(InputFilesCopy);
+              };
+              fileReader.readAsDataURL(UserInputFile[0]);
+            }
           }
-        }
-      };
+        },
+        [InputFiles, loadedFile.FileName, setInputFileProgress, setInputFiles]
+      );
 
       // Функционал удаления файла
       const FileOnDelete = (): void => {
@@ -101,6 +104,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
                 className={styles.AttachFileContainerFile__video}
                 src={loadedFile.FileData}
                 controls
+                preload="none"
               ></video>
             ) : (
               <img

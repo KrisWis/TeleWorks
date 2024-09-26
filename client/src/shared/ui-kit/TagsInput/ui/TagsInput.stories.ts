@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TagsInput } from "./TagsInput";
+import { useState } from "react";
 
 const meta = {
   title: "Shared/TagsInput",
@@ -12,4 +13,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+  args: {
+    setSelectedTags: useState,
+    SelectedTags: [],
+  },
+};

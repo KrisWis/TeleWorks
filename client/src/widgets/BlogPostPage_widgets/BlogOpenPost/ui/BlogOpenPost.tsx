@@ -14,6 +14,7 @@ import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import parse from "html-react-parser";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { PortNow } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
   (): React.JSX.Element => {
@@ -93,7 +94,8 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
           </Flex>
 
           <img
-            className={styles.BlogOpenPost__postImgURL}
+            className={`${styles.BlogOpenPost__postImgURL} 
+            ${PortNow == "6007" ? styles.BlogOpenPost__postImgURL__storybook : ""}`}
             src={blogOpenPostExample.postImgURL}
             alt="Изображение поста"
           />

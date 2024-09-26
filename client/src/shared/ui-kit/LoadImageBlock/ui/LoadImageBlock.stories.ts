@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LoadImageBlock } from "./LoadImageBlock";
 import { useState } from "react";
 import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { LoadImageBlockSizes } from "..";
+import { LoadImageBlockSizes } from "../../LoadImageBlockWithoutLoading";
 
 const meta = {
   title: "Shared/LoadImageBlock",
