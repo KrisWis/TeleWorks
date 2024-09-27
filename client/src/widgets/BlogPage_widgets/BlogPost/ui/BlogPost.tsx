@@ -29,7 +29,10 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
       (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
         const eTarget: HTMLDivElement = e.target as HTMLDivElement;
 
-        if (shareRef.current != eTarget.parentElement!.parentElement) {
+        if (
+          shareRef.current != eTarget.parentElement!.parentElement &&
+          !document.getElementById("shareModal")
+        ) {
           navigate(`${id}`);
         }
       },

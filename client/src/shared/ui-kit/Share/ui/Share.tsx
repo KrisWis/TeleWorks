@@ -6,6 +6,7 @@ import { IncreaseScaleHover } from "../../IncreaseScaleHover";
 import { ShareSocial } from "react-share-social";
 import { Modal } from "../../Modal";
 import { ModalTemplate } from "../../ModalTemplate";
+import { Flex } from "../../Stack";
 
 const shareSocialStyles = {
   root: {
@@ -48,23 +49,31 @@ export const Share: React.FC<ShareProps> = memo(
         </IncreaseScaleHover>
 
         {shareModalIsOpen && (
-          <Modal
-            setModalIsOpen={setShareModalIsOpen}
-            CustomSetModalAppear={setShareModalAppearIsOpen}
-            CustomModalAppear={shareModalAppearIsOpen}
-          >
-            <ModalTemplate
-              className={styles.Share__modal}
-              setModalOpen={setShareModalIsOpen}
+          <Flex id="shareModal" max justify="center" align="center">
+            <Modal
+              setModalIsOpen={setShareModalIsOpen}
               CustomSetModalAppear={setShareModalAppearIsOpen}
+              CustomModalAppear={shareModalAppearIsOpen}
             >
-              <ShareSocial
-                url={url}
-                socialTypes={["whatsapp", "telegram", "email", "ok", "mailru"]}
-                style={shareSocialStyles}
-              />
-            </ModalTemplate>
-          </Modal>
+              <ModalTemplate
+                className={styles.Share__modal}
+                setModalOpen={setShareModalIsOpen}
+                CustomSetModalAppear={setShareModalAppearIsOpen}
+              >
+                <ShareSocial
+                  url={url}
+                  socialTypes={[
+                    "whatsapp",
+                    "telegram",
+                    "email",
+                    "ok",
+                    "mailru",
+                  ]}
+                  style={shareSocialStyles}
+                />
+              </ModalTemplate>
+            </Modal>
+          </Flex>
         )}
       </>
     );
