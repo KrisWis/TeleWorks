@@ -167,6 +167,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
               InputFiles={FileInputFiles}
               setInputFiles={setFileInputFiles}
               setInputFileProgress={setFileInputProgress}
+              accept="image/png, image/gif, image/jpeg, image/jpg"
             />
 
             <LoadImageBlockWithoutLoading

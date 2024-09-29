@@ -68,7 +68,10 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
         <div className={styles.header__wrapper}>
-          <div className={styles.header__wrapper__logo}>
+          <div
+            className={`${styles.header__wrapper__logo} 
+            ${view == HeaderViews.BLOG ? styles.header__wrapper__logo__blog : ""}`}
+          >
             <h1 className={styles.header__caption} data-testid="headerCaption">
               Tele<span className={styles.header__caption__span}>Works</span>
             </h1>
@@ -97,13 +100,10 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
           </div>
 
           <div className={styles.header__servicesWrapper}>
-            {view == HeaderViews.TELEGRAM_CHANNEL_STATS ||
-              (view == HeaderViews.BLOG && (
-                <HeaderServicesDropdown
-                  DropdownIsOpen={DropdownServicesIsOpen}
-                  setDropdownIsOpen={setDropdownServicesIsOpen}
-                ></HeaderServicesDropdown>
-              ))}
+            <HeaderServicesDropdown
+              DropdownIsOpen={DropdownServicesIsOpen}
+              setDropdownIsOpen={setDropdownServicesIsOpen}
+            ></HeaderServicesDropdown>
           </div>
         </div>
         <div

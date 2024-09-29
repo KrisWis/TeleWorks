@@ -6,8 +6,9 @@ import {
   blogFilterCategories,
   blogFilterCategoryTitles,
   BlogFilterProps,
-  BlogFilterTeleworks,
-  BlogFilterThemes,
+  blogFilterTeleworks,
+  blogFilterThemes,
+  blogFilterThemesTitles,
 } from "../model/BlogFilter_types";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { Link } from "react-router-dom";
@@ -69,30 +70,40 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
 
           <span className={styles.BlogFilter__caption}>Темы</span>
 
-          {BlogFilterThemes.map((theme) => (
-            <span
-              key={theme}
+          {blogFilterThemes.map((theme) => (
+            <Flex
+              key={theme.title}
               onClick={() =>
-                setSelectedCategory(theme as keyof typeof BlogFilterThemes)
+                setSelectedCategory(
+                  theme.title as keyof typeof blogFilterThemesTitles
+                )
               }
-              className={`${styles.BlogFilter__subcategory} ${theme == selectedCategory ? styles.BlogFilter__subcategory__active : ""}`}
+              className={`${styles.BlogFilter__subcategory} ${theme.title == selectedCategory ? styles.BlogFilter__category__active : ""}`}
+              align="center"
+              gap="10"
             >
-              {theme}
-            </span>
+              {theme.icon}
+              <span>{theme.title}</span>
+            </Flex>
           ))}
 
           <span className={styles.BlogFilter__caption}>TeleWorks</span>
 
-          {BlogFilterTeleworks.map((tab) => (
-            <span
-              key={tab}
+          {blogFilterTeleworks.map((theme) => (
+            <Flex
+              key={theme.title}
               onClick={() =>
-                setSelectedCategory(tab as keyof typeof BlogFilterTeleworks)
+                setSelectedCategory(
+                  theme.title as keyof typeof blogFilterTeleworks
+                )
               }
-              className={`${styles.BlogFilter__subcategory} ${tab == selectedCategory ? styles.BlogFilter__subcategory__active : ""}`}
+              className={`${styles.BlogFilter__subcategory} ${theme.title == selectedCategory ? styles.BlogFilter__category__active : ""}`}
+              align="center"
+              gap="10"
             >
-              {tab}
-            </span>
+              {theme.icon}
+              <span>{theme.title}</span>
+            </Flex>
           ))}
         </Flex>
       </Flex>

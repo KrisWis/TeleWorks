@@ -60,11 +60,10 @@
     }
 
     &__active {
-      opacity: 1;
+      opacity: 1 !important;
 
       path {
         fill: var(--main-color);
-        stroke-width: 0;
       }
 
       span {
@@ -91,9 +90,5 @@
     padding-left: 20px;
     cursor: pointer;
     transition: var(--transition-duration) linear opacity;
-
-    &__active {
-      opacity: 1;
-    }
   }
 }

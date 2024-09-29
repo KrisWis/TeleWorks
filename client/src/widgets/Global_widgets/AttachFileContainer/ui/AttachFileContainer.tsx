@@ -11,6 +11,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
     setInputFiles,
     InputFiles,
     setInputFileProgress,
+    accept,
   }): React.JSX.Element => {
     // Загрузка и отображение, загруженных пользователем, изображений:
     const InputOnLoad = useCallback(
@@ -70,6 +71,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         type="file"
         ref={inputRef}
         onChange={InputOnLoad}
+        accept={accept}
       />
     );
   }
