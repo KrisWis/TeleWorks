@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .BlogActualPostItem {
   padding: 10px;
   border: 1.46px solid #eaf2ff;
@@ -22,6 +24,10 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: #000;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__userImgURL {
@@ -32,6 +38,11 @@
     border-radius: 100%;
     position: relative;
     bottom: 3px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &__postDate {
@@ -43,6 +54,10 @@
     opacity: 0.4;
     position: relative;
     bottom: 10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__postTitle {
@@ -51,11 +66,22 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: #000;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__footer {
     width: 100%;
     margin-top: 10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      svg {
+        width: 9px;
+        height: 9px;
+      }
+    }
   }
 
   &__amount {
@@ -67,6 +93,10 @@
     opacity: 0.4;
     position: relative;
     top: 1.5px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 6px;
+    }
   }
 
   &__bookmark {

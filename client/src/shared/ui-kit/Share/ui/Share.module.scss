@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .Share {
   * {
     pointer-events: none;
@@ -14,5 +16,13 @@
     top: 30% !important;
     left: 30% !important;
     position: relative;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      left: 15% !important;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      left: 5% !important;
+    }
   }
 }

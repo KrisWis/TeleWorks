@@ -47,6 +47,8 @@
     .Dropdown__dropdown {
       height: 0 !important;
       opacity: 0;
+      pointer-events: none;
+      z-index: var(--z-index-hidden);
     }
   }
 }

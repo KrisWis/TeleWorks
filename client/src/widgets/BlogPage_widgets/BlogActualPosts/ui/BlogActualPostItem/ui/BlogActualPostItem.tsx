@@ -87,7 +87,7 @@ export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
         className={styles.BlogActualPostItem}
         ref={actualPostRef}
       >
-        <Flex direction="column" justify="between">
+        <Flex max direction="column" justify="between">
           <Flex
             className={styles.BlogActualPostItem__header}
             justify="between"

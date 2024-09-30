@@ -8,6 +8,7 @@ import { Navigation } from "swiper/modules";
 import { actualPostsItems } from "../model/BlogActualPosts_data";
 import { BlogActualPostItem } from "./BlogActualPostItem";
 import "./BlogActualPosts_swiper.scss";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/app";
 
 export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
   return (
@@ -51,14 +52,29 @@ export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
           slidesPerGroup={1}
         >
           {actualPostsItems.map((itemsSlide) => (
-            <SwiperSlide
-              className={styles.BlogActualPosts__slider__slide}
-              key={itemsSlide[0].id}
-            >
-              {itemsSlide.map((item) => (
-                <BlogActualPostItem key={item.id} {...item} />
-              ))}
-            </SwiperSlide>
+            <div key={itemsSlide[0].id}>
+              {!tablet_mediaQuery.matches || mobile_mediaQuery.matches ? (
+                <SwiperSlide
+                  className={styles.BlogActualPosts__slider__slide}
+                  key={itemsSlide[0].id}
+                >
+                  {itemsSlide.map((item) => (
+                    <BlogActualPostItem key={item.id} {...item} />
+                  ))}
+                </SwiperSlide>
+              ) : (
+                <>
+                  {itemsSlide.map((item) => (
+                    <SwiperSlide
+                      className={styles.BlogActualPosts__slider__slide}
+                      key={itemsSlide[0].id}
+                    >
+                      <BlogActualPostItem key={item.id} {...item} />
+                    </SwiperSlide>
+                  ))}
+                </>
+              )}
+            </div>
           ))}
         </Swiper>
 

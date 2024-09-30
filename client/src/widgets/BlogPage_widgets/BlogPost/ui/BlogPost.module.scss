@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .BlogPost {
   width: 100%;
   cursor: pointer;
@@ -15,6 +17,10 @@
     object-fit: cover;
     object-position: center center;
     border-radius: 15px 15px 0 0;
+
+    @media (max-width: $tablet-mediaquery-width) and (min-width: $mobile-mediaquery-width) {
+      height: 250px;
+    }
   }
 
   &__footer {

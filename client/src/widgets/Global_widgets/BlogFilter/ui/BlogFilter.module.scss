@@ -1,7 +1,20 @@
+@import "@/shared/vars";
+
 .BlogFilter {
   padding: 20px 15px;
   width: 341px;
-  height: 711px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #000;
+
+  @media (min-width: $mobile-mediaquery-width) and (max-width: $tablet-mediaquery-width) {
+    width: 200px;
+  }
+
+  @media (max-width: $tablet-small-mediaquery-width) {
+    width: 100%;
+    align-items: center;
+  }
 
   &__back {
     font-weight: 600;
@@ -19,9 +32,24 @@
     justify-content: space-around;
     width: 100% !important;
 
+    @media (max-width: $tablet-small-mediaquery-width) {
+      height: 40px !important;
+      border-radius: 15px !important;
+      font-size: 20px !important;
+      padding-left: 15px !important;
+
+      &::placeholder {
+        font-size: 20px !important;
+      }
+    }
+
     &Wrapper {
       position: relative;
       width: 100%;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        margin-top: 10px;
+      }
 
       &::after {
         content: url("@/shared/assets/icons/Global/SearchSVG.svg");
@@ -29,6 +57,10 @@
         position: absolute;
         top: 35%;
         right: 15px;
+
+        @media (max-width: $tablet-small-mediaquery-width) {
+          top: 30%;
+        }
       }
     }
 
@@ -45,6 +77,13 @@
     cursor: pointer;
     opacity: 0.4;
     transition: var(--transition-duration) linear opacity;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
 
     path {
       transition: var(--transition-duration) linear;
@@ -90,5 +129,52 @@
     padding-left: 20px;
     cursor: pointer;
     transition: var(--transition-duration) linear opacity;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      padding-left: 0;
+    }
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  &__adaptive {
+    border-radius: 10px;
+    width: 343px;
+    width: 100%;
+    max-height: 33px;
+    background: linear-gradient(
+      270deg,
+      rgba(59, 130, 246, 0.4) 0%,
+      rgba(59, 130, 246, 0.1) 100%
+    );
+    margin-bottom: 30px;
+    cursor: pointer;
+    overflow-y: hidden;
+    transition: var(--transition-duration) linear;
+    transition-property: max-height;
+    padding: 15px;
+    padding-top: 10px;
+
+    &__text {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    &__active {
+      max-height: 800px;
+    }
+
+    &__button {
+      border-radius: 18px;
+      height: 60px;
+      width: 100%;
+      font-weight: 700;
+      font-size: 19px;
+    }
   }
 }
