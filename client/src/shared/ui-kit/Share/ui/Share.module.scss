@@ -1,6 +1,13 @@
 @import "@/shared/vars";
 
 .Share {
+  &__svg {
+    @media (max-width: $tablet-small-mediaquery-width) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
   * {
     pointer-events: none;
   }

@@ -7,6 +7,7 @@ import SelectDropdownIndicatorDarkBlueSVG from "@/shared/assets/icons/Global/Sel
 import { BlogPopularPost } from "./BlogPopularPost/ui/BlogPopularPost";
 import "./BlogPopularPosts_swiper.scss";
 import { BlogPopularPostsProps } from "../model/BlogPopularPosts_types";
+import { mobile_mediaQuery } from "@/app";
 
 export const BlogPopularPosts: React.FC<BlogPopularPostsProps> = memo(
   ({ blogPopularPosts }): React.JSX.Element => {
@@ -36,9 +37,9 @@ export const BlogPopularPosts: React.FC<BlogPopularPostsProps> = memo(
             nextEl: `#BlogPopularPosts__slider_nextArrow`,
           }}
           modules={[Navigation]}
-          spaceBetween={18}
-          slidesPerView={3}
-          slidesPerGroup={3}
+          spaceBetween={mobile_mediaQuery.matches ? 13 : 18}
+          slidesPerView={mobile_mediaQuery.matches ? 2 : 3}
+          slidesPerGroup={mobile_mediaQuery.matches ? 2 : 3}
           className={styles.BlogPopularPosts__slider}
         >
           {blogPopularPosts.map((post) => (

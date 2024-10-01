@@ -1,0 +1,17 @@
+.BlogForReaders .swiper {
+  padding-left: 0 !important;
+  display: flex;
+  align-items: center;
+  height: 100% !important;
+  overflow: hidden;
+}
+
+.BlogForReaders .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.BlogForReaders .swiper-button-disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

@@ -1,9 +1,16 @@
+@import "@/shared/vars";
+
 .BlogPopularPosts {
   padding: 20px 25px;
   width: 100%;
   position: relative;
   margin-top: 20px;
   padding-bottom: 30px;
+
+  @media (max-width: $tablet-small-mediaquery-width) {
+    margin-top: 0;
+    padding: 10px 15px;
+  }
 
   &__arrow {
     border-radius: 100%;
@@ -18,22 +25,44 @@
     transition: var(--transition-duration) linear box-shadow;
     z-index: var(--z-index-arrows);
 
+    @media (max-width: $tablet-small-mediaquery-width) {
+      width: 25px;
+      height: 25px;
+
+      svg {
+        width: 5px;
+        height: 9px;
+      }
+    }
+
     &:hover {
       box-shadow: 0 0 15px var(--main-color);
     }
 
     &__next {
       right: 10px;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        right: 3px;
+      }
     }
 
     &__prev {
       transform: rotate(180deg);
       left: 10px;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        left: 3px;
+      }
     }
   }
 
   &__slider {
     width: 100%;
     margin-top: 20px;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      margin-top: 10px;
+    }
   }
 }

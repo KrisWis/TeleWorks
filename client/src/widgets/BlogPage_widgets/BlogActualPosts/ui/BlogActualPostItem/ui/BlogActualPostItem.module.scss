@@ -10,6 +10,10 @@
   transition: var(--transition-duration) linear box-shadow;
   box-shadow: 0 0 50px transparent;
 
+  @media (max-width: $tablet-small-mediaquery-width) {
+    padding: 8px 5px;
+  }
+
   &__hover {
     box-shadow: 0 0 20px var(--main-color);
   }
@@ -25,7 +29,7 @@
     letter-spacing: -0.01em;
     color: #000;
 
-    @media (max-width: $mobile-mediaquery-width) {
+    @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 9px;
     }
   }
@@ -39,7 +43,7 @@
     position: relative;
     bottom: 3px;
 
-    @media (max-width: $mobile-mediaquery-width) {
+    @media (max-width: $tablet-small-mediaquery-width) {
       width: 16px;
       height: 16px;
     }
@@ -55,8 +59,9 @@
     position: relative;
     bottom: 10px;
 
-    @media (max-width: $mobile-mediaquery-width) {
+    @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 8px;
+      bottom: 0;
     }
   }
 
@@ -67,7 +72,7 @@
     letter-spacing: -0.01em;
     color: #000;
 
-    @media (max-width: $mobile-mediaquery-width) {
+    @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 8px;
     }
   }
@@ -76,7 +81,7 @@
     width: 100%;
     margin-top: 10px;
 
-    @media (max-width: $mobile-mediaquery-width) {
+    @media (max-width: $tablet-small-mediaquery-width) {
       svg {
         width: 9px;
         height: 9px;
@@ -94,7 +99,7 @@
     position: relative;
     top: 1.5px;
 
-    @media (max-width: $mobile-mediaquery-width) {
+    @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 6px;
     }
   }

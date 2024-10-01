@@ -42,8 +42,11 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
-    opacity: 0.4;
+    color: var(--gray-color);
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 10px;
+    }
   }
 
   &__dateOfCreation {
@@ -53,6 +56,10 @@
     letter-spacing: -0.01em;
     color: #000;
     opacity: 0.4;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__title {
@@ -62,6 +69,10 @@
     letter-spacing: -0.01em;
     color: #000;
     margin-top: 10px;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 13px;
+    }
   }
 
   &__info {
@@ -76,6 +87,10 @@
     letter-spacing: -0.01em;
     color: #000;
     opacity: 0.4;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__header {

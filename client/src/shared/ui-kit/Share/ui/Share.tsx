@@ -7,12 +7,14 @@ import { ShareSocial } from "react-share-social";
 import { Modal } from "../../Modal";
 import { ModalTemplate } from "../../ModalTemplate";
 import { Flex } from "../../Stack";
+import { mobile_mediaQuery } from "@/app";
 
 const shareSocialStyles = {
   root: {
     borderRadius: 5,
     boxShadow: "0 3px 10px 2px rgba(255, 105, 135, .3)",
     minWidth: "100%",
+    padding: mobile_mediaQuery.matches ? 10 : 30,
   },
   copyContainer: {
     border: "1px solid rgba(255, 105, 135, .5)",
@@ -21,6 +23,7 @@ const shareSocialStyles = {
   },
   copyUrl: {
     color: "#000",
+    fontSize: mobile_mediaQuery.matches ? 10 : 16,
   },
   copyIcon: {
     color: "var(--main-color)",
@@ -43,7 +46,8 @@ export const Share: React.FC<ShareProps> = memo(
             onClick={() => setShareModalIsOpen(true)}
           >
             <ShareSVG
-              className={`${type == ShareTypes.RED ? styles.Share__red : ""} ${IconClassName}`}
+              className={`${type == ShareTypes.RED ? styles.Share__red : ""}
+              ${IconClassName} ${styles.Share__svg}`}
             />
           </div>
         </IncreaseScaleHover>

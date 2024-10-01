@@ -8,7 +8,6 @@ export const BlogADSBlock: React.FC = memo((): React.JSX.Element => {
   return (
     <Flex
       align="center"
-      justify="between"
       className={`${styles.BlogADSBlock} Page__GrayBorderWithWhiteBGWrapper`}
     >
       <Flex gap="5" justify="between" direction="column">

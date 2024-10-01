@@ -16,6 +16,7 @@ import { BlogForReaders } from "@/widgets/BlogPage_widgets/BlogForReaders";
 import { BlogADSBlock } from "@/widgets/BlogPage_widgets/BlogADSBlock";
 import { BlogDiscussedPosts } from "@/widgets/BlogPage_widgets/BlogDiscussedPosts";
 import { BlogPopularPosts } from "@/widgets/BlogPage_widgets/BlogPopularPosts";
+import { mobile_mediaQuery } from "@/app";
 
 export const BlogPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -44,20 +45,29 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
               <BlogActualPosts />
 
               <div className="BlogPage__items">
-                {blogPostItems.slice(0, 4).map((post) => (
-                  <BlogPost key={post.id} {...post} />
-                ))}
+                {blogPostItems
+                  .slice(0, mobile_mediaQuery.matches ? 2 : 4)
+                  .map((post) => (
+                    <BlogPost key={post.id} {...post} />
+                  ))}
               </div>
 
               <BlogForReaders />
 
               <div className="BlogPage__items">
-                {blogPostItems.slice(4, 8).map((post) => (
-                  <BlogPost key={post.id} {...post} />
-                ))}
+                {blogPostItems
+                  .slice(
+                    mobile_mediaQuery.matches ? 2 : 4,
+                    mobile_mediaQuery.matches ? 4 : 8
+                  )
+                  .map((post) => (
+                    <BlogPost key={post.id} {...post} />
+                  ))}
               </div>
 
               <BlogADSBlock />
+
+              {mobile_mediaQuery.matches && <BlogPost {...blogPostItems[5]} />}
 
               <BlogDiscussedPosts />
 

@@ -8,6 +8,7 @@ import PostCommentsSVG from "@/shared/assets/icons/Global/PostCommentsSVG.svg?re
 import BookmarkSVG from "@/shared/assets/icons/Global/BookmarkSVG.svg?react";
 import { useNavigate } from "react-router-dom";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { mobile_mediaQuery } from "@/app";
 
 export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
   ({
@@ -119,7 +120,10 @@ export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
             align="center"
             justify="between"
           >
-            <Flex align="center" gap="20">
+            <Flex
+              align="center"
+              gap={`${mobile_mediaQuery.matches ? "5" : "20"}`}
+            >
               <Flex gap="3" align="center">
                 <LikeSVG />
                 <span className={styles.BlogActualPostItem__amount}>

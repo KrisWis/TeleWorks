@@ -1,7 +1,14 @@
+@import "@/shared/vars";
+
 .BlogDiscussedPost {
   border-bottom: 1px solid #eaf2ff;
   padding: 15px 0;
   width: 100%;
+
+  @media (max-width: $tablet-small-mediaquery-width) {
+    padding: 5px 0;
+    border: none;
+  }
 
   &__title {
     font-weight: 500;
@@ -9,15 +16,34 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: #000;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__elipse {
     position: relative;
     right: 12px;
 
+    @media (max-width: $tablet-small-mediaquery-width) {
+      right: 5px;
+    }
+
+    &__svg {
+      @media (max-width: $tablet-small-mediaquery-width) {
+        width: 10px;
+        height: 10px;
+      }
+    }
+
     &__third {
       position: relative;
       right: 22px;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        right: 10px;
+      }
     }
   }
 
@@ -28,10 +54,19 @@
     letter-spacing: -0.01em;
     color: #000;
     opacity: 0.4;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 5px;
+    }
   }
 
   &__commentsSvg {
     width: 25px;
     height: 25px;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      width: 10px;
+      height: 10px;
+    }
   }
 }

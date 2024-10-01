@@ -19,14 +19,16 @@ export const BlogDiscussedPost: React.FC<BlogDiscussedPostProps> = memo(
 
             <Flex align="center">
               <Flex align="center">
-                <DiscussedWhiteElipseSVG />
+                <DiscussedWhiteElipseSVG
+                  className={styles.BlogDiscussedPost__elipse__svg}
+                />
 
                 <DiscussedGrayElipseSVG
-                  className={styles.BlogDiscussedPost__elipse}
+                  className={`${styles.BlogDiscussedPost__elipse__svg} ${styles.BlogDiscussedPost__elipse}`}
                 />
 
                 <DiscussedBlackElipseSVG
-                  className={styles.BlogDiscussedPost__elipse__third}
+                  className={`${styles.BlogDiscussedPost__elipse__svg} ${styles.BlogDiscussedPost__elipse__third}`}
                 />
               </Flex>
 

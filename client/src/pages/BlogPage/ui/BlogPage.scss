@@ -18,6 +18,10 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: #000;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__container {
@@ -55,6 +59,10 @@
     grid-template-columns: 48.5% 48.5%;
     grid-template-rows: 48% 48%;
     margin-top: 20px;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      margin-top: 0;
+    }
 
     @media (max-width: $mobile-mediaquery-width) {
       grid-template-columns: 100%;
