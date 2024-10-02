@@ -88,7 +88,7 @@ export const Select: React.FC<Select__Props> = memo(
         zIndex: "var(--z-index-dropdown)",
         top: "100%",
         position: "absolute",
-        width: "100%",
+        width: "20vw",
         backgroundColor: "hsl(0, 0%, 100%)",
         borderRadius: "4px",
         boxShadow:
@@ -96,6 +96,8 @@ export const Select: React.FC<Select__Props> = memo(
         marginBottom: "8px",
         marginTop: "8px",
         boxSizing: "border-box",
+        fontSize: TextStyles.fontSize,
+        right: 0,
       }),
     };
 

@@ -1,22 +1,43 @@
+@import "@/shared/vars";
+
 .BlogPostComment {
   margin: 15px 0;
-  line-height: 120%;
-  letter-spacing: -0.01em;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    margin: 5px 0;
+  }
+
+  * {
+    line-height: 120%;
+    letter-spacing: -0.01em;
+  }
 
   &__answer {
     padding-left: 40px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding-left: 20px;
+    }
   }
 
   &__authorName {
     font-weight: 600;
     font-size: 20px;
     color: #000;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__createdDate {
     font-weight: 500;
     font-size: 14px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__text {
@@ -24,6 +45,11 @@
     font-weight: 500;
     font-size: 14px;
     color: #000;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+      margin-bottom: 3px;
+    }
   }
 
   &__block {
@@ -34,6 +60,10 @@
     font-weight: 500;
     font-size: 16px;
     color: #f55;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__amount {
@@ -41,10 +71,21 @@
     font-size: 20px;
     color: var(--gray-color);
 
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
+
     &__icon {
       path {
         transition: var(--transition-duration) linear;
         transition-property: fill, opacity, stroke;
+      }
+
+      @media (max-width: $mobile-mediaquery-width) {
+        svg {
+          width: 11px;
+          height: 11px;
+        }
       }
 
       &__active {
@@ -60,5 +101,9 @@
   &__dislike {
     position: relative;
     top: 3px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      top: 0;
+    }
   }
 }

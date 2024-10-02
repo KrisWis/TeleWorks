@@ -9,6 +9,7 @@ export const Modal: React.FC<ModalProps> = ({
   className,
   CustomModalAppear,
   CustomSetModalAppear,
+  id,
 }): React.JSX.Element => {
   const [ModalAppear, setModalAppear] = useState<boolean>(false);
 
@@ -61,6 +62,7 @@ export const Modal: React.FC<ModalProps> = ({
   return PortalElement({
     children: (
       <div
+        id={id}
         ref={ParentRef}
         onClick={modalOnClose}
         className={`${styles.modal} ${CustomModalAppear ? styles.modal__appear : ModalAppear ? styles.modal__appear : styles.modal__disappear} ${className}`}

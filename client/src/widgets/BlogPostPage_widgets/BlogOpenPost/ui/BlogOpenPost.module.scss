@@ -1,13 +1,23 @@
+@import "@/shared/vars";
+
 .BlogOpenPost {
   padding: 10px 20px;
   line-height: 150%;
   letter-spacing: -0.01em;
   color: #000;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 0 5px;
+  }
+
   &__theme {
     font-weight: 500;
     font-size: 16px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__date {
@@ -15,12 +25,23 @@
     font-size: 14px;
     line-height: 120%;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__bookmark {
     transition: var(--transition-duration) linear;
     transition-property: fill, stroke-width;
     cursor: pointer;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 6px;
+      height: 8px;
+      position: relative;
+      bottom: 2px;
+    }
 
     &__active {
       fill: var(--main-color);
@@ -31,12 +52,23 @@
   &__share {
     width: 20px;
     height: 19px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 10px;
+      height: 10px;
+      position: relative;
+      bottom: 1.5px;
+    }
   }
 
   &__title {
     font-weight: 600;
     font-size: 32px;
     line-height: 120%;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 13px;
+    }
   }
 
   &__amount {
@@ -45,9 +77,18 @@
     line-height: 120%;
     color: var(--gray-color);
 
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
+
     &__svg {
       width: 20px;
       height: 20px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 8px;
+        height: 8px;
+      }
 
       &__gray {
         path {
@@ -72,6 +113,13 @@
     object-position: center center;
     margin: 10px 0;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      height: 109px;
+      border: 0.42px solid #eaf2ff;
+      border-radius: 6px;
+      margin: 5px 0;
+    }
+
     &__storybook {
       width: auto;
     }
@@ -81,6 +129,10 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 120%;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__authorCategory {
@@ -88,6 +140,10 @@
     font-size: 14px;
     line-height: 120%;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__subscribeButton {
@@ -97,6 +153,15 @@
     font-size: 20px;
     font-weight: 600;
     transition: var(--transition-duration) linear all;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border: 0.42px solid #eaf2ff;
+      border-radius: 4px;
+      width: 84px;
+      height: 17px;
+      padding: 0;
+      font-size: 8px;
+    }
   }
 
   &__text {
@@ -106,6 +171,10 @@
     margin-top: 10px;
     white-space: pre-line;
     padding-bottom: 20px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
   }
 
   &__tags {
@@ -120,6 +189,14 @@
     font-size: 19px;
     line-height: 120%;
     border-radius: 15px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border: 0.45px solid #eaf2ff;
+      border-radius: 7px;
+      padding: 0 10px;
+      height: 22px;
+      font-size: 8px;
+    }
   }
 
   &__footer {
@@ -129,9 +206,25 @@
       line-height: 120%;
       color: var(--gray-color);
 
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+      }
+
       &__svg {
         width: 27px;
         height: 27px;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          width: 10px;
+          height: 10px;
+
+          svg {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            bottom: 4px;
+          }
+        }
 
         path {
           transition: var(--transition-duration) linear;

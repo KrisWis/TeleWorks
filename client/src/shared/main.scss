@@ -229,5 +229,9 @@ main {
     border: 1px solid #eaf2ff;
     border-radius: 25px;
     background: #fff;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 10px;
+    }
   }
 }

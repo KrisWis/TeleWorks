@@ -8,11 +8,21 @@
   &__smaller {
     width: 45px;
     height: 45px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &__small {
     width: 58px;
     height: 59px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 23px;
+      height: 23px;
+    }
   }
 
   &__medium {

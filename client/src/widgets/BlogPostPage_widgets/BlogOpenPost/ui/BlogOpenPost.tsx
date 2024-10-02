@@ -14,7 +14,10 @@ import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import parse from "html-react-parser";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import { PortNow } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import {
+  mobile_mediaQuery,
+  PortNow,
+} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
   (): React.JSX.Element => {
@@ -29,10 +32,14 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
     const [postIsLiked, setPostIsLiked] = useState<boolean>(false);
 
     return (
-      <Flex max direction="column" gap="15">
+      <Flex
+        max
+        direction="column"
+        gap={`${mobile_mediaQuery.matches ? "10" : "15"}`}
+      >
         <Flex
           direction="column"
-          gap="10"
+          gap={`${mobile_mediaQuery.matches ? "5" : "10"}`}
           max
           className={`${styles.BlogOpenPost} Page__GrayBorderWithWhiteBGWrapper`}
         >
@@ -41,7 +48,10 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
               {blogOpenPostExample.theme}
             </span>
 
-            <Flex align="center" gap="15">
+            <Flex
+              align="center"
+              gap={`${mobile_mediaQuery.matches ? "5" : "15"}`}
+            >
               <span className={styles.BlogOpenPost__date}>
                 {TransformDateToString(blogOpenPostExample.date, false)}
               </span>
@@ -64,8 +74,11 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
             <pre>{blogOpenPostExample.title}</pre>
           </h3>
 
-          <Flex align="center" gap="15">
-            <Flex gap="3">
+          <Flex
+            align="center"
+            gap={`${mobile_mediaQuery.matches ? "5" : "15"}`}
+          >
+            <Flex gap={`${mobile_mediaQuery.matches ? "0" : "3"}`}>
               <ViewsSVG
                 className={`${styles.BlogOpenPost__amount__svg} ${styles.BlogOpenPost__amount__svg__gray}`}
               />
@@ -74,7 +87,7 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
               </span>
             </Flex>
 
-            <Flex gap="3">
+            <Flex gap={`${mobile_mediaQuery.matches ? "0" : "3"}`}>
               <LikeSVG
                 className={`${styles.BlogOpenPost__amount__svg} ${styles.BlogOpenPost__amount__svg__stroke}`}
               />
@@ -83,7 +96,7 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
               </span>
             </Flex>
 
-            <Flex gap="3">
+            <Flex gap={`${mobile_mediaQuery.matches ? "0" : "3"}`}>
               <PostCommentsSVG
                 className={`${styles.BlogOpenPost__amount__svg} ${styles.BlogOpenPost__amount__svg__stroke}`}
               />
@@ -101,7 +114,10 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
           />
 
           <Flex max justify="between" align="center">
-            <Flex align="center" gap="10">
+            <Flex
+              align="center"
+              gap={`${mobile_mediaQuery.matches ? "5" : "10"}`}
+            >
               <Avatar
                 imgURL={blogOpenPostExample.authorImgURL}
                 imgSize={AvatarSizes.SMALL}
@@ -132,7 +148,11 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
         </Flex>
 
         <Flex max align="center" justify="between">
-          <Flex className={styles.BlogOpenPost__tags} align="center" gap="15">
+          <Flex
+            className={styles.BlogOpenPost__tags}
+            align="center"
+            gap={`${mobile_mediaQuery.matches ? "5" : "15"}`}
+          >
             {blogOpenPostExample.tags.map((tag) => (
               <Flex
                 key={tag}
@@ -145,8 +165,11 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
             ))}
           </Flex>
 
-          <Flex align="center" gap="20">
-            <Flex gap="3">
+          <Flex
+            align="center"
+            gap={`${mobile_mediaQuery.matches ? "5" : "20"}`}
+          >
+            <Flex gap={`${mobile_mediaQuery.matches ? "0" : "3"}`}>
               <IncreaseScaleHover
                 onClick={() => setPostIsLiked(!postIsLiked)}
                 className={`${styles.BlogOpenPost__footer__amount__svg} 
@@ -159,7 +182,7 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
               </span>
             </Flex>
 
-            <Flex gap="3">
+            <Flex gap={`${mobile_mediaQuery.matches ? "0" : "3"}`}>
               <PostCommentsSVG
                 className={`${styles.BlogOpenPost__footer__amount__svg} ${styles.BlogOpenPost__amount__svg__stroke}`}
               />

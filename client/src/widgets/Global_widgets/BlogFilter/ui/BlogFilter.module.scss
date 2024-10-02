@@ -22,6 +22,10 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: #000;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 16px;
+    }
   }
 
   &__SearchInput {
@@ -46,10 +50,6 @@
     &Wrapper {
       position: relative;
       width: 100%;
-
-      @media (max-width: $tablet-small-mediaquery-width) {
-        margin-top: 10px;
-      }
 
       &::after {
         content: url("@/shared/assets/icons/Global/SearchSVG.svg");
@@ -159,6 +159,10 @@
     transition-property: max-height;
     padding: 15px;
     padding-top: 10px;
+
+    &__wrapper {
+      margin-bottom: 10px;
+    }
 
     &__text {
       font-weight: 600;

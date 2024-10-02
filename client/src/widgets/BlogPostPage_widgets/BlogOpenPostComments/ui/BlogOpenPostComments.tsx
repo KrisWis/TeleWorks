@@ -23,6 +23,7 @@ import EmojiPicker from "emoji-picker-react";
 import EmojiSVG from "@/shared/assets/icons/Global/EmojiSVG.svg?react";
 import { BlogPostPageContext } from "@/pages/BlogPostPage/model/BlogPostPageContext";
 import { TextUnderlineHover } from "@/shared/ui-kit/TextUnderlineHover";
+import { mobile_mediaQuery } from "@/app";
 
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (
@@ -33,7 +34,7 @@ const SortSelectDropDownIndicator = (): JSX.Element => {
 const SortSelectTextStyles: SelectTextStyles = {
   fontFamily: "var(--font-family)",
   fontWeight: 600,
-  fontSize: "20px",
+  fontSize: mobile_mediaQuery.matches ? "8px" : "20px",
   letterSpacing: "-0.01em",
   lineHeight: "150%",
   color: "var(--main-color)",
@@ -59,7 +60,7 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
 
   return (
     <Flex
-      gap="20"
+      gap={`${mobile_mediaQuery.matches ? "5" : "20"}`}
       max
       direction="column"
       className={styles.BlogOpenPostComments}
@@ -68,7 +69,7 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
       <Flex max align="center" justify="between">
         <h4 className="BlogPostPage__caption">Комментарии</h4>
 
-        <Flex>
+        <Flex align="center">
           <span className={styles.BlogOpenPostComments__sorting_text}>
             Сортировка:
           </span>
@@ -77,12 +78,16 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
             TextStyles={SortSelectTextStyles}
             CustomDropdownIndicator={SortSelectDropDownIndicator}
             selectedOptions={blogOpenPostCommentsSortSelectItems}
-            valueContainerPadding={valueContainerPaddingEnum.SMALL}
+            valueContainerPadding={
+              mobile_mediaQuery.matches
+                ? valueContainerPaddingEnum.NONE
+                : valueContainerPaddingEnum.SMALL
+            }
           />
         </Flex>
       </Flex>
 
-      <Flex align="center" gap="10">
+      <Flex align="center" gap={mobile_mediaQuery.matches ? "5" : "10"}>
         <Avatar
           imgURL={blogOpenPostCommentsUser.imgURL}
           imgSize={AvatarSizes.SMALL}
@@ -99,7 +104,7 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
         </Flex>
       </Flex>
 
-      <Flex direction="column" max gap="10">
+      <Flex direction="column" max gap={mobile_mediaQuery.matches ? "3" : "10"}>
         {answeredComment && (
           <span className={styles.BlogOpenPostComments__commentAnswer}>
             Ответ на комментарий пользователя {answeredComment.authorName}

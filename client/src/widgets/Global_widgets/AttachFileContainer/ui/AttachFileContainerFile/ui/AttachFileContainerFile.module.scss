@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .AttachFileContainerFile {
   display: flex;
   justify-content: space-between;
@@ -38,6 +40,7 @@
   &__iconFile {
     height: 65px;
     width: 65px;
+    object-fit: contain;
   }
 
   &__size {
@@ -47,6 +50,10 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
     opacity: 0.4;
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 8px !important;
+    }
   }
 
   &__caption {
@@ -59,6 +66,10 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $tablet-small-mediaquery-width) {
+      font-size: 8px !important;
+    }
   }
 
   &__buttons {
@@ -106,15 +117,31 @@
     );
     padding: 10px;
 
+    @media (max-width: $tablet-small-mediaquery-width) {
+      border: 0.42px solid #eaf2ff;
+      border-radius: 6px;
+      height: 36px;
+      padding: 5px;
+    }
+
     .AttachFileContainerFile__img,
     .AttachFileContainerFile__video,
     .AttachFileContainerFile__iconFile {
       height: 70px;
       border-radius: 5px;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        border-radius: 2px;
+        height: 29px;
+      }
     }
 
     .AttachFileContainerFile__caption {
       max-width: 200px;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        max-width: 50px;
+      }
     }
 
     .AttachFileContainerFile__size {
@@ -133,6 +160,11 @@
     .AttachFileContainerFile__delete {
       width: 19px;
       height: 19px;
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        width: 8px;
+        height: 8px;
+      }
     }
   }
 }

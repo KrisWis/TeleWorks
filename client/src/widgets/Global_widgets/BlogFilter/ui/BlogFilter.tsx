@@ -128,6 +128,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
               align="center"
               justify="center"
               onClick={() => setAdaptiveFilterIsOpen(!adaptiveFilterIsOpen)}
+              className={styles.BlogFilter__adaptive__wrapper}
             >
               <BlogFilterAdaptiveSVG />
               <span className={styles.BlogFilter__adaptive__text}>

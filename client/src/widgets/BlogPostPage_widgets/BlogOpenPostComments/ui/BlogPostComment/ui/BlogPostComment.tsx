@@ -9,6 +9,7 @@ import LikeSecondarySVG from "@/shared/assets/icons/Global/LikeSecondarySVG.svg?
 import DislikeSVG from "@/shared/assets/icons/Global/DislikeSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { BlogPostPageContext } from "@/pages/BlogPostPage/model/BlogPostPageContext";
+import { mobile_mediaQuery } from "@/app";
 
 export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
   ({ answers, commentInfo, isAnswer }): React.JSX.Element => {
@@ -45,7 +46,7 @@ export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
         className={`${styles.BlogPostComment} ${isAnswer ? styles.BlogPostComment__answer : ""}`}
       >
         <Flex max justify="between" align="center">
-          <Flex gap="10" align="center">
+          <Flex gap={mobile_mediaQuery.matches ? "5" : "10"} align="center">
             <Avatar
               imgURL={commentInfo.authorImgURL}
               imgSize={AvatarSizes.SMALLER}
@@ -64,11 +65,11 @@ export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
         <Flex
           className={styles.BlogPostComment__block}
           direction="column"
-          gap="15"
+          gap={mobile_mediaQuery.matches ? "0" : "15"}
         >
           <p className={styles.BlogPostComment__text}>{commentInfo.text}</p>
 
-          <Flex gap="15" align="center">
+          <Flex gap={mobile_mediaQuery.matches ? "5" : "15"} align="center">
             <TextUnderlineHover
               className={styles.BlogPostComment__answerButton}
             >
@@ -88,7 +89,11 @@ export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
               </span>
             </Flex>
 
-            <Flex className={styles.BlogPostComment__dislike} gap="3">
+            <Flex
+              align="center"
+              className={styles.BlogPostComment__dislike}
+              gap="3"
+            >
               <IncreaseScaleHover
                 onClick={() => setCommentIsDisliked(!commentIsDisliked)}
                 className={`${styles.BlogPostComment__amount__icon} ${commentIsDisliked ? styles.BlogPostComment__amount__icon__active : ""}`}
