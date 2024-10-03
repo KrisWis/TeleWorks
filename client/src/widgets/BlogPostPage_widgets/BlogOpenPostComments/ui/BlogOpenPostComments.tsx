@@ -24,6 +24,7 @@ import EmojiSVG from "@/shared/assets/icons/Global/EmojiSVG.svg?react";
 import { BlogPostPageContext } from "@/pages/BlogPostPage/model/BlogPostPageContext";
 import { TextUnderlineHover } from "@/shared/ui-kit/TextUnderlineHover";
 import { mobile_mediaQuery } from "@/app";
+import SendMessageSVG from "@/shared/assets/icons/Global/SendMessageSVG.svg?react";
 
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (
@@ -147,6 +148,8 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
               skinTonesDisabled={true}
             />
           </div>
+
+          <SendMessageSVG className={styles.BlogOpenPostComments__send} />
         </div>
 
         {answeredComment && (
