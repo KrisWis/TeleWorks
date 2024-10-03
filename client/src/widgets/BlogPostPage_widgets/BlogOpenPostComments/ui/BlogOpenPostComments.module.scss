@@ -115,12 +115,12 @@
 
   &__attach {
     position: absolute;
-    right: 55px;
+    right: 90px;
     top: 22px;
 
     @media (max-width: $mobile-mediaquery-width) {
       top: 3px;
-      right: 20px;
+      right: 35px;
 
       svg {
         width: 10px;
@@ -131,12 +131,12 @@
 
   &__emoji {
     position: absolute;
-    right: 20px;
+    right: 55px;
     top: 20px;
     cursor: pointer;
 
     @media (max-width: $mobile-mediaquery-width) {
-      right: 5px;
+      right: 20px;
       top: 3px;
 
       svg {
@@ -153,10 +153,28 @@
       right: 0;
       z-index: var(--z-index-hidden);
 
+      @media (max-width: $mobile-mediaquery-width) {
+        top: -500px;
+      }
+
       &__open {
         opacity: 1;
         z-index: var(--z-index-zero);
       }
+    }
+  }
+
+  &__send {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      right: 5px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
     }
   }
 }
