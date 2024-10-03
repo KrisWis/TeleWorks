@@ -15,6 +15,7 @@ import {
   CreatePostProgressSteps,
 } from "../model/BlogCreatePageContext";
 import { BlogPostIsCreated } from "@/widgets/BlogCreatePage_widgets/BlogPostIsCreated";
+import { mobile_mediaQuery } from "@/app";
 
 export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -89,7 +90,11 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
             </>
 
             <div
-              style={{ opacity: 0, position: "absolute", top: 195 }}
+              style={{
+                opacity: 0,
+                position: "absolute",
+                top: mobile_mediaQuery.matches ? 25 : 195,
+              }}
               id="BlogPostIsCreated"
             ></div>
             <BlogPostIsCreated />

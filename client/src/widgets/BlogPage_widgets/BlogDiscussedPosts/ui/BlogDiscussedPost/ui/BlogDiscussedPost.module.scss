@@ -1,7 +1,7 @@
 @import "@/shared/vars";
 
 .BlogDiscussedPost {
-  border-bottom: 1px solid #eaf2ff;
+  border-bottom: 1px solid var(--secondary-color);
   padding: 15px 0;
   width: 100%;
 
@@ -15,7 +15,7 @@
     font-size: 21px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
 
     @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 8px;
@@ -52,7 +52,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
 
     @media (max-width: $tablet-small-mediaquery-width) {

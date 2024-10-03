@@ -203,7 +203,7 @@
     font-size: 20px;
     letter-spacing: -0.01em;
     color: var(--black-color);
-    border: 1px solid #4266c6;
+    border: 1px solid var(--violet-color);
 
     @media (max-width: $tablet-mediaquery-width) {
       border-radius: 5px;
@@ -212,7 +212,7 @@
 
     @media (max-width: $mobile-mediaquery-width) {
       font-size: 8px;
-      border: 0.33px solid #4266c6;
+      border: 0.33px solid var(--violet-color);
       border-radius: 5px;
       width: 31px;
       height: 11px;

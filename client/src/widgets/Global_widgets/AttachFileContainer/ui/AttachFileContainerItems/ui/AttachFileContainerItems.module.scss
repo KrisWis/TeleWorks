@@ -8,7 +8,7 @@
     background-color: var(--main-color);
     border-radius: 15px;
     height: 40px;
-    color: #fff;
+    color: var(--white-color);
 
     @media (max-width: $mobile-mediaquery-width) {
       height: 20px;

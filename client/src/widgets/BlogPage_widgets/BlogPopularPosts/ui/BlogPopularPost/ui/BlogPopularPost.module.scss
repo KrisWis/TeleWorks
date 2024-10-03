@@ -33,7 +33,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     padding: 0 10px;
 
     @media (max-width: $tablet-small-mediaquery-width) {
@@ -47,7 +47,7 @@
     font-size: 10px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
     position: relative;
     top: 1.5px;

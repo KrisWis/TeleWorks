@@ -2,9 +2,9 @@
 
 .BlogActualPostItem {
   padding: 10px;
-  border: 1.46px solid #eaf2ff;
+  border: 1.46px solid var(--secondary-color);
   border-radius: 15px;
-  background: #fff;
+  background: var(--white-color);
   width: 100%;
   cursor: pointer;
   transition: var(--transition-duration) linear box-shadow;
@@ -27,7 +27,7 @@
     font-size: 23px;
     line-height: 150%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
 
     @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 9px;
@@ -54,7 +54,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
     position: relative;
     bottom: 10px;
@@ -70,7 +70,7 @@
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
 
     @media (max-width: $tablet-small-mediaquery-width) {
       font-size: 8px;
@@ -94,7 +94,7 @@
     font-size: 11px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
     position: relative;
     top: 1.5px;

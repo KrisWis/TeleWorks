@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .loadImageBlock {
   &__wrapper {
     cursor: pointer;
@@ -12,6 +14,10 @@
       align-items: center;
       z-index: 0;
       pointer-events: none;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        gap: 1px;
+      }
     }
 
     &Wrapper {
@@ -24,6 +30,10 @@
       box-shadow: 0 0 100px var(--main-color);
       border-radius: 25px;
       z-index: var(--z-index-hidden);
+
+      @media (max-width: $mobile-mediaquery-width) {
+        border-radius: 7px;
+      }
     }
 
     &Padding {
@@ -36,6 +46,10 @@
       position: relative;
       height: 100%;
       cursor: pointer;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        padding: 10px 0;
+      }
     }
 
     &__requirements {
@@ -52,6 +66,10 @@
       object-position: center center;
       border-radius: 25px;
 
+      @media (max-width: $mobile-mediaquery-width) {
+        border-radius: 7px;
+      }
+
       &Wrapper {
         position: relative;
         width: 100%;
@@ -66,6 +84,10 @@
     .loadImageBlock__wrapper {
       height: 204px;
       width: 100%;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        height: 97px;
+      }
     }
   }
 
@@ -105,6 +127,10 @@
     letter-spacing: -0.04em;
     color: var(--black-color);
     line-height: 150%;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__desc {
@@ -114,5 +140,9 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
     opacity: 0.4;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 }

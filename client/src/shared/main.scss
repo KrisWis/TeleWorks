@@ -195,7 +195,7 @@ main {
     @media (max-width: $mobile-mediaquery-width) {
       border-radius: 5px;
       box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
-      border: 0.45px solid #eaf2ff;
+      border: 0.45px solid var(--secondary-color);
     }
   }
 
@@ -226,9 +226,9 @@ main {
   }
 
   &__GrayBorderWithWhiteBGWrapper {
-    border: 1px solid #eaf2ff;
+    border: 1px solid var(--secondary-color);
     border-radius: 25px;
-    background: #fff;
+    background: var(--white-color);
 
     @media (max-width: $mobile-mediaquery-width) {
       border-radius: 10px;

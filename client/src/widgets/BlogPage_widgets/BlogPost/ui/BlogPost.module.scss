@@ -26,7 +26,7 @@
   &__footer {
     border-radius: 0 0 15px 15px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
-    background: #fff;
+    background: var(--white-color);
     width: 100%;
     padding: 10px;
   }
@@ -54,7 +54,7 @@
     font-size: 10px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
 
     @media (max-width: $tablet-small-mediaquery-width) {
@@ -67,7 +67,7 @@
     font-size: 16px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     margin-top: 10px;
 
     @media (max-width: $tablet-small-mediaquery-width) {
@@ -85,7 +85,7 @@
     font-size: 10px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
 
     @media (max-width: $tablet-small-mediaquery-width) {

@@ -6,7 +6,7 @@
   &__header {
     height: 51px;
     width: 100%;
-    border: 1px solid #eaf2ff;
+    border: 1px solid var(--secondary-color);
     border-radius: 15px 15px 0 0;
     background: linear-gradient(
       271deg,
@@ -27,7 +27,7 @@
       font-weight: 600;
       font-size: 18px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       text-align: center;
 
       @media (max-width: $mobile-mediaquery-width) {
@@ -42,7 +42,7 @@
 
   &__item {
     height: 90px;
-    border-bottom: 1px solid #eaf2ff;
+    border-bottom: 1px solid var(--secondary-color);
     width: 100%;
     padding: 5px 15px;
     display: grid;
@@ -72,7 +72,7 @@
       font-weight: 600;
       font-size: 16px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
 
       @media (max-width: $mobile-mediaquery-width) {
         font-size: 10px;
@@ -83,7 +83,7 @@
       font-weight: 500;
       font-size: 14px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
 
       @media (max-width: $mobile-mediaquery-width) {
@@ -95,7 +95,7 @@
       font-weight: 600;
       font-size: 16px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
 
       @media (max-width: $mobile-mediaquery-width) {
         font-size: 10px;
@@ -106,7 +106,7 @@
       font-weight: 500;
       font-size: 14px;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
       opacity: 0.4;
 
       @media (max-width: $mobile-mediaquery-width) {
@@ -132,7 +132,7 @@
         font-weight: 600;
         font-size: 14px;
         letter-spacing: -0.01em;
-        color: #000;
+        color: var(--black-color);
 
         @media (max-width: $mobile-mediaquery-width) {
           font-size: 8px;
@@ -175,7 +175,7 @@
       font-size: 20px;
       line-height: 120%;
       letter-spacing: -0.01em;
-      color: #4266c6;
+      color: var(--violet-color);
 
       @media (max-width: $mobile-mediaquery-width) {
         font-size: 16px;

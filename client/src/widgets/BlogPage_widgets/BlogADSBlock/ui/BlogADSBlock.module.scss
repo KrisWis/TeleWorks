@@ -4,9 +4,9 @@
   padding: 20px 25px;
   width: 100%;
   margin-top: 20px;
-  background: #fff;
+  background: var(--white-color);
   border-radius: 25px;
-  border: 1px solid #eaf2ff;
+  border: 1px solid var(--secondary-color);
   justify-content: space-between;
 
   @media (max-width: $mobile-mediaquery-width) {
@@ -20,7 +20,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     opacity: 0.4;
 
     @media (max-width: $mobile-mediaquery-width) {
@@ -33,7 +33,7 @@
     font-size: 24px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
 
     @media (max-width: $mobile-mediaquery-width) {
       font-size: 10px;
@@ -45,7 +45,7 @@
     font-size: 20px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     margin: 10px 0;
     width: 75%;
 

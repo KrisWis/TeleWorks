@@ -12,11 +12,15 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
-import { TelegramChannelStatsPage } from "@/pages/TelegramChannelStatsPage";
+import {
+  TelegramChannelStatsPage,
+  TelegramChannelStatsPageLazy,
+} from "@/pages/TelegramChannelStatsPage";
 import { TurnkeyWebsitesPage } from "@/pages/TurnkeyWebsitesPage";
 import { UserEditPage } from "@/pages/UserEditPage";
 import { UserPage } from "@/pages/UserPage/";
 import { ReactElement } from "react";
+import { PortNow } from "../layouts/BaseLayout/model/BaseLayout__data";
 
 export enum AppRoutes {
   MAIN = "/",
@@ -80,7 +84,12 @@ export const routes: routesList = {
   [AppRoutes.CREATE_ORDER]: <CreateOrderPage />,
   [AppRoutes.FAQ]: <FAQPage />,
   [AppRoutes.TURNKEY_WEBSITES]: <TurnkeyWebsitesPage />,
-  [AppRoutes.TELEGRAM_CHANNEL_STATS]: <TelegramChannelStatsPage />,
+  [AppRoutes.TELEGRAM_CHANNEL_STATS]:
+    PortNow == "6007" ? (
+      <TelegramChannelStatsPageLazy />
+    ) : (
+      <TelegramChannelStatsPage />
+    ),
   [AppRoutes.BLOG]: <BlogPage />,
   [AppRoutes.BLOG_POST]: <BlogPostPage />,
   [AppRoutes.BLOG_CREATE]: <BlogCreatePage />,

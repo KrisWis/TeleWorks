@@ -23,7 +23,7 @@
   &__authorName {
     font-weight: 600;
     font-size: 20px;
-    color: #000;
+    color: var(--black-color);
 
     @media (max-width: $mobile-mediaquery-width) {
       font-size: 8px;
@@ -44,7 +44,7 @@
     white-space: pre-line;
     font-weight: 500;
     font-size: 14px;
-    color: #000;
+    color: var(--black-color);
 
     @media (max-width: $mobile-mediaquery-width) {
       font-size: 8px;
@@ -59,7 +59,7 @@
   &__answerButton {
     font-weight: 500;
     font-size: 16px;
-    color: #f55;
+    color: var(--main-color);
 
     @media (max-width: $mobile-mediaquery-width) {
       font-size: 8px;
@@ -90,9 +90,9 @@
 
       &__active {
         path {
-          fill: #000;
+          fill: var(--black-color);
           opacity: 1;
-          stroke: #fff;
+          stroke: var(--white-color);
         }
       }
     }

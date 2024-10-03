@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .TagsInput {
   &__tags {
     &Input {
@@ -6,12 +8,20 @@
       letter-spacing: -0.01em;
       color: var(--black-color);
 
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 9px;
+      }
+
       &::placeholder {
         font-weight: 500;
         font-size: 14px;
         line-height: 150%;
         letter-spacing: -0.01em;
         color: var(--gray-color);
+
+        @media (max-width: $mobile-mediaquery-width) {
+          font-size: 9px;
+        }
       }
 
       &Wrapper {
@@ -24,6 +34,13 @@
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
+
+        @media (max-width: $mobile-mediaquery-width) {
+          min-height: 27px;
+          border-radius: 5px;
+          gap: 5px;
+          padding: 3px;
+        }
       }
     }
   }
@@ -45,11 +62,20 @@
     width: fit-content;
     gap: 10px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 4px;
+      height: 21px;
+    }
+
     &__text {
       font-weight: 600;
       font-size: 14px;
       letter-spacing: -0.01em;
       color: var(--black-color);
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 9px;
+      }
     }
 
     &__delete {
@@ -60,6 +86,11 @@
       width: 7px;
       height: 7px;
       transition: var(--transition-duration) linear all;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 5px;
+        height: 5px;
+      }
 
       &:hover {
         transform: scale(1.5);

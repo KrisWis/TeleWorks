@@ -5,7 +5,7 @@
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
-  border-bottom: 1px solid #eaf2ff;
+  border-bottom: 1px solid var(--secondary-color);
   position: relative;
 
   &Wrapper {
@@ -59,7 +59,7 @@
     font-size: 14px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: #000;
+    color: var(--black-color);
     text-align: center;
     white-space: nowrap;
 

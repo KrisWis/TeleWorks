@@ -32,7 +32,7 @@ const SortTextStyles: SelectTextStyles = {
   fontSize: !mobile_mediaQuery.matches ? "20px" : "9px",
   letterSpacing: "-0.01em",
   lineHeight: "150%",
-  color: "#000",
+  color: "var(--black-color)",
   opacity: 0.4,
   bottom: !mobile_mediaQuery.matches ? 0 : 2,
 };

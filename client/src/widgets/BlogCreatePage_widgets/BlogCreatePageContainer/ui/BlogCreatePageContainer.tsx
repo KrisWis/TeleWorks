@@ -2,6 +2,7 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./BlogCreatePageContainer.module.scss";
 import { memo, useCallback, useContext, useRef, useState } from "react";
 import {
+  mobile_mediaQuery,
   transitionDuration,
   URL_PART,
 } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
@@ -84,26 +85,28 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   return (
     <Flex
       direction="column"
-      gap="10"
+      gap={mobile_mediaQuery ? "5" : "10"}
       className={styles.BlogCreatePageContainer}
     >
-      <Flex gap="15" align="center">
+      <Flex gap={mobile_mediaQuery ? "5" : "15"} align="center">
         <img
           className={styles.BlogCreatePageContainer__img}
           src={`${URL_PART}/global/images/serviceExample_img_2.png`}
           alt="Изображение автора поста"
         />
 
-        <Flex align="center" gap="10">
+        <Flex align="center" gap={mobile_mediaQuery ? "5" : "10"}>
           <span className={styles.BlogCreatePageContainer__category}>
             Владелец канала
           </span>
 
-          <RedArrowRightSVG />
+          <RedArrowRightSVG
+            className={styles.BlogCreatePageContainer__redArrowRightSvg}
+          />
         </Flex>
       </Flex>
 
-      <Flex align="center" gap="10">
+      <Flex align="center" gap={mobile_mediaQuery ? "5" : "10"}>
         {blogCreatePagePostTypes.map((type) => (
           <Flex
             key={type}
@@ -139,7 +142,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
         вашем личном профиле.
       </p>
 
-      <Flex max direction="column" gap="20">
+      <Flex max direction="column" gap={mobile_mediaQuery ? "0" : "20"}>
         <Input
           className={styles.BlogCreatePageContainer__titleInput}
           placeholder="Заголовок"
@@ -153,49 +156,56 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           setTextareaValue={setTextareaValue}
           minSymbolsAmount={100}
           maxSymbolsAmount={500}
-          placeholder="Ваш текст..."
+          placeholder="Ваш текст поста..."
         />
 
         <Flex max gap="10" direction="column">
-          <Flex
-            max
-            direction="column"
-            className={styles.BlogCreatePageContainer__inputWrapper}
-          >
-            <AttachFileContainer
-              inputRef={FileInputRef}
-              InputFiles={FileInputFiles}
-              setInputFiles={setFileInputFiles}
-              setInputFileProgress={setFileInputProgress}
-              accept="image/png, image/gif, image/jpeg, image/jpg"
-            />
+          <Flex max gap="10" direction="column">
+            <Flex
+              max
+              direction="column"
+              className={styles.BlogCreatePageContainer__inputWrapper}
+            >
+              <AttachFileContainer
+                inputRef={FileInputRef}
+                InputFiles={FileInputFiles}
+                setInputFiles={setFileInputFiles}
+                setInputFileProgress={setFileInputProgress}
+                accept="image/png, image/gif, image/jpeg, image/jpg"
+              />
 
-            <LoadImageBlockWithoutLoading
-              className={styles.BlogCreatePageContainer__load}
-              size={LoadImageBlockSizes.BIG}
-              inputRef={FileInputRef}
-              withBG={false}
-              title="Загрузите изображение"
+              <LoadImageBlockWithoutLoading
+                className={styles.BlogCreatePageContainer__load}
+                size={LoadImageBlockSizes.BIG}
+                inputRef={FileInputRef}
+                withBG={false}
+                title="Загрузите изображение"
+              />
+            </Flex>
+
+            <AttachFileContainerItems
+              setInputFileProgress={setFileInputProgress}
+              InputFileProgress={FileInputProgress}
+              setInputFiles={setFileInputFiles}
+              files={FileInputFiles}
+              fileView="medium"
             />
           </Flex>
 
-          <AttachFileContainerItems
-            setInputFileProgress={setFileInputProgress}
-            InputFileProgress={FileInputProgress}
-            setInputFiles={setFileInputFiles}
-            files={FileInputFiles}
-            fileView="medium"
+          <TagsInput
+            setSelectedTags={setSelectedTags}
+            SelectedTags={SelectedTags}
           />
         </Flex>
-
-        <TagsInput
-          setSelectedTags={setSelectedTags}
-          SelectedTags={SelectedTags}
-        />
       </Flex>
 
-      <Flex max justify="between" align="center">
-        <Flex max align="center" gap="10">
+      <Flex
+        max
+        justify="between"
+        align="center"
+        direction={!mobile_mediaQuery.matches ? "row" : "column"}
+      >
+        <Flex max align="center" gap={mobile_mediaQuery ? "5" : "10"}>
           <Avatar
             imgURL={`${URL_PART}/global/images/serviceExample_authorImg.png`}
             imgSize={AvatarSizes.SMALLER}
@@ -206,7 +216,12 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           </span>
         </Flex>
 
-        <Flex max align="center" gap="10">
+        <Flex
+          max
+          align="center"
+          justify={!mobile_mediaQuery.matches ? "center" : "end"}
+          gap="10"
+        >
           <Button
             className={styles.BlogCreatePageContainer__button}
             text="Сохранить черновик"

@@ -21,7 +21,7 @@ const shareSocialStyles = {
     color: "#f55",
   },
   copyUrl: {
-    color: "#000",
+    color: "var(--black-color)",
     fontSize: mobile_mediaQuery.matches ? 10 : 16,
   },
   copyIcon: {

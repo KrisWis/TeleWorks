@@ -2,6 +2,7 @@ import styles from "./LoadImageBlockWithoutLoading.module.scss";
 import { memo } from "react";
 import { LoadImageBlockWithoutLoadingProps } from "../model/LoadImageBlockWithoutLoading_types";
 import ImgSVG from "@/shared/assets/icons/Global/ImgSVG.svg?react";
+import ImgSVGAdaptive from "@/shared/assets/icons/Global/ImgSVGAdaptiveSVG.svg?react";
 import {
   LoadImageBlockMaxSize,
   LoadImageBlockMinHeight,
@@ -9,6 +10,7 @@ import {
   LoadImageBlockMinWidth,
 } from "../../LoadImageBlock";
 import { Flex } from "../../Stack";
+import { mobile_mediaQuery } from "@/app";
 
 export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoadingProps> =
   memo(
@@ -34,7 +36,7 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
               <div className={`${styles.loadImageBlock__wrapperWrapper}`}></div>
 
               <div className={styles.loadImageBlock__wrapper__info}>
-                <ImgSVG />
+                {!mobile_mediaQuery.matches ? <ImgSVG /> : <ImgSVGAdaptive />}
 
                 <h4 className={styles.loadImageBlock__caption}>{title}</h4>
 

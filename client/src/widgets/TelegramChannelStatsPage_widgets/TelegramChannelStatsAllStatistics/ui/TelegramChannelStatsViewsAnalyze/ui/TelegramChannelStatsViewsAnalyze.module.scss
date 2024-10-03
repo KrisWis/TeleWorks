@@ -5,7 +5,7 @@
     padding: 10px 25px;
 
     &Wrapper {
-      border-bottom: 1px solid #eaf2ff;
+      border-bottom: 1px solid var(--secondary-color);
       width: 100%;
     }
   }
@@ -27,7 +27,7 @@
       font-size: 20px;
       line-height: 120%;
       letter-spacing: -0.01em;
-      color: #000;
+      color: var(--black-color);
 
       @media (max-width: $mobile-mediaquery-width) {
         font-size: 9px;
@@ -38,7 +38,7 @@
         font-size: 20px;
         line-height: 120%;
         letter-spacing: -0.01em;
-        color: #000;
+        color: var(--black-color);
 
         @media (max-width: $mobile-mediaquery-width) {
           font-size: 9px;
@@ -54,7 +54,7 @@
         rgba(59, 130, 246, 0.1) 0%,
         rgba(59, 130, 246, 0) 100%
       );
-      border: 1px solid #eaf2ff;
+      border: 1px solid var(--secondary-color);
       border-radius: 15px;
       height: 50px;
       padding: 10px;

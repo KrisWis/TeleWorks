@@ -24,7 +24,7 @@ const telegramChannelStatsViewsAnalyzeFormatSelectTextStyles: SelectTextStyles =
     fontSize: !mobile_mediaQuery.matches ? "20px" : "9px",
     letterSpacing: "-0.01em",
     lineHeight: "120%",
-    color: "#000",
+    color: "var(--black-color)",
     opacity: 0.4,
     left: 5,
   };

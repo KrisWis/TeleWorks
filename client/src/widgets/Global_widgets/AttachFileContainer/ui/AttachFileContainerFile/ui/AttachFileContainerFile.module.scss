@@ -108,7 +108,7 @@
 
   &__medium {
     height: 86px;
-    border: 1px solid #eaf2ff;
+    border: 1px solid var(--secondary-color);
     border-radius: 15px;
     background: linear-gradient(
       271deg,
@@ -118,7 +118,7 @@
     padding: 10px;
 
     @media (max-width: $tablet-small-mediaquery-width) {
-      border: 0.42px solid #eaf2ff;
+      border: 0.42px solid var(--secondary-color);
       border-radius: 6px;
       height: 36px;
       padding: 5px;
