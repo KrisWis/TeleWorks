@@ -42,6 +42,19 @@ const config: Config = {
 
   setupFilesAfterEnv: ["@testing-library/jest-dom", "./jest.setup.ts"],
 
+  reporters: [
+    "default",
+    [
+      "jest-html-reporters",
+      {
+        publicPath: "./jest-report",
+        filename: "report.html",
+        openReport: true,
+        inlineSource: true,
+      },
+    ],
+  ],
+
   // rootDir: "../../",
   // setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
 
