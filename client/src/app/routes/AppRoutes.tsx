@@ -21,6 +21,7 @@ import { UserEditPage } from "@/pages/UserEditPage";
 import { UserPage } from "@/pages/UserPage/";
 import { ReactElement } from "react";
 import { PortNow } from "../layouts/BaseLayout/model/BaseLayout__data";
+import { KindDeedsPage } from "@/pages/KindDeedsPage";
 
 export enum AppRoutes {
   MAIN = "/",
@@ -56,6 +57,8 @@ export enum AppRoutes {
   BLOG_POST = "/blog/:id",
 
   BLOG_CREATE = "/blog/create",
+
+  KIND_DEEDS = "/kind-deeds",
 
   NOT_FOUND = "*",
 }
@@ -93,5 +96,6 @@ export const routes: routesList = {
   [AppRoutes.BLOG]: <BlogPage />,
   [AppRoutes.BLOG_POST]: <BlogPostPage />,
   [AppRoutes.BLOG_CREATE]: <BlogCreatePage />,
+  [AppRoutes.KIND_DEEDS]: <KindDeedsPage />,
   [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };

@@ -25,6 +25,11 @@ export const App: React.FC = (): React.JSX.Element => {
           />
         ))}
 
+        <Route
+          path={AppRoutes.KIND_DEEDS}
+          element={<Header view={HeaderViews.KIND_DEEDS} />}
+        />
+
         <Route path="*" element={<Header />} />
       </Routes>
 

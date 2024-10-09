@@ -99,7 +99,7 @@ export const headerServicesItems: HeaderServicesItems = {
     {
       icon: <KindDeedsSVG />,
       title: "Добрые дела",
-      link: "/",
+      link: AppRoutes.KIND_DEEDS,
     },
   ],
 };

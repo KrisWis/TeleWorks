@@ -87,12 +87,23 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
 
             {view == HeaderViews.BLOG && (
               <Flex
-                className={`${styles.header__blog} Page__SirineWrapper`}
+                className={`${styles.header__service} Page__SirineWrapper`}
                 direction={"row"}
                 justify="center"
                 align="center"
               >
                 Блог
+              </Flex>
+            )}
+
+            {view == HeaderViews.KIND_DEEDS && (
+              <Flex
+                className={`${styles.header__service} Page__SirineWrapper`}
+                direction={"row"}
+                justify="center"
+                align="center"
+              >
+                Добрые дела
               </Flex>
             )}
           </div>
