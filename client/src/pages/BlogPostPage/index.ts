@@ -5,3 +5,5 @@ export const BlogPostPage: React.LazyExoticComponent<React.FC> = lazy(() =>
     default: BlogPostPage,
   }))
 );
+
+export { BlogPostPageContext } from "./model/BlogPostPageContext";

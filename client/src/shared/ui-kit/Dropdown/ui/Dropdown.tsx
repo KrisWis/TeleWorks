@@ -13,9 +13,11 @@ export const Dropdown: React.FC<DropdownProps> = memo(
     className,
     style,
     dropdownClassname,
+    "data-testid": dataTestId = "dropdown",
   }): React.JSX.Element => {
     return (
       <div
+        data-testid={dataTestId}
         className={`${styles.Dropdown} ${!DropdownIsOpen ? styles.Dropdown__disactive + " Dropdown__disactive" : ""} ${dropdownClassname}`}
       >
         <div className={styles.Dropdown__dropdownSetActive}>

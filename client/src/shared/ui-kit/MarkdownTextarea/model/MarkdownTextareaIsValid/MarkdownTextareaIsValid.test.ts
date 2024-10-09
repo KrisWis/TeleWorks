@@ -1,15 +1,15 @@
 import { MarkdownTextAreaIsValid } from "./MarkdownTextareaIsValid";
 
 describe("MarkdownTextAreaIsValid", () => {
-  test("with empty string", () => {
+  test("check valid with empty string", () => {
     expect(MarkdownTextAreaIsValid("", 500, 100)).toBe(false);
   });
 
-  test("with less than min string", () => {
+  test("check valid with less than min string", () => {
     expect(MarkdownTextAreaIsValid("ewww", 500, 100)).toBe(false);
   });
 
-  test("with more than max string", () => {
+  test("check valid with more than max string", () => {
     expect(
       MarkdownTextAreaIsValid(
         `Что такое Lorem Ipsum?
@@ -29,7 +29,7 @@ Lorem Ipsum - это текст-"рыба", часто используемый 
     ).toBe(false);
   });
 
-  test("with correct string", () => {
+  test("check valid with correct string", () => {
     expect(
       MarkdownTextAreaIsValid(
         `Что такое Lorem Ipsum? Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.`,

@@ -14,7 +14,7 @@ export const TagsInput: React.FC<TagInputProps> = memo(
         event.preventDefault();
 
         if (
-          event.keyCode === 13 &&
+          (event.keyCode == 13 || event.key == "Enter") &&
           TagsInputValue &&
           document.activeElement == TagInputRef.current
         ) {
@@ -59,7 +59,7 @@ export const TagsInput: React.FC<TagInputProps> = memo(
         if (document.activeElement == TagInputRef.current && !TagsInputValue) {
           const keyboardKey = e.keyCode || e.charCode;
 
-          if (keyboardKey == 8 || keyboardKey == 46) {
+          if (keyboardKey == 8 || keyboardKey == 46 || e.key == "Backspace") {
             const SelectedTagsCopy = SelectedTags.slice();
             SelectedTagsCopy.pop();
             setSelectedTags(SelectedTagsCopy);
@@ -80,9 +80,14 @@ export const TagsInput: React.FC<TagInputProps> = memo(
     return (
       <div className={styles.TagsInput__tagsInputWrapper}>
         {SelectedTags.map((tag) => (
-          <div key={tag} className={styles.TagsInput__tag}>
+          <div
+            data-testid={`TagsInput.tag.${tag}`}
+            key={tag}
+            className={styles.TagsInput__tag}
+          >
             <span className={styles.TagsInput__tag__text}>{tag}</span>
             <div
+              data-testid={`TagsInput.tag.${tag}.Delete`}
               onClick={() => DeleteTag(tag)}
               className={styles.TagsInput__tag__delete}
             >
@@ -92,6 +97,7 @@ export const TagsInput: React.FC<TagInputProps> = memo(
         ))}
 
         <input
+          data-testid="TagsInput.input"
           className={styles.TagsInput__tagsInput}
           type="text"
           value={TagsInputValue}

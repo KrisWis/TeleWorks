@@ -1,5 +1,3 @@
-/// <reference types="vite-plugin-svgr/client" />
-
 import styles from "./Header.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";

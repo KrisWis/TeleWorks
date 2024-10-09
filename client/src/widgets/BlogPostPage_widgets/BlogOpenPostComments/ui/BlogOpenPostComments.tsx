@@ -122,6 +122,7 @@ export const BlogOpenPostComments: React.FC = memo((): React.JSX.Element => {
 
           <div className={styles.BlogOpenPostComments__attach}>
             <AttachFileContainer
+              data-testid="BlogOpenPostComments.AttachFilesInput"
               inputRef={FileInputRef}
               InputFiles={FileInputFiles}
               setInputFiles={setFileInputFiles}

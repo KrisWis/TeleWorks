@@ -8,4 +8,5 @@ export interface InputProps {
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   isWarn?: boolean;
   refInput?: React.LegacyRef<HTMLInputElement> | undefined;
+  "data-testid"?: string;
 }

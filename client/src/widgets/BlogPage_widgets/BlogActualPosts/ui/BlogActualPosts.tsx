@@ -54,10 +54,7 @@ export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
           {actualPostsItems.map((itemsSlide) => (
             <div key={itemsSlide[0].id}>
               {!tablet_mediaQuery.matches || mobile_mediaQuery.matches ? (
-                <SwiperSlide
-                  className={styles.BlogActualPosts__slider__slide}
-                  key={itemsSlide[0].id}
-                >
+                <SwiperSlide className={styles.BlogActualPosts__slider__slide}>
                   {itemsSlide.map((item) => (
                     <BlogActualPostItem key={item.id} {...item} />
                   ))}
@@ -67,9 +64,9 @@ export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
                   {itemsSlide.map((item) => (
                     <SwiperSlide
                       className={styles.BlogActualPosts__slider__slide}
-                      key={itemsSlide[0].id}
+                      key={item.id}
                     >
-                      <BlogActualPostItem key={item.id} {...item} />
+                      <BlogActualPostItem {...item} />
                     </SwiperSlide>
                   ))}
                 </>

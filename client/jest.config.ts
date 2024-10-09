@@ -7,7 +7,7 @@ import type { Config } from "jest";
 
 const config: Config = {
   transformIgnorePatterns: [
-    "[/\\\\]node_modules[/\\\\](?!swiper[/\\\\]|my-other-dep[/\\\\])",
+    "[/\\\\]node_modules[/\\\\](?!swiper[/\\\\]|react-quill-new[/\\\\]|quill[/\\\\]|lodash-es[/\\\\]|parchment[/\\\\])",
   ],
   testEnvironment: "jsdom",
   clearMocks: true,
@@ -33,8 +33,10 @@ const config: Config = {
     "node",
   ],
 
+  preset: "ts-jest",
+
   transform: {
-    "^.+\\.[jt]sx?$": "babel-jest",
+    "^.+\\.(js|jsx)$": "babel-jest",
     ".+\\.(css|styl|less|sass|scss)$": "jest-css-modules-transform",
   },
 
@@ -49,7 +51,6 @@ const config: Config = {
       {
         publicPath: "./jest-report",
         filename: "report.html",
-        openReport: true,
         inlineSource: true,
       },
     ],

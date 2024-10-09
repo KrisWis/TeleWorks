@@ -7,15 +7,24 @@ import {
   LoadImageBlockMinWidth,
   LoadImageIsValidCheck,
 } from "../LoadImageIsValidCheck/LoadImageIsValidCheck";
+import { PortNow } from "@/app";
 
 export const LoadedImageOnLoad = (
   e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
   setLoadedImage: React.Dispatch<React.SetStateAction<string>>,
   setLoadedImageErrors: React.Dispatch<
     React.SetStateAction<LoadedImageErrorsTypes[]>
-  >
+  >,
+
+  mockFileName?: string
 ) => {
-  setLoadedImage(LoadingConst);
+  if (PortNow) {
+    setLoadedImage(LoadingConst);
+  } else {
+    if (mockFileName) {
+      setLoadedImage(mockFileName);
+    }
+  }
 
   const UserInputFile =
     (e as React.ChangeEvent<HTMLInputElement>).target.files ||

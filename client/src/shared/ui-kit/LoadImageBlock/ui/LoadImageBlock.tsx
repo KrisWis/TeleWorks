@@ -14,7 +14,7 @@ import {
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { LoadedImageOnLoad } from "..";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
-import { Flex } from "../../Stack";
+import { mockFileName, mockFileName2 } from "..";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
   ({
@@ -54,6 +54,8 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
         styles.loadImageBlock__wrapper__active
       );
 
+      console.log(1);
+
       const file = e.dataTransfer?.files[0];
 
       if (!file) {
@@ -72,10 +74,8 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
     };
 
     return (
-      <Flex
-        direction="column"
-        gap="10"
-        className={`${styles[`loadImageBlock__${size}`]} ${className ? className : ""}`}
+      <div
+        className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]} ${className ? className : ""}`}
         onDragEnter={() =>
           loadImageBlockWrapperRef.current?.classList.add(
             styles.loadImageBlock__wrapper__active
@@ -87,6 +87,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
           )
         }
         onDrop={LoadedFileOnDrop}
+        data-testid="LoadImageBlock.Drag&Drop"
       >
         <div
           className={`${styles.loadImageBlock__wrapper} Page__SirineWrapper 
@@ -101,9 +102,15 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
                 className={styles.loadImageBlock__wrapper__input}
                 type="file"
                 onChange={(e) =>
-                  LoadedImageOnLoad(e, setLoadedImage, setLoadedImageErrors)
+                  LoadedImageOnLoad(
+                    e,
+                    setLoadedImage,
+                    setLoadedImageErrors,
+                    mockFileName
+                  )
                 }
                 accept="image/png, image/gif, image/jpeg, image/jpg"
+                data-testid="LoadImageBlock.Input"
               />
 
               <div className={styles.loadImageBlock__wrapper__info}>
@@ -140,15 +147,22 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
                 className={styles.loadImageBlock__wrapper__img}
                 src={LoadedImage}
                 alt="Изображение хедера"
+                data-testid="LoadImageBlock.Image"
               ></img>
 
               <input
                 className={styles.loadImageBlock__wrapper__input}
                 type="file"
                 onChange={(e) =>
-                  LoadedImageOnLoad(e, setLoadedImage, setLoadedImageErrors)
+                  LoadedImageOnLoad(
+                    e,
+                    setLoadedImage,
+                    setLoadedImageErrors,
+                    mockFileName2
+                  )
                 }
                 accept="image/png, image/gif, image/jpeg, image/jpg"
+                data-testid="LoadImageBlock.Change"
               />
             </label>
           )}
@@ -158,6 +172,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
           <div className={styles.loadImageBlock__wrapper__errors}>
             {LoadedImageErrors.map((error) => (
               <span
+                data-testid={`LoadImageBlock.Error.${error}`}
                 key={error}
                 className={styles.loadImageBlock__wrapper__error}
               >
@@ -166,7 +181,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
             ))}
           </div>
         )}
-      </Flex>
+      </div>
     );
   }
 );

@@ -1,4 +1,3 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import { Stats__item__props } from "@/entities/Global_entities/Stats__item/model/Stats__item__types";
 
 export const Stats__items: Stats__item__props[] = [
@@ -30,7 +29,58 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "ПОДПИСЧИКИ",
-    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__1.svg`,
+    graphicChart: [
+      {
+        id: 1,
+        label: "12 Агв",
+        value: 0,
+      },
+      {
+        id: 2,
+        label: "13 Авг",
+        value: 200,
+      },
+      {
+        id: 3,
+        label: "14 Авг",
+        value: 150,
+      },
+      {
+        id: 4,
+        label: "15 Авг",
+        value: 4200,
+      },
+      {
+        id: 5,
+        label: "16 Авг",
+        value: 300,
+      },
+      {
+        id: 6,
+        label: "17 Авг",
+        value: 700,
+      },
+      {
+        id: 7,
+        label: "18 Авг",
+        value: 550,
+      },
+      {
+        id: 8,
+        label: "19 Авг",
+        value: 57,
+      },
+      {
+        id: 9,
+        label: "20 Авг",
+        value: 540,
+      },
+      {
+        id: 10,
+        label: "21 Авг",
+        value: 70,
+      },
+    ],
   },
 
   {
@@ -46,7 +96,58 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "СР.ОХВАТ ПУБЛИКАЦИИ",
-    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__2.svg`,
+    graphicChart: [
+      {
+        id: 1,
+        label: "12 Агв",
+        value: 0,
+      },
+      {
+        id: 2,
+        label: "13 Авг",
+        value: 400,
+      },
+      {
+        id: 3,
+        label: "14 Авг",
+        value: 150,
+      },
+      {
+        id: 4,
+        label: "15 Авг",
+        value: 400,
+      },
+      {
+        id: 5,
+        label: "16 Авг",
+        value: 300,
+      },
+      {
+        id: 6,
+        label: "17 Авг",
+        value: 700,
+      },
+      {
+        id: 7,
+        label: "18 Авг",
+        value: 550,
+      },
+      {
+        id: 8,
+        label: "19 Авг",
+        value: 70,
+      },
+      {
+        id: 9,
+        label: "20 Авг",
+        value: 5400,
+      },
+      {
+        id: 10,
+        label: "21 Авг",
+        value: 570,
+      },
+    ],
   },
 
   {
@@ -64,7 +165,58 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "ИНДЕКС ЦИТИРОВАНИЯ",
-    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__3.svg`,
+    graphicChart: [
+      {
+        id: 1,
+        label: "12 Агв",
+        value: 2000,
+      },
+      {
+        id: 2,
+        label: "13 Авг",
+        value: 200,
+      },
+      {
+        id: 3,
+        label: "14 Авг",
+        value: 150,
+      },
+      {
+        id: 4,
+        label: "15 Авг",
+        value: 4000,
+      },
+      {
+        id: 5,
+        label: "16 Авг",
+        value: 300,
+      },
+      {
+        id: 6,
+        label: "17 Авг",
+        value: 700,
+      },
+      {
+        id: 7,
+        label: "18 Авг",
+        value: 5500,
+      },
+      {
+        id: 8,
+        label: "19 Авг",
+        value: 570,
+      },
+      {
+        id: 9,
+        label: "20 Авг",
+        value: 540,
+      },
+      {
+        id: 10,
+        label: "21 Авг",
+        value: 5710,
+      },
+    ],
   },
 
   {
@@ -82,6 +234,57 @@ export const Stats__items: Stats__item__props[] = [
       },
     ],
     caption: "СР.ОХВАТ РЕКАЛМ. ПУБЛИКАЦИИ",
-    graphic_imgURL: `${URL_PART}/ProfilePage/images/Stats/Graphics__1.svg`,
+    graphicChart: [
+      {
+        id: 1,
+        label: "12 Агв",
+        value: 0,
+      },
+      {
+        id: 2,
+        label: "13 Авг",
+        value: 200,
+      },
+      {
+        id: 3,
+        label: "14 Авг",
+        value: 150,
+      },
+      {
+        id: 4,
+        label: "15 Авг",
+        value: 400,
+      },
+      {
+        id: 5,
+        label: "16 Авг",
+        value: 300,
+      },
+      {
+        id: 6,
+        label: "17 Авг",
+        value: 700,
+      },
+      {
+        id: 7,
+        label: "18 Авг",
+        value: 550,
+      },
+      {
+        id: 8,
+        label: "19 Авг",
+        value: 570,
+      },
+      {
+        id: 9,
+        label: "20 Авг",
+        value: 540,
+      },
+      {
+        id: 10,
+        label: "21 Авг",
+        value: 570,
+      },
+    ],
   },
 ];

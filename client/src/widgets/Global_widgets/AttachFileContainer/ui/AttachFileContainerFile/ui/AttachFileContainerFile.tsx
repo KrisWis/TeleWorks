@@ -3,7 +3,7 @@ import styles from "./AttachFileContainerFile.module.scss";
 import { memo, useCallback, useRef } from "react";
 import ChangeFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/ChangeFileSVG.svg?react";
 import DeleteFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/DeleteFileSVG.svg?react";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { PortNow, URL_PART } from "@/app";
 
 export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
   memo(
@@ -50,7 +50,9 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
                 FileType: "",
               };
 
-              setInputFiles(InputFilesCopyForLoading);
+              if (PortNow) {
+                setInputFiles(InputFilesCopyForLoading);
+              }
 
               InputFilesCopy[PastFileIndex].FileName = UserInputFile[0].name;
               InputFilesCopy[PastFileIndex].FileSize = UserInputFile[0].size;
@@ -90,6 +92,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
 
       return (
         <div
+          data-testid={`AttachFileContainerFile.${loadedFile.FileName}`}
           className={`${styles.AttachFileContainerFile} ${fileView == "medium" ? styles.AttachFileContainerFile__medium : ""}`}
         >
           <div className={styles.AttachFileContainerFile__info}>
@@ -132,6 +135,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
                 type="file"
                 name="createOrderTechnicalInformationContainer_changeFiles_input"
                 ref={ChangeInputRef}
+                data-testid={`AttachFileContainerFile.${loadedFile.FileName}.Change`}
                 onChange={FileOnChange}
               />
 
@@ -145,6 +149,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
               onClick={FileOnDelete}
             >
               <DeleteFileSVG
+                data-testid={`AttachFileContainerFile.${loadedFile.FileName}.Delete`}
                 className={styles.AttachFileContainerFile__delete}
               />
             </div>

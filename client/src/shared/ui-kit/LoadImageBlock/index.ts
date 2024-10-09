@@ -8,3 +8,7 @@ export {
   LoadImageBlockMinSize,
   LoadImageBlockMaxSize,
 } from "./model/LoadImageIsValidCheck/LoadImageIsValidCheck";
+
+export const mockFileName: string = "test.png";
+
+export const mockFileName2: string = "test2.png";

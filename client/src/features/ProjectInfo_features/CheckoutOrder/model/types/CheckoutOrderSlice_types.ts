@@ -1,8 +1,8 @@
-import { CheckoutOrderSchema } from "@/features";
 import {
   ProjectExtraService,
   ProjectInfoPackNames,
 } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
+import { CheckoutOrderSchema } from "../..";
 
 interface CheckoutOrderPackPricePayload {
   price: number;

@@ -1,5 +1,3 @@
-/// <reference types="vite-plugin-svgr/client" />
-
 import { memo } from "react";
 import styles from "./MeetAdvantages.module.scss";
 import MeetAdvantagesSvg from "@/shared/assets/icons/MainPage/MeetAdvantages/MeetAdvantagesSvg.svg?react";

@@ -1,4 +1,8 @@
 .loadImageBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
   &__wrapper {
     cursor: pointer;
     transition: var(--transition-duration) linear all;

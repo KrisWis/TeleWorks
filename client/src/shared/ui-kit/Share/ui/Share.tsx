@@ -6,7 +6,9 @@ import { IncreaseScaleHover } from "../../IncreaseScaleHover";
 import { ShareSocial } from "react-share-social";
 import { Modal } from "../../Modal";
 import { ModalTemplate } from "../../ModalTemplate";
-import { mobile_mediaQuery } from "@/app";
+
+const mobile_mediaQuery: MediaQueryList =
+  window.matchMedia("(max-width: 700px)");
 
 const shareSocialStyles = {
   root: {

@@ -28,7 +28,10 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
     return (
       <>
         {!IsAuth ? (
-          <div onClick={() => setLoginIsOpen(true)}>
+          <div
+            data-testid="HeaderMenuDropdown.login"
+            onClick={() => setLoginIsOpen(true)}
+          >
             <LoginSVG className={styles.header__userMenu__login} />
           </div>
         ) : (
@@ -41,6 +44,7 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
                 {username}
               </span>
             }
+            data-testid="HeaderMenuDropdown.menu"
           >
             <img
               className={styles.header__userMenu__img}
@@ -176,6 +180,7 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
               ))}
 
               <div
+                data-testid="HeaderMenuDropdown.leave"
                 onClick={() => setIsAuth(false)}
                 className={`${styles.header__userMenu__category__item} ${styles.header__userMenu__category__item__leave}`}
               >

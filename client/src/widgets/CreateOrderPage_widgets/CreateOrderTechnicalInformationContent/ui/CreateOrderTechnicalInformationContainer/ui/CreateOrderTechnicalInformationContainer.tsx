@@ -182,6 +182,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                     InputFiles={FormInputFiles}
                     setInputFiles={setFormInputFiles}
                     setInputFileProgress={setInputFileProgress}
+                    data-testid="CreateOrderTechnicalInformationContainer.AttachFilesInput"
                   />
 
                   <div

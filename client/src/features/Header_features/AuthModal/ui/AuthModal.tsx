@@ -80,6 +80,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
                 value={EmailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
                 isWarn={TryLogin && !EmailInput}
+                data-testid="AuthModal.email"
               />
             </div>
 
@@ -94,6 +95,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
                 value={PasswordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
                 isWarn={TryLogin && !PasswordInput}
+                data-testid="AuthModal.password"
               />
 
               <span

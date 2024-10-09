@@ -44,6 +44,7 @@ export const checkoutOrderSlice = createSlice({
       action: CheckoutOrderStateAction
     ) => {
       for (const key in action.payload) {
+        // @ts-expect-error типы должны быть корректными
         state[key as keyof CheckoutOrderSchema] =
           action.payload[key as keyof CheckoutOrderSchema];
       }

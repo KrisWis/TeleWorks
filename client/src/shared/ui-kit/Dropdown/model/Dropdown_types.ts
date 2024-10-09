@@ -9,4 +9,5 @@ export interface DropdownProps {
   className?: string;
   style?: React.CSSProperties;
   dropdownClassname?: string;
+  "data-testid"?: string;
 }

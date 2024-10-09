@@ -4,6 +4,7 @@ import {
   AttachFileContainerProps,
   LoadedFile,
 } from "../model/AttachFileContainer_types";
+import { PortNow } from "@/app";
 
 export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
   ({
@@ -12,6 +13,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
     InputFiles,
     setInputFileProgress,
     accept,
+    "data-testid": dataTestId = "AttachFileContainer",
   }): React.JSX.Element => {
     // Загрузка и отображение, загруженных пользователем, изображений:
     const InputOnLoad = useCallback(
@@ -29,15 +31,17 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
           if (
             !InputFiles.find((file) => file.FileName == UserInputFiles[0].name)
           ) {
-            setInputFiles([
-              ...InputFiles,
-              {
-                FileData: "",
-                FileName: "",
-                FileSize: 0,
-                FileType: "",
-              },
-            ]);
+            if (PortNow) {
+              setInputFiles([
+                ...InputFiles,
+                {
+                  FileData: "",
+                  FileName: "",
+                  FileSize: 0,
+                  FileType: "",
+                },
+              ]);
+            }
 
             const fileReader = new FileReader();
             loadedFile.FileName = UserInputFiles[0].name;
@@ -72,7 +76,17 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         ref={inputRef}
         onChange={InputOnLoad}
         accept={accept}
+        data-testid={dataTestId}
       />
+
+      // <input
+      //   className={styles.AttachFileContainer}
+      //   type="file"
+      //   ref={inputRef}
+      //   onChange={InputOnLoad}
+      //   accept={accept}
+      //   data-testid={dataTestId}
+      // />
     );
   }
 );
