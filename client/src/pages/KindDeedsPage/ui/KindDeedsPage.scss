@@ -1,0 +1,41 @@
+.KindDeedsPage {
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  &__caption {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+
+    &__red {
+      color: var(--main-color);
+    }
+
+    &__bg {
+      background-image: url("../../../../public/KindDeeds/captionBG.jpg");
+    }
+  }
+
+  &__captionDesc {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+}
