@@ -10,7 +10,7 @@ export type FlexJustify =
   | "around";
 export type FlexAlign = "start" | "center" | "end" | "stretch";
 export type FlexDirection = "row" | "column";
-export type FlexGap = "0" | "3" | "5" | "10" | "15" | "20" | "30" | "50";
+export type FlexGap = "0" | "3" | "5" | "10" | "15" | "20" | "30" | "40" | "50";
 
 const justifyClasses: Record<FlexJustify, string> = {
   start: styles.justifyStart,
@@ -41,6 +41,7 @@ const gapClasses: Record<FlexGap, string> = {
   15: styles.gap15,
   20: styles.gap20,
   30: styles.gap30,
+  40: styles.gap40,
   50: styles.gap50,
 };
 

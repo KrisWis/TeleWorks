@@ -1,8 +1,13 @@
+import { URL_PART } from "@/app";
 import "./KindDeedsPage.scss";
 import "@/shared/main.scss";
 import { KindDeedsMainSection } from "@/widgets/KindDeeds_widgets/KindDeedsMainSection";
+import { KindDeedsTip } from "@/widgets/KindDeeds_widgets/KindDeedsTip";
 import { useEffect } from "react";
 import { memo } from "react";
+import { Flex } from "@/shared/ui-kit/Stack";
+import { KindDeedsStats } from "@/widgets/KindDeeds_widgets/KindDeedsStats";
+import { KindDeedsHaveSignificance } from "@/widgets/KindDeeds_widgets/KindDeedsHaveSignificance";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -11,9 +16,22 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
 
   return (
     <main className="Page KindDeedsPage__main">
-      <div className="padding">
+      <Flex direction="column" gap="40" className="padding">
         <KindDeedsMainSection />
-      </div>
+
+        <KindDeedsTip
+          title={"Делаем добро вместе!"}
+          text={
+            "Мы рады сообщить, что часть нашего дохода от TeleWorks будет направлена на благотворительность. Каждая ваша покупка помогает тем, кто в этом нуждается."
+          }
+          imgURL={`${URL_PART}/KindDeeds/madeKindnessTogether_img.png`}
+          imgURLAlt={"Мужчина складывает деньги в мешочек"}
+        />
+
+        <KindDeedsStats />
+
+        <KindDeedsHaveSignificance />
+      </Flex>
     </main>
   );
 });

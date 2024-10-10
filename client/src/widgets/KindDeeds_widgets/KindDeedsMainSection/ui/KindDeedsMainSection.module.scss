@@ -1,3 +1,20 @@
 .KindDeedsMainSection {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
 
+  &__button {
+    width: 35%;
+    height: 66px;
+    border-radius: 17px;
+    font-size: 21px;
+  }
+
+  &__img {
+    position: relative;
+    right: 0;
+  }
 }

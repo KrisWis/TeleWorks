@@ -19,7 +19,16 @@
     }
 
     &__bg {
-      background-image: url("../../../../public/KindDeeds/captionBG.jpg");
+      position: relative;
+
+      &::after {
+        content: url("../../../../public/KindDeeds/captionBG.jpg");
+        position: absolute;
+        display: block;
+        top: 60px;
+        z-index: var(--z-index-hidden);
+        right: -60px;
+      }
     }
   }
 

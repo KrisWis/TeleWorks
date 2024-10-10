@@ -1,0 +1,31 @@
+.KindDeedsTip {
+  padding: 0 50px;
+  border: 1px solid #4266c6;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  background: linear-gradient(
+    271deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 100%
+  );
+
+  &__caption {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: var(--color-black);
+
+    &Wrapper {
+      width: 50%;
+    }
+  }
+}
