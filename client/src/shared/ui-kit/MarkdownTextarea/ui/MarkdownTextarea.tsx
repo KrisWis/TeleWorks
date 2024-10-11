@@ -20,6 +20,7 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
     minSymbolsAmount,
     className,
     placeholder,
+    isWarn,
   }): React.JSX.Element => {
     // Валидация и управление формой
     const [MarkDownTextAreaHtmlData, setMarkDownTextAreaHtmlData] =
@@ -68,7 +69,8 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
     return (
       <div className={`${styles.markdownTextareaWrapper} ${className}`}>
         <ReactQuill
-          className={`${styles.markdownTextarea__textarea} ${TextareaIsWarn ? styles.markdownTextarea__textarea__warn : ""}`}
+          className={`${styles.markdownTextarea__textarea} 
+          ${TextareaIsWarn || isWarn ? styles.markdownTextarea__textarea__warn : ""}`}
           theme="snow"
           value={MarkDownTextAreaHtmlData}
           onChange={(value, _2, _3, editor) =>

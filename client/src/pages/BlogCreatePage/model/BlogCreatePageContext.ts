@@ -8,7 +8,7 @@ export const blogCreatePagePostTypes: BlogCreatePagePostTypes[] = [
   "Вопрос",
 ];
 
-export type CreatePostProgressSteps = "Создание заказа" | "Заказ создан";
+export type CreatePostProgressSteps = "Создание поста" | "Пост создан";
 
 export interface BlogCreatePageContext {
   selectedPostType: BlogCreatePagePostTypes;
@@ -24,6 +24,6 @@ export interface BlogCreatePageContext {
 export const BlogCreatePageContext = createContext<BlogCreatePageContext>({
   selectedPostType: "Пост",
   setSelectedPostType: useState,
-  CreatePostActiveStep: "Создание заказа",
+  CreatePostActiveStep: "Создание поста",
   setCreatePostActiveStep: useState,
 });

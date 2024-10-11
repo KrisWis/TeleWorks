@@ -1,10 +1,8 @@
 export * from "./ui/BlogFilter";
-export type {
-  BlogFilterAllCategories,
-  BlogFilterThemes,
-  BlogFilterTeleworks,
-} from "./model/BlogFilter_types";
+export type { BlogFilterAllCategories } from "./model/BlogFilter_types";
 export {
   blogFilterCategories,
   blogFilterCategoryTitles,
+  blogFilterThemes,
+  blogFilterTeleworks,
 } from "./model/BlogFilter_types";

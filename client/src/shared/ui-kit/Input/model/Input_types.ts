@@ -9,4 +9,5 @@ export interface InputProps {
   isWarn?: boolean;
   refInput?: React.LegacyRef<HTMLInputElement> | undefined;
   "data-testid"?: string;
+  id?: string;
 }

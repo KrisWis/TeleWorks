@@ -1,6 +1,6 @@
 import styles from "./Input.module.scss";
 import { memo } from "react";
-import { InputProps } from "../modal/Input_types";
+import { InputProps } from "../model/Input_types";
 
 export const Input: React.FC<InputProps> = memo(
   ({
@@ -11,10 +11,12 @@ export const Input: React.FC<InputProps> = memo(
     onChange,
     isWarn,
     refInput,
-    "data-testid": dataTestId = "input",
+    "data-testid": dataTestId,
+    id,
   }): React.JSX.Element => {
     return (
       <input
+        id={id}
         data-tesid={dataTestId}
         className={`${styles.Input} ${className} ${isWarn ? styles.Input__warning : ""}`}
         type={type}

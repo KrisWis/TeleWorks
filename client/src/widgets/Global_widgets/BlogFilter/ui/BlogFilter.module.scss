@@ -126,13 +126,8 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
     opacity: 0.4;
-    padding-left: 20px;
     cursor: pointer;
     transition: var(--transition-duration) linear opacity;
-
-    @media (max-width: $tablet-mediaquery-width) {
-      padding-left: 0;
-    }
 
     @media (max-width: $tablet-small-mediaquery-width) {
       svg {

@@ -5,6 +5,7 @@ export interface MarkdownTextareaProps {
   minSymbolsAmount: number;
   className?: string;
   placeholder?: string;
+  isWarn?: boolean;
 }
 
 export enum MarkdownTextareaTabsEnum {

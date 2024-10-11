@@ -1,5 +1,5 @@
 import styles from "./CreateOrderTechnicalInformationContent.module.scss";
-import { memo, useContext, useEffect, useState } from "react";
+import { memo, useContext } from "react";
 import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "../../CreateOrderProgress";
 import { CreateOrderTechnicalInformationContentProps } from "../model/CreateOrderTechnicalInformationContent_types";
@@ -14,25 +14,7 @@ import { UseCreateOrderStepLocalStorage } from "@/pages/CreateOrderPage/model/us
 
 export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnicalInformationContentProps> =
   memo((): React.JSX.Element => {
-    const { CreateOrderActiveStep, CreateOrderCompletedSteps } = useContext(
-      CreateOrderPageContext
-    );
-
-    const [IsVisible, setIsVisible] = useState<boolean>(false);
-
-    const [IsAppear, setIsAppear] = useState<boolean>(false);
-
-    useEffect(() => {
-      if (
-        CreateOrderActiveStep == CreateOrderProgressSteps.TechnicalInformation
-      ) {
-        setIsVisible(true);
-
-        setTimeout(() => {
-          setIsAppear(true);
-        }, 700);
-      }
-    }, [CreateOrderActiveStep]);
+    const { CreateOrderCompletedSteps } = useContext(CreateOrderPageContext);
 
     UseCreateOrderStepLocalStorage(UseLocalStorageTypes.UPDATE, {
       CreateOrderActiveStep: CreateOrderProgressSteps.TechnicalInformation,
@@ -42,34 +24,22 @@ export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnic
       ],
     });
 
+    // localStorage.clear();
+
     return (
-      <>
-        {IsVisible && (
-          <section
-            className={`${styles.createOrderTechnicalInformationContent} 
-    ${IsAppear ? styles.createOrderTechnicalInformationContent__appear : ""}`}
+      <section className={styles.createOrderTechnicalInformationContent}>
+        <OrderSuccessfullyPaid />
+
+        <div className={styles.createOrderTechnicalInformationContent__wrapper}>
+          <CreateOrderTechnicalInformationContainer />
+
+          <div
+            className={styles.createOrderTechnicalInformationContent__secondCol}
           >
-            <OrderSuccessfullyPaid />
-
-            <div
-              className={styles.createOrderTechnicalInformationContent__wrapper}
-            >
-              <CreateOrderTechnicalInformationContainer />
-
-              <div
-                className={
-                  styles.createOrderTechnicalInformationContent__secondCol
-                }
-              >
-                <OrderInfo
-                  orderStatus={OrderStatuses.PROCESS}
-                  {...orderInfoData}
-                />
-                <OrderSecurityGuarantee />
-              </div>
-            </div>
-          </section>
-        )}
-      </>
+            <OrderInfo orderStatus={OrderStatuses.PROCESS} {...orderInfoData} />
+            <OrderSecurityGuarantee />
+          </div>
+        </div>
+      </section>
     );
   });

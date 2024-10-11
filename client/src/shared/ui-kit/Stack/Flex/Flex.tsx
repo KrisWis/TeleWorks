@@ -75,7 +75,7 @@ export const Flex = (props: FlexProps) => {
     innerRef,
     onClick,
     id,
-    "data-testid": dataTestId = "flex",
+    "data-testid": dataTestId,
   } = props;
 
   const classes = [

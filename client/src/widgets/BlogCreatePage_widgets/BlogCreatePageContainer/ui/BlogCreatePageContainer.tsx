@@ -1,6 +1,13 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./BlogCreatePageContainer.module.scss";
-import { memo, useCallback, useContext, useRef, useState } from "react";
+import {
+  memo,
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   mobile_mediaQuery,
   transitionDuration,
@@ -28,6 +35,7 @@ import { TagsInput } from "@/shared/ui-kit/TagsInput";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 
 export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   // Функционал переключения типа поста
@@ -64,18 +72,47 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   const { setCreatePostActiveStep } = useContext(BlogCreatePageContext);
 
   // Нажатие на кнопку "Опубликовать"
+  const [tryPublish, setTryPublish] = UseTryAction();
+
+  const isTitleIsValid = useMemo<boolean>(
+    () => Boolean(titleInputValue),
+    [titleInputValue]
+  );
+
+  const isTextareaIsValid = useMemo<boolean>(
+    () => Boolean(textareaValue),
+    [textareaValue]
+  );
+
   const onClickPublish = useCallback(() => {
-    setCreatePostActiveStep("Заказ создан");
+    if (!isTitleIsValid || !isTextareaIsValid) {
+      const BlogCreatePageContainer__blogCreatePagePostTypes =
+        document.getElementById(
+          "BlogCreatePageContainer__blogCreatePagePostTypes"
+        );
+
+      BlogCreatePageContainer__blogCreatePagePostTypes?.scrollIntoView({
+        behavior: "smooth",
+      });
+
+      return setTryPublish(true);
+    }
+
+    setCreatePostActiveStep("Пост создан");
 
     setTimeout(() => {
       document
         .getElementById("BlogPostIsCreated")!
         .scrollIntoView({ behavior: "smooth" });
     }, transitionDuration);
-  }, [setCreatePostActiveStep]);
+  }, [
+    isTextareaIsValid,
+    isTitleIsValid,
+    setCreatePostActiveStep,
+    setTryPublish,
+  ]);
 
   // Сохранение в Local Storage вводимых данных
-
   useBlogCreatePageLocalStorage(UseLocalStorageTypes.UPDATE, {
     title: titleInputValue,
     textareaValue: textareaValue,
@@ -109,6 +146,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
       <Flex align="center" gap={mobile_mediaQuery ? "5" : "10"}>
         {blogCreatePagePostTypes.map((type) => (
           <Flex
+            id="BlogCreatePageContainer__blogCreatePagePostTypes"
             key={type}
             className={`${styles.BlogCreatePageContainer__postType}
             ${selectedPostType == type ? styles.BlogCreatePageContainer__postType__active : ""} `}
@@ -142,13 +180,14 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
         вашем личном профиле.
       </p>
 
-      <Flex max direction="column" gap={mobile_mediaQuery ? "0" : "20"}>
+      <Flex max direction="column" gap={mobile_mediaQuery.matches ? "0" : "20"}>
         <Input
           className={styles.BlogCreatePageContainer__titleInput}
           placeholder="Заголовок"
           value={titleInputValue}
           onChange={(e) => setTitleInputValue(e.target.value)}
           type="text"
+          isWarn={tryPublish && !isTitleIsValid}
         />
 
         <MarkdownTextarea
@@ -157,6 +196,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           minSymbolsAmount={100}
           maxSymbolsAmount={500}
           placeholder="Ваш текст поста..."
+          isWarn={tryPublish && !isTextareaIsValid}
         />
 
         <Flex max gap="10" direction="column">

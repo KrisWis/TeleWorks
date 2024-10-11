@@ -11,6 +11,8 @@ import { CreateOrderPageContext } from "../model/CreateOrderPageContext";
 import { CreateOrderTechnicalInformationContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderTechnicalInformationContent";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseCreateOrderStepLocalStorage } from "../model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
+import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
+import { transitionDurationMedium } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -51,9 +53,28 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
           <CreateOrderProgress />
 
           <div className="CreateOrderPage__contentWrapper">
-            <CreateOrderCostContent />
+            <TransitionBetweenBlocks
+              blocks={[
+                {
+                  component: <CreateOrderCostContent />,
+                  condition:
+                    CreateOrderActiveStep == CreateOrderProgressSteps.COST,
+                  id: 0,
+                },
 
-            <CreateOrderTechnicalInformationContent />
+                {
+                  component: <CreateOrderTechnicalInformationContent />,
+                  condition:
+                    CreateOrderActiveStep ==
+                    CreateOrderProgressSteps.TechnicalInformation,
+                  id: 1,
+                },
+              ]}
+              transitionDuration={transitionDurationMedium}
+              defaultIndex={
+                CreateOrderActiveStep == CreateOrderProgressSteps.COST ? 0 : 1
+              }
+            />
           </div>
         </div>
       </main>

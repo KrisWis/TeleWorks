@@ -1,6 +1,6 @@
 import "./BlogCreatePage.scss";
 import "@/shared/main.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { memo } from "react";
 import {
   BlogFilter,
@@ -16,6 +16,8 @@ import {
 } from "../model/BlogCreatePageContext";
 import { BlogPostIsCreated } from "@/widgets/BlogCreatePage_widgets/BlogPostIsCreated";
 import { mobile_mediaQuery } from "@/app";
+import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
+import { transitionDurationMedium } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -34,25 +36,7 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
 
   // Функционал переключения с блока создания заказа и на блок, когда заказ уже создан
   const [CreatePostActiveStep, setCreatePostActiveStep] =
-    useState<CreatePostProgressSteps>("Создание заказа");
-
-  const [IsVisible, setIsVisible] = useState<boolean>(true);
-
-  const isVisibleTimeOutRef = useRef<NodeJS.Timeout>();
-
-  useEffect(() => {
-    if (CreatePostActiveStep == "Заказ создан") {
-      isVisibleTimeOutRef.current = setTimeout(() => {
-        setIsVisible(false);
-      }, 700);
-    }
-  }, [CreatePostActiveStep]);
-
-  useEffect(() => {
-    return () => {
-      clearTimeout(isVisibleTimeOutRef.current);
-    };
-  }, []);
+    useState<CreatePostProgressSteps>("Создание поста");
 
   return (
     <BlogCreatePageContext.Provider
@@ -65,39 +49,48 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
     >
       <main className="Page BlogCreatePage__main">
         <div className="padding">
+          <div
+            style={{
+              opacity: 0,
+              position: "absolute",
+              top: mobile_mediaQuery.matches ? 25 : 30,
+            }}
+            id="BlogPostIsCreated"
+          ></div>
+
           <Flex max className="BlogCreatePage__contentWrapper">
-            <>
-              {IsVisible && (
-                <div
-                  className={`${"BlogCreatePage__container"} 
-      ${CreatePostActiveStep == "Заказ создан" ? "BlogCreatePage__container__disappear" : ""}`}
-                >
-                  <BlogFilter
-                    selectedCategory={blogFilterSelectedCategory}
-                    setSelectedCategory={setBlogFilterSelectedCategory}
-                    canReturn
-                  />
+            <TransitionBetweenBlocks
+              blocks={[
+                {
+                  component: (
+                    <div className={"BlogCreatePage__container"}>
+                      <BlogFilter
+                        selectedCategory={blogFilterSelectedCategory}
+                        setSelectedCategory={setBlogFilterSelectedCategory}
+                        canReturn
+                      />
 
-                  <Flex
-                    className="BlogCreatePage__mainWrapper"
-                    direction="column"
-                    gap="20"
-                  >
-                    <BlogCreatePageContainer />
-                  </Flex>
-                </div>
-              )}
-            </>
-
-            <div
-              style={{
-                opacity: 0,
-                position: "absolute",
-                top: mobile_mediaQuery.matches ? 25 : 195,
-              }}
-              id="BlogPostIsCreated"
-            ></div>
-            <BlogPostIsCreated />
+                      <Flex
+                        className="BlogCreatePage__mainWrapper"
+                        direction="column"
+                        gap="20"
+                      >
+                        <BlogCreatePageContainer />
+                      </Flex>
+                    </div>
+                  ),
+                  condition: CreatePostActiveStep == "Создание поста",
+                  id: 0,
+                },
+                {
+                  component: <BlogPostIsCreated />,
+                  condition: CreatePostActiveStep == "Пост создан",
+                  id: 1,
+                },
+              ]}
+              transitionDuration={transitionDurationMedium}
+              defaultIndex={0}
+            />
           </Flex>
         </div>
       </main>
