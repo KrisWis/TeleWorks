@@ -1,0 +1,67 @@
+@import "@/shared/vars";
+
+.KindDeedsSlider {
+  &__slider {
+    width: 100%;
+    position: relative;
+    height: 100%;
+
+    &__arrow {
+      border-radius: 100%;
+      background-color: var(--white-color);
+      border: var(--secondary-color) 1px solid;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      width: 77px;
+      height: 77px;
+
+      svg {
+        width: 12px;
+        height: 24px;
+      }
+
+      @media (max-width: $tablet-small-mediaquery-width) {
+        width: 35px;
+        height: 25px;
+
+        svg {
+          width: 10px;
+          height: 5px;
+        }
+      }
+
+      &__prev {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__button {
+      transition: var(--transition-duration) linear opacity;
+      position: absolute;
+      z-index: var(--z-index-arrows);
+
+      &__prev {
+        left: 40px;
+
+        @media (max-width: $tablet-small-mediaquery-width) {
+          left: 20px;
+        }
+      }
+
+      &__next {
+        right: 40px;
+
+        @media (max-width: $tablet-small-mediaquery-width) {
+          right: 20px;
+        }
+      }
+    }
+  }
+
+  &__button {
+    border-radius: 17px;
+    height: 66px;
+    font-size: 21px;
+    padding: 20px 60px;
+    margin-top: 10px;
+  }
+}

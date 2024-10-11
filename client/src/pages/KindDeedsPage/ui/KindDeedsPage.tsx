@@ -8,6 +8,9 @@ import { memo } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { KindDeedsStats } from "@/widgets/KindDeeds_widgets/KindDeedsStats";
 import { KindDeedsHaveSignificance } from "@/widgets/KindDeeds_widgets/KindDeedsHaveSignificance";
+import { KindDeedsSlider } from "@/widgets/KindDeeds_widgets/KindDeedsSlider";
+import { KindDeedsAlreadyHelpedItems } from "../model/data";
+import { KindDeedsAlreadyHelpedItem } from "@/widgets/KindDeeds_widgets/KindDeedsAlreadyHelpedItem";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -31,6 +34,15 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
         <KindDeedsStats />
 
         <KindDeedsHaveSignificance />
+
+        <KindDeedsSlider
+          prevArrowId="KindDeedsAlreadyHelped__slider__prev"
+          nextArrowId="KindDeedsAlreadyHelped__slider__next"
+          title={"Уже помогли:"}
+          items={KindDeedsAlreadyHelpedItems.map((item) => (
+            <KindDeedsAlreadyHelpedItem {...item} />
+          ))}
+        />
       </Flex>
     </main>
   );

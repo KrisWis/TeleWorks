@@ -1,0 +1,26 @@
+.KindDeedsSlider .swiper {
+  display: flex;
+  align-items: center;
+  height: 100% !important;
+  overflow: visible;
+  padding: 10px;
+}
+
+.KindDeedsSlider .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.KindDeedsSlider .swiper-button-disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.KindDeedsSlider .swiper-slide {
+  opacity: 0.4;
+  transition: var(--transition-duration) linear opacity;
+}
+
+.KindDeedsSlider .swiper-slide-visible {
+  opacity: 1;
+}
