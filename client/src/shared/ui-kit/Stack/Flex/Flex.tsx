@@ -61,6 +61,8 @@ export interface FlexProps extends DivProps {
   innerRef?: React.LegacyRef<HTMLDivElement>;
   id?: string;
   "data-testid"?: string;
+  isSection?: boolean;
+  style?: React.CSSProperties;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -76,6 +78,8 @@ export const Flex = (props: FlexProps) => {
     onClick,
     id,
     "data-testid": dataTestId,
+    isSection = false,
+    style,
   } = props;
 
   const classes = [
@@ -87,14 +91,30 @@ export const Flex = (props: FlexProps) => {
   ];
 
   return (
-    <div
-      ref={innerRef}
-      className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
-      onClick={onClick}
-      id={id}
-      data-testid={dataTestId}
-    >
-      {children}
-    </div>
+    <>
+      {isSection ? (
+        <section
+          style={style}
+          ref={innerRef}
+          className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
+          onClick={onClick}
+          id={id}
+          data-testid={dataTestId}
+        >
+          {children}
+        </section>
+      ) : (
+        <div
+          style={style}
+          ref={innerRef}
+          className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
+          onClick={onClick}
+          id={id}
+          data-testid={dataTestId}
+        >
+          {children}
+        </div>
+      )}
+    </>
   );
 };

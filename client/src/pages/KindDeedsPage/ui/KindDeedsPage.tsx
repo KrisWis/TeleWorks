@@ -11,6 +11,7 @@ import { KindDeedsHaveSignificance } from "@/widgets/KindDeeds_widgets/KindDeeds
 import { KindDeedsSlider } from "@/widgets/KindDeeds_widgets/KindDeedsSlider";
 import { KindDeedsAlreadyHelpedItems } from "../model/data";
 import { KindDeedsAlreadyHelpedItem } from "@/widgets/KindDeeds_widgets/KindDeedsAlreadyHelpedItem";
+import { KindDeedsChangeLives } from "@/widgets/KindDeeds_widgets/KindDeedsChangeLives";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -29,6 +30,8 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           }
           imgURL={`${URL_PART}/KindDeeds/madeKindnessTogether_img.png`}
           imgURLAlt={"Мужчина складывает деньги в мешочек"}
+          textWrapperWidth="50%"
+          padding="0 50px"
         />
 
         <KindDeedsStats />
@@ -42,6 +45,19 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           items={KindDeedsAlreadyHelpedItems.map((item) => (
             <KindDeedsAlreadyHelpedItem {...item} />
           ))}
+        />
+
+        <KindDeedsChangeLives />
+
+        <KindDeedsTip
+          title={"Щедрость приносит радость!"}
+          text={
+            "Мы верим, что успех нашего проекта должен служить благу других. Поэтому мы решили направлять часть дохода от TeleWorks на благотворительность. Каждая ваша покупка или взаимодействие с нашим сайтом вносит вклад в добрые дела, которые меняют жизни к лучшему!"
+          }
+          imgURL={`${URL_PART}/KindDeeds/GenerosityBringsJoy_img.png`}
+          imgURLAlt={"Монеты на фоне сердца"}
+          textWrapperWidth="100%"
+          padding="0 35px"
         />
       </Flex>
     </main>

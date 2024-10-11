@@ -3,4 +3,6 @@ export interface KindDeedsTipProps {
   text: string;
   imgURL: string;
   imgURLAlt: string;
+  textWrapperWidth?: string;
+  padding?: string;
 }
