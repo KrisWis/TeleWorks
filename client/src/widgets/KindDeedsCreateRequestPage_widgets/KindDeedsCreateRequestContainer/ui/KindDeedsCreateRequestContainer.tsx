@@ -18,23 +18,53 @@ import {
   LoadedFile,
 } from "@/widgets/Global_widgets/AttachFileContainer";
 import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
-import { KindDeedsCreateRequestContainerProps } from "../model/types";
+import {
+  KindDeedsCreateRequestContainerProps,
+  KindDeedsCreateRequestLocalStorageInterface,
+} from "../model/types";
+import { UseKindDeedsCreateRequestLocalStorage } from "../model/useKindDeedsCreateRequestLocalStorage/useKindDeedsCreateRequestLocalStorage";
+import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
+import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 
 export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestContainerProps> =
   memo(({ setRequestIsCreated }): React.JSX.Element => {
-    // Все нужные стейты
-    const [surnameInputValue, setSurnameInputValue] = useState<string>("");
+    // Все нужные стейты и получение данных из localStorage
+    const KindDeedsCreateRequestLI = UseKindDeedsCreateRequestLocalStorage(
+      UseLocalStorageTypes.GET
+    );
 
-    const [nameInputValue, setNameInputValue] = useState<string>("");
+    const [surnameInputValue, setSurnameInputValue] = useState<string>(
+      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.surnameInputValue : ""
+    );
 
-    const [patronymicInputValue, setPatronymicInputValue] =
-      useState<string>("");
+    const [nameInputValue, setNameInputValue] = useState<string>(
+      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.nameInputValue : ""
+    );
+
+    const [patronymicInputValue, setPatronymicInputValue] = useState<string>(
+      KindDeedsCreateRequestLI
+        ? KindDeedsCreateRequestLI.patronymicInputValue
+        : ""
+    );
 
     const [organizationInputValue, setOrganizationInputValue] =
-      useState<string>("");
+      useState<string>(
+        KindDeedsCreateRequestLI
+          ? KindDeedsCreateRequestLI.organizationInputValue
+          : ""
+      );
 
-    const [requestSumInputValue, setRequestSumInputValue] =
-      useState<string>("");
+    const [requestSumInputValue, setRequestSumInputValue] = useState<
+      number | string
+    >(
+      KindDeedsCreateRequestLI
+        ? KindDeedsCreateRequestLI.requestSumInputValue
+        : ""
+    );
+
+    const [goalTextareaValue, setGoalTextareaValue] = useState<string>(
+      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.goalTextareaValue : ""
+    );
 
     const [loadedDocuments, setLoadedDocuments] = useState<LoadedFile[]>([]);
 
@@ -43,7 +73,16 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
 
     const documentInputRef = useRef<HTMLInputElement>(null);
 
-    const [goalTextareaValue, setGoalTextareaValue] = useState<string>("");
+    // Сохранение данных в LS
+    const saveLSDebounce = useCallback(
+      UseDebounce((lsItem: KindDeedsCreateRequestLocalStorageInterface) => {
+        UseKindDeedsCreateRequestLocalStorage(
+          UseLocalStorageTypes.UPDATE,
+          lsItem
+        );
+      }, 1000),
+      []
+    );
 
     // Нажатие на кнопку "Создать запрос"
     const [tryCreate, setTryCreate] = UseTryAction();
@@ -132,7 +171,17 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 className={styles.KindDeedsCreateRequestContainer__input}
                 type="text"
                 value={surnameInputValue}
-                onChange={(e) => setSurnameInputValue(e.target.value)}
+                onChange={(e) => {
+                  setSurnameInputValue(e.target.value);
+                  saveLSDebounce({
+                    surnameInputValue: e.target.value,
+                    nameInputValue,
+                    patronymicInputValue,
+                    organizationInputValue,
+                    requestSumInputValue: Number(requestSumInputValue),
+                    goalTextareaValue,
+                  });
+                }}
                 isWarn={tryCreate && !surnameInputValue}
                 placeholder="Фамилия"
               />
@@ -141,7 +190,17 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 className={styles.KindDeedsCreateRequestContainer__input}
                 type="text"
                 value={nameInputValue}
-                onChange={(e) => setNameInputValue(e.target.value)}
+                onChange={(e) => {
+                  setNameInputValue(e.target.value);
+                  saveLSDebounce({
+                    surnameInputValue,
+                    nameInputValue: e.target.value,
+                    patronymicInputValue,
+                    organizationInputValue,
+                    requestSumInputValue: Number(requestSumInputValue),
+                    goalTextareaValue,
+                  });
+                }}
                 isWarn={tryCreate && !nameInputValue}
                 placeholder="Имя"
               />
@@ -150,7 +209,17 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 className={styles.KindDeedsCreateRequestContainer__input}
                 type="text"
                 value={patronymicInputValue}
-                onChange={(e) => setPatronymicInputValue(e.target.value)}
+                onChange={(e) => {
+                  setPatronymicInputValue(e.target.value);
+                  saveLSDebounce({
+                    surnameInputValue,
+                    nameInputValue,
+                    patronymicInputValue: e.target.value,
+                    organizationInputValue,
+                    requestSumInputValue: Number(requestSumInputValue),
+                    goalTextareaValue,
+                  });
+                }}
                 isWarn={tryCreate && !patronymicInputValue}
                 placeholder="Отчество"
               />
@@ -164,7 +233,17 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
               className={styles.KindDeedsCreateRequestContainer__input}
               type="text"
               value={organizationInputValue}
-              onChange={(e) => setOrganizationInputValue(e.target.value)}
+              onChange={(e) => {
+                setOrganizationInputValue(e.target.value);
+                saveLSDebounce({
+                  surnameInputValue,
+                  nameInputValue,
+                  patronymicInputValue,
+                  organizationInputValue: e.target.value,
+                  requestSumInputValue: Number(requestSumInputValue),
+                  goalTextareaValue,
+                });
+              }}
               isWarn={tryCreate && !organizationInputValue}
               placeholder="Организация"
             />
@@ -176,7 +255,17 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
             <Textarea
               className={styles.KindDeedsCreateRequestContainer__textarea}
               value={goalTextareaValue}
-              onChange={(e) => setGoalTextareaValue(e.target.value)}
+              onChange={(e) => {
+                setGoalTextareaValue(e.target.value);
+                saveLSDebounce({
+                  surnameInputValue,
+                  nameInputValue,
+                  patronymicInputValue,
+                  organizationInputValue,
+                  requestSumInputValue: Number(requestSumInputValue),
+                  goalTextareaValue: e.target.value,
+                });
+              }}
               isWarn={tryCreate && !goalTextareaValue}
               placeholder="Подробно объясните, как будут использованы запрашиваемые средства и какое влияние они окажут"
             />
@@ -227,7 +316,17 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 className={styles.KindDeedsCreateRequestContainer__input}
                 type="number"
                 value={requestSumInputValue}
-                onChange={(e) => setRequestSumInputValue(e.target.value)}
+                onChange={(e) => {
+                  setRequestSumInputValue(e.target.value);
+                  saveLSDebounce({
+                    surnameInputValue,
+                    nameInputValue,
+                    patronymicInputValue,
+                    organizationInputValue,
+                    requestSumInputValue: Number(e.target.value),
+                    goalTextareaValue,
+                  });
+                }}
                 isWarn={tryCreate && !requestSumInputValue}
                 placeholder="1 422 223₽"
               />

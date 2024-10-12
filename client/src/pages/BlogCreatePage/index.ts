@@ -12,4 +12,6 @@ export type {
   CreatePostProgressSteps,
 } from "./model/BlogCreatePageContext";
 
-export { useBlogCreatePageLocalStorage } from "./model/useBlogCreatePageLocalStorage";
+export { UseBlogCreatePageLocalStorage } from "./model/useBlogCreatePageLocalStorage";
+
+export type { useBlogCreatePageLocalStorageInterface } from "./model/useBlogCreatePageLocalStorage";

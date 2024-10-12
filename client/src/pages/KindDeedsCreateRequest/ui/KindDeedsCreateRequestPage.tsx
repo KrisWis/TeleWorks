@@ -23,7 +23,7 @@ export const KindDeedsCreateRequestPage: React.FC = memo(
     // Стейт для перелистывания блоков
     const [requestIsCreated, setRequestIsCreated] = useState<boolean>(false);
 
-    // TODO: добавить добавление в localStorage (мб и для других страниц добавить добавление изображение в localstorage)
+    // TODO: добавить добавление изображений в Local Storage, сделать тесты/переменные
 
     return (
       <main className="Page KindDeedsCreateRequestPage__main">

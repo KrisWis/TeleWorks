@@ -4,7 +4,7 @@ import {
 } from "@/shared/utils/hooks/UseLocalStorage";
 import { LocalStorageKeys } from "@/app/layouts/BaseLayout/model/LocalStorageKeys";
 
-export const useCreateOrderTIFormLocalStorage: UseLocalStorageCustom<string> = (
+export const UseCreateOrderTIFormLocalStorage: UseLocalStorageCustom<string> = (
   type,
   value
 ) =>

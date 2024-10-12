@@ -12,20 +12,21 @@ import {
 import { DataIsCorrectCheck } from "../model/DataIsCorrectCheck/DataIsCorrectCheck";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
-import { useCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
+import { UseCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormLocalStorage/useCreateOrderTIFormLocalStorage";
 import "./CreateOrderTechnicalInformationContainerLoadingProgress.scss";
 import {
   AttachFileContainer,
   LoadedFile,
 } from "@/widgets/Global_widgets/AttachFileContainer";
 import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
+import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
     // Валидация текстового поля в форме
     const FormTextAreaRef = useRef<HTMLTextAreaElement>(null);
 
-    const FormTextAreaValueLI = useCreateOrderTIFormLocalStorage(
+    const FormTextAreaValueLI = UseCreateOrderTIFormLocalStorage(
       UseLocalStorageTypes.GET
     );
 
@@ -41,7 +42,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     ): void => {
       const user_text = e.target.value;
 
-      useCreateOrderTIFormLocalStorage(UseLocalStorageTypes.UPDATE, user_text);
+      saveLSDebounce(user_text);
 
       if (
         user_text.length <=
@@ -66,6 +67,14 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
           1 + FormTextAreaRef.current.scrollHeight + "px";
       }
     };
+
+    // Сохранение данных в LS
+    const saveLSDebounce = useCallback(
+      UseDebounce((lsItem: string) => {
+        UseCreateOrderTIFormLocalStorage(UseLocalStorageTypes.UPDATE, lsItem);
+      }, 1000),
+      []
+    );
 
     // Функционал нажатия на чекбокс о соглашении
     const [AgreeCheckboxIsActive, setAgreeCheckboxIsActive] =

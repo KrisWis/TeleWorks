@@ -17,7 +17,8 @@ import RedArrowRightSVG from "@/shared/assets/icons/Global/RedArrowRightSVG.svg?
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
 import {
   BlogCreatePageContext,
-  useBlogCreatePageLocalStorage,
+  UseBlogCreatePageLocalStorage,
+  useBlogCreatePageLocalStorageInterface,
 } from "@/pages/BlogCreatePage";
 import { blogCreatePagePostTypes } from "@/pages/BlogCreatePage/model/BlogCreatePageContext";
 import { Input } from "@/shared/ui-kit/Input";
@@ -36,6 +37,7 @@ import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
+import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 
 export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   // Функционал переключения типа поста
@@ -44,7 +46,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   );
 
   // Стейты для инпутов и textarea, и загрузка данных из Local Storage
-  const BlogCreatePageLI = useBlogCreatePageLocalStorage(
+  const BlogCreatePageLI = UseBlogCreatePageLocalStorage(
     UseLocalStorageTypes.GET
   );
 
@@ -112,12 +114,13 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
     setTryPublish,
   ]);
 
-  // Сохранение в Local Storage вводимых данных
-  useBlogCreatePageLocalStorage(UseLocalStorageTypes.UPDATE, {
-    title: titleInputValue,
-    textareaValue: textareaValue,
-    tags: SelectedTags,
-  });
+  // Сохранение данных в LS
+  const saveLSDebounce = useCallback(
+    UseDebounce((lsItem: useBlogCreatePageLocalStorageInterface) => {
+      UseBlogCreatePageLocalStorage(UseLocalStorageTypes.UPDATE, lsItem);
+    }, 1000),
+    []
+  );
 
   return (
     <Flex
@@ -185,7 +188,14 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           className={styles.BlogCreatePageContainer__titleInput}
           placeholder="Заголовок"
           value={titleInputValue}
-          onChange={(e) => setTitleInputValue(e.target.value)}
+          onChange={(e) => {
+            setTitleInputValue(e.target.value);
+            saveLSDebounce({
+              title: e.target.value,
+              textareaValue: textareaValue,
+              tags: SelectedTags,
+            });
+          }}
           type="text"
           isWarn={tryPublish && !isTitleIsValid}
         />
@@ -193,6 +203,13 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
         <MarkdownTextarea
           TextareaValue={textareaValue}
           setTextareaValue={setTextareaValue}
+          onChange={() => {
+            saveLSDebounce({
+              title: titleInputValue,
+              textareaValue: textareaValue,
+              tags: SelectedTags,
+            });
+          }}
           minSymbolsAmount={100}
           maxSymbolsAmount={500}
           placeholder="Ваш текст поста..."
@@ -235,6 +252,13 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           <TagsInput
             setSelectedTags={setSelectedTags}
             SelectedTags={SelectedTags}
+            onChange={() => {
+              saveLSDebounce({
+                title: titleInputValue,
+                textareaValue: textareaValue,
+                tags: SelectedTags,
+              });
+            }}
           />
         </Flex>
       </Flex>

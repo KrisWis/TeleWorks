@@ -21,6 +21,7 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
     className,
     placeholder,
     isWarn,
+    onChange,
   }): React.JSX.Element => {
     // Валидация и управление формой
     const [MarkDownTextAreaHtmlData, setMarkDownTextAreaHtmlData] =
@@ -73,9 +74,10 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
           ${TextareaIsWarn || isWarn ? styles.markdownTextarea__textarea__warn : ""}`}
           theme="snow"
           value={MarkDownTextAreaHtmlData}
-          onChange={(value, _2, _3, editor) =>
-            OnChangeMarkdownTextarea(value, editor.getText())
-          }
+          onChange={(value, _2, _3, editor) => {
+            OnChangeMarkdownTextarea(value, editor.getText());
+            onChange && onChange();
+          }}
           formats={formats}
           modules={modules}
           placeholder={placeholder}

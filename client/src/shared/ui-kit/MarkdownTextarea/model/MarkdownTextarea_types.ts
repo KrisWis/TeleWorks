@@ -6,6 +6,7 @@ export interface MarkdownTextareaProps {
   className?: string;
   placeholder?: string;
   isWarn?: boolean;
+  onChange?: () => void;
 }
 
 export enum MarkdownTextareaTabsEnum {
