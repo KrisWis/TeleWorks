@@ -9,9 +9,14 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import { KindDeedsStats } from "@/widgets/KindDeeds_widgets/KindDeedsStats";
 import { KindDeedsHaveSignificance } from "@/widgets/KindDeeds_widgets/KindDeedsHaveSignificance";
 import { KindDeedsSlider } from "@/widgets/KindDeeds_widgets/KindDeedsSlider";
-import { KindDeedsAlreadyHelpedItems } from "../model/data";
+import {
+  KindDeedsAlreadyHelpedItems,
+  KindDeedsNeedHelpItems,
+} from "../model/data";
 import { KindDeedsAlreadyHelpedItem } from "@/widgets/KindDeeds_widgets/KindDeedsAlreadyHelpedItem";
 import { KindDeedsChangeLives } from "@/widgets/KindDeeds_widgets/KindDeedsChangeLives";
+import { KindDeedsAllegations } from "@/widgets/KindDeeds_widgets/KindDeedsAllegations";
+import { KindDeedsNeedHelpItem } from "@/widgets/KindDeeds_widgets/KindDeedsNeedHelpItem";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -58,6 +63,18 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           imgURLAlt={"Монеты на фоне сердца"}
           textWrapperWidth="100%"
           padding="0 35px"
+        />
+
+        <KindDeedsAllegations />
+
+        <KindDeedsSlider
+          prevArrowId="KindDeedNeedHelpItem__slider__prev"
+          nextArrowId="KindDeedNeedHelpItem__slider__next"
+          title={"Нуждаются в "}
+          titleRed={"помощи:"}
+          items={KindDeedsNeedHelpItems.map((item) => (
+            <KindDeedsNeedHelpItem {...item} />
+          ))}
         />
       </Flex>
     </main>

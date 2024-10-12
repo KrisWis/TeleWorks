@@ -11,7 +11,7 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { KindDeedsSliderProps } from "../model/types";
 
 export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
-  ({ items, prevArrowId, nextArrowId, title }): React.JSX.Element => {
+  ({ items, prevArrowId, nextArrowId, title, titleRed }): React.JSX.Element => {
     return (
       <Flex
         align="center"
@@ -20,7 +20,10 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
         gap="20"
         max
       >
-        <h2 className="KindDeedsPage__caption">{title}</h2>
+        <h2 className="KindDeedsPage__caption">
+          {title}
+          <span className="KindDeedsPage__caption__red">{titleRed}</span>
+        </h2>
 
         <Flex align="center" className={styles.KindDeedsSlider__slider}>
           <div

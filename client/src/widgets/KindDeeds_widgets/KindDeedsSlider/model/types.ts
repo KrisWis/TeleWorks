@@ -7,4 +7,5 @@ export interface KindDeedsSliderProps {
   prevArrowId: string;
   nextArrowId: string;
   title: string;
+  titleRed?: string;
 }

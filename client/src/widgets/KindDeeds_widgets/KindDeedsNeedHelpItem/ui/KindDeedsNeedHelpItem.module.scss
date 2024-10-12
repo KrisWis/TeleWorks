@@ -1,0 +1,101 @@
+.KindDeedsNeedHelpItem {
+  padding: 10px;
+
+  * {
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__img {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+
+    &Wrapper {
+      position: relative;
+      height: 314px;
+      width: 100%;
+    }
+  }
+
+  &__urgentHelp {
+    border-radius: 500px;
+    width: 166px;
+    height: 29px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background: var(--main-color);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    &__text {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white-color);
+    }
+  }
+
+  &__person {
+    font-weight: 700;
+    font-size: 24px;
+  }
+
+  &__info {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray-color);
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--gray-color);
+  }
+
+  &__gathering {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--gray-color);
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--main-color);
+  }
+
+  &__progressbar {
+    border-radius: 1000px;
+    height: 24px;
+    background-color: rgba(47, 47, 47, 0.4);
+    width: 100%;
+  }
+
+  &__knowHistory {
+    width: 100%;
+    text-align: center;
+
+    &__text {
+      font-weight: 700;
+      font-size: 16px;
+      color: #4266c6;
+    }
+  }
+
+  &__blueLine {
+    width: 100%;
+    height: 1px;
+  }
+
+  &__help {
+    border-radius: 10px;
+    height: 48px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white-color);
+  }
+}
