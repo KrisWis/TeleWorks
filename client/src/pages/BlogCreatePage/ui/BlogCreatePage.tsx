@@ -15,9 +15,11 @@ import {
   CreatePostProgressSteps,
 } from "../model/BlogCreatePageContext";
 import { BlogPostIsCreated } from "@/widgets/BlogCreatePage_widgets/BlogPostIsCreated";
-import { mobile_mediaQuery } from "@/app";
 import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
-import { transitionDurationMedium } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import {
+  tabletHeight_mediaQuery,
+  transitionDurationMedium,
+} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 
 export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -54,7 +56,7 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
             style={{
               opacity: 0,
               position: "absolute",
-              top: mobile_mediaQuery.matches ? 25 : 30,
+              top: tabletHeight_mediaQuery.matches ? "50vh" : "0",
             }}
             id="BlogPostIsCreated"
           ></div>

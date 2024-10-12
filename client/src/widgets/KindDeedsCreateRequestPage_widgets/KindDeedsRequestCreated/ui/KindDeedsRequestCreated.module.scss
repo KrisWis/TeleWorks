@@ -1,0 +1,38 @@
+.KindDeedsRequestCreated {
+  height: 599px;
+  margin: 50px 0;
+
+  * {
+    line-height: 150%;
+    letter-spacing: -0.01em;
+  }
+
+  &__img {
+    height: 340px;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  &__caption {
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--black-color);
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--gray-color);
+    width: 60%;
+    text-align: center;
+  }
+
+  &__button {
+    height: 51px;
+    width: 227px;
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+}

@@ -34,19 +34,24 @@ export const TransitionBetweenBlocks: React.FC<
           setVisibleBlock(null);
 
           VisibleBlockTimeOutRef.current = setTimeout(() => {
-            setPastVisibleBlock(null);
-
             VisibleBlockTimeOutRef.current = null;
 
-            isMounted.current = false;
+            // const timeoutForIsMounted = setTimeout(() => {
+            //   isMounted.current = true;
 
-            const timeoutForIsMounted = setTimeout(() => {
-              isMounted.current = true;
+            //   setVisibleBlock(block);
 
-              setVisibleBlock(block);
+            //   clearTimeout(timeoutForIsMounted);
+            // }, 0);
 
-              clearTimeout(timeoutForIsMounted);
-            }, 0);
+            isMounted.current = true;
+
+            setVisibleBlock(block);
+
+            const timeoutVisiblePastBlock = setTimeout(() => {
+              setPastVisibleBlock(null);
+              clearTimeout(timeoutVisiblePastBlock);
+            }, 90);
 
             clearTimeout(VisibleBlockTimeOutRef.current!);
           }, transitionDuration);
@@ -58,22 +63,24 @@ export const TransitionBetweenBlocks: React.FC<
   }, [blocks, transitionDuration, visibleBlock]);
 
   return (
-    <Flex align="center" justify="center" className={className}>
+    <Flex max align="center" justify="center" className={className}>
       {pastVisibleBlock && (
-        <div
+        <Flex
+          max
           data-testid={
             pastVisibleBlock["data-testid"] ||
             "TransitionBetweenBlocks.PastVisibleBlock"
           }
           className={styles.TransitionBetweenBlocks__disappear}
-          style={{ animationDuration: `${transitionDuration}ms` }}
+          style={{ animationDuration: `${transitionDuration + 100}ms` }}
         >
           {pastVisibleBlock.component}
-        </div>
+        </Flex>
       )}
       {isMounted.current ? (
         visibleBlock && (
-          <div
+          <Flex
+            max
             data-testid={
               visibleBlock["data-testid"] ||
               "TransitionBetweenBlocks.VisibleBlock"
@@ -82,19 +89,20 @@ export const TransitionBetweenBlocks: React.FC<
             className={styles.TransitionBetweenBlocks__appear}
           >
             {visibleBlock.component}
-          </div>
+          </Flex>
         )
       ) : (
         <>
           {visibleBlock && (
-            <div
+            <Flex
+              max
               data-testid={
                 visibleBlock["data-testid"] ||
                 "TransitionBetweenBlocks.VisibleBlock"
               }
             >
               {visibleBlock.component}
-            </div>
+            </Flex>
           )}
         </>
       )}

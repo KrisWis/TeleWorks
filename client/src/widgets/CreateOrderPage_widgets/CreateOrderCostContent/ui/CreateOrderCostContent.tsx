@@ -7,7 +7,7 @@ import { OrderPreview } from "@/entities/CreateOrderPage_entities/OrderPreview";
 
 export const CreateOrderCostContent: React.FC = memo((): React.JSX.Element => {
   return (
-    <section className={styles.createOrderCostContent}>
+    <section className={`${styles.createOrderCostContent}`}>
       <div className={styles.createOrderCostContent__firstCol}>
         <CreateOrderCostPayment />
       </div>

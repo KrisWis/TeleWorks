@@ -4,7 +4,7 @@ import { memo, useCallback, useRef, useState } from "react";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "@/app";
+import { AppRoutes, transitionDuration } from "@/app";
 import { Input } from "@/shared/ui-kit/Input";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
@@ -18,9 +18,10 @@ import {
   LoadedFile,
 } from "@/widgets/Global_widgets/AttachFileContainer";
 import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
+import { KindDeedsCreateRequestContainerProps } from "../model/types";
 
-export const KindDeedsCreateRequestContainer: React.FC = memo(
-  (): React.JSX.Element => {
+export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestContainerProps> =
+  memo(({ setRequestIsCreated }): React.JSX.Element => {
     // Все нужные стейты
     const [surnameInputValue, setSurnameInputValue] = useState<string>("");
 
@@ -47,6 +48,8 @@ export const KindDeedsCreateRequestContainer: React.FC = memo(
     // Нажатие на кнопку "Создать запрос"
     const [tryCreate, setTryCreate] = UseTryAction();
 
+    const ScrollTimeOut = useRef<NodeJS.Timeout>();
+
     const createRequest = useCallback((): void => {
       if (
         !surnameInputValue ||
@@ -58,18 +61,30 @@ export const KindDeedsCreateRequestContainer: React.FC = memo(
       ) {
         return setTryCreate(true);
       }
+
+      setRequestIsCreated(true);
+
+      ScrollTimeOut.current = setTimeout(() => {
+        document
+          .getElementById("KindDeedsRequestCreated")
+          ?.scrollIntoView({ behavior: "smooth" });
+
+        clearTimeout(ScrollTimeOut.current);
+      }, transitionDuration + 100);
     }, [
       loadedDocuments.length,
       nameInputValue,
       organizationInputValue,
       patronymicInputValue,
       requestSumInputValue,
+      setRequestIsCreated,
       setTryCreate,
       surnameInputValue,
     ]);
 
     return (
       <Flex
+        max
         className={styles.KindDeedsCreateRequestContainer}
         gap="15"
         direction="column"
@@ -237,5 +252,4 @@ export const KindDeedsCreateRequestContainer: React.FC = memo(
         </Flex>
       </Flex>
     );
-  }
-);
+  });

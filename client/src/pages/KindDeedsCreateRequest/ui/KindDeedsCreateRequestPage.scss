@@ -11,4 +11,9 @@
     font-size: 32px;
     color: #000;
   }
+
+  &__contentWrapper {
+    min-height: 1700px;
+    position: relative;
+  }
 }

@@ -1,5 +1,6 @@
 .TransitionBetweenBlocks {
   &__disappear {
+    position: absolute;
     animation: blockdisappear linear;
 
     @keyframes blockdisappear {

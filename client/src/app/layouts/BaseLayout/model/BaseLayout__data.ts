@@ -29,6 +29,9 @@ export const tablet_mediaQuery: MediaQueryList = window.matchMedia(
   "(max-width: 1300px)"
 );
 
+export const tabletHeight_mediaQuery: MediaQueryList = window.matchMedia(
+  "(max-height: 1000px)"
+);
 export const tablet_small_mediaQuery: MediaQueryList =
   window.matchMedia("(max-width: 900px)");
 

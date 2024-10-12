@@ -40,6 +40,24 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
       : [CreateOrderProgressSteps.CREATE]
   );
 
+  // Стейт для обработки исчезновения первого блока
+  const [costBlockIsDisappear, setCostBlockIsDisappear] =
+    useState<boolean>(false);
+
+  useEffect(() => {
+    if (
+      CreateOrderActiveStep != CreateOrderProgressSteps.COST &&
+      !CreateOrderStepLI
+    ) {
+      setCostBlockIsDisappear(true);
+
+      const costBlockIsDisappearTimeout = setTimeout(() => {
+        setCostBlockIsDisappear(false);
+        clearTimeout(costBlockIsDisappearTimeout);
+      }, transitionDurationMedium);
+    }
+  }, [CreateOrderActiveStep, CreateOrderStepLI]);
+
   return (
     <CreateOrderPageContext.Provider
       value={{
@@ -55,6 +73,11 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
 
           <div className="CreateOrderPage__contentWrapper">
             <TransitionBetweenBlocks
+              className={
+                costBlockIsDisappear
+                  ? "CreateOrderPage__contentWrapper__blocks__disappear"
+                  : "CreateOrderPage__contentWrapper__blocks"
+              }
               blocks={[
                 {
                   component: <CreateOrderCostContent />,

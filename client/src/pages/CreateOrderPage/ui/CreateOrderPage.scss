@@ -35,5 +35,14 @@
   &__contentWrapper {
     min-height: 1100px;
     position: relative;
+
+    &__blocks {
+      transition: var(--transition-duration) linear all;
+
+      &__disappear {
+        position: absolute;
+        top: 330px;
+      }
+    }
   }
 }
