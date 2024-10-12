@@ -1,6 +1,12 @@
 @import "@/shared/vars";
 
-.loadImageBlock {
+.loadImageBlockWithoutLoading {
+  transition: var(--transition-duration) linear border-color;
+
+  &__warning {
+    border-color: var(--main-color);
+  }
+
   &__wrapper {
     cursor: pointer;
     transition: var(--transition-duration) linear all;
@@ -81,7 +87,7 @@
   }
 
   &__big {
-    .loadImageBlock__wrapper {
+    .loadImageBlockWithoutLoading__wrapper {
       height: 204px;
       width: 100%;
 
@@ -92,31 +98,31 @@
   }
 
   &__medium {
-    .loadImageBlock__wrapper {
+    .loadImageBlockWithoutLoading__wrapper {
       width: 251px;
       height: 164px;
     }
   }
 
   &__small {
-    .loadImageBlock__wrapper {
+    .loadImageBlockWithoutLoading__wrapper {
       width: 250px;
       height: 250px;
     }
   }
 
-  &__wrapper__active:not(.loadImageBlock__wrapper__withImg) {
+  &__wrapper__active:not(.loadImageBlockWithoutLoading__wrapper__withImg) {
     transform: scale(1.03);
 
-    .loadImageBlock__wrapperWrapper {
+    .loadImageBlockWithoutLoading__wrapperWrapper {
       opacity: 0.5;
     }
   }
 
-  &__wrapper:hover:not(.loadImageBlock__wrapper__withImg) {
+  &__wrapper:hover:not(.loadImageBlockWithoutLoading__wrapper__withImg) {
     transform: scale(1.03);
 
-    .loadImageBlock__wrapperWrapper {
+    .loadImageBlockWithoutLoading__wrapperWrapper {
       opacity: 0.5;
     }
   }

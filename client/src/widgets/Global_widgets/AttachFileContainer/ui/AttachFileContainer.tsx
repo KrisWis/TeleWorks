@@ -14,6 +14,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
     setInputFileProgress,
     accept,
     "data-testid": dataTestId = "AttachFileContainer",
+    zIndex,
   }): React.JSX.Element => {
     // Загрузка и отображение, загруженных пользователем, изображений:
     const InputOnLoad = useCallback(
@@ -71,6 +72,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
 
     return (
       <input
+        style={{ zIndex: zIndex }}
         className={styles.AttachFileContainer}
         type="file"
         ref={inputRef}
@@ -78,15 +80,6 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         accept={accept}
         data-testid={dataTestId}
       />
-
-      // <input
-      //   className={styles.AttachFileContainer}
-      //   type="file"
-      //   ref={inputRef}
-      //   onChange={InputOnLoad}
-      //   accept={accept}
-      //   data-testid={dataTestId}
-      // />
     );
   }
 );

@@ -12,4 +12,5 @@ export interface AttachFileContainerProps {
   setInputFileProgress: React.Dispatch<React.SetStateAction<number>>;
   accept?: string;
   "data-testid"?: string;
+  zIndex?: number;
 }

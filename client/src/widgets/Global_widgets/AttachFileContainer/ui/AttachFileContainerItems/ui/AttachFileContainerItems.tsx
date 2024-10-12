@@ -14,6 +14,7 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
       files,
       InputFileProgress,
       fileView = "big",
+      accept,
     }): React.JSX.Element => {
       return (
         <Flex max>
@@ -36,6 +37,7 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
                       setInputFiles={setInputFiles}
                       setInputFileProgress={setInputFileProgress}
                       fileView={fileView}
+                      accept={accept}
                     />
                   ) : (
                     <Flex max gap="5" direction="column">

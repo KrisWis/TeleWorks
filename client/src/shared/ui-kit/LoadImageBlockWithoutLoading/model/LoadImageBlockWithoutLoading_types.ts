@@ -10,4 +10,6 @@ export interface LoadImageBlockWithoutLoadingProps {
   className?: string;
   withBG?: boolean;
   inputRef?: React.RefObject<HTMLInputElement>;
+  isWarn?: boolean;
+  isHovered?: boolean;
 }

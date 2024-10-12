@@ -54,8 +54,6 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
         styles.loadImageBlock__wrapper__active
       );
 
-      console.log(1);
-
       const file = e.dataTransfer?.files[0];
 
       if (!file) {
@@ -75,7 +73,8 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
 
     return (
       <div
-        className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]} ${className ? className : ""}`}
+        className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]} 
+        ${className ? className : ""}`}
         onDragEnter={() =>
           loadImageBlockWrapperRef.current?.classList.add(
             styles.loadImageBlock__wrapper__active

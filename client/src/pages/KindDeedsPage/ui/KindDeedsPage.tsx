@@ -1,24 +1,24 @@
 import { URL_PART } from "@/app";
 import "./KindDeedsPage.scss";
 import "@/shared/main.scss";
-import { KindDeedsMainSection } from "@/widgets/KindDeeds_widgets/KindDeedsMainSection";
-import { KindDeedsTip } from "@/widgets/KindDeeds_widgets/KindDeedsTip";
+import { KindDeedsMainSection } from "@/widgets/KindDeedsPage_widgets/KindDeedsMainSection";
+import { KindDeedsTip } from "@/widgets/KindDeedsPage_widgets/KindDeedsTip";
 import { useEffect } from "react";
 import { memo } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";
-import { KindDeedsStats } from "@/widgets/KindDeeds_widgets/KindDeedsStats";
-import { KindDeedsHaveSignificance } from "@/widgets/KindDeeds_widgets/KindDeedsHaveSignificance";
-import { KindDeedsSlider } from "@/widgets/KindDeeds_widgets/KindDeedsSlider";
+import { KindDeedsStats } from "@/widgets/KindDeedsPage_widgets/KindDeedsStats";
+import { KindDeedsHaveSignificance } from "@/widgets/KindDeedsPage_widgets/KindDeedsHaveSignificance";
+import { KindDeedsSlider } from "@/widgets/KindDeedsPage_widgets/KindDeedsSlider";
 import {
   KindDeedsAlreadyHelpedItems,
   KindDeedsFAQItems,
   KindDeedsNeedHelpItems,
 } from "../model/data";
-import { KindDeedsAlreadyHelpedItem } from "@/widgets/KindDeeds_widgets/KindDeedsAlreadyHelpedItem";
-import { KindDeedsChangeLives } from "@/widgets/KindDeeds_widgets/KindDeedsChangeLives";
-import { KindDeedsAllegations } from "@/widgets/KindDeeds_widgets/KindDeedsAllegations";
-import { KindDeedsNeedHelpItem } from "@/widgets/KindDeeds_widgets/KindDeedsNeedHelpItem";
-import { KindDeedsLetterOfKindness } from "@/widgets/KindDeeds_widgets/KindDeedsLetterOfKindness";
+import { KindDeedsAlreadyHelpedItem } from "@/widgets/KindDeedsPage_widgets/KindDeedsAlreadyHelpedItem";
+import { KindDeedsChangeLives } from "@/widgets/KindDeedsPage_widgets/KindDeedsChangeLives";
+import { KindDeedsAllegations } from "@/widgets/KindDeedsPage_widgets/KindDeedsAllegations";
+import { KindDeedsNeedHelpItem } from "@/widgets/KindDeedsPage_widgets/KindDeedsNeedHelpItem";
+import { KindDeedsLetterOfKindness } from "@/widgets/KindDeedsPage_widgets/KindDeedsLetterOfKindness";
 import { FAQ_accordion } from "@/widgets/Global_widgets/FAQ_accordion";
 import { AskQuestion } from "@/widgets/Global_widgets/AskQuestion";
 

@@ -13,6 +13,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
       setInputFiles,
       setInputFileProgress,
       fileView = "big",
+      accept,
     }): React.JSX.Element => {
       // Функционал изменения файла
       const ChangeInputRef = useRef<HTMLInputElement>(null);
@@ -137,6 +138,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
                 ref={ChangeInputRef}
                 data-testid={`AttachFileContainerFile.${loadedFile.FileName}.Change`}
                 onChange={FileOnChange}
+                accept={accept}
               />
 
               <ChangeFileSVG

@@ -22,6 +22,7 @@ import { UserPage } from "@/pages/UserPage/";
 import { ReactElement } from "react";
 import { PortNow } from "../layouts/BaseLayout/model/BaseLayout__data";
 import { KindDeedsPage } from "@/pages/KindDeedsPage";
+import { KindDeedsCreateRequestPage } from "@/pages/KindDeedsCreateRequest";
 
 export enum AppRoutes {
   MAIN = "/",
@@ -60,6 +61,8 @@ export enum AppRoutes {
 
   KIND_DEEDS = "/kind-deeds",
 
+  KIND_DEEDS_CREATE_REQUEST = "/kind-deeds/create-request",
+
   NOT_FOUND = "*",
 }
 
@@ -97,5 +100,6 @@ export const routes: routesList = {
   [AppRoutes.BLOG_POST]: <BlogPostPage />,
   [AppRoutes.BLOG_CREATE]: <BlogCreatePage />,
   [AppRoutes.KIND_DEEDS]: <KindDeedsPage />,
+  [AppRoutes.KIND_DEEDS_CREATE_REQUEST]: <KindDeedsCreateRequestPage />,
   [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };

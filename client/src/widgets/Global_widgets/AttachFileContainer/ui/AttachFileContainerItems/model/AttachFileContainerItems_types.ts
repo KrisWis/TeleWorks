@@ -7,4 +7,5 @@ export interface AttachFileContainerItemsProps {
   InputFileProgress: number;
   setInputFileProgress: React.Dispatch<React.SetStateAction<number>>;
   fileView?: AttachFileContainerFileViews;
+  accept?: string;
 }

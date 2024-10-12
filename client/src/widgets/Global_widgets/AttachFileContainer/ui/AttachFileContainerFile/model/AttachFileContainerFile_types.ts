@@ -8,4 +8,5 @@ export interface AttachFileContainerFileProps {
   setInputFiles: React.Dispatch<React.SetStateAction<LoadedFile[]>>;
   setInputFileProgress: React.Dispatch<React.SetStateAction<number>>;
   fileView?: AttachFileContainerFileViews;
+  accept?: string;
 }

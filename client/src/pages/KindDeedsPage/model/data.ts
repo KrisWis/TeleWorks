@@ -1,6 +1,6 @@
 import { URL_PART } from "@/app";
-import { KindDeedsAlreadyHelpedItemProps } from "../../../widgets/KindDeeds_widgets/KindDeedsAlreadyHelpedItem";
-import { KindDeedsNeedHelpItemProps } from "@/widgets/KindDeeds_widgets/KindDeedsNeedHelpItem";
+import { KindDeedsAlreadyHelpedItemProps } from "../../../widgets/KindDeedsPage_widgets/KindDeedsAlreadyHelpedItem";
+import { KindDeedsNeedHelpItemProps } from "@/widgets/KindDeedsPage_widgets/KindDeedsNeedHelpItem";
 import { FAQTabItem } from "@/widgets/Global_widgets/FAQ_accordion/ui/FAQTab_Accordion_item/model/FAQTab_Accordion_item_types";
 
 export const KindDeedsAlreadyHelpedItems: KindDeedsAlreadyHelpedItemProps[] = [

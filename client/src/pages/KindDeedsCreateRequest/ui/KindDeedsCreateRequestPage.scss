@@ -1,0 +1,14 @@
+.KindDeedsCreateRequestPage {
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  &__subcaption {
+    font-weight: 600;
+    font-size: 32px;
+    color: #000;
+  }
+}

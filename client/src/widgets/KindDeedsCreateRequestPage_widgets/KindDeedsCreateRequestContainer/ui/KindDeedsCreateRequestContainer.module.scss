@@ -1,0 +1,88 @@
+.KindDeedsCreateRequestContainer {
+  margin: 50px 0;
+
+  * {
+    line-height: 150%;
+    letter-spacing: -0.01em;
+  }
+
+  &__caption {
+    font-weight: 700;
+    font-size: 48px;
+    color: #000;
+  }
+
+  &__back {
+    width: 33px;
+    height: 33px;
+  }
+
+  &__inputsWrapper {
+    margin-bottom: 40px;
+  }
+
+  &__wrapper {
+    padding: 15px 20px;
+  }
+
+  &__firstSubcaption {
+    padding: 15px 20px;
+    border-bottom: 2px solid #eaf2ff;
+    width: 100%;
+    color: #000;
+  }
+
+  &__button {
+    height: 65px;
+    width: 285px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 15px;
+    border-radius: 40px;
+  }
+
+  &__input {
+    border-radius: 20px;
+    height: 83px;
+    font-weight: 600;
+    font-size: 24px;
+
+    &::placeholder {
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    &__sum {
+      position: relative;
+
+      &::after {
+        content: "₽";
+        display: block;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #f55;
+        opacity: 0.4;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+
+  &__textarea {
+    border-radius: 20px !important;
+    font-weight: 600 !important;
+    font-size: 24px !important;
+
+    &::placeholder {
+      font-weight: 600 !important;
+      font-size: 24px !important;
+    }
+  }
+
+  &__loadDocumentsWrapper {
+    position: relative;
+  }
+}
