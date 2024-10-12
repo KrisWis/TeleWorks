@@ -21,6 +21,7 @@ import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer"
 export const ProfilePage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("profilePage");
+    document.title = `TeleWorks | Название канала`;
   }, []);
 
   // Получение id страницы

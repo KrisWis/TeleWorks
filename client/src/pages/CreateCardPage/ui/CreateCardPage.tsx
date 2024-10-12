@@ -7,6 +7,7 @@ import { CreateCard } from "@/widgets/CreateCardPage_widgets/CreateCard";
 export const CreateCardPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("CreateCardPage");
+    document.title = `TeleWorks | Создание карточки`;
   }, []);
 
   return (

@@ -24,6 +24,7 @@ export const HeaderServicesDropdown: React.FC<
         >
       ).map((category) => (
         <div
+          onClick={() => setDropdownIsOpen(false)}
           key={category}
           className={styles.header__services__dropdown__category}
         >

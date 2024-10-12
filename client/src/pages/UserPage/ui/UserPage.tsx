@@ -17,6 +17,7 @@ import { UserReviews } from "@/widgets/UserPage_widgets/UserReviews";
 export const UserPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("UserPage");
+    document.title = `TeleWorks | Имя пользователя`;
   }, []);
 
   return (

@@ -17,7 +17,6 @@ import { AppRoutes } from "@/app/routes/AppRoutes";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере
-
   const [LoginIsOpen, setLoginIsOpen] = useState<boolean>(false);
 
   const [LoginModalAppear, setLoginModalAppear] = useState<boolean>(false);

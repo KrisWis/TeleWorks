@@ -17,6 +17,7 @@ import { transitionDurationMedium } from "@/app/layouts/BaseLayout/model/BaseLay
 export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("CreateOrderPage");
+    document.title = `TeleWorks | Создание заказа`;
   }, []);
 
   // Сохранение и загрузка этапов, используя LocalStorage

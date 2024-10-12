@@ -1,0 +1,77 @@
+.KindDeedsLetterOfKindness {
+  border: 1px solid #4266c6;
+  border-radius: 25px;
+  height: 509px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  background: #fff;
+  padding: 50px;
+  margin-top: 50px;
+
+  * {
+    line-height: 120%;
+    letter-spacing: -0.01em;
+  }
+
+  &__desc {
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--gray-color);
+  }
+
+  &__input {
+    border: 1px solid #4266c6;
+    border-radius: 20px;
+    height: 64px;
+    font-size: 24px;
+
+    &::placeholder {
+      font-size: 24px;
+    }
+
+    &Wrapper {
+      position: relative;
+      width: 100%;
+      padding: 1px;
+      margin-top: 10px;
+    }
+  }
+
+  &__sendWrapper {
+    border-radius: 16px;
+    width: 52px;
+    height: 52px;
+    background-color: #f55;
+    position: absolute;
+    right: 1.5%;
+    top: 7.5%;
+    border: 1px solid transparent;
+    transition: var(--transition-duration) linear;
+    transition-property: background-color, border-color;
+
+    path {
+      transition: var(--transition-duration) linear fill;
+    }
+
+    &:hover {
+      background-color: #fff;
+      border-color: #f55;
+
+      path {
+        fill: #f55;
+      }
+    }
+  }
+
+  &__accept {
+    font-weight: 500;
+    font-size: 9px;
+    color: var(--gray-color);
+  }
+
+  &__img {
+    width: 50%;
+    height: 110%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}

@@ -14,6 +14,7 @@ export const TelegramChannelStatsPage: React.FC = memo(
   (): React.JSX.Element => {
     useEffect(() => {
       document.querySelector("html")!.classList.add("TelegramChannelStatsPage");
+      document.title = `TeleWorks | Название канала`;
     }, []);
 
     // Выбор категории

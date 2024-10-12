@@ -10,6 +10,7 @@ import { TurnkeyWebsitesPageFAQ } from "@/widgets/TurnkeyWebsitesPage_widgets/Tu
 export const TurnkeyWebsitesPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("TurnkeyWebsitesPage");
+    document.title = `TeleWorks | Сайт под ключ`;
   }, []);
 
   return (

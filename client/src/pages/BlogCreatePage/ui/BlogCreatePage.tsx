@@ -22,6 +22,7 @@ import { transitionDurationMedium } from "@/app/layouts/BaseLayout/model/BaseLay
 export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("BlogCreatePage");
+    document.title = `TeleWorks | Создание поста`;
   }, []);
 
   // Создание стейта для фильтра
@@ -60,6 +61,7 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
 
           <Flex max className="BlogCreatePage__contentWrapper">
             <TransitionBetweenBlocks
+              className="BlogCreatePage__contentWrapper"
               blocks={[
                 {
                   component: (

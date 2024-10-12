@@ -17,6 +17,7 @@ import { useEffect } from "react";
 export const MainPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("mainPage");
+    document.title = `TeleWorks | Главная`;
   }, []);
 
   return (

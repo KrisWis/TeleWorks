@@ -21,6 +21,7 @@ import { mobile_mediaQuery } from "@/app";
 export const BlogPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("BlogPage");
+    document.title = `TeleWorks | Блог`;
   }, []);
 
   // Создание стейта для контекста и филтера

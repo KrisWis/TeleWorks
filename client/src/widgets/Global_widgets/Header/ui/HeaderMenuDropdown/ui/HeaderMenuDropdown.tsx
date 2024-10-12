@@ -134,6 +134,7 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
                       <div key={item.title}>
                         {URLIsAbsolute(item.link) ? (
                           <a
+                            onClick={() => setDropdownIsOpen(false)}
                             href={item.link}
                             className={styles.header__userMenu__category__item}
                           >
@@ -154,6 +155,7 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
                           </a>
                         ) : (
                           <Link
+                            onClick={() => setDropdownIsOpen(false)}
                             className={styles.header__userMenu__category__item}
                             to={item.link}
                           >

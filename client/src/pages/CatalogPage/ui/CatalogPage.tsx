@@ -9,6 +9,7 @@ import { MoveToOpenChannelCartReducer } from "@/features/Global_features/MoveToO
 export const CatalogPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("CatalogPage");
+    document.title = `TeleWorks | Каталог`;
   }, []);
 
   return (

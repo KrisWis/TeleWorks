@@ -28,6 +28,7 @@ import { PortNow } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 export const BlogPostPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("BlogPostPage");
+    document.title = `TeleWorks | Название поста`;
   }, []);
 
   // Создание стейта для контекста, фильтра и отвечаемого комментария

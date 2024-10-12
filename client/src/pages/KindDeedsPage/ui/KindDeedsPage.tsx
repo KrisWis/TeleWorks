@@ -11,16 +11,21 @@ import { KindDeedsHaveSignificance } from "@/widgets/KindDeeds_widgets/KindDeeds
 import { KindDeedsSlider } from "@/widgets/KindDeeds_widgets/KindDeedsSlider";
 import {
   KindDeedsAlreadyHelpedItems,
+  KindDeedsFAQItems,
   KindDeedsNeedHelpItems,
 } from "../model/data";
 import { KindDeedsAlreadyHelpedItem } from "@/widgets/KindDeeds_widgets/KindDeedsAlreadyHelpedItem";
 import { KindDeedsChangeLives } from "@/widgets/KindDeeds_widgets/KindDeedsChangeLives";
 import { KindDeedsAllegations } from "@/widgets/KindDeeds_widgets/KindDeedsAllegations";
 import { KindDeedsNeedHelpItem } from "@/widgets/KindDeeds_widgets/KindDeedsNeedHelpItem";
+import { KindDeedsLetterOfKindness } from "@/widgets/KindDeeds_widgets/KindDeedsLetterOfKindness";
+import { FAQ_accordion } from "@/widgets/Global_widgets/FAQ_accordion";
+import { AskQuestion } from "@/widgets/Global_widgets/AskQuestion";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("KindDeedsPage");
+    document.title = `TeleWorks | Добрые дела`;
   }, []);
 
   return (
@@ -76,6 +81,14 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
             <KindDeedsNeedHelpItem {...item} />
           ))}
         />
+
+        <KindDeedsLetterOfKindness />
+
+        <h2 className="KindDeedsPage__FAQCaption">Часто задаваемые вопросы:</h2>
+
+        <FAQ_accordion FAQ_accordion_items={KindDeedsFAQItems} />
+
+        <AskQuestion />
       </Flex>
     </main>
   );

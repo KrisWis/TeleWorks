@@ -8,6 +8,7 @@ import { myProjectsStats } from "../model/MyProjectPage_data";
 export const MyProjectsPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("MyProjectsPage");
+    document.title = `TeleWorks | Мои проекты`;
   }, []);
 
   return (

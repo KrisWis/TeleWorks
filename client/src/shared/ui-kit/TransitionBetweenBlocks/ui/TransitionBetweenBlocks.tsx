@@ -4,6 +4,7 @@ import {
   TransitionBetweenBlock,
   TransitionBetweenBlocksProps,
 } from "../model/TransitionBetweenBlocks_types";
+import { Flex } from "../../Stack";
 
 export const TransitionBetweenBlocks: React.FC<
   TransitionBetweenBlocksProps
@@ -57,7 +58,7 @@ export const TransitionBetweenBlocks: React.FC<
   }, [blocks, transitionDuration, visibleBlock]);
 
   return (
-    <div className={className}>
+    <Flex align="center" justify="center" className={className}>
       {pastVisibleBlock && (
         <div
           data-testid={
@@ -97,6 +98,6 @@ export const TransitionBetweenBlocks: React.FC<
           )}
         </>
       )}
-    </div>
+    </Flex>
   );
 };

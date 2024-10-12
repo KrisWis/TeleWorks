@@ -7,6 +7,7 @@ import { UserEditPageWrapper } from "@/widgets/UserEditPage_widgets/UserEditPage
 export const UserEditPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("UserEditPage");
+    document.title = `TeleWorks | Редактирование профиля`;
   }, []);
 
   return (

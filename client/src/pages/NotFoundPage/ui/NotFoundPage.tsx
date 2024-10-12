@@ -7,6 +7,7 @@ import { memo } from "react";
 export const NotFoundPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("NotFoundPage");
+    document.title = `TeleWorks | Не найдено`;
   }, []);
 
   return (

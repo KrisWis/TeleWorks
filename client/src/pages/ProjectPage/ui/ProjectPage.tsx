@@ -16,6 +16,7 @@ import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
 export const ProjectPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("ProjectPage");
+    document.title = `TeleWorks | Название проекта`;
   }, []);
 
   return (

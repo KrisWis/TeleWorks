@@ -12,6 +12,7 @@ import { OpenAdvantages } from "@/widgets/InternalPage_widgets/OpenAdvantages";
 export const InternalPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("InternalPage");
+    document.title = `TeleWorks | Информация`;
   }, []);
 
   return (

@@ -11,6 +11,7 @@ import styles from "./FAQPage.module.scss";
 export const FAQPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
     document.querySelector("html")!.classList.add("FAQ");
+    document.title = `TeleWorks | Ответы на вопросы`;
   }, []);
 
   const [ActiveFAQTab, setActiveFAQTab] = useState<FAQTabs>(FAQTabs.GENERAL);
