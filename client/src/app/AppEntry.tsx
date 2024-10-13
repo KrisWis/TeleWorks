@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import { store } from "./store/AppStore";
 import { ScrollToTop } from "@/shared/utils/ScrollToTop";
 
+// TODO: проверить кроссбраузерность в конце разработки проекта
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <BrowserRouter basename="/TeleWorks/">

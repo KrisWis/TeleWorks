@@ -26,6 +26,8 @@ import { TextUnderlineHover } from "@/shared/ui-kit/TextUnderlineHover";
 import { mobile_mediaQuery } from "@/app";
 import SendMessageSVG from "@/shared/assets/icons/Global/SendMessageSVG.svg?react";
 
+// TODO: мб сделать сохранение в LS и IndexedDB, когда сделаем подключение к беку
+
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (
     <SortSelectDropdownIndicatorSVG className={selectStyles.Select__svg} />

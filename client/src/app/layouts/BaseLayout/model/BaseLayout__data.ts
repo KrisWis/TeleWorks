@@ -42,4 +42,4 @@ export const transitionDuration: number = 300;
 
 export const transitionDurationMedium: number = 700;
 
-export const apiBaseURL: string = "/";
+export const IndexedDBName: string = "TeleWorks";

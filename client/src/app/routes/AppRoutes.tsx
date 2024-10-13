@@ -23,6 +23,7 @@ import { ReactElement } from "react";
 import { PortNow } from "../layouts/BaseLayout/model/BaseLayout__data";
 import { KindDeedsPage } from "@/pages/KindDeedsPage";
 import { KindDeedsCreateRequestPage } from "@/pages/KindDeedsCreateRequest";
+import { IndexedDBStore } from "../layouts/BaseLayout/model/BaseLayout__types";
 
 export enum AppRoutes {
   MAIN = "/",
@@ -103,3 +104,20 @@ export const routes: routesList = {
   [AppRoutes.KIND_DEEDS_CREATE_REQUEST]: <KindDeedsCreateRequestPage />,
   [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };
+
+export const IndexedDBStores: IndexedDBStore[] = [
+  {
+    route: AppRoutes.CREATE_ORDER,
+    name: "CREATE_ORDER_FILES",
+  },
+
+  {
+    route: AppRoutes.KIND_DEEDS_CREATE_REQUEST,
+    name: "KIND_DEEDS_CREATE_REQUEST_IMAGES",
+  },
+
+  {
+    route: AppRoutes.BLOG_CREATE,
+    name: "BLOG_CREATE_IMAGES",
+  },
+];

@@ -85,7 +85,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         ref={inputRef}
         onChange={(e) => {
           InputOnLoad(e);
-          onChange && onChange(e);
+          onChange && PortNow && onChange(e);
         }}
         accept={accept}
         data-testid={dataTestId}

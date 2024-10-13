@@ -4,12 +4,15 @@ import {
   memo,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
 import {
+  IndexedDBName,
   mobile_mediaQuery,
+  PortNow,
   transitionDuration,
   URL_PART,
 } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
@@ -38,6 +41,11 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
+import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
+import { AppRoutes, IndexedDBStores } from "@/app";
+
+// Инстанс IndexedDB
+const UseIndexedDBInstance = new UseIndexedDB();
 
 export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   // Функционал переключения типа поста
@@ -115,12 +123,70 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   ]);
 
   // Сохранение данных в LS
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const saveLSDebounce = useCallback(
     UseDebounce((lsItem: useBlogCreatePageLocalStorageInterface) => {
       UseBlogCreatePageLocalStorage(UseLocalStorageTypes.UPDATE, lsItem);
     }, 1000),
     []
   );
+
+  // Сохранение изображений в indexedDB
+  const indexedDB = useRef<IDBDatabase>();
+
+  const indexedDBStoreName: string = useMemo(
+    () =>
+      IndexedDBStores.find((store) => store.route == AppRoutes.BLOG_CREATE)!
+        .name,
+    []
+  );
+
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (PortNow) {
+      const files = event.target.files;
+
+      if (files) {
+        for (const file of files) {
+          UseIndexedDBInstance.saveLoadedFile(
+            indexedDB.current!,
+            indexedDBStoreName,
+            file
+          );
+        }
+      }
+    }
+  };
+
+  const loadImages = useCallback(
+    async (db: IDBDatabase) => {
+      const fetchedImages = await UseIndexedDBInstance.fetchLoadedFiles(
+        db,
+        indexedDBStoreName
+      );
+
+      if (fetchedImages)
+        setFileInputFiles(fetchedImages.map((image) => image.file));
+    },
+    [indexedDBStoreName]
+  );
+
+  useEffect(() => {
+    if (PortNow) {
+      const initializeDatabase = async () => {
+        indexedDB.current = await UseIndexedDBInstance.openDatabase(
+          IndexedDBName,
+          1,
+          IndexedDBStores.map((store) => store.name)
+        );
+
+        loadImages(indexedDB.current);
+      };
+
+      initializeDatabase();
+    }
+  }, [loadImages]);
 
   return (
     <Flex
@@ -229,6 +295,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
                 setInputFiles={setFileInputFiles}
                 setInputFileProgress={setFileInputProgress}
                 accept="image/png, image/gif, image/jpeg, image/jpg"
+                onChange={handleFileChange}
               />
 
               <LoadImageBlockWithoutLoading
@@ -237,6 +304,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
                 inputRef={FileInputRef}
                 withBG={false}
                 title="Загрузите изображение"
+                isHovered
               />
             </Flex>
 
@@ -246,6 +314,9 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
               setInputFiles={setFileInputFiles}
               files={FileInputFiles}
               fileView="medium"
+              indexedDBName={IndexedDBName}
+              indexedDBStore={indexedDBStoreName}
+              onChange={handleFileChange}
             />
           </Flex>
 

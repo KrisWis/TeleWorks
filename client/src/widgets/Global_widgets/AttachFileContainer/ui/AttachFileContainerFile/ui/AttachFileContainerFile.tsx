@@ -4,6 +4,10 @@ import { memo, useCallback, useRef } from "react";
 import ChangeFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/ChangeFileSVG.svg?react";
 import DeleteFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/DeleteFileSVG.svg?react";
 import { PortNow, URL_PART } from "@/app";
+import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
+
+// Инстанс IndexedDB
+const UseIndexedDBInstance = new UseIndexedDB();
 
 export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
   memo(
@@ -43,8 +47,9 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
 
               const InputFilesCopyForLoading = InputFiles.slice();
 
-              if (onChange && indexedDBName && indexedDBStore) {
-                deleteImageFromIndexedDB(
+              // Удаление из indexedDB прошлого файла, если он есть
+              if (PortNow && onChange && indexedDBName && indexedDBStore) {
+                UseIndexedDBInstance.deleteFileFromIndexedDB(
                   indexedDBName,
                   indexedDBStore,
                   loadedFile.FileName
@@ -93,42 +98,6 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
         ]
       );
 
-      function deleteImageFromIndexedDB(
-        dbName: string,
-        storeName: string,
-        imageKey: string | number
-      ): void {
-        // Открываем соединение с IndexedDB
-        const request = indexedDB.open(dbName);
-
-        request.onsuccess = (event) => {
-          const db = (event.target as IDBOpenDBRequest).result;
-          const transaction = db.transaction(storeName, "readwrite");
-          const store = transaction.objectStore(storeName);
-
-          // Удаляем изображение по ключу
-          const deleteRequest = store.delete(imageKey);
-
-          deleteRequest.onsuccess = () => {
-            console.log(`Изображение с ключом ${imageKey} успешно удалено.`);
-          };
-
-          deleteRequest.onerror = () => {
-            console.error(
-              `Ошибка при удалении изображения с ключом ${imageKey}.`
-            );
-          };
-
-          transaction.oncomplete = () => {
-            db.close();
-          };
-        };
-
-        request.onerror = () => {
-          console.error("Ошибка при открытии базы данных.");
-        };
-      }
-
       // Функционал удаления файла
       const FileOnDelete = (): void => {
         const InputFilesCopy = InputFiles.slice();
@@ -141,8 +110,8 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
 
         setInputFiles(InputFilesCopy);
 
-        if (indexedDBName && indexedDBStore)
-          deleteImageFromIndexedDB(
+        if (PortNow && indexedDBName && indexedDBStore)
+          UseIndexedDBInstance.deleteFileFromIndexedDB(
             indexedDBName,
             indexedDBStore,
             loadedFile.FileName

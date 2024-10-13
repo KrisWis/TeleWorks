@@ -1,10 +1,15 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsCreateRequestContainer.module.scss";
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { Link } from "react-router-dom";
-import { AppRoutes, transitionDuration } from "@/app";
+import {
+  AppRoutes,
+  IndexedDBName,
+  IndexedDBStores,
+  transitionDuration,
+} from "@/app";
 import { Input } from "@/shared/ui-kit/Input";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
@@ -25,6 +30,10 @@ import {
 import { UseKindDeedsCreateRequestLocalStorage } from "../model/useKindDeedsCreateRequestLocalStorage/useKindDeedsCreateRequestLocalStorage";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
+import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
+
+// Инстанс IndexedDB
+const UseIndexedDBInstance = new UseIndexedDB();
 
 export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestContainerProps> =
   memo(({ setRequestIsCreated }): React.JSX.Element => {
@@ -74,6 +83,8 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
     const documentInputRef = useRef<HTMLInputElement>(null);
 
     // Сохранение данных в LS
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const saveLSDebounce = useCallback(
       UseDebounce((lsItem: KindDeedsCreateRequestLocalStorageInterface) => {
         UseKindDeedsCreateRequestLocalStorage(
@@ -85,71 +96,15 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
     );
 
     // Сохранение изображений в indexedDB
-    interface ImageData {
-      id: number | string;
-      image: LoadedFile;
-    }
+    const indexedDB = useRef<IDBDatabase>();
 
-    // Функция для сохранения изображения
-    const saveImage = (db: IDBDatabase, imageFile: File) => {
-      const transaction = db.transaction(["images"], "readwrite");
-      const objectStore = transaction.objectStore("images");
-
-      // Преобразуем файл изображения в Blob
-      const imageBlob = new Blob([imageFile], { type: imageFile.type });
-
-      const imageData: ImageData = {
-        id: imageFile.name,
-        image: {
-          FileData: imageBlob,
-          FileName: imageFile.name,
-          FileSize: imageFile.size,
-          FileType: imageFile.type,
-        },
-      };
-
-      const request = objectStore.add(imageData);
-
-      request.onsuccess = () => {
-        console.log("Изображение успешно сохранено в IndexedDB");
-      };
-
-      request.onerror = (event: Event) => {
-        console.error(
-          "Ошибка при сохранении изображения:",
-          (event.target as IDBRequest).error
-        );
-      };
-    };
-
-    // Функция для открытия базы данных
-    const openDatabase = (
-      dbName: string,
-      version: number
-    ): Promise<IDBDatabase> => {
-      return new Promise((resolve, reject) => {
-        const request = indexedDB.open(dbName, version);
-
-        request.onupgradeneeded = (event: IDBVersionChangeEvent) => {
-          const db = (event.target as IDBOpenDBRequest).result;
-          // Создаем объектное хранилище для изображений
-          db.createObjectStore("images", { keyPath: "id" });
-        };
-
-        request.onsuccess = (event: Event) => {
-          const db = (event.target as IDBOpenDBRequest).result;
-          resolve(db);
-        };
-
-        request.onerror = (event: Event) => {
-          console.error(
-            "Ошибка при открытии базы данных:",
-            (event.target as IDBOpenDBRequest).error
-          );
-          reject((event.target as IDBOpenDBRequest).error);
-        };
-      });
-    };
+    const indexedDBStoreName: string = useMemo(
+      () =>
+        IndexedDBStores.find(
+          (store) => store.route == AppRoutes.KIND_DEEDS_CREATE_REQUEST
+        )!.name,
+      []
+    );
 
     const handleFileChange = async (
       event: React.ChangeEvent<HTMLInputElement>
@@ -158,64 +113,40 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
 
       if (files) {
         for (const file of files) {
-          const db = await openDatabase("myDatabase", 1);
-          saveImage(db, file);
+          UseIndexedDBInstance.saveLoadedFile(
+            indexedDB.current!,
+            indexedDBStoreName,
+            file
+          );
         }
       }
     };
 
-    const fetchImages = useCallback((db: IDBDatabase): Promise<ImageData[]> => {
-      return new Promise((resolve, reject) => {
-        const transaction = db.transaction(["images"], "readonly");
-        const objectStore = transaction.objectStore("images");
-        const request = objectStore.getAll(); // Получаем все изображения
-
-        request.onsuccess = (event: Event) => {
-          resolve((event.target as IDBRequest).result);
-        };
-
-        request.onerror = (event: Event) => {
-          console.error(
-            "Ошибка при извлечении изображений:",
-            (event.target as IDBRequest).error
-          );
-          reject((event.target as IDBRequest).error);
-        };
-      });
-    }, []);
-
     const loadImages = useCallback(
       async (db: IDBDatabase) => {
-        const fetchedImages = await fetchImages(db);
-        console.log(fetchedImages);
+        const fetchedImages = await UseIndexedDBInstance.fetchLoadedFiles(
+          db,
+          indexedDBStoreName
+        );
+
         if (fetchedImages)
-          setLoadedDocuments(fetchedImages.map((image) => image.image));
+          setLoadedDocuments(fetchedImages.map((image) => image.file));
       },
-      [fetchImages]
+      [indexedDBStoreName]
     );
 
     useEffect(() => {
       const initializeDatabase = async () => {
-        const db = await openDatabase("myDatabase", 1);
-        console.log(db);
-        loadImages(db); // Загружаем изображения при инициализации
+        indexedDB.current = await UseIndexedDBInstance.openDatabase(
+          IndexedDBName,
+          1,
+          IndexedDBStores.map((store) => store.name)
+        );
+
+        loadImages(indexedDB.current);
       };
 
       initializeDatabase();
-
-      //  const request = indexedDB.deleteDatabase("имя_вашей_базы");
-
-      //  request.onsuccess = function (event) {
-      //    console.log("База данных успешно удалена");
-      //  };
-
-      //  request.onerror = function (event) {
-      //    console.error("Ошибка при удалении базы данных:", event);
-      //  };
-
-      //  request.onblocked = function (event) {
-      //    console.warn("Удаление базы данных заблокировано");
-      //  };
     }, [loadImages]);
 
     // Нажатие на кнопку "Создать запрос"
@@ -437,8 +368,8 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
               files={loadedDocuments}
               fileView="medium"
               accept="image/jpg, image/jpeg, image/png, image/gif"
-              indexedDBName="myDatabase"
-              indexedDBStore="images"
+              indexedDBName={IndexedDBName}
+              indexedDBStore={indexedDBStoreName}
               onChange={handleFileChange}
             />
 

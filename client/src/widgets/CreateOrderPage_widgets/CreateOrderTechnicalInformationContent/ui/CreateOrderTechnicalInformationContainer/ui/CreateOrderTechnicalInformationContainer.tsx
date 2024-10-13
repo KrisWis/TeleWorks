@@ -1,5 +1,5 @@
 import styles from "./CreateOrderTechnicalInformationContainer.module.scss";
-import { memo, useCallback, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import AttachSVG from "@/shared/assets/icons/Global/AttachSVG.svg?react";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
@@ -20,6 +20,11 @@ import {
 } from "@/widgets/Global_widgets/AttachFileContainer";
 import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
+import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
+import { AppRoutes, IndexedDBName, IndexedDBStores, PortNow } from "@/app";
+
+// Инстанс IndexedDB
+const UseIndexedDBInstance = new UseIndexedDB();
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
@@ -69,6 +74,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     };
 
     // Сохранение данных в LS
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const saveLSDebounce = useCallback(
       UseDebounce((lsItem: string) => {
         UseCreateOrderTIFormLocalStorage(UseLocalStorageTypes.UPDATE, lsItem);
@@ -103,6 +109,65 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
 
     // Индикатор загрузки при загрузке файлов
     const [inputFileProgress, setInputFileProgress] = useState<number>(0);
+
+    // Сохранение файлов в indexedDB
+    const indexedDB = useRef<IDBDatabase>();
+
+    const indexedDBStoreName: string = useMemo(
+      () =>
+        IndexedDBStores.find((store) => store.route == AppRoutes.CREATE_ORDER)!
+          .name,
+      []
+    );
+
+    const handleFileChange = async (
+      event: React.ChangeEvent<HTMLInputElement>
+    ) => {
+      if (PortNow) {
+        const files = event.target.files;
+
+        if (files) {
+          for (const file of files) {
+            UseIndexedDBInstance.saveLoadedFile(
+              indexedDB.current!,
+              indexedDBStoreName,
+              file
+            );
+          }
+        }
+      }
+    };
+
+    const loadImages = useCallback(
+      async (db: IDBDatabase) => {
+        if (PortNow) {
+          const fetchedFiles = await UseIndexedDBInstance.fetchLoadedFiles(
+            db,
+            indexedDBStoreName
+          );
+
+          if (fetchedFiles)
+            setFormInputFiles(fetchedFiles.map((file) => file.file));
+        }
+      },
+      [indexedDBStoreName]
+    );
+
+    useEffect(() => {
+      if (PortNow) {
+        const initializeDatabase = async () => {
+          indexedDB.current = await UseIndexedDBInstance.openDatabase(
+            IndexedDBName,
+            1,
+            IndexedDBStores.map((store) => store.name)
+          );
+
+          loadImages(indexedDB.current);
+        };
+
+        initializeDatabase();
+      }
+    }, [loadImages]);
 
     return (
       <div
@@ -192,6 +257,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                     setInputFiles={setFormInputFiles}
                     setInputFileProgress={setInputFileProgress}
                     data-testid="CreateOrderTechnicalInformationContainer.AttachFilesInput"
+                    onChange={handleFileChange}
                   />
 
                   <div
@@ -240,6 +306,9 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
                 InputFileProgress={inputFileProgress}
                 setInputFiles={setFormInputFiles}
                 files={FormInputFiles}
+                indexedDBName={IndexedDBName}
+                indexedDBStore={indexedDBStoreName}
+                onChange={handleFileChange}
               />
             </div>
           </div>

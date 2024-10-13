@@ -23,8 +23,6 @@ export const KindDeedsCreateRequestPage: React.FC = memo(
     // Стейт для перелистывания блоков
     const [requestIsCreated, setRequestIsCreated] = useState<boolean>(false);
 
-    // TODO: зарефакторить и декомпозировать код для indexedDB (добавить в ридми), сделать тесты/переменные
-
     return (
       <main className="Page KindDeedsCreateRequestPage__main">
         <div className="padding">

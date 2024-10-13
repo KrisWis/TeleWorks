@@ -1,9 +1,9 @@
 .KindDeedsLetterOfKindness {
-  border: 1px solid #4266c6;
+  border: 1px solid var(--violet-color);
   border-radius: 25px;
   height: 509px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
-  background: #fff;
+  background: var(--white-color);
   padding: 50px;
   margin-top: 50px;
 
@@ -19,7 +19,7 @@
   }
 
   &__input {
-    border: 1px solid #4266c6;
+    border: 1px solid var(--violet-color);
     border-radius: 20px;
     height: 64px;
     font-size: 24px;
@@ -40,7 +40,7 @@
     border-radius: 16px;
     width: 52px;
     height: 52px;
-    background-color: #f55;
+    background-color: var(--main-color);
     position: absolute;
     right: 1.5%;
     top: 7.5%;
@@ -53,11 +53,11 @@
     }
 
     &:hover {
-      background-color: #fff;
-      border-color: #f55;
+      background-color: var(--white-color);
+      border-color: var(--main-color);
 
       path {
-        fill: #f55;
+        fill: var(--main-color);
       }
     }
   }
