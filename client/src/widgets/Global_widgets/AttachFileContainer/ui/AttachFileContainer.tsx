@@ -15,55 +15,62 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
     accept,
     "data-testid": dataTestId = "AttachFileContainer",
     zIndex,
+    onChange,
   }): React.JSX.Element => {
     // Загрузка и отображение, загруженных пользователем, изображений:
     const InputOnLoad = useCallback(
       (e: React.ChangeEvent<HTMLInputElement>) => {
         const UserInputFiles = e.target.files;
 
-        const loadedFile: LoadedFile = {
-          FileData: "",
-          FileName: "",
-          FileSize: 0,
-          FileType: "",
-        };
-
         if (UserInputFiles && UserInputFiles.length) {
-          if (
-            !InputFiles.find((file) => file.FileName == UserInputFiles[0].name)
-          ) {
-            if (PortNow) {
-              setInputFiles([
-                ...InputFiles,
-                {
-                  FileData: "",
-                  FileName: "",
-                  FileSize: 0,
-                  FileType: "",
-                },
-              ]);
-            }
+          const loadedFiles: LoadedFile[] = [];
 
-            const fileReader = new FileReader();
-            loadedFile.FileName = UserInputFiles[0].name;
-            loadedFile.FileSize = UserInputFiles[0].size;
-            loadedFile.FileType = UserInputFiles[0].type;
+          for (const UserInputFile of UserInputFiles) {
+            const loadedFile: LoadedFile = {
+              FileData: "",
+              FileName: "",
+              FileSize: 0,
+              FileType: "",
+            };
 
-            fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
-              if (e.lengthComputable) {
-                const percentLoaded = Math.round((e.loaded / e.total) * 100);
-                setInputFileProgress(percentLoaded);
+            if (
+              !InputFiles.find((file) => file.FileName == UserInputFile.name)
+            ) {
+              if (PortNow) {
+                setInputFiles([
+                  ...InputFiles,
+                  {
+                    FileData: "",
+                    FileName: "",
+                    FileSize: 0,
+                    FileType: "",
+                  },
+                ]);
               }
-            };
 
-            fileReader.onload = function () {
-              loadedFile.FileData = fileReader.result as string;
+              const fileReader = new FileReader();
+              loadedFile.FileName = UserInputFile.name;
+              loadedFile.FileSize = UserInputFile.size;
+              loadedFile.FileType = UserInputFile.type;
 
-              setInputFiles([...InputFiles, loadedFile]);
+              fileReader.onprogress = (e: ProgressEvent<FileReader>) => {
+                if (e.lengthComputable) {
+                  const percentLoaded = Math.round((e.loaded / e.total) * 100);
+                  setInputFileProgress(percentLoaded);
+                }
+              };
 
-              inputRef.current!.files = null;
-            };
-            fileReader.readAsDataURL(UserInputFiles[0]);
+              fileReader.onload = function () {
+                loadedFile.FileData = fileReader.result as string;
+
+                loadedFiles.push(loadedFile);
+
+                setInputFiles([...InputFiles, ...loadedFiles]);
+
+                inputRef.current!.files = null;
+              };
+              fileReader.readAsDataURL(UserInputFile);
+            }
           }
         }
       },
@@ -76,9 +83,13 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         className={styles.AttachFileContainer}
         type="file"
         ref={inputRef}
-        onChange={InputOnLoad}
+        onChange={(e) => {
+          InputOnLoad(e);
+          onChange && onChange(e);
+        }}
         accept={accept}
         data-testid={dataTestId}
+        multiple
       />
     );
   }

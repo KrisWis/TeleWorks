@@ -14,6 +14,9 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
       setInputFileProgress,
       fileView = "big",
       accept,
+      indexedDBName,
+      indexedDBStore,
+      onChange,
     }): React.JSX.Element => {
       // Функционал изменения файла
       const ChangeInputRef = useRef<HTMLInputElement>(null);
@@ -39,6 +42,16 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
               const InputFilesCopy = InputFiles.slice();
 
               const InputFilesCopyForLoading = InputFiles.slice();
+
+              if (onChange && indexedDBName && indexedDBStore) {
+                deleteImageFromIndexedDB(
+                  indexedDBName,
+                  indexedDBStore,
+                  loadedFile.FileName
+                );
+
+                onChange(e);
+              }
 
               const PastFileIndex = InputFilesCopy.findIndex(
                 (file) => loadedFile.FileName === file.FileName
@@ -69,8 +82,52 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
             }
           }
         },
-        [InputFiles, loadedFile.FileName, setInputFileProgress, setInputFiles]
+        [
+          InputFiles,
+          indexedDBName,
+          indexedDBStore,
+          loadedFile.FileName,
+          onChange,
+          setInputFileProgress,
+          setInputFiles,
+        ]
       );
+
+      function deleteImageFromIndexedDB(
+        dbName: string,
+        storeName: string,
+        imageKey: string | number
+      ): void {
+        // Открываем соединение с IndexedDB
+        const request = indexedDB.open(dbName);
+
+        request.onsuccess = (event) => {
+          const db = (event.target as IDBOpenDBRequest).result;
+          const transaction = db.transaction(storeName, "readwrite");
+          const store = transaction.objectStore(storeName);
+
+          // Удаляем изображение по ключу
+          const deleteRequest = store.delete(imageKey);
+
+          deleteRequest.onsuccess = () => {
+            console.log(`Изображение с ключом ${imageKey} успешно удалено.`);
+          };
+
+          deleteRequest.onerror = () => {
+            console.error(
+              `Ошибка при удалении изображения с ключом ${imageKey}.`
+            );
+          };
+
+          transaction.oncomplete = () => {
+            db.close();
+          };
+        };
+
+        request.onerror = () => {
+          console.error("Ошибка при открытии базы данных.");
+        };
+      }
 
       // Функционал удаления файла
       const FileOnDelete = (): void => {
@@ -83,6 +140,13 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
         InputFilesCopy.splice(PastFileIndex, 1);
 
         setInputFiles(InputFilesCopy);
+
+        if (indexedDBName && indexedDBStore)
+          deleteImageFromIndexedDB(
+            indexedDBName,
+            indexedDBStore,
+            loadedFile.FileName
+          );
       };
 
       const loadedFileIsImage: boolean =
@@ -100,13 +164,21 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
             {loadedFileIsImage ? (
               <img
                 className={styles.AttachFileContainerFile__img}
-                src={loadedFile.FileData}
+                src={
+                  typeof loadedFile.FileData == "string"
+                    ? loadedFile.FileData
+                    : URL.createObjectURL(loadedFile.FileData)
+                }
                 alt={loadedFile.FileName}
               />
             ) : loadedFileIsVideo ? (
               <video
                 className={styles.AttachFileContainerFile__video}
-                src={loadedFile.FileData}
+                src={
+                  typeof loadedFile.FileData == "string"
+                    ? loadedFile.FileData
+                    : URL.createObjectURL(loadedFile.FileData)
+                }
                 controls
                 preload="none"
               ></video>

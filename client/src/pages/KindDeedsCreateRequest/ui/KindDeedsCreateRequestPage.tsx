@@ -23,7 +23,7 @@ export const KindDeedsCreateRequestPage: React.FC = memo(
     // Стейт для перелистывания блоков
     const [requestIsCreated, setRequestIsCreated] = useState<boolean>(false);
 
-    // TODO: добавить добавление изображений в Local Storage, сделать тесты/переменные
+    // TODO: зарефакторить и декомпозировать код для indexedDB (добавить в ридми), сделать тесты/переменные
 
     return (
       <main className="Page KindDeedsCreateRequestPage__main">

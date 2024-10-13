@@ -15,6 +15,9 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
       InputFileProgress,
       fileView = "big",
       accept,
+      indexedDBName,
+      indexedDBStore,
+      onChange,
     }): React.JSX.Element => {
       return (
         <Flex max>
@@ -38,6 +41,9 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
                       setInputFileProgress={setInputFileProgress}
                       fileView={fileView}
                       accept={accept}
+                      indexedDBName={indexedDBName}
+                      indexedDBStore={indexedDBStore}
+                      onChange={onChange}
                     />
                   ) : (
                     <Flex max gap="5" direction="column">

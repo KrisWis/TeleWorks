@@ -9,4 +9,7 @@ export interface AttachFileContainerFileProps {
   setInputFileProgress: React.Dispatch<React.SetStateAction<number>>;
   fileView?: AttachFileContainerFileViews;
   accept?: string;
+  indexedDBName?: string;
+  indexedDBStore?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

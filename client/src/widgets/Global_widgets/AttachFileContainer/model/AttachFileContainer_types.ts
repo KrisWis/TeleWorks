@@ -1,5 +1,5 @@
 export interface LoadedFile {
-  FileData: string;
+  FileData: string | Blob;
   FileName: string;
   FileSize: number;
   FileType: string;
@@ -13,4 +13,5 @@ export interface AttachFileContainerProps {
   accept?: string;
   "data-testid"?: string;
   zIndex?: number;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
