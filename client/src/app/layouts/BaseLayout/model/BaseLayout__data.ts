@@ -10,6 +10,11 @@ if (PortNow == "6006") {
   urlPart = "/TeleWorks";
 }
 
+// TODO: изменить адрес гитхаб pages на реальный при установке на хостинг
+export const isUnit =
+  !PortNow &&
+  !window.location.href.startsWith("https://kriswis.github.io/TeleWorks/");
+
 export const URL_PART = urlPart;
 window.matchMedia =
   window.matchMedia ||

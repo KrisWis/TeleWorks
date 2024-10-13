@@ -26,6 +26,13 @@ export default defineConfig({
               .split("/")[0]
               .toString();
           }
+
+          if (
+            id.includes("src/app/routes/AppRoutes.tsx") ||
+            id.includes("src/app/index.ts")
+          ) {
+            return "app-routes";
+          }
         },
       },
     },

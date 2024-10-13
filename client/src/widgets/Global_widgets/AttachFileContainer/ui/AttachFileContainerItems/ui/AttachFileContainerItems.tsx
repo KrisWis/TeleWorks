@@ -17,7 +17,7 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
       accept,
       indexedDBName,
       indexedDBStore,
-      onChange,
+      indexedDB,
     }): React.JSX.Element => {
       return (
         <Flex max>
@@ -43,7 +43,7 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
                       accept={accept}
                       indexedDBName={indexedDBName}
                       indexedDBStore={indexedDBStore}
-                      onChange={onChange}
+                      indexedDB={indexedDB}
                     />
                   ) : (
                     <Flex max gap="5" direction="column">

@@ -13,5 +13,6 @@ export interface AttachFileContainerProps {
   accept?: string;
   "data-testid"?: string;
   zIndex?: number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  indexedDB?: IDBDatabase;
+  indexedDBStoreName?: string;
 }

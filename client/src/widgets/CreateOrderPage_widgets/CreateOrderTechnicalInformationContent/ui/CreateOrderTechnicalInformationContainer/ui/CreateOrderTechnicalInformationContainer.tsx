@@ -1,5 +1,5 @@
 import styles from "./CreateOrderTechnicalInformationContainer.module.scss";
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
 import AttachSVG from "@/shared/assets/icons/Global/AttachSVG.svg?react";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
@@ -20,11 +20,8 @@ import {
 } from "@/widgets/Global_widgets/AttachFileContainer";
 import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
-import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
-import { AppRoutes, IndexedDBName, IndexedDBStores, PortNow } from "@/app";
-
-// Инстанс IndexedDB
-const UseIndexedDBInstance = new UseIndexedDB();
+import { AppRoutes, IndexedDBName, IndexedDBStores } from "@/app";
+import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {
@@ -110,7 +107,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     // Индикатор загрузки при загрузке файлов
     const [inputFileProgress, setInputFileProgress] = useState<number>(0);
 
-    // Сохранение файлов в indexedDB
+    // Сохранение файлов в IndexedDB
     const indexedDB = useRef<IDBDatabase>();
 
     const indexedDBStoreName: string = useMemo(
@@ -120,235 +117,206 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       []
     );
 
-    const handleFileChange = async (
-      event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      if (PortNow) {
-        const files = event.target.files;
-
-        if (files) {
-          for (const file of files) {
-            UseIndexedDBInstance.saveLoadedFile(
-              indexedDB.current!,
-              indexedDBStoreName,
-              file
-            );
-          }
-        }
-      }
-    };
-
-    const loadImages = useCallback(
-      async (db: IDBDatabase) => {
-        if (PortNow) {
-          const fetchedFiles = await UseIndexedDBInstance.fetchLoadedFiles(
-            db,
-            indexedDBStoreName
-          );
-
-          if (fetchedFiles)
-            setFormInputFiles(fetchedFiles.map((file) => file.file));
-        }
-      },
-      [indexedDBStoreName]
-    );
-
-    useEffect(() => {
-      if (PortNow) {
-        const initializeDatabase = async () => {
-          indexedDB.current = await UseIndexedDBInstance.openDatabase(
-            IndexedDBName,
-            1,
-            IndexedDBStores.map((store) => store.name)
-          );
-
-          loadImages(indexedDB.current);
-        };
-
-        initializeDatabase();
-      }
-    }, [loadImages]);
-
     return (
-      <div
-        className={`${styles.createOrderTechnicalInformationContainer} createOrderTechnicalInformationContainer`}
+      <IndexedDBLoader
+        setFiles={setFormInputFiles}
+        indexedDB={indexedDB}
+        indexedDBStoreName={indexedDBStoreName}
       >
         <div
-          className={`Page__BoxShadowWrapper ${styles.createOrderTechnicalInformationContainer__wrapper}`}
+          className={`${styles.createOrderTechnicalInformationContainer} createOrderTechnicalInformationContainer`}
         >
           <div
-            className={styles.createOrderTechnicalInformationContainer__header}
+            className={`Page__BoxShadowWrapper ${styles.createOrderTechnicalInformationContainer__wrapper}`}
           >
-            <h6
-              className={`${styles.createOrderTechnicalInformationContainer__caption} CreateOrderPage__caption`}
-            >
-              Материалы для работы
-            </h6>
-          </div>
-
-          <div
-            className={styles.createOrderTechnicalInformationContainer__form}
-          >
-            <span className="CreateOrderPage__caption">
-              Исполнителю для создание проекта, понадобится:
-            </span>
-
-            <ul
-              className={
-                styles.createOrderTechnicalInformationContainer__form__steps
-              }
-            >
-              <li
-                className={
-                  styles.createOrderTechnicalInformationContainer__form__step
-                }
-              >
-                <span className="CreateOrderPage__subcaption">
-                  1. Исходные фото
-                </span>
-
-                <p
-                  className={
-                    styles.createOrderTechnicalInformationContainer__form__step__desc
-                  }
-                >
-                  Пожалуйста, проверьте качество фото
-                </p>
-              </li>
-
-              <li
-                className={
-                  styles.createOrderTechnicalInformationContainer__form__step
-                }
-              >
-                <span className="CreateOrderPage__subcaption">
-                  2. Техническое задание
-                </span>
-              </li>
-            </ul>
-
             <div
               className={
-                styles.createOrderTechnicalInformationContainer__form__textareaWrapper
+                styles.createOrderTechnicalInformationContainer__header
               }
             >
-              <textarea
-                ref={FormTextAreaRef}
-                className={`${styles.createOrderTechnicalInformationContainer__form__textarea}
-                ${FormTextAreaIsWarn || (TryAgreeWithUncorrectData && !FormTextAreaIsValid(FormTextAreaValue)) ? styles.createOrderTechnicalInformationContainer__form__textarea__warn : ""}`}
-                name="createOrderTechnicalInformationContainer__form__textarea"
-                value={FormTextAreaValue}
-                onChange={OnChangeFormTextArea}
-              ></textarea>
+              <h6
+                className={`${styles.createOrderTechnicalInformationContainer__caption} CreateOrderPage__caption`}
+              >
+                Материалы для работы
+              </h6>
+            </div>
+
+            <div
+              className={styles.createOrderTechnicalInformationContainer__form}
+            >
+              <span className="CreateOrderPage__caption">
+                Исполнителю для создание проекта, понадобится:
+              </span>
+
+              <ul
+                className={
+                  styles.createOrderTechnicalInformationContainer__form__steps
+                }
+              >
+                <li
+                  className={
+                    styles.createOrderTechnicalInformationContainer__form__step
+                  }
+                >
+                  <span className="CreateOrderPage__subcaption">
+                    1. Исходные фото
+                  </span>
+
+                  <p
+                    className={
+                      styles.createOrderTechnicalInformationContainer__form__step__desc
+                    }
+                  >
+                    Пожалуйста, проверьте качество фото
+                  </p>
+                </li>
+
+                <li
+                  className={
+                    styles.createOrderTechnicalInformationContainer__form__step
+                  }
+                >
+                  <span className="CreateOrderPage__subcaption">
+                    2. Техническое задание
+                  </span>
+                </li>
+              </ul>
 
               <div
                 className={
-                  styles.createOrderTechnicalInformationContainer__form__textareaFooter
+                  styles.createOrderTechnicalInformationContainer__form__textareaWrapper
                 }
               >
+                <textarea
+                  ref={FormTextAreaRef}
+                  className={`${styles.createOrderTechnicalInformationContainer__form__textarea}
+                ${FormTextAreaIsWarn || (TryAgreeWithUncorrectData && !FormTextAreaIsValid(FormTextAreaValue)) ? styles.createOrderTechnicalInformationContainer__form__textarea__warn : ""}`}
+                  name="createOrderTechnicalInformationContainer__form__textarea"
+                  value={FormTextAreaValue}
+                  onChange={OnChangeFormTextArea}
+                ></textarea>
+
                 <div
                   className={
-                    styles.createOrderTechnicalInformationContainer__form__attachFilesWrapper
+                    styles.createOrderTechnicalInformationContainer__form__textareaFooter
                   }
                 >
-                  <AttachFileContainer
-                    inputRef={FormInputRef}
-                    InputFiles={FormInputFiles}
-                    setInputFiles={setFormInputFiles}
-                    setInputFileProgress={setInputFileProgress}
-                    data-testid="CreateOrderTechnicalInformationContainer.AttachFilesInput"
-                    onChange={handleFileChange}
-                  />
-
                   <div
                     className={
-                      styles.createOrderTechnicalInformationContainer__form__attachFiles
+                      styles.createOrderTechnicalInformationContainer__form__attachFilesWrapper
                     }
                   >
-                    <AttachSVG />
+                    <AttachFileContainer
+                      inputRef={FormInputRef}
+                      InputFiles={FormInputFiles}
+                      setInputFiles={setFormInputFiles}
+                      setInputFileProgress={setInputFileProgress}
+                      data-testid="CreateOrderTechnicalInformationContainer.AttachFilesInput"
+                      indexedDB={indexedDB.current}
+                      indexedDBStoreName={indexedDBStoreName}
+                    />
 
-                    <span
+                    <div
                       className={
-                        styles.createOrderTechnicalInformationContainer__form__attachFiles__text
+                        styles.createOrderTechnicalInformationContainer__form__attachFiles
                       }
                     >
-                      Прикрепить файл
-                    </span>
-                  </div>
-                </div>
+                      <AttachSVG />
 
-                <span
-                  className={
-                    styles.createOrderTechnicalInformationContainer__form__symbolsAmount
-                  }
+                      <span
+                        className={
+                          styles.createOrderTechnicalInformationContainer__form__attachFiles__text
+                        }
+                      >
+                        Прикрепить файл
+                      </span>
+                    </div>
+                  </div>
+
+                  <span
+                    className={
+                      styles.createOrderTechnicalInformationContainer__form__symbolsAmount
+                    }
+                  >
+                    {FormTextAreaValue.length} из{" "}
+                    {
+                      CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount
+                    }{" "}
+                    символов (минимум{" "}
+                    {
+                      CreateOrderTechnicalInformationFormTextAreaMinSymbolsAmount
+                    }
+                    )
+                  </span>
+                </div>
+              </div>
+
+              <div
+                className={`${styles.createOrderTechnicalInformationContainer__files}
+              ${!FormInputFiles.length ? styles.createOrderTechnicalInformationContainer__files__closed : ""}`}
+              >
+                <h6
+                  className={`${styles.createOrderTechnicalInformationContainer__caption} 
+                  ${styles.createOrderTechnicalInformationContainer__files__caption} CreateOrderPage__caption`}
                 >
-                  {FormTextAreaValue.length} из{" "}
-                  {CreateOrderTechnicalInformationFormTextAreaMaxSymbolsAmount}{" "}
-                  символов (минимум{" "}
-                  {CreateOrderTechnicalInformationFormTextAreaMinSymbolsAmount})
-                </span>
+                  Загруженные файлы
+                </h6>
+
+                <AttachFileContainerItems
+                  setInputFileProgress={setInputFileProgress}
+                  InputFileProgress={inputFileProgress}
+                  setInputFiles={setFormInputFiles}
+                  files={FormInputFiles}
+                  indexedDBName={IndexedDBName}
+                  indexedDBStore={indexedDBStoreName}
+                  indexedDB={indexedDB.current}
+                />
               </div>
             </div>
+          </div>
 
-            <div
-              className={`${styles.createOrderTechnicalInformationContainer__files}
-              ${!FormInputFiles.length ? styles.createOrderTechnicalInformationContainer__files__closed : ""}`}
+          <div
+            className={styles.createOrderTechnicalInformationContainer__agree}
+          >
+            <CheckBoxBlock
+              isActive={AgreeCheckboxIsActive}
+              onClick={() => setAgreeCheckboxIsActive(!AgreeCheckboxIsActive)}
+              isWarn={TryAgreeWithUncorrectData && !AgreeCheckboxIsActive}
+            />
+
+            <p
+              className={
+                styles.createOrderTechnicalInformationContainer__agree__text
+              }
             >
-              <h6
-                className={`${styles.createOrderTechnicalInformationContainer__caption} 
-                  ${styles.createOrderTechnicalInformationContainer__files__caption} CreateOrderPage__caption`}
-              >
-                Загруженные файлы
-              </h6>
+              Предоставленная мной информация является точной и полной. Любые
+              изменения требуют согласования с продавцом и могут потребовать
+              дополнительной оплаты.
+            </p>
+          </div>
 
-              <AttachFileContainerItems
-                setInputFileProgress={setInputFileProgress}
-                InputFileProgress={inputFileProgress}
-                setInputFiles={setFormInputFiles}
-                files={FormInputFiles}
-                indexedDBName={IndexedDBName}
-                indexedDBStore={indexedDBStoreName}
-                onChange={handleFileChange}
-              />
-            </div>
+          <div
+            className={styles.createOrderTechnicalInformationContainer__buttons}
+          >
+            <Button
+              className={
+                styles.createOrderTechnicalInformationContainer__button
+              }
+              type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
+              text="Заполнить позже"
+            />
+
+            <Button
+              className={
+                styles.createOrderTechnicalInformationContainer__button
+              }
+              type={ButtonTypes.RED}
+              text="Подтвердить"
+              onClick={AgreeButtonOnClick}
+            />
           </div>
         </div>
-
-        <div className={styles.createOrderTechnicalInformationContainer__agree}>
-          <CheckBoxBlock
-            isActive={AgreeCheckboxIsActive}
-            onClick={() => setAgreeCheckboxIsActive(!AgreeCheckboxIsActive)}
-            isWarn={TryAgreeWithUncorrectData && !AgreeCheckboxIsActive}
-          />
-
-          <p
-            className={
-              styles.createOrderTechnicalInformationContainer__agree__text
-            }
-          >
-            Предоставленная мной информация является точной и полной. Любые
-            изменения требуют согласования с продавцом и могут потребовать
-            дополнительной оплаты.
-          </p>
-        </div>
-
-        <div
-          className={styles.createOrderTechnicalInformationContainer__buttons}
-        >
-          <Button
-            className={styles.createOrderTechnicalInformationContainer__button}
-            type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
-            text="Заполнить позже"
-          />
-
-          <Button
-            className={styles.createOrderTechnicalInformationContainer__button}
-            type={ButtonTypes.RED}
-            text="Подтвердить"
-            onClick={AgreeButtonOnClick}
-          />
-        </div>
-      </div>
+      </IndexedDBLoader>
     );
   }
 );

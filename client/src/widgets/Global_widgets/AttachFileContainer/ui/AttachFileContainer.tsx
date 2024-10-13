@@ -4,7 +4,11 @@ import {
   AttachFileContainerProps,
   LoadedFile,
 } from "../model/AttachFileContainer_types";
-import { PortNow } from "@/app";
+import { isUnit } from "@/app";
+import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
+
+// Инстанс IndexedDB
+const UseIndexedDBInstance = new UseIndexedDB();
 
 export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
   ({
@@ -15,7 +19,8 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
     accept,
     "data-testid": dataTestId = "AttachFileContainer",
     zIndex,
-    onChange,
+    indexedDB,
+    indexedDBStoreName,
   }): React.JSX.Element => {
     // Загрузка и отображение, загруженных пользователем, изображений:
     const InputOnLoad = useCallback(
@@ -36,7 +41,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
             if (
               !InputFiles.find((file) => file.FileName == UserInputFile.name)
             ) {
-              if (PortNow) {
+              if (!isUnit) {
                 setInputFiles([
                   ...InputFiles,
                   {
@@ -46,6 +51,14 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
                     FileType: "",
                   },
                 ]);
+
+                if (indexedDB && indexedDBStoreName) {
+                  UseIndexedDBInstance.saveLoadedFile(
+                    indexedDB,
+                    indexedDBStoreName,
+                    UserInputFile
+                  );
+                }
               }
 
               const fileReader = new FileReader();
@@ -74,7 +87,14 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
           }
         }
       },
-      [InputFiles, inputRef, setInputFileProgress, setInputFiles]
+      [
+        InputFiles,
+        indexedDB,
+        indexedDBStoreName,
+        inputRef,
+        setInputFileProgress,
+        setInputFiles,
+      ]
     );
 
     return (
@@ -83,10 +103,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         className={styles.AttachFileContainer}
         type="file"
         ref={inputRef}
-        onChange={(e) => {
-          InputOnLoad(e);
-          onChange && PortNow && onChange(e);
-        }}
+        onChange={(e) => InputOnLoad(e)}
         accept={accept}
         data-testid={dataTestId}
         multiple

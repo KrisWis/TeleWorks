@@ -1,13 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { TelegramChannelStatsPage } from './TelegramChannelStatsPage';
+import type { Meta, StoryObj } from "@storybook/react";
+import { TelegramChannelStatsPage } from "./TelegramChannelStatsPage";
 
 const meta = {
-  title: 'Pages/TelegramChannelStatsPage',
+  title: "Pages/TelegramChannelStatsPage",
   component: TelegramChannelStatsPage,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-
 } satisfies Meta<typeof TelegramChannelStatsPage>;
 
 export default meta;

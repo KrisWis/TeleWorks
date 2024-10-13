@@ -11,5 +11,5 @@ export interface AttachFileContainerFileProps {
   accept?: string;
   indexedDBName?: string;
   indexedDBStore?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  indexedDB?: IDBDatabase;
 }

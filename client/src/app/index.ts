@@ -10,8 +10,12 @@ export {
   transitionDuration,
   tablet_small_mediaQuery,
   IndexedDBName,
+  isUnit,
 } from "./layouts/BaseLayout/model/BaseLayout__data";
 
-export type { telegramChannelsCategories } from "./layouts/BaseLayout/model/BaseLayout__types";
+export type {
+  telegramChannelsCategories,
+  IndexedDBStore,
+} from "./layouts/BaseLayout/model/BaseLayout__types";
 
 export { LocalStorageKeys } from "./layouts/BaseLayout/model/LocalStorageKeys";

@@ -6,6 +6,7 @@ import { store } from "./store/AppStore";
 import { ScrollToTop } from "@/shared/utils/ScrollToTop";
 
 // TODO: проверить кроссбраузерность в конце разработки проекта
+// TODO: сделать e2e тесты для useLocalStorage, useIndexedDB, добавления конкретных изображений на странице редактирования профиля (проверка ошибок)
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>

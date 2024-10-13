@@ -1,6 +1,6 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsCreateRequestContainer.module.scss";
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { Link } from "react-router-dom";
@@ -30,10 +30,7 @@ import {
 import { UseKindDeedsCreateRequestLocalStorage } from "../model/useKindDeedsCreateRequestLocalStorage/useKindDeedsCreateRequestLocalStorage";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
-import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
-
-// Инстанс IndexedDB
-const UseIndexedDBInstance = new UseIndexedDB();
+import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
 
 export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestContainerProps> =
   memo(({ setRequestIsCreated }): React.JSX.Element => {
@@ -95,7 +92,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
       []
     );
 
-    // Сохранение изображений в indexedDB
+    // Сохранение файлов в IndexedDB
     const indexedDB = useRef<IDBDatabase>();
 
     const indexedDBStoreName: string = useMemo(
@@ -105,49 +102,6 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
         )!.name,
       []
     );
-
-    const handleFileChange = async (
-      event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-      const files = event.target.files;
-
-      if (files) {
-        for (const file of files) {
-          UseIndexedDBInstance.saveLoadedFile(
-            indexedDB.current!,
-            indexedDBStoreName,
-            file
-          );
-        }
-      }
-    };
-
-    const loadImages = useCallback(
-      async (db: IDBDatabase) => {
-        const fetchedImages = await UseIndexedDBInstance.fetchLoadedFiles(
-          db,
-          indexedDBStoreName
-        );
-
-        if (fetchedImages)
-          setLoadedDocuments(fetchedImages.map((image) => image.file));
-      },
-      [indexedDBStoreName]
-    );
-
-    useEffect(() => {
-      const initializeDatabase = async () => {
-        indexedDB.current = await UseIndexedDBInstance.openDatabase(
-          IndexedDBName,
-          1,
-          IndexedDBStores.map((store) => store.name)
-        );
-
-        loadImages(indexedDB.current);
-      };
-
-      initializeDatabase();
-    }, [loadImages]);
 
     // Нажатие на кнопку "Создать запрос"
     const [tryCreate, setTryCreate] = UseTryAction();
@@ -187,237 +141,246 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
     ]);
 
     return (
-      <Flex
-        max
-        className={styles.KindDeedsCreateRequestContainer}
-        gap="15"
-        direction="column"
+      <IndexedDBLoader
+        setFiles={setLoadedDocuments}
+        indexedDB={indexedDB}
+        indexedDBStoreName={indexedDBStoreName}
       >
-        <IncreaseScaleHover>
-          <Link to={AppRoutes.KIND_DEEDS}>
-            <Flex align="center" gap="15">
-              <BackSVG
-                className={styles.KindDeedsCreateRequestContainer__back}
-              />
-
-              <h1 className={styles.KindDeedsCreateRequestContainer__caption}>
-                Создание запроса средств
-              </h1>
-            </Flex>
-          </Link>
-        </IncreaseScaleHover>
-
         <Flex
           max
-          className="Page__GrayBorderSecondaryWrapper"
-          gap="10"
+          className={styles.KindDeedsCreateRequestContainer}
+          gap="15"
           direction="column"
         >
-          <h2
-            className={`KindDeedsCreateRequestPage__subcaption 
-              ${styles.KindDeedsCreateRequestContainer__firstSubcaption}`}
-          >
-            Контактные данные
-          </h2>
+          <IncreaseScaleHover>
+            <Link to={AppRoutes.KIND_DEEDS}>
+              <Flex align="center" gap="15">
+                <BackSVG
+                  className={styles.KindDeedsCreateRequestContainer__back}
+                />
+
+                <h1 className={styles.KindDeedsCreateRequestContainer__caption}>
+                  Создание запроса средств
+                </h1>
+              </Flex>
+            </Link>
+          </IncreaseScaleHover>
 
           <Flex
             max
-            className={styles.KindDeedsCreateRequestContainer__wrapper}
-            gap="20"
+            className="Page__GrayBorderSecondaryWrapper"
+            gap="10"
             direction="column"
           >
+            <h2
+              className={`KindDeedsCreateRequestPage__subcaption 
+              ${styles.KindDeedsCreateRequestContainer__firstSubcaption}`}
+            >
+              Контактные данные
+            </h2>
+
             <Flex
               max
-              className={styles.KindDeedsCreateRequestContainer__inputsWrapper}
+              className={styles.KindDeedsCreateRequestContainer__wrapper}
               gap="20"
               direction="column"
             >
+              <Flex
+                max
+                className={
+                  styles.KindDeedsCreateRequestContainer__inputsWrapper
+                }
+                gap="20"
+                direction="column"
+              >
+                <Input
+                  className={styles.KindDeedsCreateRequestContainer__input}
+                  type="text"
+                  value={surnameInputValue}
+                  onChange={(e) => {
+                    setSurnameInputValue(e.target.value);
+                    saveLSDebounce({
+                      surnameInputValue: e.target.value,
+                      nameInputValue,
+                      patronymicInputValue,
+                      organizationInputValue,
+                      requestSumInputValue: Number(requestSumInputValue),
+                      goalTextareaValue,
+                    });
+                  }}
+                  isWarn={tryCreate && !surnameInputValue}
+                  placeholder="Фамилия"
+                />
+
+                <Input
+                  className={styles.KindDeedsCreateRequestContainer__input}
+                  type="text"
+                  value={nameInputValue}
+                  onChange={(e) => {
+                    setNameInputValue(e.target.value);
+                    saveLSDebounce({
+                      surnameInputValue,
+                      nameInputValue: e.target.value,
+                      patronymicInputValue,
+                      organizationInputValue,
+                      requestSumInputValue: Number(requestSumInputValue),
+                      goalTextareaValue,
+                    });
+                  }}
+                  isWarn={tryCreate && !nameInputValue}
+                  placeholder="Имя"
+                />
+
+                <Input
+                  className={styles.KindDeedsCreateRequestContainer__input}
+                  type="text"
+                  value={patronymicInputValue}
+                  onChange={(e) => {
+                    setPatronymicInputValue(e.target.value);
+                    saveLSDebounce({
+                      surnameInputValue,
+                      nameInputValue,
+                      patronymicInputValue: e.target.value,
+                      organizationInputValue,
+                      requestSumInputValue: Number(requestSumInputValue),
+                      goalTextareaValue,
+                    });
+                  }}
+                  isWarn={tryCreate && !patronymicInputValue}
+                  placeholder="Отчество"
+                />
+              </Flex>
+
+              <h2 className="KindDeedsCreateRequestPage__subcaption">
+                Название организации/инициативы:
+              </h2>
+
               <Input
                 className={styles.KindDeedsCreateRequestContainer__input}
                 type="text"
-                value={surnameInputValue}
+                value={organizationInputValue}
                 onChange={(e) => {
-                  setSurnameInputValue(e.target.value);
+                  setOrganizationInputValue(e.target.value);
                   saveLSDebounce({
-                    surnameInputValue: e.target.value,
+                    surnameInputValue,
+                    nameInputValue,
+                    patronymicInputValue,
+                    organizationInputValue: e.target.value,
+                    requestSumInputValue: Number(requestSumInputValue),
+                    goalTextareaValue,
+                  });
+                }}
+                isWarn={tryCreate && !organizationInputValue}
+                placeholder="Организация"
+              />
+
+              <h2 className="KindDeedsCreateRequestPage__subcaption">
+                Цель финансирования
+              </h2>
+
+              <Textarea
+                className={styles.KindDeedsCreateRequestContainer__textarea}
+                value={goalTextareaValue}
+                onChange={(e) => {
+                  setGoalTextareaValue(e.target.value);
+                  saveLSDebounce({
+                    surnameInputValue,
                     nameInputValue,
                     patronymicInputValue,
                     organizationInputValue,
                     requestSumInputValue: Number(requestSumInputValue),
-                    goalTextareaValue,
+                    goalTextareaValue: e.target.value,
                   });
                 }}
-                isWarn={tryCreate && !surnameInputValue}
-                placeholder="Фамилия"
+                isWarn={tryCreate && !goalTextareaValue}
+                placeholder="Подробно объясните, как будут использованы запрашиваемые средства и какое влияние они окажут"
               />
 
-              <Input
-                className={styles.KindDeedsCreateRequestContainer__input}
-                type="text"
-                value={nameInputValue}
-                onChange={(e) => {
-                  setNameInputValue(e.target.value);
-                  saveLSDebounce({
-                    surnameInputValue,
-                    nameInputValue: e.target.value,
-                    patronymicInputValue,
-                    organizationInputValue,
-                    requestSumInputValue: Number(requestSumInputValue),
-                    goalTextareaValue,
-                  });
-                }}
-                isWarn={tryCreate && !nameInputValue}
-                placeholder="Имя"
-              />
+              <Flex
+                className={
+                  styles.KindDeedsCreateRequestContainer__loadDocumentsWrapper
+                }
+                max
+              >
+                <LoadImageBlockWithoutLoading
+                  title="Загрузите документы"
+                  size={LoadImageBlockSizes.BIG}
+                  withBG={false}
+                  isWarn={tryCreate && !loadedDocuments.length}
+                  isHovered={true}
+                  inputRef={documentInputRef}
+                />
 
-              <Input
-                className={styles.KindDeedsCreateRequestContainer__input}
-                type="text"
-                value={patronymicInputValue}
-                onChange={(e) => {
-                  setPatronymicInputValue(e.target.value);
-                  saveLSDebounce({
-                    surnameInputValue,
-                    nameInputValue,
-                    patronymicInputValue: e.target.value,
-                    organizationInputValue,
-                    requestSumInputValue: Number(requestSumInputValue),
-                    goalTextareaValue,
-                  });
-                }}
-                isWarn={tryCreate && !patronymicInputValue}
-                placeholder="Отчество"
-              />
-            </Flex>
+                <AttachFileContainer
+                  inputRef={documentInputRef}
+                  setInputFiles={setLoadedDocuments}
+                  InputFiles={loadedDocuments}
+                  setInputFileProgress={setLoadedDocumentsProgress}
+                  accept="image/jpg, image/jpeg, image/png, image/gif"
+                  zIndex={-1}
+                  indexedDB={indexedDB.current}
+                  indexedDBStoreName={indexedDBStoreName}
+                />
+              </Flex>
 
-            <h2 className="KindDeedsCreateRequestPage__subcaption">
-              Название организации/инициативы:
-            </h2>
-
-            <Input
-              className={styles.KindDeedsCreateRequestContainer__input}
-              type="text"
-              value={organizationInputValue}
-              onChange={(e) => {
-                setOrganizationInputValue(e.target.value);
-                saveLSDebounce({
-                  surnameInputValue,
-                  nameInputValue,
-                  patronymicInputValue,
-                  organizationInputValue: e.target.value,
-                  requestSumInputValue: Number(requestSumInputValue),
-                  goalTextareaValue,
-                });
-              }}
-              isWarn={tryCreate && !organizationInputValue}
-              placeholder="Организация"
-            />
-
-            <h2 className="KindDeedsCreateRequestPage__subcaption">
-              Цель финансирования
-            </h2>
-
-            <Textarea
-              className={styles.KindDeedsCreateRequestContainer__textarea}
-              value={goalTextareaValue}
-              onChange={(e) => {
-                setGoalTextareaValue(e.target.value);
-                saveLSDebounce({
-                  surnameInputValue,
-                  nameInputValue,
-                  patronymicInputValue,
-                  organizationInputValue,
-                  requestSumInputValue: Number(requestSumInputValue),
-                  goalTextareaValue: e.target.value,
-                });
-              }}
-              isWarn={tryCreate && !goalTextareaValue}
-              placeholder="Подробно объясните, как будут использованы запрашиваемые средства и какое влияние они окажут"
-            />
-
-            <Flex
-              className={
-                styles.KindDeedsCreateRequestContainer__loadDocumentsWrapper
-              }
-              max
-            >
-              <LoadImageBlockWithoutLoading
-                title="Загрузите документы"
-                size={LoadImageBlockSizes.BIG}
-                withBG={false}
-                isWarn={tryCreate && !loadedDocuments.length}
-                isHovered={true}
-                inputRef={documentInputRef}
-              />
-
-              <AttachFileContainer
-                inputRef={documentInputRef}
-                setInputFiles={setLoadedDocuments}
-                InputFiles={loadedDocuments}
+              <AttachFileContainerItems
+                InputFileProgress={loadedDocumentsProgress}
                 setInputFileProgress={setLoadedDocumentsProgress}
+                setInputFiles={setLoadedDocuments}
+                files={loadedDocuments}
+                fileView="medium"
                 accept="image/jpg, image/jpeg, image/png, image/gif"
-                zIndex={-1}
-                onChange={handleFileChange}
+                indexedDBName={IndexedDBName}
+                indexedDBStore={indexedDBStoreName}
+                indexedDB={indexedDB.current}
               />
-            </Flex>
 
-            <AttachFileContainerItems
-              InputFileProgress={loadedDocumentsProgress}
-              setInputFileProgress={setLoadedDocumentsProgress}
-              setInputFiles={setLoadedDocuments}
-              files={loadedDocuments}
-              fileView="medium"
-              accept="image/jpg, image/jpeg, image/png, image/gif"
-              indexedDBName={IndexedDBName}
-              indexedDBStore={indexedDBStoreName}
-              onChange={handleFileChange}
-            />
+              <h2 className="KindDeedsCreateRequestPage__subcaption">
+                Сумма запроса
+              </h2>
 
-            <h2 className="KindDeedsCreateRequestPage__subcaption">
-              Сумма запроса
-            </h2>
-
-            <Flex
-              max
-              className={styles.KindDeedsCreateRequestContainer__input__sum}
-            >
-              <Input
-                className={styles.KindDeedsCreateRequestContainer__input}
-                type="number"
-                value={requestSumInputValue}
-                onChange={(e) => {
-                  setRequestSumInputValue(e.target.value);
-                  saveLSDebounce({
-                    surnameInputValue,
-                    nameInputValue,
-                    patronymicInputValue,
-                    organizationInputValue,
-                    requestSumInputValue: Number(e.target.value),
-                    goalTextareaValue,
-                  });
-                }}
-                isWarn={tryCreate && !requestSumInputValue}
-                placeholder="1 422 223₽"
-              />
+              <Flex
+                max
+                className={styles.KindDeedsCreateRequestContainer__input__sum}
+              >
+                <Input
+                  className={styles.KindDeedsCreateRequestContainer__input}
+                  type="number"
+                  value={requestSumInputValue}
+                  onChange={(e) => {
+                    setRequestSumInputValue(e.target.value);
+                    saveLSDebounce({
+                      surnameInputValue,
+                      nameInputValue,
+                      patronymicInputValue,
+                      organizationInputValue,
+                      requestSumInputValue: Number(e.target.value),
+                      goalTextareaValue,
+                    });
+                  }}
+                  isWarn={tryCreate && !requestSumInputValue}
+                  placeholder="1 422 223₽"
+                />
+              </Flex>
             </Flex>
           </Flex>
-        </Flex>
 
-        <Flex max justify="end" align="center">
-          <Button
-            to={AppRoutes.KIND_DEEDS}
-            type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
-            text="Назад"
-            className={styles.KindDeedsCreateRequestContainer__button}
-          />
+          <Flex max justify="end" align="center">
+            <Button
+              to={AppRoutes.KIND_DEEDS}
+              type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
+              text="Назад"
+              className={styles.KindDeedsCreateRequestContainer__button}
+            />
 
-          <Button
-            type={ButtonTypes.RED}
-            text="Создать запрос"
-            className={styles.KindDeedsCreateRequestContainer__button}
-            onClick={createRequest}
-          />
+            <Button
+              type={ButtonTypes.RED}
+              text="Создать запрос"
+              className={styles.KindDeedsCreateRequestContainer__button}
+              onClick={createRequest}
+            />
+          </Flex>
         </Flex>
-      </Flex>
+      </IndexedDBLoader>
     );
   });

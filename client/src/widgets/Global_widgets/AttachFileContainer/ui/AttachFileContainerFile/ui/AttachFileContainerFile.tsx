@@ -3,7 +3,7 @@ import styles from "./AttachFileContainerFile.module.scss";
 import { memo, useCallback, useRef } from "react";
 import ChangeFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/ChangeFileSVG.svg?react";
 import DeleteFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/DeleteFileSVG.svg?react";
-import { PortNow, URL_PART } from "@/app";
+import { isUnit, URL_PART } from "@/app";
 import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
 
 // Инстанс IndexedDB
@@ -20,7 +20,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
       accept,
       indexedDBName,
       indexedDBStore,
-      onChange,
+      indexedDB,
     }): React.JSX.Element => {
       // Функционал изменения файла
       const ChangeInputRef = useRef<HTMLInputElement>(null);
@@ -48,14 +48,19 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
               const InputFilesCopyForLoading = InputFiles.slice();
 
               // Удаление из indexedDB прошлого файла, если он есть
-              if (PortNow && onChange && indexedDBName && indexedDBStore) {
+              if (!isUnit && indexedDB && indexedDBName && indexedDBStore) {
                 UseIndexedDBInstance.deleteFileFromIndexedDB(
                   indexedDBName,
                   indexedDBStore,
                   loadedFile.FileName
                 );
 
-                onChange(e);
+                // Добавление в indexedDB
+                UseIndexedDBInstance.saveLoadedFile(
+                  indexedDB,
+                  indexedDBStore,
+                  UserInputFile[0]
+                );
               }
 
               const PastFileIndex = InputFilesCopy.findIndex(
@@ -69,7 +74,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
                 FileType: "",
               };
 
-              if (PortNow) {
+              if (!isUnit) {
                 setInputFiles(InputFilesCopyForLoading);
               }
 
@@ -89,10 +94,10 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
         },
         [
           InputFiles,
+          indexedDB,
           indexedDBName,
           indexedDBStore,
           loadedFile.FileName,
-          onChange,
           setInputFileProgress,
           setInputFiles,
         ]
@@ -110,7 +115,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
 
         setInputFiles(InputFilesCopy);
 
-        if (PortNow && indexedDBName && indexedDBStore)
+        if (!isUnit && indexedDBName && indexedDBStore)
           UseIndexedDBInstance.deleteFileFromIndexedDB(
             indexedDBName,
             indexedDBStore,

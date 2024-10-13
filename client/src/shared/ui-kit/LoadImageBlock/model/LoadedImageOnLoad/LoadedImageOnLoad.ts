@@ -7,7 +7,7 @@ import {
   LoadImageBlockMinWidth,
   LoadImageIsValidCheck,
 } from "../LoadImageIsValidCheck/LoadImageIsValidCheck";
-import { PortNow } from "@/app";
+import { isUnit } from "@/app";
 
 export const LoadedImageOnLoad = (
   e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
@@ -18,7 +18,7 @@ export const LoadedImageOnLoad = (
 
   mockFileName?: string
 ) => {
-  if (PortNow) {
+  if (!isUnit) {
     setLoadedImage(LoadingConst);
   } else {
     if (mockFileName) {
