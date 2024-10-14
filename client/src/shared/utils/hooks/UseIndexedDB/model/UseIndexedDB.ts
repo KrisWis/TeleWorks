@@ -1,6 +1,6 @@
 import { FileData } from "..";
 
-// TODO: убрать все логи
+// TODO: убрать логи, когда будет закончена разработка
 
 export class UseIndexedDB {
   openDatabase = (

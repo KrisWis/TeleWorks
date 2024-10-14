@@ -5,3 +5,7 @@ export interface BlogOpenPostCommentsUser {
   title: string;
   category: BlogAuthorsCategories;
 }
+
+export interface BlogOpenPostCommentsProps {
+  id: string;
+}

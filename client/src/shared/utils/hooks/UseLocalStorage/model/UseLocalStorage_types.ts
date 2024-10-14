@@ -6,5 +6,12 @@ export enum UseLocalStorageTypes {
 
 export type UseLocalStorageCustom<ReturnValue> = (
   type: UseLocalStorageTypes,
+  value?: ReturnValue,
+  id?: string
+) => false | ReturnValue;
+
+export type UseLocalStorageCustomSecondary<ReturnValue> = (
+  type: UseLocalStorageTypes,
+  id?: string,
   value?: ReturnValue
 ) => false | ReturnValue;

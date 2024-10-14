@@ -51,7 +51,8 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
     }, []);
 
     const postMouseoutEvent = useCallback((): void => {
-      postRef.current!.classList.remove(styles.BlogPost__hover);
+      if (postRef.current)
+        postRef.current.classList.remove(styles.BlogPost__hover);
     }, []);
 
     useEffect(() => {

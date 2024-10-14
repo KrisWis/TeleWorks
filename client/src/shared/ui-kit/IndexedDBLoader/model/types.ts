@@ -6,4 +6,5 @@ export interface IndexedDBLoaderProps {
   setFiles: React.Dispatch<React.SetStateAction<LoadedFile[]>>;
   indexedDB: React.MutableRefObject<IDBDatabase | undefined>;
   indexedDBStoreName: string;
+  id?: string | number;
 }

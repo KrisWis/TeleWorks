@@ -67,7 +67,7 @@ export const BlogPostPage: React.FC = memo((): React.JSX.Element => {
               >
                 <BlogOpenPost id={Number(id)} />
 
-                <BlogOpenPostComments />
+                <BlogOpenPostComments id={id!} />
 
                 <Flex gap="10" direction="column">
                   {blogCommentsExample.map((comment) => {
