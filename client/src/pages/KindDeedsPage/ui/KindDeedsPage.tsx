@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery, URL_PART } from "@/app";
 import "./KindDeedsPage.scss";
 import "@/shared/main.scss";
 import { KindDeedsMainSection } from "@/widgets/KindDeedsPage_widgets/KindDeedsMainSection";
@@ -30,7 +30,11 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
 
   return (
     <main className="Page KindDeedsPage__main">
-      <Flex direction="column" gap="40" className="padding">
+      <Flex
+        direction="column"
+        gap={mobile_mediaQuery.matches ? "20" : "40"}
+        className="padding"
+      >
         <KindDeedsMainSection />
 
         <KindDeedsTip
@@ -38,10 +42,10 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           text={
             "Мы рады сообщить, что часть нашего дохода от TeleWorks будет направлена на благотворительность. Каждая ваша покупка помогает тем, кто в этом нуждается."
           }
-          imgURL={`${URL_PART}/KindDeeds/madeKindnessTogether_img.png`}
+          imgURL={`${URL_PART}/KindDeeds${mobile_mediaQuery.matches ? "/Adaptive" : ""}/madeKindnessTogether_img.png`}
           imgURLAlt={"Мужчина складывает деньги в мешочек"}
           textWrapperWidth="50%"
-          padding="0 50px"
+          padding={`${tablet_mediaQuery.matches ? 10 : 0}px ${tablet_mediaQuery.matches ? 15 : 50}px`}
         />
 
         <KindDeedsStats />
@@ -64,10 +68,10 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           text={
             "Мы верим, что успех нашего проекта должен служить благу других. Поэтому мы решили направлять часть дохода от TeleWorks на благотворительность. Каждая ваша покупка или взаимодействие с нашим сайтом вносит вклад в добрые дела, которые меняют жизни к лучшему!"
           }
-          imgURL={`${URL_PART}/KindDeeds/GenerosityBringsJoy_img.png`}
+          imgURL={`${URL_PART}/KindDeeds${mobile_mediaQuery.matches ? "/Adaptive" : ""}/GenerosityBringsJoy_img.png`}
           imgURLAlt={"Монеты на фоне сердца"}
           textWrapperWidth="100%"
-          padding="0 35px"
+          padding={`${tablet_mediaQuery.matches ? 15 : 0}px ${tablet_mediaQuery.matches ? 15 : 35}px`}
         />
 
         <KindDeedsAllegations />

@@ -127,6 +127,14 @@ body {
 main {
   margin-top: 100px !important;
   flex-grow: 1;
+
+  @media (max-width: $tablet-mediaquery-width) {
+    margin-top: 80px !important;
+  }
+
+  @media (max-width: $mobile-mediaquery-width) {
+    margin-top: 60px !important;
+  }
 }
 
 footer {

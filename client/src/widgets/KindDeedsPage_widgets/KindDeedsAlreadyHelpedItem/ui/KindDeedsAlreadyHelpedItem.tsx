@@ -6,12 +6,13 @@ import BlueLineSVG from "@/shared/assets/icons/Global/BlueLineSVG.svg?react";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import { Link } from "react-router-dom";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { mobile_mediaQuery } from "@/app";
 
 export const KindDeedsAlreadyHelpedItem: React.FC<KindDeedsAlreadyHelpedItemProps> =
   memo(({ imgURL, person, city, age, desc, price }): React.JSX.Element => {
     return (
       <Flex
-        gap="10"
+        gap={mobile_mediaQuery.matches ? "5" : "10"}
         direction="column"
         className={`${styles.KindDeedsAlreadyHelpedItem} Page__GrayBorderSecondaryWrapper`}
       >

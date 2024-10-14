@@ -1,5 +1,11 @@
+@import "@/shared/vars";
+
 .KindDeedsNeedHelpItem {
   padding: 10px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 8px;
+  }
 
   * {
     line-height: 120%;
@@ -14,10 +20,18 @@
     object-fit: cover;
     object-position: center center;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 12px;
+    }
+
     &Wrapper {
       position: relative;
       height: 314px;
       width: 100%;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        height: 188px;
+      }
     }
   }
 
@@ -31,40 +45,73 @@
     top: 10px;
     left: 10px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 302px;
+      width: 100px;
+      height: 17px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+      top: 5px;
+      left: 5px;
+    }
+
     &__text {
       font-weight: 600;
       font-size: 15px;
       color: var(--white-color);
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 9px;
+      }
     }
   }
 
   &__person {
     font-weight: 700;
     font-size: 24px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 14px;
+    }
   }
 
   &__info {
     font-weight: 600;
     font-size: 14px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__desc {
     font-weight: 500;
     font-size: 15px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__gathering {
     font-weight: 700;
     font-size: 14px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__price {
     font-weight: 700;
     font-size: 14px;
     color: var(--main-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__progressbar {
@@ -72,6 +119,11 @@
     height: 24px;
     background-color: rgba(47, 47, 47, 0.4);
     width: 100%;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 604px;
+      height: 14px;
+    }
   }
 
   &__knowHistory {
@@ -82,6 +134,10 @@
       font-weight: 700;
       font-size: 16px;
       color: var(--violet-color);
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+      }
     }
   }
 
@@ -97,5 +153,11 @@
     font-weight: 700;
     font-size: 20px;
     color: var(--white-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 6px;
+      height: 28px;
+      font-size: 12px;
+    }
   }
 }

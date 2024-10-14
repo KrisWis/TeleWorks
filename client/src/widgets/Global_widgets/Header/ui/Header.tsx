@@ -67,7 +67,8 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
         <div className={styles.header__wrapper}>
           <div
             className={`${styles.header__wrapper__logo} 
-            ${view == HeaderViews.BLOG ? styles.header__wrapper__logo__blog : ""}`}
+            ${view == HeaderViews.BLOG ? styles.header__wrapper__logo__blog : ""}
+            ${view == HeaderViews.TELEGRAM_CHANNEL_STATS ? styles.header__wrapper__logo__stats : ""}`}
           >
             <h1 className={styles.header__caption} data-testid="headerCaption">
               Tele<span className={styles.header__caption__span}>Works</span>
@@ -97,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
 
             {view == HeaderViews.KIND_DEEDS && (
               <Flex
-                className={`${styles.header__service} Page__SirineWrapper`}
+                className={`${styles.header__service} ${styles.header__service__kindDeeds} Page__SirineWrapper`}
                 direction={"row"}
                 justify="center"
                 align="center"

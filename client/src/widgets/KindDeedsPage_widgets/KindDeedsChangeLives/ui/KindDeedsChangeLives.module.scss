@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsChangeLives {
   * {
     line-height: 120%;
@@ -6,12 +8,23 @@
   }
 
   &__caption__bg::after {
-    right: 0;
+    @media (min-width: $tablet-mediaquery-width) {
+      top: -5px;
+      right: -90px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      right: -43px;
+    }
   }
 
   &__text {
     font-weight: 500;
     font-size: 32px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__button {
@@ -19,10 +32,27 @@
     height: 66px;
     border-radius: 17px;
     font-size: 21px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 16px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 8px;
+      height: 30px;
+      font-size: 12px;
+      padding: 0;
+      width: 50%;
+    }
   }
 
   &__img {
     position: relative;
     right: 0;
+
+    @media (max-width: $tablet-mediaquery-width) and (min-width: $mobile-mediaquery-width) {
+      width: 400px;
+      height: 280px;
+    }
   }
 }

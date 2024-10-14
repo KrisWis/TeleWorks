@@ -1,6 +1,7 @@
-import { URL_PART } from "@/app";
+import { mobile_mediaQuery, URL_PART } from "@/app";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { memo } from "react";
+import styles from "./KindDeedsHaveSignificance.module.scss";
 
 export const KindDeedsHaveSignificance: React.FC = memo(
   (): React.JSX.Element => {
@@ -20,7 +21,8 @@ export const KindDeedsHaveSignificance: React.FC = memo(
         </Flex>
 
         <img
-          src={`${URL_PART}/KindDeeds/haveSignificance_img.png`}
+          className={styles.KindDeedsHaveSignificance__img}
+          src={`${URL_PART}/KindDeeds${mobile_mediaQuery.matches ? "/Adaptive" : ""}/haveSignificance_img.png`}
           alt="Люди ухаживают за планетой Земля"
         />
       </Flex>

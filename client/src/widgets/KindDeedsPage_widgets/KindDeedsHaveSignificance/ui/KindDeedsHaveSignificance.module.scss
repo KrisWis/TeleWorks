@@ -1,0 +1,10 @@
+@import "@/shared/vars";
+
+.KindDeedsHaveSignificance {
+  &__img {
+    @media (max-width: $tablet-mediaquery-width) and (min-width: $mobile-mediaquery-width) {
+      width: 400px;
+      height: 280px;
+    }
+  }
+}

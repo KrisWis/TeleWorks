@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsAllegations {
   display: grid;
   grid-template-columns: repeat(3, 30%);
@@ -15,16 +17,40 @@
     font-weight: 800;
     font-size: 72px;
     color: var(--main-color);
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 50px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 22px;
+    }
   }
 
   &__title {
     font-weight: 700;
     font-size: 30px;
     width: 81%;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 20px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__desc {
     font-weight: 500;
     font-size: 18px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 12px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 }

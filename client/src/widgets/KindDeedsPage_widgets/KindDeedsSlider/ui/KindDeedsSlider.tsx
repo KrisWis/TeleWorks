@@ -9,7 +9,7 @@ import { Navigation } from "swiper/modules";
 import "./KindDeedsSlider_swiper.scss";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { KindDeedsSliderProps } from "../model/types";
-import { AppRoutes } from "@/app";
+import { AppRoutes, mobile_mediaQuery, tablet_mediaQuery } from "@/app";
 
 export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
   ({ items, prevArrowId, nextArrowId, title, titleRed }): React.JSX.Element => {
@@ -18,7 +18,7 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
         align="center"
         className="KindDeedsSlider"
         direction="column"
-        gap="20"
+        gap={mobile_mediaQuery.matches ? "10" : "20"}
         max
       >
         <h2 className="KindDeedsPage__caption">
@@ -50,9 +50,9 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
               nextEl: `#${nextArrowId}`,
             }}
             modules={[Navigation]}
-            spaceBetween={20}
-            slidesPerView={3}
-            slidesPerGroup={3}
+            spaceBetween={mobile_mediaQuery.matches ? 13 : 20}
+            slidesPerView={tablet_mediaQuery.matches ? 1.5 : 3}
+            slidesPerGroup={tablet_mediaQuery.matches ? 1 : 3}
             watchSlidesProgress={true}
           >
             {items.map((item, index) => (
@@ -76,7 +76,12 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
           </div>
         </Flex>
 
-        <Flex justify="center" max align="center" gap="20">
+        <Flex
+          justify="center"
+          max
+          align="center"
+          gap={mobile_mediaQuery.matches ? "10" : "20"}
+        >
           <Button
             className={styles.KindDeedsSlider__button}
             type={ButtonTypes.RED}

@@ -2,14 +2,15 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsChangeLives.module.scss";
 import { memo } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { URL_PART } from "@/app";
+import { mobile_mediaQuery, URL_PART } from "@/app";
 
 export const KindDeedsChangeLives: React.FC = memo((): React.JSX.Element => {
   return (
     <Flex isSection max align="center" justify="between">
-      <Flex direction="column" gap="20">
+      <Flex direction="column" gap={mobile_mediaQuery.matches ? "10" : "20"}>
         <h2 className="KindDeedsPage__caption">
           Ваше участие может
+          <br />
           <span
             className={`KindDeedsPage__caption__bg ${styles.KindDeedsChangeLives__caption__bg}`}
           >
@@ -23,7 +24,7 @@ export const KindDeedsChangeLives: React.FC = memo((): React.JSX.Element => {
           кто в этом остро нуждается.
         </p>
 
-        <Flex max align="center" gap="20">
+        <Flex max align="center" gap={mobile_mediaQuery.matches ? "10" : "20"}>
           <Button
             className={styles.KindDeedsChangeLives__button}
             type={ButtonTypes.RED}
@@ -40,7 +41,7 @@ export const KindDeedsChangeLives: React.FC = memo((): React.JSX.Element => {
 
       <img
         className={styles.KindDeedsChangeLives__img}
-        src={`${URL_PART}/KindDeeds/ParticipationChangeLives_img.png`}
+        src={`${URL_PART}/KindDeeds${mobile_mediaQuery.matches ? "/Adaptive" : ""}/ParticipationChangeLives_img.png`}
         alt="Люди крутяться вокруг сердечка с TeleWorks"
       />
     </Flex>

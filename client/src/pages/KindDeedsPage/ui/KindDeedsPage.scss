@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsPage {
   &__main {
     display: flex;
@@ -14,6 +16,10 @@
     letter-spacing: -0.01em;
     color: var(--color-black);
 
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 20px;
+    }
+
     &__red {
       color: var(--main-color);
     }
@@ -25,9 +31,15 @@
         content: url("../../../../public/KindDeeds/captionBG.jpg");
         position: absolute;
         display: block;
-        top: 60px;
+        top: 0;
         z-index: var(--z-index-hidden);
         right: -60px;
+
+        @media (max-width: $tablet-mediaquery-width) {
+          content: url("../../../../public/KindDeeds/Adaptive/captionBG.jpg");
+          right: -25px;
+          top: -2px;
+        }
       }
     }
   }
@@ -38,6 +50,14 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 20px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
   }
 
   &__desc {
@@ -46,6 +66,16 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 15px;
+      width: 80%;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+      width: 100%;
+    }
   }
 
   &__FAQCaption {
@@ -57,6 +87,14 @@
     margin-top: 40px;
     text-align: center;
     width: 100%;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 30px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 14px;
+    }
   }
 
   .padding {

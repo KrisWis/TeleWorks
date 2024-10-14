@@ -9,6 +9,7 @@ import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { ProgressBar } from "primereact/progressbar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import "./KindDeedsNeedHelpItem_progressbar.scss";
+import { mobile_mediaQuery } from "@/app";
 
 export const KindDeedsNeedHelpItem: React.FC<KindDeedsNeedHelpItemProps> = memo(
   ({
@@ -23,7 +24,7 @@ export const KindDeedsNeedHelpItem: React.FC<KindDeedsNeedHelpItemProps> = memo(
   }): React.JSX.Element => {
     return (
       <Flex
-        gap="10"
+        gap={mobile_mediaQuery.matches ? "5" : "10"}
         direction="column"
         className={`${styles.KindDeedsNeedHelpItem} KindDeedsNeedHelpItem Page__GrayBorderSecondaryWrapper`}
       >

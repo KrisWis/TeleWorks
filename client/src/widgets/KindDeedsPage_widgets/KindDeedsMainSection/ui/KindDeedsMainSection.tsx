@@ -1,15 +1,16 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsMainSection.module.scss";
 import { memo } from "react";
-import { URL_PART } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery, URL_PART } from "@/app";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const KindDeedsMainSection: React.FC = memo((): React.JSX.Element => {
   return (
     <div className={styles.KindDeedsMainSection}>
-      <Flex direction="column" gap="20">
+      <Flex direction="column" gap={tablet_mediaQuery.matches ? "10" : "20"}>
         <h1 className="KindDeedsPage__caption">
           <span className="KindDeedsPage__caption__red">Добрые дела</span> для
+          <br />
           <span className="KindDeedsPage__caption__bg"> лучшего будущего </span>
         </h1>
 
@@ -19,7 +20,7 @@ export const KindDeedsMainSection: React.FC = memo((): React.JSX.Element => {
           защиту окружающей среды.
         </p>
 
-        <Flex max align="center" gap="20">
+        <Flex max align="center" gap={tablet_mediaQuery.matches ? "10" : "20"}>
           <Button
             className={styles.KindDeedsMainSection__button}
             type={ButtonTypes.RED}
@@ -37,7 +38,7 @@ export const KindDeedsMainSection: React.FC = memo((): React.JSX.Element => {
       <Flex justify="end">
         <img
           className={styles.KindDeedsMainSection__img}
-          src={`${URL_PART}/KindDeeds/MainSection_img.png`}
+          src={`${URL_PART}/KindDeeds${mobile_mediaQuery.matches ? "/Adaptive" : ""}/MainSection_img.png`}
           alt="Красное сердце"
         />
       </Flex>

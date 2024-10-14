@@ -1,9 +1,15 @@
+@import "@/shared/vars";
+
 .KindDeedsSlider .swiper {
   display: flex;
   align-items: center;
   height: 100% !important;
   overflow: visible;
   padding: 10px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 0;
+  }
 }
 
 .KindDeedsSlider .swiper-wrapper {

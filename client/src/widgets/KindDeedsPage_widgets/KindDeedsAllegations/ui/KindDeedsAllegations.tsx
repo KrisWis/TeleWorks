@@ -1,11 +1,18 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsAllegations.module.scss";
 import { memo } from "react";
+import { mobile_mediaQuery } from "@/app";
 
 export const KindDeedsAllegations: React.FC = memo((): React.JSX.Element => {
   return (
     <section className={styles.KindDeedsAllegations}>
-      <Flex max justify="center" align="center" direction="column" gap="10">
+      <Flex
+        max
+        justify="center"
+        align="center"
+        direction="column"
+        gap={mobile_mediaQuery.matches ? "5" : "10"}
+      >
         <span className={styles.KindDeedsAllegations__number}>01</span>
 
         <h6 className={styles.KindDeedsAllegations__title}>
@@ -18,7 +25,13 @@ export const KindDeedsAllegations: React.FC = memo((): React.JSX.Element => {
         </p>
       </Flex>
 
-      <Flex max justify="center" align="center" direction="column" gap="10">
+      <Flex
+        max
+        justify="center"
+        align="center"
+        direction="column"
+        gap={mobile_mediaQuery.matches ? "5" : "10"}
+      >
         <span className={styles.KindDeedsAllegations__number}>02</span>
 
         <h6 className={styles.KindDeedsAllegations__title}>
@@ -31,7 +44,13 @@ export const KindDeedsAllegations: React.FC = memo((): React.JSX.Element => {
         </p>
       </Flex>
 
-      <Flex max justify="center" align="center" direction="column" gap="10">
+      <Flex
+        max
+        justify="center"
+        align="center"
+        direction="column"
+        gap={mobile_mediaQuery.matches ? "5" : "10"}
+      >
         <span className={styles.KindDeedsAllegations__number}>03</span>
 
         <h6 className={styles.KindDeedsAllegations__title}>

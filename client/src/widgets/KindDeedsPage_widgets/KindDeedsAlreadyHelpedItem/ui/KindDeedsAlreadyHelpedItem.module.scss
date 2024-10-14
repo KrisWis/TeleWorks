@@ -1,5 +1,11 @@
+@import "@/shared/vars";
+
 .KindDeedsAlreadyHelpedItem {
   padding: 10px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 8px;
+  }
 
   * {
     line-height: 120%;
@@ -13,29 +19,50 @@
     width: 100%;
     object-fit: cover;
     object-position: center center;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      height: 188px;
+      border-radius: 12px;
+    }
   }
 
   &__person {
     font-weight: 700;
     font-size: 24px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 14px;
+    }
   }
 
   &__info {
     font-weight: 600;
     font-size: 14px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__desc {
     font-weight: 500;
     font-size: 15px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__gathering {
     font-weight: 700;
     font-size: 14px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__price {
@@ -43,6 +70,10 @@
     font-size: 14px;
     opacity: 0.4;
     color: var(--main-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+    }
   }
 
   &__progressbar {
@@ -50,6 +81,11 @@
     height: 24px;
     background-color: var(--main-color);
     width: 100%;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      height: 14px;
+      border-radius: 599px;
+    }
   }
 
   &__knowHistory {
@@ -60,6 +96,10 @@
       font-weight: 700;
       font-size: 16px;
       color: var(--violet-color);
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+      }
     }
   }
 

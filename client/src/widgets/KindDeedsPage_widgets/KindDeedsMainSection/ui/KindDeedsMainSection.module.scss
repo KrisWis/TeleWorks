@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsMainSection {
   display: grid;
   grid-template-columns: 55% 45%;
@@ -6,15 +8,43 @@
   justify-content: space-between;
   margin-top: 40px;
 
+  @media (max-width: $tablet-mediaquery-width) {
+    align-items: flex-start;
+    grid-template-columns: 78% 22%;
+  }
+
+  @media (max-width: $mobile-mediaquery-width) {
+    grid-template-columns: 65% 35%;
+    margin-top: 0;
+  }
+
   &__button {
     width: 35%;
     height: 66px;
     border-radius: 17px;
     font-size: 21px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 15px;
+      height: 50px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 12px;
+      height: 30px;
+      width: 60%;
+      padding: 15px;
+    }
   }
 
   &__img {
     position: relative;
     right: 0;
+
+    @media (max-width: $tablet-mediaquery-width) and (min-width: $mobile-mediaquery-width) {
+      width: 230px;
+      height: 200px;
+    }
   }
 }

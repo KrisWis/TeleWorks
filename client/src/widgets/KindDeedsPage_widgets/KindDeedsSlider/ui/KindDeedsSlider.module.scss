@@ -19,13 +19,13 @@
         height: 24px;
       }
 
-      @media (max-width: $tablet-small-mediaquery-width) {
-        width: 35px;
-        height: 25px;
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 40px;
+        height: 40px;
 
         svg {
-          width: 10px;
-          height: 5px;
+          width: 7px;
+          height: 14px;
         }
       }
 
@@ -42,16 +42,16 @@
       &__prev {
         left: 40px;
 
-        @media (max-width: $tablet-small-mediaquery-width) {
-          left: 20px;
+        @media (max-width: $mobile-mediaquery-width) {
+          left: 10px;
         }
       }
 
       &__next {
         right: 40px;
 
-        @media (max-width: $tablet-small-mediaquery-width) {
-          right: 20px;
+        @media (max-width: $mobile-mediaquery-width) {
+          right: 10px;
         }
       }
     }
@@ -63,5 +63,13 @@
     font-size: 21px;
     padding: 20px 60px;
     margin-top: 10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 10px;
+      height: 37px;
+      font-size: 12px;
+      padding: 20px 40px;
+      margin-top: 15px;
+    }
   }
 }

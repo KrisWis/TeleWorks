@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsStats {
   * {
     line-height: 120%;
@@ -8,11 +10,27 @@
   &__title {
     font-weight: 600;
     font-size: 54px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 40px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 18px;
+    }
   }
 
   &__value {
     font-weight: 700;
     font-size: 88px;
     color: var(--main-color);
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 70px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 28px;
+    }
   }
 }
