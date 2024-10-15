@@ -51,7 +51,13 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
             }}
             modules={[Navigation]}
             spaceBetween={mobile_mediaQuery.matches ? 13 : 20}
-            slidesPerView={tablet_mediaQuery.matches ? 1.5 : 3}
+            slidesPerView={
+              tablet_mediaQuery.matches
+                ? mobile_mediaQuery.matches
+                  ? 1.5
+                  : 2
+                : 3
+            }
             slidesPerGroup={tablet_mediaQuery.matches ? 1 : 3}
             watchSlidesProgress={true}
           >
