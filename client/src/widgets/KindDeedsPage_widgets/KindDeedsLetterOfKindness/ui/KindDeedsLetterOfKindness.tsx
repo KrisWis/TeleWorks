@@ -3,7 +3,7 @@ import styles from "./KindDeedsLetterOfKindness.module.scss";
 import { memo, useState } from "react";
 import { Input } from "@/shared/ui-kit/Input";
 import WhiteArrowSVG from "@/shared/assets/icons/Global/WhiteArrowSVG.svg?react";
-import { URL_PART } from "@/app";
+import { mobile_mediaQuery, URL_PART } from "@/app";
 
 export const KindDeedsLetterOfKindness: React.FC = memo(
   (): React.JSX.Element => {
@@ -16,7 +16,7 @@ export const KindDeedsLetterOfKindness: React.FC = memo(
         justify="between"
         className={styles.KindDeedsLetterOfKindness}
       >
-        <Flex direction="column" gap="10">
+        <Flex direction="column" gap={mobile_mediaQuery.matches ? "3" : "10"}>
           <h1 className="KindDeedsPage__caption KindDeedsPage__caption__red">
             Письмо добра
           </h1>
@@ -43,16 +43,16 @@ export const KindDeedsLetterOfKindness: React.FC = memo(
               <WhiteArrowSVG />
             </Flex>
 
-            <span className={styles.KindDeedsLetterOfKindness__accept}>
+            <p className={styles.KindDeedsLetterOfKindness__accept}>
               *нажимая на кнопку, вы принимаете условия публичной оферты и даете
               согласие на обработку персональных данных
-            </span>
+            </p>
           </div>
         </Flex>
 
         <img
           className={styles.KindDeedsLetterOfKindness__img}
-          src={`${URL_PART}/KindDeeds/letterOfKindness_img.png`}
+          src={`${URL_PART}/KindDeeds${mobile_mediaQuery.matches ? "/Adaptive" : ""}/letterOfKindness_img.png`}
           alt="Письмо с сердечком и логотипов TeleWorks"
         />
       </Flex>

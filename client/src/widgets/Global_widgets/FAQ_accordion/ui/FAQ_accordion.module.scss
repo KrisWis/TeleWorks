@@ -1,8 +1,14 @@
+@import "@/shared/vars";
+
 .FAQ_accordion {
   &__accordion {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 5px;
+    }
   }
 
   &__wrapper {
@@ -10,5 +16,9 @@
     width: 100%;
     padding: 30px 33px;
     padding-bottom: 37px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding: 10px;
+    }
   }
 }

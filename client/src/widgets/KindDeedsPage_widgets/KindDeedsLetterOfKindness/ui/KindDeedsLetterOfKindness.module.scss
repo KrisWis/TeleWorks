@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsLetterOfKindness {
   border: 1px solid var(--violet-color);
   border-radius: 25px;
@@ -6,6 +8,19 @@
   background: var(--white-color);
   padding: 50px;
   margin-top: 50px;
+
+  @media (max-width: $tablet-mediaquery-width) {
+    padding: 25px;
+  }
+
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 10px;
+    border: 0.38px solid #4266c6;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+    height: 150px;
+    margin-top: 10px;
+  }
 
   * {
     line-height: 120%;
@@ -16,6 +31,10 @@
     font-weight: 500;
     font-size: 24px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__input {
@@ -24,8 +43,19 @@
     height: 64px;
     font-size: 24px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+      height: 24px;
+      border: 0.38px solid #4266c6;
+      border-radius: 8px;
+    }
+
     &::placeholder {
       font-size: 24px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 9px;
+      }
     }
 
     &Wrapper {
@@ -33,6 +63,10 @@
       width: 100%;
       padding: 1px;
       margin-top: 10px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        margin-top: 3px;
+      }
     }
   }
 
@@ -47,6 +81,19 @@
     border: 1px solid transparent;
     transition: var(--transition-duration) linear;
     transition-property: background-color, border-color;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 6px;
+      width: 19px;
+      height: 19px;
+      top: 7.5%;
+      right: 2.3%;
+
+      svg {
+        width: 10px;
+        height: 6px;
+      }
+    }
 
     path {
       transition: var(--transition-duration) linear fill;
@@ -66,6 +113,11 @@
     font-weight: 500;
     font-size: 9px;
     color: var(--gray-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 5px;
+      margin-top: 10px;
+    }
   }
 
   &__img {
@@ -73,5 +125,9 @@
     height: 110%;
     object-fit: cover;
     object-position: center center;
+
+    @media (max-width: $tablet-mediaquery-width) and (min-width: $mobile-mediaquery-width) {
+      height: 60%;
+    }
   }
 }

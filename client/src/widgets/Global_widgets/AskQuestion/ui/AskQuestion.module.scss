@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .AskQuestion {
   height: 351px;
   display: flex;
@@ -7,12 +9,25 @@
   gap: 15px;
   width: 100%;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    height: 101px;
+    gap: 6px;
+  }
+
   &__caption {
     font-weight: 600;
     font-size: 36px;
     line-height: 100%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 30px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 14px;
+    }
   }
 
   &__desc {
@@ -22,6 +37,14 @@
     letter-spacing: -0.01em;
     color: var(--black-color);
     opacity: 0.4;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 20px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
 
     &__red {
       font-weight: 600;
@@ -39,5 +62,17 @@
     font-size: 36px;
     text-decoration: none;
     margin-top: 10px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      font-size: 30px;
+    }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 12px;
+      height: 26px;
+      border-radius: 6px;
+      margin-top: 0;
+      padding: 0;
+    }
   }
 }
