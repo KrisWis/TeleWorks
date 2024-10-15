@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .KindDeedsCreateRequestPage {
   &__main {
     display: flex;
@@ -10,10 +12,24 @@
     font-weight: 600;
     font-size: 32px;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 16px;
+    }
   }
 
   &__contentWrapper {
-    min-height: 1700px;
+    min-height: 1770px;
     position: relative;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      min-height: 965px;
+    }
+  }
+}
+
+.padding {
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 0;
   }
 }

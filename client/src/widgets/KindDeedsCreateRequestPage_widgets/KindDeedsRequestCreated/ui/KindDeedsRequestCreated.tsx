@@ -1,4 +1,4 @@
-import { AppRoutes, URL_PART } from "@/app";
+import { AppRoutes, mobile_mediaQuery, URL_PART } from "@/app";
 import styles from "./KindDeedsRequestCreated.module.scss";
 import { memo } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";
@@ -7,11 +7,12 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 export const KindDeedsRequestCreated: React.FC = memo((): React.JSX.Element => {
   return (
     <Flex
-      className={`${styles.KindDeedsRequestCreated} Page__GrayBorderSecondaryWrapper`}
+      className={`${styles.KindDeedsRequestCreated} 
+      ${!mobile_mediaQuery.matches ? "Page__GrayBorderSecondaryWrapper" : ""}`}
       align="center"
       justify="center"
       direction="column"
-      gap="10"
+      gap={mobile_mediaQuery.matches ? "0" : "10"}
       max
     >
       <img

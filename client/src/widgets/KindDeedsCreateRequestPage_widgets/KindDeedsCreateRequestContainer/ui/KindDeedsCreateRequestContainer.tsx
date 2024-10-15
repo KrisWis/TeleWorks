@@ -8,6 +8,7 @@ import {
   AppRoutes,
   IndexedDBName,
   IndexedDBStores,
+  mobile_mediaQuery,
   transitionDuration,
 } from "@/app";
 import { Input } from "@/shared/ui-kit/Input";
@@ -149,12 +150,20 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
         <Flex
           max
           className={styles.KindDeedsCreateRequestContainer}
-          gap="15"
+          gap={mobile_mediaQuery.matches ? "15" : "10"}
           direction="column"
         >
           <IncreaseScaleHover>
             <Link to={AppRoutes.KIND_DEEDS}>
-              <Flex align="center" gap="15">
+              <Flex
+                className={
+                  mobile_mediaQuery.matches
+                    ? styles.KindDeedsCreateRequestContainer__adaptiveCaptionWrapper
+                    : ""
+                }
+                align="center"
+                gap={mobile_mediaQuery.matches ? "5" : "15"}
+              >
                 <BackSVG
                   className={styles.KindDeedsCreateRequestContainer__back}
                 />
@@ -168,7 +177,11 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
 
           <Flex
             max
-            className="Page__GrayBorderSecondaryWrapper"
+            className={
+              !mobile_mediaQuery.matches
+                ? "Page__GrayBorderSecondaryWrapper"
+                : styles.KindDeedsCreateRequestContainer__wrapperAdaptive
+            }
             gap="10"
             direction="column"
           >
@@ -182,7 +195,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
             <Flex
               max
               className={styles.KindDeedsCreateRequestContainer__wrapper}
-              gap="20"
+              gap={mobile_mediaQuery.matches ? "10" : "20"}
               direction="column"
             >
               <Flex
@@ -190,7 +203,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 className={
                   styles.KindDeedsCreateRequestContainer__inputsWrapper
                 }
-                gap="20"
+                gap={mobile_mediaQuery.matches ? "10" : "20"}
                 direction="column"
               >
                 <Input
@@ -251,50 +264,62 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 />
               </Flex>
 
-              <h2 className="KindDeedsCreateRequestPage__subcaption">
-                Название организации/инициативы:
-              </h2>
+              <Flex
+                max
+                gap={mobile_mediaQuery.matches ? "5" : "20"}
+                direction="column"
+              >
+                <h2 className="KindDeedsCreateRequestPage__subcaption">
+                  Название организации/инициативы:
+                </h2>
 
-              <Input
-                className={styles.KindDeedsCreateRequestContainer__input}
-                type="text"
-                value={organizationInputValue}
-                onChange={(e) => {
-                  setOrganizationInputValue(e.target.value);
-                  saveLSDebounce({
-                    surnameInputValue,
-                    nameInputValue,
-                    patronymicInputValue,
-                    organizationInputValue: e.target.value,
-                    requestSumInputValue: Number(requestSumInputValue),
-                    goalTextareaValue,
-                  });
-                }}
-                isWarn={tryCreate && !organizationInputValue}
-                placeholder="Организация"
-              />
+                <Input
+                  className={styles.KindDeedsCreateRequestContainer__input}
+                  type="text"
+                  value={organizationInputValue}
+                  onChange={(e) => {
+                    setOrganizationInputValue(e.target.value);
+                    saveLSDebounce({
+                      surnameInputValue,
+                      nameInputValue,
+                      patronymicInputValue,
+                      organizationInputValue: e.target.value,
+                      requestSumInputValue: Number(requestSumInputValue),
+                      goalTextareaValue,
+                    });
+                  }}
+                  isWarn={tryCreate && !organizationInputValue}
+                  placeholder="Организация"
+                />
+              </Flex>
 
-              <h2 className="KindDeedsCreateRequestPage__subcaption">
-                Цель финансирования
-              </h2>
+              <Flex
+                max
+                gap={mobile_mediaQuery.matches ? "5" : "20"}
+                direction="column"
+              >
+                <h2 className="KindDeedsCreateRequestPage__subcaption">
+                  Цель финансирования
+                </h2>
 
-              <Textarea
-                className={styles.KindDeedsCreateRequestContainer__textarea}
-                value={goalTextareaValue}
-                onChange={(e) => {
-                  setGoalTextareaValue(e.target.value);
-                  saveLSDebounce({
-                    surnameInputValue,
-                    nameInputValue,
-                    patronymicInputValue,
-                    organizationInputValue,
-                    requestSumInputValue: Number(requestSumInputValue),
-                    goalTextareaValue: e.target.value,
-                  });
-                }}
-                isWarn={tryCreate && !goalTextareaValue}
-                placeholder="Подробно объясните, как будут использованы запрашиваемые средства и какое влияние они окажут"
-              />
+                <Textarea
+                  className={styles.KindDeedsCreateRequestContainer__textarea}
+                  value={goalTextareaValue}
+                  onChange={(e) => {
+                    setGoalTextareaValue(e.target.value);
+                    saveLSDebounce({
+                      surnameInputValue,
+                      nameInputValue,
+                      patronymicInputValue,
+                      organizationInputValue,
+                      requestSumInputValue: Number(requestSumInputValue),
+                      goalTextareaValue: e.target.value,
+                    });
+                  }}
+                  isWarn={tryCreate && !goalTextareaValue}
+                  placeholder="Подробно объясните, как будут использованы запрашиваемые средства и какое влияние они окажут"
+                />
+              </Flex>
 
               <Flex
                 className={
@@ -309,6 +334,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                   isWarn={tryCreate && !loadedDocuments.length}
                   isHovered={true}
                   inputRef={documentInputRef}
+                  bigViewInMobile
                 />
 
                 <AttachFileContainer
@@ -335,32 +361,38 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 indexedDB={indexedDB.current}
               />
 
-              <h2 className="KindDeedsCreateRequestPage__subcaption">
-                Сумма запроса
-              </h2>
-
               <Flex
                 max
-                className={styles.KindDeedsCreateRequestContainer__input__sum}
+                gap={mobile_mediaQuery.matches ? "5" : "20"}
+                direction="column"
               >
-                <Input
-                  className={styles.KindDeedsCreateRequestContainer__input}
-                  type="number"
-                  value={requestSumInputValue}
-                  onChange={(e) => {
-                    setRequestSumInputValue(e.target.value);
-                    saveLSDebounce({
-                      surnameInputValue,
-                      nameInputValue,
-                      patronymicInputValue,
-                      organizationInputValue,
-                      requestSumInputValue: Number(e.target.value),
-                      goalTextareaValue,
-                    });
-                  }}
-                  isWarn={tryCreate && !requestSumInputValue}
-                  placeholder="1 422 223₽"
-                />
+                <h2 className="KindDeedsCreateRequestPage__subcaption">
+                  Сумма запроса
+                </h2>
+
+                <Flex
+                  max
+                  className={styles.KindDeedsCreateRequestContainer__input__sum}
+                >
+                  <Input
+                    className={styles.KindDeedsCreateRequestContainer__input}
+                    type="number"
+                    value={requestSumInputValue}
+                    onChange={(e) => {
+                      setRequestSumInputValue(e.target.value);
+                      saveLSDebounce({
+                        surnameInputValue,
+                        nameInputValue,
+                        patronymicInputValue,
+                        organizationInputValue,
+                        requestSumInputValue: Number(e.target.value),
+                        goalTextareaValue,
+                      });
+                    }}
+                    isWarn={tryCreate && !requestSumInputValue}
+                    placeholder="1 422 223₽"
+                  />
+                </Flex>
               </Flex>
             </Flex>
           </Flex>

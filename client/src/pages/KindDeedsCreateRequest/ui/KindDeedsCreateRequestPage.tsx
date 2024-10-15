@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { memo } from "react";
 import { KindDeedsRequestCreated } from "@/widgets/KindDeedsCreateRequestPage_widgets/KindDeedsRequestCreated";
 import {
+  mobile_mediaQuery,
   tabletHeight_mediaQuery,
   transitionDurationMedium,
 } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
@@ -36,7 +37,11 @@ export const KindDeedsCreateRequestPage: React.FC = memo(
               id="KindDeedsRequestCreated"
               style={{
                 position: "absolute",
-                top: tabletHeight_mediaQuery.matches ? "70vh" : "5vh",
+                top: mobile_mediaQuery.matches
+                  ? "30vh"
+                  : tabletHeight_mediaQuery.matches
+                    ? "70vh"
+                    : "5vh",
               }}
             ></div>
 

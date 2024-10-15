@@ -113,10 +113,10 @@
     font-weight: 500;
     font-size: 9px;
     color: var(--gray-color);
+    margin-top: 10px;
 
     @media (max-width: $mobile-mediaquery-width) {
       font-size: 5px;
-      margin-top: 10px;
     }
   }
 

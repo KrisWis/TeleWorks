@@ -23,6 +23,7 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
       inputRef,
       isWarn = false,
       isHovered = false,
+      bigViewInMobile = false,
     }): React.JSX.Element => {
       return (
         <Flex
@@ -35,7 +36,9 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
           onClick={() => inputRef?.current?.click()}
         >
           <div
-            className={`${styles.loadImageBlockWithoutLoading__wrapper} ${withBG ? "Page__SirineWrapper" : ""}`}
+            className={`${styles.loadImageBlockWithoutLoading__wrapper} 
+            ${withBG ? "Page__SirineWrapper" : ""}
+            ${bigViewInMobile ? styles.loadImageBlockWithoutLoading__wrapper__bigViewInMobile : ""}`}
           >
             <label
               className={styles.loadImageBlockWithoutLoading__wrapperPadding}
@@ -49,9 +52,16 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
               <div
                 className={styles.loadImageBlockWithoutLoading__wrapper__info}
               >
-                {!mobile_mediaQuery.matches ? <ImgSVG /> : <ImgSVGAdaptive />}
+                {!mobile_mediaQuery.matches || bigViewInMobile ? (
+                  <ImgSVG />
+                ) : (
+                  <ImgSVGAdaptive />
+                )}
 
-                <h4 className={styles.loadImageBlockWithoutLoading__caption}>
+                <h4
+                  className={`${styles.loadImageBlockWithoutLoading__caption} 
+                  ${bigViewInMobile ? styles.loadImageBlockWithoutLoading__caption__bigViewInMobile : ""}`}
+                >
                   {title}
                 </h4>
 
@@ -61,17 +71,23 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
                       styles.loadImageBlockWithoutLoading__wrapper__requirements
                     }
                   >
-                    <span className={styles.loadImageBlockWithoutLoading__desc}>
+                    <span
+                      className={`${styles.loadImageBlockWithoutLoading__desc} ${bigViewInMobile ? styles.loadImageBlockWithoutLoading__desc__bigViewInMobile : ""}`}
+                    >
                       Минимальный размер: {LoadImageBlockMinWidth} х{" "}
                       {LoadImageBlockMinHeight} px
                     </span>
 
-                    <span className={styles.loadImageBlockWithoutLoading__desc}>
+                    <span
+                      className={`${styles.loadImageBlockWithoutLoading__desc} ${bigViewInMobile ? styles.loadImageBlockWithoutLoading__desc__bigViewInMobile : ""}`}
+                    >
                       Вес: {Math.round(LoadImageBlockMinSize / 1024)} кб —{" "}
                       {Math.round(LoadImageBlockMaxSize / 1048576)} Мб
                     </span>
 
-                    <span className={styles.loadImageBlockWithoutLoading__desc}>
+                    <span
+                      className={`${styles.loadImageBlockWithoutLoading__desc} ${bigViewInMobile ? styles.loadImageBlockWithoutLoading__desc__bigViewInMobile : ""}`}
+                    >
                       Форматы: jpg, jpeg, png, gif
                     </span>
                   </div>

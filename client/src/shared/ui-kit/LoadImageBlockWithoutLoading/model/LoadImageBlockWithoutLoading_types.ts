@@ -12,4 +12,5 @@ export interface LoadImageBlockWithoutLoadingProps {
   inputRef?: React.RefObject<HTMLInputElement>;
   isWarn?: boolean;
   isHovered?: boolean;
+  bigViewInMobile?: boolean;
 }
