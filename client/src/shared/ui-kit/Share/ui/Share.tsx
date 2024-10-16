@@ -3,9 +3,10 @@ import { memo, useState } from "react";
 import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";
 import { ShareProps, ShareTypes } from "../model/Share_types";
 import { IncreaseScaleHover } from "../../IncreaseScaleHover";
-import { ShareSocial } from "react-share-social";
 import { Modal } from "../../Modal";
 import { ModalTemplate } from "../../ModalTemplate";
+import { ShareSocialProvider, useShareSocialLib } from "./ShareSocialProvider";
+import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
 
 const mobile_mediaQuery: MediaQueryList =
   window.matchMedia("(max-width: 700px)");
@@ -31,13 +32,16 @@ const shareSocialStyles = {
   },
 };
 
-export const Share: React.FC<ShareProps> = memo(
+const ShareContent: React.FC<ShareProps> = memo(
   ({ type = ShareTypes.DEFAULT, url, IconClassName }): React.JSX.Element => {
     // Нажатие на кнопку "Поделиться"
     const [shareModalAppearIsOpen, setShareModalAppearIsOpen] =
       useState<boolean>(false);
 
     const [shareModalIsOpen, setShareModalIsOpen] = useState<boolean>(false);
+
+    // Асинхронная подгрузка модуля shareSocial
+    const { ShareSocial } = useShareSocialLib();
 
     return (
       <>
@@ -77,3 +81,21 @@ export const Share: React.FC<ShareProps> = memo(
     );
   }
 );
+
+const ShareWithoutProvider: React.FC<ShareProps> = memo((props: ShareProps) => {
+  const { isLoaded } = useShareSocialLib();
+
+  if (!isLoaded) {
+    return <PageLoadingComponent />;
+  }
+
+  return <ShareContent {...props} />;
+});
+
+export const Share: React.FC<ShareProps> = memo((props: ShareProps) => {
+  return (
+    <ShareSocialProvider>
+      <ShareWithoutProvider {...props} />
+    </ShareSocialProvider>
+  );
+});
