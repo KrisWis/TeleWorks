@@ -74,36 +74,17 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
               Tele<span className={styles.header__caption__span}>Works</span>
             </h1>
 
-            {view == HeaderViews.TELEGRAM_CHANNEL_STATS && (
+            {view && (
               <Flex
-                className={`${styles.header__stats} Page__SirineWrapper`}
+                className={`${view != HeaderViews.TELEGRAM_CHANNEL_STATS ? styles.header__service : ""}
+                ${view == HeaderViews.TELEGRAM_CHANNEL_STATS ? styles.header__stats : ""} 
+                ${view == HeaderViews.KIND_DEEDS ? styles.header__service__kindDeeds : ""} 
+                Page__SirineWrapper`}
                 direction={"row"}
                 justify="center"
                 align="center"
               >
-                Статистика
-              </Flex>
-            )}
-
-            {view == HeaderViews.BLOG && (
-              <Flex
-                className={`${styles.header__service} Page__SirineWrapper`}
-                direction={"row"}
-                justify="center"
-                align="center"
-              >
-                Блог
-              </Flex>
-            )}
-
-            {view == HeaderViews.KIND_DEEDS && (
-              <Flex
-                className={`${styles.header__service} ${styles.header__service__kindDeeds} Page__SirineWrapper`}
-                direction={"row"}
-                justify="center"
-                align="center"
-              >
-                Добрые дела
+                {view}
               </Flex>
             )}
           </div>

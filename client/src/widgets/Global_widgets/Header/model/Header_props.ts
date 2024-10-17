@@ -1,7 +1,9 @@
 export enum HeaderViews {
-  TELEGRAM_CHANNEL_STATS = "telegram_channels_stats",
-  BLOG = "blog",
-  KIND_DEEDS = "kind_deeds",
+  TELEGRAM_CHANNEL_STATS = "Статистика",
+  BLOG = "Блог",
+  KIND_DEEDS = "Добрые дела",
+  CHANNELS = "Продажа каналов",
+  FREELANCE = "Фриланс",
 }
 
 export interface HeaderProps {

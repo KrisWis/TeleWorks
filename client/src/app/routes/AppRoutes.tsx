@@ -20,6 +20,7 @@ import { ReactElement } from "react";
 import { KindDeedsPage } from "@/pages/KindDeedsPage";
 import { KindDeedsCreateRequestPage } from "@/pages/KindDeedsCreateRequest";
 import { IndexedDBStore, PortNow } from "..";
+import { HeaderViews } from "@/widgets/Global_widgets/Header/model/Header_props";
 
 export enum AppRoutes {
   MAIN = "/",
@@ -69,6 +70,19 @@ export const BlogRoutes = [
   AppRoutes.BLOG_CREATE,
 ];
 
+export const FreelanceRoutes = [
+  AppRoutes.CREATE_ORDER,
+  AppRoutes.PROJECT,
+  AppRoutes.SERVICES,
+  AppRoutes.USER,
+  AppRoutes.USER_EDIT,
+];
+
+export const KindDeedsRoutes = [
+  AppRoutes.KIND_DEEDS,
+  AppRoutes.KIND_DEEDS_CREATE_REQUEST,
+];
+
 type routesList = {
   [route in AppRoutes]: ReactElement;
 };
@@ -116,4 +130,36 @@ export const IndexedDBStores: IndexedDBStore[] = [
     route: AppRoutes.BLOG_CREATE,
     name: "BLOG_CREATE_IMAGES",
   },
+];
+
+interface HeaderRoute {
+  path: AppRoutes;
+  headerView: HeaderViews;
+}
+
+export const HeaderRoutes: HeaderRoute[] = [
+  {
+    path: AppRoutes.TELEGRAM_CHANNEL_STATS,
+    headerView: HeaderViews.TELEGRAM_CHANNEL_STATS,
+  },
+
+  ...KindDeedsRoutes.map((route) => ({
+    path: route,
+    headerView: HeaderViews.KIND_DEEDS,
+  })),
+
+  {
+    path: AppRoutes.CATALOG,
+    headerView: HeaderViews.CHANNELS,
+  },
+
+  ...BlogRoutes.map((route) => ({
+    path: route,
+    headerView: HeaderViews.BLOG,
+  })),
+
+  ...FreelanceRoutes.map((route) => ({
+    path: route,
+    headerView: HeaderViews.FREELANCE,
+  })),
 ];
