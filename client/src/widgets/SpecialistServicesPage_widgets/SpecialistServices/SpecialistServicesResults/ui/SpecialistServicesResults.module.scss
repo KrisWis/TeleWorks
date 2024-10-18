@@ -1,7 +1,14 @@
+@import "@/shared/vars";
+
 .specialistServicesResults {
   display: flex;
   flex-direction: column;
   width: 75%;
+
+  @media (max-width: $tablet-mediaquery-width) {
+    margin-top: 10px;
+    width: 100%;
+  }
 
   &__header {
     display: flex;
