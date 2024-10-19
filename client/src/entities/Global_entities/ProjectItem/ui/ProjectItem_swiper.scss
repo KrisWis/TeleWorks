@@ -1,14 +1,37 @@
+@import "@/shared/vars";
+
 .specialistServicesResults__item .swiper {
   padding-left: 0 !important;
   display: flex;
   align-items: center;
-  height: 100% !important;
+  height: 168px !important;
   overflow: hidden;
+  border-radius: 10px;
+
+  @media (max-width: $tablet-mediaquery-width) {
+    height: 100% !important;
+  }
+
+  @media (max-width: $mobile-mediaquery-width) {
+    height: 61px !important;
+    border-radius: 4px;
+  }
+
+  .specialistServicesResults__item__heart {
+    top: 18px;
+  }
 }
 
 .specialistServicesResults__item .swiper-wrapper {
   display: flex;
   align-items: center;
+}
+
+.specialistServicesResults__item .swiper-slide {
+  @media (max-width: $mobile-mediaquery-width) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .specialistServicesResults__item .swiper-button-disabled {

@@ -246,7 +246,8 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
 
                         <Favourite
                           className={`${styles.specialistServicesResults__item__heart} 
-              ${itemIsFavourite ? styles.specialistServicesResults__item__heart__active : ""}`}
+              ${itemIsFavourite ? styles.specialistServicesResults__item__heart__active : ""}
+              specialistServicesResults__item__heart`}
                           onClick={() => setItemIsFavourite(!itemIsFavourite)}
                         />
                       </div>

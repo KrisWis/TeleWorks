@@ -7,18 +7,18 @@ import {
 import { SpecialistServicesResults } from "../SpecialistServicesResults/ui/SpecialistServicesResults";
 import { Categories } from "@/shared/ui-kit/Categories";
 import { Filter } from "@/features/Global_features/Filter";
-import { tablet_mediaQuery } from "@/app";
+import { tablet_small_mediaQuery } from "@/app";
 
 export const SpecialistServices: React.FC = memo((): React.JSX.Element => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
 
   return (
     <section className={styles.specialistServices}>
-      {!tablet_mediaQuery.matches && (
+      {!tablet_small_mediaQuery.matches && (
         <h1 className="Page__caption">Услуги специалистов</h1>
       )}
 
-      {!tablet_mediaQuery.matches ? (
+      {!tablet_small_mediaQuery.matches ? (
         <>
           <Categories
             SliderPrevArrowID="SpecialistServices__sliderPrevArrow"
