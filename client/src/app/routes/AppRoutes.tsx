@@ -35,7 +35,7 @@ export enum AppRoutes {
 
   SERVICES = "/services",
 
-  PROJECT = "/project",
+  PROJECT = "/services/:id",
 
   USER = "/user",
 

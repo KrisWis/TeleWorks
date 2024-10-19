@@ -21,6 +21,7 @@ export const sortSelectItems: Select_Option[] = [
 
 export const servicesItems: ServicesItem[] = [
   {
+    id: 1,
     imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
     title: "Инфографика для маркетплейсов.",
     TeleWorksChoice: true,
@@ -35,6 +36,7 @@ export const servicesItems: ServicesItem[] = [
   },
 
   {
+    id: 2,
     imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
     title: "Инфографика для маркетплейсов2.",
     TeleWorksChoice: true,
@@ -49,6 +51,7 @@ export const servicesItems: ServicesItem[] = [
   },
 
   {
+    id: 3,
     imgURLs: [
       `${URL_PART}/global/images/serviceExample_img.png`,
       `${URL_PART}/global/images/serviceExample_img_2.png`,
@@ -70,6 +73,7 @@ export const servicesItems: ServicesItem[] = [
   },
 
   {
+    id: 4,
     imgURLs: [
       `${URL_PART}/global/images/serviceExample_img.png`,
       `${URL_PART}/global/images/serviceExample_img_2.png`,
@@ -91,6 +95,7 @@ export const servicesItems: ServicesItem[] = [
   },
 
   {
+    id: 5,
     imgURLs: [
       `${URL_PART}/global/images/serviceExample_img.png`,
       `${URL_PART}/global/images/serviceExample_img_2.png`,
@@ -112,6 +117,7 @@ export const servicesItems: ServicesItem[] = [
   },
 
   {
+    id: 6,
     imgURLs: [
       `${URL_PART}/global/images/serviceExample_img.png`,
       `${URL_PART}/global/images/serviceExample_img_2.png`,

@@ -6,6 +6,7 @@ export type authorRank =
   | "высокий рейтинг";
 
 export interface ServicesItem {
+  id: number;
   imgURLs: string[];
   title: string;
   TeleWorksChoice: boolean;
