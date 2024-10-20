@@ -18,6 +18,7 @@ import { mobile_mediaQuery, URL_PART } from "@/app";
 import { ProjectInfoAboutProps } from "../model/types";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { Share } from "@/shared/ui-kit/Share";
+import SirineSeparatorLineVerticalSVG from "@/shared/assets/icons/Global/SirineSeparatorLineVerticalSVG.svg?react";
 
 export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
   ({ author, favouriteAmount }): React.JSX.Element => {
@@ -182,81 +183,98 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
           </svg>
         </div>
 
-        <div className={styles.projectInfoAbout__otherProjects}>
-          {ProjectInfoAbout__imgsURL.map((imgURL: string, index: number) => (
-            <img
-              onClick={() =>
-                ActiveSlide != index ? swiperRef.current?.slideTo(index) : {}
-              }
-              key={imgURL + index}
-              className={`${styles.projectInfoAbout__otherProjects__img} ${ActiveSlide == index ? styles.projectInfoAbout__otherProjects__img__active : ""}`}
-              src={imgURL}
-              alt={`Название изображения`}
-            />
-          ))}
-        </div>
-
-        <h3 className="ProjectPage__subcaption">Об этом проекте</h3>
+        {!mobile_mediaQuery.matches && (
+          <div className={styles.projectInfoAbout__otherProjects}>
+            {ProjectInfoAbout__imgsURL.map((imgURL: string, index: number) => (
+              <img
+                onClick={() =>
+                  ActiveSlide != index ? swiperRef.current?.slideTo(index) : {}
+                }
+                key={imgURL + index}
+                className={`${styles.projectInfoAbout__otherProjects__img} ${ActiveSlide == index ? styles.projectInfoAbout__otherProjects__img__active : ""}`}
+                src={imgURL}
+                alt={`Название изображения`}
+              />
+            ))}
+          </div>
+        )}
 
         {mobile_mediaQuery.matches && (
-          <Flex align="center" justify="between" max>
-            <div className={styles.projectInfoAbout__author}>
+          <Flex
+            className={styles.projectInfoAbout__Adaptive}
+            align="center"
+            justify="between"
+            max
+          >
+            <div className={styles.projectInfoAbout__authorAdaptive}>
               <div
-                className={`${styles.projectInfoAbout__authorImgWrapper}
-             ${styles.projectInfoAbout__authorOnlineImg}`}
+                className={`${styles.projectInfoAbout__authorAdaptiveImgWrapper}
+             ${styles.projectInfoAbout__authorAdaptiveOnlineImg}`}
               >
                 <img
-                  className={styles.projectInfoAbout__authorImg}
+                  className={styles.projectInfoAbout__authorAdaptiveImg}
                   src={author.authorImgURL}
                   alt={author.authorName}
                 />
               </div>
 
-              <div className={styles.projectInfoAbout__authorInfo}>
-                <span className={styles.projectInfoAbout__authorName}>
+              <div className={styles.projectInfoAbout__authorAdaptiveInfo}>
+                <span className={styles.projectInfoAbout__authorAdaptiveName}>
                   {author.authorName}
                 </span>
 
-                <div className={styles.projectInfoAbout__authorRating}>
+                <div className={styles.projectInfoAbout__authorAdaptiveRating}>
                   <img
-                    className={styles.projectInfoAbout__authorStar}
+                    className={styles.projectInfoAbout__authorAdaptiveStar}
                     src={`${URL_PART}/global/icons/star.png`}
                     alt="Жёлтая звезда рейтинга"
                   ></img>
 
-                  <span className={styles.projectInfoAbout__authorRatingNumber}>
+                  <span
+                    className={
+                      styles.projectInfoAbout__authorAdaptiveRatingNumber
+                    }
+                  >
                     {author.reputation.toFixed(1)}
                   </span>
                   <span
-                    className={styles.projectInfoAbout__authorReviewsAmount}
+                    className={
+                      styles.projectInfoAbout__authorAdaptiveReviewsAmount
+                    }
                   >
                     ({author.ordersAmount})
                   </span>
                 </div>
               </div>
 
-              <div className={styles.projectInfoAbout__TeleWorksInfo}>
+              <SirineSeparatorLineVerticalSVG />
+
+              <div className={styles.projectInfoAbout__TeleWorksInfoAdaptive}>
                 {author.TeleWorksChoice && (
                   <CustomItemBadge
                     firstTitle="Выбор"
                     secondTitle="TeleWorks"
-                    className={styles.projectInfoAbout__TeleWorks}
+                    className={styles.projectInfoAbout__TeleWorksAdaptive}
                   />
                 )}
 
                 {author.orderInQueue > 0 && (
-                  <span className={styles.projectInfoAbout__TeleWorks__offers}>
+                  <span
+                    className={
+                      styles.projectInfoAbout__TeleWorksAdaptive__offers
+                    }
+                  >
                     {author.orderInQueue} заказ в очереди
                   </span>
                 )}
               </div>
             </div>
 
-            <div className={styles.projectInfoAbout__icons}>
-              <div className={styles.projectInfoAbout__favourite}>
+            <div className={styles.projectInfoAbout__iconsAdaptive}>
+              <div className={styles.projectInfoAbout__favouriteAdaptive}>
                 <svg
-                  className={`${styles.projectInfoAbout__favourite__heart} 
-              ${FavouriteIsSelected ? styles.projectInfoAbout__favourite__heart__active : ""}`}
+                  className={`${styles.projectInfoAbout__favouriteAdaptive__heart} 
+              ${FavouriteIsSelected ? styles.projectInfoAbout__favouriteAdaptive__heart__active : ""}`}
                   onClick={() => setFavouriteIsSelected(!FavouriteIsSelected)}
                   width="23"
                   height="20"
@@ -270,18 +288,20 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
                   />
                 </svg>
 
-                <span className={styles.projectInfoAbout__favouriteAmount}>
+                <span
+                  className={styles.projectInfoAbout__favouriteAmountAdaptive}
+                >
                   {favouriteAmount}
                 </span>
               </div>
 
               <Share
-                IconClassName="Page__transitionToMainColor"
+                IconClassName={styles.projectInfoAbout__shareAdaptive}
                 url={window.location.href}
               />
 
               <svg
-                className={`Page__transitionToMainColor ${styles.projectInfoAbout__report}`}
+                className={`Page__transitionToMainColor ${styles.projectInfoAbout__reportAdaptive}`}
                 width="26"
                 height="26"
                 viewBox="0 0 26 26"
@@ -301,6 +321,8 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
           </Flex>
         )}
 
+        <h3 className="ProjectPage__subcaption">Об этом проекте</h3>
+
         <p className={styles.projectInfoAbout__text}>
           Все задания выполняю строго в срок, учитывается каждое Ваше пожелание.
           <span>Всегда на связи со своими клиентами.</span>
@@ -317,7 +339,35 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
         </p>
 
         <div className={styles.projectInfoAbout__portfolio}>
-          <h3 className="ProjectPage__subcaption">Портфолио</h3>
+          <Flex max justify="between" align="center">
+            <h3 className="ProjectPage__subcaption">Портфолио</h3>
+
+            {mobile_mediaQuery.matches && (
+              <div
+                className={styles.projectInfoAbout__portfolio__seeAll}
+                onClick={() => redirectToAbsolutePath("/portfolio")}
+              >
+                <span
+                  className={styles.projectInfoAbout__portfolio__seeAll__text}
+                >
+                  Просмотреть все ({ProjectInfoAbout__portfolioCases.length})
+                </span>
+
+                <svg
+                  width="10"
+                  height="11"
+                  viewBox="0 0 10 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.46061 5.89917C9.71478 5.64501 9.71478 5.23292 9.46061 4.97876L5.31873 0.836876C5.06457 0.58271 4.65248 0.58271 4.39832 0.836876C4.14415 1.09104 4.14415 1.50313 4.39832 1.75729L8.07999 5.43897L4.39832 9.12064C4.14415 9.3748 4.14415 9.78689 4.39832 10.0411C4.65248 10.2952 5.06457 10.2952 5.31873 10.0411L9.46061 5.89917ZM0.415039 6.0898L9.00041 6.0898L9.00041 4.78813L0.415039 4.78813L0.415039 6.0898Z"
+                    fill="#FF5555"
+                  />
+                </svg>
+              </div>
+            )}
+          </Flex>
 
           <div className={styles.projectInfoAbout__portfolio__images}>
             <PortfolioCase
@@ -339,30 +389,31 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
               )}
             </div>
 
-            <div
-              className={styles.projectInfoAbout__portfolio__seeAll}
-              onClick={() => redirectToAbsolutePath("/portfolio")}
-            >
-              <span
-                className={styles.projectInfoAbout__portfolio__seeAll__text}
+            {!mobile_mediaQuery.matches && (
+              <div
+                className={styles.projectInfoAbout__portfolio__seeAll}
+                onClick={() => redirectToAbsolutePath("/portfolio")}
               >
-                Просмотреть все ({ProjectInfoAbout__portfolioCases.length})
-              </span>
+                <span
+                  className={styles.projectInfoAbout__portfolio__seeAll__text}
+                >
+                  Просмотреть все ({ProjectInfoAbout__portfolioCases.length})
+                </span>
 
-              <svg
-                className={styles.projectInfoAbout__portfolio__seeAll__svg}
-                width="18"
-                height="18"
-                viewBox="0 0 18 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M16.8577 9.85766C17.3313 9.38399 17.3313 8.61601 16.8577 8.14234L9.1387 0.42338C8.66503 -0.0502932 7.89705 -0.0502932 7.42338 0.42338C6.94971 0.897053 6.94971 1.66503 7.42338 2.1387L14.2847 9L7.42338 15.8613C6.9497 16.335 6.9497 17.1029 7.42338 17.5766C7.89705 18.0503 8.66503 18.0503 9.1387 17.5766L16.8577 9.85766ZM-1.06037e-07 10.2129L16 10.2129L16 7.78708L1.06037e-07 7.78708L-1.06037e-07 10.2129Z"
-                  fill="#FF5555"
-                />
-              </svg>
-            </div>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.8577 9.85766C17.3313 9.38399 17.3313 8.61601 16.8577 8.14234L9.1387 0.42338C8.66503 -0.0502932 7.89705 -0.0502932 7.42338 0.42338C6.94971 0.897053 6.94971 1.66503 7.42338 2.1387L14.2847 9L7.42338 15.8613C6.9497 16.335 6.9497 17.1029 7.42338 17.5766C7.89705 18.0503 8.66503 18.0503 9.1387 17.5766L16.8577 9.85766ZM-1.06037e-07 10.2129L16 10.2129L16 7.78708L1.06037e-07 7.78708L-1.06037e-07 10.2129Z"
+                    fill="#FF5555"
+                  />
+                </svg>
+              </div>
+            )}
           </div>
         </div>
       </div>

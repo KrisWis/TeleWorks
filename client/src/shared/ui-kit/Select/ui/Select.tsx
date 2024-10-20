@@ -26,6 +26,7 @@ export const Select: React.FC<Select__Props> = memo(
     valueContainerPadding = valueContainerPaddingEnum.MEDIUM,
     setState,
     DefaultSelectedOption,
+    placeholder,
   }): React.JSX.Element => {
     // Объявление переменных и событие при изменение
     const SelectParentRef = useRef<HTMLDivElement>(null);
@@ -88,7 +89,7 @@ export const Select: React.FC<Select__Props> = memo(
         zIndex: "var(--z-index-dropdown)",
         top: "100%",
         position: "absolute",
-        width: "20vw",
+        width: "100%",
         backgroundColor: "hsl(0, 0%, 100%)",
         borderRadius: "4px",
         boxShadow:
@@ -138,7 +139,7 @@ export const Select: React.FC<Select__Props> = memo(
           }}
           options={selectedOptions}
           styles={CustomStyles}
-          placeholder={selectedOptions[0].label}
+          placeholder={placeholder ? placeholder : selectedOptions[0].label}
           components={{
             DropdownIndicator,
           }}

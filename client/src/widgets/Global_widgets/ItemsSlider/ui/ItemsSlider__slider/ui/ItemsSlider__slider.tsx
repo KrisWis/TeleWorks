@@ -20,20 +20,16 @@ export const ItemsSlider__slider: React.FC<ItemsSlider__sliderProps> = memo(
     nextArrowId,
   }): React.JSX.Element => {
     return (
-      <div className={`${styles.ItemsSlider__slider} ItemsSlider__slider`}>
+      <div className={styles.ItemsSlider__slider}>
         <Swiper
           navigation={{
             prevEl: `#${prevArrowId}`,
             nextEl: `#${nextArrowId}`,
           }}
           modules={[Navigation]}
-          spaceBetween={20}
+          spaceBetween={mobile_mediaQuery.matches ? 10 : 20}
           slidesPerView={
-            mobile_mediaQuery.matches
-              ? visibleItems - 2
-              : tablet_mediaQuery.matches
-                ? visibleItems - 1
-                : visibleItems
+            tablet_mediaQuery.matches ? visibleItems - 1 : visibleItems
           }
         >
           {componentProps.map((Props, index: number) => (

@@ -53,6 +53,7 @@ export enum valueContainerPaddingEnum {
 
 export interface Select__Props {
   selectedOptions: Select_Option[];
+  placeholder?: string;
   CustomDropdownIndicator: () => JSX.Element;
   TextStyles: SelectTextStyles;
   className?: string;

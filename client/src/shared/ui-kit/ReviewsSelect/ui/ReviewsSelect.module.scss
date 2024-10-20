@@ -16,6 +16,11 @@
     border-width: 0.38px;
   }
 
+  @media (max-width: $mobile-mediaquery-width) {
+    height: auto;
+    padding: 0 5px;
+  }
+
   &Wrapper {
     display: flex;
     justify-content: flex-end;
@@ -32,6 +37,8 @@
     @media (max-width: $tablet-mediaquery-width) {
       margin-left: 10px;
       height: 6px;
+      right: 0;
+      bottom: 3px;
     }
   }
 }

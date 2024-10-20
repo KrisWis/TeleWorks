@@ -1,17 +1,32 @@
+@import "@/shared/vars";
+
 .ReviewsPanel__starsWrapper {
   display: flex;
   align-items: center;
   width: 100%;
   gap: 30px;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    gap: 10px;
+  }
+
   &__stars {
     display: flex;
     gap: 10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 3px;
+    }
   }
 
   &__star {
     width: 33px;
     height: 33px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 9px;
+      height: 9px;
+    }
   }
 
   &__progressbar {
@@ -19,5 +34,10 @@
     height: 16px;
     background: #bbb;
     border-radius: 5px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      border-radius: 1px;
+      height: 4px;
+    }
   }
 }

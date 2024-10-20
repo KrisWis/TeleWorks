@@ -1,9 +1,15 @@
+@import "@/shared/vars";
+
 .ItemsSlider__slider .swiper-button-disabled {
   opacity: 0.4;
 }
 
 .ItemsSlider__slider .swiper {
   padding: 10px;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    padding: 0;
+  }
 }
 
 .ItemsSlider__slider .swiper-wrapper {

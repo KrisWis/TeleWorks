@@ -50,7 +50,7 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
           className={`${styles.showFullImage} ${className} ${type == ShowFullImageTypes.FULL ? styles.showFullImage__full : styles.showFullImage__short}`}
           onClick={() => setModalIsOpen(true)}
         >
-          <FullScreenSVG />
+          <FullScreenSVG className={styles.showFullImage__svg} />
 
           {type == ShowFullImageTypes.FULL && (
             <span className={styles.showFullImage__text}>Полноэкранный</span>
@@ -84,7 +84,7 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
                       styles.showFullImage__slider__arrow__disabled,
                   }}
                   modules={[Navigation]}
-                  spaceBetween={10}
+                  spaceBetween={20}
                   slidesPerView={1}
                   slidesPerGroup={1}
                   onSwiper={(swiper: SwiperClass) =>

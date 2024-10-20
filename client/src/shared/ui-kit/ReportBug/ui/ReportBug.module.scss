@@ -1,11 +1,24 @@
+@import "@/shared/vars";
+
 .ReportBug {
   display: flex;
   align-items: baseline;
   gap: 10px;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    gap: 5px;
+  }
+
   &__svg {
     position: relative;
     cursor: pointer;
+
+    svg {
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 13px;
+        height: 11px;
+      }
+    }
 
     * {
       transition: var(--transition-duration) linear all;
@@ -28,6 +41,10 @@
     cursor: pointer;
     transition: var(--transition-duration) linear all;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
+
     &:hover {
       color: var(--main-color);
     }
@@ -41,5 +58,11 @@
     color: var(--white-color);
     top: 4px;
     left: 16px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+      top: 6px;
+      left: 5.5px;
+    }
   }
 }

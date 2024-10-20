@@ -9,11 +9,21 @@
   background: var(--white-color);
   justify-content: space-between;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    border: 0.87px solid #4266c6;
+    border-radius: 7px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  }
+
   &__firstCol {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding: 5px;
+    }
   }
 
   &__secondCol {
@@ -28,12 +38,20 @@
     display: flex;
     gap: 15px;
     align-items: center;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 5px;
+    }
   }
 
   &__bio {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 3px;
+    }
   }
 
   &__username {
@@ -41,6 +59,10 @@
     font-size: 32px;
     letter-spacing: -0.04em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
   }
 
   &__seniority {
@@ -49,6 +71,10 @@
     letter-spacing: -0.04em;
     color: #4470e8;
     opacity: 0.4;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &__date {
@@ -59,8 +85,18 @@
     padding: 20px;
     padding-right: 30px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 9px;
+      padding: 10px;
+      padding-right: 10px;
+    }
+
     &__small {
       font-size: 16px;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 6px;
+      }
     }
   }
 
@@ -72,6 +108,11 @@
       padding: 5px;
       padding-right: 30px;
     }
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding: 0;
+      padding-right: 5px;
+    }
   }
 
   &__text {
@@ -82,6 +123,12 @@
     color: var(--black-color);
     margin-top: 10px;
     padding-left: 10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+      padding-left: 5px;
+      margin-top: 5px;
+    }
   }
 
   &__stars {
@@ -91,6 +138,12 @@
     padding-left: 10px;
     gap: 5px;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 2px;
+      margin-top: 5px;
+      padding-left: 5px;
+    }
+
     &Wrapper {
       display: flex;
       align-items: center;
@@ -98,12 +151,26 @@
     }
   }
 
+  &__star {
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 9px;
+      height: 9px;
+    }
+  }
+
   &__rating {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 30px;
     letter-spacing: -0.04em;
     color: var(--black-color);
     margin-left: 10px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+      margin-left: 3px;
+      position: relative;
+      top: 1px;
+    }
   }
 
   &__project {

@@ -1,7 +1,10 @@
 import styles from "./ReviewsSelect.module.scss";
 import { memo } from "react";
 import { ReviewsSelectProps } from "../model/ReviewsSelect_types";
-import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
+import {
+  SelectTextStyles,
+  valueContainerPaddingEnum,
+} from "@/shared/ui-kit/Select/model/Select_types";
 import { Select, selectStyles } from "../../Select";
 import { mobile_mediaQuery, tablet_mediaQuery } from "@/app";
 
@@ -45,6 +48,11 @@ export const ReviewsSelect: React.FC<ReviewsSelectProps> = memo(
           TextStyles={TextStyles}
           CustomDropdownIndicator={DropdownIndicator}
           selectedOptions={reviews_selectOptions}
+          valueContainerPadding={
+            mobile_mediaQuery.matches
+              ? valueContainerPaddingEnum.NONE
+              : valueContainerPaddingEnum.MEDIUM
+          }
         />
       </div>
     );

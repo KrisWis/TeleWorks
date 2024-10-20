@@ -10,7 +10,7 @@ export const ItemsSlider: React.FC<ItemsSliderProps> = memo(
     ItemsSlider__sliderProps,
   }): React.JSX.Element => {
     return (
-      <section className={styles.ItemsSlider}>
+      <section className={`${styles.ItemsSlider} ItemsSlider__slider`}>
         <ItemsSlider__header {...ItemsSlider__headerProps} />
 
         <ItemsSlider__slider {...ItemsSlider__sliderProps} />

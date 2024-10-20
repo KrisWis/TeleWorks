@@ -9,12 +9,12 @@
   border-radius: 10px;
 
   @media (max-width: $tablet-mediaquery-width) {
-    height: 100% !important;
+    height: 140px !important;
   }
 
   @media (max-width: $mobile-mediaquery-width) {
-    height: 61px !important;
     border-radius: 4px;
+    height: 100% !important;
   }
 
   .specialistServicesResults__item__heart {
@@ -25,9 +25,12 @@
 .specialistServicesResults__item .swiper-wrapper {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .specialistServicesResults__item .swiper-slide {
+  height: 100%;
+
   @media (max-width: $mobile-mediaquery-width) {
     display: flex;
     align-items: center;

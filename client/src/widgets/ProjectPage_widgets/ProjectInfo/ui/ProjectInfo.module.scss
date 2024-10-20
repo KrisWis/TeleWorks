@@ -9,6 +9,10 @@
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      margin-top: 0;
+    }
   }
 
   &__icons {
@@ -189,6 +193,7 @@
 
     @media (max-width: $tablet-mediaquery-width) {
       grid-template-columns: 100%;
+      margin-top: 10px;
     }
   }
 

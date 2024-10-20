@@ -13,13 +13,35 @@
   transition: var(--transition-duration) linear all;
   box-shadow: 0 0 100px transparent;
 
+  @media (max-width: $mobile-mediaquery-width) {
+    height: 21px;
+    gap: 5px;
+    border-radius: 5px;
+  }
+
   &__full {
     padding: 0 25px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding: 0 10px;
+    }
+  }
+
+  &__svg {
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 14px;
+      height: 14px;
+    }
   }
 
   &__short {
     padding-left: 10px;
     padding-right: 9px;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding-left: 5px;
+      padding-right: 4px;
+    }
   }
 
   &__text {
@@ -28,6 +50,10 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: var(--white-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 8px;
+    }
   }
 
   &:hover {
@@ -54,10 +80,6 @@
     @media (max-width: $tablet-mediaquery-width) {
       height: calc(100vh - 40vh);
     }
-
-    @media (max-width: $mobile-mediaquery-width) {
-      height: calc(100vh - 60vh);
-    }
   }
 
   &__circle {
@@ -78,6 +100,15 @@
     @media (max-width: $mobile-mediaquery-width) {
       position: absolute;
       z-index: var(--z-index-arrows);
+      min-width: 20px;
+      min-height: 20px;
+      max-width: 20px;
+      max-height: 20px;
+
+      svg {
+        width: 8px;
+        height: 8px;
+      }
     }
 
     * {
@@ -111,14 +142,14 @@
     &__NextArrow {
       @media (max-width: $mobile-mediaquery-width) {
         position: relative;
-        top: 13.5vh;
+        top: 25vh;
       }
     }
 
     &__close {
       @media (max-width: $mobile-mediaquery-width) {
         position: relative;
-        top: -5vh;
+        top: -3vh;
       }
     }
 
@@ -133,6 +164,10 @@
     height: 100%;
     width: 100%;
     padding: 10px !important;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      padding: 15px !important;
+    }
 
     &__slide {
       border-radius: 25px;
