@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .projectInfo {
   display: flex;
   flex-direction: column;
@@ -184,6 +186,10 @@
     margin-top: 30px;
     gap: 20px;
     height: fit-content;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      grid-template-columns: 100%;
+    }
   }
 
   &__continue {

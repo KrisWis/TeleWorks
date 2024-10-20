@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .reviews__item {
   display: flex;
   width: 100%;
@@ -65,6 +67,11 @@
   &__reportBug {
     padding: 20px;
     padding-right: 30px;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      padding: 5px;
+      padding-right: 30px;
+    }
   }
 
   &__text {

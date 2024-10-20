@@ -172,6 +172,7 @@ export const ProjectReviews_items: Reviews__itemProps[] = [
 export const OtherProjectsItems: ProjectItemProps[] = [
   {
     servicesItem: {
+      id: 0,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
       title: "Инфографика для маркетплейсов.",
       TeleWorksChoice: false,
@@ -189,6 +190,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 1,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов2.",
       TeleWorksChoice: true,
@@ -206,6 +208,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 2,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -223,6 +226,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 3,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -240,6 +244,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 4,
       imgURLs: [`${URL_PART}/global/images/portfolioCase__example_img.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -257,6 +262,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 5,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -276,6 +282,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
 export const SimilarProjectsItems: ProjectItemProps[] = [
   {
     servicesItem: {
+      id: 0,
       imgURLs: [`${URL_PART}/global/images/portfolioCase__example_img.png`],
       title: "Инфографика для маркетплейсов.",
       TeleWorksChoice: false,
@@ -293,6 +300,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 1,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов2.",
       TeleWorksChoice: true,
@@ -310,6 +318,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 2,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -327,6 +336,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 3,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -344,6 +354,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 4,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,
@@ -361,6 +372,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
 
   {
     servicesItem: {
+      id: 5,
       imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
       title: "Инфографика для маркетплейсов3.",
       TeleWorksChoice: true,

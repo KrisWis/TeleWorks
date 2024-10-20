@@ -3,6 +3,7 @@ import { memo } from "react";
 import { ReviewsSelectProps } from "../model/ReviewsSelect_types";
 import { SelectTextStyles } from "@/shared/ui-kit/Select/model/Select_types";
 import { Select, selectStyles } from "../../Select";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/app";
 
 const DropdownIndicator = (): JSX.Element => {
   return (
@@ -25,7 +26,11 @@ const DropdownIndicator = (): JSX.Element => {
 const TextStyles: SelectTextStyles = {
   fontFamily: "var(--font-family)",
   fontWeight: 400,
-  fontSize: "24px",
+  fontSize: mobile_mediaQuery.matches
+    ? "8px"
+    : tablet_mediaQuery.matches
+      ? "16px"
+      : "24px",
   letterSpacing: "-0.04em",
   color: "var(--black-color)",
   opacity: 0.4,

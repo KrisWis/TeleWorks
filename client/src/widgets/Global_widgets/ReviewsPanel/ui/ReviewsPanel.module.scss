@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .ReviewsPanel {
   display: flex;
   flex-direction: column;
@@ -40,6 +42,10 @@
       letter-spacing: -0.04em;
       text-align: center;
       color: rgba(0, 0, 0, 0.4);
+
+      @media (max-width: $tablet-mediaquery-width) {
+        font-size: 28px;
+      }
     }
   }
 

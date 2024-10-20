@@ -104,7 +104,8 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
 
                 <div className={styles.showFullImage__column}>
                   <div
-                    className={styles.showFullImage__circle}
+                    className={`${styles.showFullImage__circle} 
+                      ${styles.showFullImage__slider__close}`}
                     onClick={CloseModal}
                   >
                     <CloseSVG />
@@ -113,7 +114,8 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
                   {imgURLs.length > 1 && (
                     <div
                       id="showFullImage__slider_nextArrow"
-                      className={`${styles.showFullImage__circle}`}
+                      className={`${styles.showFullImage__circle} 
+                      ${styles.showFullImage__slider__NextArrow}`}
                     >
                       <NextArrowSVG />
                     </div>

@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .reviews__select {
   height: 92px;
   border: 2px solid var(--violet-color);
@@ -7,6 +9,12 @@
     rgba(59, 130, 246, 0.1) 0%,
     rgba(59, 130, 246, 0) 100%
   );
+
+  @media (max-width: $tablet-mediaquery-width) {
+    height: 60px;
+    border-radius: 5px;
+    border-width: 0.38px;
+  }
 
   &Wrapper {
     display: flex;
@@ -20,5 +28,10 @@
     right: 20px;
     margin-left: 100px;
     rotate: -90deg;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      margin-left: 10px;
+      height: 6px;
+    }
   }
 }
