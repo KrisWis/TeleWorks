@@ -1,6 +1,5 @@
 import {
   mobile_mediaQuery,
-  tablet_mediaQuery,
   URL_PART,
 } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import styles from "./ProjectInfo.module.scss";
@@ -14,8 +13,6 @@ import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectTag";
 import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
 import { checkoutOrderReducer } from "@/features/ProjectInfo_features/CheckoutOrder/model/slice/CheckoutOrderSlice";
 import { Share } from "@/shared/ui-kit/Share";
-
-// TODO: сделать адаптив для второй колонки
 
 export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
   ({
@@ -160,19 +157,19 @@ export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
               favouriteAmount={favouriteAmount}
             />
 
-            {!tablet_mediaQuery.matches && (
-              <div className={styles.projectInfo__continue}>
+            <div className={styles.projectInfo__continue}>
+              <div className={styles.projectInfo__continue__wrapper}>
                 <ProjectInfo_pack packs={ProjectInfo_packs} />
 
-                {!mobile_mediaQuery.matches && <AuthorCard {...author} />}
-
-                <div className={styles.projectInfo__tags}>
-                  {ProjectTags.map((projectTag: string) => (
-                    <ProjectTag key={projectTag} title={projectTag} />
-                  ))}
-                </div>
+                <AuthorCard {...author} />
               </div>
-            )}
+
+              <div className={styles.projectInfo__tags}>
+                {ProjectTags.map((projectTag: string) => (
+                  <ProjectTag key={projectTag} title={projectTag} />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </DynamicModuleLoader>

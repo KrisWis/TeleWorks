@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .ProjectActiveServices {
   display: flex;
   flex-direction: column;
@@ -9,6 +11,15 @@
     gap: 10px;
     align-items: center;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 5px;
+
+      svg {
+        width: 13px;
+        height: 9px;
+      }
+    }
+
     &_text {
       font-weight: 500;
       font-size: 20px;
@@ -16,6 +27,10 @@
       letter-spacing: -0.01em;
       color: var(--black-color);
       opacity: 0.4;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        font-size: 10px;
+      }
     }
   }
 }

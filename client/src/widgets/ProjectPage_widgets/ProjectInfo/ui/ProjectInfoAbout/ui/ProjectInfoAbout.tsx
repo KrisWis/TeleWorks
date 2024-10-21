@@ -14,7 +14,7 @@ import {
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { PortfolioCase } from "@/shared/ui-kit/PortfolioCase";
 import { Flex } from "@/shared/ui-kit/Stack";
-import { mobile_mediaQuery, URL_PART } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery, URL_PART } from "@/app";
 import { ProjectInfoAboutProps } from "../model/types";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { Share } from "@/shared/ui-kit/Share";
@@ -342,7 +342,7 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
           <Flex max justify="between" align="center">
             <h3 className="ProjectPage__subcaption">Портфолио</h3>
 
-            {mobile_mediaQuery.matches && (
+            {tablet_mediaQuery.matches && (
               <div
                 className={styles.projectInfoAbout__portfolio__seeAll}
                 onClick={() => redirectToAbsolutePath("/portfolio")}
@@ -389,7 +389,7 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
               )}
             </div>
 
-            {!mobile_mediaQuery.matches && (
+            {!tablet_mediaQuery.matches && (
               <div
                 className={styles.projectInfoAbout__portfolio__seeAll}
                 onClick={() => redirectToAbsolutePath("/portfolio")}

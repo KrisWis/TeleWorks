@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .checkoutOrderAmountCounter {
   display: flex;
   align-items: flex-end;
@@ -19,6 +21,12 @@
     margin-bottom: 3px;
     cursor: pointer;
 
+    @media (max-width: $mobile-mediaquery-width) {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+    }
+
     * {
       transition: var(--transition-duration) linear all;
     }
@@ -33,6 +41,12 @@
       align-items: center;
       font-size: 24px;
       transition: var(--transition-duration) linear all;
+
+      @media (max-width: $mobile-mediaquery-width) {
+        width: 7px;
+        height: 7px;
+        font-size: 12px;
+      }
     }
 
     &:hover:not(.checkoutOrder__packsAmount__button__disabled) {
@@ -69,5 +83,9 @@
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 16px;
+    }
   }
 }

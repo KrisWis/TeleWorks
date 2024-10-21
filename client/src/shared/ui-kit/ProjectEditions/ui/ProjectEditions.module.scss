@@ -1,7 +1,16 @@
+@import "@/shared/vars";
+
 .editions {
   display: flex;
   gap: 5px;
   align-items: center;
+
+  @media (max-width: $mobile-mediaquery-width) {
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
 
   &_text {
     font-weight: 600;
@@ -9,5 +18,9 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
   }
 }

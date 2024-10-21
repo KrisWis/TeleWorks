@@ -1,3 +1,5 @@
+@import "@/shared/vars";
+
 .deadline {
   font-weight: 500;
 
@@ -5,6 +7,13 @@
     display: flex;
     gap: 3px;
     align-items: center;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
   }
 
   &__text {
@@ -13,5 +22,9 @@
     line-height: 120%;
     letter-spacing: -0.01em;
     color: var(--black-color);
+
+    @media (max-width: $mobile-mediaquery-width) {
+      font-size: 10px;
+    }
   }
 }

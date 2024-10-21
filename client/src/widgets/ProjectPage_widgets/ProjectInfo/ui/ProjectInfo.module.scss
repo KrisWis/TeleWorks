@@ -203,6 +203,23 @@
     flex-direction: column;
     gap: 20px;
     height: fit-content;
+
+    @media (max-width: $tablet-mediaquery-width) {
+      margin: 10px 0;
+      gap: 10px;
+    }
+
+    &__wrapper {
+      @media (max-width: $tablet-mediaquery-width) {
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        gap: 15px;
+      }
+
+      @media (max-width: $mobile-mediaquery-width) {
+        grid-template-columns: 100%;
+      }
+    }
   }
 
   &__tags {
@@ -210,5 +227,9 @@
     gap: 12px;
     flex-wrap: wrap;
     width: 100%;
+
+    @media (max-width: $mobile-mediaquery-width) {
+      gap: 5px;
+    }
   }
 }
