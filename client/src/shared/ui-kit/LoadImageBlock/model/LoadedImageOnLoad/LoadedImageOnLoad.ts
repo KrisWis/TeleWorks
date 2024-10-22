@@ -9,7 +9,7 @@ import {
 } from "../LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { isUnit } from "@/app";
 
-export const LoadingVideoMaxSize: number = 167772160;
+export const LoadingVideoMaxSize: number = 20971520;
 
 export const LoadedImageOnLoad = (
   e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,

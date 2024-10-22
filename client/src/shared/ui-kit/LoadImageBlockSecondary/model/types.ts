@@ -11,4 +11,5 @@ export interface LoadImageBlockSecondaryProps {
   setLoadedImageErrors: React.Dispatch<
     React.SetStateAction<LoadedImageErrorsTypes[]>
   >;
+  isWarn?: boolean;
 }

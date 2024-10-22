@@ -17,6 +17,7 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
       setLoadedImageErrors,
       LoadedImage,
       size,
+      isWarn,
     }): React.JSX.Element => {
       // Реализация drag&drop
       const LoadImageBlockSecondaryWrapperRef = useRef<HTMLDivElement>(null);
@@ -55,7 +56,13 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
             <div
               ref={LoadImageBlockSecondaryWrapperRef}
               className={`${styles.LoadImageBlockSecondary__wrapper}
-        ${LoadedImage && LoadedImage != LoadingConst ? styles.LoadImageBlockSecondary__wrapper__withImg : ""}`}
+              ${
+                LoadedImage && LoadedImage != LoadingConst
+                  ? styles.LoadImageBlockSecondary__wrapper__withImg
+                  : ""
+              }
+              ${isWarn ? styles.LoadImageBlockSecondary__wrapper__warn : ""} 
+            `}
             >
               {!LoadedImage || LoadedImageErrors.length ? (
                 <label

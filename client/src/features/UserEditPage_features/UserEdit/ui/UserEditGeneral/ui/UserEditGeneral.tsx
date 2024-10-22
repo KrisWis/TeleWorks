@@ -125,6 +125,9 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   const [HeaderLoadingModalAppear, setHeaderLoadingModalAppear] =
     useState<boolean>(false);
 
+  const [HeaderLoadedImageFinish, setHeaderLoadedImageFinish] =
+    useState<string>("");
+
   return (
     <div
       ref={refs[UserEditTabsEnum.GENERAL]}
@@ -133,12 +136,33 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
       <h4 className="UserEditPage__caption">Основная информация:</h4>
 
       <>
-        <LoadImageBlockWithoutLoading
-          className={styles.userEditGeneral__headerImage}
-          size={LoadImageBlockSizes.BIG}
-          title="Загрузить шапку профиля"
-          onClick={() => setHeaderLoadingModalIsOpen(true)}
-        />
+        {!HeaderLoadedImageFinish ? (
+          <LoadImageBlockWithoutLoading
+            className={styles.userEditGeneral__headerImage}
+            size={LoadImageBlockSizes.BIG}
+            title="Загрузить шапку профиля"
+            onClick={() => setHeaderLoadingModalIsOpen(true)}
+          />
+        ) : (
+          <>
+            {!HeaderLoadedImageFinish.startsWith("data:image") ? (
+              <video
+                className={styles.userEditGeneral__headerImage__img}
+                src={HeaderLoadedImageFinish}
+                controls
+                preload="none"
+                onClick={() => setHeaderLoadingModalIsOpen(true)}
+              ></video>
+            ) : (
+              <img
+                className={styles.userEditGeneral__headerImage__img}
+                src={HeaderLoadedImageFinish}
+                alt="Изображение хедера"
+                onClick={() => setHeaderLoadingModalIsOpen(true)}
+              ></img>
+            )}
+          </>
+        )}
 
         {HeaderLoadingModalIsOpen && (
           <Modal
@@ -151,7 +175,12 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
               CustomSetModalAppear={setHeaderLoadingModalAppear}
               setModalOpen={setHeaderLoadingModalIsOpen}
             >
-              <HeaderLoadingModal />
+              <HeaderLoadingModal
+                HeaderLoadedImageFinish={HeaderLoadedImageFinish}
+                CustomSetModalAppear={setHeaderLoadingModalAppear}
+                setModalOpen={setHeaderLoadingModalIsOpen}
+                setHeaderLoadedImageFinish={setHeaderLoadedImageFinish}
+              />
             </ModalTemplate>
           </Modal>
         )}
