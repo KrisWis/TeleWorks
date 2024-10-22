@@ -1,10 +1,7 @@
 import { LoadingConst } from "@/shared/types";
-import {
-  LoadedImageErrorsTypes,
-  LoadImageBlockProps,
-} from "../model/LoadImageBlock_types";
+import { LoadImageBlockProps } from "../model/LoadImageBlock_types";
 import styles from "./LoadImageBlock.module.scss";
-import { memo, useEffect, useRef } from "react";
+import { useRef } from "react";
 import ImgSVG from "@/shared/assets/icons/Global/ImgSVG.svg?react";
 import {
   LoadImageBlockMinSize,
@@ -14,104 +11,55 @@ import {
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { LoadedImageOnLoad } from "..";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
-import { mockFileName, mockFileName2 } from "..";
+import { mockFileName } from "..";
+import { DragDropWrapper } from "../../DragDropWrapper";
 
-export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
-  ({
-    title,
-    size,
-    requirements = true,
-    className,
-    LoadedImage,
-    setLoadedImage,
-    LoadedImageErrors,
-    setLoadedImageErrors,
-  }): React.JSX.Element => {
-    // Реализация drag&drop
-    const loadImageBlockWrapperRef = useRef<HTMLDivElement>(null);
+export const LoadImageBlock: React.FC<LoadImageBlockProps> = ({
+  title,
+  size,
+  requirements = true,
+  className,
+  LoadedImage,
+  setLoadedImage,
+  LoadedImageErrors,
+  setLoadedImageErrors,
+}): React.JSX.Element => {
+  // Реализация drag&drop
+  const loadImageBlockWrapperRef = useRef<HTMLDivElement>(null);
 
-    const defaultDragDropFunc = (e: Event) => {
-      e.preventDefault();
-      return false;
-    };
+  // Hover эффект при наведении
+  const loadImageBlockInputRef = useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
-      ["dragover", "drop"].forEach(function (event: string) {
-        document.addEventListener(event, defaultDragDropFunc);
-      });
-
-      return () => {
-        ["dragover", "drop"].forEach(function (event: string) {
-          document.removeEventListener(event, defaultDragDropFunc);
-        });
-      };
-    }, []);
-
-    const LoadedFileOnDrop = (
-      e: React.DragEvent<HTMLDivElement>
-    ): void | boolean => {
-      loadImageBlockWrapperRef.current?.classList.remove(
-        styles.loadImageBlock__wrapper__active
-      );
-
-      const file = e.dataTransfer?.files[0];
-
-      if (!file) {
-        return;
+  return (
+    <DragDropWrapper
+      OnDragEnter={() =>
+        loadImageBlockWrapperRef.current?.classList.add(
+          styles.loadImageBlock__wrapper__active
+        )
       }
-
-      if (file.type.startsWith("image/")) {
-        LoadedImageOnLoad(e, setLoadedImage, setLoadedImageErrors);
-      } else {
-        setLoadedImageErrors([
-          ...LoadedImageErrors,
-          LoadedImageErrorsTypes.FORMAT_ERROR,
-        ]);
-        return false;
-      }
-    };
-
-    return (
+      OnDragLeave={() => {
+        loadImageBlockWrapperRef.current?.classList.remove(
+          styles.loadImageBlock__wrapper__active
+        );
+      }}
+      setLoadedImage={setLoadedImage}
+      setLoadedImageErrors={setLoadedImageErrors}
+      LoadedImageErrors={LoadedImageErrors}
+      onlyImages={true}
+    >
       <div
         className={`${styles.loadImageBlock} ${styles[`loadImageBlock__${size}`]} 
         ${className ? className : ""}`}
-        onDragEnter={() =>
-          loadImageBlockWrapperRef.current?.classList.add(
-            styles.loadImageBlock__wrapper__active
-          )
-        }
-        onDragLeave={() =>
-          loadImageBlockWrapperRef.current?.classList.remove(
-            styles.loadImageBlock__wrapper__active
-          )
-        }
-        onDrop={LoadedFileOnDrop}
         data-testid="LoadImageBlock.Drag&Drop"
       >
         <div
+          ref={loadImageBlockWrapperRef}
           className={`${styles.loadImageBlock__wrapper} Page__SirineWrapper 
         ${LoadedImage && LoadedImage != LoadingConst ? styles.loadImageBlock__wrapper__withImg : ""}`}
-          ref={loadImageBlockWrapperRef}
         >
           {!LoadedImage || LoadedImageErrors.length ? (
             <label className={styles.loadImageBlock__wrapperPadding}>
               <div className={`${styles.loadImageBlock__wrapperWrapper}`}></div>
-
-              <input
-                className={styles.loadImageBlock__wrapper__input}
-                type="file"
-                onChange={(e) =>
-                  LoadedImageOnLoad(
-                    e,
-                    setLoadedImage,
-                    setLoadedImageErrors,
-                    mockFileName
-                  )
-                }
-                accept="image/png, image/gif, image/jpeg, image/jpg"
-                data-testid="LoadImageBlock.Input"
-              />
-
               <div className={styles.loadImageBlock__wrapper__info}>
                 <ImgSVG />
 
@@ -148,21 +96,6 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
                 alt="Изображение хедера"
                 data-testid="LoadImageBlock.Image"
               ></img>
-
-              <input
-                className={styles.loadImageBlock__wrapper__input}
-                type="file"
-                onChange={(e) =>
-                  LoadedImageOnLoad(
-                    e,
-                    setLoadedImage,
-                    setLoadedImageErrors,
-                    mockFileName2
-                  )
-                }
-                accept="image/png, image/gif, image/jpeg, image/jpg"
-                data-testid="LoadImageBlock.Change"
-              />
             </label>
           )}
         </div>
@@ -181,6 +114,32 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = memo(
           </div>
         )}
       </div>
-    );
-  }
-);
+
+      <input
+        className={styles.loadImageBlock__wrapper__input}
+        type="file"
+        onChange={(e) =>
+          LoadedImageOnLoad(
+            e,
+            setLoadedImage,
+            setLoadedImageErrors,
+            mockFileName
+          )
+        }
+        accept="image/png, image/gif, image/jpeg, image/jpg"
+        data-testid="LoadImageBlock.Input"
+        ref={loadImageBlockInputRef}
+        onMouseEnter={() =>
+          loadImageBlockWrapperRef.current?.classList.add(
+            styles.loadImageBlock__wrapper__active
+          )
+        }
+        onMouseLeave={() => {
+          loadImageBlockWrapperRef.current?.classList.remove(
+            styles.loadImageBlock__wrapper__active
+          );
+        }}
+      />
+    </DragDropWrapper>
+  );
+};

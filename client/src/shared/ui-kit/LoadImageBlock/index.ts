@@ -12,3 +12,5 @@ export {
 export const mockFileName: string = "test.png";
 
 export const mockFileName2: string = "test2.png";
+
+export { LoadedImageErrorsTypes } from "./model/LoadImageBlock_types";

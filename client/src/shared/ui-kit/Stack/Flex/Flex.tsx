@@ -63,6 +63,9 @@ export interface FlexProps extends DivProps {
   "data-testid"?: string;
   isSection?: boolean;
   style?: React.CSSProperties;
+  onDragEnter?: React.DragEventHandler<HTMLDivElement>;
+  onDragLeave?: React.DragEventHandler<HTMLDivElement>;
+  onDrop?: React.DragEventHandler<HTMLDivElement>;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -80,6 +83,9 @@ export const Flex = (props: FlexProps) => {
     "data-testid": dataTestId,
     isSection = false,
     style,
+    onDragEnter,
+    onDragLeave,
+    onDrop,
   } = props;
 
   const classes = [
@@ -100,6 +106,9 @@ export const Flex = (props: FlexProps) => {
           onClick={onClick}
           id={id}
           data-testid={dataTestId}
+          onDrop={onDrop}
+          onDragLeave={onDragLeave}
+          onDragEnter={onDragEnter}
         >
           {children}
         </section>
@@ -111,6 +120,9 @@ export const Flex = (props: FlexProps) => {
           onClick={onClick}
           id={id}
           data-testid={dataTestId}
+          onDrop={onDrop}
+          onDragLeave={onDragLeave}
+          onDragEnter={onDragEnter}
         >
           {children}
         </div>

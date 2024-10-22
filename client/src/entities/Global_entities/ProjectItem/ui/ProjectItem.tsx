@@ -12,7 +12,6 @@ import Favourite from "@/shared/assets/icons/ProjectPage/ProjectItem/Favourite.s
 import Separator from "@/shared/assets/icons/ProjectPage/ProjectItem/Separator.svg?react";
 import SliderArrowPrev from "@/shared/assets/icons/ProjectPage/ProjectItem/SliderArrowPrev.svg?react";
 import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
-import { AppRoutes } from "@/app/routes/AppRoutes";
 
 export const ProjectItem: React.FC<ProjectItemProps> = memo(
   ({ servicesItem, viewType }): React.JSX.Element => {
@@ -20,7 +19,7 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
 
     const FavouriteRef = useRef<HTMLDivElement>(null);
 
-    const RedirectOnClickTo: string = `${AppRoutes.SERVICES}/${servicesItem.id}`;
+    const RedirectOnClickTo: string = `/${servicesItem.id}`;
 
     const RedirectToProjectPage = (
       e: React.MouseEvent<HTMLDivElement, MouseEvent>

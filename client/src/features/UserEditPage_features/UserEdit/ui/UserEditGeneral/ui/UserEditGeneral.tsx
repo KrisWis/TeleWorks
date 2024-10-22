@@ -22,8 +22,14 @@ import { UserEditTabsEnum } from "@/widgets/UserEditPage_widgets/UserEditTabs";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 import { UseUserEditGeneralLocalStorage } from "../model/UseUserEditGeneralLocalStorage/UseUserEditGeneralLocalStorage";
-import { LoadImageBlockSizes } from "@/shared/ui-kit/LoadImageBlockWithoutLoading";
+import {
+  LoadImageBlockSizes,
+  LoadImageBlockWithoutLoading,
+} from "@/shared/ui-kit/LoadImageBlockWithoutLoading";
 import { TagsInput } from "@/shared/ui-kit/TagsInput";
+import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
+import { Modal } from "@/shared/ui-kit/Modal";
+import { HeaderLoadingModal } from "../../Modals/HeaderLoadingModal";
 
 const ProfessionSelectDropdownIndicator = (): JSX.Element => {
   return (
@@ -93,11 +99,6 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   );
 
   // Стейты для загрузки изображений
-  const [HeaderLoadedImage, setHeaderLoadedImage] = UseLoadedImage();
-
-  const [HeaderLoadedImageErrors, setHeaderLoadedImageErrors] =
-    UseLoadedImageErrors();
-
   const [AvatarLoadedImage, setAvatarLoadedImage] = UseLoadedImage();
 
   const [AvatarLoadedImageErrors, setAvatarLoadedImageErrors] =
@@ -117,6 +118,13 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     SelectedTags,
   ]);
 
+  // Стейты для модалок
+  const [HeaderLoadingModalIsOpen, setHeaderLoadingModalIsOpen] =
+    useState<boolean>(false);
+
+  const [HeaderLoadingModalAppear, setHeaderLoadingModalAppear] =
+    useState<boolean>(false);
+
   return (
     <div
       ref={refs[UserEditTabsEnum.GENERAL]}
@@ -124,15 +132,30 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     >
       <h4 className="UserEditPage__caption">Основная информация:</h4>
 
-      <LoadImageBlock
-        className={styles.userEditGeneral__headerImage}
-        size={LoadImageBlockSizes.BIG}
-        title="Загрузить шапку профиля"
-        LoadedImage={HeaderLoadedImage}
-        setLoadedImage={setHeaderLoadedImage}
-        LoadedImageErrors={HeaderLoadedImageErrors}
-        setLoadedImageErrors={setHeaderLoadedImageErrors}
-      />
+      <>
+        <LoadImageBlockWithoutLoading
+          className={styles.userEditGeneral__headerImage}
+          size={LoadImageBlockSizes.BIG}
+          title="Загрузить шапку профиля"
+          onClick={() => setHeaderLoadingModalIsOpen(true)}
+        />
+
+        {HeaderLoadingModalIsOpen && (
+          <Modal
+            setModalIsOpen={setHeaderLoadingModalIsOpen}
+            CustomSetModalAppear={setHeaderLoadingModalAppear}
+            CustomModalAppear={HeaderLoadingModalAppear}
+          >
+            <ModalTemplate
+              className={styles.userEditGeneral__headerLoadingModal}
+              CustomSetModalAppear={setHeaderLoadingModalAppear}
+              setModalOpen={setHeaderLoadingModalIsOpen}
+            >
+              <HeaderLoadingModal />
+            </ModalTemplate>
+          </Modal>
+        )}
+      </>
 
       <div className={styles.userEditGeneral__info}>
         <LoadImageBlock

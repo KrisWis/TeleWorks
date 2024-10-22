@@ -13,4 +13,5 @@ export interface LoadImageBlockWithoutLoadingProps {
   isWarn?: boolean;
   isHovered?: boolean;
   bigViewInMobile?: boolean;
+  onClick?: () => void;
 }

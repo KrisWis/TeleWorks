@@ -24,6 +24,7 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
       isWarn = false,
       isHovered = false,
       bigViewInMobile = false,
+      onClick,
     }): React.JSX.Element => {
       return (
         <Flex
@@ -33,7 +34,10 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
           className={`${styles[`loadImageBlockWithoutLoading__${size}`]} ${className ? className : ""} 
           ${!withBG ? "Page__GrayBorderWithWhiteBGWrapper" : ""}
           ${isWarn ? styles.loadImageBlockWithoutLoading__warning : ""} ${styles.loadImageBlockWithoutLoading}`}
-          onClick={() => inputRef?.current?.click()}
+          onClick={() => {
+            inputRef?.current?.click();
+            onClick && onClick();
+          }}
         >
           <div
             className={`${styles.loadImageBlockWithoutLoading__wrapper} 

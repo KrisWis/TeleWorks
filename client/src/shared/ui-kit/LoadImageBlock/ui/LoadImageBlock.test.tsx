@@ -80,10 +80,7 @@ describe("Widgets/LoadImageBlock", () => {
 
     const file2 = new File(["hello"], mockFileName2, { type: "image/png" });
 
-    const fileChange = getByTestId("LoadImageBlock.Change") as HTMLInputElement;
-    expect(fileInput).toBeInTheDocument();
-
-    await userEvent.upload(fileChange, file2);
+    await userEvent.upload(fileInput, file2);
 
     await waitFor(() => {
       expect(getByTestId(`LoadImageBlock.Image`)).toHaveAttribute(

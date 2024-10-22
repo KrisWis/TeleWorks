@@ -9,32 +9,44 @@ import {
 } from "../LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { isUnit } from "@/app";
 
+export const LoadingVideoMaxSize: number = 167772160;
+
 export const LoadedImageOnLoad = (
   e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
   setLoadedImage: React.Dispatch<React.SetStateAction<string>>,
   setLoadedImageErrors: React.Dispatch<
     React.SetStateAction<LoadedImageErrorsTypes[]>
   >,
-
   mockFileName?: string
 ) => {
-  if (!isUnit) {
-    setLoadedImage(LoadingConst);
-  } else {
-    if (mockFileName) {
-      setLoadedImage(mockFileName);
-    }
-  }
-
-  const UserInputFile =
-    (e as React.ChangeEvent<HTMLInputElement>).target.files ||
-    (e as React.DragEvent<HTMLDivElement>).dataTransfer?.files;
+  const UserInputFile = (e as React.DragEvent<HTMLDivElement>).dataTransfer
+    ?.files!.length
+    ? (e as React.DragEvent<HTMLDivElement>).dataTransfer?.files
+    : (e as React.ChangeEvent<HTMLInputElement>).target.files;
 
   const LoadedImageErrorsCopy: LoadedImageErrorsTypes[] = [];
 
   setLoadedImageErrors([]);
 
   if (UserInputFile && UserInputFile.length) {
+    if (!isUnit) {
+      setLoadedImage(LoadingConst);
+    } else {
+      if (mockFileName) {
+        setLoadedImage(mockFileName);
+      }
+    }
+
+    if (UserInputFile[0].type.startsWith("video")) {
+      if (UserInputFile[0].size <= LoadingVideoMaxSize) {
+        const url = URL.createObjectURL(UserInputFile[0]);
+        setLoadedImage(url);
+      } else {
+        setLoadedImageErrors([LoadedImageErrorsTypes.SIZE_ERROR]);
+      }
+      return;
+    }
+
     const fileReader = new FileReader();
 
     const ImageSizeCheck: boolean =
@@ -66,6 +78,7 @@ export const LoadedImageOnLoad = (
             LoadedImageErrorsCopy.push(LoadedImageErrorsTypes.SIZE_ERROR);
 
           setLoadedImageErrors(LoadedImageErrorsCopy);
+          setLoadedImage("");
         }
       };
     };
