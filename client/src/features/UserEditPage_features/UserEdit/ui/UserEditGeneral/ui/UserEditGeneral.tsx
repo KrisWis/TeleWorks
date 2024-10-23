@@ -118,7 +118,7 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     SelectedTags,
   ]);
 
-  // Стейты для модалок
+  // Стейты для модалки
   const [HeaderLoadingModalIsOpen, setHeaderLoadingModalIsOpen] =
     useState<boolean>(false);
 

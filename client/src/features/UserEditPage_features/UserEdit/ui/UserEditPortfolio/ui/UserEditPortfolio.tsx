@@ -3,37 +3,55 @@ import {
   СhangeablePortfolioCaseInterface,
 } from "@/entities/UserEditPage_entities/СhangeablePortfolioCase";
 import styles from "./UserEditPortfolio.module.scss";
-import { memo, useCallback, useContext, useState } from "react";
-import { portfolioExistedCases } from "../model/UserEditPortfolio_data";
+import { memo, useContext, useState } from "react";
 import { UserEditPageContext } from "@/pages/UserEditPage";
 import { UserEditTabsEnum } from "@/widgets/UserEditPage_widgets/UserEditTabs";
+import { Modal } from "@/shared/ui-kit/Modal";
+import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
+import { CaseLoadingModal } from "../../Modals/CaseLoadingModal";
+import { portfolioExistedCases } from "../model/UserEditPortfolio_data";
 
 export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
-  // Добавление новых кейсов
+  // Добавление рефа для скроллинга
+  const { refs } = useContext(UserEditPageContext);
+
+  // Стейты для модалок
+  const [CaseLoadingModalIsOpen, setCaseLoadingModalIsOpen] =
+    useState<boolean>(false);
+
+  const [CaseLoadingModalAppear, setCaseLoadingModalAppear] =
+    useState<boolean>(false);
+
   const [ExistedCases, setExistedCases] = useState<
     СhangeablePortfolioCaseInterface[]
   >(portfolioExistedCases);
-
-  const addNewCase = useCallback(
-    (index: number): void => {
-      setExistedCases([{ index: index }, ...ExistedCases]);
-    },
-    [ExistedCases]
-  );
-
-  // Добавление рефа для скроллинга
-  const { refs } = useContext(UserEditPageContext);
 
   return (
     <div
       ref={refs[UserEditTabsEnum.PORTFOLIO]}
       className={styles.userEditPortfolio}
     >
+      {CaseLoadingModalIsOpen && (
+        <Modal
+          setModalIsOpen={setCaseLoadingModalIsOpen}
+          CustomSetModalAppear={setCaseLoadingModalAppear}
+          CustomModalAppear={CaseLoadingModalAppear}
+        >
+          <ModalTemplate
+            className={styles.userEditPortfolio__CaseLoadingModal}
+            CustomSetModalAppear={setCaseLoadingModalAppear}
+            setModalOpen={setCaseLoadingModalIsOpen}
+          >
+            <CaseLoadingModal />
+          </ModalTemplate>
+        </Modal>
+      )}
+
       <div className={styles.userEditPortfolio__header}>
         <h4 className="UserEditPage__caption">Портфолио</h4>
 
         <span
-          onClick={() => addNewCase(ExistedCases.length)}
+          onClick={() => setCaseLoadingModalIsOpen(true)}
           className={styles.userEditPortfolio__addCase}
         >
           + Добавить кейс
@@ -41,23 +59,21 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
       </div>
 
       <div className={styles.userEditPortfolio__cases}>
-        {!ExistedCases.length ? (
+        {!portfolioExistedCases.length ? (
           <div className={styles.userEditPortfolio__cases__empty}>
             <span className={styles.userEditPortfolio__cases__empty__text}>
               Проектов ещё нет!
             </span>
           </div>
         ) : (
-          (ExistedCases as СhangeablePortfolioCaseInterface[]).map(
-            (portfolioCase) => (
-              <СhangeablePortfolioCase
-                key={portfolioCase.index}
-                setExistedCases={setExistedCases}
-                Case={portfolioCase}
-                ExistedCases={ExistedCases}
-              />
-            )
-          )
+          portfolioExistedCases.map((portfolioCase) => (
+            <СhangeablePortfolioCase
+              key={portfolioCase.index}
+              setExistedCases={setExistedCases}
+              Case={portfolioCase}
+              ExistedCases={ExistedCases}
+            />
+          ))
         )}
       </div>
     </div>

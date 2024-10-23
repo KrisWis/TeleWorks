@@ -1,11 +1,12 @@
 export enum ButtonTypes {
   RED = "Button__red",
+  RED_WITHOUT_OUTLINE = "Button__red__withoutOutline",
   BLUE = "Button__blue",
   GRAY = "Button__gray",
   WHITE = "Button__white",
   BLACK = "Button__black",
   CYAN = "Button__cyan",
-  BLACK_WITHOUT_OUTLINE = "Button__black__withoutOuline",
+  BLACK_WITHOUT_OUTLINE = "Button__black__withoutOutline",
 }
 
 export interface ButtonProps {

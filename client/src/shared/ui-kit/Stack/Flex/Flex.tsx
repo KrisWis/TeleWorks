@@ -58,14 +58,9 @@ export interface FlexProps extends DivProps {
   direction?: FlexDirection;
   gap?: FlexGap;
   max?: boolean;
-  innerRef?: React.LegacyRef<HTMLDivElement>;
-  id?: string;
-  "data-testid"?: string;
   isSection?: boolean;
-  style?: React.CSSProperties;
-  onDragEnter?: React.DragEventHandler<HTMLDivElement>;
-  onDragLeave?: React.DragEventHandler<HTMLDivElement>;
-  onDrop?: React.DragEventHandler<HTMLDivElement>;
+  "data-testid"?: string;
+  innerRef?: React.LegacyRef<HTMLDivElement>;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -78,14 +73,9 @@ export const Flex = (props: FlexProps) => {
     gap,
     max,
     innerRef,
-    onClick,
-    id,
+    isSection,
     "data-testid": dataTestId,
-    isSection = false,
-    style,
-    onDragEnter,
-    onDragLeave,
-    onDrop,
+    ...otherProps
   } = props;
 
   const classes = [
@@ -100,29 +90,19 @@ export const Flex = (props: FlexProps) => {
     <>
       {isSection ? (
         <section
-          style={style}
           ref={innerRef}
           className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
-          onClick={onClick}
-          id={id}
           data-testid={dataTestId}
-          onDrop={onDrop}
-          onDragLeave={onDragLeave}
-          onDragEnter={onDragEnter}
+          {...otherProps}
         >
           {children}
         </section>
       ) : (
         <div
-          style={style}
           ref={innerRef}
           className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
-          onClick={onClick}
-          id={id}
           data-testid={dataTestId}
-          onDrop={onDrop}
-          onDragLeave={onDragLeave}
-          onDragEnter={onDragEnter}
+          {...otherProps}
         >
           {children}
         </div>

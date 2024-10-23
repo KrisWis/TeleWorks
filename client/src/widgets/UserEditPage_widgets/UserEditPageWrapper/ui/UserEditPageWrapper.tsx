@@ -71,8 +71,12 @@ export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
     }
 
     return () => {
-      for (const refElement in refs) {
-        observer.unobserve(refs[refElement as UserEditTabsEnum]!.current!);
+      try {
+        for (const refElement in refs) {
+          observer.unobserve(refs[refElement as UserEditTabsEnum]!.current!);
+        }
+      } catch {
+        () => {};
       }
     };
   }, [observer, refs]);

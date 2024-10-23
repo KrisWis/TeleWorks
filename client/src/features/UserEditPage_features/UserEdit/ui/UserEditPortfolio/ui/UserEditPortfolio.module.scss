@@ -5,6 +5,16 @@
   padding-top: 25px;
   width: 100%;
 
+  &__CaseLoadingModal {
+    border-radius: 25px;
+    background: #fff;
+    height: 960px;
+    width: 60vw;
+    top: 12.5%;
+    left: 20%;
+    position: relative;
+  }
+
   &__header {
     display: flex;
     align-items: center;

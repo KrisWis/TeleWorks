@@ -38,6 +38,17 @@
         fill: var(--main-color);
       }
     }
+
+    &__withoutOutline {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--main-color);
+      box-shadow: none;
+
+      &:hover:not(.catalog__category__canSelected) {
+        transform: scale(1.05);
+      }
+    }
   }
 
   &__red.catalog__category__selected {
@@ -134,7 +145,7 @@
       }
     }
 
-    &__withoutOuline {
+    &__withoutOutline {
       border: 1px solid transparent;
       background: transparent;
       color: var(--black-color);

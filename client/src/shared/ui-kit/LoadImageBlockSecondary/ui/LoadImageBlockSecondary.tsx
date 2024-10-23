@@ -7,6 +7,11 @@ import { LoadedImageOnLoad } from "../../LoadImageBlock";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
 import { Flex } from "../../Stack";
 import { URL_PART } from "@/app";
+import { IncreaseScaleHover } from "../../IncreaseScaleHover";
+import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
+import GarbageCanSVG from "@/shared/assets/icons/Global/GarbageCanSVG.svg?react";
+
+// TODO: сделать проверку на наличие и делать класс с pointer-events: all, input убирать.
 
 export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
   memo(
@@ -51,6 +56,11 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                 ? styles.LoadImageBlockSecondary__video
                 : ""
             } 
+            ${
+              LoadedImage && LoadedImage != LoadingConst
+                ? styles.LoadImageBlockSecondary__hasImage
+                : ""
+            } 
             ${className}`}
           >
             <div
@@ -74,7 +84,11 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
 
                   <Flex max direction="column" align="center" justify="center">
                     <img
-                      src={`${URL_PART}/global/images/LoadImageBlockSecondary_img.png`}
+                      src={
+                        size == "small"
+                          ? `${URL_PART}/global/images/LoadImageBlockSecondary_img.png`
+                          : `${URL_PART}/global/images/LoadImageBlockSecondaryMedium_img.png`
+                      }
                       alt="Изображение того, как мужчина упоковывает в папку изображения"
                     />
 
@@ -129,6 +143,43 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                       alt="Изображение хедера"
                     ></img>
                   )}
+
+                  <Flex
+                    className={
+                      styles.LoadImageBlockSecondary__wrapper__imgWrapper__icons
+                    }
+                    gap="10"
+                    align="center"
+                  >
+                    <IncreaseScaleHover
+                      onClick={() => {
+                        loadImageBlockInputRef.current!.click();
+                        loadImageBlockInputRef.current!.value = "";
+                      }}
+                    >
+                      <Flex
+                        className={
+                          styles.LoadImageBlockSecondary__wrapper__imgWrapper__icons__circle
+                        }
+                        align="center"
+                        justify="center"
+                      >
+                        <ChangeSVG />
+                      </Flex>
+                    </IncreaseScaleHover>
+
+                    <IncreaseScaleHover onClick={() => setLoadedImage("")}>
+                      <Flex
+                        className={
+                          styles.LoadImageBlockSecondary__wrapper__imgWrapper__icons__circle
+                        }
+                        align="center"
+                        justify="center"
+                      >
+                        <GarbageCanSVG />
+                      </Flex>
+                    </IncreaseScaleHover>
+                  </Flex>
                 </label>
               )}
             </div>
@@ -155,6 +206,7 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                 ? styles.LoadImageBlockSecondary__wrapper__input__video
                 : ""
             } 
+            ${LoadedImage && LoadedImage != LoadingConst ? styles.LoadImageBlockSecondary__wrapper__input__hasImage : ""}
             ${styles.LoadImageBlockSecondary__wrapper__input}`}
             type="file"
             onChange={(e) =>
