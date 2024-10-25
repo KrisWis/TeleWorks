@@ -1,0 +1,64 @@
+.LastDetailsModal {
+  &__caption {
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__chooseImage {
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__img {
+    border-radius: 23px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+
+    &Wrapper {
+      width: 100%;
+      height: 244px;
+      position: relative;
+    }
+
+    &Views {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+
+      &__svg {
+        width: 21px;
+        height: 14px;
+
+        path {
+          fill: #fff;
+        }
+      }
+
+      &__text {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 120%;
+        letter-spacing: -0.01em;
+        color: #fff;
+      }
+    }
+  }
+
+  &__download {
+    align-self: center;
+
+    &__text {
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+      align-self: center;
+      color: var(--main-color);
+    }
+  }
+}

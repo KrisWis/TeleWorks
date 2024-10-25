@@ -2,7 +2,7 @@ import { LoadingConst } from "@/shared/types";
 import { DragDropWrapper } from "../../DragDropWrapper";
 import { LoadImageBlockSecondaryProps } from "../model/types";
 import styles from "./LoadImageBlockSecondary.module.scss";
-import { memo, useRef } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { LoadedImageOnLoad } from "../../LoadImageBlock";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
 import { Flex } from "../../Stack";
@@ -10,8 +10,11 @@ import { URL_PART } from "@/app";
 import { IncreaseScaleHover } from "../../IncreaseScaleHover";
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
 import GarbageCanSVG from "@/shared/assets/icons/Global/GarbageCanSVG.svg?react";
+import ReactCrop, { PixelCrop, type Crop } from "react-image-crop";
+import "react-image-crop/src/ReactCrop.scss";
+import { imgPreview } from "../model/cropPreview/imgPreview";
 
-// TODO: сделать проверку на наличие и делать класс с pointer-events: all, input убирать.
+// TODO: сделать функционал того, чтобы по нажатию на enter изображение заменялось обрезанным, а на crtl+z назад
 
 export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
   memo(
@@ -29,6 +32,38 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
 
       // Hover эффект при наведении
       const loadImageBlockInputRef = useRef<HTMLInputElement>(null);
+
+      // Функционал обрезания изображения
+      const [crop, setCrop] = useState<Crop>();
+
+      const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
+
+      const imgRef = useRef<HTMLImageElement>(null);
+
+      const [croppedImage, setCroppedImage] = useState<string>();
+
+      const [cropImageIsLocked, setCropImageIsLocked] =
+        useState<boolean>(false);
+
+      // Сохранение изображения по нажатию на Enter
+      const CropImageOnEnter = useCallback(
+        async (e: KeyboardEvent) => {
+          if (e.key == "Enter") {
+            if (
+              completedCrop?.width &&
+              completedCrop?.height &&
+              imgRef.current
+            ) {
+              setCroppedImage(await imgPreview(imgRef.current, completedCrop));
+            }
+          }
+        },
+        [completedCrop]
+      );
+
+      useEffect(() => {
+        document.addEventListener("keydown", CropImageOnEnter);
+      }, [CropImageOnEnter]);
 
       return (
         <DragDropWrapper
@@ -129,7 +164,7 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                     styles.LoadImageBlockSecondary__wrapper__imgWrapper
                   }
                 >
-                  {!LoadedImage.startsWith("data:image") ? (
+                  {!LoadedImage.startsWith("data:image") && croppedImage ? (
                     <video
                       controls
                       className={styles.LoadImageBlockSecondary__wrapper__img}
@@ -137,11 +172,22 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                       preload="none"
                     ></video>
                   ) : (
-                    <img
-                      className={styles.LoadImageBlockSecondary__wrapper__img}
-                      src={LoadedImage}
-                      alt="Изображение хедера"
-                    ></img>
+                    <ReactCrop
+                      onComplete={(c) => {
+                        setCompletedCrop(c);
+                        setCropImageIsLocked(true);
+                      }}
+                      crop={crop}
+                      onChange={(c: Crop) => setCrop(c)}
+                      locked={cropImageIsLocked}
+                    >
+                      <img
+                        className={styles.LoadImageBlockSecondary__wrapper__img}
+                        src={croppedImage ? croppedImage : LoadedImage}
+                        alt="Изображение, загруженное пользователем"
+                        ref={imgRef}
+                      ></img>
+                    </ReactCrop>
                   )}
 
                   <Flex

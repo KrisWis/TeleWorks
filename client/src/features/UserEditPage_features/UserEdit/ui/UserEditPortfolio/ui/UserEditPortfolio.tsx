@@ -10,21 +10,33 @@ import { Modal } from "@/shared/ui-kit/Modal";
 import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
 import { CaseLoadingModal } from "../../Modals/CaseLoadingModal";
 import { portfolioExistedCases } from "../model/UserEditPortfolio_data";
+import { LastDetailsModal } from "../../Modals/LastDetailsModal";
+import { UseLoadedImage } from "@/shared/ui-kit/LoadImageBlock";
 
 export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
   // Добавление рефа для скроллинга
   const { refs } = useContext(UserEditPageContext);
 
   // Стейты для модалок
+  const [CaseLoadedImage, setCaseLoadedImage] = UseLoadedImage();
+
   const [CaseLoadingModalIsOpen, setCaseLoadingModalIsOpen] =
     useState<boolean>(false);
 
   const [CaseLoadingModalAppear, setCaseLoadingModalAppear] =
     useState<boolean>(false);
 
+  const [LastDetailsModalIsOpen, setLastDetailsModalIsOpen] =
+    useState<boolean>(false);
+
+  const [LastDetailsModalAppear, setLastDetailsModalAppear] =
+    useState<boolean>(false);
+
   const [ExistedCases, setExistedCases] = useState<
     СhangeablePortfolioCaseInterface[]
   >(portfolioExistedCases);
+
+  console.log(CaseLoadedImage);
 
   return (
     <div
@@ -42,7 +54,29 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
             CustomSetModalAppear={setCaseLoadingModalAppear}
             setModalOpen={setCaseLoadingModalIsOpen}
           >
-            <CaseLoadingModal />
+            <CaseLoadingModal
+              setLastDetailsModalIsOpen={setLastDetailsModalIsOpen}
+              setCaseLoadingModalIsOpen={setCaseLoadingModalIsOpen}
+              setCaseLoadingModalAppear={setCaseLoadingModalAppear}
+              CaseLoadedImage={CaseLoadedImage}
+              setCaseLoadedImage={setCaseLoadedImage}
+            />
+          </ModalTemplate>
+        </Modal>
+      )}
+
+      {LastDetailsModalIsOpen && (
+        <Modal
+          setModalIsOpen={setLastDetailsModalIsOpen}
+          CustomSetModalAppear={setLastDetailsModalAppear}
+          CustomModalAppear={LastDetailsModalAppear}
+        >
+          <ModalTemplate
+            className={styles.userEditPortfolio__LastDetailsModal}
+            CustomSetModalAppear={setLastDetailsModalAppear}
+            setModalOpen={setLastDetailsModalIsOpen}
+          >
+            <LastDetailsModal CaseLoadedImage={CaseLoadedImage} />
           </ModalTemplate>
         </Modal>
       )}
