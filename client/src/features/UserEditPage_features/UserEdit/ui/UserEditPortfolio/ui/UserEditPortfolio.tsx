@@ -36,8 +36,6 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
     СhangeablePortfolioCaseInterface[]
   >(portfolioExistedCases);
 
-  console.log(CaseLoadedImage);
-
   return (
     <div
       ref={refs[UserEditTabsEnum.PORTFOLIO]}
@@ -76,7 +74,12 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
             CustomSetModalAppear={setLastDetailsModalAppear}
             setModalOpen={setLastDetailsModalIsOpen}
           >
-            <LastDetailsModal CaseLoadedImage={CaseLoadedImage} />
+            <LastDetailsModal
+              setLastDetailsModalAppear={setLastDetailsModalAppear}
+              setLastDetailsModalIsOpen={setLastDetailsModalIsOpen}
+              setCaseLoadingModalIsOpen={setCaseLoadingModalIsOpen}
+              CaseLoadedImage={CaseLoadedImage}
+            />
           </ModalTemplate>
         </Modal>
       )}

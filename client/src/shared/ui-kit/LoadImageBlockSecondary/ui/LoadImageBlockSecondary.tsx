@@ -14,8 +14,6 @@ import ReactCrop, { PixelCrop, type Crop } from "react-image-crop";
 import "react-image-crop/src/ReactCrop.scss";
 import { imgPreview } from "../model/cropPreview/imgPreview";
 
-// TODO: сделать функционал того, чтобы по нажатию на enter изображение заменялось обрезанным, а на crtl+z назад
-
 export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
   memo(
     ({
@@ -42,28 +40,56 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
 
       const [croppedImage, setCroppedImage] = useState<string>();
 
-      const [cropImageIsLocked, setCropImageIsLocked] =
-        useState<boolean>(false);
-
       // Сохранение изображения по нажатию на Enter
       const CropImageOnEnter = useCallback(
         async (e: KeyboardEvent) => {
-          if (e.key == "Enter") {
+          if (e.key == "Enter" && crop) {
             if (
               completedCrop?.width &&
               completedCrop?.height &&
               imgRef.current
             ) {
-              setCroppedImage(await imgPreview(imgRef.current, completedCrop));
+              const croppedFinalImage = await imgPreview(
+                imgRef.current,
+                completedCrop
+              );
+              setCroppedImage(croppedFinalImage);
+              setLoadedImage(croppedFinalImage);
+              setCrop(undefined);
             }
           }
         },
-        [completedCrop]
+        [completedCrop, crop, setLoadedImage]
       );
 
+      // Привязка событий
       useEffect(() => {
         document.addEventListener("keydown", CropImageOnEnter);
+
+        return () => {
+          document.removeEventListener("keydown", CropImageOnEnter);
+        };
       }, [CropImageOnEnter]);
+
+      // Проверка на видео
+      const [isVideo, setIsVideo] = useState<boolean>(false);
+
+      // Сброс стейта при загрузке нового изображения
+      const VideoIsCheckedRef = useRef<boolean>(false);
+
+      useEffect(() => {
+        setCroppedImage(undefined);
+
+        (async () => {
+          VideoIsCheckedRef.current = false;
+          const blob = await fetch(LoadedImage).then((r) => r.blob());
+
+          if (!VideoIsCheckedRef.current) {
+            setIsVideo(blob.type.startsWith("video"));
+            VideoIsCheckedRef.current = true;
+          }
+        })();
+      }, [LoadedImage]);
 
       return (
         <DragDropWrapper
@@ -164,7 +190,7 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                     styles.LoadImageBlockSecondary__wrapper__imgWrapper
                   }
                 >
-                  {!LoadedImage.startsWith("data:image") && croppedImage ? (
+                  {isVideo ? (
                     <video
                       controls
                       className={styles.LoadImageBlockSecondary__wrapper__img}
@@ -175,11 +201,10 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                     <ReactCrop
                       onComplete={(c) => {
                         setCompletedCrop(c);
-                        setCropImageIsLocked(true);
                       }}
                       crop={crop}
                       onChange={(c: Crop) => setCrop(c)}
-                      locked={cropImageIsLocked}
+                      style={{ width: "100%" }}
                     >
                       <img
                         className={styles.LoadImageBlockSecondary__wrapper__img}
@@ -252,7 +277,11 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
                 ? styles.LoadImageBlockSecondary__wrapper__input__video
                 : ""
             } 
-            ${LoadedImage && LoadedImage != LoadingConst ? styles.LoadImageBlockSecondary__wrapper__input__hasImage : ""}
+            ${
+              (LoadedImage && LoadedImage != LoadingConst) || croppedImage
+                ? styles.LoadImageBlockSecondary__wrapper__input__hasImage
+                : ""
+            }
             ${styles.LoadImageBlockSecondary__wrapper__input}`}
             type="file"
             onChange={(e) =>

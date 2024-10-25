@@ -1,13 +1,48 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./LastDetailsModal.module.scss";
-import { memo } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { LastDetailsModalProps } from "../model/types";
 import ViewsSVG from "@/shared/assets/icons/Global/ViewsSVG.svg?react";
 import DownloadSVG from "@/shared/assets/icons/Global/DownloadSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { transitionDuration } from "@/app";
 
 export const LastDetailsModal: React.FC<LastDetailsModalProps> = memo(
-  ({ CaseLoadedImage }): React.JSX.Element => {
+  ({
+    CaseLoadedImage,
+    setLastDetailsModalAppear,
+    setLastDetailsModalIsOpen,
+    setCaseLoadingModalIsOpen,
+  }): React.JSX.Element => {
+    // Возврат к предыдущей модалки
+    const backOnClick = useCallback(() => {
+      setLastDetailsModalAppear(false);
+
+      const ModalOnOpenTimeOut = setTimeout(() => {
+        setLastDetailsModalIsOpen(false);
+        clearTimeout(ModalOnOpenTimeOut);
+
+        const CaseLoadingModalOnOpenTimeOut = setTimeout(() => {
+          setCaseLoadingModalIsOpen(true);
+          clearTimeout(CaseLoadingModalOnOpenTimeOut);
+        }, transitionDuration);
+      }, transitionDuration);
+    }, [
+      setCaseLoadingModalIsOpen,
+      setLastDetailsModalAppear,
+      setLastDetailsModalIsOpen,
+    ]);
+
+    // Проверка на видео
+    const [isVideo, setIsVideo] = useState<boolean>(false);
+
+    useEffect(() => {
+      (async () => {
+        const blob = await fetch(CaseLoadedImage).then((r) => r.blob());
+        setIsVideo(blob.type.startsWith("video"));
+      })();
+    }, [CaseLoadedImage]);
+
     return (
       <Flex align="center" gap="15" max className={styles.LastDetailsModal}>
         <Flex gap="10" direction="column">
@@ -18,7 +53,7 @@ export const LastDetailsModal: React.FC<LastDetailsModalProps> = memo(
           </span>
 
           <div className={styles.LastDetailsModal__imgWrapper}>
-            {!CaseLoadedImage.startsWith("data:image") ? (
+            {isVideo ? (
               <video
                 controls
                 className={styles.LastDetailsModal__img}
@@ -45,7 +80,10 @@ export const LastDetailsModal: React.FC<LastDetailsModalProps> = memo(
             </Flex>
           </div>
 
-          <IncreaseScaleHover className={styles.LastDetailsModal__download}>
+          <IncreaseScaleHover
+            onClick={backOnClick}
+            className={styles.LastDetailsModal__download}
+          >
             <Flex gap="10" align="center">
               <DownloadSVG />
 

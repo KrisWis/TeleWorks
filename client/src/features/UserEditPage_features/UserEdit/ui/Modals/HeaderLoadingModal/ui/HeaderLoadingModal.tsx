@@ -82,6 +82,7 @@ export const HeaderLoadingModal: React.FC<HeaderLoadingModalProps> = memo(
             className={styles.HeaderLoadingModal__button}
             text="Отменить"
             type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
+            onClick={CloseModal}
           />
           <Button
             className={styles.HeaderLoadingModal__button}

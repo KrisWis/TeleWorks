@@ -27,6 +27,7 @@
 
     &__withImg {
       border-width: 0;
+      min-height: auto !important;
     }
 
     &__errors {
@@ -101,6 +102,7 @@
       &__hasImage {
         cursor: auto;
         pointer-events: none;
+        display: none;
       }
     }
 
@@ -157,7 +159,8 @@
   }
 
   &__small {
-    .LoadImageBlockSecondary__wrapper {
+    .LoadImageBlockSecondary__wrapper,
+    .LoadImageBlockSecondary__wrapper__img {
       height: 300px;
     }
 

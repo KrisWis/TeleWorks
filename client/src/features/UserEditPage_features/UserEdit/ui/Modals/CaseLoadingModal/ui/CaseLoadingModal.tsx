@@ -1,11 +1,12 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./CaseLoadingModal.module.scss";
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback } from "react";
 import { LoadImageBlockSecondary } from "@/shared/ui-kit/LoadImageBlockSecondary";
 import { UseLoadedImageErrors } from "@/shared/ui-kit/LoadImageBlock";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { CaseLoadingModalProps } from "../model/types";
 import { transitionDuration } from "@/app";
+import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 
 export const CaseLoadingModal: React.FC<CaseLoadingModalProps> = memo(
   ({
@@ -20,30 +21,35 @@ export const CaseLoadingModal: React.FC<CaseLoadingModalProps> = memo(
       UseLoadedImageErrors();
 
     // Закрытие модалки
-    const ModalOnOpenTimeOutRef = useRef<NodeJS.Timeout>();
-
     const CloseModal = useCallback(() => {
       setCaseLoadingModalAppear(false);
 
-      ModalOnOpenTimeOutRef.current = setTimeout(() => {
+      const ModalOnOpenTimeOutRef = setTimeout(() => {
         setCaseLoadingModalIsOpen(false);
+        clearTimeout(ModalOnOpenTimeOutRef);
       }, transitionDuration);
     }, [setCaseLoadingModalAppear, setCaseLoadingModalIsOpen]);
 
-    useEffect(() => {
-      return () => {
-        clearTimeout(ModalOnOpenTimeOutRef.current);
-      };
-    }, []);
+    // Если изображение не загружено, то на следующую модалку попасть не выйдет
+    const [tryContinue, setTryContinue] = UseTryAction();
 
     // Нажатие на кнопку "Продолжить"
     const continueOnClick = useCallback(() => {
-      CloseModal();
+      if (CaseLoadedImage) {
+        CloseModal();
 
-      setTimeout(() => {
-        setLastDetailsModalIsOpen(true);
-      }, transitionDuration);
-    }, [CloseModal, setLastDetailsModalIsOpen]);
+        setTimeout(() => {
+          setLastDetailsModalIsOpen(true);
+        }, transitionDuration);
+      } else {
+        setTryContinue(true);
+      }
+    }, [
+      CaseLoadedImage,
+      CloseModal,
+      setLastDetailsModalIsOpen,
+      setTryContinue,
+    ]);
 
     return (
       <Flex
@@ -62,6 +68,7 @@ export const CaseLoadingModal: React.FC<CaseLoadingModalProps> = memo(
           setLoadedImage={setCaseLoadedImage}
           LoadedImageErrors={CaseLoadedImageErrors}
           setLoadedImageErrors={setCaseLoadedImageErrors}
+          isWarn={!CaseLoadedImage && tryContinue}
         />
 
         <Flex max justify="end">

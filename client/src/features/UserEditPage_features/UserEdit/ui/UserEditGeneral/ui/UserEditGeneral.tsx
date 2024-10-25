@@ -128,6 +128,16 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   const [HeaderLoadedImageFinish, setHeaderLoadedImageFinish] =
     useState<string>("");
 
+  // Проверка на видео
+  const [isVideo, setIsVideo] = useState<boolean>(false);
+
+  useEffect(() => {
+    (async () => {
+      const blob = await fetch(HeaderLoadedImageFinish).then((r) => r.blob());
+      setIsVideo(blob.type.startsWith("video"));
+    })();
+  }, [HeaderLoadedImageFinish]);
+
   return (
     <div
       ref={refs[UserEditTabsEnum.GENERAL]}
@@ -141,11 +151,13 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
             className={styles.userEditGeneral__headerImage}
             size={LoadImageBlockSizes.BIG}
             title="Загрузить шапку профиля"
-            onClick={() => setHeaderLoadingModalIsOpen(true)}
+            onClick={() => {
+              setHeaderLoadingModalIsOpen(true);
+            }}
           />
         ) : (
           <>
-            {!HeaderLoadedImageFinish.startsWith("data:image") ? (
+            {isVideo ? (
               <video
                 className={styles.userEditGeneral__headerImage__img}
                 src={HeaderLoadedImageFinish}
