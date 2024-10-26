@@ -1,4 +1,4 @@
 export * from "./ui/BlogOpenPostComments";
 
-export type { UseBlogPostCommentsLocalStorageInterface } from "./model/UseBlogPostCommentsLocalStorage/useBlogPostCommentsLocalStorage";
-export { UseBlogPostCommentsLocalStorage } from "./model/UseBlogPostCommentsLocalStorage/useBlogPostCommentsLocalStorage";
+export type { UseBlogPostCommentsLocalStorageInterface } from "./model/UseBlogPostCommentsLocalStorage/UseBlogPostCommentsLocalStorage";
+export { UseBlogPostCommentsLocalStorage } from "./model/UseBlogPostCommentsLocalStorage/UseBlogPostCommentsLocalStorage";

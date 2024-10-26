@@ -186,6 +186,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       TopOfWeek: true,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -204,6 +205,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -222,6 +224,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -240,6 +243,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -258,6 +262,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -276,6 +281,7 @@ export const OtherProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 ];
 
@@ -296,6 +302,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       TopOfWeek: true,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -314,6 +321,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -332,6 +340,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -350,6 +359,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -368,6 +378,7 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 
   {
@@ -386,5 +397,6 @@ export const SimilarProjectsItems: ProjectItemProps[] = [
       TopOfWeek: false,
     },
     viewType: ProjectItemViewTypes.COLUMN,
+    onProjectPage: true,
   },
 ];

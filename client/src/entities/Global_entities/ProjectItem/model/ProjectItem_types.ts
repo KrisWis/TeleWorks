@@ -23,4 +23,5 @@ export interface ServicesItem {
 export interface ProjectItemProps {
   servicesItem: ServicesItem;
   viewType: ProjectItemViewTypes;
+  onProjectPage?: boolean;
 }

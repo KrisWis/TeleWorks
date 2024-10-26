@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { HeaderLoadingModal } from "./HeaderLoadingModal";
+import { useState } from "react";
 
 const meta = {
   title: "Modals/HeaderLoadingModal",
@@ -15,8 +16,8 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     HeaderLoadedImageFinish: "",
-    setHeaderLoadedImageFinish: jest.fn(),
-    CustomSetModalAppear: jest.fn(),
-    setModalOpen: jest.fn(),
+    setHeaderLoadedImageFinish: useState,
+    CustomSetModalAppear: useState,
+    setModalOpen: useState,
   },
 };

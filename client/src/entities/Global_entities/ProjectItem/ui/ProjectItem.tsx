@@ -12,14 +12,15 @@ import Favourite from "@/shared/assets/icons/ProjectPage/ProjectItem/Favourite.s
 import Separator from "@/shared/assets/icons/ProjectPage/ProjectItem/Separator.svg?react";
 import SliderArrowPrev from "@/shared/assets/icons/ProjectPage/ProjectItem/SliderArrowPrev.svg?react";
 import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
+import { AppRoutes } from "@/app";
 
 export const ProjectItem: React.FC<ProjectItemProps> = memo(
-  ({ servicesItem, viewType }): React.JSX.Element => {
+  ({ servicesItem, viewType, onProjectPage = false }): React.JSX.Element => {
     const [itemIsFavourite, setItemIsFavourite] = useState<boolean>(false);
 
     const FavouriteRef = useRef<HTMLDivElement>(null);
 
-    const RedirectOnClickTo: string = `/${servicesItem.id}`;
+    const RedirectOnClickTo: string = `${!onProjectPage ? AppRoutes.SERVICES : ""}/${servicesItem.id}`;
 
     const RedirectToProjectPage = (
       e: React.MouseEvent<HTMLDivElement, MouseEvent>

@@ -1,0 +1,28 @@
+.ProjectWillNotSaveModal {
+  padding: 0 200px;
+
+  &__caption {
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    color: #000;
+    margin-top: 20px;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: var(--gray-color);
+    text-align: center;
+    margin-top: 5px;
+  }
+
+  &__button {
+    border-radius: 15px;
+    width: 35%;
+    height: 67px;
+    margin-top: 50px;
+    font-size: 24px;
+  }
+}

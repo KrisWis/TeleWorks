@@ -3,13 +3,13 @@ import {
   UseLoadedImageErrors,
 } from "@/shared/ui-kit/LoadImageBlock";
 import styles from "./HeaderLoadingModal.module.scss";
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { LoadImageBlockSecondary } from "@/shared/ui-kit/LoadImageBlockSecondary";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { HeaderLoadingModalProps } from "../model/types";
-import { transitionDuration } from "@/app";
+import { closeModal } from "@/shared/utils/CloseModal";
 
 export const HeaderLoadingModal: React.FC<HeaderLoadingModalProps> = memo(
   ({
@@ -30,32 +30,21 @@ export const HeaderLoadingModal: React.FC<HeaderLoadingModalProps> = memo(
 
     const [trySave, setTrySave] = UseTryAction();
 
-    // Закрытие модалки
-    const ModalOnOpenTimeOutRef = useRef<NodeJS.Timeout>();
-
-    const CloseModal = useCallback(() => {
-      CustomSetModalAppear(false);
-
-      ModalOnOpenTimeOutRef.current = setTimeout(() => {
-        setModalOpen(false);
-      }, transitionDuration);
-    }, [CustomSetModalAppear, setModalOpen]);
-
-    useEffect(() => {
-      return () => {
-        clearTimeout(ModalOnOpenTimeOutRef.current);
-      };
-    }, []);
-
     // Нажатие на кнопку "Сохранить"
     const onClickSave = useCallback(() => {
       if (!HeaderLoadedImage) {
         setTrySave(true);
       } else {
         setHeaderLoadedImageFinish(HeaderLoadedImage);
-        CloseModal();
+        closeModal(CustomSetModalAppear, setModalOpen);
       }
-    }, [CloseModal, HeaderLoadedImage, setHeaderLoadedImageFinish, setTrySave]);
+    }, [
+      CustomSetModalAppear,
+      HeaderLoadedImage,
+      setHeaderLoadedImageFinish,
+      setModalOpen,
+      setTrySave,
+    ]);
 
     return (
       <Flex
@@ -82,7 +71,7 @@ export const HeaderLoadingModal: React.FC<HeaderLoadingModalProps> = memo(
             className={styles.HeaderLoadingModal__button}
             text="Отменить"
             type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
-            onClick={CloseModal}
+            onClick={() => closeModal(CustomSetModalAppear, setModalOpen)}
           />
           <Button
             className={styles.HeaderLoadingModal__button}

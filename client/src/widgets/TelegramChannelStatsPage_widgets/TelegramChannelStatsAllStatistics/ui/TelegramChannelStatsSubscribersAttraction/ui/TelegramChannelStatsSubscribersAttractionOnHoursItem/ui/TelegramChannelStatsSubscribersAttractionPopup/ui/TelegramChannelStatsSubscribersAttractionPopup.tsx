@@ -1,5 +1,5 @@
 import styles from "./TelegramChannelStatsSubscribersAttractionPopup.module.scss";
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { Dropdown } from "@/shared/ui-kit/Dropdown";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
@@ -13,7 +13,7 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import ViewsSVG from "@/shared/assets/icons/Global/ViewsSVG.svg?react";
 import RepostsSVG from "@/shared/assets/icons/Global/RepostsSVG.svg?react";
 import CommentsSVG from "@/shared/assets/icons/Global/commentsSVG.svg?react";
-import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { closeModal } from "@/shared/utils/CloseModal";
 
 export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramChannelStatsSubscribersAttractionPopupProps> =
   memo(({ CustomSetModalAppear, setModalOpen, channel }): React.JSX.Element => {
@@ -21,28 +21,11 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
     const [moreDropdownIsOpen, setMoreDropdownIsOpen] =
       useState<boolean>(false);
 
-    // Закрытие модалки
-    const ModalOnOpenTimeOutRef = useRef<NodeJS.Timeout>();
-
-    const CloseModal = useCallback((): void => {
-      CustomSetModalAppear(false);
-
-      ModalOnOpenTimeOutRef.current = setTimeout(() => {
-        setModalOpen(false);
-      }, transitionDuration);
-    }, [CustomSetModalAppear, setModalOpen]);
-
-    useEffect(() => {
-      return () => {
-        clearTimeout(ModalOnOpenTimeOutRef.current);
-      };
-    }, []);
-
     // Нажатие на кнопку "Просмотр канала"
     const redirectToChannelPage = useCallback(() => {
-      CloseModal();
+      closeModal(CustomSetModalAppear, setModalOpen);
       window.location.replace(channel.channelLink);
-    }, [CloseModal, channel.channelLink]);
+    }, [CustomSetModalAppear, channel.channelLink, setModalOpen]);
 
     return (
       <Flex
@@ -112,7 +95,7 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
           <IncreaseScaleHover>
             <Close
               className={styles.ModalTemplate__close}
-              onClick={CloseModal}
+              onClick={() => closeModal(CustomSetModalAppear, setModalOpen)}
             />
           </IncreaseScaleHover>
         </Flex>

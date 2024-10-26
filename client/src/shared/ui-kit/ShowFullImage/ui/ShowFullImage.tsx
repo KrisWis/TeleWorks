@@ -3,7 +3,7 @@ import {
   ShowFullImageTypes,
 } from "../model/ShowFullImage_types";
 import styles from "./ShowFullImage.module.scss";
-import { memo, useCallback, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import FullScreenSVG from "@/shared/assets/icons/Shared/ShowFullImage/FullScreenSVG.svg?react";
 import CloseSVG from "@/shared/assets/icons/Shared/ShowFullImage/CloseSVG.svg?react";
 import NextArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/NextArrowSVG.svg?react";
@@ -11,7 +11,7 @@ import PrevArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/PrevArrowSV
 import { Modal } from "@/shared/ui-kit/Modal";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { closeModal } from "@/shared/utils/CloseModal";
 
 export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
   ({ className, imgURLs, ActiveSlideIndex, type }): React.JSX.Element => {
@@ -21,28 +21,12 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
 
     const swiperRef = useRef<SwiperClass>();
 
-    const ShowFullImageOnCloseTimeOutRef = useRef<NodeJS.Timeout>();
-
-    const CloseModal = useCallback(() => {
-      setModalIsAppear(false);
-
-      ShowFullImageOnCloseTimeOutRef.current = setTimeout(() => {
-        setModalIsOpen(false);
-      }, transitionDuration);
-    }, []);
-
     useEffect(() => {
       if (ActiveSlideIndex) {
         swiperRef.current?.slideTo(ActiveSlideIndex);
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ActiveSlideIndex, swiperRef.current]);
-
-    useEffect(() => {
-      return () => {
-        clearTimeout(ShowFullImageOnCloseTimeOutRef.current);
-      };
-    }, []);
 
     return (
       <>
@@ -106,7 +90,7 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
                   <div
                     className={`${styles.showFullImage__circle} 
                       ${styles.showFullImage__slider__close}`}
-                    onClick={CloseModal}
+                    onClick={() => closeModal(setModalIsAppear, setModalIsOpen)}
                   >
                     <CloseSVG />
                   </div>

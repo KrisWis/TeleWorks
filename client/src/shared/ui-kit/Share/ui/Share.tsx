@@ -8,6 +8,16 @@ import { ModalTemplate } from "../../ModalTemplate";
 import { ShareSocialProvider, useShareSocialLib } from "./ShareSocialProvider";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
 
+window.matchMedia =
+  window.matchMedia ||
+  function () {
+    return {
+      matches: false,
+      addListener: function () {},
+      removeListener: function () {},
+    };
+  };
+
 const mobile_mediaQuery: MediaQueryList =
   window.matchMedia("(max-width: 700px)");
 

@@ -7,4 +7,5 @@ export interface ModalTemplateProps {
   className?: string;
   redirectToBack?: () => void;
   withoutHeader?: boolean;
+  onClose?: () => void;
 }

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CaseLoadingModal } from "./CaseLoadingModal";
+import { ProjectWillNotSaveModal } from "./ProjectWillNotSaveModal";
 
 const meta = {
-  title: "Modals/CaseLoadingModal",
-  component: CaseLoadingModal,
+  title: "Modals/ProjectWillNotSaveModal",
+  component: ProjectWillNotSaveModal,
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof CaseLoadingModal>;
+} satisfies Meta<typeof ProjectWillNotSaveModal>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

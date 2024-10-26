@@ -16,7 +16,7 @@ describe("Widgets/BlogOpenPostComments", () => {
   test("User can upload a file", async () => {
     const { getByTestId } = renderWithRouter(
       <BlogPostPageContext.Provider value={mockContextValue}>
-        <BlogOpenPostComments />
+        <BlogOpenPostComments id={"1"} />
       </BlogPostPageContext.Provider>
     );
 
@@ -39,7 +39,7 @@ describe("Widgets/BlogOpenPostComments", () => {
   test("User can upload a file and delete file", async () => {
     const { getByTestId, queryByTestId } = renderWithRouter(
       <BlogPostPageContext.Provider value={mockContextValue}>
-        <BlogOpenPostComments />
+        <BlogOpenPostComments id={"1"} />
       </BlogPostPageContext.Provider>
     );
 
@@ -74,7 +74,7 @@ describe("Widgets/BlogOpenPostComments", () => {
   test("User can upload a file and change file", async () => {
     const { getByTestId, queryByTestId } = renderWithRouter(
       <BlogPostPageContext.Provider value={mockContextValue}>
-        <BlogOpenPostComments />
+        <BlogOpenPostComments id={"1"} />
       </BlogPostPageContext.Provider>
     );
 

@@ -3,7 +3,7 @@ import {
   СhangeablePortfolioCaseInterface,
 } from "@/entities/UserEditPage_entities/СhangeablePortfolioCase";
 import styles from "./UserEditPortfolio.module.scss";
-import { memo, useContext, useState } from "react";
+import { memo, useCallback, useContext, useState } from "react";
 import { UserEditPageContext } from "@/pages/UserEditPage";
 import { UserEditTabsEnum } from "@/widgets/UserEditPage_widgets/UserEditTabs";
 import { Modal } from "@/shared/ui-kit/Modal";
@@ -16,6 +16,9 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import ModalIconSVG from "@/shared/assets/icons/UserEditPage/UserEdit/ModalIconSVG.svg?react";
 import { Link } from "react-router-dom";
 import { UserEditPortfolioContext } from "../model/UserEditPortfolioContext/UserEditPortfolioContext";
+import { closeModal } from "@/shared/utils/CloseModal";
+import { ProjectWillNotSaveModal } from "../../Modals/ProjectWillNotSaveModal";
+import { transitionDuration } from "@/app";
 
 export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
   // Добавление рефа для скроллинга
@@ -48,9 +51,25 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
   const [ProjectIsPublishedModalAppear, setProjectIsPublishedModalAppear] =
     useState<boolean>(false);
 
+  const [ProjectWillNotSaveModalIsOpen, setProjectWillNotSaveModalIsOpen] =
+    useState<boolean>(false);
+
+  const [ProjectWillNotSaveModalAppear, setProjectWillNotSaveModalAppear] =
+    useState<boolean>(false);
+
   const [ExistedCases, setExistedCases] = useState<
     СhangeablePortfolioCaseInterface[]
   >(portfolioExistedCases);
+
+  // Открытие модалки "Проект не будет сохранён"
+  const openProjectWillNotSaveModal = useCallback(() => {
+    closeModal(setLastDetailsModalAppear, setLastDetailsModalIsOpen);
+
+    const ProjectWillNotSaveModalTimeout = setTimeout(() => {
+      setProjectWillNotSaveModalIsOpen(true);
+      clearTimeout(ProjectWillNotSaveModalTimeout);
+    }, transitionDuration);
+  }, []);
 
   return (
     <UserEditPortfolioContext.Provider
@@ -65,6 +84,8 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
         setDraftIsSavedModalAppear: setDraftIsSavedModalAppear,
         setProjectIsPublishedModalIsOpen: setProjectIsPublishedModalIsOpen,
         setProjectIsPublishedModalAppear: setProjectIsPublishedModalAppear,
+        setProjectWillNotSaveModalAppear: setProjectWillNotSaveModalAppear,
+        setProjectWillNotSaveModalIsOpen: setProjectWillNotSaveModalIsOpen,
       }}
     >
       <div
@@ -92,13 +113,31 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
             setModalIsOpen={setLastDetailsModalIsOpen}
             CustomSetModalAppear={setLastDetailsModalAppear}
             CustomModalAppear={LastDetailsModalAppear}
+            onClose={openProjectWillNotSaveModal}
           >
             <ModalTemplate
               className={styles.userEditPortfolio__LastDetailsModal}
               CustomSetModalAppear={setLastDetailsModalAppear}
               setModalOpen={setLastDetailsModalIsOpen}
+              onClose={openProjectWillNotSaveModal}
             >
               <LastDetailsModal />
+            </ModalTemplate>
+          </Modal>
+        )}
+
+        {ProjectWillNotSaveModalIsOpen && (
+          <Modal
+            setModalIsOpen={setProjectWillNotSaveModalIsOpen}
+            CustomSetModalAppear={setProjectWillNotSaveModalAppear}
+            CustomModalAppear={ProjectWillNotSaveModalAppear}
+          >
+            <ModalTemplate
+              className={styles.userEditPortfolio__ProjectWillNotSaveModal}
+              CustomSetModalAppear={setProjectWillNotSaveModalAppear}
+              setModalOpen={setProjectWillNotSaveModalIsOpen}
+            >
+              <ProjectWillNotSaveModal />
             </ModalTemplate>
           </Modal>
         )}

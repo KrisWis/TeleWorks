@@ -2,6 +2,7 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.scss";
 import { ModalProps } from "../model/Modal_types";
 import { PortalElement } from "@/shared/utils/PortalElement";
+import { transitionDuration } from "@/app";
 
 export const Modal: React.FC<ModalProps> = ({
   children,
@@ -10,6 +11,7 @@ export const Modal: React.FC<ModalProps> = ({
   CustomModalAppear,
   CustomSetModalAppear,
   id,
+  onClose,
 }): React.JSX.Element => {
   const [ModalAppear, setModalAppear] = useState<boolean>(false);
 
@@ -48,7 +50,8 @@ export const Modal: React.FC<ModalProps> = ({
       if (setModalIsOpen)
         ModalOnCloseTimeOutRef.current = setTimeout(() => {
           setModalIsOpen(false);
-        }, 500);
+          onClose && onClose();
+        }, transitionDuration);
     }
   };
 
@@ -65,7 +68,14 @@ export const Modal: React.FC<ModalProps> = ({
         id={id}
         ref={ParentRef}
         onClick={modalOnClose}
-        className={`${styles.modal} ${CustomModalAppear ? styles.modal__appear : ModalAppear ? styles.modal__appear : styles.modal__disappear} ${className}`}
+        className={`${styles.modal} 
+        ${
+          CustomModalAppear
+            ? styles.modal__appear
+            : ModalAppear
+              ? styles.modal__appear
+              : styles.modal__disappear
+        } ${className}`}
       >
         {children}
       </div>

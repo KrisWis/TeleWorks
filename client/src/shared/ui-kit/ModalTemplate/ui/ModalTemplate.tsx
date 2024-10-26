@@ -1,9 +1,10 @@
 import { ModalTemplateProps } from "../types/ModalTemplate_types";
 import styles from "./ModalTemplate.module.scss";
-import { memo, MouseEventHandler, useCallback, useEffect, useRef } from "react";
+import { memo, useCallback } from "react";
 import Close from "@/shared/assets/icons/Shared/ModalTemplate/close.svg?react";
 import Back from "@/shared/assets/icons/Shared/ModalTemplate/back.svg?react";
-import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { closeModal } from "@/shared/utils/CloseModal";
+import { transitionDuration } from "@/app";
 
 export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
   ({
@@ -13,23 +14,17 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
     className,
     redirectToBack,
     withoutHeader = false,
+    onClose,
   }): React.JSX.Element => {
-    // Закрытие модалки
-    const ModalOnOpenTimeOutRef = useRef<NodeJS.Timeout>();
+    // Вызывание функции при закрытии
+    const closeModalTemplate = useCallback(() => {
+      closeModal(CustomSetModalAppear, setModalOpen);
 
-    const CloseModal: MouseEventHandler<SVGSVGElement> = useCallback(() => {
-      CustomSetModalAppear(false);
-
-      ModalOnOpenTimeOutRef.current = setTimeout(() => {
-        setModalOpen(false);
+      const closeModalTimeout = setTimeout(() => {
+        onClose && onClose();
+        clearTimeout(closeModalTimeout);
       }, transitionDuration);
-    }, [CustomSetModalAppear, setModalOpen]);
-
-    useEffect(() => {
-      return () => {
-        clearTimeout(ModalOnOpenTimeOutRef.current);
-      };
-    }, []);
+    }, [CustomSetModalAppear, onClose, setModalOpen]);
 
     return (
       <div className={`${styles.ModalTemplate} ${className}`}>
@@ -37,7 +32,7 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
           <div className={styles.ModalTemplate__header}>
             <Close
               className={styles.ModalTemplate__close}
-              onClick={CloseModal}
+              onClick={closeModalTemplate}
             />
             {redirectToBack && (
               <Back

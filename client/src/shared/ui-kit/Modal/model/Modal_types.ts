@@ -7,4 +7,5 @@ export interface ModalProps {
   CustomModalAppear?: boolean;
   CustomSetModalAppear?: React.Dispatch<React.SetStateAction<boolean>>;
   id?: string;
+  onClose?: () => void;
 }

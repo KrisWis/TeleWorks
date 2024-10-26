@@ -15,6 +15,12 @@ export interface UserEditPortfolioContext {
   setProjectIsPublishedModalAppear: React.Dispatch<
     React.SetStateAction<boolean>
   >;
+  setProjectWillNotSaveModalIsOpen: React.Dispatch<
+    React.SetStateAction<boolean>
+  >;
+  setProjectWillNotSaveModalAppear: React.Dispatch<
+    React.SetStateAction<boolean>
+  >;
 }
 
 export const UserEditPortfolioContext = createContext<UserEditPortfolioContext>(
@@ -29,5 +35,7 @@ export const UserEditPortfolioContext = createContext<UserEditPortfolioContext>(
     setDraftIsSavedModalAppear: useState,
     setProjectIsPublishedModalIsOpen: useState,
     setProjectIsPublishedModalAppear: useState,
+    setProjectWillNotSaveModalIsOpen: useState,
+    setProjectWillNotSaveModalAppear: useState,
   }
 );

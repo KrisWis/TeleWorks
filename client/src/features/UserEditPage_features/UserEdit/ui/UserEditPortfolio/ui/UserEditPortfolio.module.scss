@@ -25,6 +25,16 @@
     position: relative;
   }
 
+  &__ProjectWillNotSaveModal {
+    border-radius: 25px;
+    background: #fff;
+    height: 750px;
+    width: 60vw;
+    top: 12.5%;
+    left: 21%;
+    position: relative;
+  }
+
   &__header {
     display: flex;
     align-items: center;

@@ -85,7 +85,7 @@ describe("Widgets/LoadImageBlock", () => {
     await waitFor(() => {
       expect(getByTestId(`LoadImageBlock.Image`)).toHaveAttribute(
         "src",
-        mockFileName2
+        mockFileName
       );
     });
   });
