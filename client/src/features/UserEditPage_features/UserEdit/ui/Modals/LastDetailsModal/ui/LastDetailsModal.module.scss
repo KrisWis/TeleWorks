@@ -1,4 +1,10 @@
 .LastDetailsModal {
+  display: grid;
+  width: 100%;
+  align-items: center;
+  gap: 40px;
+  grid-template-columns: 0.4fr 0.6fr;
+
   &__caption {
     font-weight: 600;
     font-size: 24px;
@@ -6,7 +12,7 @@
     color: #000;
   }
 
-  &__chooseImage {
+  &__subcaption {
     font-weight: 500;
     font-size: 20px;
     letter-spacing: -0.01em;
@@ -29,7 +35,7 @@
     &Views {
       position: absolute;
       bottom: 10px;
-      right: 10px;
+      right: 15px;
 
       &__svg {
         width: 21px;
@@ -60,5 +66,27 @@
       align-self: center;
       color: var(--main-color);
     }
+  }
+
+  &__input {
+    height: 60px;
+    font-size: 18px;
+    border-radius: 15px;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+
+  &__tagsInput {
+    padding-left: 15px;
+  }
+
+  &__button {
+    font-size: 24px;
+    width: 45%;
+    height: 68px;
+    margin-top: 10px;
+    border-radius: 15px;
   }
 }

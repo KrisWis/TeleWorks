@@ -6,4 +6,5 @@ export interface ModalTemplateProps {
   CustomSetModalAppear: React.Dispatch<React.SetStateAction<boolean>>;
   className?: string;
   redirectToBack?: () => void;
+  withoutHeader?: boolean;
 }

@@ -56,6 +56,7 @@ export interface FlexProps extends DivProps {
   justify?: FlexJustify;
   align?: FlexAlign;
   direction?: FlexDirection;
+  wrap?: boolean;
   gap?: FlexGap;
   max?: boolean;
   isSection?: boolean;
@@ -75,6 +76,7 @@ export const Flex = (props: FlexProps) => {
     innerRef,
     isSection,
     "data-testid": dataTestId,
+    wrap,
     ...otherProps
   } = props;
 
@@ -91,7 +93,8 @@ export const Flex = (props: FlexProps) => {
       {isSection ? (
         <section
           ref={innerRef}
-          className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
+          className={`${styles.Flex} ${max ? styles.max : ""} ${wrap ? styles.wrap : ""}
+           ${classes.join(" ")}`}
           data-testid={dataTestId}
           {...otherProps}
         >
@@ -100,7 +103,7 @@ export const Flex = (props: FlexProps) => {
       ) : (
         <div
           ref={innerRef}
-          className={`${styles.Flex} ${max ? styles.max : ""} ${classes.join(" ")}`}
+          className={`${styles.Flex} ${max ? styles.max : ""} ${wrap ? styles.wrap : ""} ${classes.join(" ")}`}
           data-testid={dataTestId}
           {...otherProps}
         >

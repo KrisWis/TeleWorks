@@ -4,7 +4,14 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 import RedCrossSVG from "@/shared/assets/icons/UserEditPage/UserEdit/RedCrossSVG.svg?react";
 
 export const TagsInput: React.FC<TagInputProps> = memo(
-  ({ SelectedTags, setSelectedTags, onChange }): React.JSX.Element => {
+  ({
+    SelectedTags,
+    setSelectedTags,
+    onChange,
+    inputClassname,
+    placeholder,
+    isWarn,
+  }): React.JSX.Element => {
     // Ввод и отображение тегов
     const [TagsInputValue, setTagsInputValue] = useState<string>("");
     const TagInputRef = useRef<HTMLInputElement>(null);
@@ -98,14 +105,15 @@ export const TagsInput: React.FC<TagInputProps> = memo(
 
         <input
           data-testid="TagsInput.input"
-          className={styles.TagsInput__tagsInput}
+          className={`${styles.TagsInput__tagsInput} ${inputClassname} 
+          ${isWarn ? styles.TagsInput__tagsInput__warning : ""}`}
           type="text"
           value={TagsInputValue}
           onChange={(e) => {
             setTagsInputValue(e.target.value), onChange && onChange();
           }}
           ref={TagInputRef}
-          placeholder="Добавьте теги..."
+          placeholder={placeholder || "Добавьте теги..."}
         />
       </div>
     );

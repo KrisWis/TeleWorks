@@ -12,6 +12,7 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
     CustomSetModalAppear,
     className,
     redirectToBack,
+    withoutHeader = false,
   }): React.JSX.Element => {
     // Закрытие модалки
     const ModalOnOpenTimeOutRef = useRef<NodeJS.Timeout>();
@@ -32,15 +33,20 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
 
     return (
       <div className={`${styles.ModalTemplate} ${className}`}>
-        <div className={styles.ModalTemplate__header}>
-          <Close className={styles.ModalTemplate__close} onClick={CloseModal} />
-          {redirectToBack && (
-            <Back
-              className={styles.ModalTemplate__back}
-              onClick={redirectToBack}
+        {!withoutHeader && (
+          <div className={styles.ModalTemplate__header}>
+            <Close
+              className={styles.ModalTemplate__close}
+              onClick={CloseModal}
             />
-          )}
-        </div>
+            {redirectToBack && (
+              <Back
+                className={styles.ModalTemplate__back}
+                onClick={redirectToBack}
+              />
+            )}
+          </div>
+        )}
 
         <div className={styles.ModalTemplate__wrapper}>{children}</div>
       </div>

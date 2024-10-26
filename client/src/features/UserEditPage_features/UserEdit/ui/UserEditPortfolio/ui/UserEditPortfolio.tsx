@@ -12,6 +12,10 @@ import { CaseLoadingModal } from "../../Modals/CaseLoadingModal";
 import { portfolioExistedCases } from "../model/UserEditPortfolio_data";
 import { LastDetailsModal } from "../../Modals/LastDetailsModal";
 import { UseLoadedImage } from "@/shared/ui-kit/LoadImageBlock";
+import { Flex } from "@/shared/ui-kit/Stack";
+import ModalIconSVG from "@/shared/assets/icons/UserEditPage/UserEdit/ModalIconSVG.svg?react";
+import { Link } from "react-router-dom";
+import { UserEditPortfolioContext } from "../model/UserEditPortfolioContext/UserEditPortfolioContext";
 
 export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
   // Добавление рефа для скроллинга
@@ -32,87 +36,179 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
   const [LastDetailsModalAppear, setLastDetailsModalAppear] =
     useState<boolean>(false);
 
+  const [DraftIsSavedModalIsOpen, setDraftIsSavedModalIsOpen] =
+    useState<boolean>(false);
+
+  const [DraftIsSavedModalAppear, setDraftIsSavedModalAppear] =
+    useState<boolean>(false);
+
+  const [ProjectIsPublishedModalIsOpen, setProjectIsPublishedModalIsOpen] =
+    useState<boolean>(false);
+
+  const [ProjectIsPublishedModalAppear, setProjectIsPublishedModalAppear] =
+    useState<boolean>(false);
+
   const [ExistedCases, setExistedCases] = useState<
     СhangeablePortfolioCaseInterface[]
   >(portfolioExistedCases);
 
   return (
-    <div
-      ref={refs[UserEditTabsEnum.PORTFOLIO]}
-      className={styles.userEditPortfolio}
+    <UserEditPortfolioContext.Provider
+      value={{
+        setCaseLoadingModalIsOpen: setCaseLoadingModalIsOpen,
+        setCaseLoadingModalAppear: setCaseLoadingModalAppear,
+        CaseLoadedImage: CaseLoadedImage,
+        setCaseLoadedImage: setCaseLoadedImage,
+        setLastDetailsModalIsOpen: setLastDetailsModalIsOpen,
+        setLastDetailsModalAppear: setLastDetailsModalAppear,
+        setDraftIsSavedModalIsOpen: setDraftIsSavedModalIsOpen,
+        setDraftIsSavedModalAppear: setDraftIsSavedModalAppear,
+        setProjectIsPublishedModalIsOpen: setProjectIsPublishedModalIsOpen,
+        setProjectIsPublishedModalAppear: setProjectIsPublishedModalAppear,
+      }}
     >
-      {CaseLoadingModalIsOpen && (
-        <Modal
-          setModalIsOpen={setCaseLoadingModalIsOpen}
-          CustomSetModalAppear={setCaseLoadingModalAppear}
-          CustomModalAppear={CaseLoadingModalAppear}
-        >
-          <ModalTemplate
-            className={styles.userEditPortfolio__CaseLoadingModal}
+      <div
+        ref={refs[UserEditTabsEnum.PORTFOLIO]}
+        className={styles.userEditPortfolio}
+      >
+        {CaseLoadingModalIsOpen && (
+          <Modal
+            setModalIsOpen={setCaseLoadingModalIsOpen}
             CustomSetModalAppear={setCaseLoadingModalAppear}
-            setModalOpen={setCaseLoadingModalIsOpen}
+            CustomModalAppear={CaseLoadingModalAppear}
           >
-            <CaseLoadingModal
-              setLastDetailsModalIsOpen={setLastDetailsModalIsOpen}
-              setCaseLoadingModalIsOpen={setCaseLoadingModalIsOpen}
-              setCaseLoadingModalAppear={setCaseLoadingModalAppear}
-              CaseLoadedImage={CaseLoadedImage}
-              setCaseLoadedImage={setCaseLoadedImage}
-            />
-          </ModalTemplate>
-        </Modal>
-      )}
-
-      {LastDetailsModalIsOpen && (
-        <Modal
-          setModalIsOpen={setLastDetailsModalIsOpen}
-          CustomSetModalAppear={setLastDetailsModalAppear}
-          CustomModalAppear={LastDetailsModalAppear}
-        >
-          <ModalTemplate
-            className={styles.userEditPortfolio__LastDetailsModal}
-            CustomSetModalAppear={setLastDetailsModalAppear}
-            setModalOpen={setLastDetailsModalIsOpen}
-          >
-            <LastDetailsModal
-              setLastDetailsModalAppear={setLastDetailsModalAppear}
-              setLastDetailsModalIsOpen={setLastDetailsModalIsOpen}
-              setCaseLoadingModalIsOpen={setCaseLoadingModalIsOpen}
-              CaseLoadedImage={CaseLoadedImage}
-            />
-          </ModalTemplate>
-        </Modal>
-      )}
-
-      <div className={styles.userEditPortfolio__header}>
-        <h4 className="UserEditPage__caption">Портфолио</h4>
-
-        <span
-          onClick={() => setCaseLoadingModalIsOpen(true)}
-          className={styles.userEditPortfolio__addCase}
-        >
-          + Добавить кейс
-        </span>
-      </div>
-
-      <div className={styles.userEditPortfolio__cases}>
-        {!portfolioExistedCases.length ? (
-          <div className={styles.userEditPortfolio__cases__empty}>
-            <span className={styles.userEditPortfolio__cases__empty__text}>
-              Проектов ещё нет!
-            </span>
-          </div>
-        ) : (
-          portfolioExistedCases.map((portfolioCase) => (
-            <СhangeablePortfolioCase
-              key={portfolioCase.index}
-              setExistedCases={setExistedCases}
-              Case={portfolioCase}
-              ExistedCases={ExistedCases}
-            />
-          ))
+            <ModalTemplate
+              className={styles.userEditPortfolio__CaseLoadingModal}
+              CustomSetModalAppear={setCaseLoadingModalAppear}
+              setModalOpen={setCaseLoadingModalIsOpen}
+            >
+              <CaseLoadingModal />
+            </ModalTemplate>
+          </Modal>
         )}
+
+        {LastDetailsModalIsOpen && (
+          <Modal
+            setModalIsOpen={setLastDetailsModalIsOpen}
+            CustomSetModalAppear={setLastDetailsModalAppear}
+            CustomModalAppear={LastDetailsModalAppear}
+          >
+            <ModalTemplate
+              className={styles.userEditPortfolio__LastDetailsModal}
+              CustomSetModalAppear={setLastDetailsModalAppear}
+              setModalOpen={setLastDetailsModalIsOpen}
+            >
+              <LastDetailsModal />
+            </ModalTemplate>
+          </Modal>
+        )}
+
+        {DraftIsSavedModalIsOpen && (
+          <Modal
+            setModalIsOpen={setDraftIsSavedModalIsOpen}
+            CustomSetModalAppear={setDraftIsSavedModalAppear}
+            CustomModalAppear={DraftIsSavedModalAppear}
+          >
+            <ModalTemplate
+              className={styles.userEditPortfolio__isSavedModalWrapper}
+              CustomSetModalAppear={setDraftIsSavedModalAppear}
+              setModalOpen={setDraftIsSavedModalIsOpen}
+              withoutHeader
+            >
+              <Flex
+                className={styles.userEditPortfolio__isSavedModal}
+                align="center"
+                gap="30"
+                max
+                justify="center"
+              >
+                <ModalIconSVG />
+
+                <Flex direction="column" gap="15">
+                  <span
+                    className={styles.userEditPortfolio__isSavedModal__caption}
+                  >
+                    Черновик сохранен!
+                  </span>
+
+                  <p className={styles.userEditPortfolio__isSavedModal__text}>
+                    Ваш черновик сохранен для дальнейшего использования в
+                    <Link to="/"> вашем профиле.</Link>
+                  </p>
+                </Flex>
+              </Flex>
+            </ModalTemplate>
+          </Modal>
+        )}
+
+        {ProjectIsPublishedModalIsOpen && (
+          <Modal
+            setModalIsOpen={setProjectIsPublishedModalIsOpen}
+            CustomSetModalAppear={setProjectIsPublishedModalAppear}
+            CustomModalAppear={ProjectIsPublishedModalAppear}
+          >
+            <ModalTemplate
+              className={styles.userEditPortfolio__isSavedModalWrapper}
+              CustomSetModalAppear={setProjectIsPublishedModalAppear}
+              setModalOpen={setProjectIsPublishedModalIsOpen}
+              withoutHeader
+            >
+              <Flex
+                className={styles.userEditPortfolio__isSavedModal}
+                align="center"
+                gap="30"
+                max
+                justify="center"
+              >
+                <ModalIconSVG />
+
+                <Flex direction="column" gap="15">
+                  <span
+                    className={styles.userEditPortfolio__isSavedModal__caption}
+                  >
+                    Проект опубликован!
+                  </span>
+
+                  <p className={styles.userEditPortfolio__isSavedModal__text}>
+                    Ваш кейс сохранен для дальнейшего использования в
+                    <Link to="/"> вашем профиле.</Link>
+                  </p>
+                </Flex>
+              </Flex>
+            </ModalTemplate>
+          </Modal>
+        )}
+
+        <div className={styles.userEditPortfolio__header}>
+          <h4 className="UserEditPage__caption">Портфолио</h4>
+
+          <span
+            onClick={() => setCaseLoadingModalIsOpen(true)}
+            className={styles.userEditPortfolio__addCase}
+          >
+            + Добавить кейс
+          </span>
+        </div>
+
+        <div className={styles.userEditPortfolio__cases}>
+          {!portfolioExistedCases.length ? (
+            <div className={styles.userEditPortfolio__cases__empty}>
+              <span className={styles.userEditPortfolio__cases__empty__text}>
+                Проектов ещё нет!
+              </span>
+            </div>
+          ) : (
+            portfolioExistedCases.map((portfolioCase) => (
+              <СhangeablePortfolioCase
+                key={portfolioCase.index}
+                setExistedCases={setExistedCases}
+                Case={portfolioCase}
+                ExistedCases={ExistedCases}
+              />
+            ))
+          )}
+        </div>
       </div>
-    </div>
+    </UserEditPortfolioContext.Provider>
   );
 });
