@@ -11,6 +11,7 @@ export {
   tablet_small_mediaQuery,
   IndexedDBName,
   isUnit,
+  modalsTransitionDuration,
 } from "./layouts/BaseLayout/model/BaseLayout__data";
 
 export type {

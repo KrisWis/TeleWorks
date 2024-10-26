@@ -4,7 +4,7 @@ import { memo, useCallback, useContext, useEffect, useState } from "react";
 import ViewsSVG from "@/shared/assets/icons/Global/ViewsSVG.svg?react";
 import DownloadSVG from "@/shared/assets/icons/Global/DownloadSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import { transitionDuration } from "@/app";
+import { modalsTransitionDuration, transitionDuration } from "@/app";
 import { Input } from "@/shared/ui-kit/Input";
 import { TagsInput } from "@/shared/ui-kit/TagsInput";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
@@ -23,6 +23,7 @@ export const LastDetailsModal: React.FC = memo((): React.JSX.Element => {
     setDraftIsSavedModalAppear,
     setProjectIsPublishedModalAppear,
     setProjectIsPublishedModalIsOpen,
+    setCaseLoadedImage,
   } = useContext(UserEditPortfolioContext);
 
   // Возврат к предыдущей модалки
@@ -62,16 +63,22 @@ export const LastDetailsModal: React.FC = memo((): React.JSX.Element => {
       closeModal(setLastDetailsModalAppear, setLastDetailsModalIsOpen);
       setDraftIsSavedModalIsOpen(true);
 
+      const clearLoadedImageTimeout = setTimeout(() => {
+        setCaseLoadedImage("");
+        clearTimeout(clearLoadedImageTimeout);
+      }, transitionDuration);
+
       const DraftIsSavedTimeout = setTimeout(() => {
         closeModal(setDraftIsSavedModalAppear, setDraftIsSavedModalIsOpen);
         clearTimeout(DraftIsSavedTimeout);
-      }, 3000);
+      }, modalsTransitionDuration);
     } else {
       setTryPublish(true);
     }
   }, [
     caseName,
     programmNames.length,
+    setCaseLoadedImage,
     setDraftIsSavedModalAppear,
     setDraftIsSavedModalIsOpen,
     setLastDetailsModalAppear,
@@ -85,19 +92,26 @@ export const LastDetailsModal: React.FC = memo((): React.JSX.Element => {
       closeModal(setLastDetailsModalAppear, setLastDetailsModalIsOpen);
       setProjectIsPublishedModalIsOpen(true);
 
+      const clearLoadedImageTimeout = setTimeout(() => {
+        setCaseLoadedImage("");
+        clearTimeout(clearLoadedImageTimeout);
+      }, transitionDuration);
+
       const ProjectIsPublishedTimeout = setTimeout(() => {
         closeModal(
           setProjectIsPublishedModalAppear,
           setProjectIsPublishedModalIsOpen
         );
+
         clearTimeout(ProjectIsPublishedTimeout);
-      }, 3000);
+      }, modalsTransitionDuration);
     } else {
       setTryPublish(true);
     }
   }, [
     caseName,
     programmNames.length,
+    setCaseLoadedImage,
     setLastDetailsModalAppear,
     setLastDetailsModalIsOpen,
     setProjectIsPublishedModalAppear,

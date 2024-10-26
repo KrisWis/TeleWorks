@@ -45,6 +45,8 @@ export const mobile_mediaQuery: MediaQueryList =
 
 export const transitionDuration: number = 300;
 
+export const modalsTransitionDuration: number = 3000;
+
 export const transitionDurationMedium: number = 700;
 
 export const IndexedDBName: string = "TeleWorks";
