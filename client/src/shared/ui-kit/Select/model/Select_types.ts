@@ -57,6 +57,7 @@ export interface Select__Props {
   CustomDropdownIndicator: () => JSX.Element;
   TextStyles: SelectTextStyles;
   className?: string;
+  wrapperClassName?: string;
   theme?: SelectThemesEnum;
   valueContainerPadding?: valueContainerPaddingEnum;
   DefaultSelectedOption?: Select_Option;

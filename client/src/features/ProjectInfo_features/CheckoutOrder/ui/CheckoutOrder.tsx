@@ -12,12 +12,12 @@ import {
   ProjectExtraService,
   ProjectInfoPackNames,
 } from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
-import { CheckoutOrderAmountCounter } from "./CheckoutOrderAmountCounter/ui/CheckoutOrderAmountCounter";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { StoreSchema, useAppDispatch } from "@/app/store/AppStore";
 import { ProjectActiveServices } from "@/shared/ui-kit/ProjectActiveServices";
 import { ProjectDeadline } from "@/shared/ui-kit/ProjectDeadline";
 import { ProjectEditions } from "@/shared/ui-kit/ProjectEditions/ui/ProjectEditions";
+import { Counter } from "@/shared/ui-kit/Counter";
 
 export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
   ({ pack, ExtraServices, setExtraServices }): React.JSX.Element => {
@@ -203,8 +203,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
             <ProjectEditions editionsAmount={pack.editionsAmount} />
           </div>
 
-          <CheckoutOrderAmountCounter
-            isDisabled={false}
+          <Counter
             amount={editionsAmounts}
             dicreaseAmount={() =>
               dispatch(
@@ -262,7 +261,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
                   </span>
 
                   {extraService.scalability && (
-                    <CheckoutOrderAmountCounter
+                    <Counter
                       isDisabled={!ExtraServiceInState(extraService)}
                       amount={GetExtraServiceAmounts(extraService.title)}
                       dicreaseAmount={() =>

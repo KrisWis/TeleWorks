@@ -27,6 +27,7 @@ export const Select: React.FC<Select__Props> = memo(
     setState,
     DefaultSelectedOption,
     placeholder,
+    wrapperClassName,
   }): React.JSX.Element => {
     // Объявление переменных и событие при изменение
     const SelectParentRef = useRef<HTMLDivElement>(null);
@@ -130,7 +131,11 @@ export const Select: React.FC<Select__Props> = memo(
     };
 
     return (
-      <div ref={SelectParentRef} onClick={SelectOnClick}>
+      <div
+        className={wrapperClassName}
+        ref={SelectParentRef}
+        onClick={SelectOnClick}
+      >
         <ReactSelect
           className={`${styles.Select} ${className}`}
           defaultValue={SelectedOption}

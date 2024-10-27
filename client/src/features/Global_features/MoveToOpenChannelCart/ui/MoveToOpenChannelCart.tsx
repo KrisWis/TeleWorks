@@ -9,6 +9,7 @@ import { getAllChannelsInCart } from "../model/selectors/MoveToOpenChannelCartSl
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/store/AppStore";
 import { catalog__items } from "@/widgets/CatalogPage_widgets/Catalog";
+import { AppRoutes } from "@/app";
 
 export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
   ({
@@ -106,6 +107,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
               className={styles.MoveToOpenChannelCart__toCart}
               type={ButtonTypes.RED}
               text="Перейти в корзину"
+              to={AppRoutes.CATALOG_CART}
             />
           </VStack>
         </VioletBorderContainer>

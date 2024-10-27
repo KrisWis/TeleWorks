@@ -210,19 +210,24 @@
   &__subfooter {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
     width: 17%;
     margin-left: 10px;
+
+    &__small {
+      gap: 5px;
+    }
   }
 
   &__price {
     font-family: var(--second-family);
-    font-weight: 700;
+    font-weight: 800;
     font-size: 20px;
     line-height: 150%;
     letter-spacing: -0.01em;
     color: var(--black-color);
-    align-self: flex-end;
+    align-self: center;
     margin-right: 5px;
   }
 
@@ -238,6 +243,16 @@
     margin-left: 15px;
     padding: 15px 0;
     transition: var(--transition-duration) linear background-color;
+
+    &__small {
+      position: relative;
+      top: 20px;
+      width: 5%;
+
+      &__icon {
+        cursor: pointer;
+      }
+    }
 
     &__item {
       transition: var(--transition-duration) linear all;
@@ -278,6 +293,11 @@
     height: 38px;
     background: var(--white-color);
     border: 1px solid #dcdcdc;
+    width: 100%;
+
+    &__wrapper {
+      width: 100%;
+    }
 
     &__svg {
       margin-right: 5px;

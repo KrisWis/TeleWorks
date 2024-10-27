@@ -8,10 +8,12 @@ import "./CatalogItemProgressBar.scss";
 import {
   catalogItemAmount__selectedOptions,
   catalogItemFormat__selectedOptions,
+  catalogItemTime__selectedOptions,
+  catalogItemTop__selectedOptions,
 } from "../model/CatalogItem__data";
 import { Link } from "react-router-dom";
 import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
-import { memo, useCallback, useRef } from "react";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
 import {
   SelectTextStyles,
   SelectThemesEnum,
@@ -36,22 +38,22 @@ import {
   checkChannelInCart,
   getAllChannelsInCart,
 } from "@/features/Global_features/MoveToOpenChannelCart/";
+import MoreSVG from "@/shared/assets/icons/Global/MoreSVG.svg?react";
+import { Counter } from "@/shared/ui-kit/Counter";
+import { Flex } from "@/shared/ui-kit/Stack";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
 };
 
-const TextStyles: SelectTextStyles = {
-  fontFamily: "var(--second-family)",
-  fontWeight: 400,
-  fontSize: "14px",
-  letterSpacing: "-0.01em",
-  lineHeight: "150%",
-  color: "#b2b2b2",
-};
-
 export const CatalogItem: React.FC<CatalogItemProps> = memo(
-  ({ catalogItem, setMoveToOpenChannelCartIsAppear }): React.JSX.Element => {
+  ({
+    catalogItem,
+    setMoveToOpenChannelCartIsAppear,
+    footer = "big",
+    selectsType = "format|amount",
+    hasCounter = false,
+  }): React.JSX.Element => {
     // Функционал добавления предмета в корзину
     const dispatch = useAppDispatch();
 
@@ -70,7 +72,8 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
     const removeChannelFromCart = useCallback(
       (channel_id: number) => {
         if (allChannelsIDsInCart.length == 1) {
-          setMoveToOpenChannelCartIsAppear(false);
+          setMoveToOpenChannelCartIsAppear &&
+            setMoveToOpenChannelCartIsAppear(false);
 
           removeChannelFromCartTimeoutRef.current = setTimeout(() => {
             dispatch(
@@ -91,6 +94,22 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
       },
       [allChannelsIDsInCart.length, dispatch, setMoveToOpenChannelCartIsAppear]
     );
+
+    // Настройка стилей для селектов
+    const TextStyles: SelectTextStyles = useMemo(
+      () => ({
+        fontFamily: "var(--second-family)",
+        fontWeight: 400,
+        fontSize: selectsType == "format|amount" ? "14px" : "10px",
+        letterSpacing: "-0.01em",
+        lineHeight: "150%",
+        color: selectsType == "format|amount" ? "#b2b2b2" : "var(--main-color)",
+      }),
+      [selectsType]
+    );
+
+    // Стейт для счётчика
+    const [counterAmount, setCounterAmount] = useState<number>(1);
 
     return (
       <div className={styles.catalog__item}>
@@ -142,7 +161,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
                 />
 
                 <span className={styles.catalog__item__stars__text}>
-                  {catalogItem.stars}
+                  {catalogItem.stars.toFixed(1)}
                 </span>
               </div>
             </div>
@@ -230,12 +249,20 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
             </span>
           </div>
 
-          <div className={styles.catalog__item__subfooter}>
+          <div
+            className={`${styles.catalog__item__subfooter}
+          ${hasCounter ? styles.catalog__item__subfooter__small : ""}`}
+          >
             <Select
               className={styles.catalog__item__select}
+              wrapperClassName={styles.catalog__item__select__wrapper}
               TextStyles={TextStyles}
               CustomDropdownIndicator={DropdownIndicator}
-              selectedOptions={catalogItemFormat__selectedOptions}
+              selectedOptions={
+                selectsType == "format|amount"
+                  ? catalogItemFormat__selectedOptions
+                  : catalogItemTime__selectedOptions
+              }
               theme={SelectThemesEnum.BLACK}
             />
 
@@ -243,9 +270,23 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               className={styles.catalog__item__select}
               TextStyles={TextStyles}
               CustomDropdownIndicator={DropdownIndicator}
-              selectedOptions={catalogItemAmount__selectedOptions}
+              selectedOptions={
+                selectsType == "format|amount"
+                  ? catalogItemAmount__selectedOptions
+                  : catalogItemTop__selectedOptions
+              }
               theme={SelectThemesEnum.BLACK}
+              wrapperClassName={styles.catalog__item__select__wrapper}
             />
+
+            {hasCounter && (
+              <Counter
+                amount={counterAmount}
+                dicreaseAmount={() => setCounterAmount(counterAmount - 1)}
+                increaseAmount={() => setCounterAmount(counterAmount + 1)}
+                type="small"
+              />
+            )}
 
             <span className={styles.catalog__item__price}>
               {catalogItem.price}₽
@@ -253,34 +294,46 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
           </div>
         </div>
 
-        <div
-          className={`${styles.catalog__item__footer} ${ChannelInCart ? styles.catalog__item__footer__inCart : ""}`}
-        >
-          <Link className={styles.catalog__item__footer__item} to="/">
-            <FooterBurgerMenu />
-          </Link>
-
-          <div className={styles.catalog__item__footerWrapper}>
-            <div
-              className={styles.catalog__item__footer__item}
-              onClick={() =>
-                ChannelInCart
-                  ? removeChannelFromCart(catalogItem.id)
-                  : dispatch(
-                      MoveToOpenChannelCartActions.addChannelToCart({
-                        channelID: catalogItem.id,
-                      })
-                    )
-              }
-            >
-              <FooterCart />
-            </div>
-
+        {footer == "big" ? (
+          <div
+            className={`${styles.catalog__item__footer}
+             ${ChannelInCart ? styles.catalog__item__footer__inCart : ""}`}
+          >
             <Link className={styles.catalog__item__footer__item} to="/">
-              <FooterFavourite />
+              <FooterBurgerMenu />
             </Link>
+
+            <div className={styles.catalog__item__footerWrapper}>
+              <div
+                className={styles.catalog__item__footer__item}
+                onClick={() =>
+                  ChannelInCart
+                    ? removeChannelFromCart(catalogItem.id)
+                    : dispatch(
+                        MoveToOpenChannelCartActions.addChannelToCart({
+                          channelID: catalogItem.id,
+                        })
+                      )
+                }
+              >
+                <FooterCart />
+              </div>
+
+              <Link className={styles.catalog__item__footer__item} to="/">
+                <FooterFavourite />
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          <Flex
+            justify="evenly"
+            className={styles.catalog__item__footer__small}
+          >
+            <MoreSVG
+              className={styles.catalog__item__footer__small__icon}
+            ></MoreSVG>
+          </Flex>
+        )}
       </div>
     );
   }

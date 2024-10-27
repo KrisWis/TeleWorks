@@ -21,6 +21,7 @@ import { KindDeedsPage } from "@/pages/KindDeedsPage";
 import { KindDeedsCreateRequestPage } from "@/pages/KindDeedsCreateRequest";
 import { IndexedDBStore, PortNow } from "..";
 import { HeaderViews } from "@/widgets/Global_widgets/Header/model/Header_props";
+import { CatalogCartPage } from "@/pages/CatalogCartPage";
 
 export enum AppRoutes {
   MAIN = "/",
@@ -30,6 +31,8 @@ export enum AppRoutes {
   MYPROJECTS = "/myProjects",
 
   CATALOG = "/catalog",
+
+  CATALOG_CART = "/catalog/cart",
 
   INTERNAL = "/internal",
 
@@ -92,6 +95,7 @@ export const routes: routesList = {
   [AppRoutes.CHANNEL_PROFILE]: <ProfilePage />,
   [AppRoutes.MYPROJECTS]: <MyProjectsPage />,
   [AppRoutes.CATALOG]: <CatalogPage />,
+  [AppRoutes.CATALOG_CART]: <CatalogCartPage />,
   [AppRoutes.INTERNAL]: <InternalPage />,
   [AppRoutes.SERVICES]: <SpecialistServicesPage />,
   [AppRoutes.PROJECT]: <ProjectPage />,
