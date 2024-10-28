@@ -1,3 +1,57 @@
 .CartStats {
+  padding: 10px;
 
+  &__category {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--gray-color);
+
+    &__value {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+  }
+
+  &__stats {
+    border-bottom: 1px solid #eaf2ff;
+    padding: 10px;
+  }
+
+  &__finalPrice {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #f55;
+
+    &__text {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 120%;
+      letter-spacing: -0.01em;
+      color: #000;
+    }
+
+    &__wrapper {
+      margin-top: 10px;
+      padding: 0 10px;
+    }
+  }
+
+  &__continue {
+    border-radius: 15px;
+    width: 100%;
+    font-size: 20px;
+    height: 55px;
+  }
+
+  &__support {
+    font-size: 16px;
+    padding: 0 20px;
+  }
 }

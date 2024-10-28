@@ -31,8 +31,6 @@ const SelectTextValueStyles: SelectTextStyles = {
   color: "var(--gray-color)",
 };
 
-// TODO: сделать так, чтобы ререндер был только если был удалён айтем, а не просто изменено его кол-во
-
 export const CartContainer: React.FC<CartContainerProps> = memo(
   ({ cartItems }): React.JSX.Element => {
     // Добавляем айтемы в стейт

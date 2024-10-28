@@ -8,6 +8,7 @@ import { cartItems } from "../model/data";
 import { CartStats } from "@/widgets/CatalogCartPage/CartStats";
 import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
 import { CatalogCartSliceReducer } from "../model/slice/CatalogCartSlice";
+import { OrderSecurityGuarantee } from "@/shared/ui-kit/OrderSecurityGuarantee";
 
 export const CatalogCartPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -22,7 +23,11 @@ export const CatalogCartPage: React.FC = memo((): React.JSX.Element => {
           <div className="CatalogCartPage__container">
             <Flex max gap="20" direction="column">
               <CartContainer cartItems={cartItems} />
+            </Flex>
+
+            <Flex max gap="20" direction="column">
               <CartStats cartItems={cartItems} />
+              <OrderSecurityGuarantee />
             </Flex>
           </div>
         </div>

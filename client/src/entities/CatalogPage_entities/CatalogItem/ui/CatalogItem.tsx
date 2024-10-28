@@ -45,6 +45,7 @@ import {
   CatalogCartSliceActions,
   getCartItemAmount,
 } from "@/pages/CatalogCartPage";
+import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
@@ -180,7 +181,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
             </span>
 
             <span className={styles.catalog__item__category__amount}>
-              {catalogItem.subscribersAmount}
+              {FormatingNumber(catalogItem.subscribersAmount)}
             </span>
 
             <div className={styles.catalog__item__subscribers__genders}>
