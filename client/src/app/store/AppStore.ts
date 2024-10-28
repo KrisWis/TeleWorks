@@ -5,10 +5,12 @@ import { RootReducer } from "./AppReducer";
 import { CheckoutOrderSchema } from "@/features/ProjectInfo_features/CheckoutOrder";
 import { MoveToOpenChannelCartSchema } from "@/features/Global_features/MoveToOpenChannelCart";
 import { rtkApi } from "../layouts/BaseLayout/api/rtkApi";
+import { CatalogCartSliceSchema } from "@/pages/CatalogCartPage/model/types/CatalogCartSlice_types";
 
 export interface StoreSchema {
   checkoutOrderReducer?: CheckoutOrderSchema;
   MoveToOpenChannelCartReducer?: MoveToOpenChannelCartSchema;
+  CatalogCartSliceReducer?: CatalogCartSliceSchema;
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 

@@ -4,6 +4,10 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import { CartContainer } from "@/widgets/CatalogCartPage/CartContainer";
 import { useEffect } from "react";
 import { memo } from "react";
+import { cartItems } from "../model/data";
+import { CartStats } from "@/widgets/CatalogCartPage/CartStats";
+import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
+import { CatalogCartSliceReducer } from "../model/slice/CatalogCartSlice";
 
 export const CatalogCartPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {
@@ -12,14 +16,17 @@ export const CatalogCartPage: React.FC = memo((): React.JSX.Element => {
   }, []);
 
   return (
-    <main className="Page CatalogCartPage__main">
-      <div className="padding">
-        <div className="CatalogCartPage__container">
-          <Flex max gap="20" direction="column">
-            <CartContainer />
-          </Flex>
+    <DynamicModuleLoader reducers={{ CatalogCartSliceReducer }}>
+      <main className="Page CatalogCartPage__main">
+        <div className="padding">
+          <div className="CatalogCartPage__container">
+            <Flex max gap="20" direction="column">
+              <CartContainer cartItems={cartItems} />
+              <CartStats cartItems={cartItems} />
+            </Flex>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </DynamicModuleLoader>
   );
 });

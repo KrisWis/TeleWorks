@@ -1,7 +1,6 @@
 import { CheckoutOrderProps } from "../model/CheckoutOrder_types";
 import styles from "./CheckoutOrder.module.scss";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
 import { checkoutOrderSliceActions } from "../model/slice/CheckoutOrderSlice";
 import {
   getExtraServiceAmount,
@@ -13,7 +12,7 @@ import {
   ProjectInfoPackNames,
 } from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { StoreSchema, useAppDispatch } from "@/app/store/AppStore";
+import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
 import { ProjectActiveServices } from "@/shared/ui-kit/ProjectActiveServices";
 import { ProjectDeadline } from "@/shared/ui-kit/ProjectDeadline";
 import { ProjectEditions } from "@/shared/ui-kit/ProjectEditions/ui/ProjectEditions";
@@ -25,16 +24,16 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
 
     const [ResultItemsIsOpen, setResultItemsIsOpen] = useState<boolean>(false);
 
-    const editionsAmounts = useSelector((state: StoreSchema) =>
+    const editionsAmounts = useAppSelector((state) =>
       geteditionsAmounts(state.checkoutOrderReducer!, pack.packName)
     );
 
-    const finalPrice = useSelector((state: StoreSchema) =>
+    const finalPrice = useAppSelector((state) =>
       getFinalPrice(state.checkoutOrderReducer!)
     );
 
     const GetExtraServiceAmounts = (extraServiceTitle: string): number => {
-      return useSelector((state: StoreSchema) =>
+      return useAppSelector((state) =>
         getExtraServiceAmount(
           state.checkoutOrderReducer!,
           pack.packName,

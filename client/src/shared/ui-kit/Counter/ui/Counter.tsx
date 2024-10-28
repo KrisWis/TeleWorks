@@ -12,8 +12,12 @@ export const Counter: React.FC<CounterProps> = memo(
     increaseAmount,
     isDisabled = false,
     type = "medium",
+    canAlwaysDicrease = false,
   }): React.JSX.Element => {
-    const canNotDicreaseAmount: boolean = useMemo(() => amount == 1, [amount]);
+    const canNotDicreaseAmount: boolean = useMemo(
+      () => (canAlwaysDicrease ? !canAlwaysDicrease : amount == 1),
+      [amount, canAlwaysDicrease]
+    );
 
     return (
       <Flex

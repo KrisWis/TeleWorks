@@ -12,8 +12,8 @@ import {
 import { Button } from "@/shared/ui-kit/Button";
 import { Filter } from "@/features/Global_features/Filter";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
-import { RootState, useAppDispatch } from "@/app/store/AppStore";
-import { shallowEqual, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+import { shallowEqual } from "react-redux";
 import {
   getAllChannelsInCart,
   MoveToOpenChannelCart,
@@ -51,9 +51,8 @@ export const Catalog: React.FC = memo((): React.JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const allChannelsIDsInCart = useSelector(
-    (state: RootState) =>
-      getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
+  const allChannelsIDsInCart = useAppSelector(
+    (state) => getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
     shallowEqual
   );
 

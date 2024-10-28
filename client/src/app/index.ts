@@ -1,4 +1,4 @@
-export { store } from "./store/AppStore";
+export { store, useAppSelector, useAppDispatch } from "./store/AppStore";
 export { AppRoutes, IndexedDBStores } from "./routes/AppRoutes";
 export { rtkApi, apiBaseURL } from "./layouts/BaseLayout/api/rtkApi";
 export {

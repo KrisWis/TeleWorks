@@ -13,7 +13,7 @@ import {
 } from "../model/CatalogItem__data";
 import { Link } from "react-router-dom";
 import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
-import { memo, useCallback, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useMemo, useRef } from "react";
 import {
   SelectTextStyles,
   SelectThemesEnum,
@@ -32,8 +32,8 @@ import Tag2 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag2.svg?react";
 import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { MoveToOpenChannelCartActions } from "@/features/Global_features/MoveToOpenChannelCart";
-import { RootState, useAppDispatch } from "@/app/store/AppStore";
-import { shallowEqual, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+import { shallowEqual } from "react-redux";
 import {
   checkChannelInCart,
   getAllChannelsInCart,
@@ -41,6 +41,10 @@ import {
 import MoreSVG from "@/shared/assets/icons/Global/MoreSVG.svg?react";
 import { Counter } from "@/shared/ui-kit/Counter";
 import { Flex } from "@/shared/ui-kit/Stack";
+import {
+  CatalogCartSliceActions,
+  getCartItemAmount,
+} from "@/pages/CatalogCartPage";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;
@@ -57,13 +61,12 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
     // Функционал добавления предмета в корзину
     const dispatch = useAppDispatch();
 
-    const ChannelInCart = useSelector((state: RootState) =>
+    const ChannelInCart = useAppSelector((state) =>
       checkChannelInCart(state.MoveToOpenChannelCartReducer!, catalogItem.id)
     );
 
-    const allChannelsIDsInCart = useSelector(
-      (state: RootState) =>
-        getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
+    const allChannelsIDsInCart = useAppSelector(
+      (state) => getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
       shallowEqual
     );
 
@@ -108,8 +111,10 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
       [selectsType]
     );
 
-    // Стейт для счётчика
-    const [counterAmount, setCounterAmount] = useState<number>(1);
+    // Получение количества айтема со стейта
+    const itemAmount = useAppSelector((state) =>
+      getCartItemAmount(state.CatalogCartSliceReducer!, catalogItem.id)
+    );
 
     return (
       <div className={styles.catalog__item}>
@@ -281,10 +286,25 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
 
             {hasCounter && (
               <Counter
-                amount={counterAmount}
-                dicreaseAmount={() => setCounterAmount(counterAmount - 1)}
-                increaseAmount={() => setCounterAmount(counterAmount + 1)}
+                amount={itemAmount}
+                dicreaseAmount={() =>
+                  dispatch(
+                    CatalogCartSliceActions.changeItemAmount({
+                      itemId: catalogItem.id,
+                      amount: -1,
+                    })
+                  )
+                }
+                increaseAmount={() =>
+                  dispatch(
+                    CatalogCartSliceActions.changeItemAmount({
+                      itemId: catalogItem.id,
+                      amount: 1,
+                    })
+                  )
+                }
                 type="small"
+                canAlwaysDicrease
               />
             )}
 

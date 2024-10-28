@@ -6,4 +6,5 @@ export interface CounterProps {
   increaseAmount: () => void;
   isDisabled?: boolean;
   type?: CounterTypes;
+  canAlwaysDicrease?: boolean;
 }

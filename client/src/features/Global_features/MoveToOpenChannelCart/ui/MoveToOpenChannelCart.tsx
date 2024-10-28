@@ -6,10 +6,8 @@ import { VioletBorderContainer } from "@/shared/ui-kit/VioletBorderContainer";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { MoveToOpenChannelCartProps } from "../model/types/MoveToOpenChannelCart_types";
 import { getAllChannelsInCart } from "../model/selectors/MoveToOpenChannelCartSlice_selectors";
-import { useSelector } from "react-redux";
-import { RootState } from "@/app/store/AppStore";
 import { catalog__items } from "@/widgets/CatalogPage_widgets/Catalog";
-import { AppRoutes } from "@/app";
+import { AppRoutes, useAppSelector } from "@/app";
 
 export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
   ({
@@ -20,7 +18,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
       setMoveToOpenChannelCartIsAppear(true);
     }, [setMoveToOpenChannelCartIsAppear]);
 
-    const allChannelsIDsInCart = useSelector((state: RootState) =>
+    const allChannelsIDsInCart = useAppSelector((state) =>
       getAllChannelsInCart(state.MoveToOpenChannelCartReducer!)
     );
 
