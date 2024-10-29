@@ -11,8 +11,8 @@ import { ProjectInfo_pack } from "@/features/ProjectInfo_features/ProjectInfo_pa
 import { AuthorCard } from "@/entities/ProjectPage_entities/AuthorCard";
 import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectTag";
 import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
-import { checkoutOrderReducer } from "@/features/ProjectInfo_features/CheckoutOrder/model/slice/CheckoutOrderSlice";
 import { Share } from "@/shared/ui-kit/Share";
+import { checkoutOrderReducer } from "@/features/ProjectInfo_features/CheckoutOrder";
 
 export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
   ({

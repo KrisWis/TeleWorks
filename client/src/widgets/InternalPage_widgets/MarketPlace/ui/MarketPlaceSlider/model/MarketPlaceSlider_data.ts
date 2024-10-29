@@ -1,5 +1,5 @@
 import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { MarketPlaceSlider_item_props } from "@/widgets/InternalPage_widgets/MarketPlace/ui/MarketPlaceSlider_item/model/MarketPlaceSlider_item_types";
+import { MarketPlaceSlider_item_props } from "../../MarketPlaceSlider_item/model/MarketPlaceSlider_item_types";
 
 export const MarketPlaceSlider_items: MarketPlaceSlider_item_props[] = [
   {

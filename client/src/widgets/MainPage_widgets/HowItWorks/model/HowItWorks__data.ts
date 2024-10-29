@@ -1,4 +1,4 @@
-import { HowItWorksItem } from "@/widgets/MainPage_widgets/HowItWorks/ui/HowItWorks__item/model/HowItWorks__types";
+import { HowItWorksItem } from "../ui/HowItWorks__item/model/HowItWorks__types";
 
 export const HowItWorksItems: HowItWorksItem[] = [
   {

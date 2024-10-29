@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { MarketPlaceSlider_items } from "../model/MarketPlaceSlider_data";
-import { MarketPlaceSlider_item_props } from "@/widgets/InternalPage_widgets/MarketPlace/ui/MarketPlaceSlider_item/model/MarketPlaceSlider_item_types";
 import "./MarketPlaceSlider.scss";
 import { memo } from "react";
 import { MarketPlaceSlider_item } from "../../MarketPlaceSlider_item/ui/MarketPlaceSlider_item";
+import { MarketPlaceSlider_item_props } from "../../MarketPlaceSlider_item/model/MarketPlaceSlider_item_types";
 
 export const MarketPlaceSlider: React.FC = memo((): React.JSX.Element => {
   return (

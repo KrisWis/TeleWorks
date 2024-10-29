@@ -1,6 +1,9 @@
 import styles from "./CreateOrderTechnicalInformationContent.module.scss";
 import { memo, useContext } from "react";
-import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
+import {
+  CreateOrderPageContext,
+  UseCreateOrderStepLocalStorage,
+} from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "../../CreateOrderProgress";
 import { CreateOrderTechnicalInformationContentProps } from "../model/CreateOrderTechnicalInformationContent_types";
 import { OrderSuccessfullyPaid } from "@/shared/ui-kit/OrderSuccessfullyPaid";
@@ -10,7 +13,6 @@ import { OrderInfo } from "@/entities/Global_entities/OrderInfo";
 import { orderInfoData } from "../model/CreateOrderTechnicalInformationContent_data";
 import { OrderStatuses } from "@/shared/ui-kit/OrderStatus";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
-import { UseCreateOrderStepLocalStorage } from "@/pages/CreateOrderPage/model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";
 
 export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnicalInformationContentProps> =
   memo((): React.JSX.Element => {

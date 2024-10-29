@@ -7,3 +7,5 @@ export const CreateOrderPage: React.LazyExoticComponent<React.FC> = lazy(() =>
     default: CreateOrderPage,
   }))
 );
+
+export { UseCreateOrderStepLocalStorage } from "./model/useCreateOrderStepLocalStorage/useCreateOrderStepLocalStorage";

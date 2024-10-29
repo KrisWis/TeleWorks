@@ -2,10 +2,10 @@ import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import styles from "./MainSection.module.scss";
 import "@/shared/main.scss";
 import { MainSection_items } from "../model/MainSection_data";
-import { MainSectionItemProps } from "@/widgets/InternalPage_widgets/MainSection/ui/MainSection_item/model/MainSection_item_types";
 import { memo } from "react";
 import { MainSection_item } from "./MainSection_item/ui/MainSection_item";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
+import { MainSectionItemProps } from "./MainSection_item/model/MainSection_item_types";
 
 export const MainSection: React.FC = memo((): React.JSX.Element => {
   return (

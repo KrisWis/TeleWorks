@@ -2,7 +2,7 @@ import styles from "./FAQ_accordion.module.scss";
 import { memo } from "react";
 import { FAQ_accordionProps } from "../model/FAQ_accordion_types";
 import { Accordion } from "@szhsin/react-accordion";
-import { FAQTab_Accordion_item } from "./FAQTab_Accordion_item";
+import { FAQTab_Accordion_item } from "./FAQTab_Accordion_item/ui/FAQTab_Accordion_item";
 
 export const FAQ_accordion: React.FC<FAQ_accordionProps> = memo(
   ({ FAQ_accordion_items }): React.JSX.Element => {

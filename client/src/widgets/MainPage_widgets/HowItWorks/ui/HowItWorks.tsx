@@ -1,9 +1,9 @@
 import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
 import styles from "./HowItWorks.module.scss";
 import { HowItWorksItems } from "../model/HowItWorks__data";
-import { HowItWorksItem } from "@/widgets/MainPage_widgets/HowItWorks/ui/HowItWorks__item/model/HowItWorks__types";
 import { memo } from "react";
 import { HowItWorks__item } from "./HowItWorks__item/ui/HowItWorks__item";
+import { HowItWorksItem } from "./HowItWorks__item/model/HowItWorks__types";
 
 export const HowItWorks: React.FC = memo((): React.JSX.Element => {
   return (

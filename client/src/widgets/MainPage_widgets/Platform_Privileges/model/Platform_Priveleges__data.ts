@@ -1,4 +1,4 @@
-import { Platrform_Privileges__itemProps } from "@/widgets/MainPage_widgets/Platform_Privileges/ui/Platform_Privileges__item/model/Platform_Privileges__item__types";
+import { Platrform_Privileges__itemProps } from "../ui/Platform_Privileges__item/model/Platform_Privileges__item__types";
 
 export const Platform_Privileges__items: Platrform_Privileges__itemProps[] = [
   {

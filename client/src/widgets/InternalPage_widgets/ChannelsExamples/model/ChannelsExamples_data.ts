@@ -1,5 +1,5 @@
 import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { ChannelsExamples_item_props } from "@/widgets/InternalPage_widgets/ChannelsExamples/ui/ChannelsExamples_item/model/ChannelsExamples_item_types";
+import { ChannelsExamples_item_props } from "../ui/ChannelsExamples_item/model/ChannelsExamples_item_types";
 
 export const ChannelsExamples_items: ChannelsExamples_item_props[] = [
   {

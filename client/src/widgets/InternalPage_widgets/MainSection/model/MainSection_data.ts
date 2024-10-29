@@ -1,4 +1,4 @@
-import { MainSectionItemProps } from "@/widgets/InternalPage_widgets/MainSection/ui/MainSection_item/model/MainSection_item_types";
+import { MainSectionItemProps } from "../ui/MainSection_item/model/MainSection_item_types";
 
 export const MainSection_items: MainSectionItemProps[] = [
   {

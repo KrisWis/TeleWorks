@@ -9,11 +9,12 @@ import {
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { ProjectItemViewTypes } from "../data/SpecialistServicesResults_types";
-
-import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import { ButtonTypes } from "@/shared/ui-kit/Button";
-import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
+import {
+  ProjectItem,
+  ServicesItem,
+} from "@/entities/Global_entities/ProjectItem";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 import SortSelectDropdownIndicatorSVG from "@/shared/assets/icons/Global/SortSelectDropdownIndicatorSVG.svg?react";
 import { mobile_mediaQuery } from "@/app";

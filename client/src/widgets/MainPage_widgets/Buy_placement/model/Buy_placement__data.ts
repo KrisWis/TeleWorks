@@ -1,4 +1,4 @@
-import { Buy_placement__itemProps } from "@/widgets/MainPage_widgets/Buy_placement/ui/Buy_placement__item/model/Buy_placement__item__types";
+import { Buy_placement__itemProps } from "../ui/Buy_placement__item/model/Buy_placement__item__types";
 
 export const buy_placement_items: Buy_placement__itemProps[] = [
   {

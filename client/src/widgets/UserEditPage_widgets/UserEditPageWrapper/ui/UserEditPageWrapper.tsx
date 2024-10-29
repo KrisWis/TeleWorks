@@ -6,7 +6,7 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import {
   UserEditPageContext,
   UserEditPageContextRefs,
-} from "@/pages/UserEditPage/model/UserEditPageContext";
+} from "@/pages/UserEditPage";
 
 export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
   // Реализация скроллинга по табам

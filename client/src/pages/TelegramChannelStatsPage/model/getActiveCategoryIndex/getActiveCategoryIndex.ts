@@ -1,5 +1,7 @@
-import { telegramChannelStatsCategories } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics/ui/TelegramChannelStatsCategories";
-import { TelegramChannelStatsCategory } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics/ui/TelegramChannelStatsCategories/model/TelegramChannelStatsCategories_types";
+import {
+  telegramChannelStatsCategories,
+  TelegramChannelStatsCategory,
+} from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsAllStatistics";
 
 export const getActiveCategoryIndex = (
   category: TelegramChannelStatsCategory

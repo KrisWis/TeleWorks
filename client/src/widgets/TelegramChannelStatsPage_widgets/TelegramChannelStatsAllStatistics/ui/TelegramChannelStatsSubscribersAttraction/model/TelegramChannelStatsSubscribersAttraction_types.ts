@@ -1,7 +1,6 @@
 import { telegramChannelsCategories } from "@/app/layouts/BaseLayout/model/BaseLayout__types";
 import { Hours } from "@/shared/types";
-import { TelegramChannelStatsChangeType } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStats/model/TelegramChannelStats_types";
-
+import { TelegramChannelStatsChangeType } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStats";
 export interface TelegramChannelStatsSubscribersAttractionOnDaysItem {
   date: Date;
   subscribersAmount: number;

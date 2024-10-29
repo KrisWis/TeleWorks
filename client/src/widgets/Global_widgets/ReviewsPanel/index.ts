@@ -8,3 +8,5 @@ export const ReviewsPanel: React.LazyExoticComponent<
     default: ReviewsPanel,
   }))
 );
+
+export type { ReviewsPanelProps } from "./model/ReviewsPanel_types";

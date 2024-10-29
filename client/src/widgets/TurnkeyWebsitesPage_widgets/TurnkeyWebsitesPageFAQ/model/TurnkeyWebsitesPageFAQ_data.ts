@@ -1,4 +1,4 @@
-import { FAQTabItem } from "@/widgets/Global_widgets/FAQ_accordion/ui/FAQTab_Accordion_item/model/FAQTab_Accordion_item_types";
+import { FAQTabItem } from "@/widgets/Global_widgets/FAQ_accordion";
 
 export const turnkeyWebsitesPageFAQ_items: FAQTabItem[] = [
   {
