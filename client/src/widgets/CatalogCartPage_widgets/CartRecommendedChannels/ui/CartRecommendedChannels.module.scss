@@ -1,0 +1,32 @@
+.CartRecommendedChannels {
+  &__caption {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #000;
+  }
+
+  &__hidden {
+    &__text {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--gray-color);
+    }
+  }
+
+  &__wrapper {
+    padding: 20px;
+    max-height: 700px;
+    overflow-y: hidden;
+    transition: var(--transition-duration) linear;
+    transition-property: max-height, padding;
+
+    &__hidden {
+      max-height: 0;
+      padding: 0;
+    }
+  }
+}

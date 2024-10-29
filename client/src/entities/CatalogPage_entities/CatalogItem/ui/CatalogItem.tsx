@@ -31,13 +31,13 @@ import Tag1 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag1.svg?react";
 import Tag2 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag2.svg?react";
 import Tag3 from "@/shared/assets/icons/CatalogPage/CatalogItem/Tag3.svg?react";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
-import { MoveToOpenChannelCartActions } from "@/features/Global_features/MoveToOpenChannelCart";
-import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
-import { shallowEqual } from "react-redux";
 import {
   checkChannelInCart,
   getAllChannelsInCart,
-} from "@/features/Global_features/MoveToOpenChannelCart/";
+  MoveToOpenChannelCartActions,
+} from "@/features/Global_features/MoveToOpenChannelCart";
+import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+import { shallowEqual } from "react-redux";
 import MoreSVG from "@/shared/assets/icons/Global/MoreSVG.svg?react";
 import { Counter } from "@/shared/ui-kit/Counter";
 import { Flex } from "@/shared/ui-kit/Stack";
