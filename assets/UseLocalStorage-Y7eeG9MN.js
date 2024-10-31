@@ -1,0 +1,1 @@
+var t=(e=>(e.UPDATE="update",e.GET="get",e.DELETE="delete",e))(t||{});const s=(e,r,o)=>{if(e==t.UPDATE)localStorage.setItem(r,JSON.stringify(o));else if(e==t.GET){const a=localStorage.getItem(r);return a&&a!=="undefined"?JSON.parse(a):!1}else e==t.DELETE&&localStorage.removeItem(r);return!0};export{t as U,s as a};
