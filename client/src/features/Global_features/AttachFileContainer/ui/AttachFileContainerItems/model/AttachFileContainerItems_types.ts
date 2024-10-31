@@ -1,5 +1,5 @@
 import { LoadedFile } from "@/shared/types/global";
-import { AttachFileContainerFileViews } from "../../AttachFileContainerFile";
+import { AttachFileContainerFileViews } from "../../..";
 
 export interface AttachFileContainerItemsProps {
   files: LoadedFile[];

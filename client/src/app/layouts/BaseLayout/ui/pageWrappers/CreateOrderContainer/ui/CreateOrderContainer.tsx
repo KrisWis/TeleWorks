@@ -1,15 +1,13 @@
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { CreateOrderPageContext, UseCreateOrderStepLocalStorage } from "..";
-import {
-  CreateOrderProgress,
-  CreateOrderProgressSteps,
-} from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
+import { CreateOrderProgress } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
 import styles from "./CreateOrderContainer.module.scss";
 import { memo, useEffect, useState } from "react";
 import { transitionDurationMedium } from "@/shared/const/global";
 import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
 import { CreateOrderCostContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderCostContent";
 import { CreateOrderTechnicalInformationContent } from "@/widgets/CreateOrderPage_widgets/CreateOrderTechnicalInformationContent";
+import { CreateOrderProgressSteps } from "@/shared/const/createOrder";
 
 export const CreateOrderContainer: React.FC = memo((): React.JSX.Element => {
   // Сохранение и загрузка этапов, используя LocalStorage

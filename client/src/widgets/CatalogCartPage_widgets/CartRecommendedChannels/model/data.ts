@@ -3,7 +3,7 @@ import { CatalogItemInterface, CatalogItemTags } from "@/shared/types/catalog";
 
 export const recommendedChannels: CatalogItemInterface[] = [
   {
-    id: 0,
+    id: 1,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости",
@@ -20,7 +20,7 @@ export const recommendedChannels: CatalogItemInterface[] = [
   },
 
   {
-    id: 1,
+    id: 2,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 509.2,
     title: "Санкт-Петербург | Питер Новости",
@@ -37,7 +37,7 @@ export const recommendedChannels: CatalogItemInterface[] = [
   },
 
   {
-    id: 2,
+    id: 3,
     imgURL: `${URL_PART}/CatalogPage/images/CatalogPage__item__img.png`,
     ratingNumber: 59.2,
     title: "Санкт-Петербург | Новости",

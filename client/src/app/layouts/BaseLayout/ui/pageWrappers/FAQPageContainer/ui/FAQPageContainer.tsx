@@ -1,9 +1,9 @@
-import styles from "./FAQPageContainer.module.scss";
 import { memo, useState } from "react";
 import { FAQPageContext } from "..";
 import { FAQHeader, FAQTabs } from "@/widgets/FAQPage_widgets/FAQHeader";
 import { FAQTab } from "@/widgets/FAQPage_widgets/FAQTab";
 import { AskQuestion } from "@/shared/ui-kit/AskQuestion";
+import { Flex } from "@/shared/ui-kit/Stack";
 
 export const FAQPageContainer: React.FC = memo((): React.JSX.Element => {
   // Создание стейта для контекста
@@ -18,8 +18,10 @@ export const FAQPageContainer: React.FC = memo((): React.JSX.Element => {
       <main className="Page FAQ__main">
         <div className="padding">
           <FAQHeader />
-          <FAQTab />
-          <AskQuestion className={styles.FAQ__AskQuestion} />
+          <Flex max direction="column" gap="20">
+            <FAQTab />
+            <AskQuestion />
+          </Flex>
         </div>
       </main>
     </FAQPageContext.Provider>

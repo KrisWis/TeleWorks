@@ -1,4 +1,4 @@
-import { LoadedFile } from "../../..";
+import { LoadedFile } from "@/shared/types/global";
 
 export type AttachFileContainerFileViews = "big" | "medium";
 

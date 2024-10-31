@@ -19,7 +19,6 @@ import {
 import {
   AttachFileContainer,
   AttachFileContainerItems,
-  LoadedFile,
 } from "@/features/Global_features/AttachFileContainer";
 import {
   KindDeedsCreateRequestContainerProps,
@@ -29,6 +28,7 @@ import { UseKindDeedsCreateRequestLocalStorage } from "../model/useKindDeedsCrea
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
+import { LoadedFile } from "@/shared/types/global";
 
 export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestContainerProps> =
   memo(({ setRequestIsCreated }): React.JSX.Element => {
@@ -206,7 +206,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 <Input
                   className={styles.KindDeedsCreateRequestContainer__input}
                   type="text"
-                  value={surnameInputValue}
+                  value={surnameInputValue || ""}
                   onChange={(e) => {
                     setSurnameInputValue(e.target.value);
                     saveLSDebounce({
@@ -225,7 +225,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 <Input
                   className={styles.KindDeedsCreateRequestContainer__input}
                   type="text"
-                  value={nameInputValue}
+                  value={nameInputValue || ""}
                   onChange={(e) => {
                     setNameInputValue(e.target.value);
                     saveLSDebounce({
@@ -244,7 +244,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 <Input
                   className={styles.KindDeedsCreateRequestContainer__input}
                   type="text"
-                  value={patronymicInputValue}
+                  value={patronymicInputValue || ""}
                   onChange={(e) => {
                     setPatronymicInputValue(e.target.value);
                     saveLSDebounce({
@@ -273,7 +273,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                 <Input
                   className={styles.KindDeedsCreateRequestContainer__input}
                   type="text"
-                  value={organizationInputValue}
+                  value={organizationInputValue || ""}
                   onChange={(e) => {
                     setOrganizationInputValue(e.target.value);
                     saveLSDebounce({
@@ -301,7 +301,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
 
                 <Textarea
                   className={styles.KindDeedsCreateRequestContainer__textarea}
-                  value={goalTextareaValue}
+                  value={goalTextareaValue || ""}
                   onChange={(e) => {
                     setGoalTextareaValue(e.target.value);
                     saveLSDebounce({
@@ -374,7 +374,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
                   <Input
                     className={styles.KindDeedsCreateRequestContainer__input}
                     type="number"
-                    value={requestSumInputValue}
+                    value={requestSumInputValue || ""}
                     onChange={(e) => {
                       setRequestSumInputValue(e.target.value);
                       saveLSDebounce({

@@ -8,11 +8,14 @@ import { memo } from "react";
 import { cartItems } from "..";
 import { CatalogCartSliceReducer } from "../model/slice/CatalogCartSlice";
 import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader";
+import { MoveToOpenChannelCartReducer } from "@/entities/Global_entities/MoveToOpenChannelCart";
 
 export const CatalogCartPageContainer: React.FC = memo(
   (): React.JSX.Element => {
     return (
-      <DynamicModuleLoader reducers={{ CatalogCartSliceReducer }}>
+      <DynamicModuleLoader
+        reducers={{ CatalogCartSliceReducer, MoveToOpenChannelCartReducer }}
+      >
         <div className={styles.CatalogCartPageContainer}>
           <Flex max gap="30" direction="column">
             <CartContainer cartItems={cartItems} />

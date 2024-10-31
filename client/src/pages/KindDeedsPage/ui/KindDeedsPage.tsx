@@ -20,8 +20,8 @@ import { KindDeedsChangeLives } from "@/widgets/KindDeedsPage_widgets/KindDeedsC
 import { KindDeedsAllegations } from "@/widgets/KindDeedsPage_widgets/KindDeedsAllegations";
 import { KindDeedsNeedHelpItem } from "@/widgets/KindDeedsPage_widgets/KindDeedsNeedHelpItem";
 import { KindDeedsLetterOfKindness } from "@/widgets/KindDeedsPage_widgets/KindDeedsLetterOfKindness";
-import { FAQ_accordion } from "@/widgets/Global_widgets/FAQ_accordion";
 import { AskQuestion } from "@/shared/ui-kit/AskQuestion";
+import { FAQ_accordion } from "@/shared/ui-kit/FAQ_accordion";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
+import { CreateOrderProgressSteps } from "@/shared/const/createOrder";
 import { createContext, useState } from "react";
 
 export interface CreateOrderPageContext {
