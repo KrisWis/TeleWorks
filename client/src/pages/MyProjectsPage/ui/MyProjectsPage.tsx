@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./MyProjectsPage.scss";
 import "@/shared/main.scss";
-import { ReceiveNotifications } from "@/widgets/Global_widgets/ReceiveNotifications";
+import { ReceiveNotifications } from "@/shared/ui-kit/ReceiveNotifications";
 import { MyProjects } from "@/widgets/MyProjects_widgets/MyProjects";
 import { myProjectsStats } from "../model/MyProjectPage_data";
 

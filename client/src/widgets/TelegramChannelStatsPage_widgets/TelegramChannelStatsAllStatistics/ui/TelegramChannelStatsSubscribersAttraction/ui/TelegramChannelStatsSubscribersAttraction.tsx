@@ -10,7 +10,7 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import { TelegramChannelStatsSubscribersAttractionOnHoursItem } from "./TelegramChannelStatsSubscribersAttractionOnHoursItem";
 import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
-import { TelegramChannelStatsChangeType } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStats";
+import { TelegramChannelStatsChangeType } from "@/shared/types/project";
 
 export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
   (): React.JSX.Element => {

@@ -2,7 +2,7 @@ import "./CreateOrderPage.scss";
 import "@/shared/main.scss";
 import { useEffect } from "react";
 import { memo } from "react";
-import { CreateOrderContainer } from "@/widgets/CreateOrderPage_widgets/CreateOrderContainer";
+import { CreateOrderContainer } from "@/app/layouts/BaseLayout/ui/pageWrappers/CreateOrderContainer";
 
 export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

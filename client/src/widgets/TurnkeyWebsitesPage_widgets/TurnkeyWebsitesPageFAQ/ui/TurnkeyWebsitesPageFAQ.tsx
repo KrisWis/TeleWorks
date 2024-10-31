@@ -1,8 +1,8 @@
-import { AskQuestion } from "@/widgets/Global_widgets/AskQuestion";
 import styles from "./TurnkeyWebsitesPageFAQ.module.scss";
 import { memo } from "react";
 import { turnkeyWebsitesPageFAQ_items } from "../model/TurnkeyWebsitesPageFAQ_data";
-import { FAQ_accordion } from "@/widgets/Global_widgets/FAQ_accordion";
+import { AskQuestion } from "@/shared/ui-kit/AskQuestion";
+import { FAQ_accordion } from "@/shared/ui-kit/FAQ_accordion";
 
 export const TurnkeyWebsitesPageFAQ: React.FC = memo((): React.JSX.Element => {
   return (

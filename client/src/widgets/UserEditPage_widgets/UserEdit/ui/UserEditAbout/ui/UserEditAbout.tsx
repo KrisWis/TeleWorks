@@ -4,7 +4,7 @@ import { memo, useContext, useEffect, useState } from "react";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseUserEditAboutLocalStorage } from "../model/UseUserEditAboutLocalStorage/UseUserEditAboutLocalStorage";
-import { UserEditPageContext } from "@/widgets/UserEditPage_widgets/UserEditPageWrapper";
+import { UserEditPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/UserEditPageWrapper";
 import { UserEditTabsEnum } from "@/shared/const/user";
 
 const UserEditAboutTextareaMinSymbolsAmount: number = 100;

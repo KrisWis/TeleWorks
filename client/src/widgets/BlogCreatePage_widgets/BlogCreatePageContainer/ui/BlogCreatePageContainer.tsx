@@ -14,7 +14,7 @@ import { MarkdownTextarea } from "@/shared/ui-kit/MarkdownTextarea";
 import {
   AttachFileContainer,
   AttachFileContainerItems,
-} from "@/widgets/Global_widgets/AttachFileContainer";
+} from "@/features/Global_features/AttachFileContainer";
 import {
   LoadImageBlockSizes,
   LoadImageBlockWithoutLoading,
@@ -35,7 +35,7 @@ import {
   BlogCreatePageContext,
   UseBlogCreatePageLocalStorage,
   useBlogCreatePageLocalStorageInterface,
-} from "../../BlogCreatePageMain";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/BlogCreatePageMain";
 import { LoadedFile } from "@/shared/types/global";
 import { BlogCreatePagePostTypes } from "./BlogCreatePagePostTypes/ui/BlogCreatePagePostTypes";
 

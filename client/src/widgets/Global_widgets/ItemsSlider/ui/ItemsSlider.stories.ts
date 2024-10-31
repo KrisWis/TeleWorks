@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ItemsSlider } from "./ItemsSlider";
-import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
+import { NotFoundContainer } from "@/shared/ui-kit/NotFoundContainer";
 
 const meta = {
   title: "Global Widgets/ItemsSlider",

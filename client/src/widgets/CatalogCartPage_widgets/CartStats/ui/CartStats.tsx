@@ -10,7 +10,7 @@ import { useAppSelector } from "@/shared/config/store/AppStore";
 import {
   cartItems,
   getCartItems,
-} from "../../../../entities/CatalogPage_entities/CatalogCartPageContainer";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 
 export const CartStats: React.FC<CartStatsProps> = memo(
   (): React.JSX.Element => {

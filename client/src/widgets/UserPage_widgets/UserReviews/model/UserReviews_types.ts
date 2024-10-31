@@ -1,5 +1,4 @@
-import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item";
-import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel";
+import { Reviews__itemProps, ReviewsPanelProps } from "@/shared/types/user";
 
 export interface UserReviewsProps {
   ReviewsPanelProps: ReviewsPanelProps;

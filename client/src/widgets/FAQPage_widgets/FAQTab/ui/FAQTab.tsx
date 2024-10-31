@@ -1,8 +1,8 @@
+import { FAQ_accordion } from "@/shared/ui-kit/FAQ_accordion";
 import { faqTabs } from "../model/FAQTab_data";
 import styles from "./FAQTab.module.scss";
 import { memo, useContext } from "react";
-import { FAQ_accordion } from "@/widgets/Global_widgets/FAQ_accordion";
-import { FAQPageContext } from "../../FAQPageContainer";
+import { FAQPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/FAQPageContainer";
 
 export const FAQTab: React.FC = memo((): React.JSX.Element => {
   const { ActiveFAQTab } = useContext(FAQPageContext);

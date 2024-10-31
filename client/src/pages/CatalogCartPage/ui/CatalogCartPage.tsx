@@ -2,7 +2,7 @@ import "./CatalogCartPage.scss";
 import "@/shared/main.scss";
 import { useEffect } from "react";
 import { memo } from "react";
-import { CatalogCartPageContainer } from "@/entities/CatalogPage_entities/CatalogCartPageContainer";
+import { CatalogCartPageContainer } from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 
 export const CatalogCartPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

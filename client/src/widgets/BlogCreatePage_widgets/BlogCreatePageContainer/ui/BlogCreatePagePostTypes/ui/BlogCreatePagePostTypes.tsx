@@ -5,7 +5,7 @@ import { mobile_mediaQuery } from "@/shared/const/global";
 import {
   BlogCreatePageContext,
   blogCreatePagePostTypes,
-} from "@/widgets/BlogCreatePage_widgets/BlogCreatePageMain";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/BlogCreatePageMain";
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
 
 export const BlogCreatePagePostTypes: React.FC = memo((): React.JSX.Element => {

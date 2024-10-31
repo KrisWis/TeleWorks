@@ -15,7 +15,7 @@ import { shallowEqual } from "react-redux";
 import {
   CatalogCartSliceActions,
   getCartItems,
-} from "../../../../entities/CatalogPage_entities/CatalogCartPageContainer";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 
 const SelectDropdownIndicator = (): JSX.Element => {
   return (

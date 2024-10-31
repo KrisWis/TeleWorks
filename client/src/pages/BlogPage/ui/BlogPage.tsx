@@ -4,7 +4,7 @@ import {
   BlogFilter,
   BlogFilterAllCategories,
   blogFilterCategoryTitles,
-} from "@/widgets/Global_widgets/BlogFilter";
+} from "@/features/Global_features/BlogFilter";
 import { useEffect, useState } from "react";
 import { memo } from "react";
 import { BlogPageContext } from "../model/BlogPageContext";

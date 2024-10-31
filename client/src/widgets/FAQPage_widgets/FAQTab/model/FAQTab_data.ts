@@ -1,4 +1,4 @@
-import { FAQTabsInterface } from "@/widgets/Global_widgets/FAQ_accordion";
+import { FAQTabsInterface } from "@/shared/ui-kit/FAQ_accordion";
 import { FAQTabs } from "../../FAQHeader";
 
 export const faqTabs: FAQTabsInterface = {

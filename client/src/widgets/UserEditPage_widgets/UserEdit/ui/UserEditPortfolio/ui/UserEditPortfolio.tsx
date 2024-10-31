@@ -18,7 +18,7 @@ import { closeModal } from "@/shared/utils/CloseModal";
 import { ProjectWillNotSaveModal } from "../../Modals/ProjectWillNotSaveModal";
 import { transitionDuration } from "@/shared/const/global";
 import { UserEditTabsEnum } from "@/shared/const/user";
-import { UserEditPageContext } from "@/widgets/UserEditPage_widgets/UserEditPageWrapper";
+import { UserEditPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/UserEditPageWrapper";
 
 export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
   // Добавление рефа для скроллинга

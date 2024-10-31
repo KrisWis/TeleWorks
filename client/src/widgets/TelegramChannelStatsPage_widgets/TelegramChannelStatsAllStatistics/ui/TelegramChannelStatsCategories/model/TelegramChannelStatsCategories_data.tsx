@@ -1,7 +1,5 @@
-import {
-  TelegramChannelStatsCategories,
-  TelegramChannelStatsCategory,
-} from "./TelegramChannelStatsCategories_types";
+import { TelegramChannelStatsCategories } from "@/shared/const/telegramChannels";
+import { TelegramChannelStatsCategory } from "@/shared/types/telegramChannels";
 import SummarySVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/SummarySVG.svg?react";
 import InvolvementSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/InvolvementSVG.svg?react";
 import ViewsAnalyzeSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/ViewsAnalyzeSVG.svg?react";

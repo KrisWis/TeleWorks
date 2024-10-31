@@ -7,7 +7,7 @@ import { Categories } from "@/shared/ui-kit/Categories";
 import {
   getActiveCategoryIndex,
   TelegramChannelStatsPageContext,
-} from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsPageMain";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/TelegramChannelStatsPageMain";
 
 export const TelegramChannelStatsCategories: React.FC = memo(
   (): React.JSX.Element => {

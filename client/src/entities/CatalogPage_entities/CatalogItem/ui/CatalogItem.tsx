@@ -43,7 +43,7 @@ import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber"
 import {
   CatalogCartSliceActions,
   getCartItemAmount,
-} from "@/entities/CatalogPage_entities/CatalogCartPageContainer";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 import { CatalogItemTags } from "@/shared/types/catalog";
 
 const DropdownIndicator = (): JSX.Element => {

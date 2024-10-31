@@ -21,7 +21,7 @@ import { KindDeedsAllegations } from "@/widgets/KindDeedsPage_widgets/KindDeedsA
 import { KindDeedsNeedHelpItem } from "@/widgets/KindDeedsPage_widgets/KindDeedsNeedHelpItem";
 import { KindDeedsLetterOfKindness } from "@/widgets/KindDeedsPage_widgets/KindDeedsLetterOfKindness";
 import { FAQ_accordion } from "@/widgets/Global_widgets/FAQ_accordion";
-import { AskQuestion } from "@/widgets/Global_widgets/AskQuestion";
+import { AskQuestion } from "@/shared/ui-kit/AskQuestion";
 
 export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

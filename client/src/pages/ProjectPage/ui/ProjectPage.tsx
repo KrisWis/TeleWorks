@@ -13,7 +13,7 @@ import { ProjectInfo } from "@/widgets/ProjectPage_widgets/ProjectInfo";
 import { ProjectReviews } from "@/widgets/ProjectPage_widgets/ProjectReviews";
 import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
 import { useParams } from "react-router-dom";
-import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
+import { NotFoundContainer } from "@/shared/ui-kit/NotFoundContainer";
 import { isNumber } from "@/shared/utils/IsNumber";
 import { PortNow } from "@/shared/const/app";
 

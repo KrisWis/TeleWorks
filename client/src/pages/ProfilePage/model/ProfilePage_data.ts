@@ -1,7 +1,7 @@
 import { URL_PART } from "@/shared/const/app";
 import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item";
 import { Similar_channels__itemProps } from "@/entities/ProfilePage_entities/Similar_channels__item";
-import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel";
+import { ReviewsPanelProps } from "@/entities/Global_entities/ReviewsPanel";
 
 export const channelReviews: ReviewsPanelProps = {
   mark: 5.0,

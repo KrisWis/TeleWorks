@@ -1,7 +1,7 @@
 import {
   BlogFilterAllCategories,
   blogFilterCategoryTitles,
-} from "@/widgets/Global_widgets/BlogFilter";
+} from "@/features/Global_features/BlogFilter";
 import { createContext, useState } from "react";
 
 export interface BlogPageContext {

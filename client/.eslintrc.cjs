@@ -25,7 +25,18 @@ module.exports = {
         testFilesPatterns: ["**/*.test.*", "**/*.stories.*"],
       },
     ],
-    "teleworks/imports-from-layers": ["error", { alias: "@" }],
-    "teleworks/exports-from-always-relative": ["error", { alias: "@" }],
+    "teleworks/imports-from-layers": [
+      "error",
+      {
+        alias: "@",
+        ignoreImportPatterns: ["**/pageWrappers/**"],
+      },
+    ],
+    "teleworks/exports-always-relative": [
+      "error",
+      {
+        alias: "@",
+      },
+    ],
   },
 };

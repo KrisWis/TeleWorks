@@ -1,8 +1,6 @@
 import { telegramChannelsCategories } from "@/shared/types/telegramChannels";
 import { GeoLanguageTypes } from "@/shared/ui-kit/GeoLanguageBlock/model/GeoLanguageBlock_types";
 
-export type TelegramChannelStatsChangeType = "+" | "-";
-
 export interface TelegramChannelStatsProps {
   channelId: number;
 }

@@ -1,6 +1,6 @@
 import "./FAQPage.scss";
 import "@/shared/main.scss";
-import { FAQPageContainer } from "@/widgets/FAQPage_widgets/FAQPageContainer";
+import { FAQPageContainer } from "@/app/layouts/BaseLayout/ui/pageWrappers/FAQPageContainer";
 import { useEffect } from "react";
 import { memo } from "react";
 

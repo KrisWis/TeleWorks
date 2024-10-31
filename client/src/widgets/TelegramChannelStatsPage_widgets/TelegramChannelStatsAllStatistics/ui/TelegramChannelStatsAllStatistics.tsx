@@ -5,7 +5,7 @@ import { TelegramChannelStatsCategories } from "./TelegramChannelStatsCategories
 import {
   getActiveCategoryIndex,
   TelegramChannelStatsPageContext,
-} from "../../TelegramChannelStatsPageMain";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/TelegramChannelStatsPageMain";
 import { tablet_mediaQuery } from "@/shared/const/global";
 
 export const TelegramChannelStatsAllStatistics: React.FC = memo(

@@ -1,5 +1,6 @@
 const { isPathRelative } = require("../helpers");
 const path = require("path");
+const micromatch = require("micromatch");
 
 module.exports = {
   meta: {
@@ -18,13 +19,16 @@ module.exports = {
           alias: {
             type: "string",
           },
+          ignoreImportPatterns: {
+            type: "array",
+          },
         },
       },
     ],
   },
 
   create(context) {
-    const { alias = "" } = context.options[0] || {};
+    const { alias = "", ignoreImportPatterns = [] } = context.options[0] || {};
 
     const layers = {
       app: 1,
@@ -37,8 +41,10 @@ module.exports = {
 
     return {
       ImportDeclaration(node) {
-        const value = node.source.value;
-        const importTo = alias ? value.replace(`${alias}/`, "") : value;
+        const importPath = node.source.value;
+        const importTo = alias
+          ? importPath.replace(`${alias}/`, "")
+          : importPath;
 
         if (isPathRelative(importTo)) {
           return;
@@ -58,11 +64,26 @@ module.exports = {
           return;
         }
 
-        if (layers[toLayer] < layers[fromLayer]) {
+        const isIgnored = ignoreImportPatterns.some((pattern) => {
+          return micromatch.isMatch(importPath, pattern);
+        });
+
+        if (isIgnored) {
+          return;
+        }
+
+        if (
+          (layers[toLayer] == 5 && layers[fromLayer] == 5) ||
+          (layers[toLayer] == 6 && layers[fromLayer] == 6)
+        ) {
+          return;
+        }
+
+        if (layers[toLayer] <= layers[fromLayer]) {
           context.report({
             node: node,
             message:
-              "Нижележащий слой не может содержать импорт из вышележащего!",
+              "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
           });
         }
       },

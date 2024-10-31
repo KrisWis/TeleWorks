@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./InternalPage.scss";
 import "@/shared/main.scss";
-import { ReceiveNotifications } from "@/widgets/Global_widgets/ReceiveNotifications";
+import { ReceiveNotifications } from "@/shared/ui-kit/ReceiveNotifications";
 import { ChannelsExamples } from "@/widgets/InternalPage_widgets/ChannelsExamples";
 import { EarnInSteps } from "@/widgets/InternalPage_widgets/EarnInSteps";
 import { FAQ } from "@/widgets/InternalPage_widgets/FAQ";

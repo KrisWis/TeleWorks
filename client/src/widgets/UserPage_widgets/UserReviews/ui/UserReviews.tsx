@@ -2,7 +2,7 @@ import styles from "./UserReviews.module.scss";
 import { memo } from "react";
 import { UserReviewsProps } from "../model/UserReviews_types";
 import { ReviewsSelect } from "@/shared/ui-kit/ReviewsSelect";
-import { ReviewsPanel } from "@/widgets/Global_widgets/ReviewsPanel";
+import { ReviewsPanel } from "@/entities/Global_entities/ReviewsPanel";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 import { ButtonTypes } from "@/shared/ui-kit/Button";
 import { userReviewsSelectOptions } from "../model/UserReviews_data";

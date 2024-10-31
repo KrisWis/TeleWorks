@@ -1,8 +1,4 @@
-export enum CreateOrderProgressSteps {
-  CREATE = "Заказ создан",
-  COST = "Стоимость",
-  TechnicalInformation = "Заказ начат",
-}
+import { CreateOrderProgressSteps } from "@/shared/const/createOrder";
 
 export enum CreateOrderProgressStepsPostfixs {
   FIRST = "first",

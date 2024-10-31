@@ -50,6 +50,74 @@ ruleTester.run("imports-from-layers", rule, {
       errors: [],
       options: aliasOptions,
     },
+
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\features\\Article",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/shared/Button.tsx'",
+      errors: [],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\features\\Article",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article'",
+      errors: [],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\app\\providers",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/widgets/Articl'",
+      errors: [],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\widgets\\pages",
+      code: "import { useLocation } from 'react-router-dom'",
+      errors: [],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\app\\providers",
+      code: "import { addCommentFormActions, addCommentFormReducer } from 'redux'",
+      errors: [],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\index.tsx",
+      code: "import { StoreProvider } from '@/app/providers/StoreProvider';",
+      errors: [],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\Article.tsx",
+      code: "import { StateSchema } from '@/app/providers/StoreProvider'",
+      errors: [],
+      options: [
+        {
+          alias: "@",
+          ignoreImportPatterns: ["**/StoreProvider"],
+        },
+      ],
+    },
+
+    {
+      filename:
+        "D:\\FrontEnd\\Sites\\TeleWorks\\client\\src\\pages\\BlogCreatePage\\ui\\BlogCreatePage.tsx",
+      code: "import { BlogCreatePageMain } from '@/app/layouts/BaseLayout/ui/pageWrappers/BlogCreatePageMain';",
+      errors: [],
+      options: [
+        {
+          alias: "@",
+          ignoreImportPatterns: ["**/pageWrappers/**"],
+        },
+      ],
+    },
   ],
 
   invalid: [
@@ -60,7 +128,7 @@ ruleTester.run("imports-from-layers", rule, {
       errors: [
         {
           message:
-            "Нижележащий слой не может содержать импорт из вышележащего!",
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
         },
       ],
       options: aliasOptions,
@@ -73,7 +141,7 @@ ruleTester.run("imports-from-layers", rule, {
       errors: [
         {
           message:
-            "Нижележащий слой не может содержать импорт из вышележащего!",
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
         },
       ],
       options: aliasOptions,
@@ -86,7 +154,7 @@ ruleTester.run("imports-from-layers", rule, {
       errors: [
         {
           message:
-            "Нижележащий слой не может содержать импорт из вышележащего!",
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
         },
       ],
       options: aliasOptions,
@@ -99,7 +167,44 @@ ruleTester.run("imports-from-layers", rule, {
       errors: [
         {
           message:
-            "Нижележащий слой не может содержать импорт из вышележащего!",
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
+        },
+      ],
+      options: aliasOptions,
+    },
+
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\providers",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/features/Articl'",
+      errors: [
+        {
+          message:
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
+        },
+      ],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\features\\providers",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/widgets/Articl'",
+      errors: [
+        {
+          message:
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
+        },
+      ],
+      options: aliasOptions,
+    },
+    {
+      filename:
+        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\providers",
+      code: "import { addCommentFormActions, addCommentFormReducer } from '@/widgets/Articl'",
+      errors: [
+        {
+          message:
+            "Слой не может совершать импорт только из вышележащего слоя (только entities может совершать импорт ещё и из своего слоя)!",
         },
       ],
       options: aliasOptions,

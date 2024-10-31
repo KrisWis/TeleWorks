@@ -16,8 +16,7 @@ import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import {
   AttachFileContainer,
   AttachFileContainerItems,
-  LoadedFile,
-} from "@/widgets/Global_widgets/AttachFileContainer";
+} from "@/features/Global_features/AttachFileContainer";
 import AttachSVG from "@/shared/assets/icons/Global/AttachSVG.svg?react";
 import EmojiPicker from "emoji-picker-react";
 import EmojiSVG from "@/shared/assets/icons/Global/EmojiSVG.svg?react";
@@ -32,7 +31,8 @@ import {
   UseBlogPostCommentsLocalStorage,
   UseBlogPostCommentsLocalStorageInterface,
 } from "..";
-import { BlogPostPageContext } from "../../BlogOpenPostPageContainer";
+import { BlogPostPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/BlogOpenPostPageContainer";
+import { LoadedFile } from "@/shared/types/global";
 
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (

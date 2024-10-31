@@ -1,6 +1,6 @@
 import "./NotFoundPage.scss";
 import "@/shared/main.scss";
-import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
+import { NotFoundContainer } from "@/shared/ui-kit/NotFoundContainer";
 import { useEffect } from "react";
 import { memo } from "react";
 

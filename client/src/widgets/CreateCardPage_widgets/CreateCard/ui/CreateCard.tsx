@@ -1,7 +1,7 @@
 import { CreateCardForm } from "@/features/CreateCardPage_features/CreateCardForm";
 import styles from "./CreateCard.module.scss";
 import { memo, useState } from "react";
-import { WhyNeedINNAndName } from "@/widgets/Global_widgets/WhyNeedINNAndName";
+import { WhyNeedINNAndName } from "@/shared/ui-kit/WhyNeedINNAndName";
 
 export const CreateCard: React.FC = memo((): React.JSX.Element => {
   const [ActiveSlide, setActiveSlide] = useState<number>(0);

@@ -17,7 +17,7 @@ import "./CreateOrderTechnicalInformationContainerLoadingProgress.scss";
 import {
   AttachFileContainer,
   AttachFileContainerItems,
-} from "@/widgets/Global_widgets/AttachFileContainer";
+} from "@/features/Global_features/AttachFileContainer";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 import { IndexedDBStores } from "@/shared/const/app";
 import { IndexedDBName } from "@/shared/const/app";

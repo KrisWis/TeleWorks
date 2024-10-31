@@ -12,7 +12,7 @@ import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import {
   CreateOrderPageContext,
   UseCreateOrderStepLocalStorage,
-} from "../../CreateOrderContainer";
+} from "@/app/layouts/BaseLayout/ui/pageWrappers/CreateOrderContainer";
 
 export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnicalInformationContentProps> =
   memo((): React.JSX.Element => {

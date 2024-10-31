@@ -1,3 +1,2 @@
 export * from "./ui/TelegramChannelStatsAllStatistics";
 export { telegramChannelStatsCategories } from "./ui/TelegramChannelStatsCategories/model/TelegramChannelStatsCategories_data";
-export type { TelegramChannelStatsCategory } from "./ui/TelegramChannelStatsCategories/model/TelegramChannelStatsCategories_types";

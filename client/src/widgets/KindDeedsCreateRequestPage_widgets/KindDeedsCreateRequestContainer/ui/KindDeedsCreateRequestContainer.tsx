@@ -20,7 +20,7 @@ import {
   AttachFileContainer,
   AttachFileContainerItems,
   LoadedFile,
-} from "@/widgets/Global_widgets/AttachFileContainer";
+} from "@/features/Global_features/AttachFileContainer";
 import {
   KindDeedsCreateRequestContainerProps,
   KindDeedsCreateRequestLocalStorageInterface,

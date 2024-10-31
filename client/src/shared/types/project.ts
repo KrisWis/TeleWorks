@@ -66,3 +66,4 @@ export interface ProjectInfoProps {
   ProjectInfo_packs: ProjectInfoPacks;
   ProjectTags: string[];
 }
+export type TelegramChannelStatsChangeType = "+" | "-";

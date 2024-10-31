@@ -1,8 +1,8 @@
 import {
   CreateOrderProgressStep,
-  CreateOrderProgressSteps,
   CreateOrderProgressStepsPostfixs,
 } from "./CreateOrderProgress_types";
+import { CreateOrderProgressSteps } from "@/shared/const/createOrder";
 
 export const createOrderProgressSteps: CreateOrderProgressStep[] = [
   {

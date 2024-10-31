@@ -2,7 +2,7 @@ import "./TelegramChannelStatsPage.scss";
 import "@/shared/main.scss";
 import { useEffect } from "react";
 import { memo } from "react";
-import { TelegramChannelStatsPageMain } from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsPageMain";
+import { TelegramChannelStatsPageMain } from "@/app/layouts/BaseLayout/ui/pageWrappers/TelegramChannelStatsPageMain";
 
 export const TelegramChannelStatsPage: React.FC = memo(
   (): React.JSX.Element => {

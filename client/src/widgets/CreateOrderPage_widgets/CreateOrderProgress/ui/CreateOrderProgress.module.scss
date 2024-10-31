@@ -70,7 +70,7 @@
     &__completed {
       .createOrderProgress__item__step {
         &::after {
-          content: url("../../../../shared/assets/icons/CreateOrderPage/CreateOrderProgress/CompleteSVG.svg");
+          content: url("@/shared/assets/icons/CreateOrderPage/CreateOrderProgress/CompleteSVG.svg");
         }
       }
 

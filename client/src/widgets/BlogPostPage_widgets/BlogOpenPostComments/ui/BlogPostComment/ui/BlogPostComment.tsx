@@ -9,7 +9,7 @@ import LikeSecondarySVG from "@/shared/assets/icons/Global/LikeSecondarySVG.svg?
 import DislikeSVG from "@/shared/assets/icons/Global/DislikeSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { mobile_mediaQuery } from "@/shared/const/global";
-import { BlogPostPageContext } from "@/widgets/BlogPostPage_widgets/BlogOpenPostPageContainer";
+import { BlogPostPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/BlogOpenPostPageContainer";
 
 export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
   ({ answers, commentInfo, isAnswer }): React.JSX.Element => {

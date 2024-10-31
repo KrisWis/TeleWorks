@@ -28,7 +28,7 @@
       position: relative;
 
       &::after {
-        content: url("../../../../public/KindDeeds/captionBG.jpg");
+        content: url("@/public/KindDeeds/captionBG.jpg");
         position: absolute;
         display: block;
         top: 0;
@@ -36,7 +36,7 @@
         right: -60px;
 
         @media (max-width: $tablet-mediaquery-width) {
-          content: url("../../../../public/KindDeeds/Adaptive/captionBG.jpg");
+          content: url("@/public/KindDeeds/Adaptive/captionBG.jpg");
           right: -25px;
           top: -2px;
         }
