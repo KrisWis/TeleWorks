@@ -1,4 +1,4 @@
-import { telegramChannelsCategories } from "@/app/layouts/BaseLayout/model/BaseLayout__types";
+import { telegramChannelsCategories } from "@/shared/types/telegramChannels";
 
 export interface Similar_channels__itemProps {
   rating: number;

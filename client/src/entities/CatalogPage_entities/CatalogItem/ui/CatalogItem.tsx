@@ -1,7 +1,5 @@
-import {
-  transitionDuration,
-  URL_PART,
-} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { transitionDuration } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./CatalogItem.module.scss";
 import { ProgressBar } from "primereact/progressbar";
 import "./CatalogItemProgressBar.scss";
@@ -12,7 +10,7 @@ import {
   catalogItemTop__selectedOptions,
 } from "../model/CatalogItem__data";
 import { Link } from "react-router-dom";
-import { CatalogItemProps, CatalogItemTags } from "../model/CatalogItem__types";
+import { CatalogItemProps } from "../model/CatalogItem__types";
 import { memo, useCallback, useMemo, useRef } from "react";
 import {
   SelectTextStyles,
@@ -35,17 +33,18 @@ import {
   checkChannelInCart,
   getAllChannelsInCart,
   MoveToOpenChannelCartActions,
-} from "@/features/Global_features/MoveToOpenChannelCart";
-import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+} from "@/entities/Global_entities/MoveToOpenChannelCart";
+import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
 import { shallowEqual } from "react-redux";
 import MoreSVG from "@/shared/assets/icons/Global/MoreSVG.svg?react";
 import { Counter } from "@/shared/ui-kit/Counter";
 import { Flex } from "@/shared/ui-kit/Stack";
+import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import {
   CatalogCartSliceActions,
   getCartItemAmount,
-} from "@/pages/CatalogCartPage";
-import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
+} from "@/entities/CatalogPage_entities/CatalogCartPageContainer";
+import { CatalogItemTags } from "@/shared/types/catalog";
 
 const DropdownIndicator = (): JSX.Element => {
   return <DropdownIndicatorSvg className={selectStyles.Select__svg} />;

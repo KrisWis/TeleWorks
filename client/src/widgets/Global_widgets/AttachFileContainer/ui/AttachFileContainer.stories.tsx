@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AttachFileContainer } from "./AttachFileContainer";
 import { useRef, useState } from "react";
-import { LoadedFile } from "../model/AttachFileContainer_types";
+import { LoadedFile } from "@/shared/types/global";
 
 const ComponentWithRef: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);

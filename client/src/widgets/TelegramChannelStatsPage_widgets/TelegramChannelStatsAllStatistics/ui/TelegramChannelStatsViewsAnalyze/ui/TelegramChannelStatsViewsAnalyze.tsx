@@ -15,7 +15,7 @@ import {
 } from "@/shared/ui-kit/Select/model/Select_types";
 import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorBlueSVG.svg?react";
 import { TelegramChannelStatsViewsAnalyzeStats } from "./TelegramChannelStatsViewsAnalyzeStats";
-import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 const telegramChannelStatsViewsAnalyzeFormatSelectTextStyles: SelectTextStyles =
   {

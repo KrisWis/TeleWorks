@@ -13,6 +13,7 @@ export const TransitionBetweenBlocks: React.FC<
   blocks,
   transitionDuration,
   defaultIndex,
+  defaultIsMounted = false,
 }): React.JSX.Element => {
   // Реализация переключения блоков
   const [visibleBlock, setVisibleBlock] =
@@ -23,7 +24,7 @@ export const TransitionBetweenBlocks: React.FC<
 
   const VisibleBlockTimeOutRef = useRef<NodeJS.Timeout | null>();
 
-  const isMounted = useRef<boolean>(false);
+  const isMounted = useRef<boolean>(defaultIsMounted);
 
   useEffect(() => {
     if (isMounted.current && !VisibleBlockTimeOutRef.current) {
@@ -35,14 +36,6 @@ export const TransitionBetweenBlocks: React.FC<
 
           VisibleBlockTimeOutRef.current = setTimeout(() => {
             VisibleBlockTimeOutRef.current = null;
-
-            // const timeoutForIsMounted = setTimeout(() => {
-            //   isMounted.current = true;
-
-            //   setVisibleBlock(block);
-
-            //   clearTimeout(timeoutForIsMounted);
-            // }, 0);
 
             isMounted.current = true;
 

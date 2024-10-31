@@ -1,6 +1,6 @@
 import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
 import { TelegramChannelStatsADSEffectivityStat } from "../ui/TelegramChannelStatsADSEffectivityStats/model/TelegramChannelStatsADSEffectivityStats_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const telegramChannelStatsADSEffectivitySortSelectedOptions: Select_Option[] =
   [

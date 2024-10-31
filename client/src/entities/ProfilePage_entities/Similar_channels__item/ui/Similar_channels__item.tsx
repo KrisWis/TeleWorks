@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./Similar_channels__item.module.scss";
 import { memo } from "react";
 import { Similar_channels__itemProps } from "../model/Similar_channels__item__types";

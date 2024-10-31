@@ -6,4 +6,3 @@
 # npm run test:unit
 # npm run stylelint:check
 # npm run eslint:check
-// TODO: доисправлять ошибки, которые выявил линтер

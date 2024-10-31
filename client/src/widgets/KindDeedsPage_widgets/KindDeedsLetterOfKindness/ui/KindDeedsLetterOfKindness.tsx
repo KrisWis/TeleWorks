@@ -3,7 +3,8 @@ import styles from "./KindDeedsLetterOfKindness.module.scss";
 import { memo, useState } from "react";
 import { Input } from "@/shared/ui-kit/Input";
 import WhiteArrowSVG from "@/shared/assets/icons/Global/WhiteArrowSVG.svg?react";
-import { mobile_mediaQuery, URL_PART } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 
 export const KindDeedsLetterOfKindness: React.FC = memo(
   (): React.JSX.Element => {

@@ -10,13 +10,13 @@ import { memo } from "react";
 import { BlogPageContext } from "../model/BlogPageContext";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { BlogActualPosts } from "@/widgets/BlogPage_widgets/BlogActualPosts";
-import { blogPopularPosts, blogPostItems } from "../model/BlogPage_data";
+import { blogPopularPosts, blogPostItems } from "@/shared/mockData";
 import { BlogPost } from "@/widgets/BlogPage_widgets/BlogPost";
 import { BlogForReaders } from "@/widgets/BlogPage_widgets/BlogForReaders";
 import { BlogADSBlock } from "@/widgets/BlogPage_widgets/BlogADSBlock";
 import { BlogDiscussedPosts } from "@/widgets/BlogPage_widgets/BlogDiscussedPosts";
 import { BlogPopularPosts } from "@/widgets/BlogPage_widgets/BlogPopularPosts";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const BlogPage: React.FC = memo((): React.JSX.Element => {
   useEffect(() => {

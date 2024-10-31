@@ -1,9 +1,7 @@
-import {
-  ProjectInfoPackProps,
-  ProjectInfoPackNames,
-  ProjectInfoPackContent,
-  ProjectExtraService,
-} from "../model/ProjectInfo_pack_types";
+import { ProjectInfoPackProps } from "../model/ProjectInfo_pack_types";
+import { ProjectInfoPackContent } from "@/shared/types/project";
+import { ProjectExtraService } from "@/shared/types/project";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 import styles from "./ProjectInfo_pack.module.scss";
 import { memo, useCallback, useState } from "react";
 import { CheckoutOrder } from "../../CheckoutOrder/ui/CheckoutOrder";

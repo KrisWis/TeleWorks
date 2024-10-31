@@ -1,6 +1,8 @@
 import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
 import { memo, useCallback, useEffect } from "react";
-import { IndexedDBName, IndexedDBStores, isUnit } from "@/app";
+import { IndexedDBStores } from "@/shared/const/app";
+import { IndexedDBName } from "@/shared/const/app";
+import { isUnit } from "@/shared/const/global";
 import { IndexedDBLoaderProps } from "../model/types";
 
 // Инстанс IndexedDB

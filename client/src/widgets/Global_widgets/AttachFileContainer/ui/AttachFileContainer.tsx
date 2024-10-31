@@ -1,11 +1,9 @@
 import styles from "./AttachFileContainer.module.scss";
 import { memo, useCallback } from "react";
-import {
-  AttachFileContainerProps,
-  LoadedFile,
-} from "../model/AttachFileContainer_types";
-import { isUnit } from "@/app";
+import { AttachFileContainerProps } from "../model/AttachFileContainer_types";
+import { isUnit } from "@/shared/const/global";
 import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
+import { LoadedFile } from "@/shared/types/global";
 
 // Инстанс IndexedDB
 const UseIndexedDBInstance = new UseIndexedDB();

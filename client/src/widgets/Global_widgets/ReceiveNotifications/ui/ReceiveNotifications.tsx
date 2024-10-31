@@ -1,6 +1,5 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./ReceiveNotifications.module.scss";
-import "@/pages/MyProjectsPage/ui/MyProjectsPage.scss";
 import { memo } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 

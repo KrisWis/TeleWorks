@@ -14,7 +14,7 @@ import {
   telegramChannelStatsADSEffectivityStatItems,
 } from "../model/TelegramChannelStatsADSEffectivity_data";
 import { TelegramChannelStatsADSEffectivityStats } from "./TelegramChannelStatsADSEffectivityStats";
-import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 const SortDropdownIndicator = (): JSX.Element => {
   return (

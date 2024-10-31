@@ -1,4 +1,4 @@
-import { LoadingConst } from "@/shared/types";
+import { LoadingConst } from "@/shared/types/global";
 import { LoadedImageErrorsTypes } from "../LoadImageBlock_types";
 import {
   LoadImageBlockMaxSize,
@@ -7,7 +7,7 @@ import {
   LoadImageBlockMinWidth,
   LoadImageIsValidCheck,
 } from "../LoadImageIsValidCheck/LoadImageIsValidCheck";
-import { isUnit } from "@/app";
+import { isUnit } from "@/shared/const/global";
 
 export const LoadingVideoMaxSize: number = 20971520;
 

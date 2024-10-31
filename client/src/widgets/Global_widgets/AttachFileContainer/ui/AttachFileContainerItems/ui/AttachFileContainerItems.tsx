@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { AttachFileContainerItemsProps } from "../model/AttachFileContainerItems_types";
-import { AttachFileContainerFile } from "../../AttachFileContainerFile";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
 import { ProgressBar } from "primereact/progressbar";
 import styles from "./AttachFileContainerItems.module.scss";
+import { AttachFileContainerFile } from "../../..";
 
 export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
   memo(

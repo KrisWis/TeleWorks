@@ -9,7 +9,7 @@ import {
   mobile_mediaQuery,
   tabletHeight_mediaQuery,
   transitionDurationMedium,
-} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+} from "@/shared/const/global";
 import { Flex } from "@/shared/ui-kit/Stack";
 
 export const KindDeedsCreateRequestPage: React.FC = memo(

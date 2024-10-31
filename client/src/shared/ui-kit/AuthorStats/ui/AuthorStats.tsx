@@ -1,7 +1,7 @@
 import styles from "./AuthorStats.module.scss";
 import { memo } from "react";
 import { AuthorStatsProps } from "../model/AuthorStats_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import AuthorStatReviewOnlineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatReviewSVG.svg?react";
 import AuthorStatReviewOfflineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatReviewOfflineSVG.svg?react";
 

@@ -29,56 +29,6 @@
     }
   }
 
-  &__postType {
-    border: 1px solid var(--secondary-color);
-    border-radius: 10px;
-    padding: 0 20px;
-    height: 35px;
-    background: linear-gradient(
-      271deg,
-      rgba(59, 130, 246, 0.1) 0%,
-      rgba(59, 130, 246, 0) 100%
-    );
-    cursor: pointer;
-
-    @media (max-width: $mobile-mediaquery-width) {
-      border-radius: 5px;
-      padding: 0 10px;
-      height: 16px;
-    }
-
-    &__svg {
-      display: none;
-      width: 15px;
-      height: 15px;
-
-      @media (max-width: $mobile-mediaquery-width) {
-        width: 9px;
-        height: 9px;
-      }
-
-      &__active {
-        display: block;
-      }
-    }
-
-    &__text {
-      font-weight: 500;
-      font-size: 14px;
-      color: var(--gray-color);
-      transition: var(--transition-duration) linear;
-      transition-property: color;
-
-      @media (max-width: $mobile-mediaquery-width) {
-        font-size: 9px;
-      }
-
-      &__active {
-        color: var(--black-color);
-      }
-    }
-  }
-
   &__desc {
     font-weight: 500;
     font-size: 14px;

@@ -7,16 +7,14 @@ import {
   getFinalPrice,
   geteditionsAmounts,
 } from "../model/selectors/CheckoutOrderSlice_selectors";
-import {
-  ProjectExtraService,
-  ProjectInfoPackNames,
-} from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
 import { ProjectActiveServices } from "@/shared/ui-kit/ProjectActiveServices";
 import { ProjectDeadline } from "@/shared/ui-kit/ProjectDeadline";
 import { ProjectEditions } from "@/shared/ui-kit/ProjectEditions/ui/ProjectEditions";
 import { Counter } from "@/shared/ui-kit/Counter";
+import { ProjectExtraService } from "@/shared/types/project";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 
 export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
   ({ pack, ExtraServices, setExtraServices }): React.JSX.Element => {

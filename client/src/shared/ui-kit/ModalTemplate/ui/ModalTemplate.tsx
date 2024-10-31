@@ -4,7 +4,7 @@ import { memo, useCallback } from "react";
 import Close from "@/shared/assets/icons/Shared/ModalTemplate/close.svg?react";
 import Back from "@/shared/assets/icons/Shared/ModalTemplate/back.svg?react";
 import { closeModal } from "@/shared/utils/CloseModal";
-import { transitionDuration } from "@/app";
+import { transitionDuration } from "@/shared/const/global";
 
 export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
   ({

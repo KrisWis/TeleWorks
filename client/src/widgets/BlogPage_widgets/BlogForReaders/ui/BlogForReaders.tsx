@@ -4,7 +4,7 @@ import { memo } from "react";
 import { blogForReadersItems } from "../model/BlogForReaders_data";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { Link } from "react-router-dom";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SelectDropdownIndicatorDarkBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorDarkBlueSVG.svg?react";
 import { Navigation } from "swiper/modules";

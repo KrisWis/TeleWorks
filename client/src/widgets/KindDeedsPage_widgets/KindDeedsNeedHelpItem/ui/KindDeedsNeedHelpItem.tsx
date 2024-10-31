@@ -9,7 +9,7 @@ import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { ProgressBar } from "primereact/progressbar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import "./KindDeedsNeedHelpItem_progressbar.scss";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const KindDeedsNeedHelpItem: React.FC<KindDeedsNeedHelpItemProps> = memo(
   ({

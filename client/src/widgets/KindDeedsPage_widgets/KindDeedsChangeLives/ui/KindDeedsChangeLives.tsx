@@ -2,7 +2,8 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsChangeLives.module.scss";
 import { memo } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { mobile_mediaQuery, URL_PART } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 
 export const KindDeedsChangeLives: React.FC = memo((): React.JSX.Element => {
   return (

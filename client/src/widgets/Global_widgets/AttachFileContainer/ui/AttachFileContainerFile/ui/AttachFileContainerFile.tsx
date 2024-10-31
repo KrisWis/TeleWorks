@@ -3,7 +3,8 @@ import styles from "./AttachFileContainerFile.module.scss";
 import { memo, useCallback, useRef } from "react";
 import ChangeFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/ChangeFileSVG.svg?react";
 import DeleteFileSVG from "@/shared/assets/icons/CreateOrderPage/CreateOrderTechnicalInformationLoadedFile/DeleteFileSVG.svg?react";
-import { isUnit, URL_PART } from "@/app";
+import { isUnit } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 import { UseIndexedDB } from "@/shared/utils/hooks/UseIndexedDB";
 
 // Инстанс IndexedDB

@@ -4,7 +4,7 @@ import { memo, useState } from "react";
 import { recommendedChannels } from "../model/data";
 import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 
-// TODO: сделать функционал добавления в корзину
+// TODO: сделать функционал добавления в корзину, прогнать все тесты, чекнуть все страницы
 
 export const CartRecommendedChannels: React.FC = memo((): React.JSX.Element => {
   // Создание стейта для скрытия/раскрытия блока

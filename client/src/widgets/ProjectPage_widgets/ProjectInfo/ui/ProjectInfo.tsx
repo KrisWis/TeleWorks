@@ -1,16 +1,14 @@
-import {
-  mobile_mediaQuery,
-  URL_PART,
-} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./ProjectInfo.module.scss";
 import { memo, useState } from "react";
 import { ProjectInfoAbout } from "./ProjectInfoAbout/ui/ProjectInfoAbout";
-import { ProjectInfoProps } from "../model/ProjectInfo_types";
+import { ProjectInfoProps } from "@/shared/types/project";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { ProjectInfo_pack } from "@/features/ProjectInfo_features/ProjectInfo_pack";
 import { AuthorCard } from "@/entities/ProjectPage_entities/AuthorCard";
 import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectTag";
-import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/ui/DynamicModuleLoader";
 import { Share } from "@/shared/ui-kit/Share";
 import { checkoutOrderReducer } from "@/features/ProjectInfo_features/CheckoutOrder";
 

@@ -1,4 +1,4 @@
-import { AuthorCardProps } from "../model/AuthorCard_types";
+import { AuthorCardProps } from "@/shared/types/user";
 import styles from "./AuthorCard.module.scss";
 import { memo } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";

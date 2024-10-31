@@ -1,8 +1,6 @@
-import {
-  ProjectExtraService,
-  ProjectInfoPackNames,
-} from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
-import { CheckoutOrderSchema } from "../..";
+import { ProjectExtraService } from "@/shared/types/project";
+import { CheckoutOrderSchema } from "@/shared/types/schemas";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 
 interface CheckoutOrderPackPricePayload {
   price: number;

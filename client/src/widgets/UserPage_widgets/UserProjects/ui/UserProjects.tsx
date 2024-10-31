@@ -2,7 +2,7 @@ import styles from "./UserProjects.module.scss";
 import { memo } from "react";
 import { UserProjectsProps } from "../model/UserProjects_types";
 import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
-import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
+import { ProjectItemViewTypes } from "@/shared/const/project";
 
 export const UserProjects: React.FC<UserProjectsProps> = memo(
   ({ projects }): React.JSX.Element => {

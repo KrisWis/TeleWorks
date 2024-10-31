@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ItemsSlider } from "./ItemsSlider";
-import { NotFoundPage } from "@/pages/NotFoundPage";
+import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
 
 const meta = {
   title: "Global Widgets/ItemsSlider",
@@ -21,7 +21,7 @@ export const Primary: Story = {
       nextArrowId: "nextID",
     },
     ItemsSlider__sliderProps: {
-      Component: NotFoundPage,
+      Component: NotFoundContainer,
       componentProps: [],
       visibleItems: 1,
       prevArrowId: "prev__sliderID",

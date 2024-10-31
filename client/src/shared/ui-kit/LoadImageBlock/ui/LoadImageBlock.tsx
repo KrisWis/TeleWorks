@@ -1,4 +1,4 @@
-import { LoadingConst } from "@/shared/types";
+import { LoadingConst } from "@/shared/types/global";
 import { LoadImageBlockProps } from "../model/LoadImageBlock_types";
 import styles from "./LoadImageBlock.module.scss";
 import { useRef } from "react";

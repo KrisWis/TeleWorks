@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { Channel_stats_item_props } from "../ui/Channel_stats__entities/Channel_stats__item/model/Channel_stats_item__types";
 
 export const channel_stats__items: Channel_stats_item_props[] = [

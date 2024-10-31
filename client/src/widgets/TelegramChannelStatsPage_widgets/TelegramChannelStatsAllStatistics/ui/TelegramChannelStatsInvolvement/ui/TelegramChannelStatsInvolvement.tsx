@@ -5,7 +5,7 @@ import { InterpolationLineChart } from "@/shared/ui-kit/InterpolationLineChart/u
 import {
   telegramChannelStatsInvolvementAverageAmountGraphic,
   telegramChannelStatsInvolvementERGraphic,
-} from "../model/TelegramChannelStatsInvolvement_data";
+} from "@/shared/mockData";
 import { TipBlock } from "@/shared/ui-kit/TipBlock";
 
 export const TelegramChannelStatsInvolvement: React.FC = memo(

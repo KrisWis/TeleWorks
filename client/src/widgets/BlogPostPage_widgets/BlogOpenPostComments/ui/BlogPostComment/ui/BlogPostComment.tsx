@@ -1,6 +1,6 @@
 import styles from "./BlogPostComment.module.scss";
 import { memo, useCallback, useContext, useState } from "react";
-import { BlogPostCommentProps } from "../model/BlogPostComment_types";
+import { BlogPostCommentProps } from "@/shared/types/blog";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
@@ -8,8 +8,8 @@ import { TextUnderlineHover } from "@/shared/ui-kit/TextUnderlineHover";
 import LikeSecondarySVG from "@/shared/assets/icons/Global/LikeSecondarySVG.svg?react";
 import DislikeSVG from "@/shared/assets/icons/Global/DislikeSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import { BlogPostPageContext } from "@/pages/BlogPostPage/model/BlogPostPageContext";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { BlogPostPageContext } from "@/widgets/BlogPostPage_widgets/BlogOpenPostPageContainer";
 
 export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
   ({ answers, commentInfo, isAnswer }): React.JSX.Element => {

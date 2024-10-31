@@ -6,8 +6,8 @@ import {
 } from "../model/SpecialistServices_data";
 import { SpecialistServicesResults } from "../SpecialistServicesResults/ui/SpecialistServicesResults";
 import { Categories } from "@/shared/ui-kit/Categories";
+import { tablet_small_mediaQuery } from "@/shared/const/global";
 import { Filter } from "@/features/Global_features/Filter";
-import { tablet_small_mediaQuery } from "@/app";
 
 export const SpecialistServices: React.FC = memo((): React.JSX.Element => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);

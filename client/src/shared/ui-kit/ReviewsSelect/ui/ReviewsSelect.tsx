@@ -6,7 +6,7 @@ import {
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
 import { Select, selectStyles } from "../../Select";
-import { mobile_mediaQuery, tablet_mediaQuery } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/shared/const/global";
 
 const DropdownIndicator = (): JSX.Element => {
   return (

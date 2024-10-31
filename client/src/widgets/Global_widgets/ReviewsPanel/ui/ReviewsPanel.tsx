@@ -1,7 +1,7 @@
 import styles from "./ReviewsPanel.module.scss";
 import { memo } from "react";
 import { ReviewsPanel__item } from "./ReviewsPanel__item/ui/ReviewsPanel__item";
-import { ReviewsPanelProps } from "../model/ReviewsPanel_types";
+import { ReviewsPanelProps } from "@/shared/types/user";
 
 export const ReviewsPanel: React.FC<ReviewsPanelProps> = memo(
   ({

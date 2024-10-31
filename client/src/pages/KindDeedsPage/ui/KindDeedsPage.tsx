@@ -1,4 +1,5 @@
-import { mobile_mediaQuery, tablet_mediaQuery, URL_PART } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 import "./KindDeedsPage.scss";
 import "@/shared/main.scss";
 import { KindDeedsMainSection } from "@/widgets/KindDeedsPage_widgets/KindDeedsMainSection";

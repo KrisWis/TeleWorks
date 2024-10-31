@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./HowItWorks.module.scss";
 import { HowItWorksItems } from "../model/HowItWorks__data";
 import { memo } from "react";

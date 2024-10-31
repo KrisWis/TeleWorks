@@ -8,7 +8,7 @@ import {
   CheckoutOrderExtraServiceAction,
   CheckoutOrderFinalPriceAction,
 } from "../types/CheckoutOrderSlice_types";
-import { CheckoutOrderSchema } from "../CheckoutOrder_types";
+import { CheckoutOrderSchema } from "@/shared/types/schemas";
 
 export const editionsAmountsMultiplier: number = 1.5;
 

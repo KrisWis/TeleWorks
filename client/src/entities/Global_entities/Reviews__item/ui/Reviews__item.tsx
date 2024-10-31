@@ -1,7 +1,7 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./Reviews__item.module.scss";
 import { memo } from "react";
-import { Reviews__itemProps } from "../model/Reviews__item_types";
+import { Reviews__itemProps } from "@/shared/types/user";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { ReportBug } from "@/shared/ui-kit/ReportBug";
 

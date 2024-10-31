@@ -1,6 +1,6 @@
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 import { OrderPreview } from "./OrderPreview_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const orderData: OrderPreview = {
   packName: ProjectInfoPackNames.BASE,

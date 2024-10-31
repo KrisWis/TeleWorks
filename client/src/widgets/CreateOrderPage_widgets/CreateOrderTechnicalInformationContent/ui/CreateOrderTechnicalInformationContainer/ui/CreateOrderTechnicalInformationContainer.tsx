@@ -16,12 +16,14 @@ import { UseCreateOrderTIFormLocalStorage } from "../model/useCreateOrderTIFormL
 import "./CreateOrderTechnicalInformationContainerLoadingProgress.scss";
 import {
   AttachFileContainer,
-  LoadedFile,
+  AttachFileContainerItems,
 } from "@/widgets/Global_widgets/AttachFileContainer";
-import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
-import { AppRoutes, IndexedDBName, IndexedDBStores } from "@/app";
+import { IndexedDBStores } from "@/shared/const/app";
+import { IndexedDBName } from "@/shared/const/app";
+import { AppRoutes } from "@/shared/const/app";
 import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
+import { LoadedFile } from "@/shared/types/global";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(
   (): React.JSX.Element => {

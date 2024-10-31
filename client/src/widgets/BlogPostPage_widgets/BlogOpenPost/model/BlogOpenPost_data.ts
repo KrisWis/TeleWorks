@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { BlogOpenPostInterface } from "./BlogOpenPost_types";
 
 export const blogOpenPostExample: BlogOpenPostInterface = {

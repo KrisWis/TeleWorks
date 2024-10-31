@@ -1,6 +1,6 @@
 import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
 import { TelegramChannelStatsViewsAnalyzeFormats } from "./TelegramChannelStatsViewsAnalyze_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { TelegramChannelStatsViewsAnalyzeFormatData } from "../ui/TelegramChannelStatsViewsAnalyzeStats/model/TelegramChannelStatsViewsAnalyzeStats_types";
 
 export const telegramChannelStatsViewsAnalyzeFormatsData: TelegramChannelStatsViewsAnalyzeFormats[] =

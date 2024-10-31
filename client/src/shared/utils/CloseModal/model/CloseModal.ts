@@ -1,4 +1,4 @@
-import { transitionDuration } from "@/app";
+import { transitionDuration } from "@/shared/const/global";
 
 export const closeModal = (
   setModalAppear: React.Dispatch<React.SetStateAction<boolean>>,

@@ -1,7 +1,5 @@
 import { FileData } from "..";
 
-// TODO: убрать логи, когда будет закончена разработка
-
 export class UseIndexedDB {
   openDatabase = (
     dbName: string,
@@ -53,10 +51,6 @@ export class UseIndexedDB {
     };
 
     const request = objectStore.add(fileData);
-
-    request.onsuccess = () => {
-      console.log(`Файл с названием ${file.name} успешно сохранён в IndexedDB`);
-    };
 
     request.onerror = (event: Event) => {
       console.error(
@@ -118,10 +112,6 @@ export class UseIndexedDB {
       const store = transaction.objectStore(storeName);
 
       const deleteRequest = store.delete(fileKey);
-
-      deleteRequest.onsuccess = () => {
-        console.log(`Файл с ключом ${fileKey} успешно удалён.`);
-      };
 
       deleteRequest.onerror = () => {
         console.error(`Ошибка при удалении файла с ключом ${fileKey}.`);

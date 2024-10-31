@@ -1,4 +1,4 @@
-import { LoadedFile } from "@/widgets/Global_widgets/AttachFileContainer";
+import { LoadedFile } from "@/shared/types/global";
 import { ReactNode } from "react";
 
 export interface IndexedDBLoaderProps {

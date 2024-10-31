@@ -6,7 +6,7 @@ import BlueLineSVG from "@/shared/assets/icons/Global/BlueLineSVG.svg?react";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import { Link } from "react-router-dom";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const KindDeedsAlreadyHelpedItem: React.FC<KindDeedsAlreadyHelpedItemProps> =
   memo(({ imgURL, person, city, age, desc, price }): React.JSX.Element => {

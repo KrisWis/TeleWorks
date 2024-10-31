@@ -2,7 +2,7 @@ import { ReviewsPanel__item__props } from "../model/ReviewsPanel__item__types";
 import styles from "./ReviewsPanel__item.module.scss";
 import { ProgressBar } from "primereact/progressbar";
 import "./ReviewsPanel__item__progressbar.scss";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { memo, useMemo } from "react";
 
 export const ReviewsPanel__item: React.FC<ReviewsPanel__item__props> = memo(

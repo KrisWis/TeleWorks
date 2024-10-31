@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Select } from "./Select";
 import styles from "./Select.module.scss";
-import { SelectTextStyles, SelectThemesEnum } from "../model/Select_types";
-import { catalogFilter_themesOptions } from "@/features/Global_features/Filter/model/Filter_data";
+import {
+  Select_Option,
+  SelectTextStyles,
+  SelectThemesEnum,
+} from "../model/Select_types";
 
 const meta = {
   title: "shared/Select",
@@ -42,12 +45,18 @@ const TextStyles: SelectTextStyles = {
   lineHeight: "150%",
 };
 
+const Select_themesOptions: Select_Option[] = [
+  { value: "Все тематики", label: "Все тематики" },
+  { value: "Все тематики2", label: "Все тематики2" },
+  { value: "Все тематики3", label: "Все тематики3" },
+];
+
 export const BLACK: Story = {
   args: {
     className: styles.Select,
     CustomDropdownIndicator: DropdownIndicator,
     TextStyles: TextStyles,
-    selectedOptions: catalogFilter_themesOptions,
+    selectedOptions: Select_themesOptions,
     theme: SelectThemesEnum.BLACK,
   },
 };
@@ -57,7 +66,7 @@ export const GRAY: Story = {
     className: styles.Select,
     CustomDropdownIndicator: DropdownIndicator,
     TextStyles: TextStyles,
-    selectedOptions: catalogFilter_themesOptions,
+    selectedOptions: Select_themesOptions,
     theme: SelectThemesEnum.GRAY,
   },
 };

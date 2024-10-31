@@ -1,6 +1,6 @@
 import styles from "./HeaderMenuDropdown.module.scss";
 import { memo, useState } from "react";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { Dropdown } from "@/shared/ui-kit/Dropdown";
 import { URLIsAbsolute } from "@/shared/utils/URLIsAbsolute";
 import { Link } from "react-router-dom";

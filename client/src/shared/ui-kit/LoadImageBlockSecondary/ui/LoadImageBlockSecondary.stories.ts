@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { LoadImageBlockSecondary } from "./LoadImageBlockSecondary";
 import { useState } from "react";
-import { URL_PART } from "@/app";
+import { URL_PART } from "@/shared/const/app";
 
 const meta = {
   title: "Shared/LoadImageBlockSecondary",

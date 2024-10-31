@@ -6,7 +6,7 @@ import { Chart, LineController, LineElement, ChartData } from "chart.js/auto";
 import { Flex } from "../../Stack";
 import Switch from "@mui/material/Switch";
 import "./InterpolationLineChart__switcher.scss";
-import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 Chart.register(LineController, LineElement);
 

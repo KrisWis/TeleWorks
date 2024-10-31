@@ -1,7 +1,7 @@
 import styles from "./AgeBlock.module.scss";
 import { memo } from "react";
 import { AgeBlockProps } from "../model/AgeBlock_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const AgeBlock: React.FC<AgeBlockProps> = memo(
   ({ age }): React.JSX.Element => {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { FAQ_accordion } from "./FAQ_accordion";
-import { turnkeyWebsitesPageFAQ_items } from "@/widgets/TurnkeyWebsitesPage_widgets/TurnkeyWebsitesPageFAQ/model/TurnkeyWebsitesPageFAQ_data";
+import { turnkeyWebsitesPageFAQ_items } from "@/widgets/TurnkeyWebsitesPage_widgets/TurnkeyWebsitesPageFAQ";
 
 const meta = {
   title: "Global Widgets/FAQ_accordion",

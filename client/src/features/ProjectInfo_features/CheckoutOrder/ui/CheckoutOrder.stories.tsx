@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { CheckoutOrder } from "./CheckoutOrder";
-import { ProjectInfoPackNames } from "../../ProjectInfo_pack";
 import React, { useState } from "react";
-import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/ui/DynamicModuleLoader";
 import { checkoutOrderReducer } from "../model/slice/CheckoutOrderSlice";
-import {
-  ProjectExtraService,
-  ProjectInfoPack,
-} from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
+import { ProjectInfoPack } from "../../ProjectInfo_pack/model/ProjectInfo_pack_types";
+import { ProjectExtraService } from "@/shared/types/project";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 
 const packExample: ProjectInfoPack = {
   packName: ProjectInfoPackNames.BASE,

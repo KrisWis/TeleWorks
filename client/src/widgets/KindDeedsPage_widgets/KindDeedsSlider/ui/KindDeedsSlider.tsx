@@ -9,7 +9,8 @@ import { Navigation } from "swiper/modules";
 import "./KindDeedsSlider_swiper.scss";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { KindDeedsSliderProps } from "../model/types";
-import { AppRoutes, mobile_mediaQuery, tablet_mediaQuery } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/shared/const/global";
+import { AppRoutes } from "@/shared/const/app";
 
 export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
   ({ items, prevArrowId, nextArrowId, title, titleRed }): React.JSX.Element => {

@@ -1,10 +1,10 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { ServicesItem } from "@/entities/Global_entities/ProjectItem/model/ProjectItem_types";
-import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
+import { URL_PART } from "@/shared/const/app";
+
 import { UserProfessions } from "@/entities/UserPage_entities/UserCard";
 import { PortfolioCaseProps } from "@/shared/ui-kit/PortfolioCase";
-import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
-import { UserAboutProps } from "@/widgets/UserPage_widgets/UserAbout/model/UserAbout_types";
+import { Reviews__itemProps, ReviewsPanelProps } from "@/shared/types/user";
+import { ServicesItem } from "@/shared/types/project";
+import { UserAboutProps } from "@/widgets/UserPage_widgets/UserAbout";
 
 export const userAbout: UserAboutProps = {
   HeaderImgURL: `${URL_PART}/global/images/userHeader_img.png`,
@@ -64,6 +64,7 @@ export const UserPortfolioCases: PortfolioCaseProps[] = [
 
 export const UserProjectsItems: ServicesItem[] = [
   {
+    id: 0,
     imgURLs: [`${URL_PART}/global/images/serviceExample_img.png`],
     title: "Инфографика для маркетплейсов.",
     TeleWorksChoice: false,
@@ -78,6 +79,7 @@ export const UserProjectsItems: ServicesItem[] = [
   },
 
   {
+    id: 1,
     imgURLs: [`${URL_PART}/global/images/serviceExample_img_2.png`],
     title: "Инфографика для маркетплейсов2.",
     TeleWorksChoice: true,
@@ -92,6 +94,7 @@ export const UserProjectsItems: ServicesItem[] = [
   },
 
   {
+    id: 2,
     imgURLs: [
       `${URL_PART}/global/images/serviceExample_img.png`,
       `${URL_PART}/global/images/serviceExample_img_2.png`,
@@ -113,6 +116,7 @@ export const UserProjectsItems: ServicesItem[] = [
   },
 
   {
+    id: 3,
     imgURLs: [
       `${URL_PART}/global/images/serviceExample_img.png`,
       `${URL_PART}/global/images/serviceExample_img_2.png`,

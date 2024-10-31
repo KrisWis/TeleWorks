@@ -4,7 +4,7 @@ import styles from "./Categories.module.scss";
 import { memo, useMemo } from "react";
 import { Navigation } from "swiper/modules";
 import "./Categories_swiper.scss";
-import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const Categories: React.FC<CategoriesProps> = memo(
   ({

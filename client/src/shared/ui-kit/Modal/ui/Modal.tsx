@@ -2,7 +2,7 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.scss";
 import { ModalProps } from "../model/Modal_types";
 import { PortalElement } from "@/shared/utils/PortalElement";
-import { transitionDuration } from "@/app";
+import { transitionDuration } from "@/shared/const/global";
 
 export const Modal: React.FC<ModalProps> = ({
   children,

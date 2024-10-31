@@ -1,2 +1,4 @@
 export * from "./ui/AttachFileContainer";
-export type { LoadedFile } from "./model/AttachFileContainer_types";
+export { AttachFileContainerItems } from "./ui/AttachFileContainerItems/ui/AttachFileContainerItems";
+export { AttachFileContainerFile } from "./ui/AttachFileContainerFile/ui/AttachFileContainerFile";
+export type { AttachFileContainerFileViews } from "./ui/AttachFileContainerFile/model/AttachFileContainerFile_types";

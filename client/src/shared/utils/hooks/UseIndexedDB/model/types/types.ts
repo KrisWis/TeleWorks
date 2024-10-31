@@ -1,4 +1,4 @@
-import { LoadedFile } from "@/widgets/Global_widgets/AttachFileContainer";
+import { LoadedFile } from "@/shared/types/global";
 
 export interface FileData {
   id: number | string;

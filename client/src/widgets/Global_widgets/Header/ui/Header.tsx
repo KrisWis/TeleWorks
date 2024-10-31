@@ -11,9 +11,9 @@ import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
 import { HeaderProps, HeaderViews } from "../model/Header_props";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { Input } from "@/shared/ui-kit/Input";
-import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { transitionDuration } from "@/shared/const/global";
 import CreatePostSVG from "@/shared/assets/icons/Header/Items/CreatePostSVG.svg?react";
-import { AppRoutes } from "@/app/routes/AppRoutes";
+import { AppRoutes } from "@/shared/const/app";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере

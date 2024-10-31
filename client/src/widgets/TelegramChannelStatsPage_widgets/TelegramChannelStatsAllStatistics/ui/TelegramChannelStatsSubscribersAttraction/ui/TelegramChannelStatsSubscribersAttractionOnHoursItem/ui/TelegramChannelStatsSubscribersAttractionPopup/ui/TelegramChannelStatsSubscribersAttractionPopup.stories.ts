@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TelegramChannelStatsSubscribersAttractionPopup } from "./TelegramChannelStatsSubscribersAttractionPopup";
 import { useState } from "react";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 const meta = {
   title: "Popups/TelegramChannelStatsSubscribersAttractionPopup",

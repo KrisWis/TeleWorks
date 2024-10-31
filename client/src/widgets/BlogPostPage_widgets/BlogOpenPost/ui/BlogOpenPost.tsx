@@ -14,10 +14,8 @@ import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import parse from "html-react-parser";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import {
-  mobile_mediaQuery,
-  PortNow,
-} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { PortNow } from "@/shared/const/app";
 
 export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
   (): React.JSX.Element => {

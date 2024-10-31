@@ -4,25 +4,22 @@ import {
   ButtonProps,
   ButtonTypes,
 } from "@/shared/ui-kit/Button/model/Button__types";
-import {
-  catalog__categories,
-  catalog__filters,
-  catalog__items,
-} from "../model/Catalog__data";
+import { catalog__categories, catalog__filters } from "../model/Catalog__data";
 import { Button } from "@/shared/ui-kit/Button";
 import { Filter } from "@/features/Global_features/Filter";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
-import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
 import { shallowEqual } from "react-redux";
 import {
   getAllChannelsInCart,
   MoveToOpenChannelCart,
   MoveToOpenChannelCartActions,
   UseMoveToOpenChannelCartLocalStorage,
-} from "@/features/Global_features/MoveToOpenChannelCart";
+} from "@/entities/Global_entities/MoveToOpenChannelCart";
 import { memo, useEffect, useRef, useState } from "react";
 import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
+import { catalog__items } from "@/shared/mockData";
 
 export const Catalog: React.FC = memo((): React.JSX.Element => {
   // Функционал добавления предмета в корзину

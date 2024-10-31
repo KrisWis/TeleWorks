@@ -10,20 +10,22 @@ module.exports = {
   ],
   ignorePatterns: ["/*", "!/src"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "react-hooks", "kriswis"],
+  plugins: ["react-refresh", "react-hooks", "teleworks"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
     "react-hooks/rules-of-hooks": "error",
-    "kriswis/path-checker": ["error", { alias: "@" }],
-    "kriswis/public-api-imports": [
+    "teleworks/path-checker": ["error", { alias: "@" }],
+    "teleworks/public-api-imports": [
       "error",
       {
         alias: "@",
         testFilesPatterns: ["**/*.test.*", "**/*.stories.*"],
       },
     ],
+    "teleworks/imports-from-layers": ["error", { alias: "@" }],
+    "teleworks/exports-from-always-relative": ["error", { alias: "@" }],
   },
 };

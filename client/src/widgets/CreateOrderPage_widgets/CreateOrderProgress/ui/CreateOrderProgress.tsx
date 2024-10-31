@@ -1,7 +1,7 @@
 import styles from "./CreateOrderProgress.module.scss";
 import { memo, useContext } from "react";
 import { createOrderProgressSteps } from "../model/CreateOrderProgress_data";
-import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
+import { CreateOrderPageContext } from "../../CreateOrderContainer";
 
 export const CreateOrderProgress: React.FC = memo((): React.JSX.Element => {
   const { CreateOrderCompletedSteps, CreateOrderActiveStep } = useContext(

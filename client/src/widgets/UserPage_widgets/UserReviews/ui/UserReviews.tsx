@@ -3,10 +3,10 @@ import { memo } from "react";
 import { UserReviewsProps } from "../model/UserReviews_types";
 import { ReviewsSelect } from "@/shared/ui-kit/ReviewsSelect";
 import { ReviewsPanel } from "@/widgets/Global_widgets/ReviewsPanel";
-import { ReviewsItem } from "@/entities/Global_entities/Reviews__item";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 import { ButtonTypes } from "@/shared/ui-kit/Button";
 import { userReviewsSelectOptions } from "../model/UserReviews_data";
+import { Reviews__item } from "@/entities/Global_entities/Reviews__item";
 
 export const UserReviews: React.FC<UserReviewsProps> = memo(
   ({ ReviewsPanelProps, reviewsItems }): React.JSX.Element => {
@@ -22,7 +22,7 @@ export const UserReviews: React.FC<UserReviewsProps> = memo(
 
         <div className={styles.UserReviews__reviews}>
           {reviewsItems.map((reviewsItem) => (
-            <ReviewsItem
+            <Reviews__item
               key={reviewsItem.author + reviewsItem.date + reviewsItem.text}
               {...reviewsItem}
             />

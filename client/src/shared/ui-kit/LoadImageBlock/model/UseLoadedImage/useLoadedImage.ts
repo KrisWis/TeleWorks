@@ -1,4 +1,4 @@
-import { LoadingType } from "@/shared/types";
+import { LoadingType } from "@/shared/types/global";
 import { useState } from "react";
 
 export const UseLoadedImage = (

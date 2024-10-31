@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { ProjectInfo_pack } from "./ProjectInfo_pack";
-import { ProjectInfo_packs } from "@/pages/ProjectPage/model/ProjectPage_data";
+import { ProjectInfo_packs } from "@/shared/mockData";
 
 const meta = {
   title: "features/ProjectInfo_pack",

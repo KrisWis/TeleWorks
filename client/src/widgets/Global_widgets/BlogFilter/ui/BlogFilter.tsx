@@ -12,9 +12,9 @@ import {
 } from "../model/BlogFilter_types";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { Link } from "react-router-dom";
-import { AppRoutes } from "@/app/routes/AppRoutes";
+import { AppRoutes } from "@/shared/const/app";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import { tablet_small_mediaQuery } from "@/app";
+import { tablet_small_mediaQuery } from "@/shared/const/global";
 import BlogFilterAdaptiveSVG from "@/shared/assets/icons/BlogPage/BlogFilterAdaptiveSVG.svg?react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 

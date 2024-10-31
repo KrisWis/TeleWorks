@@ -1,12 +1,10 @@
-import { UserEdit } from "@/features/UserEditPage_features/UserEdit";
-import { UserEditTabs, UserEditTabsEnum } from "../../UserEditTabs";
+import { UserEdit } from "@/widgets/UserEditPage_widgets/UserEdit";
+import { UserEditTabs } from "../../UserEditTabs";
 import styles from "./UserEditPageWrapper.module.scss";
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import {
-  UserEditPageContext,
-  UserEditPageContextRefs,
-} from "@/pages/UserEditPage";
+import { UserEditPageContext, UserEditPageContextRefs } from "..";
+import { UserEditTabsEnum } from "@/shared/const/user";
 
 export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
   // Реализация скроллинга по табам

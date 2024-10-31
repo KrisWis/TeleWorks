@@ -1,6 +1,6 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { OrderInfoProps } from "@/entities/Global_entities/OrderInfo/model/OrderInfo_types";
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack";
+import { URL_PART } from "@/shared/const/app";
+import { OrderInfoProps } from "@/entities/Global_entities/OrderInfo";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 
 export const orderInfoData: Omit<OrderInfoProps, "orderStatus"> = {
   orderImgURL: `${URL_PART}/global/images/portfolioCase__example_img.png`,

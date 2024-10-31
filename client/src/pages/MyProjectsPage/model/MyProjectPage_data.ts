@@ -1,4 +1,4 @@
-import { myProjectsStatsProps } from "@/widgets/MyProjects_widgets/MyProjects/ui/myProjectsStats/model/myProjectsStats_types";
+import { myProjectsStatsProps } from "@/widgets/MyProjects_widgets/MyProjects";
 
 export const myProjectsStats: myProjectsStatsProps = {
   allAmount: 16,

@@ -19,53 +19,9 @@ import { UserPage } from "@/pages/UserPage/";
 import { ReactElement } from "react";
 import { KindDeedsPage } from "@/pages/KindDeedsPage";
 import { KindDeedsCreateRequestPage } from "@/pages/KindDeedsCreateRequest";
-import { IndexedDBStore, PortNow } from "..";
-import { HeaderViews } from "@/widgets/Global_widgets/Header/model/Header_props";
 import { CatalogCartPage } from "@/pages/CatalogCartPage";
-
-export enum AppRoutes {
-  MAIN = "/",
-
-  CHANNEL_PROFILE = "/channel/:id",
-
-  MYPROJECTS = "/myProjects",
-
-  CATALOG = "/catalog",
-
-  CATALOG_CART = "/catalog/cart",
-
-  INTERNAL = "/internal",
-
-  SERVICES = "/services",
-
-  PROJECT = "/services/:id",
-
-  USER = "/user",
-
-  USER_EDIT = "/user/edit",
-
-  CREATE_CARD = "/create-card",
-
-  CREATE_ORDER = "/create-order",
-
-  FAQ = "/faq",
-
-  TURNKEY_WEBSITES = "/turnkey-websites",
-
-  TELEGRAM_CHANNEL_STATS = "/channel/:id/stats",
-
-  BLOG = "/blog",
-
-  BLOG_POST = "/blog/:id",
-
-  BLOG_CREATE = "/blog/create",
-
-  KIND_DEEDS = "/kind-deeds",
-
-  KIND_DEEDS_CREATE_REQUEST = "/kind-deeds/create-request",
-
-  NOT_FOUND = "*",
-}
+import { HeaderViews } from "@/widgets/Global_widgets/Header";
+import { AppRoutes, PortNow } from "@/shared/const/app";
 
 export const BlogRoutes = [
   AppRoutes.BLOG,
@@ -118,23 +74,6 @@ export const routes: routesList = {
   [AppRoutes.KIND_DEEDS_CREATE_REQUEST]: <KindDeedsCreateRequestPage />,
   [AppRoutes.NOT_FOUND]: <NotFoundPage />,
 };
-
-export const IndexedDBStores: IndexedDBStore[] = [
-  {
-    route: AppRoutes.CREATE_ORDER,
-    name: "CREATE_ORDER_FILES",
-  },
-
-  {
-    route: AppRoutes.KIND_DEEDS_CREATE_REQUEST,
-    name: "KIND_DEEDS_CREATE_REQUEST_IMAGES",
-  },
-
-  {
-    route: AppRoutes.BLOG_CREATE,
-    name: "BLOG_CREATE_IMAGES",
-  },
-];
 
 interface HeaderRoute {
   path: AppRoutes;

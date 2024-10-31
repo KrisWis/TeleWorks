@@ -1,7 +1,7 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel/model/ReviewsPanel_types";
-import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item/model/Reviews__item_types";
-import { Similar_channels__itemProps } from "@/entities/ProfilePage_entities/Similar_channels__item/model/Similar_channels__item__types";
+import { URL_PART } from "@/shared/const/app";
+import { Reviews__itemProps } from "@/entities/Global_entities/Reviews__item";
+import { Similar_channels__itemProps } from "@/entities/ProfilePage_entities/Similar_channels__item";
+import { ReviewsPanelProps } from "@/widgets/Global_widgets/ReviewsPanel";
 
 export const channelReviews: ReviewsPanelProps = {
   mark: 5.0,

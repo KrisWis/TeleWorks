@@ -1,7 +1,7 @@
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import styles from "./TurnkeyWebsitesPageInfo.module.scss";
 import { memo } from "react";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import ThinkAboutBusinessSVG from "@/shared/assets/icons/TurnkeyWebsitesPage/ThinkAboutBusinessSVG.svg?react";
 import AppreciateYourTimeSVG from "@/shared/assets/icons/TurnkeyWebsitesPage/AppreciateYourTimeSVG.svg?react";
 import TurnkeyCustomizationSVG from "@/shared/assets/icons/TurnkeyWebsitesPage/TurnkeyCustomizationSVG.svg?react";

@@ -7,7 +7,7 @@ import {
   ProjectInfoData,
   ProjectReviews_items,
   SimilarProjectsItems,
-} from "../model/ProjectPage_data";
+} from "@/shared/mockData";
 import { ItemsSlider } from "@/widgets/Global_widgets/ItemsSlider";
 import { ProjectInfo } from "@/widgets/ProjectPage_widgets/ProjectInfo";
 import { ProjectReviews } from "@/widgets/ProjectPage_widgets/ProjectReviews";
@@ -15,7 +15,7 @@ import { ProjectItem } from "@/entities/Global_entities/ProjectItem";
 import { useParams } from "react-router-dom";
 import { NotFoundContainer } from "@/widgets/NotFound_widgets/NotFoundContainer";
 import { isNumber } from "@/shared/utils/IsNumber";
-import { PortNow } from "@/app";
+import { PortNow } from "@/shared/const/app";
 
 export const ProjectPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {

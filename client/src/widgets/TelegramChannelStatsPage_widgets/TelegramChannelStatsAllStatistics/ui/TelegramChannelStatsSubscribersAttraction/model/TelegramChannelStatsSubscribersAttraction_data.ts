@@ -3,7 +3,7 @@ import {
   TelegramChannelStatsSubscribersAttractionOnDaysItem,
   TelegramChannelStatsSubscribersAttractionOnHours,
 } from "./TelegramChannelStatsSubscribersAttraction_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const subscribersGrowthGraphic: InterpolationLineChartType = {
   Подписчики: [

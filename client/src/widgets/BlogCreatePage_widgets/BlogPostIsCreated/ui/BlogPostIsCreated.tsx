@@ -1,12 +1,10 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./BlogPostIsCreated.module.scss";
 import { memo } from "react";
-import {
-  mobile_mediaQuery,
-  URL_PART,
-} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { AppRoutes } from "@/app/routes/AppRoutes";
+import { AppRoutes } from "@/shared/const/app";
 
 export const BlogPostIsCreated: React.FC = memo((): React.JSX.Element => {
   return (

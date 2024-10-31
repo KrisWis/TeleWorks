@@ -1,4 +1,4 @@
-import { LocalStorageKeys } from "@/app/layouts/BaseLayout/model/LocalStorageKeys";
+import { LocalStorageKeys } from "@/shared/const/app";
 import { UseLocalStorageTypes } from "./UseLocalStorage_types";
 
 export const UseLocalStorage = (

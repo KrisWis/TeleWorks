@@ -8,7 +8,7 @@ import PostCommentsSVG from "@/shared/assets/icons/Global/PostCommentsSVG.svg?re
 import BookmarkSVG from "@/shared/assets/icons/Global/BookmarkSVG.svg?react";
 import { useNavigate } from "react-router-dom";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
   ({

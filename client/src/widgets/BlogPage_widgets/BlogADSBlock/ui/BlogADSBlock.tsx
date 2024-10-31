@@ -2,7 +2,7 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./BlogADSBlock.module.scss";
 import { memo } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const BlogADSBlock: React.FC = memo((): React.JSX.Element => {
   return (

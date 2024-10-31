@@ -6,8 +6,8 @@ import { Navigation } from "swiper/modules";
 import SelectDropdownIndicatorDarkBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorDarkBlueSVG.svg?react";
 import { BlogPopularPost } from "./BlogPopularPost/ui/BlogPopularPost";
 import "./BlogPopularPosts_swiper.scss";
-import { BlogPopularPostsProps } from "../model/BlogPopularPosts_types";
-import { mobile_mediaQuery } from "@/app";
+import { BlogPopularPostsProps } from "@/shared/types/blog";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const BlogPopularPosts: React.FC<BlogPopularPostsProps> = memo(
   ({ blogPopularPosts }): React.JSX.Element => {

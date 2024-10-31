@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { MarketPlaceSlider_item_props } from "../../MarketPlaceSlider_item/model/MarketPlaceSlider_item_types";
 
 export const MarketPlaceSlider_items: MarketPlaceSlider_item_props[] = [

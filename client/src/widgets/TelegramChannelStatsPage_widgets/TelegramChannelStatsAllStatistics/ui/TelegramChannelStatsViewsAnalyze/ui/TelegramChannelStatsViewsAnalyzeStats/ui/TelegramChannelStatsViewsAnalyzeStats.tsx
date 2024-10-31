@@ -5,7 +5,7 @@ import { Flex } from "@/shared/ui-kit/Stack";
 import SirineSeparatorLineSVG from "@/shared/assets/icons/Global/SirineSeparatorLineSVG.svg?react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
-import { mobile_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const TelegramChannelStatsViewsAnalyzeStats: React.FC<TelegramChannelStatsViewsAnalyzeStatsProps> =
   memo(({ formatsData, currentFormat }): React.JSX.Element => {

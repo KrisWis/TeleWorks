@@ -14,11 +14,12 @@ import {
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { PortfolioCase } from "@/shared/ui-kit/PortfolioCase";
 import { Flex } from "@/shared/ui-kit/Stack";
-import { mobile_mediaQuery, tablet_mediaQuery, URL_PART } from "@/app";
 import { ProjectInfoAboutProps } from "../model/types";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { Share } from "@/shared/ui-kit/Share";
 import SirineSeparatorLineVerticalSVG from "@/shared/assets/icons/Global/SirineSeparatorLineVerticalSVG.svg?react";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 
 export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
   ({ author, favouriteAmount }): React.JSX.Element => {

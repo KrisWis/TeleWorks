@@ -1,9 +1,4 @@
-export interface LoadedFile {
-  FileData: string | Blob;
-  FileName: string;
-  FileSize: number;
-  FileType: string;
-}
+import { LoadedFile } from "@/shared/types/global";
 
 export interface AttachFileContainerProps {
   inputRef: React.RefObject<HTMLInputElement>;

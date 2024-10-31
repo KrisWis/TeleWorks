@@ -1,12 +1,12 @@
-import {
-  getActiveCategoryIndex,
-  TelegramChannelStatsPageContext,
-} from "@/pages/TelegramChannelStatsPage";
 import styles from "./TelegramChannelStatsAllStatistics.module.scss";
 import { memo, useContext, useMemo } from "react";
 import { telegramChannelStatsCategories } from "..";
-import { tablet_mediaQuery } from "@/app";
 import { TelegramChannelStatsCategories } from "./TelegramChannelStatsCategories/ui/TelegramChannelStatsCategories";
+import {
+  getActiveCategoryIndex,
+  TelegramChannelStatsPageContext,
+} from "../../TelegramChannelStatsPageMain";
+import { tablet_mediaQuery } from "@/shared/const/global";
 
 export const TelegramChannelStatsAllStatistics: React.FC = memo(
   (): React.JSX.Element => {

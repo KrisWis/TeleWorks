@@ -2,12 +2,12 @@ import styles from "./TelegramChannelStatsCategories.module.scss";
 import { memo, useContext } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { telegramChannelStatsCategories } from "../model/TelegramChannelStatsCategories_data";
-import { tablet_mediaQuery } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { tablet_mediaQuery } from "@/shared/const/global";
 import { Categories } from "@/shared/ui-kit/Categories";
 import {
   getActiveCategoryIndex,
   TelegramChannelStatsPageContext,
-} from "@/pages/TelegramChannelStatsPage";
+} from "@/widgets/TelegramChannelStatsPage_widgets/TelegramChannelStatsPageMain";
 
 export const TelegramChannelStatsCategories: React.FC = memo(
   (): React.JSX.Element => {

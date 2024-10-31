@@ -12,4 +12,5 @@ export interface TransitionBetweenBlocksProps {
   blocks: TransitionBetweenBlock[];
   transitionDuration: number;
   defaultIndex: number;
+  defaultIsMounted?: boolean;
 }

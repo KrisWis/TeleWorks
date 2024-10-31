@@ -7,10 +7,10 @@ import {
   SelectThemesEnum,
 } from "@/shared/ui-kit/Select";
 import { catalogFilter_themesOptions } from "../../../model/Filter_data";
-import { CatalogItemTags } from "@/entities/CatalogPage_entities/CatalogItem";
 import { Select_Option } from "@/shared/ui-kit/Select/model/Select_types";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { FilterProps } from "../../../model/Filter_types";
+import { CatalogItemTags } from "@/shared/types/catalog";
 
 const DropdownIndicator = (): JSX.Element => {
   return (

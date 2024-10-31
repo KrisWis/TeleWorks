@@ -1,4 +1,4 @@
-import { LoadedFile } from "../../../model/AttachFileContainer_types";
+import { LoadedFile } from "@/shared/types/global";
 import { AttachFileContainerFileViews } from "../../AttachFileContainerFile";
 
 export interface AttachFileContainerItemsProps {

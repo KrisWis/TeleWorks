@@ -2,7 +2,7 @@ import {
   UseLocalStorage,
   UseLocalStorageCustomSecondary,
 } from "@/shared/utils/hooks/UseLocalStorage";
-import { LocalStorageKeys } from "@/app/layouts/BaseLayout/model/LocalStorageKeys";
+import { LocalStorageKeys } from "@/shared/const/app";
 
 export interface UseBlogPostCommentsLocalStorageInterface {
   textareaValue: string;

@@ -1,0 +1,21 @@
+.CreateOrderContainer {
+  &__wrapper {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.25);
+    background: var(--white-color);
+    border-radius: 25px;
+  }
+
+  &__contentWrapper {
+    min-height: 1100px;
+    position: relative;
+
+    &__wrapper {
+      transition: var(--transition-duration) linear all;
+
+      &__disappear {
+        position: absolute;
+        top: 330px;
+      }
+    }
+  }
+}

@@ -1,53 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TransitionBetweenBlocks } from "./TransitionBetweenBlocks";
-import {
-  BlogFilter,
-  BlogFilterAllCategories,
-  blogFilterCategoryTitles,
-} from "@/widgets/Global_widgets/BlogFilter";
-import { BlogCreatePageContainer } from "@/widgets/BlogCreatePage_widgets/BlogCreatePageContainer";
-import { BlogPostIsCreated } from "@/widgets/BlogCreatePage_widgets/BlogPostIsCreated";
-import { Flex } from "../../Stack";
-import { transitionDurationMedium } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
-import { CreatePostProgressSteps } from "@/pages/BlogCreatePage";
+import { transitionDurationMedium } from "@/shared/const/global";
 import { useState } from "react";
 
 const TransitionBetweenBlocksComponent: React.FC = (): JSX.Element => {
-  const [blogFilterSelectedCategory, setBlogFilterSelectedCategory] =
-    useState<BlogFilterAllCategories>(
-      blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles
-    );
+  const [blockIndex, setBlockIndex] = useState<number>(0);
 
-  const CreatePostActiveStep =
-    useState<CreatePostProgressSteps>("Создание поста")[0];
+  setTimeout(() => {
+    setBlockIndex(1);
+  }, transitionDurationMedium);
 
   return (
     <TransitionBetweenBlocks
       blocks={[
         {
-          component: (
-            <div className={"BlogCreatePage__container"}>
-              <BlogFilter
-                selectedCategory={blogFilterSelectedCategory}
-                setSelectedCategory={setBlogFilterSelectedCategory}
-                canReturn
-              />
-
-              <Flex
-                className="BlogCreatePage__mainWrapper"
-                direction="column"
-                gap="20"
-              >
-                <BlogCreatePageContainer />
-              </Flex>
-            </div>
-          ),
-          condition: CreatePostActiveStep == "Создание поста",
+          component: <>0</>,
+          condition: blockIndex == 0,
           id: 0,
         },
         {
-          component: <BlogPostIsCreated />,
-          condition: CreatePostActiveStep == "Пост создан",
+          component: <>1</>,
+          condition: blockIndex == 1,
           id: 1,
         },
       ]}

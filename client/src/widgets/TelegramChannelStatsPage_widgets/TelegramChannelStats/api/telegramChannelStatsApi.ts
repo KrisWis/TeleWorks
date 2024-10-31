@@ -1,4 +1,4 @@
-import { rtkApi } from "@/app/layouts/BaseLayout/api/rtkApi";
+import { rtkApi } from "@/shared/config/api/rtkApi";
 import { TelegramChannelStatsInterface } from "..";
 
 const TelegramChannelStatsApi = rtkApi.injectEndpoints({

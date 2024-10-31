@@ -3,8 +3,8 @@ import "./CatalogPage.scss";
 import "@/shared/main.scss";
 import { Catalog } from "@/widgets/CatalogPage_widgets/Catalog";
 import { ReceiveNotifications } from "@/widgets/Global_widgets/ReceiveNotifications";
-import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/DynamicModuleLoader";
-import { MoveToOpenChannelCartReducer } from "@/features/Global_features/MoveToOpenChannelCart/model/slice/MoveToOpenChannelCartSlice";
+import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/ui/DynamicModuleLoader";
+import { MoveToOpenChannelCartReducer } from "@/entities/Global_entities/MoveToOpenChannelCart";
 
 export const CatalogPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {

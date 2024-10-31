@@ -54,7 +54,7 @@
 
 #### ● Использована библиотека react-image-crop для реализации обрезки изображений.
 
-#### ● Создан [свой eslint плагин](https://www.npmjs.com/package/eslint-plugin-kriswis) для архитектуры данного проекта на основе ulbi-eslint-plugin.
+#### ● Создан [свой eslint плагин](https://www.npmjs.com/package/eslint-plugin-teleworks) для архитектуры данного проекта на основе ulbi-eslint-plugin.
 
 # Запуск сайта
 

@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { ReviewsPanelProps } from "./model/ReviewsPanel_types";
+import type { ReviewsPanelProps } from "@/shared/types/user";
 
 export const ReviewsPanel: React.LazyExoticComponent<
   React.FC<ReviewsPanelProps>
@@ -8,5 +8,3 @@ export const ReviewsPanel: React.LazyExoticComponent<
     default: ReviewsPanel,
   }))
 );
-
-export type { ReviewsPanelProps } from "./model/ReviewsPanel_types";

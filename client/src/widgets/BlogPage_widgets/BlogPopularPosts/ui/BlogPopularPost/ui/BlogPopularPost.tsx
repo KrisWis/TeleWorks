@@ -1,6 +1,6 @@
 import styles from "./BlogPopularPost.module.scss";
 import { memo } from "react";
-import { BlogPopularPostProps } from "../model/BlogPopularPost_types";
+import { BlogPopularPostProps } from "@/shared/types/blog";
 import { Flex } from "@/shared/ui-kit/Stack";
 import { Link } from "react-router-dom";
 import LikeSVG from "@/shared/assets/icons/Global/LikeSVG.svg?react";

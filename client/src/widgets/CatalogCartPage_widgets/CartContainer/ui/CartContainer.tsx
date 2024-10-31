@@ -10,9 +10,12 @@ import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectD
 import { cartContainerSelectedOptions } from "../model/data";
 import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 import { CartContainerProps } from "../model/types";
-import { CatalogCartSliceActions, getCartItems } from "@/pages/CatalogCartPage";
-import { useAppDispatch, useAppSelector } from "@/app/store/AppStore";
+import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
 import { shallowEqual } from "react-redux";
+import {
+  CatalogCartSliceActions,
+  getCartItems,
+} from "../../../../entities/CatalogPage_entities/CatalogCartPageContainer";
 
 const SelectDropdownIndicator = (): JSX.Element => {
   return (

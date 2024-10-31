@@ -1,4 +1,4 @@
-import { LoadingConst } from "@/shared/types";
+import { LoadingConst } from "@/shared/types/global";
 import { DragDropWrapper } from "../../DragDropWrapper";
 import { LoadImageBlockSecondaryProps } from "../model/types";
 import styles from "./LoadImageBlockSecondary.module.scss";
@@ -6,7 +6,7 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { LoadedImageOnLoad } from "../../LoadImageBlock";
 import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
 import { Flex } from "../../Stack";
-import { URL_PART } from "@/app";
+import { URL_PART } from "@/shared/const/app";
 import { IncreaseScaleHover } from "../../IncreaseScaleHover";
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
 import GarbageCanSVG from "@/shared/assets/icons/Global/GarbageCanSVG.svg?react";

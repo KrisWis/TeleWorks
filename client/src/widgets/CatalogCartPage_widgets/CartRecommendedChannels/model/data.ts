@@ -1,8 +1,5 @@
-import { URL_PART } from "@/app";
-import {
-  CatalogItemInterface,
-  CatalogItemTags,
-} from "@/entities/CatalogPage_entities/CatalogItem";
+import { URL_PART } from "@/shared/const/app";
+import { CatalogItemInterface, CatalogItemTags } from "@/shared/types/catalog";
 
 export const recommendedChannels: CatalogItemInterface[] = [
   {

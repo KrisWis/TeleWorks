@@ -2,8 +2,8 @@ import styles from "./UserEditTabs.module.scss";
 import { memo, useContext } from "react";
 import BackSVG from "@/shared/assets/icons/UserEditPage/UserEditTabs/BackSVG.svg?react";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
-import { UserEditTabsEnum } from "../model/UserEditTabs_types";
-import { UserEditPageContext } from "@/pages/UserEditPage";
+import { UserEditTabsEnum } from "@/shared/const/user";
+import { UserEditPageContext } from "../../UserEditPageWrapper";
 
 export const UserEditTabs: React.FC = memo((): React.JSX.Element => {
   // Переключение табов

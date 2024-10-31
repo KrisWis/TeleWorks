@@ -3,10 +3,10 @@ import { memo, useContext, useMemo, useState } from "react";
 import { userHaveEnoughMoney } from "../model/CreateOrderCostPayment_data";
 import { Input } from "@/shared/ui-kit/Input";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { CreateOrderPageContext } from "@/pages/CreateOrderPage";
 import { CreateOrderProgressSteps } from "@/widgets/CreateOrderPage_widgets/CreateOrderProgress";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { EmailIsValid } from "@/shared/utils/EmailIsValid/EmailIsValid";
+import { CreateOrderPageContext } from "@/widgets/CreateOrderPage_widgets/CreateOrderContainer";
 
 export const CreateOrderCostPayment: React.FC = memo((): React.JSX.Element => {
   // Ввод данных в инпут

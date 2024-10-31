@@ -1,7 +1,7 @@
 import { Flex } from "@/shared/ui-kit/Stack";
 import styles from "./KindDeedsAllegations.module.scss";
 import { memo } from "react";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const KindDeedsAllegations: React.FC = memo((): React.JSX.Element => {
   return (

@@ -8,7 +8,7 @@ import { Navigation } from "swiper/modules";
 import { actualPostsItems } from "../model/BlogActualPosts_data";
 import { BlogActualPostItem } from "./BlogActualPostItem";
 import "./BlogActualPosts_swiper.scss";
-import { mobile_mediaQuery, tablet_mediaQuery } from "@/app";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/shared/const/global";
 
 export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
   return (

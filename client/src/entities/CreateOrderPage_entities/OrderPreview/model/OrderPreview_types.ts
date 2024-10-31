@@ -1,4 +1,4 @@
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 
 export interface ExtraService {
   title: string;

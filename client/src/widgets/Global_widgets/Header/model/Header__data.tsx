@@ -32,7 +32,7 @@ import TurnKeyWebsiteSVG from "@/shared/assets/icons/Header/ServicesDropdown/Tur
 import StatsSVG from "@/shared/assets/icons/Header/ServicesDropdown/StatsSVG.svg?react";
 import BlogSVG from "@/shared/assets/icons/Header/ServicesDropdown/BlogSVG.svg?react";
 import KindDeedsSVG from "@/shared/assets/icons/Header/ServicesDropdown/KindDeedsSVG.svg?react";
-import { AppRoutes } from "@/app/routes/AppRoutes";
+import { AppRoutes } from "@/shared/const/app";
 
 export const userIsAuth = true;
 export const username: `@${string}` = "@TeleWorks";

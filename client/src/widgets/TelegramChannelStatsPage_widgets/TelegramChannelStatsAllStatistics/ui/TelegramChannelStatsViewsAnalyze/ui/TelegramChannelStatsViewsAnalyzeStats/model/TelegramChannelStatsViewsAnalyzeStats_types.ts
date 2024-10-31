@@ -1,4 +1,4 @@
-import { Hours } from "@/shared/types";
+import { Hours } from "@/shared/types/global";
 import { TelegramChannelStatsViewsAnalyzeFormats } from "../../../model/TelegramChannelStatsViewsAnalyze_types";
 
 export interface TelegramChannelStatsViewsAnalyzeFormatHour {

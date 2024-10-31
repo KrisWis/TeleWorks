@@ -1,10 +1,10 @@
-import { CheckoutOrderSchema } from "../CheckoutOrder_types";
 import {
   geteditionsAmounts,
   getExtraServiceAmount,
   getFinalPrice,
 } from "./CheckoutOrderSlice_selectors";
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
+import { CheckoutOrderSchema } from "@/shared/types/schemas";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 
 const initialState: CheckoutOrderSchema = {
   packs: {

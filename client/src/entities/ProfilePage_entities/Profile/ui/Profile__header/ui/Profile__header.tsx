@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./Profile__header.module.scss";
 import { memo } from "react";
 import ProfileHeaderIconCircle1 from "@/shared/assets/icons/ProfilePage/Profile/ProfileHeaderIconCircle1.svg?react";

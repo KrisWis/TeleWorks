@@ -1,5 +1,5 @@
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack/model/ProjectInfo_pack_types";
-import { CheckoutOrderSchema } from "../CheckoutOrder_types";
+import { CheckoutOrderSchema } from "@/shared/types/schemas";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 import {
   checkoutOrderReducer,
   checkoutOrderSliceActions,

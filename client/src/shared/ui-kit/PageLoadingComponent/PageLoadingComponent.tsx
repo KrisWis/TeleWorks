@@ -1,4 +1,4 @@
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 import styled, { keyframes } from "styled-components";
 
 const rotate = keyframes`

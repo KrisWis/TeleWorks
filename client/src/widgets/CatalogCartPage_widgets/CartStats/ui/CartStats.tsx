@@ -2,12 +2,15 @@ import styles from "./CartStats.module.scss";
 import { memo } from "react";
 import { CartStatsProps } from "../model/types";
 import { Flex } from "@/shared/ui-kit/Stack";
-import { URL_PART, useAppSelector } from "@/app";
+import { URL_PART } from "@/shared/const/app";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { getCartItems } from "@/pages/CatalogCartPage";
 import { shallowEqual } from "react-redux";
-import { cartItems } from "@/pages/CatalogCartPage/model/data";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
+import { useAppSelector } from "@/shared/config/store/AppStore";
+import {
+  cartItems,
+  getCartItems,
+} from "../../../../entities/CatalogPage_entities/CatalogCartPageContainer";
 
 export const CartStats: React.FC<CartStatsProps> = memo(
   (): React.JSX.Element => {

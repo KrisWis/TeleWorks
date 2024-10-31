@@ -1,4 +1,4 @@
-import { FAQPageContext } from "@/pages/FAQPage";
+import { FAQPageContext } from "../../FAQPageContainer";
 import { FAQTabs } from "../model/FAQHeader_types";
 import styles from "./FAQHeader.module.scss";
 import { memo, useContext } from "react";

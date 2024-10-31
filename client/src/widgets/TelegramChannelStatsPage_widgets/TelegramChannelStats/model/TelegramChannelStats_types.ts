@@ -1,4 +1,4 @@
-import { telegramChannelsCategories } from "@/app/layouts/BaseLayout/model/BaseLayout__types";
+import { telegramChannelsCategories } from "@/shared/types/telegramChannels";
 import { GeoLanguageTypes } from "@/shared/ui-kit/GeoLanguageBlock/model/GeoLanguageBlock_types";
 
 export type TelegramChannelStatsChangeType = "+" | "-";

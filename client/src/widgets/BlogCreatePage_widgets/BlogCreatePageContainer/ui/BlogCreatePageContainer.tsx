@@ -9,20 +9,12 @@ import {
   useState,
 } from "react";
 import RedArrowRightSVG from "@/shared/assets/icons/Global/RedArrowRightSVG.svg?react";
-import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
-import {
-  BlogCreatePageContext,
-  UseBlogCreatePageLocalStorage,
-  useBlogCreatePageLocalStorageInterface,
-} from "@/pages/BlogCreatePage";
-import { blogCreatePagePostTypes } from "@/pages/BlogCreatePage/model/BlogCreatePageContext";
 import { Input } from "@/shared/ui-kit/Input";
 import { MarkdownTextarea } from "@/shared/ui-kit/MarkdownTextarea";
 import {
   AttachFileContainer,
-  LoadedFile,
+  AttachFileContainerItems,
 } from "@/widgets/Global_widgets/AttachFileContainer";
-import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
 import {
   LoadImageBlockSizes,
   LoadImageBlockWithoutLoading,
@@ -33,22 +25,21 @@ import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
-import {
-  AppRoutes,
-  IndexedDBName,
-  IndexedDBStores,
-  mobile_mediaQuery,
-  transitionDuration,
-  URL_PART,
-} from "@/app";
+import { IndexedDBStores } from "@/shared/const/app";
+import { IndexedDBName } from "@/shared/const/app";
+import { mobile_mediaQuery, transitionDuration } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
 import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
+import { AppRoutes } from "@/shared/const/app";
+import {
+  BlogCreatePageContext,
+  UseBlogCreatePageLocalStorage,
+  useBlogCreatePageLocalStorageInterface,
+} from "../../BlogCreatePageMain";
+import { LoadedFile } from "@/shared/types/global";
+import { BlogCreatePagePostTypes } from "./BlogCreatePagePostTypes/ui/BlogCreatePagePostTypes";
 
 export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
-  // Функционал переключения типа поста
-  const { setSelectedPostType, selectedPostType } = useContext(
-    BlogCreatePageContext
-  );
-
   // Стейты для инпутов и textarea, и загрузка данных из Local Storage
   const BlogCreatePageLI = UseBlogCreatePageLocalStorage(
     UseLocalStorageTypes.GET
@@ -166,31 +157,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
           </Flex>
         </Flex>
 
-        <Flex align="center" gap={mobile_mediaQuery ? "5" : "10"}>
-          {blogCreatePagePostTypes.map((type) => (
-            <Flex
-              id="BlogCreatePageContainer__blogCreatePagePostTypes"
-              key={type}
-              className={`${styles.BlogCreatePageContainer__postType}
-            ${selectedPostType == type ? styles.BlogCreatePageContainer__postType__active : ""} `}
-              align="center"
-              gap="5"
-              onClick={() => setSelectedPostType(type)}
-            >
-              <ChangeSVG
-                className={`${styles.BlogCreatePageContainer__postType__svg}
-            ${selectedPostType == type ? styles.BlogCreatePageContainer__postType__svg__active : ""} `}
-              />
-
-              <span
-                className={`${styles.BlogCreatePageContainer__postType__text}
-            ${selectedPostType == type ? styles.BlogCreatePageContainer__postType__text__active : ""} `}
-              >
-                {type}
-              </span>
-            </Flex>
-          ))}
-        </Flex>
+        <BlogCreatePagePostTypes />
 
         <p className={styles.BlogCreatePageContainer__desc}>
           Вы можете написать текст на любую интересную вам тему. Но сначала

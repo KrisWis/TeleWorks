@@ -1,7 +1,7 @@
 import styles from "./GeoLanguageBlock.module.scss";
 import { memo } from "react";
 import { GeoLanguageBlockProps } from "../model/GeoLanguageBlock_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const GeoLanguageBlock: React.FC<GeoLanguageBlockProps> = memo(
   ({ geoLanguage }): React.JSX.Element => {

@@ -1,4 +1,4 @@
-import { ProjectInfoPackNames } from "@/features/ProjectInfo_features/ProjectInfo_pack";
+import { ProjectInfoPackNames } from "@/shared/const/project";
 import { OrderStatuses } from "@/shared/ui-kit/OrderStatus";
 
 export interface OrderInfoProps {

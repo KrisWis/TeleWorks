@@ -1,5 +1,5 @@
+import { Reviews__itemProps } from "@/shared/types/user";
 import { lazy } from "react";
-import { Reviews__itemProps } from "./model/Reviews__item_types";
 
 export const Reviews__item: React.LazyExoticComponent<
   React.FC<Reviews__itemProps>
@@ -8,5 +8,3 @@ export const Reviews__item: React.LazyExoticComponent<
     default: Reviews__item,
   }))
 );
-
-export type { Reviews__itemProps } from "./model/Reviews__item_types";

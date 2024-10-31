@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./layouts/BaseLayout/ui/BaseLayout";
 import { Provider } from "react-redux";
-import { store } from "./store/AppStore";
+import { store } from "../shared/config/store/AppStore";
 import { ScrollToTop } from "@/shared/utils/ScrollToTop";
 
 // TODO: проверить кроссбраузерность в конце разработки проекта

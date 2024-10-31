@@ -1,4 +1,6 @@
-import { AppRoutes, mobile_mediaQuery, URL_PART } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
+import { URL_PART } from "@/shared/const/app";
+import { AppRoutes } from "@/shared/const/app";
 import styles from "./KindDeedsRequestCreated.module.scss";
 import { memo } from "react";
 import { Flex } from "@/shared/ui-kit/Stack";

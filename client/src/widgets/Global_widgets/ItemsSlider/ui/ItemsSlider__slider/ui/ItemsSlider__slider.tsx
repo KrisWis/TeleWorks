@@ -5,10 +5,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "./ItemsSlider__slider.scss";
 import { memo } from "react";
-import {
-  mobile_mediaQuery,
-  tablet_mediaQuery,
-} from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { mobile_mediaQuery, tablet_mediaQuery } from "@/shared/const/global";
 import { ItemsSlider__sliderProps } from "../model/ItemsSlider__slider_types";
 
 export const ItemsSlider__slider: React.FC<ItemsSlider__sliderProps> = memo(

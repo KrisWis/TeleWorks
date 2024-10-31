@@ -1,14 +1,12 @@
 import styles from "./SpecialistServicesResults.module.scss";
 import { memo, useState } from "react";
-import {
-  servicesItems,
-  sortSelectItems,
-} from "../data/SpecialistServicesResults_data";
+import { sortSelectItems } from "../data/SpecialistServicesResults_data";
+import { servicesItems } from "@/shared/mockData";
 import {
   SelectTextStyles,
   valueContainerPaddingEnum,
 } from "@/shared/ui-kit/Select/model/Select_types";
-import { ProjectItemViewTypes } from "../data/SpecialistServicesResults_types";
+import { ProjectItemViewTypes } from "@/shared/const/project";
 import { Select, selectStyles } from "@/shared/ui-kit/Select";
 import { ButtonTypes } from "@/shared/ui-kit/Button";
 import {
@@ -17,7 +15,7 @@ import {
 } from "@/entities/Global_entities/ProjectItem";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
 import SortSelectDropdownIndicatorSVG from "@/shared/assets/icons/Global/SortSelectDropdownIndicatorSVG.svg?react";
-import { mobile_mediaQuery } from "@/app";
+import { mobile_mediaQuery } from "@/shared/const/global";
 
 const SortSelectDropDownIndicator = (): JSX.Element => {
   return (

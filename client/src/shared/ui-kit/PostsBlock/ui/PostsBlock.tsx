@@ -1,7 +1,7 @@
 import styles from "./PostsBlock.module.scss";
 import { memo } from "react";
 import { PostsBlockProps } from "../model/PostsBlock_types";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 
 export const PostsBlock: React.FC<PostsBlockProps> = memo(
   ({ postsAmount }): React.JSX.Element => {

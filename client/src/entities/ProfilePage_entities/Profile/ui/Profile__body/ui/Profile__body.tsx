@@ -1,4 +1,4 @@
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import styles from "./Profile__body.module.scss";
 import { memo } from "react";
 import { AvatarSizes } from "@/shared/ui-kit/Avatar";

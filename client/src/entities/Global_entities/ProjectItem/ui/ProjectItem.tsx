@@ -1,7 +1,8 @@
-import { ProjectItemProps } from "../model/ProjectItem_types";
+import { ProjectItemProps } from "@/shared/types/project";
+import { ProjectItemViewTypes } from "@/shared/const/project";
 import styles from "./ProjectItem.module.scss";
 import { memo, useRef, useState } from "react";
-import { URL_PART } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { URL_PART } from "@/shared/const/app";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "./ProjectItem_swiper.scss";
@@ -11,8 +12,7 @@ import SliderArrowNext from "@/shared/assets/icons/ProjectPage/ProjectItem/Slide
 import Favourite from "@/shared/assets/icons/ProjectPage/ProjectItem/Favourite.svg?react";
 import Separator from "@/shared/assets/icons/ProjectPage/ProjectItem/Separator.svg?react";
 import SliderArrowPrev from "@/shared/assets/icons/ProjectPage/ProjectItem/SliderArrowPrev.svg?react";
-import { ProjectItemViewTypes } from "@/widgets/SpecialistServicesPage_widgets/SpecialistServices";
-import { AppRoutes } from "@/app";
+import { AppRoutes } from "@/shared/const/app";
 
 export const ProjectItem: React.FC<ProjectItemProps> = memo(
   ({ servicesItem, viewType, onProjectPage = false }): React.JSX.Element => {

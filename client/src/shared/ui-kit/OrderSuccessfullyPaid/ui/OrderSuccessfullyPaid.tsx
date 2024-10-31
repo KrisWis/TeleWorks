@@ -2,7 +2,7 @@ import styles from "./OrderSuccessfullyPaid.module.scss";
 import { memo, useEffect, useRef, useState } from "react";
 import OrderSuccessfullyPaidSVG from "@/shared/assets/icons/Shared/OrderSuccessfullyPaid/OrderSuccessfullyPaidSVG.svg?react";
 import CloseSVG from "@/shared/assets/icons/Shared/OrderSuccessfullyPaid/CloseSVG.svg?react";
-import { transitionDuration } from "@/app/layouts/BaseLayout/model/BaseLayout__data";
+import { transitionDuration } from "@/shared/const/global";
 
 export const OrderSuccessfullyPaid: React.FC = memo((): React.JSX.Element => {
   const [IsClose, setIsClose] = useState<boolean>(false);

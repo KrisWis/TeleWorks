@@ -4,13 +4,10 @@ import { memo, useCallback, useMemo, useRef, useState } from "react";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
 import { Link } from "react-router-dom";
-import {
-  AppRoutes,
-  IndexedDBName,
-  IndexedDBStores,
-  mobile_mediaQuery,
-  transitionDuration,
-} from "@/app";
+import { IndexedDBStores } from "@/shared/const/app";
+import { IndexedDBName } from "@/shared/const/app";
+import { mobile_mediaQuery, transitionDuration } from "@/shared/const/global";
+import { AppRoutes } from "@/shared/const/app";
 import { Input } from "@/shared/ui-kit/Input";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
@@ -21,9 +18,9 @@ import {
 } from "@/shared/ui-kit/LoadImageBlockWithoutLoading";
 import {
   AttachFileContainer,
+  AttachFileContainerItems,
   LoadedFile,
 } from "@/widgets/Global_widgets/AttachFileContainer";
-import { AttachFileContainerItems } from "@/widgets/Global_widgets/AttachFileContainer/ui/AttachFileContainerItems";
 import {
   KindDeedsCreateRequestContainerProps,
   KindDeedsCreateRequestLocalStorageInterface,
