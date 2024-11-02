@@ -2,6 +2,9 @@ const { isPathRelative } = require("../helpers");
 const micromatch = require("micromatch");
 const path = require("path");
 
+const PUBLIC_ERROR = "PUBLIC_ERROR";
+const TESTING_PUBLIC_ERROR = "TESTING_PUBLIC_ERROR";
+
 module.exports = {
   meta: {
     type: "layout", // `problem`, `suggestion`, or `layout`
@@ -11,7 +14,14 @@ module.exports = {
       recommended: false,
       url: null, // URL to the documentation page for this rule
     },
-    fixable: null, // Or `code` or `whitespace`
+    fixable: "code", // Or `code` or `whitespace`
+    messages: {
+      // Соотнесли ошибки и константы
+      [PUBLIC_ERROR]:
+        "Абсолютный импорт разрешен только из Public API (index.ts)",
+      [TESTING_PUBLIC_ERROR]:
+        "Тестовые данные необходимо импортировать из publicApi/testing.ts",
+    },
     schema: [
       {
         type: "object",
@@ -49,6 +59,8 @@ module.exports = {
         // [entities, article, model, types]
         const segments = importTo.split("/");
         const layer = segments[0];
+        const slices_type = segments[1];
+        const slice = segments[2];
 
         if (!checkingLayers[layer]) {
           return;
@@ -61,9 +73,14 @@ module.exports = {
 
         if (isImportNotFromPublicApi && !isTestingPublicApi) {
           context.report({
-            node: node,
-            message:
-              "Абсолютный импорт разрешен только из Public API (index.ts)",
+            node,
+            messageId: PUBLIC_ERROR,
+            fix: (fixer) => {
+              return fixer.replaceText(
+                node.source,
+                `'${alias}/${layer}/${slices_type}/${slice}'`
+              );
+            },
           });
         }
 
