@@ -190,7 +190,7 @@ Cборщика адаптирован под основные фичи прил
 Взаимодействие с данными осуществляется с помощью redux toolkit.
 По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter.
 
-Запросы на сервер отправляются с помощью [RTK query](/src/shared/config/api/rtkApi.ts)
+Запросы на сервер отправляются с помощью [RTK query](/client/src/shared/config/api/rtkApi.ts)
 
 Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
 [DynamicModuleLoader](src/shared/ui-kit/DynamicModuleLoader/ui/DynamicModuleLoader.tsx)
@@ -201,59 +201,59 @@ Cборщика адаптирован под основные фичи прил
 
 ### Глобальные
 
-- [Order Info](/src/entities/Global_entities/OrderInfo)
-- [Project Item](/src/entities/Global_entities/ProjectItem)
-- [Reviews Item](/src/entities/Global_entities/Reviews__item)
-- [ReviewsPanel](/src/entities/Global_entities/ReviewsPanel)
-- [Stats\_\_item](/src/entities/Global_entities/OrderInfo)
+- [Order Info](/client/src/entities/Global_entities/OrderInfo)
+- [Project Item](/client/src/entities/Global_entities/ProjectItem)
+- [Reviews Item](/client/src/entities/Global_entities/Reviews__item)
+- [ReviewsPanel](/client/src/entities/Global_entities/ReviewsPanel)
+- [Stats\_\_item](/client/src/entities/Global_entities/OrderInfo)
 
 ### Страница Каталога
 
-- [Catalog Item](/src/entities/CatalogPage_entities/CatalogItem)
+- [Catalog Item](/client/src/entities/CatalogPage_entities/CatalogItem)
 
 ### Страница создания заказа
 
-- [OrderPreview](/src/entities/CreateOrderPage_entities/OrderPreview)
+- [OrderPreview](/client/src/entities/CreateOrderPage_entities/OrderPreview)
 
 ### Страница профиля канала
 
-- [Profile](/src/entities/ProfilePage_entities/Profile)
-- [Similar Channels Item](/src/entities/ProfilePage_entities/Similar_channels__item)
+- [Profile](/client/src/entities/ProfilePage_entities/Profile)
+- [Similar Channels Item](/client/src/entities/ProfilePage_entities/Similar_channels__item)
 
 ### Страница проекта
 
-- [Author Card](/src/entities/ProjectPage_entities/AuthorCard)
-- [Project Info Pack](/src/entities/ProjectPage_entities/ProjectInfo_pack)
+- [Author Card](/client/src/entities/ProjectPage_entities/AuthorCard)
+- [Project Info Pack](/client/src/entities/ProjectPage_entities/ProjectInfo_pack)
 
 ### Страница редактирования профиля
 
-- [Сhangeable Portfolio Case](/src/entities/UserEditPage_entities/СhangeablePortfolioCase)
+- [Сhangeable Portfolio Case](/client/src/entities/UserEditPage_entities/СhangeablePortfolioCase)
 
 ### Страница профиля
 
-- [User Card](/src/entities/UserPage_entities/UserCard)
+- [User Card](/client/src/entities/UserPage_entities/UserCard)
 
 ## Фичи (features)
 
 ### Глобальные
 
-- [Attach File Container](/src/features/Global_features/AttachFileContainer)
-- [Blog Filter](/src/features/Global_features/BlogFilter)
-- [Filter](/src/features/Global_features/Filter)
-- [Search](/src/features/Global_features/Search)
+- [Attach File Container](/client/src/features/Global_features/AttachFileContainer)
+- [Blog Filter](/client/src/features/Global_features/BlogFilter)
+- [Filter](/client/src/features/Global_features/Filter)
+- [Search](/client/src/features/Global_features/Search)
 
 ### Страница создания карточки
 
-- [Create Card Form](/src/features/CreateCardPage_features/CreateCardForm)
+- [Create Card Form](/client/src/features/CreateCardPage_features/CreateCardForm)
 
 ### Страница профиля канала
 
-- [Buy Ads Calendar](/src/features/ProfilePage_features/Buy_ads_calendar)
-- [Buy Ads Form](/src/features/ProfilePage_features/Buy_ads_form)
+- [Buy Ads Calendar](/client/src/features/ProfilePage_features/Buy_ads_calendar)
+- [Buy Ads Form](/client/src/features/ProfilePage_features/Buy_ads_form)
 
 ### Страница проекта
 
-- [Checkout Order](/src/features/ProjectPage_features/CheckoutOrder)
+- [Checkout Order](/client/src/features/ProjectPage_features/CheckoutOrder)
 
 ## Прочие особенности:
 
