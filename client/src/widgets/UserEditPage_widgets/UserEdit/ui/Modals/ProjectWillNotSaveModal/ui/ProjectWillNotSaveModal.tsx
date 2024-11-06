@@ -2,7 +2,7 @@ import { transitionDuration } from "@/shared/const/global";
 import { URL_PART } from "@/shared/const/app";
 import styles from "./ProjectWillNotSaveModal.module.scss";
 import { memo, useCallback, useContext } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UserEditPortfolioContext } from "../../../UserEditPortfolio";
 import { closeModal } from "@/shared/utils/CloseModal";

@@ -2,7 +2,7 @@ import {
   tabletHeight_mediaQuery,
   transitionDurationMedium,
 } from "@/shared/const/global";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
 import {
   BlogFilterAllCategories,

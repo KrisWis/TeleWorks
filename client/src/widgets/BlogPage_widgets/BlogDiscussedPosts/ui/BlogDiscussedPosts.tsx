@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogDiscussedPosts.module.scss";
 import { memo } from "react";
 import { blogDiscussedPosts } from "../model/BlogDiscussedPosts_data";

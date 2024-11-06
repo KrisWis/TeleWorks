@@ -10,7 +10,7 @@ import {
   tabletHeight_mediaQuery,
   transitionDurationMedium,
 } from "@/shared/const/global";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 
 export const KindDeedsCreateRequestPage: React.FC = memo(
   (): React.JSX.Element => {

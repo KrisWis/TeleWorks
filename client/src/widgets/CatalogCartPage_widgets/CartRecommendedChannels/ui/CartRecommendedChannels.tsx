@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./CartRecommendedChannels.module.scss";
 import { memo, useEffect, useRef, useState } from "react";
 import { recommendedChannels } from "../model/data";
@@ -9,7 +9,7 @@ import {
   MoveToOpenChannelCart,
   MoveToOpenChannelCartActions,
   UseMoveToOpenChannelCartLocalStorage,
-} from "@/entities/Global_entities/MoveToOpenChannelCart";
+} from "@/shared/lib/MoveToOpenChannelCart";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { shallowEqual } from "react-redux";
 

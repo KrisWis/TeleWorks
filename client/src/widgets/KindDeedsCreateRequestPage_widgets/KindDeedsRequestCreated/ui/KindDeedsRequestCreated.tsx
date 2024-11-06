@@ -3,7 +3,7 @@ import { URL_PART } from "@/shared/const/app";
 import { AppRoutes } from "@/shared/const/app";
 import styles from "./KindDeedsRequestCreated.module.scss";
 import { memo } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 
 export const KindDeedsRequestCreated: React.FC = memo((): React.JSX.Element => {

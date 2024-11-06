@@ -1,3 +1,9 @@
+/**
+ * Функция, которая преобразует получаемую дату в строку
+ * @param date - передаваемая дата
+ * @param withHours - опционально. Отображение строки с часами или без.
+ */
+
 export type stringDate =
   `${number | `0${number}`}.${number | `0${number}`}.${string}, ${number | `0${number}`}:${number | `0${number}`}`;
 

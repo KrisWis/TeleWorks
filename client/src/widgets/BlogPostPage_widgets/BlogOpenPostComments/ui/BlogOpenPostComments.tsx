@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogOpenPostComments.module.scss";
 import { memo, useCallback, useContext, useRef, useState } from "react";
 import { Select } from "@/shared/ui-kit/Select";
@@ -20,7 +20,7 @@ import {
 import AttachSVG from "@/shared/assets/icons/Global/AttachSVG.svg?react";
 import EmojiPicker from "emoji-picker-react";
 import EmojiSVG from "@/shared/assets/icons/Global/EmojiSVG.svg?react";
-import { TextUnderlineHover } from "@/shared/ui-kit/TextUnderlineHover";
+import { TextUnderlineHover } from "@/shared/lib/TextUnderlineHover";
 import { mobile_mediaQuery } from "@/shared/const/global";
 import SendMessageSVG from "@/shared/assets/icons/Global/SendMessageSVG.svg?react";
 import { BlogOpenPostCommentsProps } from "../model/BlogOpenPostComments_types";

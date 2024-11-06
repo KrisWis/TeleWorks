@@ -6,7 +6,7 @@ import {
   telegramChannelStatsSubscribersAttractionOnDaysData,
   telegramChannelStatsSubscribersAttractionOnHoursData,
 } from "../model/TelegramChannelStatsSubscribersAttraction_data";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { TelegramChannelStatsSubscribersAttractionOnHoursItem } from "./TelegramChannelStatsSubscribersAttractionOnHoursItem";
 import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";

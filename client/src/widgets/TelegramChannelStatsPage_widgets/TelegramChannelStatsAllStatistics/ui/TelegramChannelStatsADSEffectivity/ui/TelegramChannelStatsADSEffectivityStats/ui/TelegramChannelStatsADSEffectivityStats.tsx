@@ -1,7 +1,7 @@
 import styles from "./TelegramChannelStatsADSEffectivityStats.module.scss";
 import { memo } from "react";
 import { TelegramChannelStatsADSEffectivityStatsProps } from "../model/TelegramChannelStatsADSEffectivityStats_types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
 import ViewsSVG from "@/shared/assets/icons/Global/ViewsSVG.svg?react";
 import SubscribersAddedSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ADSEffectivityBlock/subscribersAddedSVG.svg?react";

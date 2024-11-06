@@ -1,10 +1,10 @@
 import styles from "./TelegramChannelStats.module.scss";
 import { memo, useState } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Share, ShareTypes } from "@/shared/ui-kit/Share";
 import { Favourite } from "@/shared/ui-kit/Favourite";
 import ProfileChannelMoreSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelInfo/ProfileChannelMoreSVG.svg?react";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { ProfileAvatar } from "@/shared/ui-kit/ProfileAvatar";
 import { AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { ProfileChannelRating } from "@/shared/ui-kit/ProfileChannelRating";
@@ -17,7 +17,7 @@ import { Dropdown } from "@/shared/ui-kit/Dropdown";
 import AcceptSVG from "@/shared/assets/icons/Global/AcceptSVG.svg?react";
 import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";
 import { Link } from "react-router-dom";
-import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
+import { PageLoadingComponent } from "@/shared/lib/PageLoading/PageLoadingComponent/PageLoadingComponent";
 import { TelegramChannelStatsProps } from "../model/TelegramChannelStats_types";
 import { useGetChannelQuery } from "../api/telegramChannelStatsApi";
 

@@ -8,7 +8,7 @@ import FullScreenSVG from "@/shared/assets/icons/Shared/ShowFullImage/FullScreen
 import CloseSVG from "@/shared/assets/icons/Shared/ShowFullImage/CloseSVG.svg?react";
 import NextArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/NextArrowSVG.svg?react";
 import PrevArrowSVG from "@/shared/assets/icons/Shared/ShowFullImage/PrevArrowSVG.svg?react";
-import { Modal } from "@/shared/ui-kit/Modal";
+import { Modal } from "@/shared/lib/Modal";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { closeModal } from "@/shared/utils/CloseModal";

@@ -6,7 +6,7 @@ import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import AuthorStatusOnlineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatusSVG.svg?react";
 import AuthorStatusOfflineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatusOfflineSVG.svg?react";
 import { AuthorStats } from "@/shared/ui-kit/AuthorStats";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 
 export const AuthorCard: React.FC<AuthorCardProps> = memo(
   ({

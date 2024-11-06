@@ -4,13 +4,13 @@ import {
 } from "@/entities/UserEditPage_entities/СhangeablePortfolioCase";
 import styles from "./UserEditPortfolio.module.scss";
 import { memo, useCallback, useContext, useState } from "react";
-import { Modal } from "@/shared/ui-kit/Modal";
+import { Modal } from "@/shared/lib/Modal";
 import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
 import { CaseLoadingModal } from "../../Modals/CaseLoadingModal";
 import { portfolioExistedCases } from "../model/UserEditPortfolio_data";
 import { LastDetailsModal } from "../../Modals/LastDetailsModal";
 import { UseLoadedImage } from "@/shared/ui-kit/LoadImageBlock";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import ModalIconSVG from "@/shared/assets/icons/UserEditPage/UserEdit/ModalIconSVG.svg?react";
 import { Link } from "react-router-dom";
 import { UserEditPortfolioContext } from "../model/UserEditPortfolioContext/UserEditPortfolioContext";

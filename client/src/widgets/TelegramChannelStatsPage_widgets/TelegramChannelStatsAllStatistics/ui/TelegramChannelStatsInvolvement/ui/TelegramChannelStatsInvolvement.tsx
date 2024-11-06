@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./TelegramChannelStatsInvolvement.module.scss";
 import { memo } from "react";
 import { InterpolationLineChart } from "@/shared/ui-kit/InterpolationLineChart/ui/InterpolationLineChart";

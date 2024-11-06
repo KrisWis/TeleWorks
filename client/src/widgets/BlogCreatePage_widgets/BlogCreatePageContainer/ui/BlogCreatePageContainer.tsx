@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogCreatePageContainer.module.scss";
 import {
   memo,
@@ -29,7 +29,7 @@ import { IndexedDBStores } from "@/shared/const/app";
 import { IndexedDBName } from "@/shared/const/app";
 import { mobile_mediaQuery, transitionDuration } from "@/shared/const/global";
 import { URL_PART } from "@/shared/const/app";
-import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
+import { IndexedDBLoader } from "@/shared/lib/IndexedDBLoader";
 import { AppRoutes } from "@/shared/const/app";
 import {
   BlogCreatePageContext,

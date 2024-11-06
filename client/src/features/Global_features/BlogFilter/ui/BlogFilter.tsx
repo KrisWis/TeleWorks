@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogFilter.module.scss";
 import { memo, useState } from "react";
 import { Input } from "@/shared/ui-kit/Input";
@@ -13,7 +13,7 @@ import {
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
 import { Link } from "react-router-dom";
 import { AppRoutes } from "@/shared/const/app";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { tablet_small_mediaQuery } from "@/shared/const/global";
 import BlogFilterAdaptiveSVG from "@/shared/assets/icons/BlogPage/BlogFilterAdaptiveSVG.svg?react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";

@@ -1,7 +1,7 @@
 import styles from "./KindDeedsTip.module.scss";
 import { memo } from "react";
 import { KindDeedsTipProps } from "../model/KindDeedsTip_types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { tablet_mediaQuery } from "@/shared/const/global";
 
 export const KindDeedsTip: React.FC<KindDeedsTipProps> = memo(

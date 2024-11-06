@@ -10,12 +10,32 @@ export enum ButtonTypes {
 }
 
 export interface ButtonProps {
+  /**
+   * Ссылка, на которую будет редиректить кнопка при нажатии
+   */
   to?: string;
+
+  /**
+   * Текст кнопки
+   */
   text?: string;
   className?: string;
   type: ButtonTypes;
+
+  /**
+   * Может ли кнопка быть зажата
+   */
   canSelected?: boolean;
+
   onClick?: () => void;
+
+  /**
+   * Неактивна ли кнопка
+   */
   ariaDisabled?: boolean;
+
+  /**
+   * Отображаемые в кнопке элементы
+   */
   children?: React.ReactNode;
 }

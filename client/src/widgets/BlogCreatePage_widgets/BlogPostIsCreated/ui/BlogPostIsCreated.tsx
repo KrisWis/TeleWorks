@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogPostIsCreated.module.scss";
 import { memo } from "react";
 import { mobile_mediaQuery } from "@/shared/const/global";

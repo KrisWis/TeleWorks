@@ -2,7 +2,7 @@ import { PortNow } from "@/shared/const/app";
 import { blogCommentsExample, blogPopularPosts } from "@/shared/mockData";
 import { ButtonTypes } from "@/shared/ui-kit/Button";
 import { LoadMore } from "@/shared/ui-kit/LoadMore";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { BlogPopularPosts } from "@/widgets/BlogPage_widgets/BlogPopularPosts";
 import {
   BlogFilterAllCategories,

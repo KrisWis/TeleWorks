@@ -2,8 +2,8 @@ import styles from "./TelegramChannelStatsSubscribersAttractionReferenceChannel.
 import { memo, useState } from "react";
 import { TelegramChannelStatsSubscribersAttractionReferenceChannelProps } from "../model/TelegramChannelStatsSubscribersAttractionReferenceChannel_types";
 import { TelegramChannelStatsSubscribersAttractionPopup } from "../../TelegramChannelStatsSubscribersAttractionPopup";
-import { Flex } from "@/shared/ui-kit/Stack";
-import { Modal } from "@/shared/ui-kit/Modal";
+import { Flex } from "@/shared/lib/Stack";
+import { Modal } from "@/shared/lib/Modal";
 
 export const TelegramChannelStatsSubscribersAttractionReferenceChannel: React.FC<TelegramChannelStatsSubscribersAttractionReferenceChannelProps> =
   memo(({ referenceChannel }): React.JSX.Element => {

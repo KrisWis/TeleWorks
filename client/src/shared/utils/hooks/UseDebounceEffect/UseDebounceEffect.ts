@@ -3,6 +3,13 @@ import { DependencyList, useEffect } from "react";
 
 let timer: NodeJS.Timeout;
 
+/**
+ * Хук, который использует useEffect, который внутри себя UseDebounceEffect
+ * @param callback
+ * @param delay - задержка в мс
+ * @param deps - зависимости для useEffect
+ */
+
 export function useDebounceEffect(
   callback: (...args: any[]) => void,
   delay: number,

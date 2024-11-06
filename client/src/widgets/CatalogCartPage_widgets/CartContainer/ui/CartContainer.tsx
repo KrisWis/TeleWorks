@@ -1,9 +1,9 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./CartContainer.module.scss";
 import { memo, useEffect } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import DownloadSVG from "@/shared/assets/icons/Global/DownloadSVG.svg?react";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { Share } from "@/shared/ui-kit/Share";
 import { Select, selectStyles, SelectTextStyles } from "@/shared/ui-kit/Select";
 import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorBlueSVG.svg?react";

@@ -15,7 +15,7 @@ import {
   MoveToOpenChannelCart,
   MoveToOpenChannelCartActions,
   UseMoveToOpenChannelCartLocalStorage,
-} from "@/entities/Global_entities/MoveToOpenChannelCart";
+} from "@/shared/lib/MoveToOpenChannelCart";
 import { memo, useEffect, useRef, useState } from "react";
 import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";

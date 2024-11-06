@@ -1,7 +1,7 @@
 import styles from "./TelegramChannelStatsViewsAnalyzeStats.module.scss";
 import { memo } from "react";
 import { TelegramChannelStatsViewsAnalyzeStatsProps } from "../model/TelegramChannelStatsViewsAnalyzeStats_types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import SirineSeparatorLineSVG from "@/shared/assets/icons/Global/SirineSeparatorLineSVG.svg?react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";

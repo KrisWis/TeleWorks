@@ -3,7 +3,7 @@ import styles from "./Counter.module.scss";
 import { memo, useMemo } from "react";
 import SmallCircleSVG from "@/shared/assets/icons/Shared/Counter/SmallCircleSVG.svg?react";
 import MediumCircleSVG from "@/shared/assets/icons/Shared/Counter/MediumCircleSVG.svg?react";
-import { Flex } from "../../Stack";
+import { Flex } from "../../../lib/Stack";
 
 export const Counter: React.FC<CounterProps> = memo(
   ({

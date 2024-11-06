@@ -1,18 +1,18 @@
 import { LoadingConst } from "@/shared/types/global";
-import { DragDropWrapper } from "../../DragDropWrapper";
 import { LoadImageBlockSecondaryProps } from "../model/types";
 import styles from "./LoadImageBlockSecondary.module.scss";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { LoadedImageOnLoad } from "../../LoadImageBlock";
-import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
-import { Flex } from "../../Stack";
+import { PageLoadingComponent } from "../../../lib/PageLoading/PageLoadingComponent/PageLoadingComponent";
+import { Flex } from "../../../lib/Stack";
 import { URL_PART } from "@/shared/const/app";
-import { IncreaseScaleHover } from "../../IncreaseScaleHover";
+import { IncreaseScaleHover } from "../../../lib/IncreaseScaleHover";
 import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
 import GarbageCanSVG from "@/shared/assets/icons/Global/GarbageCanSVG.svg?react";
 import ReactCrop, { PixelCrop, type Crop } from "react-image-crop";
 import "react-image-crop/src/ReactCrop.scss";
 import { imgPreview } from "../model/cropPreview/imgPreview";
+import { DragDropWrapper } from "@/shared/lib/DragDropWrapper";
 
 export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
   memo(

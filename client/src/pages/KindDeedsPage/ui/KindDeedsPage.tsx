@@ -6,7 +6,7 @@ import { KindDeedsMainSection } from "@/widgets/KindDeedsPage_widgets/KindDeedsM
 import { KindDeedsTip } from "@/widgets/KindDeedsPage_widgets/KindDeedsTip";
 import { useEffect } from "react";
 import { memo } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { KindDeedsStats } from "@/widgets/KindDeedsPage_widgets/KindDeedsStats";
 import { KindDeedsHaveSignificance } from "@/widgets/KindDeedsPage_widgets/KindDeedsHaveSignificance";
 import { KindDeedsSlider } from "@/widgets/KindDeedsPage_widgets/KindDeedsSlider";

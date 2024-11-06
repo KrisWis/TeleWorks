@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogADSBlock.module.scss";
 import { memo } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";

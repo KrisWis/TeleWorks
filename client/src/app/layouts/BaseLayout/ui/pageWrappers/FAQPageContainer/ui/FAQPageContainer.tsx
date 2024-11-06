@@ -3,7 +3,7 @@ import { FAQPageContext } from "..";
 import { FAQHeader, FAQTabs } from "@/widgets/FAQPage_widgets/FAQHeader";
 import { FAQTab } from "@/widgets/FAQPage_widgets/FAQTab";
 import { AskQuestion } from "@/shared/ui-kit/AskQuestion";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 
 export const FAQPageContainer: React.FC = memo((): React.JSX.Element => {
   // Создание стейта для контекста

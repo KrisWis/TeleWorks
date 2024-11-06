@@ -9,7 +9,7 @@ import {
   LoadImageBlockMinSize,
   LoadImageBlockMinWidth,
 } from "../../LoadImageBlock";
-import { Flex } from "../../Stack";
+import { Flex } from "../../../lib/Stack";
 import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoadingProps> =

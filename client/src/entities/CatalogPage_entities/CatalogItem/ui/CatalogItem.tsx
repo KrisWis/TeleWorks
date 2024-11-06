@@ -33,12 +33,12 @@ import {
   checkChannelInCart,
   getAllChannelsInCart,
   MoveToOpenChannelCartActions,
-} from "@/entities/Global_entities/MoveToOpenChannelCart";
+} from "@/shared/lib/MoveToOpenChannelCart";
 import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
 import { shallowEqual } from "react-redux";
 import MoreSVG from "@/shared/assets/icons/Global/MoreSVG.svg?react";
 import { Counter } from "@/shared/ui-kit/Counter";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import {
   CatalogCartSliceActions,

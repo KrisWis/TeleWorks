@@ -1,9 +1,9 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogActualPosts.module.scss";
 import { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SelectDropdownIndicatorDarkBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorDarkBlueSVG.svg?react";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { Navigation } from "swiper/modules";
 import { actualPostsItems } from "../model/BlogActualPosts_data";
 import { BlogActualPostItem } from "./BlogActualPostItem";

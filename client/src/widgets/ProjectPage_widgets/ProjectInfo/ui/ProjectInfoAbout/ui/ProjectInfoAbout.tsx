@@ -13,7 +13,7 @@ import {
 } from "@/shared/ui-kit/ShowFullImage";
 import { redirectToAbsolutePath } from "@/shared/utils/redirectToAbsolutePath";
 import { PortfolioCase } from "@/shared/ui-kit/PortfolioCase";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { ProjectInfoAboutProps } from "../model/types";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
 import { Share } from "@/shared/ui-kit/Share";

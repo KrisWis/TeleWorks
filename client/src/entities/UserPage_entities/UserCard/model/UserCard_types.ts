@@ -1,8 +1,5 @@
-import { AuthorCardProps } from "@/entities/ProjectPage_entities/AuthorCard";
-
-export enum UserProfessions {
-  GRAPHIC_DESIGNER = "Графический дизайнер",
-}
+import { UserProfessions } from "@/shared/const/user";
+import { AuthorCardProps } from "@/shared/types/user";
 
 export interface UserCardProps extends Omit<AuthorCardProps, "orderInQueue"> {
   userName: `@${string}`;

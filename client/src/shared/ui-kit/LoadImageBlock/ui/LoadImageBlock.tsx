@@ -10,9 +10,9 @@ import {
   LoadImageBlockMinHeight,
 } from "../model/LoadImageIsValidCheck/LoadImageIsValidCheck";
 import { LoadedImageOnLoad } from "..";
-import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
+import { PageLoadingComponent } from "../../../lib/PageLoading/PageLoadingComponent/PageLoadingComponent";
 import { mockFileName } from "..";
-import { DragDropWrapper } from "../../DragDropWrapper";
+import { DragDropWrapper } from "@/shared/lib/DragDropWrapper";
 
 export const LoadImageBlock: React.FC<LoadImageBlockProps> = ({
   title,

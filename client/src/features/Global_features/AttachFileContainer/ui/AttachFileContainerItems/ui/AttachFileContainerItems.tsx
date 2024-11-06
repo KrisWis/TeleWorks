@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { AttachFileContainerItemsProps } from "../model/AttachFileContainerItems_types";
-import { Flex } from "@/shared/ui-kit/Stack";
-import { PageLoadingComponent } from "@/shared/ui-kit/PageLoadingComponent/PageLoadingComponent";
+import { Flex } from "@/shared/lib/Stack";
+import { PageLoadingComponent } from "@/shared/lib/PageLoading/PageLoadingComponent/PageLoadingComponent";
 import { ProgressBar } from "primereact/progressbar";
 import styles from "./AttachFileContainerItems.module.scss";
 import { AttachFileContainerFile } from "../../..";

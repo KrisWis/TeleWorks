@@ -1,8 +1,8 @@
 import styles from "./TelegramChannelStatsSubscribersAttractionPopup.module.scss";
 import { memo, useCallback, useState } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Dropdown } from "@/shared/ui-kit/Dropdown";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import ProfileChannelMoreSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelInfo/ProfileChannelMoreSVG.svg?react";
 import AcceptSVG from "@/shared/assets/icons/Global/AcceptSVG.svg?react";
 import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";

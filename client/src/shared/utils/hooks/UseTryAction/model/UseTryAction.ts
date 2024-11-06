@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Хук, который работает как useState, но через определённое время после изменения данных на true, они автоматически меняются на false
+ */
+
 export const UseTryAction = (): [
   boolean,
   React.Dispatch<React.SetStateAction<boolean>>,

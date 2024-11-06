@@ -4,7 +4,7 @@ import {
   Stats__item__types,
 } from "../model/Stats__item__types";
 import styles from "./Stats__item.module.scss";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { InterpolationLineChartSecondary } from "@/shared/ui-kit/InterpolationLineChartSecondary";
 
 export const Stats__item: React.FC<Stats__item__props> = memo(
@@ -94,10 +94,12 @@ export const Stats__item: React.FC<Stats__item__props> = memo(
                 ))}
           </div>
 
-          {graphicChart && <InterpolationLineChartSecondary
-            className={`${styles.stats__item__stats__chart} ${type == Stats__item__types.SMALL ? styles.stats__item__stats__chart__small : ""}`}
-            chartDataSets={graphicChart}
-          />}
+          {graphicChart && (
+            <InterpolationLineChartSecondary
+              className={`${styles.stats__item__stats__chart} ${type == Stats__item__types.SMALL ? styles.stats__item__stats__chart__small : ""}`}
+              chartDataSets={graphicChart}
+            />
+          )}
         </div>
       </div>
     );

@@ -8,7 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { memo } from "react";
 import { BlogPageContext } from "../model/BlogPageContext";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { BlogActualPosts } from "@/widgets/BlogPage_widgets/BlogActualPosts";
 import { blogPopularPosts, blogPostItems } from "@/shared/mockData";
 import { BlogPost } from "@/widgets/BlogPage_widgets/BlogPost";

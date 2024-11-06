@@ -6,6 +6,10 @@ export interface InputProps {
   placeholder?: string;
   value: string | number;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
+
+  /**
+   * Условие, при котором инпут будет выделятся красным цветом
+   */
   isWarn?: boolean;
   refInput?: React.LegacyRef<HTMLInputElement> | undefined;
   "data-testid"?: string;

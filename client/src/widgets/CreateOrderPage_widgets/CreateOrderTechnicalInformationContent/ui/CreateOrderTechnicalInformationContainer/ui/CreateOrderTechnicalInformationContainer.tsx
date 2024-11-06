@@ -22,7 +22,7 @@ import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
 import { IndexedDBStores } from "@/shared/const/app";
 import { IndexedDBName } from "@/shared/const/app";
 import { AppRoutes } from "@/shared/const/app";
-import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
+import { IndexedDBLoader } from "@/shared/lib/IndexedDBLoader";
 import { LoadedFile } from "@/shared/types/global";
 
 export const CreateOrderTechnicalInformationContainer: React.FC = memo(

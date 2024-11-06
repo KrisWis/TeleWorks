@@ -1,9 +1,9 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./LastDetailsModal.module.scss";
 import { memo, useCallback, useContext, useEffect, useState } from "react";
 import ViewsSVG from "@/shared/assets/icons/Global/ViewsSVG.svg?react";
 import DownloadSVG from "@/shared/assets/icons/Global/DownloadSVG.svg?react";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import {
   modalsTransitionDuration,
   transitionDuration,

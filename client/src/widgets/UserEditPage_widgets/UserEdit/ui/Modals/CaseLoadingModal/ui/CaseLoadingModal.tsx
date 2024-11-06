@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./CaseLoadingModal.module.scss";
 import { memo, useCallback, useContext } from "react";
 import { LoadImageBlockSecondary } from "@/shared/ui-kit/LoadImageBlockSecondary";

@@ -5,12 +5,12 @@ import { memo, useState } from "react";
 import { ProjectInfoAbout } from "./ProjectInfoAbout/ui/ProjectInfoAbout";
 import { ProjectInfoProps } from "@/shared/types/project";
 import { CustomItemBadge } from "@/shared/ui-kit/CustomItemBadge";
-import { ProjectInfo_pack } from "@/features/ProjectInfo_features/ProjectInfo_pack";
+import { ProjectInfo_pack } from "@/entities/ProjectPage_entities/ProjectInfo_pack";
 import { AuthorCard } from "@/entities/ProjectPage_entities/AuthorCard";
-import { ProjectTag } from "@/entities/ProjectPage_entities/ProjectTag";
-import { DynamicModuleLoader } from "@/shared/ui-kit/DynamicModuleLoader/ui/DynamicModuleLoader";
+import { ProjectTag } from "@/shared/ui-kit/ProjectTag";
+import { DynamicModuleLoader } from "@/shared/lib/DynamicModuleLoader/ui/DynamicModuleLoader";
 import { Share } from "@/shared/ui-kit/Share";
-import { checkoutOrderReducer } from "@/features/ProjectInfo_features/CheckoutOrder";
+import { checkoutOrderReducer } from "@/features/ProjectPage_features/CheckoutOrder";
 
 export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
   ({

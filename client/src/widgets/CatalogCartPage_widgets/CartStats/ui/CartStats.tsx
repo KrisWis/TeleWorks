@@ -1,7 +1,7 @@
 import styles from "./CartStats.module.scss";
 import { memo } from "react";
 import { CartStatsProps } from "../model/types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { URL_PART } from "@/shared/const/app";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { shallowEqual } from "react-redux";

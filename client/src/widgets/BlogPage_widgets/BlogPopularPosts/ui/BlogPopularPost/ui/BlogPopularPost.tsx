@@ -1,7 +1,7 @@
 import styles from "./BlogPopularPost.module.scss";
 import { memo } from "react";
 import { BlogPopularPostProps } from "@/shared/types/blog";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Link } from "react-router-dom";
 import LikeSVG from "@/shared/assets/icons/Global/LikeSVG.svg?react";
 import PostCommentsSVG from "@/shared/assets/icons/Global/PostCommentsSVG.svg?react";

@@ -1,13 +1,13 @@
 import styles from "./BlogActualPostItem.module.scss";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { BlogActualPostItemProps } from "../model/BlogActualPostItem_types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
 import LikeSVG from "@/shared/assets/icons/Global/LikeSVG.svg?react";
 import PostCommentsSVG from "@/shared/assets/icons/Global/PostCommentsSVG.svg?react";
 import BookmarkSVG from "@/shared/assets/icons/Global/BookmarkSVG.svg?react";
 import { useNavigate } from "react-router-dom";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(

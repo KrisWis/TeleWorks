@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogPopularPosts.module.scss";
 import { memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";

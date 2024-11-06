@@ -1,9 +1,9 @@
 import styles from "./TelegramChannelStatsSubscribersAttractionOnHoursItem.module.scss";
 import { memo, useState } from "react";
 import { TelegramChannelStatsSubscribersAttractionOnHoursItemProps } from "../model/TelegramChannelStatsSubscribersAttractionOnHoursItem_types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Dropdown } from "@/shared/ui-kit/Dropdown";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import SelectDropdownIndicatorLightBlueSVG from "@/shared/assets/icons/Global/SelectDropdownIndicatorLightBlueSVG.svg?react";
 import "./TelegramChannelStatsSubscribersAttractionOnHoursItem.scss";
 import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";

@@ -4,7 +4,7 @@ import {
 } from "@/shared/ui-kit/LoadImageBlock";
 import styles from "./HeaderLoadingModal.module.scss";
 import { memo, useCallback, useEffect } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { LoadImageBlockSecondary } from "@/shared/ui-kit/LoadImageBlockSecondary";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { UseTryAction } from "@/shared/utils/hooks/UseTryAction";

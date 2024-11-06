@@ -7,10 +7,25 @@ export enum LoadedImageErrorsTypes {
 }
 
 export interface LoadImageBlockProps {
+  /**
+   * Заголовок в компоненте
+   */
   title?: string;
+
+  /**
+   * Вид отображения компонента
+   */
   size: LoadImageBlockSizes;
+
+  /**
+   * Отображать ли нужные требования в компоненте
+   */
   requirements?: boolean;
   className?: string;
+
+  /**
+   * Стейты для загружаемого сообщения и его ошибок
+   */
   LoadedImage: string;
   setLoadedImage: React.Dispatch<React.SetStateAction<string>>;
   LoadedImageErrors: LoadedImageErrorsTypes[];

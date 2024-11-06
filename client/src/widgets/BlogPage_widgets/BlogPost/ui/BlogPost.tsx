@@ -1,7 +1,7 @@
 import styles from "./BlogPost.module.scss";
 import { memo, useCallback, useEffect, useRef } from "react";
 import { BlogPostProps } from "@/shared/types/blog";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { TransformDateToString } from "@/shared/utils/TransformDateToString/TransformDateToString";
 import LikeSVG from "@/shared/assets/icons/Global/LikeSVG.svg?react";
 import PostCommentsSVG from "@/shared/assets/icons/Global/PostCommentsSVG.svg?react";

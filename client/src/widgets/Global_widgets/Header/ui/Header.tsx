@@ -1,19 +1,19 @@
 import styles from "./Header.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { Modal } from "@/shared/ui-kit/Modal";
-import { AuthModal } from "@/features/Header_features/AuthModal";
+import { Modal } from "@/shared/lib/Modal";
 import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
-import { RegModal } from "@/features/Header_features/RegModal";
-import { PasswordRecoveryModal } from "@/features/Header_features/PasswordRecoveryModal";
-import { HeaderServicesDropdown } from "./HeaderServicesDropdown";
-import { HeaderMenuDropdown } from "./HeaderMenuDropdown";
 import { HeaderProps, HeaderViews } from "../model/Header_props";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { Input } from "@/shared/ui-kit/Input";
 import { transitionDuration } from "@/shared/const/global";
 import CreatePostSVG from "@/shared/assets/icons/Header/Items/CreatePostSVG.svg?react";
 import { AppRoutes } from "@/shared/const/app";
+import { AuthModal } from "./AuthModal/ui/AuthModal";
+import { HeaderMenuDropdown } from "./HeaderMenuDropdown/ui/HeaderMenuDropdown";
+import { HeaderServicesDropdown } from "./HeaderServicesDropdown/ui/HeaderServicesDropdown";
+import { RegModal } from "./RegModal/ui/RegModal";
+import { PasswordRecoveryModal } from "./PasswordRecoveryModal/ui/PasswordRecoveryModal";
 
 export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
   // Стейты для функциональных элементов в хедере

@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./KindDeedsLetterOfKindness.module.scss";
 import { memo, useState } from "react";
 import { Input } from "@/shared/ui-kit/Input";

@@ -1,7 +1,7 @@
 import styles from "./TipBlock.module.scss";
 import { memo } from "react";
 import { TipBlockProps } from "../model/TipBlock_types";
-import { Flex } from "../../Stack";
+import { Flex } from "../../../lib/Stack";
 
 export const TipBlock: React.FC<TipBlockProps> = memo(
   ({ text, className }): React.JSX.Element => {

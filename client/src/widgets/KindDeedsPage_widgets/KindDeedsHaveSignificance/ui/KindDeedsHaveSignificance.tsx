@@ -1,6 +1,6 @@
 import { mobile_mediaQuery } from "@/shared/const/global";
 import { URL_PART } from "@/shared/const/app";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { memo } from "react";
 import styles from "./KindDeedsHaveSignificance.module.scss";
 

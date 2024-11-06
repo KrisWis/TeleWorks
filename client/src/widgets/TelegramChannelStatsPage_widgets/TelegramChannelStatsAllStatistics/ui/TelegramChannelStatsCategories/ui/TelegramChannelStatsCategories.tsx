@@ -1,6 +1,6 @@
 import styles from "./TelegramChannelStatsCategories.module.scss";
 import { memo, useContext } from "react";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import { telegramChannelStatsCategories } from "../model/TelegramChannelStatsCategories_data";
 import { tablet_mediaQuery } from "@/shared/const/global";
 import { Categories } from "@/shared/ui-kit/Categories";

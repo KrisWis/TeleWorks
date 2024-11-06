@@ -52,15 +52,46 @@ export enum valueContainerPaddingEnum {
 }
 
 export interface Select__Props {
+  /**
+   * Выбираемые опции в селекте
+   */
   selectedOptions: Select_Option[];
   placeholder?: string;
+
+  /**
+   * Компонент стрелочки, которая будет отображаться внутри селекта
+   */
   CustomDropdownIndicator: () => JSX.Element;
+
+  /**
+   * Стили для текста
+   */
   TextStyles: SelectTextStyles;
   className?: string;
+
+  /**
+   * Класс для обёртки компонента
+   */
   wrapperClassName?: string;
+
+  /**
+   * Выбранная тема компонента
+   */
   theme?: SelectThemesEnum;
+
+  /**
+   * Количество паддинга в компоненте
+   */
   valueContainerPadding?: valueContainerPaddingEnum;
+
+  /**
+   * Опция, выбранная по-умолчанию
+   */
   DefaultSelectedOption?: Select_Option;
+
+  /**
+   * Внешний стейт, который будет изменяться при выборе опции
+   */
   setState?:
     | undefined
     | React.Dispatch<React.SetStateAction<Select_Option<any>>>

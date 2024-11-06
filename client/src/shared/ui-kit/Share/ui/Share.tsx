@@ -2,11 +2,11 @@ import styles from "./Share.module.scss";
 import { memo, useState } from "react";
 import ShareSVG from "@/shared/assets/icons/Global/shareSVG.svg?react";
 import { ShareProps, ShareTypes } from "../model/Share_types";
-import { IncreaseScaleHover } from "../../IncreaseScaleHover";
-import { Modal } from "../../Modal";
+import { IncreaseScaleHover } from "../../../lib/IncreaseScaleHover";
+import { Modal } from "../../../lib/Modal";
 import { ModalTemplate } from "../../ModalTemplate";
 import { ShareSocialProvider, useShareSocialLib } from "./ShareSocialProvider";
-import { PageLoadingComponent } from "../../PageLoadingComponent/PageLoadingComponent";
+import { PageLoadingComponent } from "../../../lib/PageLoading/PageLoadingComponent/PageLoadingComponent";
 
 window.matchMedia =
   window.matchMedia ||

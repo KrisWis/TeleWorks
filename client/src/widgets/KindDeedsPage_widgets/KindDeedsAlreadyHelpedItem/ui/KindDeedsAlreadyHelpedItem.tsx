@@ -1,11 +1,11 @@
 import styles from "./KindDeedsAlreadyHelpedItem.module.scss";
 import { memo } from "react";
 import { KindDeedsAlreadyHelpedItemProps } from "../model/KindDeedsAlreadyHelpedItem_types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import BlueLineSVG from "@/shared/assets/icons/Global/BlueLineSVG.svg?react";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import { Link } from "react-router-dom";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { mobile_mediaQuery } from "@/shared/const/global";
 
 export const KindDeedsAlreadyHelpedItem: React.FC<KindDeedsAlreadyHelpedItemProps> =

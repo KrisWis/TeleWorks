@@ -3,3 +3,6 @@ export enum UserEditTabsEnum {
   ABOUT = "Обо мне",
   PORTFOLIO = "Портфолио",
 }
+export enum UserProfessions {
+  GRAPHIC_DESIGNER = "Графический дизайнер",
+}

@@ -1,6 +1,13 @@
 import { LocalStorageKeys } from "@/shared/const/app";
 import { UseLocalStorageTypes } from "./UseLocalStorage_types";
 
+/**
+ * Хук, который использует LocalStorage для хранения и обработки данных
+ * @param type - тип обращения к LocalStorage
+ * @param key - ключ LocalStorage
+ * @param value - опционально. Передаваемое значение, которое надо поместить в LocalStorage
+ */
+
 export const UseLocalStorage = (
   type: UseLocalStorageTypes,
   key: LocalStorageKeys,

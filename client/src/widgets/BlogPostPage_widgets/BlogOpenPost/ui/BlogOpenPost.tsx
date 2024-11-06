@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogOpenPost.module.scss";
 import { memo, useState } from "react";
 import { BlogOpenPostProps } from "../model/BlogOpenPost_types";
@@ -13,7 +13,7 @@ import { Share, ShareTypes } from "@/shared/ui-kit/Share";
 import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import parse from "html-react-parser";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { mobile_mediaQuery } from "@/shared/const/global";
 import { PortNow } from "@/shared/const/app";
 

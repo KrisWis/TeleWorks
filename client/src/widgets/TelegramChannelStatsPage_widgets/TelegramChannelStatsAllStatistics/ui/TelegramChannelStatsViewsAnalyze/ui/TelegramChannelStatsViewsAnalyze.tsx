@@ -1,4 +1,4 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./TelegramChannelStatsViewsAnalyze.module.scss";
 import { memo, useState } from "react";
 import { CheckBoxBlock } from "@/shared/ui-kit/CheckBoxBlock";

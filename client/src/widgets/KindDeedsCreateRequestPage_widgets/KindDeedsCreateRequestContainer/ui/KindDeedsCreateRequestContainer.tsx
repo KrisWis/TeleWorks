@@ -1,8 +1,8 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./KindDeedsCreateRequestContainer.module.scss";
 import { memo, useCallback, useMemo, useRef, useState } from "react";
 import BackSVG from "@/shared/assets/icons/Global/BackSVG.svg?react";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { Link } from "react-router-dom";
 import { IndexedDBStores } from "@/shared/const/app";
 import { IndexedDBName } from "@/shared/const/app";
@@ -27,7 +27,7 @@ import {
 import { UseKindDeedsCreateRequestLocalStorage } from "../model/useKindDeedsCreateRequestLocalStorage/useKindDeedsCreateRequestLocalStorage";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { UseDebounce } from "@/shared/utils/hooks/UseDebounce/UseDebounce";
-import { IndexedDBLoader } from "@/shared/ui-kit/IndexedDBLoader";
+import { IndexedDBLoader } from "@/shared/lib/IndexedDBLoader";
 import { LoadedFile } from "@/shared/types/global";
 
 export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestContainerProps> =

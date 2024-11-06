@@ -26,7 +26,7 @@ import {
 } from "@/shared/ui-kit/LoadImageBlockWithoutLoading";
 import { TagsInput } from "@/shared/ui-kit/TagsInput";
 import { ModalTemplate } from "@/shared/ui-kit/ModalTemplate";
-import { Modal } from "@/shared/ui-kit/Modal";
+import { Modal } from "@/shared/lib/Modal";
 import { HeaderLoadingModal } from "../../Modals/HeaderLoadingModal";
 import { UserEditPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/UserEditPageWrapper";
 import { UserEditTabsEnum } from "@/shared/const/user";

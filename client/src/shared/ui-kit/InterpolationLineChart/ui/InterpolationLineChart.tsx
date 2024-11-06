@@ -3,7 +3,7 @@ import { memo, useEffect, useRef, useState } from "react";
 import { InterpolationLineChartProps } from "../model/InterpolationLineChart_types";
 import { Line } from "react-chartjs-2";
 import { Chart, LineController, LineElement, ChartData } from "chart.js/auto";
-import { Flex } from "../../Stack";
+import { Flex } from "../../../lib/Stack";
 import Switch from "@mui/material/Switch";
 import "./InterpolationLineChart__switcher.scss";
 import { mobile_mediaQuery } from "@/shared/const/global";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./Filter.module.scss";
 import { FilterProps } from "../model/Filter_types";
 import { tablet_small_mediaQuery } from "@/shared/const/global";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import BlogFilterAdaptiveSVG from "@/shared/assets/icons/BlogPage/BlogFilterAdaptiveSVG.svg?react";
 import { FilterContent } from "./FilterContent";
 

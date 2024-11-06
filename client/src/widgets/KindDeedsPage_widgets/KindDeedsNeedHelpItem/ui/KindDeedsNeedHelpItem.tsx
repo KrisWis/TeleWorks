@@ -1,11 +1,11 @@
 import styles from "./KindDeedsNeedHelpItem.module.scss";
 import { memo } from "react";
 import { KindDeedsNeedHelpItemProps } from "../model/types";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import BlueLineSVG from "@/shared/assets/icons/Global/BlueLineSVG.svg?react";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import { Link } from "react-router-dom";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { ProgressBar } from "primereact/progressbar";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import "./KindDeedsNeedHelpItem_progressbar.scss";

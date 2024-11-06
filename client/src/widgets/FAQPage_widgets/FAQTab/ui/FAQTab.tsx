@@ -3,7 +3,7 @@ import { faqTabs } from "../model/FAQTab_data";
 import styles from "./FAQTab.module.scss";
 import { memo, useContext } from "react";
 import { FAQPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers/FAQPageContainer";
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 
 export const FAQTab: React.FC = memo((): React.JSX.Element => {
   const { ActiveFAQTab } = useContext(FAQPageContext);

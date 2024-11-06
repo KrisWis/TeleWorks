@@ -1,8 +1,8 @@
-import { Flex } from "@/shared/ui-kit/Stack";
+import { Flex } from "@/shared/lib/Stack";
 import styles from "./BlogForReaders.module.scss";
 import { memo } from "react";
 import { blogForReadersItems } from "../model/BlogForReaders_data";
-import { IncreaseScaleHover } from "@/shared/ui-kit/IncreaseScaleHover";
+import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
 import { Link } from "react-router-dom";
 import { mobile_mediaQuery } from "@/shared/const/global";
 import { Swiper, SwiperSlide } from "swiper/react";

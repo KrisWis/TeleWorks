@@ -1,7 +1,7 @@
 import styles from "./MenAndWomenPercentsProgressBarBlock.module.scss";
 import { memo } from "react";
 import { MenAndWomenPercentsProgressBarBlockProps } from "../model/MenAndWomenPercentsProgressBarBlock_types";
-import { Flex } from "../../Stack";
+import { Flex } from "../../../lib/Stack";
 import { ProgressBar } from "primereact/progressbar";
 import SubscribersMen from "@/shared/assets/icons/Global/SubscribersMen.svg?react";
 import SubscribersWomen from "@/shared/assets/icons/Global/SubscribersWomen.svg?react";
