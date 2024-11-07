@@ -3,7 +3,6 @@ import {
   transitionDurationMedium,
 } from "@/shared/const/global";
 import { Flex } from "@/shared/lib/Stack";
-import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
 import {
   BlogFilterAllCategories,
   blogFilterCategoryTitles,
@@ -18,6 +17,7 @@ import {
 } from "../model/BlogCreatePageContext";
 import styles from "./BlogCreatePageMain.module.scss";
 import { memo, useState } from "react";
+import { TransitionBetweenBlocks } from "@/shared/lib/TransitionBetweenBlocks";
 
 export const BlogCreatePageMain: React.FC = memo((): React.JSX.Element => {
   // Создание стейта для фильтра

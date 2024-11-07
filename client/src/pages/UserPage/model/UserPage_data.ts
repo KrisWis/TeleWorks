@@ -1,10 +1,10 @@
 import { URL_PART } from "@/shared/const/app";
 
-import { UserProfessions } from "@/entities/UserPage_entities/UserCard";
 import { PortfolioCaseProps } from "@/shared/ui-kit/PortfolioCase";
 import { Reviews__itemProps, ReviewsPanelProps } from "@/shared/types/user";
 import { ServicesItem } from "@/shared/types/project";
 import { UserAboutProps } from "@/widgets/UserPage_widgets/UserAbout";
+import { UserProfessions } from "@/shared/const/user";
 
 export const userAbout: UserAboutProps = {
   HeaderImgURL: `${URL_PART}/global/images/userHeader_img.png`,

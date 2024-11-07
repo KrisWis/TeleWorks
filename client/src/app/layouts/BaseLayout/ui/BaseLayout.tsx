@@ -4,9 +4,9 @@ import "@/shared/reset.scss";
 import { Suspense } from "react";
 import { Header } from "@/widgets/Global_widgets/Header";
 import { Footer } from "@/widgets/Global_widgets/Footer";
-import { PageLoading } from "@/shared/ui-kit/PageLoading/PageLoading";
 // eslint-disable-next-line teleworks/imports-from-layers
 import { HeaderRoutes, routes } from "@/app/routes/AppRoutes";
+import { PageLoading } from "@/shared/lib/PageLoading/PageLoading";
 
 export const App: React.FC = (): React.JSX.Element => {
   return (

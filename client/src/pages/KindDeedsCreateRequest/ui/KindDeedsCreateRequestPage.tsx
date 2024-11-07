@@ -1,4 +1,3 @@
-import { TransitionBetweenBlocks } from "@/shared/ui-kit/TransitionBetweenBlocks";
 import "./KindDeedsCreateRequestPage.scss";
 import "@/shared/main.scss";
 import { KindDeedsCreateRequestContainer } from "@/widgets/KindDeedsCreateRequestPage_widgets/KindDeedsCreateRequestContainer";
@@ -11,6 +10,7 @@ import {
   transitionDurationMedium,
 } from "@/shared/const/global";
 import { Flex } from "@/shared/lib/Stack";
+import { TransitionBetweenBlocks } from "@/shared/lib/TransitionBetweenBlocks";
 
 export const KindDeedsCreateRequestPage: React.FC = memo(
   (): React.JSX.Element => {
