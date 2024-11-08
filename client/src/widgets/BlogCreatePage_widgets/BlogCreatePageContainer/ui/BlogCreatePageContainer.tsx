@@ -123,7 +123,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
 
   const indexedDBStoreName: string = useMemo(
     () =>
-      IndexedDBStores.find((store) => store.route == AppRoutes.BLOG_CREATE)!
+      IndexedDBStores.find((store) => store.route == AppRoutes.BLOG_CREATE())!
         .name,
     []
   );

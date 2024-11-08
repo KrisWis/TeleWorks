@@ -114,8 +114,9 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
 
     const indexedDBStoreName: string = useMemo(
       () =>
-        IndexedDBStores.find((store) => store.route == AppRoutes.CREATE_ORDER)!
-          .name,
+        IndexedDBStores.find(
+          (store) => store.route == AppRoutes.CREATE_ORDER()
+        )!.name,
       []
     );
 

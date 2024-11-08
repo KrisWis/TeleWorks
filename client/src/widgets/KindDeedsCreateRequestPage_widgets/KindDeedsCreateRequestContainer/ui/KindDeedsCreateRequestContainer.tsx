@@ -96,7 +96,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
     const indexedDBStoreName: string = useMemo(
       () =>
         IndexedDBStores.find(
-          (store) => store.route == AppRoutes.KIND_DEEDS_CREATE_REQUEST
+          (store) => store.route == AppRoutes.KIND_DEEDS_CREATE_REQUEST()
         )!.name,
       []
     );
@@ -151,7 +151,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
           direction="column"
         >
           <IncreaseScaleHover>
-            <Link to={AppRoutes.KIND_DEEDS}>
+            <Link to={AppRoutes.KIND_DEEDS()}>
               <Flex
                 className={
                   mobile_mediaQuery.matches
@@ -396,7 +396,7 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
 
           <Flex max justify="end" align="center">
             <Button
-              to={AppRoutes.KIND_DEEDS}
+              to={AppRoutes.KIND_DEEDS()}
               type={ButtonTypes.BLACK_WITHOUT_OUTLINE}
               text="Назад"
               className={styles.KindDeedsCreateRequestContainer__button}

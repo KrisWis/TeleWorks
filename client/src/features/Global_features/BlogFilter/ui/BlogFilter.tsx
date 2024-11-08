@@ -32,7 +32,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
         {!tablet_small_mediaQuery.matches ? (
           <Flex direction="column" gap="10">
             {canReturn && (
-              <Link to={AppRoutes.BLOG}>
+              <Link to={AppRoutes.BLOG()}>
                 <IncreaseScaleHover>
                   <Flex align="center" gap="10">
                     <BackSVG />
@@ -142,7 +142,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
               gap={`${!tablet_small_mediaQuery.matches ? "10" : "15"}`}
             >
               {canReturn && (
-                <Link to={AppRoutes.BLOG}>
+                <Link to={AppRoutes.BLOG()}>
                   <IncreaseScaleHover>
                     <Flex align="center" gap="10">
                       <BackSVG />

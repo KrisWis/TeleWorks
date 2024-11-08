@@ -1,4 +1,4 @@
-import { AppRoutes } from "../const/app";
+import { AppRoutesPathes } from "../const/app";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type OptionalRecord<K extends keyof any, T> = {
@@ -46,7 +46,7 @@ export const WeekDays: weekDaysType[] = [
 ];
 
 export interface IndexedDBStore {
-  route: AppRoutes;
+  route: AppRoutesPathes;
   name: string;
 }
 

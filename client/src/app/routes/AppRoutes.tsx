@@ -21,68 +21,69 @@ import { KindDeedsPage } from "@/pages/KindDeedsPage";
 import { KindDeedsCreateRequestPage } from "@/pages/KindDeedsCreateRequest";
 import { CatalogCartPage } from "@/pages/CatalogCartPage";
 import { HeaderViews } from "@/widgets/Global_widgets/Header";
-import { AppRoutes, PortNow } from "@/shared/const/app";
+import { AppRoutes, AppRoutesPathes, PortNow } from "@/shared/const/app";
 
 export const BlogRoutes = [
-  AppRoutes.BLOG,
-  AppRoutes.BLOG_POST,
-  AppRoutes.BLOG_CREATE,
+  AppRoutes.BLOG(),
+  AppRoutes.BLOG_POST(),
+  AppRoutes.BLOG_CREATE(),
 ];
 
 export const FreelanceRoutes = [
-  AppRoutes.CREATE_ORDER,
-  AppRoutes.PROJECT,
-  AppRoutes.SERVICES,
-  AppRoutes.USER,
-  AppRoutes.USER_EDIT,
+  AppRoutes.CREATE_ORDER(),
+  AppRoutes.PROJECT(),
+  AppRoutes.SERVICES(),
+  AppRoutes.USER(),
+  AppRoutes.USER_EDIT(),
 ];
 
 export const KindDeedsRoutes = [
-  AppRoutes.KIND_DEEDS,
-  AppRoutes.KIND_DEEDS_CREATE_REQUEST,
+  AppRoutes.KIND_DEEDS(),
+  AppRoutes.KIND_DEEDS_CREATE_REQUEST(),
 ];
 
 type routesList = {
-  [route in AppRoutes]: ReactElement;
+  [route in AppRoutesPathes]: ReactElement;
 };
 
+// @ts-expect-error Функции AppRoutes возвращают объект AppRoutes, всё корректно
 export const routes: routesList = {
-  [AppRoutes.MAIN]: <MainPage />,
-  [AppRoutes.CHANNEL_PROFILE]: <ProfilePage />,
-  [AppRoutes.MYPROJECTS]: <MyProjectsPage />,
-  [AppRoutes.CATALOG]: <CatalogPage />,
-  [AppRoutes.CATALOG_CART]: <CatalogCartPage />,
-  [AppRoutes.INTERNAL]: <InternalPage />,
-  [AppRoutes.SERVICES]: <SpecialistServicesPage />,
-  [AppRoutes.PROJECT]: <ProjectPage />,
-  [AppRoutes.USER]: <UserPage />,
-  [AppRoutes.USER_EDIT]: <UserEditPage />,
-  [AppRoutes.CREATE_CARD]: <CreateCardPage />,
-  [AppRoutes.CREATE_ORDER]: <CreateOrderPage />,
-  [AppRoutes.FAQ]: <FAQPage />,
-  [AppRoutes.TURNKEY_WEBSITES]: <TurnkeyWebsitesPage />,
-  [AppRoutes.TELEGRAM_CHANNEL_STATS]:
+  [AppRoutes.MAIN()]: <MainPage />,
+  [AppRoutes.CHANNEL_PROFILE()]: <ProfilePage />,
+  [AppRoutes.MYPROJECTS()]: <MyProjectsPage />,
+  [AppRoutes.CATALOG()]: <CatalogPage />,
+  [AppRoutes.CATALOG_CART()]: <CatalogCartPage />,
+  [AppRoutes.INTERNAL()]: <InternalPage />,
+  [AppRoutes.SERVICES()]: <SpecialistServicesPage />,
+  [AppRoutes.PROJECT()]: <ProjectPage />,
+  [AppRoutes.USER()]: <UserPage />,
+  [AppRoutes.USER_EDIT()]: <UserEditPage />,
+  [AppRoutes.CREATE_CARD()]: <CreateCardPage />,
+  [AppRoutes.CREATE_ORDER()]: <CreateOrderPage />,
+  [AppRoutes.FAQ()]: <FAQPage />,
+  [AppRoutes.TURNKEY_WEBSITES()]: <TurnkeyWebsitesPage />,
+  [AppRoutes.TELEGRAM_CHANNEL_STATS()]:
     PortNow == "6007" ? (
       <TelegramChannelStatsPage />
     ) : (
       <TelegramChannelStatsPage />
     ),
-  [AppRoutes.BLOG]: <BlogPage />,
-  [AppRoutes.BLOG_POST]: <BlogPostPage />,
-  [AppRoutes.BLOG_CREATE]: <BlogCreatePage />,
-  [AppRoutes.KIND_DEEDS]: <KindDeedsPage />,
-  [AppRoutes.KIND_DEEDS_CREATE_REQUEST]: <KindDeedsCreateRequestPage />,
-  [AppRoutes.NOT_FOUND]: <NotFoundPage />,
+  [AppRoutes.BLOG()]: <BlogPage />,
+  [AppRoutes.BLOG_POST()]: <BlogPostPage />,
+  [AppRoutes.BLOG_CREATE()]: <BlogCreatePage />,
+  [AppRoutes.KIND_DEEDS()]: <KindDeedsPage />,
+  [AppRoutes.KIND_DEEDS_CREATE_REQUEST()]: <KindDeedsCreateRequestPage />,
+  [AppRoutes.NOT_FOUND()]: <NotFoundPage />,
 };
 
 interface HeaderRoute {
-  path: AppRoutes;
+  path: AppRoutesPathes;
   headerView: HeaderViews;
 }
 
 export const HeaderRoutes: HeaderRoute[] = [
   {
-    path: AppRoutes.TELEGRAM_CHANNEL_STATS,
+    path: AppRoutes.TELEGRAM_CHANNEL_STATS(),
     headerView: HeaderViews.TELEGRAM_CHANNEL_STATS,
   },
 
@@ -92,7 +93,7 @@ export const HeaderRoutes: HeaderRoute[] = [
   })),
 
   {
-    path: AppRoutes.CATALOG,
+    path: AppRoutes.CATALOG(),
     headerView: HeaderViews.CHANNELS,
   },
 

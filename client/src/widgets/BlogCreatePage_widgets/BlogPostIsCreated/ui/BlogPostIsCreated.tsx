@@ -33,14 +33,14 @@ export const BlogPostIsCreated: React.FC = memo((): React.JSX.Element => {
         <Flex align="center" gap={mobile_mediaQuery.matches ? "10" : "15"}>
           <Button
             className={styles.BlogPostIsCreated__button}
-            to={AppRoutes.BLOG}
+            to={AppRoutes.BLOG()}
             type={ButtonTypes.BLUE}
             text="На главную"
           />
 
           <Button
             className={styles.BlogPostIsCreated__button}
-            to={AppRoutes.USER}
+            to={AppRoutes.USER()}
             type={ButtonTypes.RED}
             text="В профиль"
           />

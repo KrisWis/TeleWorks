@@ -116,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
             <Button
               type={ButtonTypes.RED}
               className={styles.header__createPost}
-              to={AppRoutes.BLOG_CREATE}
+              to={AppRoutes.BLOG_CREATE()}
             >
               <CreatePostSVG />
               Написать

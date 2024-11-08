@@ -93,7 +93,7 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
             className={styles.KindDeedsSlider__button}
             type={ButtonTypes.RED}
             text="Создать сбор"
-            to={AppRoutes.KIND_DEEDS_CREATE_REQUEST}
+            to={AppRoutes.KIND_DEEDS_CREATE_REQUEST()}
           />
 
           <Button

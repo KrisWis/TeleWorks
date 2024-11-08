@@ -79,7 +79,7 @@ export const headerServicesItems: HeaderServicesItems = {
     {
       icon: <TurnKeyWebsiteSVG />,
       title: "Сайт под ключ",
-      link: AppRoutes.TURNKEY_WEBSITES,
+      link: AppRoutes.TURNKEY_WEBSITES(),
     },
   ],
 
@@ -93,13 +93,13 @@ export const headerServicesItems: HeaderServicesItems = {
     {
       icon: <BlogSVG />,
       title: "Блог",
-      link: AppRoutes.BLOG,
+      link: AppRoutes.BLOG(),
     },
 
     {
       icon: <KindDeedsSVG />,
       title: "Добрые дела",
-      link: AppRoutes.KIND_DEEDS,
+      link: AppRoutes.KIND_DEEDS(),
     },
   ],
 };
@@ -138,7 +138,7 @@ export const headerMenuItems: HeaderMenuItems = {
     {
       icon: <GuarantorChatSVG />,
       title: "Мои проекты",
-      link: AppRoutes.MYPROJECTS,
+      link: AppRoutes.MYPROJECTS(),
     },
 
     {
@@ -196,13 +196,13 @@ export const headerMenuItems: HeaderMenuItems = {
     {
       icon: <FAQSVG />,
       title: "FAQ",
-      link: AppRoutes.FAQ,
+      link: AppRoutes.FAQ(),
     },
 
     {
       icon: <MenuBlogSVG />,
       title: "Блог",
-      link: AppRoutes.BLOG,
+      link: AppRoutes.BLOG(),
     },
 
     {

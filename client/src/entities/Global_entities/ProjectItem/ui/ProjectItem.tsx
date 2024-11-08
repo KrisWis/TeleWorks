@@ -20,7 +20,10 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
 
     const FavouriteRef = useRef<HTMLDivElement>(null);
 
-    const RedirectOnClickTo: string = `${!onProjectPage ? AppRoutes.SERVICES : ""}/${servicesItem.id}`;
+    const RedirectOnClickTo: string = AppRoutes.PROJECT(
+      String(servicesItem.id),
+      onProjectPage
+    );
 
     const RedirectToProjectPage = (
       e: React.MouseEvent<HTMLDivElement, MouseEvent>

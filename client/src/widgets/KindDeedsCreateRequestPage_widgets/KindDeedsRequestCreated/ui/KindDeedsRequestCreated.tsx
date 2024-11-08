@@ -35,7 +35,7 @@ export const KindDeedsRequestCreated: React.FC = memo((): React.JSX.Element => {
       <Button
         className={styles.KindDeedsRequestCreated__button}
         text="На главную"
-        to={AppRoutes.KIND_DEEDS}
+        to={AppRoutes.KIND_DEEDS()}
         type={ButtonTypes.RED}
       />
     </Flex>

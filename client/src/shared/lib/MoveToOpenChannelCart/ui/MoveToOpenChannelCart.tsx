@@ -105,7 +105,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
               className={styles.MoveToOpenChannelCart__toCart}
               type={ButtonTypes.RED}
               text="Перейти в корзину"
-              to={AppRoutes.CATALOG_CART}
+              to={AppRoutes.CATALOG_CART()}
               onClick={() => setTimeout(() => location.reload(), 0)}
             />
           </VStack>
