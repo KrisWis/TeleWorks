@@ -9,7 +9,7 @@ import {
   MoveToOpenChannelCart,
   MoveToOpenChannelCartActions,
   UseMoveToOpenChannelCartLocalStorage,
-} from "@/shared/lib/MoveToOpenChannelCart";
+} from "@/shared/ui-kit/MoveToOpenChannelCart";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { shallowEqual } from "react-redux";
 

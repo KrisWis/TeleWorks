@@ -8,7 +8,7 @@ import { memo } from "react";
 import { cartItems } from "..";
 import { CatalogCartSliceReducer } from "../model/slice/CatalogCartSlice";
 import { DynamicModuleLoader } from "@/shared/lib/DynamicModuleLoader";
-import { MoveToOpenChannelCartReducer } from "@/shared/lib/MoveToOpenChannelCart";
+import { MoveToOpenChannelCartReducer } from "@/shared/ui-kit/MoveToOpenChannelCart";
 
 export const CatalogCartPageContainer: React.FC = memo(
   (): React.JSX.Element => {

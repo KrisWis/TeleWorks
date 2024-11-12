@@ -4,7 +4,7 @@ import "@/shared/main.scss";
 import { Catalog } from "@/widgets/CatalogPage_widgets/Catalog";
 import { ReceiveNotifications } from "@/shared/ui-kit/ReceiveNotifications";
 import { DynamicModuleLoader } from "@/shared/lib/DynamicModuleLoader/ui/DynamicModuleLoader";
-import { MoveToOpenChannelCartReducer } from "@/shared/lib/MoveToOpenChannelCart";
+import { MoveToOpenChannelCartReducer } from "@/shared/ui-kit/MoveToOpenChannelCart";
 
 export const CatalogPage: React.FC = (): React.JSX.Element => {
   useEffect(() => {

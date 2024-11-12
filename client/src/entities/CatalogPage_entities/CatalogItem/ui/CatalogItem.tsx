@@ -32,17 +32,17 @@ import { Avatar, AvatarSizes } from "@/shared/ui-kit/Avatar";
 import {
   checkChannelInCart,
   getAllChannelsInCart,
-  MoveToOpenChannelCartActions,
-} from "@/shared/lib/MoveToOpenChannelCart";
-import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
+  useMoveToOpenChannelCartActions,
+} from "@/shared/ui-kit/MoveToOpenChannelCart";
+import { useAppSelector } from "@/shared/config/store/AppStore";
 import { shallowEqual } from "react-redux";
 import MoreSVG from "@/shared/assets/icons/Global/MoreSVG.svg?react";
 import { Counter } from "@/shared/ui-kit/Counter";
 import { Flex } from "@/shared/lib/Stack";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
 import {
-  CatalogCartSliceActions,
   getCartItemAmount,
+  useCatalogCartSliceActions,
 } from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 import { CatalogItemTags } from "@/shared/types/catalog";
 
@@ -59,8 +59,6 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
     hasCounter = false,
   }): React.JSX.Element => {
     // Функционал добавления предмета в корзину
-    const dispatch = useAppDispatch();
-
     const ChannelInCart = useAppSelector((state) =>
       checkChannelInCart(state.MoveToOpenChannelCartReducer!, catalogItem.id)
     );
@@ -72,30 +70,35 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
 
     const removeChannelFromCartTimeoutRef = useRef<NodeJS.Timeout>();
 
-    const removeChannelFromCart = useCallback(
+    const { removeChannelFromCart, addChannelToCart } =
+      useMoveToOpenChannelCartActions();
+
+    const { changeItemAmount } = useCatalogCartSliceActions();
+
+    const removeChannelFromCartCallback = useCallback(
       (channel_id: number) => {
         if (allChannelsIDsInCart.length == 1) {
           setMoveToOpenChannelCartIsAppear &&
             setMoveToOpenChannelCartIsAppear(false);
 
           removeChannelFromCartTimeoutRef.current = setTimeout(() => {
-            dispatch(
-              MoveToOpenChannelCartActions.removeChannelFromCart({
-                channelID: channel_id,
-              })
-            );
+            removeChannelFromCart({
+              channelID: channel_id,
+            });
 
             clearTimeout(removeChannelFromCartTimeoutRef.current);
           }, transitionDuration);
         } else {
-          dispatch(
-            MoveToOpenChannelCartActions.removeChannelFromCart({
-              channelID: channel_id,
-            })
-          );
+          removeChannelFromCart({
+            channelID: channel_id,
+          });
         }
       },
-      [allChannelsIDsInCart.length, dispatch, setMoveToOpenChannelCartIsAppear]
+      [
+        allChannelsIDsInCart.length,
+        removeChannelFromCart,
+        setMoveToOpenChannelCartIsAppear,
+      ]
     );
 
     // Настройка стилей для селектов
@@ -288,20 +291,16 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
               <Counter
                 amount={itemAmount}
                 dicreaseAmount={() =>
-                  dispatch(
-                    CatalogCartSliceActions.changeItemAmount({
-                      itemId: catalogItem.id,
-                      amount: -1,
-                    })
-                  )
+                  changeItemAmount({
+                    itemId: catalogItem.id,
+                    amount: -1,
+                  })
                 }
                 increaseAmount={() =>
-                  dispatch(
-                    CatalogCartSliceActions.changeItemAmount({
-                      itemId: catalogItem.id,
-                      amount: 1,
-                    })
-                  )
+                  changeItemAmount({
+                    itemId: catalogItem.id,
+                    amount: 1,
+                  })
                 }
                 type="small"
                 canAlwaysDicrease
@@ -328,12 +327,10 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
                 className={styles.catalog__item__footer__item}
                 onClick={() =>
                   ChannelInCart
-                    ? removeChannelFromCart(catalogItem.id)
-                    : dispatch(
-                        MoveToOpenChannelCartActions.addChannelToCart({
-                          channelID: catalogItem.id,
-                        })
-                      )
+                    ? removeChannelFromCartCallback(catalogItem.id)
+                    : addChannelToCart({
+                        channelID: catalogItem.id,
+                      })
                 }
               >
                 <FooterCart />

@@ -1,7 +1,9 @@
+import { StoreSchema } from "@/shared/config/store/AppStore";
 import {
   CatalogCartSliceItem,
   CatalogCartSliceSchema,
 } from "@/shared/types/catalog";
+import { buildSelector } from "@/shared/utils/store";
 
 export const getCartItemAmount = (
   state: CatalogCartSliceSchema,
@@ -14,11 +16,12 @@ export const getCartItemAmount = (
   return 1;
 };
 
-export const getCartItems = (
-  state: CatalogCartSliceSchema
-): CatalogCartSliceItem[] => {
-  if (state) {
-    if (state) return state.items;
+export const [useCartItems, getCartItems] = buildSelector<
+  CatalogCartSliceItem[]
+>((state: StoreSchema) => {
+  if (state.CatalogCartSliceReducer) {
+    return state.CatalogCartSliceReducer!.items;
   }
+
   return [];
-};
+}, true);

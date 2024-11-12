@@ -10,11 +10,10 @@ import SelectDropdownIndicatorBlueSVG from "@/shared/assets/icons/Global/SelectD
 import { cartContainerSelectedOptions } from "../model/data";
 import { CatalogItem } from "@/entities/CatalogPage_entities/CatalogItem";
 import { CartContainerProps } from "../model/types";
-import { useAppDispatch, useAppSelector } from "@/shared/config/store/AppStore";
-import { shallowEqual } from "react-redux";
+import { useAppDispatch } from "@/shared/config/store/AppStore";
 import {
   CatalogCartSliceActions,
-  getCartItems,
+  useCartItems,
 } from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 
 const SelectDropdownIndicator = (): JSX.Element => {
@@ -52,10 +51,7 @@ export const CartContainer: React.FC<CartContainerProps> = memo(
     }, [cartItems, dispatch]);
 
     // Получаем айтемы из стейта
-    const cartStateItems = useAppSelector(
-      (state) => getCartItems(state.CatalogCartSliceReducer!),
-      shallowEqual
-    );
+    const cartStateItems = useCartItems();
 
     return (
       <Flex max direction="column" gap="20">

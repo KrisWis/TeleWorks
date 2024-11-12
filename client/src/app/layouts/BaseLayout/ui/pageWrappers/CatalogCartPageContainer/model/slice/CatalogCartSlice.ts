@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
 import {
   changeItemAmountAction,
   setItemsAction,
 } from "../types/CatalogCartSlice_types";
 import { CatalogCartSliceSchema } from "@/shared/types/catalog";
+import { buildSlice } from "@/shared/utils/store";
 
 const initialState: CatalogCartSliceSchema = {
   items: [],
 };
 
-export const CatalogCartSlice = createSlice({
+export const CatalogCartSlice = buildSlice({
   name: "CatalogCartSlice",
   initialState: initialState,
   reducers: {
@@ -39,6 +39,8 @@ export const CatalogCartSlice = createSlice({
   },
 });
 
-export const CatalogCartSliceActions = CatalogCartSlice.actions;
-
-export const CatalogCartSliceReducer = CatalogCartSlice.reducer;
+export const {
+  actions: CatalogCartSliceActions,
+  reducer: CatalogCartSliceReducer,
+  useActions: useCatalogCartSliceActions,
+} = CatalogCartSlice;

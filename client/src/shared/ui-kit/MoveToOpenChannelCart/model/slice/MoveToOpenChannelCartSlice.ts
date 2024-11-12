@@ -1,4 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
 import {
   addChannelToCartAction,
   removeChannelToCartAction,
@@ -7,6 +6,7 @@ import {
 import { UseMoveToOpenChannelCartLocalStorage } from "../UseMoveToOpenChannelCartLocalStorage/UseMoveToOpenChannelCartLocalStorage";
 import { UseLocalStorageTypes } from "@/shared/utils/hooks/UseLocalStorage";
 import { MoveToOpenChannelCartSchema } from "@/shared/types/schemas";
+import { buildSlice } from "@/shared/utils/store";
 
 export const editionsAmountsMultiplier: number = 1.5;
 
@@ -14,7 +14,7 @@ const initialState: MoveToOpenChannelCartSchema = {
   channelsIDs: [],
 };
 
-export const MoveToOpenChannelCartSlice = createSlice({
+export const MoveToOpenChannelCartSlice = buildSlice({
   name: "MoveToOpenChannelCart",
   initialState: initialState,
   reducers: {
@@ -54,6 +54,8 @@ export const MoveToOpenChannelCartSlice = createSlice({
   },
 });
 
-export const MoveToOpenChannelCartActions = MoveToOpenChannelCartSlice.actions;
-
-export const MoveToOpenChannelCartReducer = MoveToOpenChannelCartSlice.reducer;
+export const {
+  actions: MoveToOpenChannelCartActions,
+  reducer: MoveToOpenChannelCartReducer,
+  useActions: useMoveToOpenChannelCartActions,
+} = MoveToOpenChannelCartSlice;

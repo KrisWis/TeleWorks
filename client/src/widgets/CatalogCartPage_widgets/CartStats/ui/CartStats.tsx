@@ -4,21 +4,16 @@ import { CartStatsProps } from "../model/types";
 import { Flex } from "@/shared/lib/Stack";
 import { URL_PART } from "@/shared/const/app";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
-import { shallowEqual } from "react-redux";
 import { FormatingNumber } from "@/shared/utils/FormatingNumber/FormatingNumber";
-import { useAppSelector } from "@/shared/config/store/AppStore";
 import {
   cartItems,
-  getCartItems,
+  useCartItems,
 } from "@/app/layouts/BaseLayout/ui/pageWrappers/CatalogCartPageContainer";
 
 export const CartStats: React.FC<CartStatsProps> = memo(
   (): React.JSX.Element => {
     // Получаем данные со стейта
-    const cartStateItems = useAppSelector(
-      (state) => getCartItems(state.CatalogCartSliceReducer!),
-      shallowEqual
-    );
+    const cartStateItems = useCartItems();
 
     return (
       <Flex

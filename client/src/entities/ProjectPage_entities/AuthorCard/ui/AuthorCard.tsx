@@ -7,6 +7,8 @@ import AuthorStatusOnlineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/
 import AuthorStatusOfflineSVG from "@/shared/assets/icons/ProjectPage/AuthorCard/AuthorStatusOfflineSVG.svg?react";
 import { AuthorStats } from "@/shared/ui-kit/AuthorStats";
 import { Flex } from "@/shared/lib/Stack";
+import { AppImage } from "@/shared/lib/AppImage";
+import { Skeleton } from "@/shared/ui-kit/Skeleton";
 
 export const AuthorCard: React.FC<AuthorCardProps> = memo(
   ({
@@ -24,7 +26,8 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
         <Flex max direction="column">
           <div className={styles.authorCard__header}>
             <div className={styles.authorCard__author}>
-              <img
+              <AppImage
+                fallback={<Skeleton width={55} height={55} />}
                 className={styles.authorCard__author__img}
                 src={authorImgURL}
                 alt={authorName}

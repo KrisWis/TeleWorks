@@ -2,6 +2,7 @@ export * from "./ui/MoveToOpenChannelCart";
 export {
   MoveToOpenChannelCartActions,
   MoveToOpenChannelCartReducer,
+  useMoveToOpenChannelCartActions,
 } from "./model/slice/MoveToOpenChannelCartSlice";
 export {
   getAllChannelsInCart,

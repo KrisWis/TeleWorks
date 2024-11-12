@@ -1,13 +1,22 @@
-import { useSelector } from 'react-redux';
-import { StateSchema } from '@/app/providers/StoreProvider';
+import { StoreSchema, useAppSelector } from "@/shared/config/store/AppStore";
+import { shallowEqual } from "react-redux";
 
-type Selector<T> = (state: StateSchema) => T;
-type Result<T> = [() => T, Selector<T>]
+type Selector<T> = (state: StoreSchema) => T;
+type Result<T> = [() => T, Selector<T>];
 
-export function buildSelector<T>(selector: Selector<T>): Result<T> {
-    const useSelectorHook = () => {
-        return useSelector(selector);
-    };
+export function buildSelector<T>(
+  selector: Selector<T>,
+  customShallowEqual?: boolean
+): Result<T> {
+  const useSelectorHook = () => {
+    if (customShallowEqual) {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      return useAppSelector(selector, shallowEqual);
+    } else {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      return useAppSelector(selector);
+    }
+  };
 
-    return [useSelectorHook, selector];
+  return [useSelectorHook, selector];
 }
