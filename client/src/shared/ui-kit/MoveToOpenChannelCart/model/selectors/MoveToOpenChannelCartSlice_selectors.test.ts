@@ -1,8 +1,5 @@
 import { MoveToOpenChannelCartSchema } from "@/shared/types/schemas";
-import {
-  checkChannelInCart,
-  getAllChannelsInCart,
-} from "../../../../../shared/lib/MoveToOpenChannelCartWrapper";
+import { checkChannelInCart, getAllChannelsInCart } from "../..";
 
 const initialState: MoveToOpenChannelCartSchema = {
   channelsIDs: [1, 2, 3],
