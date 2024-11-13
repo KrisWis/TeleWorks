@@ -22,7 +22,7 @@ export const MainPage: React.FC = (): React.JSX.Element => {
 
   return (
     <>
-      <main className="Page MainPage__main">
+      <main data-testid="MainPage" className="Page MainPage__main">
         <div className="padding">
           <Advancement />
           <Buy_placement />
