@@ -138,7 +138,11 @@
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint",
-    "**/*.scss": "stylelint"
+    "**/*.{ts,tsx}": [
+      "eslint"
+    ],
+    "**/*.scss": [
+      "stylelint"
+    ]
   }
 }
