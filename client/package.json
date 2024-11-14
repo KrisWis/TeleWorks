@@ -135,5 +135,9 @@
     "loki": {
       "@storybook/react": "$@storybook/react"
     }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint",
+    "**/*.scss": "stylelint"
   }
 }
