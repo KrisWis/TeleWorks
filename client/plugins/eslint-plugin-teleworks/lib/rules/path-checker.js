@@ -3,6 +3,12 @@
 const path = require("path");
 const { isPathRelative } = require("../helpers");
 
+function getNormalizedCurrentFilePath(currentFilePath) {
+  const normalizedPath = path.toNamespacedPath(currentFilePath);
+  const projectFrom = normalizedPath.split("src")[1];
+  return projectFrom.split("\\").join("/");
+}
+
 module.exports = {
   meta: {
     type: "layout",
@@ -12,7 +18,7 @@ module.exports = {
       recommended: false,
       url: null,
     },
-    fixable: null,
+    fixable: "code",
     schema: [
       {
         type: "object",
@@ -42,6 +48,22 @@ module.exports = {
             node: node,
             message:
               "В рамках одного слайса все пути должны быть относительными",
+            fix: (fixer) => {
+              const normalizedPath = getNormalizedCurrentFilePath(fromFilename)
+                .split("/")
+                .slice(0, -1)
+                .join("/");
+              let relativePath = path
+                .relative(normalizedPath, `/${importTo}`)
+                .split("\\")
+                .join("/");
+
+              if (!relativePath.startsWith(".")) {
+                relativePath = "./" + relativePath;
+              }
+
+              return fixer.replaceText(node.source, `'${relativePath}'`);
+            },
           });
         }
       },

@@ -79,6 +79,8 @@ ruleTester.run("public-api-imports", rule, {
         },
       ],
       options: aliasOptions,
+      output:
+        "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/model'",
     },
     {
       filename:
@@ -99,6 +101,9 @@ ruleTester.run("public-api-imports", rule, {
           ],
         },
       ],
+
+      output:
+        "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article/testing'",
     },
     {
       filename:
@@ -116,6 +121,9 @@ ruleTester.run("public-api-imports", rule, {
           testFilesPatterns: ["**/*.test.ts", "**/StoreDecorator.tsx"],
         },
       ],
+
+      output:
+        "import { addCommentFormActions, addCommentFormReducer } from '@/entities/widgets/Article/testing'",
     },
   ],
 });

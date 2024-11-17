@@ -22,7 +22,7 @@ ruleTester.run("path-checker", rule, {
   valid: [
     {
       filename:
-        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\Article",
+        "C:/Users/tim/Desktop/javascript/production_project/src/entities/Article",
       code: "import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice'",
       errors: [],
       options: [
@@ -34,7 +34,7 @@ ruleTester.run("path-checker", rule, {
 
     {
       filename:
-        "D:\\FrontEnd\\Sites\\TeleWorks\\client\\src\\widgets\\MainPage_widgets\\Platform_Privileges\\ui\\Platform_Privileges.tsx",
+        "D:/FrontEnd/Sites/TeleWorks/client/src/widgets/MainPage_widgets/Platform_Privileges/ui/Platform_Privileges.tsx",
       code: 'import { Platrform_Privileges__itemProps } from "./Platform_Privileges__item/model/Platform_Privileges__item__types";',
       errors: [],
       options: [
@@ -48,7 +48,7 @@ ruleTester.run("path-checker", rule, {
   invalid: [
     {
       filename:
-        "C:\\Users\\tim\\Desktop\\javascript\\production_project\\src\\entities\\Article__entities\\Article",
+        "C:/Users/tim/Desktop/javascript/production_project/src/entities/Article__entities/Article",
       code: "import { addCommentFormActions, addCommentFormReducer } from '@/entities/Article__entities/Article/model/slices/addCommentFormSlice'",
       errors: [
         {
@@ -60,11 +60,13 @@ ruleTester.run("path-checker", rule, {
           alias: "@",
         },
       ],
+      output:
+        "import { addCommentFormActions, addCommentFormReducer } from './Article/model/slices/addCommentFormSlice'",
     },
 
     {
       filename:
-        "D:\\FrontEnd\\Sites\\TeleWorks\\client\\src\\widgets\\MainPage_widgets\\Platform_Privileges\\ui\\Platform_Privileges.tsx",
+        "D:/FrontEnd/Sites/TeleWorks/client/src/widgets/MainPage_widgets/Platform_Privileges/ui/Platform_Privileges.tsx",
       code: 'import { Platrform_Privileges__itemProps } from "@/widgets/MainPage_widgets/Platform_Privileges/ui/Platform_Privileges__item/model/Platform_Privileges__item__types"',
       errors: [
         {
@@ -76,6 +78,8 @@ ruleTester.run("path-checker", rule, {
           alias: "@",
         },
       ],
+      output:
+        "import { Platrform_Privileges__itemProps } from './Platform_Privileges__item/model/Platform_Privileges__item__types'",
     },
   ],
 });

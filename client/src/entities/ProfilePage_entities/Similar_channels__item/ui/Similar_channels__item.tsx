@@ -15,7 +15,7 @@ export const Similar_channels__item: React.FC<Similar_channels__itemProps> =
       starsAmount,
       imgURL,
       title,
-      desc,
+      category,
       subscribersAmount,
       views,
       ER,
@@ -46,7 +46,7 @@ export const Similar_channels__item: React.FC<Similar_channels__itemProps> =
 
             <h2 className={styles.Similar_channels__item__caption}>{title}</h2>
             <span className={styles.Similar_channels__item__category}>
-              {desc}
+              {category}
             </span>
             <div className={styles.Similar_channels__item__info}>
               <div className={styles.Similar_channels__item__info_item}>
