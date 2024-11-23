@@ -7,10 +7,10 @@ describe("HowItWorks Item", () => {
     render(<HowItWorks__item index={"01"} text="aboba" />);
     expect(screen.getByTestId("howItWorks__item")).toBeInTheDocument();
     expect(screen.getByTestId("howItWorks__item__index")).toHaveTextContent(
-      "01"
+      "01",
     );
     expect(screen.getByTestId("howItWorks__item__text")).toHaveTextContent(
-      "aboba"
+      "aboba",
     );
   });
 });

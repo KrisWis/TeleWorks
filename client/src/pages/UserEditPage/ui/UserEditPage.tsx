@@ -18,3 +18,4 @@ export const UserEditPage: React.FC = memo((): React.JSX.Element => {
     </main>
   );
 });
+UserEditPage.displayName = "UserEditPage";

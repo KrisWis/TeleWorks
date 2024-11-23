@@ -7,7 +7,7 @@ import { buildSelector } from "@/shared/utils/store";
 
 export const getCartItemAmount = (
   state: CatalogCartSliceSchema,
-  id: number
+  id: number,
 ): number => {
   if (state) {
     const item = state.items.find((item) => item.id == id);

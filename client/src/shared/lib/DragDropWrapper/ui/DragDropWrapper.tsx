@@ -35,7 +35,7 @@ export const DragDropWrapper: React.FC<DragDropWrapperProps> = memo(
     }, []);
 
     const LoadedFileOnDrop = (
-      e: React.DragEvent<HTMLDivElement>
+      e: React.DragEvent<HTMLDivElement>,
     ): void | boolean => {
       OnDragLeave(e);
 
@@ -76,5 +76,6 @@ export const DragDropWrapper: React.FC<DragDropWrapperProps> = memo(
         {children}
       </Flex>
     );
-  }
+  },
 );
+DragDropWrapper.displayName = "DragDropWrapper";

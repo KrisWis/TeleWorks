@@ -6,5 +6,5 @@ import { LocalStorageKeys } from "@/shared/const/app";
 
 export const UseUserEditAboutLocalStorage: UseLocalStorageCustom<string> = (
   type,
-  value
+  value,
 ) => UseLocalStorage(type, LocalStorageKeys.USER_EDIT_ABOUT, value);

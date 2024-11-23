@@ -28,5 +28,6 @@ export const KindDeedsHaveSignificance: React.FC = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+KindDeedsHaveSignificance.displayName = "KindDeedsHaveSignificance";

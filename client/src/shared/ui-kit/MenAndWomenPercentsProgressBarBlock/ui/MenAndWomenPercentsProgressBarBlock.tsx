@@ -86,3 +86,5 @@ export const MenAndWomenPercentsProgressBarBlock: React.FC<MenAndWomenPercentsPr
       </Flex>
     );
   });
+MenAndWomenPercentsProgressBarBlock.displayName =
+  "MenAndWomenPercentsProgressBarBlock";

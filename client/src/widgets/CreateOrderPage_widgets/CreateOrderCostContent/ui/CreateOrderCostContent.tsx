@@ -20,3 +20,4 @@ export const CreateOrderCostContent: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+CreateOrderCostContent.displayName = "CreateOrderCostContent";

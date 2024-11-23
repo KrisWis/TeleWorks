@@ -50,3 +50,4 @@ export const FAQ_Accordion_item: ({
     panelProps={{ className: styles.faq__accordion__itemPanel }}
   />
 );
+FAQ_Accordion_item.displayName = "FAQ_Accordion_item";

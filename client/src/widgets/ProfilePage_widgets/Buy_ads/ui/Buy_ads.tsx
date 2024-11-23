@@ -11,3 +11,4 @@ export const Buy_ads: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Buy_ads.displayName = "Buy_ads";

@@ -67,5 +67,6 @@ export const UserAbout: React.FC<UserAboutProps> = memo(
         </div>
       </section>
     );
-  }
+  },
 );
+UserAbout.displayName = "UserAbout";

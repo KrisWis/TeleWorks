@@ -167,5 +167,6 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
         </Flex>
       </div>
     );
-  }
+  },
 );
+TelegramChannelStats.displayName = "TelegramChannelStats";

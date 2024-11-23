@@ -81,3 +81,4 @@ export const CaseLoadingModal: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+CaseLoadingModal.displayName = "CaseLoadingModal";

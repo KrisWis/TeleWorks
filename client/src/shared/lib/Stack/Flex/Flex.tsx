@@ -113,3 +113,4 @@ export const Flex = (props: FlexProps) => {
     </>
   );
 };
+Flex.displayName = "Flex";

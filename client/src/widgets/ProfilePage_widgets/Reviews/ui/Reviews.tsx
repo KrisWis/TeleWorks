@@ -25,5 +25,6 @@ export const Reviews: React.FC<ReviewsProps> = memo(
         </div>
       </section>
     );
-  }
+  },
 );
+Reviews.displayName = "Reviews";

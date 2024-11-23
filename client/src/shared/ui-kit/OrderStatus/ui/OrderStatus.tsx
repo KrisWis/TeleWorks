@@ -13,5 +13,6 @@ export const OrderStatus: React.FC<OrderStatusProps> = memo(
         {orderStatus}
       </span>
     );
-  }
+  },
 );
+OrderStatus.displayName = "OrderStatus";

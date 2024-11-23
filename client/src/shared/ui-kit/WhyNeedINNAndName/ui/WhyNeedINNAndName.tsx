@@ -104,5 +104,6 @@ export const WhyNeedINNAndName: React.FC<WhyNeedINNAndNameProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+WhyNeedINNAndName.displayName = "WhyNeedINNAndName";

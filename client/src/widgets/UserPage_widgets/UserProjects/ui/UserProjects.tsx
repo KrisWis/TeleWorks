@@ -21,5 +21,6 @@ export const UserProjects: React.FC<UserProjectsProps> = memo(
         </div>
       </section>
     );
-  }
+  },
 );
+UserProjects.displayName = "UserProjects";

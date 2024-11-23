@@ -23,11 +23,11 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
     const [ResultItemsIsOpen, setResultItemsIsOpen] = useState<boolean>(false);
 
     const editionsAmounts = useAppSelector((state) =>
-      geteditionsAmounts(state.checkoutOrderReducer!, pack.packName)
+      geteditionsAmounts(state.checkoutOrderReducer!, pack.packName),
     );
 
     const finalPrice = useAppSelector((state) =>
-      getFinalPrice(state.checkoutOrderReducer!)
+      getFinalPrice(state.checkoutOrderReducer!),
     );
 
     const GetExtraServiceAmounts = (extraServiceTitle: string): number => {
@@ -35,8 +35,8 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
         getExtraServiceAmount(
           state.checkoutOrderReducer!,
           pack.packName,
-          extraServiceTitle
-        )
+          extraServiceTitle,
+        ),
       );
     };
 
@@ -48,23 +48,23 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
           return Boolean(
             ExtraServicesModified.find(
               (extraServiceItem: ProjectExtraService) =>
-                extraServiceItem.title === extraService.title
-            )
+                extraServiceItem.title === extraService.title,
+            ),
           );
         },
-      [ExtraServices]
+      [ExtraServices],
     );
 
     const ToggleExtraService = useCallback(
       (extraService: ProjectExtraService): void => {
         const ExtraServicesModified: ProjectExtraService[] = Object.assign(
           [],
-          ExtraServices
+          ExtraServices,
         );
 
         if (ExtraServiceInState(extraService)) {
           const newExtraServices = ExtraServices.filter(
-            (item) => item.title !== extraService.title
+            (item) => item.title !== extraService.title,
           );
 
           setExtraServices(newExtraServices);
@@ -74,7 +74,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
               packType: pack.packName,
               extraService: extraService,
               changeTo: false,
-            })
+            }),
           );
         } else {
           ExtraServicesModified.push(extraService);
@@ -86,7 +86,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
               packType: pack.packName,
               extraService: extraService,
               changeTo: true,
-            })
+            }),
           );
         }
       },
@@ -96,26 +96,26 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
         dispatch,
         pack.packName,
         setExtraServices,
-      ]
+      ],
     );
 
     const changeExtraServiceAmount = (
       amount: number,
       packName: ProjectInfoPackNames,
-      extraService: ProjectExtraService
+      extraService: ProjectExtraService,
     ): void => {
       const ExtraServicesModified: ProjectExtraService[] = Object.assign(
         [],
-        ExtraServices
+        ExtraServices,
       );
 
       const ExtraServiceModified: ProjectExtraService = Object.assign(
         [],
         ExtraServicesModified[
           ExtraServicesModified.findIndex(
-            (el) => el.title === extraService.title
+            (el) => el.title === extraService.title,
           )
-        ]
+        ],
       );
 
       if (!ExtraServiceModified.amount) {
@@ -135,7 +135,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
           packType: packName,
           extraServiceTitle: extraService.title,
           extraServiceAmount: amount,
-        })
+        }),
       );
     };
 
@@ -144,7 +144,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
         checkoutOrderSliceActions.changeExtraServices({
           packType: pack.packName,
           extraServices: pack.extraServices!,
-        })
+        }),
       );
     }, [dispatch, pack.extraServices, pack.packName]);
 
@@ -155,21 +155,21 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
         checkoutOrderSliceActions.clearProjectEditionsAmounts({
           packType: pack.packName,
           amounts: 1,
-        })
+        }),
       );
 
       dispatch(
         checkoutOrderSliceActions.changeExtraServices({
           packType: pack.packName,
           extraServices: [],
-        })
+        }),
       );
 
       dispatch(
         checkoutOrderSliceActions.setPackPrice({
           packType: pack.packName,
           price: pack.price,
-        })
+        }),
       );
     }, [dispatch, pack.packName, pack.price]);
 
@@ -207,7 +207,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
                 checkoutOrderSliceActions.changeeditionsAmounts({
                   packType: pack.packName,
                   amounts: -1,
-                })
+                }),
               )
             }
             increaseAmount={() =>
@@ -215,7 +215,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
                 checkoutOrderSliceActions.changeeditionsAmounts({
                   packType: pack.packName,
                   amounts: 1,
-                })
+                }),
               )
             }
           />
@@ -265,7 +265,7 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
                         changeExtraServiceAmount(
                           -1,
                           pack.packName,
-                          extraService
+                          extraService,
                         )
                       }
                       increaseAmount={() =>
@@ -359,5 +359,6 @@ export const CheckoutOrder: React.FC<CheckoutOrderProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+CheckoutOrder.displayName = "CheckoutOrder";

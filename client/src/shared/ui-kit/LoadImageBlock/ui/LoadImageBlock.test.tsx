@@ -40,7 +40,7 @@ describe("Widgets/LoadImageBlock", () => {
     await waitFor(() => {
       expect(getByTestId(`LoadImageBlock.Image`)).toHaveAttribute(
         "src",
-        mockFileName
+        mockFileName,
       );
     });
   });
@@ -74,7 +74,7 @@ describe("Widgets/LoadImageBlock", () => {
     await waitFor(() => {
       expect(getByTestId(`LoadImageBlock.Image`)).toHaveAttribute(
         "src",
-        mockFileName
+        mockFileName,
       );
     });
 
@@ -85,7 +85,7 @@ describe("Widgets/LoadImageBlock", () => {
     await waitFor(() => {
       expect(getByTestId(`LoadImageBlock.Image`)).toHaveAttribute(
         "src",
-        mockFileName
+        mockFileName,
       );
     });
   });

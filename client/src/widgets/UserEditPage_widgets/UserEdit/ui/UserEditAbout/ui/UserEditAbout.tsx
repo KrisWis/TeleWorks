@@ -13,11 +13,11 @@ const UserEditAboutTextareaMaxSymbolsAmount: number = 500;
 export const UserEditAbout: React.FC = memo((): React.JSX.Element => {
   // Получение из Local Storage текста для textarea
   const UserEditAboutLSItem = UseUserEditAboutLocalStorage(
-    UseLocalStorageTypes.GET
+    UseLocalStorageTypes.GET,
   );
 
   const [TextareaValue, setTextareaValue] = useState<string>(
-    UserEditAboutLSItem ? UserEditAboutLSItem : ""
+    UserEditAboutLSItem ? UserEditAboutLSItem : "",
   );
 
   // Добавление рефа для скроллинга
@@ -46,3 +46,4 @@ export const UserEditAbout: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+UserEditAbout.displayName = "UserEditAbout";

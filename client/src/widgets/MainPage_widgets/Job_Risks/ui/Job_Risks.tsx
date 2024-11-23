@@ -59,3 +59,4 @@ export const Job_Risks: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Job_Risks.displayName = "Job_Risks";

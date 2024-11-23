@@ -12,14 +12,14 @@ import { TransitionBetweenBlocks } from "@/shared/lib/TransitionBetweenBlocks";
 export const CreateOrderContainer: React.FC = memo((): React.JSX.Element => {
   // Сохранение и загрузка этапов, используя LocalStorage
   const CreateOrderStepLI = UseCreateOrderStepLocalStorage(
-    UseLocalStorageTypes.GET
+    UseLocalStorageTypes.GET,
   );
 
   const [CreateOrderActiveStep, setCreateOrderActiveStep] =
     useState<CreateOrderProgressSteps>(
       CreateOrderStepLI
         ? CreateOrderStepLI.CreateOrderActiveStep
-        : CreateOrderProgressSteps.COST
+        : CreateOrderProgressSteps.COST,
     );
 
   const [CreateOrderCompletedSteps, setCreateOrderCompletedSteps] = useState<
@@ -27,7 +27,7 @@ export const CreateOrderContainer: React.FC = memo((): React.JSX.Element => {
   >(
     CreateOrderStepLI
       ? CreateOrderStepLI.CreateOrderCompletedSteps
-      : [CreateOrderProgressSteps.CREATE]
+      : [CreateOrderProgressSteps.CREATE],
   );
 
   // Стейт для обработки исчезновения первого блока
@@ -95,3 +95,4 @@ export const CreateOrderContainer: React.FC = memo((): React.JSX.Element => {
     </CreateOrderPageContext.Provider>
   );
 });
+CreateOrderContainer.displayName = "CreateOrderContainer";

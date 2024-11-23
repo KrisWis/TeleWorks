@@ -16,7 +16,7 @@ export const CreateOrderCostPayment: React.FC = memo((): React.JSX.Element => {
 
   const canPay = useMemo(
     () => EmailIsValid(EmailInputValue),
-    [EmailInputValue]
+    [EmailInputValue],
   );
 
   // Перенаправление на второй этап
@@ -111,3 +111,4 @@ export const CreateOrderCostPayment: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+CreateOrderCostPayment.displayName = "CreateOrderCostPayment";

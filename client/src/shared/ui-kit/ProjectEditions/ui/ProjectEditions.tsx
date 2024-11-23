@@ -25,5 +25,6 @@ export const ProjectEditions: React.FC<ProjectEditionsProps> = memo(
         <span className={styles.editions_text}>{editionsAmount} редакции</span>
       </div>
     );
-  }
+  },
 );
+ProjectEditions.displayName = "ProjectEditions";

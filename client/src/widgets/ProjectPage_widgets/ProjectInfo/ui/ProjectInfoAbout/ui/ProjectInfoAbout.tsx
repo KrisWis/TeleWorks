@@ -386,7 +386,7 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
                     src={portfolioCase.imgURL}
                     alt={portfolioCase.caseName}
                   />
-                )
+                ),
               )}
             </div>
 
@@ -419,5 +419,6 @@ export const ProjectInfoAbout: React.FC<ProjectInfoAboutProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+ProjectInfoAbout.displayName = "ProjectInfoAbout";

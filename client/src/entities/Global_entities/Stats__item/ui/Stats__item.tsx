@@ -103,5 +103,6 @@ export const Stats__item: React.FC<Stats__item__props> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+Stats__item.displayName = "Stats__item";

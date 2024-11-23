@@ -33,7 +33,7 @@ export const Select: React.FC<Select__Props> = memo(
     const SelectParentRef = useRef<HTMLDivElement>(null);
 
     const [SelectedOption, setSelectedOption] = useState<Select_Option | null>(
-      DefaultSelectedOption || null
+      DefaultSelectedOption || null,
     );
     const DropdownIndicatorRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,7 @@ export const Select: React.FC<Select__Props> = memo(
           base: CSSObjectWithLabel,
           props:
             | SingleValueProps<unknown, boolean, GroupBase<unknown>>
-            | PlaceholderProps<unknown, boolean, GroupBase<unknown>>
+            | PlaceholderProps<unknown, boolean, GroupBase<unknown>>,
         ) => CSSObjectWithLabel)
       | undefined = () => ({
       color: SelectThemes[theme].color,
@@ -111,7 +111,7 @@ export const Select: React.FC<Select__Props> = memo(
           DropdownIndicatorRef.current!
         ) {
           (DropdownIndicatorRef.current! as HTMLElement).classList.remove(
-            styles.Select__svg__active
+            styles.Select__svg__active,
           );
         }
       };
@@ -126,7 +126,7 @@ export const Select: React.FC<Select__Props> = memo(
     // Событие при выборе селекта
     const SelectOnClick = (): void => {
       (DropdownIndicatorRef.current! as HTMLElement).classList.toggle(
-        styles.Select__svg__active
+        styles.Select__svg__active,
       );
     };
 
@@ -151,5 +151,6 @@ export const Select: React.FC<Select__Props> = memo(
         />
       </div>
     );
-  }
+  },
 );
+Select.displayName = "Select";

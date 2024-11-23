@@ -63,7 +63,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
                   key={category.title}
                   onClick={() =>
                     setSelectedCategory(
-                      category.title as keyof typeof blogFilterCategoryTitles
+                      category.title as keyof typeof blogFilterCategoryTitles,
                     )
                   }
                   className={`${styles.BlogFilter__category} ${selectedCategory == category.title ? styles.BlogFilter__category__active : ""}`}
@@ -84,7 +84,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
                   key={theme.title}
                   onClick={() =>
                     setSelectedCategory(
-                      theme.title as keyof typeof blogFilterThemesTitles
+                      theme.title as keyof typeof blogFilterThemesTitles,
                     )
                   }
                   className={`${styles.BlogFilter__subcategory} ${theme.title == selectedCategory ? styles.BlogFilter__category__active : ""}`}
@@ -103,7 +103,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
                   key={theme.title}
                   onClick={() =>
                     setSelectedCategory(
-                      theme.title as keyof typeof blogFilterTeleworks
+                      theme.title as keyof typeof blogFilterTeleworks,
                     )
                   }
                   className={`${styles.BlogFilter__subcategory} ${theme.title == selectedCategory ? styles.BlogFilter__category__active : ""}`}
@@ -168,7 +168,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
                   key={category.title}
                   onClick={() =>
                     setSelectedCategory(
-                      category.title as keyof typeof blogFilterCategoryTitles
+                      category.title as keyof typeof blogFilterCategoryTitles,
                     )
                   }
                   className={`${styles.BlogFilter__category} ${selectedCategory == category.title ? styles.BlogFilter__category__active : ""}`}
@@ -189,7 +189,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
                   key={theme.title}
                   onClick={() =>
                     setSelectedCategory(
-                      theme.title as keyof typeof blogFilterThemesTitles
+                      theme.title as keyof typeof blogFilterThemesTitles,
                     )
                   }
                   className={`${styles.BlogFilter__subcategory} ${theme.title == selectedCategory ? styles.BlogFilter__category__active : ""}`}
@@ -208,7 +208,7 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
                   key={theme.title}
                   onClick={() =>
                     setSelectedCategory(
-                      theme.title as keyof typeof blogFilterTeleworks
+                      theme.title as keyof typeof blogFilterTeleworks,
                     )
                   }
                   className={`${styles.BlogFilter__subcategory} ${theme.title == selectedCategory ? styles.BlogFilter__category__active : ""}`}
@@ -230,5 +230,6 @@ export const BlogFilter: React.FC<BlogFilterProps> = memo(
         )}
       </>
     );
-  }
+  },
 );
+BlogFilter.displayName = "BlogFilter";

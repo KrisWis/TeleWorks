@@ -21,3 +21,4 @@ export const OrderSecurityGuarantee: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+OrderSecurityGuarantee.displayName = "OrderSecurityGuarantee";

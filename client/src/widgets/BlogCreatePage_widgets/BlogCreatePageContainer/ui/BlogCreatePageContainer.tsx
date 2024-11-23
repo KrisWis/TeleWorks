@@ -42,15 +42,15 @@ import { BlogCreatePagePostTypes } from "./BlogCreatePagePostTypes/ui/BlogCreate
 export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
   // Стейты для инпутов и textarea, и загрузка данных из Local Storage
   const BlogCreatePageLI = UseBlogCreatePageLocalStorage(
-    UseLocalStorageTypes.GET
+    UseLocalStorageTypes.GET,
   );
 
   const [titleInputValue, setTitleInputValue] = useState<string>(
-    BlogCreatePageLI ? BlogCreatePageLI.title : ""
+    BlogCreatePageLI ? BlogCreatePageLI.title : "",
   );
 
   const [textareaValue, setTextareaValue] = useState<string>(
-    BlogCreatePageLI ? BlogCreatePageLI.textareaValue : ""
+    BlogCreatePageLI ? BlogCreatePageLI.textareaValue : "",
   );
 
   // Загрузка и отображение, загруженных пользователем, файлов:
@@ -62,7 +62,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
 
   // Ввод данных в теги и их загрузка данных из Local Storage
   const [SelectedTags, setSelectedTags] = useState<string[]>(
-    BlogCreatePageLI ? BlogCreatePageLI.tags : []
+    BlogCreatePageLI ? BlogCreatePageLI.tags : [],
   );
 
   // Перемещение на стадию "пост создан"
@@ -73,19 +73,19 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
 
   const isTitleIsValid = useMemo<boolean>(
     () => Boolean(titleInputValue),
-    [titleInputValue]
+    [titleInputValue],
   );
 
   const isTextareaIsValid = useMemo<boolean>(
     () => Boolean(textareaValue),
-    [textareaValue]
+    [textareaValue],
   );
 
   const onClickPublish = useCallback(() => {
     if (!isTitleIsValid || !isTextareaIsValid) {
       const BlogCreatePageContainer__blogCreatePagePostTypes =
         document.getElementById(
-          "BlogCreatePageContainer__blogCreatePagePostTypes"
+          "BlogCreatePageContainer__blogCreatePagePostTypes",
         );
 
       BlogCreatePageContainer__blogCreatePagePostTypes?.scrollIntoView({
@@ -115,7 +115,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
     UseDebounce((lsItem: useBlogCreatePageLocalStorageInterface) => {
       UseBlogCreatePageLocalStorage(UseLocalStorageTypes.UPDATE, lsItem);
     }, 1000),
-    []
+    [],
   );
 
   // Сохранение файлов в IndexedDB
@@ -125,7 +125,7 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
     () =>
       IndexedDBStores.find((store) => store.route == AppRoutes.BLOG_CREATE())!
         .name,
-    []
+    [],
   );
 
   return (
@@ -312,3 +312,4 @@ export const BlogCreatePageContainer: React.FC = memo((): React.JSX.Element => {
     </IndexedDBLoader>
   );
 });
+BlogCreatePageContainer.displayName = "BlogCreatePageContainer";

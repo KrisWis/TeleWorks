@@ -30,3 +30,4 @@ export const SupportService: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+SupportService.displayName = "SupportService";

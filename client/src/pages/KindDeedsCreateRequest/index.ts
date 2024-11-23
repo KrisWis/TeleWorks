@@ -5,6 +5,6 @@ export const KindDeedsCreateRequestPage: React.LazyExoticComponent<React.FC> =
     import("./ui/KindDeedsCreateRequestPage").then(
       ({ KindDeedsCreateRequestPage }) => ({
         default: KindDeedsCreateRequestPage,
-      })
-    )
+      }),
+    ),
   );

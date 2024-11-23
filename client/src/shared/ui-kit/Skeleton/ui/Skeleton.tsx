@@ -11,5 +11,6 @@ export const Skeleton: React.FC<SkeletonProps> = memo(
     };
 
     return <div className={`${cls.Skeleton} ${className}`} style={styles} />;
-  }
+  },
 );
+Skeleton.displayName = "Skeleton";

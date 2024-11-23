@@ -58,5 +58,6 @@ export const KindDeedsLetterOfKindness: React.FC = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+KindDeedsLetterOfKindness.displayName = "KindDeedsLetterOfKindness";

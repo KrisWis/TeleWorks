@@ -90,3 +90,4 @@ export const HeaderServicesDropdown: React.FC<
     </Dropdown>
   );
 });
+HeaderServicesDropdown.displayName = "HeaderServicesDropdown";

@@ -19,9 +19,9 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
       () =>
         telegramChannelStatsSubscribersAttractionOnHoursData.date.toLocaleDateString(
           "ru-RU",
-          { weekday: "short" }
+          { weekday: "short" },
         ),
-      []
+      [],
     );
 
     const dateMonth: string = useMemo(
@@ -29,7 +29,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
         telegramChannelStatsSubscribersAttractionOnHoursData.date
           .toLocaleDateString("ru-RU", { month: "short" })
           .slice(0, -1),
-      []
+      [],
     );
 
     const changesAmountData: number = useMemo(
@@ -38,14 +38,14 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
           (sum, item) =>
             sum +
             (item.changeType == "+" ? item.changesAmount : -item.changesAmount),
-          0
+          0,
         ),
-      []
+      [],
     );
 
     const changesAmountTypeData: TelegramChannelStatsChangeType = useMemo(
       () => (changesAmountData > 0 ? "+" : "-"),
-      [changesAmountData]
+      [changesAmountData],
     );
 
     return (
@@ -136,7 +136,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
                       {item.changesAmount}
                     </span>
                   </div>
-                )
+                ),
               )}
 
               <Flex
@@ -235,7 +235,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
                     >
                       {telegramChannelStatsSubscribersAttractionOnHoursData.items.reduce(
                         (sum, item) => sum + item.referencesAmount,
-                        0
+                        0,
                       )}
                     </span>
                   </Flex>
@@ -253,7 +253,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
                     >
                       {telegramChannelStatsSubscribersAttractionOnHoursData.items.reduce(
                         (sum, item) => sum + item.repostsAmount,
-                        0
+                        0,
                       )}
                     </span>
                   </Flex>
@@ -279,7 +279,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
                       key={item.hour + item.changesAmount}
                       item={item}
                     />
-                  )
+                  ),
                 )}
               </Flex>
             </Flex>
@@ -287,5 +287,7 @@ export const TelegramChannelStatsSubscribersAttraction: React.FC = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+TelegramChannelStatsSubscribersAttraction.displayName =
+  "TelegramChannelStatsSubscribersAttraction";

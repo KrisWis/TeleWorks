@@ -9,5 +9,6 @@ export const CustomItemBadge: React.FC<CustomItemBadgeProps> = memo(
         {firstTitle} <span>{secondTitle}</span>
       </span>
     );
-  }
+  },
 );
+CustomItemBadge.displayName = "CustomItemBadge";

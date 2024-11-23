@@ -1,13 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { TurnkeyWebsitesPage } from './TurnkeyWebsitesPage';
+import type { Meta, StoryObj } from "@storybook/react";
+import { TurnkeyWebsitesPage } from "./TurnkeyWebsitesPage";
 
 const meta = {
-  title: 'Pages/TurnkeyWebsitesPage',
+  title: "Pages/TurnkeyWebsitesPage",
   component: TurnkeyWebsitesPage,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-
 } satisfies Meta<typeof TurnkeyWebsitesPage>;
 
 export default meta;

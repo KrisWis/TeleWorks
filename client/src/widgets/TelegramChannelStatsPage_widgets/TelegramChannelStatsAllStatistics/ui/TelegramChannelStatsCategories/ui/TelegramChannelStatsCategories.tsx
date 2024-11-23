@@ -12,7 +12,7 @@ import {
 export const TelegramChannelStatsCategories: React.FC = memo(
   (): React.JSX.Element => {
     const { selectedCategoryIndex, setSelectedCategoryIndex } = useContext(
-      TelegramChannelStatsPageContext
+      TelegramChannelStatsPageContext,
     );
 
     return (
@@ -53,7 +53,7 @@ export const TelegramChannelStatsCategories: React.FC = memo(
             SliderPrevArrowID="TelegramChannelStatsCategories__sliderPrevArrow"
             SliderNextArrowID="TelegramChannelStatsCategories__sliderNextArrow"
             categories={telegramChannelStatsCategories.map(
-              (category) => category.title
+              (category) => category.title,
             )}
             activeCategoryIndex={selectedCategoryIndex}
             setActiveCategoryIndex={setSelectedCategoryIndex}
@@ -61,5 +61,6 @@ export const TelegramChannelStatsCategories: React.FC = memo(
         )}
       </Flex>
     );
-  }
+  },
 );
+TelegramChannelStatsCategories.displayName = "TelegramChannelStatsCategories";

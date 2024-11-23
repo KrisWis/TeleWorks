@@ -78,5 +78,6 @@ export const UserPortfolio: React.FC<UserPortfolioProps> = memo(
         />
       </section>
     );
-  }
+  },
 );
+UserPortfolio.displayName = "UserPortfolio";

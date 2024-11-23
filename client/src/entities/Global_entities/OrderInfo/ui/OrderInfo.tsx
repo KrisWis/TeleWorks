@@ -90,5 +90,6 @@ export const OrderInfo: React.FC<OrderInfoProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+OrderInfo.displayName = "OrderInfo";

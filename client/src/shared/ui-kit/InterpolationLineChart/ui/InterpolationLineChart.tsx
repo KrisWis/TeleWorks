@@ -22,7 +22,7 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
 
     // Выбор категорий
     const [chartCategory, setChartCategory] = useState<string>(
-      charts[chartsKeys[InterpolationLineChartSwitcherChoiceIndex]][0].category
+      charts[chartsKeys[InterpolationLineChartSwitcherChoiceIndex]][0].category,
     );
 
     const chartCategoryIndex: number = charts[
@@ -31,7 +31,7 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
 
     // Добавление градиента и нужная стилизация
     const chartGradient = useRef<CanvasGradient | "var(--white-color)">(
-      "var(--white-color)"
+      "var(--white-color)",
     );
 
     const [chartData, setChartData] = useState<ChartData<"line">>({
@@ -46,7 +46,7 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
     useEffect(() => {
       if (!gradientIsAdded) {
         const ctx = document.getElementById(
-          "InterpolationLineChartCanvas"
+          "InterpolationLineChartCanvas",
         ) as HTMLCanvasElement;
 
         if (ctx) {
@@ -148,7 +148,7 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
                     {chart.category}
                   </span>
                 </div>
-              )
+              ),
             )}
           </Flex>
 
@@ -232,3 +232,4 @@ export const InterpolationLineChart: React.FC<InterpolationLineChartProps> =
       </div>
     );
   });
+InterpolationLineChart.displayName = "InterpolationLineChart";

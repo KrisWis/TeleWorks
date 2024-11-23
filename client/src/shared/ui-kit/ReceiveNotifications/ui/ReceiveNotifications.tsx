@@ -41,3 +41,4 @@ export const ReceiveNotifications: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+ReceiveNotifications.displayName = "ReceiveNotifications";

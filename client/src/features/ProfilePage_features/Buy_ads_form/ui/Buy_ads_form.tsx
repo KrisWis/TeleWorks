@@ -95,3 +95,4 @@ export const Buy_ads_form: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+Buy_ads_form.displayName = "Buy_ads_form";

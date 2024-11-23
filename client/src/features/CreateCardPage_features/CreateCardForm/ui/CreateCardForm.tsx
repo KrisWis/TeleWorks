@@ -48,7 +48,7 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
       useState<boolean>(false);
 
     const [SelectTypeValue, setSelectTypeValue] = useState<Select_Option>(
-      CreateCardFormType__selectedOptions[0]
+      CreateCardFormType__selectedOptions[0],
     );
 
     const IsLegalEntity = useMemo<boolean>(() => {
@@ -59,8 +59,8 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
       if (setActiveSlide)
         setActiveSlide(
           CreateCardFormType__selectedOptions.findIndex(
-            (item) => item.value == SelectTypeValue.value
-          )
+            (item) => item.value == SelectTypeValue.value,
+          ),
         );
     }, [SelectTypeValue, setActiveSlide]);
 
@@ -234,5 +234,6 @@ export const CreateCardForm: React.FC<CreateCardFormProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+CreateCardForm.displayName = "CreateCardForm";

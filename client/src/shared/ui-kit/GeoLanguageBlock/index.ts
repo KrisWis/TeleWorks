@@ -1,1 +1,1 @@
-export * from './ui/GeoLanguageBlock';
+export * from "./ui/GeoLanguageBlock";

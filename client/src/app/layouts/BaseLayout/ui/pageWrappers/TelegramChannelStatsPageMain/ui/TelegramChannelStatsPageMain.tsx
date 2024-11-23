@@ -36,5 +36,6 @@ export const TelegramChannelStatsPageMain: React.FC = memo(
         </main>
       </TelegramChannelStatsPageContext.Provider>
     );
-  }
+  },
 );
+TelegramChannelStatsPageMain.displayName = "TelegramChannelStatsPageMain";

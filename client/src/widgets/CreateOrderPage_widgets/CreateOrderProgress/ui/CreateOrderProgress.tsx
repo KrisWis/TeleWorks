@@ -5,7 +5,7 @@ import { CreateOrderPageContext } from "@/app/layouts/BaseLayout/ui/pageWrappers
 
 export const CreateOrderProgress: React.FC = memo((): React.JSX.Element => {
   const { CreateOrderCompletedSteps, CreateOrderActiveStep } = useContext(
-    CreateOrderPageContext
+    CreateOrderPageContext,
   );
 
   return (
@@ -27,3 +27,4 @@ export const CreateOrderProgress: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+CreateOrderProgress.displayName = "CreateOrderProgress";

@@ -3,7 +3,7 @@ import { ProjectInfoPackNames } from "@/shared/const/project";
 
 export const geteditionsAmounts = (
   state: CheckoutOrderSchema,
-  packType: ProjectInfoPackNames
+  packType: ProjectInfoPackNames,
 ): number => {
   if (state) {
     return state.packs[packType].editionsAmounts;
@@ -15,7 +15,7 @@ export const geteditionsAmounts = (
 export const getExtraServiceAmount = (
   state: CheckoutOrderSchema,
   packType: ProjectInfoPackNames,
-  extraServiceTitle: string
+  extraServiceTitle: string,
 ): number => {
   if (state) {
     const extraServices = state.packs[packType].extraServices;

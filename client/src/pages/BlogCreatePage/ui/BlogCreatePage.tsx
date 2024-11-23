@@ -12,3 +12,4 @@ export const BlogCreatePage: React.FC = memo((): React.JSX.Element => {
 
   return <BlogCreatePageMain />;
 });
+BlogCreatePage.displayName = "BlogCreatePage";

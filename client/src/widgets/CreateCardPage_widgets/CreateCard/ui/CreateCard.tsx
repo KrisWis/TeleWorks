@@ -23,3 +23,4 @@ export const CreateCard: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+CreateCard.displayName = "CreateCard";

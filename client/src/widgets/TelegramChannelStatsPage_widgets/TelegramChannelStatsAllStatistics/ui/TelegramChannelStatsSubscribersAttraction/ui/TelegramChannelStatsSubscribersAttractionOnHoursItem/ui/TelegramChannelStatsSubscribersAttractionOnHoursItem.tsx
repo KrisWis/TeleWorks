@@ -110,3 +110,5 @@ export const TelegramChannelStatsSubscribersAttractionOnHoursItem: React.FC<Tele
       </Flex>
     );
   });
+TelegramChannelStatsSubscribersAttractionOnHoursItem.displayName =
+  "TelegramChannelStatsSubscribersAttractionOnHoursItem";

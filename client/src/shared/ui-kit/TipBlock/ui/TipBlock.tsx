@@ -22,5 +22,6 @@ export const TipBlock: React.FC<TipBlockProps> = memo(
         </Flex>
       </Flex>
     );
-  }
+  },
 );
+TipBlock.displayName = "TipBlock";

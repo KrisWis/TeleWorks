@@ -23,14 +23,14 @@ export const CartRecommendedChannels: React.FC = memo((): React.JSX.Element => {
 
   const dispatch = useAppDispatch();
   const allChannelsIdsInCartFromLS = UseMoveToOpenChannelCartLocalStorage(
-    UseLocalStorageTypes.GET
+    UseLocalStorageTypes.GET,
   );
 
   const allChannelsIdsInCartFromLSTimeoutRef = useRef<NodeJS.Timeout>();
 
   const allChannelsIDsInCart = useAppSelector(
     (state) => getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
-    shallowEqual
+    shallowEqual,
   );
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const CartRecommendedChannels: React.FC = memo((): React.JSX.Element => {
         dispatch(
           MoveToOpenChannelCartActions.setChannelsForCart({
             channelsIDs: allChannelsIdsInCartFromLS,
-          })
+          }),
         );
 
         clearTimeout(allChannelsIdsInCartFromLSTimeoutRef.current);
@@ -93,3 +93,4 @@ export const CartRecommendedChannels: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+CartRecommendedChannels.displayName = "CartRecommendedChannels";

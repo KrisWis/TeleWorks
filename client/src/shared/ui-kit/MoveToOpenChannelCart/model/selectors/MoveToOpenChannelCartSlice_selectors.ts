@@ -1,7 +1,7 @@
 import { MoveToOpenChannelCartSchema } from "@/shared/types/schemas";
 
 export const getAllChannelsInCart = (
-  state: MoveToOpenChannelCartSchema
+  state: MoveToOpenChannelCartSchema,
 ): number[] => {
   if (state) {
     return state.channelsIDs;
@@ -12,7 +12,7 @@ export const getAllChannelsInCart = (
 
 export const checkChannelInCart = (
   state: MoveToOpenChannelCartSchema,
-  id: number
+  id: number,
 ): boolean => {
   if (state) {
     return Boolean(state.channelsIDs.find((channelID) => channelID == id));

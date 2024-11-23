@@ -38,3 +38,4 @@ export const UserEditTabs: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+UserEditTabs.displayName = "UserEditTabs";

@@ -23,5 +23,6 @@ export const Buy_placement__item: React.FC<Buy_placement__itemProps> = memo(
         </span>
       </div>
     );
-  }
+  },
 );
+Buy_placement__item.displayName = "Buy_placement__item";

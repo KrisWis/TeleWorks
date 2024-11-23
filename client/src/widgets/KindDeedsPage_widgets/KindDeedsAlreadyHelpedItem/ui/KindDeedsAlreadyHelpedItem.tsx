@@ -60,3 +60,4 @@ export const KindDeedsAlreadyHelpedItem: React.FC<KindDeedsAlreadyHelpedItemProp
       </Flex>
     );
   });
+KindDeedsAlreadyHelpedItem.displayName = "KindDeedsAlreadyHelpedItem";

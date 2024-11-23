@@ -101,5 +101,6 @@ export const LoadImageBlockWithoutLoading: React.FC<LoadImageBlockWithoutLoading
           </div>
         </Flex>
       );
-    }
+    },
   );
+LoadImageBlockWithoutLoading.displayName = "LoadImageBlockWithoutLoading";

@@ -12,3 +12,4 @@ export const BlogPostPage: React.FC = memo((): React.JSX.Element => {
 
   return <BlogOpenPostPageContainer />;
 });
+BlogPostPage.displayName = "BlogPostPage";

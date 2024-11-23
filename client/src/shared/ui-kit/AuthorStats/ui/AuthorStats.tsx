@@ -64,5 +64,6 @@ export const AuthorStats: React.FC<AuthorStatsProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+AuthorStats.displayName = "AuthorStats";

@@ -12,5 +12,6 @@ export const TelegramChannelStatsPage: React.FC = memo(
     }, []);
 
     return <TelegramChannelStatsPageMain />;
-  }
+  },
 );
+TelegramChannelStatsPage.displayName = "TelegramChannelStatsPage";

@@ -12,3 +12,4 @@ export const CreateOrderPage: React.FC = memo((): React.JSX.Element => {
 
   return <CreateOrderContainer />;
 });
+CreateOrderPage.displayName = "CreateOrderPage";

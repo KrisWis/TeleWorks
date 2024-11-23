@@ -98,3 +98,5 @@ export const TelegramChannelStatsSubscribersAttractionReferenceChannel: React.FC
       </>
     );
   });
+TelegramChannelStatsSubscribersAttractionReferenceChannel.displayName =
+  "TelegramChannelStatsSubscribersAttractionReferenceChannel";

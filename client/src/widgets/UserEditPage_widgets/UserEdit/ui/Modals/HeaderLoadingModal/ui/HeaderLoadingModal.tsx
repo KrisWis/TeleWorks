@@ -82,5 +82,6 @@ export const HeaderLoadingModal: React.FC<HeaderLoadingModalProps> = memo(
         </Flex>
       </Flex>
     );
-  }
+  },
 );
+HeaderLoadingModal.displayName = "HeaderLoadingModal";

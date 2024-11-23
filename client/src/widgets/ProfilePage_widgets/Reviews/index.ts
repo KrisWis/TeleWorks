@@ -5,5 +5,5 @@ export const Reviews: React.LazyExoticComponent<React.FC<ReviewsProps>> = lazy(
   () =>
     import("./ui/Reviews").then(({ Reviews }) => ({
       default: Reviews,
-    }))
+    })),
 );

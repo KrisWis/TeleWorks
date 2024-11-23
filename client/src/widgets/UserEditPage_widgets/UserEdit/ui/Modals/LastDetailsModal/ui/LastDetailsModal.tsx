@@ -103,7 +103,7 @@ export const LastDetailsModal: React.FC = memo((): React.JSX.Element => {
       const ProjectIsPublishedTimeout = setTimeout(() => {
         closeModal(
           setProjectIsPublishedModalAppear,
-          setProjectIsPublishedModalIsOpen
+          setProjectIsPublishedModalIsOpen,
         );
 
         clearTimeout(ProjectIsPublishedTimeout);
@@ -220,3 +220,4 @@ export const LastDetailsModal: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+LastDetailsModal.displayName = "LastDetailsModal";

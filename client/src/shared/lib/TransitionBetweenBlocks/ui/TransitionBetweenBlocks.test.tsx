@@ -34,21 +34,21 @@ describe("TransitionBetweenBlocks", () => {
     };
 
     const { getByTestId, queryByTestId } = renderWithRouter(
-      <TransitionBetweenBlocksComponent />
+      <TransitionBetweenBlocksComponent />,
     );
 
     expect(
-      getByTestId("TransitionBetweenBlocks.VisibleBlock")
+      getByTestId("TransitionBetweenBlocks.VisibleBlock"),
     ).toBeInTheDocument();
 
     setTimeout(async () => {
       await waitFor(() => {
         expect(
-          queryByTestId("TransitionBetweenBlocks.PastVisibleBlock")
+          queryByTestId("TransitionBetweenBlocks.PastVisibleBlock"),
         ).toBeInTheDocument();
 
         expect(
-          queryByTestId("TransitionBetweenBlocks.VisibleBlock")
+          queryByTestId("TransitionBetweenBlocks.VisibleBlock"),
         ).toBeInTheDocument();
       });
     }, 100);

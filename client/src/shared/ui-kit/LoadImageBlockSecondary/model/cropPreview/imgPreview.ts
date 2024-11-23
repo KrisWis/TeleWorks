@@ -13,7 +13,7 @@ export async function imgPreview(
   image: HTMLImageElement,
   crop: PixelCrop,
   scale = 1,
-  rotate = 0
+  rotate = 0,
 ) {
   const canvas = document.createElement("canvas");
   canvasPreview(image, canvas, crop, scale, rotate);

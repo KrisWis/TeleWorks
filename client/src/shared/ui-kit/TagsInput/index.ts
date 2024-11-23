@@ -1,1 +1,1 @@
-export * from './ui/TagsInput';
+export * from "./ui/TagsInput";

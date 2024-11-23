@@ -48,5 +48,6 @@ export const ReviewsPanel: React.FC<ReviewsPanelProps> = memo(
         </div>
       </section>
     );
-  }
+  },
 );
+ReviewsPanel.displayName = "ReviewsPanel";

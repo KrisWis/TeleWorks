@@ -342,3 +342,4 @@ export const OpenAdvantages: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+OpenAdvantages.displayName = "OpenAdvantages";

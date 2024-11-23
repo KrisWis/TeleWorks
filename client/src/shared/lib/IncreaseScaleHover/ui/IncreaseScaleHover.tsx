@@ -12,5 +12,6 @@ export const IncreaseScaleHover: React.FC<IncreaseScaleHoverProps> = memo(
         {children}
       </div>
     );
-  }
+  },
 );
+IncreaseScaleHover.displayName = "IncreaseScaleHover";

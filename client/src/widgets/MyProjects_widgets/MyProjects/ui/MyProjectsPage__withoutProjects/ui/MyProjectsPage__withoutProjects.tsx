@@ -36,5 +36,6 @@ export const MyProjectsPage__withoutProjects: React.FC = memo(
         />
       </div>
     );
-  }
+  },
 );
+MyProjectsPage__withoutProjects.displayName = "MyProjectsPage__withoutProjects";

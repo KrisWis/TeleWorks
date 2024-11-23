@@ -46,5 +46,6 @@ export const ModalTemplate: React.FC<ModalTemplateProps> = memo(
         <div className={styles.ModalTemplate__wrapper}>{children}</div>
       </div>
     );
-  }
+  },
 );
+ModalTemplate.displayName = "ModalTemplate";

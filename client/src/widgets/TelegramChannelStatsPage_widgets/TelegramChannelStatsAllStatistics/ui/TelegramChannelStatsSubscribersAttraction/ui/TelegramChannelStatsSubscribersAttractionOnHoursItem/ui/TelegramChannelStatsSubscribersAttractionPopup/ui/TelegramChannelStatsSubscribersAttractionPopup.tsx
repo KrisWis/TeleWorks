@@ -270,3 +270,5 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
       </Flex>
     );
   });
+TelegramChannelStatsSubscribersAttractionPopup.displayName =
+  "TelegramChannelStatsSubscribersAttractionPopup";

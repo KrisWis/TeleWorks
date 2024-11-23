@@ -29,5 +29,6 @@ export const CatalogCartPageContainer: React.FC = memo(
         </div>
       </DynamicModuleLoader>
     );
-  }
+  },
 );
+CatalogCartPageContainer.displayName = "CatalogCartPageContainer";

@@ -20,35 +20,35 @@ export const MoveToOpenChannelCartSlice = buildSlice({
   reducers: {
     setChannelsForCart: (
       state: MoveToOpenChannelCartSchema,
-      action: setChannelsForCartAction
+      action: setChannelsForCartAction,
     ) => {
       state.channelsIDs = action.payload.channelsIDs;
     },
 
     addChannelToCart: (
       state: MoveToOpenChannelCartSchema,
-      action: addChannelToCartAction
+      action: addChannelToCartAction,
     ) => {
       state.channelsIDs.push(action.payload.channelID);
 
       UseMoveToOpenChannelCartLocalStorage(
         UseLocalStorageTypes.UPDATE,
-        state.channelsIDs.map((channelID) => channelID)
+        state.channelsIDs.map((channelID) => channelID),
       );
     },
 
     removeChannelFromCart: (
       state: MoveToOpenChannelCartSchema,
-      action: removeChannelToCartAction
+      action: removeChannelToCartAction,
     ) => {
       state.channelsIDs.splice(
         state.channelsIDs.findIndex((item) => item == action.payload.channelID),
-        1
+        1,
       );
 
       UseMoveToOpenChannelCartLocalStorage(
         UseLocalStorageTypes.UPDATE,
-        state.channelsIDs.map((channelID) => channelID)
+        state.channelsIDs.map((channelID) => channelID),
       );
     },
   },

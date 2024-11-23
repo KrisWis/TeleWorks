@@ -1,1 +1,1 @@
-export * from './ui/AgeBlock';
+export * from "./ui/AgeBlock";

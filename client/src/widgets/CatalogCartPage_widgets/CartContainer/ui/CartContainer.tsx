@@ -43,7 +43,7 @@ export const CartContainer: React.FC<CartContainerProps> = memo(
         dispatch(
           CatalogCartSliceActions.setItems({
             items: cartItems.map((item) => ({ id: item.id, amount: 1 })),
-          })
+          }),
         );
 
         clearTimeout(dispatchTimeout);
@@ -118,5 +118,6 @@ export const CartContainer: React.FC<CartContainerProps> = memo(
         </Flex>
       </Flex>
     );
-  }
+  },
 );
+CartContainer.displayName = "CartContainer";

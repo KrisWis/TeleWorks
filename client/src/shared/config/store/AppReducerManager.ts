@@ -18,7 +18,7 @@ export interface ReducerManager {
 }
 
 export function createReducerManager(
-  initialReducers: ReducersMapObject<StoreSchema>
+  initialReducers: ReducersMapObject<StoreSchema>,
 ): ReducerManager {
   const reducers = { ...initialReducers };
 

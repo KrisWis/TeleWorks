@@ -27,3 +27,4 @@ export const FAQPageContainer: React.FC = memo((): React.JSX.Element => {
     </FAQPageContext.Provider>
   );
 });
+FAQPageContainer.displayName = "FAQPageContainer";

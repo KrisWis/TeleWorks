@@ -63,5 +63,6 @@ export const BlogPopularPosts: React.FC<BlogPopularPostsProps> = memo(
         </div>
       </Flex>
     );
-  }
+  },
 );
+BlogPopularPosts.displayName = "BlogPopularPosts";

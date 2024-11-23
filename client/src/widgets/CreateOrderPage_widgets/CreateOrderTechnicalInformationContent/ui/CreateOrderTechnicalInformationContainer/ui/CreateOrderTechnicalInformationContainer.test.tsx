@@ -9,13 +9,13 @@ const mockFileName2: string = "test2.png";
 describe("Widgets/CreateOrderTechnicalInformationContainer", () => {
   test("User can upload a file", async () => {
     const { getByTestId } = renderWithRouter(
-      <CreateOrderTechnicalInformationContainer />
+      <CreateOrderTechnicalInformationContainer />,
     );
 
     const file = new File(["hello"], mockFileName, { type: "image/png" });
 
     const fileInput = getByTestId(
-      "CreateOrderTechnicalInformationContainer.AttachFilesInput"
+      "CreateOrderTechnicalInformationContainer.AttachFilesInput",
     ) as HTMLInputElement;
     expect(fileInput).toBeInTheDocument();
 
@@ -23,20 +23,20 @@ describe("Widgets/CreateOrderTechnicalInformationContainer", () => {
 
     await waitFor(() => {
       expect(
-        getByTestId(`AttachFileContainerFile.${mockFileName}`)
+        getByTestId(`AttachFileContainerFile.${mockFileName}`),
       ).toBeInTheDocument();
     });
   });
 
   test("User can upload a file and delete file", async () => {
     const { getByTestId, queryByTestId } = renderWithRouter(
-      <CreateOrderTechnicalInformationContainer />
+      <CreateOrderTechnicalInformationContainer />,
     );
 
     const file = new File(["hello"], mockFileName, { type: "image/png" });
 
     const fileInput = getByTestId(
-      "CreateOrderTechnicalInformationContainer.AttachFilesInput"
+      "CreateOrderTechnicalInformationContainer.AttachFilesInput",
     ) as HTMLInputElement;
     expect(fileInput).toBeInTheDocument();
 
@@ -44,18 +44,18 @@ describe("Widgets/CreateOrderTechnicalInformationContainer", () => {
 
     await waitFor(() => {
       expect(
-        getByTestId(`AttachFileContainerFile.${mockFileName}`)
+        getByTestId(`AttachFileContainerFile.${mockFileName}`),
       ).toBeInTheDocument();
     });
 
     const deleteFileButton = getByTestId(
-      `AttachFileContainerFile.${mockFileName}.Delete`
+      `AttachFileContainerFile.${mockFileName}.Delete`,
     );
 
     await userEvent.click(deleteFileButton);
 
     const fileComponent = queryByTestId(
-      `AttachFileContainerFile.${mockFileName}`
+      `AttachFileContainerFile.${mockFileName}`,
     );
 
     expect(fileComponent).not.toBeInTheDocument();
@@ -63,13 +63,13 @@ describe("Widgets/CreateOrderTechnicalInformationContainer", () => {
 
   test("User can upload a file and change file", async () => {
     const { getByTestId, queryByTestId } = renderWithRouter(
-      <CreateOrderTechnicalInformationContainer />
+      <CreateOrderTechnicalInformationContainer />,
     );
 
     const file = new File(["hello"], mockFileName, { type: "image/png" });
 
     const fileInput = getByTestId(
-      "CreateOrderTechnicalInformationContainer.AttachFilesInput"
+      "CreateOrderTechnicalInformationContainer.AttachFilesInput",
     ) as HTMLInputElement;
     expect(fileInput).toBeInTheDocument();
 
@@ -77,12 +77,12 @@ describe("Widgets/CreateOrderTechnicalInformationContainer", () => {
 
     await waitFor(() => {
       expect(
-        getByTestId(`AttachFileContainerFile.${mockFileName}`)
+        getByTestId(`AttachFileContainerFile.${mockFileName}`),
       ).toBeInTheDocument();
     });
 
     const changeFileInput = getByTestId(
-      `AttachFileContainerFile.${mockFileName}.Change`
+      `AttachFileContainerFile.${mockFileName}.Change`,
     );
 
     const file2 = new File(["hello"], mockFileName2, {
@@ -93,11 +93,11 @@ describe("Widgets/CreateOrderTechnicalInformationContainer", () => {
 
     await waitFor(() => {
       expect(
-        getByTestId(`AttachFileContainerFile.${mockFileName2}`)
+        getByTestId(`AttachFileContainerFile.${mockFileName2}`),
       ).toBeInTheDocument();
 
       expect(
-        queryByTestId(`AttachFileContainerFile.${mockFileName}`)
+        queryByTestId(`AttachFileContainerFile.${mockFileName}`),
       ).not.toBeInTheDocument();
     });
   });

@@ -46,3 +46,4 @@ export const KindDeedsMainSection: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+KindDeedsMainSection.displayName = "KindDeedsMainSection";

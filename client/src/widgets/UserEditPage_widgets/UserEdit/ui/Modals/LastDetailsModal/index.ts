@@ -1,1 +1,1 @@
-export * from './ui/LastDetailsModal';
+export * from "./ui/LastDetailsModal";

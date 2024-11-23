@@ -51,7 +51,7 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
             ) {
               const croppedFinalImage = await imgPreview(
                 imgRef.current,
-                completedCrop
+                completedCrop,
               );
               setCroppedImage(croppedFinalImage);
               setLoadedImage(croppedFinalImage);
@@ -59,7 +59,7 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
             }
           }
         },
-        [completedCrop, crop, setLoadedImage]
+        [completedCrop, crop, setLoadedImage],
       );
 
       // Привязка событий
@@ -95,12 +95,12 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
         <DragDropWrapper
           OnDragEnter={() =>
             LoadImageBlockSecondaryWrapperRef.current?.classList.add(
-              styles.LoadImageBlockSecondary__wrapper__active
+              styles.LoadImageBlockSecondary__wrapper__active,
             )
           }
           OnDragLeave={() =>
             LoadImageBlockSecondaryWrapperRef.current?.classList.remove(
-              styles.LoadImageBlockSecondary__wrapper__active
+              styles.LoadImageBlockSecondary__wrapper__active,
             )
           }
           setLoadedImage={setLoadedImage}
@@ -291,18 +291,19 @@ export const LoadImageBlockSecondary: React.FC<LoadImageBlockSecondaryProps> =
             onMouseEnter={() =>
               LoadedImage.startsWith("data:image") &&
               LoadImageBlockSecondaryWrapperRef.current?.classList.add(
-                styles.LoadImageBlockSecondary__wrapper__active
+                styles.LoadImageBlockSecondary__wrapper__active,
               )
             }
             onMouseLeave={() => {
               LoadedImage.startsWith("data:image") &&
                 LoadImageBlockSecondaryWrapperRef.current?.classList.remove(
-                  styles.LoadImageBlockSecondary__wrapper__active
+                  styles.LoadImageBlockSecondary__wrapper__active,
                 );
             }}
             ref={loadImageBlockInputRef}
           />
         </DragDropWrapper>
       );
-    }
+    },
   );
+LoadImageBlockSecondary.displayName = "LoadImageBlockSecondary";

@@ -49,3 +49,4 @@ export const BlogPostIsCreated: React.FC = memo((): React.JSX.Element => {
     </>
   );
 });
+BlogPostIsCreated.displayName = "BlogPostIsCreated";

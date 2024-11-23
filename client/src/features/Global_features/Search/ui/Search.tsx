@@ -20,5 +20,6 @@ export const Search: React.FC<SearchProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+Search.displayName = "Search";

@@ -104,5 +104,6 @@ export const KindDeedsSlider: React.FC<KindDeedsSliderProps> = memo(
         </Flex>
       </Flex>
     );
-  }
+  },
 );
+KindDeedsSlider.displayName = "KindDeedsSlider";

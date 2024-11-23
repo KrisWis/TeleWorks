@@ -18,3 +18,4 @@ export const CreateCardPage: React.FC = memo((): React.JSX.Element => {
     </main>
   );
 });
+CreateCardPage.displayName = "CreateCardPage";

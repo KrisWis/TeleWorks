@@ -61,3 +61,4 @@ export const ProfilePage: React.FC = (): React.JSX.Element => {
     </main>
   );
 };
+ProfilePage.displayName = "ProfilePage";

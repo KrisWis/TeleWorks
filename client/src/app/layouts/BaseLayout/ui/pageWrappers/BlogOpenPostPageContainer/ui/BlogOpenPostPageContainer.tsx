@@ -27,7 +27,7 @@ export const BlogOpenPostPageContainer: React.FC = memo(
     // Создание стейта для контекста, фильтра и отвечаемого комментария
     const [blogFilterSelectedCategory, setBlogFilterSelectedCategory] =
       useState<BlogFilterAllCategories>(
-        blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles
+        blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles,
       );
 
     // Получение id страницы
@@ -91,5 +91,6 @@ export const BlogOpenPostPageContainer: React.FC = memo(
         </main>
       </BlogPostPageContext.Provider>
     );
-  }
+  },
 );
+BlogOpenPostPageContainer.displayName = "BlogOpenPostPageContainer";

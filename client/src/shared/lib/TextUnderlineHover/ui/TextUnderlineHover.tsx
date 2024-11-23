@@ -12,5 +12,6 @@ export const TextUnderlineHover: React.FC<TextUnderlineHoverProps> = memo(
         {children}
       </div>
     );
-  }
+  },
 );
+TextUnderlineHover.displayName = "TextUnderlineHover";

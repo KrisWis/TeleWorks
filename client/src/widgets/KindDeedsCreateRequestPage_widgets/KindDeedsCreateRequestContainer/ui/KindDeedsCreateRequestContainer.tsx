@@ -34,28 +34,30 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
   memo(({ setRequestIsCreated }): React.JSX.Element => {
     // Все нужные стейты и получение данных из localStorage
     const KindDeedsCreateRequestLI = UseKindDeedsCreateRequestLocalStorage(
-      UseLocalStorageTypes.GET
+      UseLocalStorageTypes.GET,
     );
 
     const [surnameInputValue, setSurnameInputValue] = useState<string>(
-      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.surnameInputValue : ""
+      KindDeedsCreateRequestLI
+        ? KindDeedsCreateRequestLI.surnameInputValue
+        : "",
     );
 
     const [nameInputValue, setNameInputValue] = useState<string>(
-      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.nameInputValue : ""
+      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.nameInputValue : "",
     );
 
     const [patronymicInputValue, setPatronymicInputValue] = useState<string>(
       KindDeedsCreateRequestLI
         ? KindDeedsCreateRequestLI.patronymicInputValue
-        : ""
+        : "",
     );
 
     const [organizationInputValue, setOrganizationInputValue] =
       useState<string>(
         KindDeedsCreateRequestLI
           ? KindDeedsCreateRequestLI.organizationInputValue
-          : ""
+          : "",
       );
 
     const [requestSumInputValue, setRequestSumInputValue] = useState<
@@ -63,11 +65,13 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
     >(
       KindDeedsCreateRequestLI
         ? KindDeedsCreateRequestLI.requestSumInputValue
-        : ""
+        : "",
     );
 
     const [goalTextareaValue, setGoalTextareaValue] = useState<string>(
-      KindDeedsCreateRequestLI ? KindDeedsCreateRequestLI.goalTextareaValue : ""
+      KindDeedsCreateRequestLI
+        ? KindDeedsCreateRequestLI.goalTextareaValue
+        : "",
     );
 
     const [loadedDocuments, setLoadedDocuments] = useState<LoadedFile[]>([]);
@@ -84,10 +88,10 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
       UseDebounce((lsItem: KindDeedsCreateRequestLocalStorageInterface) => {
         UseKindDeedsCreateRequestLocalStorage(
           UseLocalStorageTypes.UPDATE,
-          lsItem
+          lsItem,
         );
       }, 1000),
-      []
+      [],
     );
 
     // Сохранение файлов в IndexedDB
@@ -96,9 +100,9 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
     const indexedDBStoreName: string = useMemo(
       () =>
         IndexedDBStores.find(
-          (store) => store.route == AppRoutes.KIND_DEEDS_CREATE_REQUEST()
+          (store) => store.route == AppRoutes.KIND_DEEDS_CREATE_REQUEST(),
         )!.name,
-      []
+      [],
     );
 
     // Нажатие на кнопку "Создать запрос"
@@ -413,3 +417,4 @@ export const KindDeedsCreateRequestContainer: React.FC<KindDeedsCreateRequestCon
       </IndexedDBLoader>
     );
   });
+KindDeedsCreateRequestContainer.displayName = "KindDeedsCreateRequestContainer";

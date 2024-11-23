@@ -33,5 +33,6 @@ export const PortfolioCase: React.FC<PortfolioCaseProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+PortfolioCase.displayName = "PortfolioCase";

@@ -20,3 +20,4 @@ export const BlogDiscussedPosts: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+BlogDiscussedPosts.displayName = "BlogDiscussedPosts";

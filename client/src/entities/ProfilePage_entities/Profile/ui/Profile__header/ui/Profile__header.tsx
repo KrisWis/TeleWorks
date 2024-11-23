@@ -62,3 +62,4 @@ export const Profile__header: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+Profile__header.displayName = "Profile__header";

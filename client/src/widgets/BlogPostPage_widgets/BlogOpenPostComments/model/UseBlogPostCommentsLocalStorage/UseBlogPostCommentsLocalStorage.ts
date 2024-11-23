@@ -14,6 +14,6 @@ export const UseBlogPostCommentsLocalStorage: UseLocalStorageCustomSecondary<
   return UseLocalStorage(
     type,
     (LocalStorageKeys.BLOG_CREATE + id) as LocalStorageKeys,
-    value
+    value,
   );
 };

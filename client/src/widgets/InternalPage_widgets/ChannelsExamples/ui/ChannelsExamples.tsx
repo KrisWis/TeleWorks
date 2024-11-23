@@ -22,3 +22,4 @@ export const ChannelsExamples: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+ChannelsExamples.displayName = "ChannelsExamples";

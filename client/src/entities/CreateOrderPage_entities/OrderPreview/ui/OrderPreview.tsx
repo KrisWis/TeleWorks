@@ -85,5 +85,6 @@ export const OrderPreview: React.FC<OrderPreviewProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+OrderPreview.displayName = "OrderPreview";

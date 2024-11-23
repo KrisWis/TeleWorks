@@ -7,6 +7,8 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "prettier",
     "plugin:storybook/recommended",
+    "prettier",
+    "plugin:react/recommended",
   ],
   ignorePatterns: ["/*", "!/src"],
   parser: "@typescript-eslint/parser",
@@ -18,6 +20,9 @@ module.exports = {
     ],
     "react-hooks/rules-of-hooks": "error",
     "teleworks/path-checker": ["error", { alias: "@" }],
+    "react/jsx-max-props-per-line": ["error", { maximum: 4 }],
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
     "teleworks/public-api-imports": [
       "error",
       {
@@ -38,5 +43,11 @@ module.exports = {
         alias: "@",
       },
     ],
+  },
+
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
 };

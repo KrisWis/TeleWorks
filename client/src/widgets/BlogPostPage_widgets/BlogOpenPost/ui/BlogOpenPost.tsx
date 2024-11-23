@@ -194,5 +194,6 @@ export const BlogOpenPost: React.FC<BlogOpenPostProps> = memo(
         </Flex>
       </Flex>
     );
-  }
+  },
 );
+BlogOpenPost.displayName = "BlogOpenPost";

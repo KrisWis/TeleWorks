@@ -56,5 +56,6 @@ export const ReviewsSelect: React.FC<ReviewsSelectProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+ReviewsSelect.displayName = "ReviewsSelect";

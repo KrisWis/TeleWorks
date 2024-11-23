@@ -31,18 +31,18 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     const FormTextAreaRef = useRef<HTMLTextAreaElement>(null);
 
     const FormTextAreaValueLI = UseCreateOrderTIFormLocalStorage(
-      UseLocalStorageTypes.GET
+      UseLocalStorageTypes.GET,
     );
 
     const [FormTextAreaValue, setFormTextAreaValue] = useState<string>(
-      FormTextAreaValueLI || ""
+      FormTextAreaValueLI || "",
     );
 
     const [FormTextAreaIsWarn, setFormTextAreaIsWarn] =
       useState<boolean>(false);
 
     const OnChangeFormTextArea = (
-      e: React.ChangeEvent<HTMLTextAreaElement>
+      e: React.ChangeEvent<HTMLTextAreaElement>,
     ): void => {
       const user_text = e.target.value;
 
@@ -78,7 +78,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
       UseDebounce((lsItem: string) => {
         UseCreateOrderTIFormLocalStorage(UseLocalStorageTypes.UPDATE, lsItem);
       }, 1000),
-      []
+      [],
     );
 
     // Функционал нажатия на чекбокс о соглашении
@@ -115,9 +115,9 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
     const indexedDBStoreName: string = useMemo(
       () =>
         IndexedDBStores.find(
-          (store) => store.route == AppRoutes.CREATE_ORDER()
+          (store) => store.route == AppRoutes.CREATE_ORDER(),
         )!.name,
-      []
+      [],
     );
 
     return (
@@ -321,5 +321,7 @@ export const CreateOrderTechnicalInformationContainer: React.FC = memo(
         </div>
       </IndexedDBLoader>
     );
-  }
+  },
 );
+CreateOrderTechnicalInformationContainer.displayName =
+  "CreateOrderTechnicalInformationContainer";

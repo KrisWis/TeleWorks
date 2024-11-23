@@ -16,5 +16,6 @@ export const ItemsSlider: React.FC<ItemsSliderProps> = memo(
         <ItemsSlider__slider {...ItemsSlider__sliderProps} />
       </section>
     );
-  }
+  },
 );
+ItemsSlider.displayName = "ItemsSlider";

@@ -47,8 +47,8 @@ describe("checkoutOrder test", () => {
     expect(
       checkoutOrderReducer(
         state,
-        checkoutOrderSliceActions.setCheckoutOrderState(state)
-      )
+        checkoutOrderSliceActions.setCheckoutOrderState(state),
+      ),
     ).toEqual(initialState);
   });
 
@@ -57,7 +57,7 @@ describe("checkoutOrder test", () => {
 
     expect(
       checkoutOrderReducer(state, checkoutOrderSliceActions.changeFinalPrice(0))
-        .finalPrice
+        .finalPrice,
     ).toBe(0);
   });
 
@@ -70,8 +70,8 @@ describe("checkoutOrder test", () => {
         checkoutOrderSliceActions.setPackPrice({
           packType: ProjectInfoPackNames.BASE,
           price: 100,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -95,8 +95,8 @@ describe("checkoutOrder test", () => {
         checkoutOrderSliceActions.changeeditionsAmounts({
           packType: ProjectInfoPackNames.BASE,
           amounts: 1,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -120,8 +120,8 @@ describe("checkoutOrder test", () => {
         checkoutOrderSliceActions.changeeditionsAmounts({
           packType: ProjectInfoPackNames.BASE,
           amounts: -1,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -145,8 +145,8 @@ describe("checkoutOrder test", () => {
         checkoutOrderSliceActions.clearProjectEditionsAmounts({
           packType: ProjectInfoPackNames.BASE,
           amounts: 0,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -171,8 +171,8 @@ describe("checkoutOrder test", () => {
           packType: ProjectInfoPackNames.PREMIUM,
           extraServiceAmount: 1,
           extraServiceTitle: "extraService",
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -206,8 +206,8 @@ describe("checkoutOrder test", () => {
           packType: ProjectInfoPackNames.PREMIUM,
           extraServiceAmount: -1,
           extraServiceTitle: "extraService",
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -249,8 +249,8 @@ describe("checkoutOrder test", () => {
               amount: 1000,
             },
           ],
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -291,8 +291,8 @@ describe("checkoutOrder test", () => {
             amount: 1000,
           },
           changeTo: true,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,
@@ -333,8 +333,8 @@ describe("checkoutOrder test", () => {
             amount: 1000,
           },
           changeTo: false,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       packs: {
         ...initialState.packs,

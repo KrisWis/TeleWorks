@@ -1,1 +1,1 @@
-export * from './ui/TipBlock';
+export * from "./ui/TipBlock";

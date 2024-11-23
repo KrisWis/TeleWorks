@@ -31,3 +31,4 @@ export const WeAreTrusted: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+WeAreTrusted.displayName = "WeAreTrusted";

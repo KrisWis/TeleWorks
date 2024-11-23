@@ -94,5 +94,6 @@ export const TurnkeyWebsitesPageOurCases: React.FC = memo(
         />
       </div>
     );
-  }
+  },
 );
+TurnkeyWebsitesPageOurCases.displayName = "TurnkeyWebsitesPageOurCases";

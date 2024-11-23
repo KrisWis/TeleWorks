@@ -6,5 +6,5 @@ export const UserProjects: React.LazyExoticComponent<
 > = lazy(() =>
   import("./ui/UserProjects").then(({ UserProjects }) => ({
     default: UserProjects,
-  }))
+  })),
 );

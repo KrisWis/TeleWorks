@@ -89,7 +89,7 @@ export const TelegramChannelStatsViewsAnalyze: React.FC = memo(
                                 1
                                 ? index - 1
                                 : index + 1
-                            ]
+                            ],
                           )
                         : setTelegramChannelStatsViewsAnalyzeFormat(format)
                     }
@@ -103,7 +103,7 @@ export const TelegramChannelStatsViewsAnalyze: React.FC = memo(
                     {format}
                   </span>
                 </Flex>
-              )
+              ),
             )}
           </Flex>
 
@@ -134,5 +134,7 @@ export const TelegramChannelStatsViewsAnalyze: React.FC = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+TelegramChannelStatsViewsAnalyze.displayName =
+  "TelegramChannelStatsViewsAnalyze";

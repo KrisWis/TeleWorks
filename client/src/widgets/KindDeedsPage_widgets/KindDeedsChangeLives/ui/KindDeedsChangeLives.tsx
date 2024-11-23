@@ -48,3 +48,4 @@ export const KindDeedsChangeLives: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+KindDeedsChangeLives.displayName = "KindDeedsChangeLives";

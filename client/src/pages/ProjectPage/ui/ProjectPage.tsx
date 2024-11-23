@@ -77,3 +77,4 @@ export const ProjectPage: React.FC = (): React.JSX.Element => {
     </>
   );
 };
+ProjectPage.displayName = "ProjectPage";

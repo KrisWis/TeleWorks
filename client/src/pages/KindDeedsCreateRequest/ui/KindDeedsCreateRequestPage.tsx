@@ -70,5 +70,6 @@ export const KindDeedsCreateRequestPage: React.FC = memo(
         </div>
       </main>
     );
-  }
+  },
 );
+KindDeedsCreateRequestPage.displayName = "KindDeedsCreateRequestPage";

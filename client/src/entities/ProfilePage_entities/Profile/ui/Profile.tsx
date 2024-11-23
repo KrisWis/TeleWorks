@@ -13,3 +13,4 @@ export const Profile: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Profile.displayName = "Profile";

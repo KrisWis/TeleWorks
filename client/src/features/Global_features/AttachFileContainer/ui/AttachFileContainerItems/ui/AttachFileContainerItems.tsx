@@ -67,5 +67,6 @@ export const AttachFileContainerItems: React.FC<AttachFileContainerItemsProps> =
           )}
         </Flex>
       );
-    }
+    },
   );
+AttachFileContainerItems.displayName = "AttachFileContainerItems";

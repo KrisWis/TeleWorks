@@ -81,5 +81,6 @@ export const Reviews__item: React.FC<Reviews__itemProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+Reviews__item.displayName = "Reviews__item";

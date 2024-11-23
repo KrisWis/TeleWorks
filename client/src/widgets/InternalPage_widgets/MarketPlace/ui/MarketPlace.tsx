@@ -14,3 +14,4 @@ export const MarketPlace: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+MarketPlace.displayName = "MarketPlace";

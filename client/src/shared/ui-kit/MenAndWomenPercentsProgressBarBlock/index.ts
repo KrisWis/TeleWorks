@@ -1,1 +1,1 @@
-export * from './ui/MenAndWomenPercentsProgressBarBlock';
+export * from "./ui/MenAndWomenPercentsProgressBarBlock";

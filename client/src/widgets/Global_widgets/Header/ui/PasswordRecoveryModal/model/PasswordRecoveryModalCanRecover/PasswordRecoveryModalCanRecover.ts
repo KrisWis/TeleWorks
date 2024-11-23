@@ -1,5 +1,5 @@
 export const PasswordRecoveryModalCanRecover = (
-  EmailInput: string
+  EmailInput: string,
 ): boolean => {
   if (!EmailInput) {
     return false;

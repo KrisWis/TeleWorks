@@ -1,1 +1,1 @@
-export * from './ui/OrderSuccessfullyPaid';
+export * from "./ui/OrderSuccessfullyPaid";

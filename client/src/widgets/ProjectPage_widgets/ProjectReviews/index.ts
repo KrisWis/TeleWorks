@@ -6,5 +6,5 @@ export const ProjectReviews: React.LazyExoticComponent<
 > = lazy(() =>
   import("./ui/ProjectReviews").then(({ ProjectReviews }) => ({
     default: ProjectReviews,
-  }))
+  })),
 );

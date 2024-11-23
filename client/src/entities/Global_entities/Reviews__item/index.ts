@@ -6,5 +6,5 @@ export const Reviews__item: React.LazyExoticComponent<
 > = lazy(() =>
   import("./ui/Reviews__item").then(({ Reviews__item }) => ({
     default: Reviews__item,
-  }))
+  })),
 );

@@ -86,5 +86,6 @@ export const AuthorCard: React.FC<AuthorCardProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+AuthorCard.displayName = "AuthorCard";

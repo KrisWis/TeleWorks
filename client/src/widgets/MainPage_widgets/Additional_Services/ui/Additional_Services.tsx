@@ -64,3 +64,4 @@ export const Additional_Services: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Additional_Services.displayName = "Additional_Services";

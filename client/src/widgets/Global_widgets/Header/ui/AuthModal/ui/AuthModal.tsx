@@ -47,7 +47,7 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
 
     const CanLogin = useMemo(
       () => AuthModalCanLogin(EmailInput, PasswordInput),
-      [EmailInput, PasswordInput]
+      [EmailInput, PasswordInput],
     );
 
     useEffect(() => {
@@ -136,5 +136,6 @@ export const AuthModal: React.FC<AuthModalProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+AuthModal.displayName = "AuthModal";

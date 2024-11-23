@@ -23,7 +23,7 @@ export const BlogCreatePageMain: React.FC = memo((): React.JSX.Element => {
   // Создание стейта для фильтра
   const [blogFilterSelectedCategory, setBlogFilterSelectedCategory] =
     useState<BlogFilterAllCategories>(
-      blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles
+      blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles,
     );
 
   // Создание стейта для выбора типа поста
@@ -95,3 +95,4 @@ export const BlogCreatePageMain: React.FC = memo((): React.JSX.Element => {
     </BlogCreatePageContext.Provider>
   );
 });
+BlogCreatePageMain.displayName = "BlogCreatePageMain";

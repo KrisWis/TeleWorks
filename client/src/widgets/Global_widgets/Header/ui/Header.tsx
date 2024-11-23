@@ -206,3 +206,4 @@ export const Header: React.FC<HeaderProps> = ({ view }): React.JSX.Element => {
     </header>
   );
 };
+Header.displayName = "Header";

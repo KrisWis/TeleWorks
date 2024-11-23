@@ -41,7 +41,7 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
         if (!TextareaIsWarn) {
           setTimeout(() => {
             alert(
-              "Вы превысили ограничение по символам! Если хотите вернуть текст, нажмите CTRL+Z"
+              "Вы превысили ограничение по символам! Если хотите вернуть текст, нажмите CTRL+Z",
             );
           }, 0);
         }
@@ -90,5 +90,6 @@ export const MarkdownTextarea: React.FC<MarkdownTextareaProps> = memo(
         </span>
       </div>
     );
-  }
+  },
 );
+MarkdownTextarea.displayName = "MarkdownTextarea";

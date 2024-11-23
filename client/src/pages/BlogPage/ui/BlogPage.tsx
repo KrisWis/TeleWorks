@@ -27,7 +27,7 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
   // Создание стейта для контекста и филтера
   const [blogFilterSelectedCategory, setBlogFilterSelectedCategory] =
     useState<BlogFilterAllCategories>(
-      blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles
+      blogFilterCategoryTitles[0] as keyof typeof blogFilterCategoryTitles,
     );
 
   return (
@@ -59,7 +59,7 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
                 {blogPostItems
                   .slice(
                     mobile_mediaQuery.matches ? 2 : 4,
-                    mobile_mediaQuery.matches ? 4 : 8
+                    mobile_mediaQuery.matches ? 4 : 8,
                   )
                   .map((post) => (
                     <BlogPost key={post.id} {...post} />
@@ -80,3 +80,4 @@ export const BlogPage: React.FC = memo((): React.JSX.Element => {
     </BlogPageContext.Provider>
   );
 });
+BlogPage.displayName = "BlogPage";

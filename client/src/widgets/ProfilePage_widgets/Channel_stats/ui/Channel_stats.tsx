@@ -19,3 +19,4 @@ export const Channel_stats: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Channel_stats.displayName = "Channel_stats";

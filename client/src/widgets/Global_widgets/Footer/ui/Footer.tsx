@@ -103,3 +103,4 @@ export const Footer: React.FC = (): React.JSX.Element => {
     </footer>
   );
 };
+Footer.displayName = "Footer";

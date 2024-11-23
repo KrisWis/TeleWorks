@@ -92,5 +92,6 @@ export const KindDeedsNeedHelpItem: React.FC<KindDeedsNeedHelpItemProps> = memo(
         </Link>
       </Flex>
     );
-  }
+  },
 );
+KindDeedsNeedHelpItem.displayName = "KindDeedsNeedHelpItem";

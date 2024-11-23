@@ -111,5 +111,6 @@ export const BlogPostComment: React.FC<BlogPostCommentProps> = memo(
         {nestedComments}
       </Flex>
     );
-  }
+  },
 );
+BlogPostComment.displayName = "BlogPostComment";

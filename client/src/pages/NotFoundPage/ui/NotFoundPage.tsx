@@ -18,3 +18,4 @@ export const NotFoundPage: React.FC = memo((): React.JSX.Element => {
     </main>
   );
 });
+NotFoundPage.displayName = "NotFoundPage";

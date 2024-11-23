@@ -42,6 +42,7 @@ const shareSocialStyles = {
   },
 };
 
+// eslint-disable-next-line react/display-name
 const ShareContent: React.FC<ShareProps> = memo(
   ({ type = ShareTypes.DEFAULT, url, IconClassName }): React.JSX.Element => {
     // Нажатие на кнопку "Поделиться"
@@ -89,9 +90,10 @@ const ShareContent: React.FC<ShareProps> = memo(
         )}
       </>
     );
-  }
+  },
 );
 
+// eslint-disable-next-line react/display-name
 const ShareWithoutProvider: React.FC<ShareProps> = memo((props: ShareProps) => {
   const { isLoaded } = useShareSocialLib();
 
@@ -109,3 +111,4 @@ export const Share: React.FC<ShareProps> = memo((props: ShareProps) => {
     </ShareSocialProvider>
   );
 });
+Share.displayName = "Share";

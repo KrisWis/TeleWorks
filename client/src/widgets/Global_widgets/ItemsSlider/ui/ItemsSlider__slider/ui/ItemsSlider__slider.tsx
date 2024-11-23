@@ -37,5 +37,6 @@ export const ItemsSlider__slider: React.FC<ItemsSlider__sliderProps> = memo(
         </Swiper>
       </div>
     );
-  }
+  },
 );
+ItemsSlider__slider.displayName = "ItemsSlider__slider";

@@ -37,5 +37,5 @@ export const UserEditPortfolioContext = createContext<UserEditPortfolioContext>(
     setProjectIsPublishedModalAppear: useState,
     setProjectWillNotSaveModalIsOpen: useState,
     setProjectWillNotSaveModalAppear: useState,
-  }
+  },
 );

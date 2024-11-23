@@ -140,3 +140,5 @@ export const TelegramChannelStatsViewsAnalyzeStats: React.FC<TelegramChannelStat
       </div>
     );
   });
+TelegramChannelStatsViewsAnalyzeStats.displayName =
+  "TelegramChannelStatsViewsAnalyzeStats";

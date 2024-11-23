@@ -18,9 +18,10 @@ export const EarnInSteps: React.FC = memo((): React.JSX.Element => {
         {EarnInSteps_items.map(
           (item: EarnInSteps__item_type, index: number) => (
             <EarnInSteps__item key={index} index={index + 1} {...item} />
-          )
+          ),
         )}
       </div>
     </section>
   );
 });
+EarnInSteps.displayName = "EarnInSteps";

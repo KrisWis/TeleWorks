@@ -49,3 +49,4 @@ export const MainPage: React.FC = (): React.JSX.Element => {
     </>
   );
 };
+MainPage.displayName = "MainPage";

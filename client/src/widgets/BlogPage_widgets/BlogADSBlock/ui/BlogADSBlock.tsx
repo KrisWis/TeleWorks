@@ -39,3 +39,4 @@ export const BlogADSBlock: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+BlogADSBlock.displayName = "BlogADSBlock";

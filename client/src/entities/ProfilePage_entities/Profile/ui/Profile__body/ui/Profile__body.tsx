@@ -89,3 +89,4 @@ export const Profile__body: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+Profile__body.displayName = "Profile__body";

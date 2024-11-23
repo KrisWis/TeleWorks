@@ -1,1 +1,1 @@
-export * from './ui/TelegramChannelStatsADSEffectivityStats';
+export * from "./ui/TelegramChannelStatsADSEffectivityStats";

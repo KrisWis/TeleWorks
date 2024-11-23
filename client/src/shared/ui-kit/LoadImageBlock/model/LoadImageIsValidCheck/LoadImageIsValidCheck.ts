@@ -7,7 +7,7 @@ export const LoadImageBlockMaxSize: number = 10485760;
 export const LoadImageIsValidCheck = (
   LoadImageSize: number,
   LoadImageNaturalWidth: number,
-  LoadImageNaturalHeight: number
+  LoadImageNaturalHeight: number,
 ): boolean => {
   const LoadImageSizeIsValidCheck: boolean =
     LoadImageSize >= LoadImageBlockMinSize &&

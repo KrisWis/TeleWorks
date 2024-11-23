@@ -16,5 +16,6 @@ export const GeoLanguageBlock: React.FC<GeoLanguageBlockProps> = memo(
         <span className={styles.GeoLanguageBlock__desc}>{geoLanguage}</span>
       </div>
     );
-  }
+  },
 );
+GeoLanguageBlock.displayName = "GeoLanguageBlock";

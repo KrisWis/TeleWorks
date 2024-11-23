@@ -14,5 +14,6 @@ export const ReportBug: React.FC<ReportBugProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+ReportBug.displayName = "ReportBug";

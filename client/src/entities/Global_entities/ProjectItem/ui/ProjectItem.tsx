@@ -22,11 +22,11 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
 
     const RedirectOnClickTo: string = AppRoutes.PROJECT(
       String(servicesItem.id),
-      onProjectPage
+      onProjectPage,
     );
 
     const RedirectToProjectPage = (
-      e: React.MouseEvent<HTMLDivElement, MouseEvent>
+      e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
       if (e.target != FavouriteRef.current) {
         redirectToAbsolutePath(RedirectOnClickTo);
@@ -411,5 +411,6 @@ export const ProjectItem: React.FC<ProjectItemProps> = memo(
         )}
       </>
     );
-  }
+  },
 );
+ProjectItem.displayName = "ProjectItem";

@@ -33,3 +33,4 @@ export const FAQHeader: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+FAQHeader.displayName = "FAQHeader";

@@ -94,5 +94,7 @@ export const TelegramChannelStatsADSEffectivity: React.FC = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+TelegramChannelStatsADSEffectivity.displayName =
+  "TelegramChannelStatsADSEffectivity";

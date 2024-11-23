@@ -11,5 +11,6 @@ export const Favourite: React.FC<FavouriteProps> = memo(
         onClick={() => setIsFavourite(!IsFavourite)}
       />
     );
-  }
+  },
 );
+Favourite.displayName = "Favourite";

@@ -10,8 +10,8 @@ describe("useLocalStorage", () => {
       UseLocalStorage(
         UseLocalStorageTypes.UPDATE,
         testKey as unknown as LocalStorageKeys,
-        { testKey }
-      )
+        { testKey },
+      ),
     ).toBe(true);
   });
 
@@ -19,8 +19,8 @@ describe("useLocalStorage", () => {
     expect(
       UseLocalStorage(
         UseLocalStorageTypes.GET,
-        testKey as unknown as LocalStorageKeys
-      )
+        testKey as unknown as LocalStorageKeys,
+      ),
     ).toEqual({ testKey });
   });
 
@@ -28,8 +28,8 @@ describe("useLocalStorage", () => {
     expect(
       UseLocalStorage(
         UseLocalStorageTypes.DELETE,
-        testKey as unknown as LocalStorageKeys
-      )
+        testKey as unknown as LocalStorageKeys,
+      ),
     ).toBe(true);
   });
 
@@ -38,29 +38,29 @@ describe("useLocalStorage", () => {
       UseLocalStorage(
         UseLocalStorageTypes.UPDATE,
         testKey as unknown as LocalStorageKeys,
-        { testKey }
-      )
+        { testKey },
+      ),
     ).toBe(true);
 
     expect(
       UseLocalStorage(
         UseLocalStorageTypes.GET,
-        testKey as unknown as LocalStorageKeys
-      )
+        testKey as unknown as LocalStorageKeys,
+      ),
     ).toEqual({ testKey });
 
     expect(
       UseLocalStorage(
         UseLocalStorageTypes.DELETE,
-        testKey as unknown as LocalStorageKeys
-      )
+        testKey as unknown as LocalStorageKeys,
+      ),
     ).toBe(true);
 
     expect(
       UseLocalStorage(
         UseLocalStorageTypes.GET,
-        testKey as unknown as LocalStorageKeys
-      )
+        testKey as unknown as LocalStorageKeys,
+      ),
     ).toBe(false);
   });
 });

@@ -29,7 +29,7 @@ describe("getCartItemAmount", () => {
 
   test("should return 1 if item is not found", () => {
     expect(
-      getCartItemAmount(initialState.CatalogCartSliceReducer!, 33223)
+      getCartItemAmount(initialState.CatalogCartSliceReducer!, 33223),
     ).toBe(1);
   });
 });

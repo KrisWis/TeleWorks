@@ -48,13 +48,13 @@ export const FilterContent: React.FC<FilterProps> = memo(
       (tag: string): void => {
         if (selectedTags.includes(tag)) {
           setSelectedTags((prev: string[]) =>
-            prev.filter((item) => item !== tag)
+            prev.filter((item) => item !== tag),
           );
         } else {
           setSelectedTags((prev: string[]) => [...prev, tag]);
         }
       },
-      [selectedTags]
+      [selectedTags],
     );
 
     return (
@@ -194,5 +194,6 @@ export const FilterContent: React.FC<FilterProps> = memo(
         <span className={styles.FilterContent__more}>+ Ещё фильтры</span>
       </div>
     );
-  }
+  },
 );
+FilterContent.displayName = "FilterContent";

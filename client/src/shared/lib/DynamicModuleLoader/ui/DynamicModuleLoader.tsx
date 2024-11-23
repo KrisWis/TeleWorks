@@ -51,3 +51,4 @@ export const DynamicModuleLoader: React.FC<DynamicModuleLoaderProps> = ({
 
   return <>{children}</>;
 };
+DynamicModuleLoader.displayName = "DynamicModuleLoader";

@@ -17,3 +17,4 @@ export const KindDeedsStats: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+KindDeedsStats.displayName = "KindDeedsStats";

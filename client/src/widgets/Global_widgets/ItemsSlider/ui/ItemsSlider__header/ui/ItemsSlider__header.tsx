@@ -41,5 +41,6 @@ export const ItemsSlider__header: React.FC<ItemsSlider__headerProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+ItemsSlider__header.displayName = "ItemsSlider__header";

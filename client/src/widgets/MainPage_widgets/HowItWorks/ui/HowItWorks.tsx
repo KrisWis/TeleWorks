@@ -26,3 +26,4 @@ export const HowItWorks: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+HowItWorks.displayName = "HowItWorks";

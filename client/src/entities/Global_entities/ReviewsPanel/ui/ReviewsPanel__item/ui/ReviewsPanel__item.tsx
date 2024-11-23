@@ -9,11 +9,11 @@ export const ReviewsPanel__item: React.FC<ReviewsPanel__item__props> = memo(
   ({ stars_amount, progress_amount }): React.JSX.Element => {
     const active_stars__array: string[] = useMemo(
       () => Array(stars_amount).fill("active"),
-      [stars_amount]
+      [stars_amount],
     );
     const disactive_stars__array: string[] = useMemo(
       () => Array(5 - stars_amount).fill("disactive"),
-      [stars_amount]
+      [stars_amount],
     );
 
     return (
@@ -44,5 +44,6 @@ export const ReviewsPanel__item: React.FC<ReviewsPanel__item__props> = memo(
         ></ProgressBar>
       </div>
     );
-  }
+  },
 );
+ReviewsPanel__item.displayName = "ReviewsPanel__item";

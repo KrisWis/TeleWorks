@@ -36,3 +36,4 @@ export const InternalPage: React.FC = (): React.JSX.Element => {
     </>
   );
 };
+InternalPage.displayName = "InternalPage";

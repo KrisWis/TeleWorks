@@ -27,5 +27,6 @@ export const Channel_stats_item: React.FC<Channel_stats_item_props> = memo(
         </span>
       </div>
     );
-  }
+  },
 );
+Channel_stats_item.displayName = "Channel_stats_item";

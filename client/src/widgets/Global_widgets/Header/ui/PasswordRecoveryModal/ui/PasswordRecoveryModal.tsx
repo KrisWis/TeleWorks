@@ -14,7 +14,7 @@ export const PasswordRecoveryModal: React.FC = memo((): React.JSX.Element => {
 
   const canRecover = useMemo(
     () => PasswordRecoveryModalCanRecover(EmailInput),
-    [EmailInput]
+    [EmailInput],
   );
 
   return (
@@ -58,3 +58,4 @@ export const PasswordRecoveryModal: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+PasswordRecoveryModal.displayName = "PasswordRecoveryModal";

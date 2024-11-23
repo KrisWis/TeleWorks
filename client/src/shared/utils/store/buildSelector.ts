@@ -6,7 +6,7 @@ type Result<T> = [() => T, Selector<T>];
 
 export function buildSelector<T>(
   selector: Selector<T>,
-  customShallowEqual?: boolean
+  customShallowEqual?: boolean,
 ): Result<T> {
   const useSelectorHook = () => {
     if (customShallowEqual) {

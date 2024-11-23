@@ -36,7 +36,7 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
           navigate(`${id}`);
         }
       },
-      [id, navigate]
+      [id, navigate],
     );
 
     const postMouseoverEvent = useCallback((e: MouseEvent): void => {
@@ -135,5 +135,6 @@ export const BlogPost: React.FC<BlogPostProps> = memo(
         </Flex>
       </Flex>
     );
-  }
+  },
 );
+BlogPost.displayName = "BlogPost";

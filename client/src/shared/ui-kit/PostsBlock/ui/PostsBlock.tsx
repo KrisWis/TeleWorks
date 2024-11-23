@@ -16,5 +16,6 @@ export const PostsBlock: React.FC<PostsBlockProps> = memo(
         <span className={styles.PostsBlock__desc}>{postsAmount}</span>
       </div>
     );
-  }
+  },
 );
+PostsBlock.displayName = "PostsBlock";

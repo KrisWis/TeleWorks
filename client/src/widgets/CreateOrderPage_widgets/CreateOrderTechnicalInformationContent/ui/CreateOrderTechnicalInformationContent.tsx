@@ -45,3 +45,5 @@ export const CreateOrderTechnicalInformationContent: React.FC<CreateOrderTechnic
       </section>
     );
   });
+CreateOrderTechnicalInformationContent.displayName =
+  "CreateOrderTechnicalInformationContent";

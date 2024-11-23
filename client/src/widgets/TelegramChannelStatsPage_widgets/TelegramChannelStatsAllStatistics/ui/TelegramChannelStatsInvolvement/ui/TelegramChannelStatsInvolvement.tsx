@@ -48,5 +48,6 @@ export const TelegramChannelStatsInvolvement: React.FC = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+TelegramChannelStatsInvolvement.displayName = "TelegramChannelStatsInvolvement";

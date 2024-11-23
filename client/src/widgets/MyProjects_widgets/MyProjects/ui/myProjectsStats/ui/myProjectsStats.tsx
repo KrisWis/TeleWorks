@@ -300,5 +300,7 @@ export const MyProjectsStats: React.FC<myProjectsStatsProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+
+MyProjectsStats.displayName = "myProjectsStats";

@@ -1,1 +1,1 @@
-export * from './ui/ProfileChannelRating';
+export * from "./ui/ProfileChannelRating";

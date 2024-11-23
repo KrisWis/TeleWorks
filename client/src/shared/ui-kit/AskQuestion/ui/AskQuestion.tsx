@@ -30,5 +30,6 @@ export const AskQuestion: React.FC<AskQuestionProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+AskQuestion.displayName = "AskQuestion";

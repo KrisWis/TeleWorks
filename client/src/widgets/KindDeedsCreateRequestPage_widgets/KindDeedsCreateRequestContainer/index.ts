@@ -1,1 +1,1 @@
-export * from './ui/KindDeedsCreateRequestContainer';
+export * from "./ui/KindDeedsCreateRequestContainer";

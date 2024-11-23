@@ -13,5 +13,6 @@ export const CheckBoxBlock: React.FC<CheckBoxBlockProps> = memo(
         onClick={onClick}
       ></div>
     );
-  }
+  },
 );
+CheckBoxBlock.displayName = "CheckBoxBlock";

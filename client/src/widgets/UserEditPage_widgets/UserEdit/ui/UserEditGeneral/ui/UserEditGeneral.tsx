@@ -61,10 +61,10 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   }, 1000);
 
   const UserEditGeneralLSItem = UseUserEditGeneralLocalStorage(
-    UseLocalStorageTypes.GET
+    UseLocalStorageTypes.GET,
   );
   const [NameInputValue, setNameInputValue] = useState<string>(
-    UserEditGeneralLSItem ? UserEditGeneralLSItem.name : ""
+    UserEditGeneralLSItem ? UserEditGeneralLSItem.name : "",
   );
 
   const [ProfessionSelect, setProfessionSelect] = useState<
@@ -72,11 +72,11 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   >(
     UserEditGeneralLSItem
       ? UserEditGeneralLSItem.profession
-      : ProfessionSelect__selectedOptions[0]
+      : ProfessionSelect__selectedOptions[0],
   );
 
   const ProfessionSelectOnChange = (
-    newValue: Select_Option<SelectProfessionsEnum>
+    newValue: Select_Option<SelectProfessionsEnum>,
   ) => {
     setProfessionSelect(newValue);
   };
@@ -86,7 +86,7 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
   };
 
   const [SurnameInputValue, setSurnameInputValue] = useState<string>(
-    UserEditGeneralLSItem ? UserEditGeneralLSItem.surname : ""
+    UserEditGeneralLSItem ? UserEditGeneralLSItem.surname : "",
   );
 
   const SurNameInputOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,7 +95,7 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
 
   // Ввод данных в теги
   const [SelectedTags, setSelectedTags] = useState<string[]>(
-    UserEditGeneralLSItem ? UserEditGeneralLSItem.tags : []
+    UserEditGeneralLSItem ? UserEditGeneralLSItem.tags : [],
   );
 
   // Стейты для загрузки изображений
@@ -275,3 +275,4 @@ export const UserEditGeneral: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+UserEditGeneral.displayName = "UserEditGeneral";

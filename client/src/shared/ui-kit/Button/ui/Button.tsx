@@ -39,6 +39,7 @@ export const Button: React.FC<ButtonProps> = memo(
               href={to}
               onClick={ButtonOnClick}
               className={`${styles.Button} ${styles.Button_a} ${styles[type]} ${canSelected ? styles.catalog__category__canSelected : ""} ${ButtonIsSelected ? styles.catalog__category__selected : ""} ${className}`}
+              rel="noreferrer"
             >
               {text ? text : children}
             </a>
@@ -63,5 +64,6 @@ export const Button: React.FC<ButtonProps> = memo(
         )}
       </>
     );
-  }
+  },
 );
+Button.displayName = "Button";

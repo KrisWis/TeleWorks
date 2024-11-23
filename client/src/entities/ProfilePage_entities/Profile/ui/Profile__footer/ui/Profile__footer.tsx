@@ -16,3 +16,4 @@ export const Profile__footer: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+Profile__footer.displayName = "Profile__footer";

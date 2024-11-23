@@ -49,11 +49,13 @@ export const RegModal: React.FC<RegModalProps> = memo(
           setActiveCheckboxes([...ActiveCheckboxes, checkBox]);
         } else {
           setActiveCheckboxes(
-            ActiveCheckboxes.filter((checkBoxItem) => checkBoxItem !== checkBox)
+            ActiveCheckboxes.filter(
+              (checkBoxItem) => checkBoxItem !== checkBox,
+            ),
           );
         }
       },
-      [ActiveCheckboxes]
+      [ActiveCheckboxes],
     );
 
     const AllCheckBoxesIsSelected = useMemo(
@@ -62,7 +64,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
         ActiveCheckboxes.every(function (element, index) {
           return element === RegModalCheckBoxesItems[index];
         }),
-      [ActiveCheckboxes]
+      [ActiveCheckboxes],
     );
 
     const CanReg = useMemo(
@@ -71,10 +73,10 @@ export const RegModal: React.FC<RegModalProps> = memo(
           EmailInput,
           PasswordInput,
           TelInput,
-          AllCheckBoxesIsSelected
+          AllCheckBoxesIsSelected,
         ),
 
-      [AllCheckBoxesIsSelected, EmailInput, PasswordInput, TelInput]
+      [AllCheckBoxesIsSelected, EmailInput, PasswordInput, TelInput],
     );
 
     useEffect(() => {
@@ -159,7 +161,7 @@ export const RegModal: React.FC<RegModalProps> = memo(
             <div className={styles.RegModal__checkbox}>
               <CheckBoxBlock
                 isActive={ActiveCheckboxes.includes(
-                  RegModalCheckBoxes.AGREEMENT
+                  RegModalCheckBoxes.AGREEMENT,
                 )}
                 isWarn={
                   TryLogin &&
@@ -222,5 +224,6 @@ export const RegModal: React.FC<RegModalProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+RegModal.displayName = "RegModal";

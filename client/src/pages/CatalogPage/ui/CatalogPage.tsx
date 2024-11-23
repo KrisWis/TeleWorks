@@ -26,3 +26,4 @@ export const CatalogPage: React.FC = (): React.JSX.Element => {
     </>
   );
 };
+CatalogPage.displayName = "CatalogPage";

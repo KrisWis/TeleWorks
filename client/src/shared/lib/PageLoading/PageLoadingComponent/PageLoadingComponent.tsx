@@ -395,3 +395,4 @@ export const PageLoadingComponent: React.FC<PageLoadingComponentProps> = ({
     </LoadContainer>
   );
 };
+PageLoadingComponent.displayName = "PageLoadingComponent";

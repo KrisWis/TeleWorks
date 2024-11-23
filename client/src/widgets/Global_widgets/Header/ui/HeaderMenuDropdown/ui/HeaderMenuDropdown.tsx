@@ -202,5 +202,6 @@ export const HeaderMenuDropdown: React.FC<HeaderMenuDropdownProps> = memo(
         )}
       </>
     );
-  }
+  },
 );
+HeaderMenuDropdown.displayName = "HeaderMenuDropdown";

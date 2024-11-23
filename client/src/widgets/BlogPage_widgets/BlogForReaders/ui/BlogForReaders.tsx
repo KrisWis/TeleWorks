@@ -127,3 +127,4 @@ export const BlogForReaders: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+BlogForReaders.displayName = "BlogForReaders";

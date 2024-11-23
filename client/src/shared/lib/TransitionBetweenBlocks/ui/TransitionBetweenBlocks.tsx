@@ -102,3 +102,4 @@ export const TransitionBetweenBlocks: React.FC<
     </Flex>
   );
 };
+TransitionBetweenBlocks.displayName = "TransitionBetweenBlocks";

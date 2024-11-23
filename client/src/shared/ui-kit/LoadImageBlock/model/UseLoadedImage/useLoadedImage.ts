@@ -2,7 +2,7 @@ import { LoadingType } from "@/shared/types/global";
 import { useState } from "react";
 
 export const UseLoadedImage = (
-  imgURL?: string
+  imgURL?: string,
 ): [string, React.Dispatch<React.SetStateAction<string>>] => {
   const [LoadedImage, setLoadedImage] = useState<string | LoadingType>("");
 

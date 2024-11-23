@@ -19,7 +19,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
     }, [setMoveToOpenChannelCartIsAppear]);
 
     const allChannelsIDsInCart = useAppSelector((state) =>
-      getAllChannelsInCart(state.MoveToOpenChannelCartReducer!)
+      getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
     );
 
     return PortalElement({
@@ -59,7 +59,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
                       sum +
                       (catalog__items.find((item) => item.id == itemID)
                         ?.subscribersAmount || 0),
-                    0
+                    0,
                   )}
                 </span>
               </VStack>
@@ -79,7 +79,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
                         sum +
                         (catalog__items.find((item) => item.id == itemID)
                           ?.ThousandsViews || 0),
-                      0
+                      0,
                     )
                     .toFixed(2)}
                   K
@@ -95,7 +95,7 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
                     sum +
                     (catalog__items.find((item) => item.id == itemID)?.price ||
                       0),
-                  0
+                  0,
                 )
                 .toFixed(2)}{" "}
               ₽
@@ -112,5 +112,6 @@ export const MoveToOpenChannelCart: React.FC<MoveToOpenChannelCartProps> = memo(
         </div>
       ),
     });
-  }
+  },
 );
+MoveToOpenChannelCart.displayName = "MoveToOpenChannelCart";

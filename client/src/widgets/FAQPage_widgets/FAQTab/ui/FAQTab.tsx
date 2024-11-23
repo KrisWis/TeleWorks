@@ -24,3 +24,4 @@ export const FAQTab: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+FAQTab.displayName = "FAQTab";

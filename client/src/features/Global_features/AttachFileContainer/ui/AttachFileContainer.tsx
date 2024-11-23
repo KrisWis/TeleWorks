@@ -54,7 +54,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
                   UseIndexedDBInstance.saveLoadedFile(
                     indexedDB,
                     indexedDBStoreName,
-                    UserInputFile
+                    UserInputFile,
                   );
                 }
               }
@@ -92,7 +92,7 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         inputRef,
         setInputFileProgress,
         setInputFiles,
-      ]
+      ],
     );
 
     return (
@@ -107,5 +107,6 @@ export const AttachFileContainer: React.FC<AttachFileContainerProps> = memo(
         multiple
       />
     );
-  }
+  },
 );
+AttachFileContainer.displayName = "AttachFileContainer";

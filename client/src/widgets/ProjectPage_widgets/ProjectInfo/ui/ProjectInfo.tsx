@@ -172,5 +172,6 @@ export const ProjectInfo: React.FC<ProjectInfoProps> = memo(
         </section>
       </DynamicModuleLoader>
     );
-  }
+  },
 );
+ProjectInfo.displayName = "ProjectInfo";

@@ -54,12 +54,12 @@ export const BlogOpenPostComments: React.FC<BlogOpenPostCommentsProps> = memo(
     // Загрузка данных из LS
     const BlogOpenPostCommentsLI = UseBlogPostCommentsLocalStorage(
       UseLocalStorageTypes.GET,
-      id
+      id,
     );
 
     /* Стейт для textarea комментариев */
     const [commentsTextarea, setCommentsTextarea] = useState<string>(
-      BlogOpenPostCommentsLI ? BlogOpenPostCommentsLI.textareaValue : ""
+      BlogOpenPostCommentsLI ? BlogOpenPostCommentsLI.textareaValue : "",
     );
 
     // Загрузка и отображение, загруженных пользователем, файлов:
@@ -83,10 +83,10 @@ export const BlogOpenPostComments: React.FC<BlogOpenPostCommentsProps> = memo(
         UseBlogPostCommentsLocalStorage(
           UseLocalStorageTypes.UPDATE,
           id,
-          lsItem
+          lsItem,
         );
       }, 1000),
-      []
+      [],
     );
 
     return (
@@ -211,5 +211,6 @@ export const BlogOpenPostComments: React.FC<BlogOpenPostCommentsProps> = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+BlogOpenPostComments.displayName = "BlogOpenPostComments";

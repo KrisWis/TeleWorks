@@ -7,10 +7,10 @@ describe("BuyPlacement Item", () => {
     render(<Buy_placement__item amount={"amount"} text="text" />);
     expect(screen.getByTestId("Buy_placement__item")).toBeInTheDocument();
     expect(screen.getByTestId("Buy_placement__item__amount")).toHaveTextContent(
-      "amount"
+      "amount",
     );
     expect(screen.getByTestId("Buy_placement__item__text")).toHaveTextContent(
-      "text"
+      "text",
     );
   });
 });

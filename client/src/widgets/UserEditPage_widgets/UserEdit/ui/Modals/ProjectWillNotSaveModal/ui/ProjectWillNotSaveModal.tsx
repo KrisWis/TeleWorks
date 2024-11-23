@@ -18,7 +18,7 @@ export const ProjectWillNotSaveModal: React.FC = memo((): React.JSX.Element => {
   const onCancel = useCallback(() => {
     closeModal(
       setProjectWillNotSaveModalAppear,
-      setProjectWillNotSaveModalIsOpen
+      setProjectWillNotSaveModalIsOpen,
     );
 
     const LastDetailsModalTimeout = setTimeout(() => {
@@ -35,7 +35,7 @@ export const ProjectWillNotSaveModal: React.FC = memo((): React.JSX.Element => {
   const onClose = useCallback(() => {
     closeModal(
       setProjectWillNotSaveModalAppear,
-      setProjectWillNotSaveModalIsOpen
+      setProjectWillNotSaveModalIsOpen,
     );
   }, [setProjectWillNotSaveModalAppear, setProjectWillNotSaveModalIsOpen]);
 
@@ -78,3 +78,4 @@ export const ProjectWillNotSaveModal: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+ProjectWillNotSaveModal.displayName = "ProjectWillNotSaveModal";

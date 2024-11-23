@@ -10,5 +10,6 @@ export const ProfileAvatar: React.FC<ProfileAvatarProps> = memo(
         <Avatar imgURL={src} imgSize={size} />
       </div>
     );
-  }
+  },
 );
+ProfileAvatar.displayName = "ProfileAvatar";

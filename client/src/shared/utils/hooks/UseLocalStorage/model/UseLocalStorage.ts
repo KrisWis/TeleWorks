@@ -11,14 +11,14 @@ import { UseLocalStorageTypes } from "./UseLocalStorage_types";
 export const UseLocalStorage = (
   type: UseLocalStorageTypes,
   key: LocalStorageKeys,
-  value?: unknown
+  value?: unknown,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): boolean | any => {
   if (type == UseLocalStorageTypes.UPDATE) {
     localStorage.setItem(key as unknown as string, JSON.stringify(value));
   } else if (type == UseLocalStorageTypes.GET) {
     const LocalStorageItem: string | null = localStorage.getItem(
-      key as unknown as string
+      key as unknown as string,
     );
 
     if (LocalStorageItem && LocalStorageItem !== "undefined") {

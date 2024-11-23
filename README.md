@@ -44,6 +44,7 @@ npm run start:dev - запуск frontend проекта в dev режиме
 - `npm run test:ui:report` - Генерация полного отчета для скриншотных тестов
 - `npm run test:ui:json` - Генерация json отчета для скриншотных тестов
 - `npm run test:ui:html` - Генерация HTML отчета для скриншотных тестов
+- `npm run prettier` - запуск Prettier для форматирования кода
 - `npm run prepare` - Загрузка husky для прекоммит-хуков
 
 ---

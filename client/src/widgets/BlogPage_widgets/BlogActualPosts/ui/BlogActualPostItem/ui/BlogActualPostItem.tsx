@@ -41,7 +41,7 @@ export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
           navigate(`${id}`);
         }
       },
-      [id, navigate]
+      [id, navigate],
     );
 
     const postMouseoverEvent = useCallback((e: MouseEvent): void => {
@@ -53,7 +53,7 @@ export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
           eTarget.parentElement?.parentElement?.parentElement
       ) {
         actualPostRef.current!.classList.remove(
-          styles.BlogActualPostItem__hover
+          styles.BlogActualPostItem__hover,
         );
         return;
       }
@@ -64,7 +64,7 @@ export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
     const postMouseoutEvent = useCallback((): void => {
       if (actualPostRef.current)
         actualPostRef.current.classList.remove(
-          styles.BlogActualPostItem__hover
+          styles.BlogActualPostItem__hover,
         );
     }, []);
 
@@ -153,5 +153,6 @@ export const BlogActualPostItem: React.FC<BlogActualPostItemProps> = memo(
         </Flex>
       </div>
     );
-  }
+  },
 );
+BlogActualPostItem.displayName = "BlogActualPostItem";

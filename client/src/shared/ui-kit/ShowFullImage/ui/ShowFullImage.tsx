@@ -111,5 +111,6 @@ export const ShowFullImage: React.FC<ShowFullImageProps> = memo(
         )}
       </>
     );
-  }
+  },
 );
+ShowFullImage.displayName = "ShowFullImage";

@@ -15,7 +15,7 @@ import { ProjectActiveServices } from "@/shared/ui-kit/ProjectActiveServices";
 export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
   ({ packs }): React.JSX.Element => {
     const [ActivePack, setActivePack] = useState<ProjectInfoPackNames | string>(
-      ProjectInfoPackNames.BASE
+      ProjectInfoPackNames.BASE,
     );
 
     const ActivePackContent: ProjectInfoPackContent =
@@ -24,7 +24,7 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
     const [ModalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
     const [ExtraServices, setExtraServices] = useState<ProjectExtraService[]>(
-      []
+      [],
     );
 
     const openModal = useCallback((): void => {
@@ -85,7 +85,7 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
                       {disactiveService}
                     </span>
                   </div>
-                )
+                ),
               )}
             </div>
           )}
@@ -118,5 +118,6 @@ export const ProjectInfo_pack: React.FC<ProjectInfoPackProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+ProjectInfo_pack.displayName = "ProjectInfo_pack";

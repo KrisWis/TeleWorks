@@ -57,3 +57,4 @@ export const OrderSuccessfullyPaid: React.FC = memo((): React.JSX.Element => {
     </>
   );
 });
+OrderSuccessfullyPaid.displayName = "OrderSuccessfullyPaid";

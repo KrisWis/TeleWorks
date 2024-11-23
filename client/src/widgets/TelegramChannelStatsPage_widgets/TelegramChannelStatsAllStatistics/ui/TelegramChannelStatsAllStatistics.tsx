@@ -12,15 +12,15 @@ export const TelegramChannelStatsAllStatistics: React.FC = memo(
   (): React.JSX.Element => {
     // Отображение нужной категории
     const { selectedCategoryIndex } = useContext(
-      TelegramChannelStatsPageContext
+      TelegramChannelStatsPageContext,
     );
 
     const selectedCategoryBlock: React.ReactNode = useMemo(
       () =>
         telegramChannelStatsCategories.find(
-          (item) => getActiveCategoryIndex(item) == selectedCategoryIndex
+          (item) => getActiveCategoryIndex(item) == selectedCategoryIndex,
         )?.block,
-      [selectedCategoryIndex]
+      [selectedCategoryIndex],
     );
 
     return (
@@ -38,5 +38,7 @@ export const TelegramChannelStatsAllStatistics: React.FC = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+TelegramChannelStatsAllStatistics.displayName =
+  "TelegramChannelStatsAllStatistics";

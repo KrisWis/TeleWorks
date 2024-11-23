@@ -391,5 +391,6 @@ export const TurnkeyWebsitesPageHowWeWorks: React.FC = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+TurnkeyWebsitesPageHowWeWorks.displayName = "TurnkeyWebsitesPageHowWeWorks";

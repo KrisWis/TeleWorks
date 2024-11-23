@@ -37,7 +37,7 @@ export const SpecialistServicesResults: React.FC = memo(
     const [activeViewType, setActiveViewType] = useState<ProjectItemViewTypes>(
       mobile_mediaQuery.matches
         ? ProjectItemViewTypes.ROW
-        : ProjectItemViewTypes.COLUMN
+        : ProjectItemViewTypes.COLUMN,
     );
 
     return (
@@ -128,5 +128,6 @@ export const SpecialistServicesResults: React.FC = memo(
         />
       </div>
     );
-  }
+  },
 );
+SpecialistServicesResults.displayName = "SpecialistServicesResults";

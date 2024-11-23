@@ -63,3 +63,4 @@ export const MarketPlaceSlider: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+MarketPlaceSlider.displayName = "MarketPlaceSlider";

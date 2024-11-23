@@ -58,7 +58,7 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           nextArrowId="KindDeedsAlreadyHelped__slider__next"
           title={"Уже помогли:"}
           items={KindDeedsAlreadyHelpedItems.map((item) => (
-            <KindDeedsAlreadyHelpedItem {...item} />
+            <KindDeedsAlreadyHelpedItem key={item.id} {...item} />
           ))}
         />
 
@@ -83,7 +83,7 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
           title={"Нуждаются в "}
           titleRed={"помощи:"}
           items={KindDeedsNeedHelpItems.map((item) => (
-            <KindDeedsNeedHelpItem {...item} />
+            <KindDeedsNeedHelpItem key={item.id} {...item} />
           ))}
         />
 
@@ -98,3 +98,4 @@ export const KindDeedsPage: React.FC = memo((): React.JSX.Element => {
     </main>
   );
 });
+KindDeedsPage.displayName = "KindDeedsPage";

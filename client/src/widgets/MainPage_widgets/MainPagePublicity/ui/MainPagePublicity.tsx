@@ -38,3 +38,4 @@ export const MainPagePublicity: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+MainPagePublicity.displayName = "MainPagePublicity";

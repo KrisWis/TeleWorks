@@ -6,5 +6,5 @@ export const ItemsSlider: React.LazyExoticComponent<
 > = lazy(() =>
   import("./ui/ItemsSlider").then(({ ItemsSlider }) => ({
     default: ItemsSlider,
-  }))
+  })),
 );

@@ -251,3 +251,4 @@ export const UserEditPortfolio: React.FC = memo((): React.JSX.Element => {
     </UserEditPortfolioContext.Provider>
   );
 });
+UserEditPortfolio.displayName = "UserEditPortfolio";

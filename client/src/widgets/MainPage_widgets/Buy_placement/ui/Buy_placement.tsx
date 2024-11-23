@@ -30,3 +30,4 @@ export const Buy_placement: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Buy_placement.displayName = "Buy_placement";

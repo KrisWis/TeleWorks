@@ -3,9 +3,10 @@ import { MemoryRouter } from "react-router-dom";
 
 export const renderWithRouter = (
   component: React.ReactElement,
-  initialRoute: string = "/"
+  initialRoute: string = "/",
 ) => {
   return render(
-    <MemoryRouter initialEntries={[initialRoute]}>{component}</MemoryRouter>
+    <MemoryRouter initialEntries={[initialRoute]}>{component}</MemoryRouter>,
   );
 };
+renderWithRouter.displayName = "renderWithRouter";

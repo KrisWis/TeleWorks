@@ -17,15 +17,15 @@ window.matchMedia =
   };
 
 export const laptop_mediaQuery: MediaQueryList = window.matchMedia(
-  "(max-width: 1600px)"
+  "(max-width: 1600px)",
 );
 
 export const tablet_mediaQuery: MediaQueryList = window.matchMedia(
-  "(max-width: 1300px)"
+  "(max-width: 1300px)",
 );
 
 export const tabletHeight_mediaQuery: MediaQueryList = window.matchMedia(
-  "(max-height: 1000px)"
+  "(max-height: 1000px)",
 );
 export const tablet_small_mediaQuery: MediaQueryList =
   window.matchMedia("(max-width: 900px)");

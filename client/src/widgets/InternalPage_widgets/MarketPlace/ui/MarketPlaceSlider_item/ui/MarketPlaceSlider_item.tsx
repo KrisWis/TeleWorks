@@ -14,7 +14,7 @@ export const MarketPlaceSlider_item: React.FC<MarketPlaceSlider_item_props> =
     }): React.JSX.Element => {
       const stars_array: boolean[] = useMemo(
         () => Array(starsAmount).fill(true),
-        [starsAmount]
+        [starsAmount],
       );
 
       return (
@@ -42,5 +42,6 @@ export const MarketPlaceSlider_item: React.FC<MarketPlaceSlider_item_props> =
           </div>
         </div>
       );
-    }
+    },
   );
+MarketPlaceSlider_item.displayName = "MarketPlaceSlider_item";

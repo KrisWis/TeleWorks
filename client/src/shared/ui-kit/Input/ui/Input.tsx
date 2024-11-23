@@ -26,5 +26,6 @@ export const Input: React.FC<InputProps> = memo(
         ref={refInput}
       />
     );
-  }
+  },
 );
+Input.displayName = "Input";

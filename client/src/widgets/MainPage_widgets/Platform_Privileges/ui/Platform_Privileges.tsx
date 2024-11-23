@@ -33,7 +33,7 @@ export const Platform_Privileges: React.FC = memo((): React.JSX.Element => {
             {Platform_Privileges__items.slice(0, 4).map(
               (item: Platrform_Privileges__itemProps) => (
                 <Platform_Privileges__item key={item.index} {...item} />
-              )
+              ),
             )}
           </div>
 
@@ -41,7 +41,7 @@ export const Platform_Privileges: React.FC = memo((): React.JSX.Element => {
             {Platform_Privileges__items.slice(4, 8).map(
               (item: Platrform_Privileges__itemProps) => (
                 <Platform_Privileges__item key={item.index} {...item} />
-              )
+              ),
             )}
           </div>
         </div>
@@ -49,3 +49,4 @@ export const Platform_Privileges: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Platform_Privileges.displayName = "Platform_Privileges";

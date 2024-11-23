@@ -65,3 +65,4 @@ export const KindDeedsAllegations: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+KindDeedsAllegations.displayName = "KindDeedsAllegations";

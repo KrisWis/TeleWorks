@@ -35,5 +35,6 @@ export const UserReviews: React.FC<UserReviewsProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+UserReviews.displayName = "UserReviews";

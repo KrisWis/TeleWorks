@@ -7,10 +7,10 @@ export const Buy_ads_calendar: React.FC = memo((): React.JSX.Element => {
 
   useEffect(() => {
     const calendar_prevButton: HTMLElement | null = document.querySelector(
-      ".react-calendar__navigation__prev-button"
+      ".react-calendar__navigation__prev-button",
     );
     const calendar_nextButton: HTMLElement | null = document.querySelector(
-      ".react-calendar__navigation__next-button"
+      ".react-calendar__navigation__next-button",
     );
 
     if (calendar_prevButton) {
@@ -56,3 +56,4 @@ export const Buy_ads_calendar: React.FC = memo((): React.JSX.Element => {
     />
   );
 });
+Buy_ads_calendar.displayName = "Buy_ads_calendar";

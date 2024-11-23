@@ -73,3 +73,4 @@ export const Transaction_Advantage: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Transaction_Advantage.displayName = "Transaction_Advantage";

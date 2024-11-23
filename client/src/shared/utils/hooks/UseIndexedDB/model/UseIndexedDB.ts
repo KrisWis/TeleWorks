@@ -4,7 +4,7 @@ export class UseIndexedDB {
   openDatabase = (
     dbName: string,
     version: number,
-    stores: string[]
+    stores: string[],
   ): Promise<IDBDatabase> => {
     return new Promise((resolve, reject) => {
       const request = indexedDB.open(dbName, version);
@@ -26,7 +26,7 @@ export class UseIndexedDB {
       request.onerror = (event: Event) => {
         console.error(
           "Ошибка при открытии базы данных:",
-          (event.target as IDBOpenDBRequest).error
+          (event.target as IDBOpenDBRequest).error,
         );
 
         reject((event.target as IDBOpenDBRequest).error);
@@ -55,14 +55,14 @@ export class UseIndexedDB {
     request.onerror = (event: Event) => {
       console.error(
         `Ошибка при сохранении файла ${file.name}:`,
-        (event.target as IDBRequest).error
+        (event.target as IDBRequest).error,
       );
     };
   };
 
   fetchLoadedFiles = (
     db: IDBDatabase,
-    storeName: string
+    storeName: string,
   ): Promise<FileData[]> => {
     return new Promise((resolve, reject) => {
       const transaction = db.transaction([storeName], "readonly");
@@ -76,7 +76,7 @@ export class UseIndexedDB {
       request.onerror = (event: Event) => {
         console.error(
           "Ошибка при извлечении файлов:",
-          (event.target as IDBRequest).error
+          (event.target as IDBRequest).error,
         );
         reject((event.target as IDBRequest).error);
       };
@@ -102,7 +102,7 @@ export class UseIndexedDB {
   deleteFileFromIndexedDB = (
     dbName: string,
     storeName: string,
-    fileKey: string | number
+    fileKey: string | number,
   ): void => {
     const request = indexedDB.open(dbName);
 

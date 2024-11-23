@@ -17,3 +17,4 @@ export const Stats: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+Stats.displayName = "Stats";

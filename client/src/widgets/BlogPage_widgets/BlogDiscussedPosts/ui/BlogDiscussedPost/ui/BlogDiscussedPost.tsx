@@ -46,5 +46,6 @@ export const BlogDiscussedPost: React.FC<BlogDiscussedPostProps> = memo(
         </Link>
       </IncreaseScaleHover>
     );
-  }
+  },
 );
+BlogDiscussedPost.displayName = "BlogDiscussedPost";

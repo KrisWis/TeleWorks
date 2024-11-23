@@ -18,3 +18,4 @@ export const CatalogCartPage: React.FC = memo((): React.JSX.Element => {
     </main>
   );
 });
+CatalogCartPage.displayName = "CatalogCartPage";

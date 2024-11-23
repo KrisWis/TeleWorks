@@ -12,3 +12,4 @@ export const Platform_Privileges__item: React.FC<Platrform_Privileges__itemProps
       </div>
     );
   });
+Platform_Privileges__item.displayName = "Platform_Privileges__item";

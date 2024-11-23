@@ -1,1 +1,1 @@
-export * from './ui/PostsBlock';
+export * from "./ui/PostsBlock";

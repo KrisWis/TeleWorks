@@ -15,10 +15,10 @@ export const CatalogCartSlice = buildSlice({
   reducers: {
     changeItemAmount: (
       state: CatalogCartSliceSchema,
-      action: changeItemAmountAction
+      action: changeItemAmountAction,
     ) => {
       const selectedItemIndex = state.items.findIndex(
-        (item) => item.id == action.payload.itemId
+        (item) => item.id == action.payload.itemId,
       );
 
       if (
@@ -26,7 +26,7 @@ export const CatalogCartSlice = buildSlice({
         state.items[selectedItemIndex].amount <= 1
       )
         state.items = state.items.filter(
-          (item) => item.id !== action.payload.itemId
+          (item) => item.id !== action.payload.itemId,
         );
       else {
         state.items[selectedItemIndex].amount += action.payload.amount;

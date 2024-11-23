@@ -35,5 +35,6 @@ export const TelegramChannelStatsSummary: React.FC = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+TelegramChannelStatsSummary.displayName = "TelegramChannelStatsSummary";

@@ -13,3 +13,4 @@ export const UserEdit: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+UserEdit.displayName = "UserEdit";

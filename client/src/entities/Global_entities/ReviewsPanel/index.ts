@@ -6,5 +6,5 @@ export const ReviewsPanel: React.LazyExoticComponent<
 > = lazy(() =>
   import("./ui/ReviewsPanel").then(({ ReviewsPanel }) => ({
     default: ReviewsPanel,
-  }))
+  })),
 );

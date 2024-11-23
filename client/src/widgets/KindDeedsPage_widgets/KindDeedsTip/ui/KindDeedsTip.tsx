@@ -38,5 +38,6 @@ export const KindDeedsTip: React.FC<KindDeedsTipProps> = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+KindDeedsTip.displayName = "KindDeedsTip";

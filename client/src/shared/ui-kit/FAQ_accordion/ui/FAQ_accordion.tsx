@@ -26,5 +26,6 @@ export const FAQ_accordion: React.FC<FAQ_accordionProps> = memo(
         </Accordion>
       </div>
     );
-  }
+  },
 );
+FAQ_accordion.displayName = "FAQ_accordion";

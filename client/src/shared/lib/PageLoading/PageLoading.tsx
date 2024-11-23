@@ -9,3 +9,4 @@ export const PageLoading: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+PageLoading.displayName = "PageLoading";

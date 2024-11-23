@@ -9,7 +9,7 @@ import { UserEditTabsEnum } from "@/shared/const/user";
 export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
   // Реализация скроллинга по табам
   const [ActiveUserEditTab, setActiveUserEditTab] = useState<UserEditTabsEnum>(
-    UserEditTabsEnum.GENERAL
+    UserEditTabsEnum.GENERAL,
   );
 
   const UserEditGeneralRef = useRef<HTMLDivElement>(null);
@@ -22,14 +22,14 @@ export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
       [UserEditTabsEnum.ABOUT]: UserEditAboutRef,
       [UserEditTabsEnum.PORTFOLIO]: UserEditPortfolioRef,
     }),
-    []
+    [],
   );
 
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const observerOptions: IntersectionObserverInit = useMemo(
     () => ({ root: wrapperRef.current, rootMargin: "0px", threshold: 1.0 }),
-    []
+    [],
   );
 
   const RefCanBeScroll = useRef<boolean>(true);
@@ -39,15 +39,15 @@ export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
       new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) {
           const refIndex = Object.values(refs).findIndex(
-            (ref) => ref!.current == entry.target
+            (ref) => ref!.current == entry.target,
           );
           setActiveUserEditTab(
-            (Object.keys(refs) as Array<keyof typeof refs>)[refIndex]
+            (Object.keys(refs) as Array<keyof typeof refs>)[refIndex],
           );
           RefCanBeScroll.current = false;
         }
       }, observerOptions),
-    [observerOptions, refs]
+    [observerOptions, refs],
   );
 
   useEffect(() => {
@@ -117,3 +117,4 @@ export const UserEditPageWrapper: React.FC = memo((): React.JSX.Element => {
     </UserEditPageContext.Provider>
   );
 });
+UserEditPageWrapper.displayName = "UserEditPageWrapper";

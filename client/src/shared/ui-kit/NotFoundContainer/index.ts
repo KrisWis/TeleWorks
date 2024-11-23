@@ -1,1 +1,1 @@
-export * from './ui/NotFoundContainer';
+export * from "./ui/NotFoundContainer";

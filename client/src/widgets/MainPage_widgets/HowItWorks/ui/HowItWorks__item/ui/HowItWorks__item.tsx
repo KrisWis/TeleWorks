@@ -44,5 +44,6 @@ export const HowItWorks__item: React.FC<HowItWorksItem> = memo(
         )}
       </div>
     );
-  }
+  },
 );
+HowItWorks__item.displayName = "HowItWorks__item";

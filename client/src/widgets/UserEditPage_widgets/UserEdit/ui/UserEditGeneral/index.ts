@@ -1,1 +1,1 @@
-export * from './ui/UserEditGeneral';
+export * from "./ui/UserEditGeneral";

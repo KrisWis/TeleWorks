@@ -16,5 +16,6 @@ export const AgeBlock: React.FC<AgeBlockProps> = memo(
         <span className={styles.AgeBlock__desc}>{age}</span>
       </div>
     );
-  }
+  },
 );
+AgeBlock.displayName = "AgeBlock";

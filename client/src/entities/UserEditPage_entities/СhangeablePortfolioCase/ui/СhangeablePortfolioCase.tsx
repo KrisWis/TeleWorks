@@ -30,7 +30,7 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
         const ExistedCasesCopy = ExistedCases.slice();
 
         const ExistedCasesCopyFindIndex: number = ExistedCasesCopy.findIndex(
-          (caseItem) => caseItem.index == Case.index
+          (caseItem) => caseItem.index == Case.index,
         );
 
         ExistedCasesCopy[ExistedCasesCopyFindIndex].caseImgURL =
@@ -48,7 +48,7 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
 
     // Ввод данных
     const [CaseNameInputValue, setCaseNameInputValue] = useState<string>(
-      Case.caseName || ""
+      Case.caseName || "",
     );
 
     const CaseNameInputRef = useRef<HTMLInputElement>(null);
@@ -64,7 +64,7 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
         const ExistedCasesCopy = ExistedCases.slice();
 
         const ExistedCasesCopyFindIndex: number = ExistedCasesCopy.findIndex(
-          (caseItem) => caseItem.index == Case.index
+          (caseItem) => caseItem.index == Case.index,
         );
 
         ExistedCasesCopy[ExistedCasesCopyFindIndex].caseName =
@@ -79,7 +79,7 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
         setCaseNameInputValue(e.target.value);
         CaseNameInputOnChangeDebounce();
       },
-      [CaseNameInputOnChangeDebounce]
+      [CaseNameInputOnChangeDebounce],
     );
 
     return (
@@ -103,7 +103,7 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
             <div
               onClick={() =>
                 setExistedCases((prev) =>
-                  prev.filter((caseItem) => caseItem.index !== Case.index)
+                  prev.filter((caseItem) => caseItem.index !== Case.index),
                 )
               }
             >
@@ -131,7 +131,7 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
                 LoadedImageOnLoad(
                   e,
                   setCaseLoadedImage,
-                  setCaseLoadedImageErrors
+                  setCaseLoadedImageErrors,
                 )
               }
             />
@@ -144,3 +144,4 @@ export const СhangeablePortfolioCase: React.FC<СhangeablePortfolioCaseProps> =
       </div>
     );
   });
+СhangeablePortfolioCase.displayName = "СhangeablePortfolioCase";

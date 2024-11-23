@@ -34,7 +34,7 @@ export const blogFilterCategories: BlogFilterCategory[] = [
 ];
 
 export const blogFilterCategoryTitles = blogFilterCategories.map(
-  (category) => category.title
+  (category) => category.title,
 );
 
 export const blogFilterThemes: BlogFilterCategory[] = [
@@ -70,7 +70,7 @@ export const blogFilterThemes: BlogFilterCategory[] = [
 ];
 
 export const blogFilterThemesTitles = blogFilterThemes.map(
-  (category) => category.title
+  (category) => category.title,
 );
 
 export const blogFilterTeleworks: BlogFilterCategory[] = [
@@ -86,7 +86,7 @@ export const blogFilterTeleworks: BlogFilterCategory[] = [
 ];
 
 export const blogFilterTeleworksTitles = blogFilterTeleworks.map(
-  (category) => category.title
+  (category) => category.title,
 );
 
 export type BlogFilterAllCategories =

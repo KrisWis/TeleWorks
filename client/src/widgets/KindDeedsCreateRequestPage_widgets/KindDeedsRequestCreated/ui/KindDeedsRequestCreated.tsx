@@ -41,3 +41,4 @@ export const KindDeedsRequestCreated: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+KindDeedsRequestCreated.displayName = "KindDeedsRequestCreated";

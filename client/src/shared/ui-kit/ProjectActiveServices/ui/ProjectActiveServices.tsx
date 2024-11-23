@@ -31,5 +31,6 @@ export const ProjectActiveServices: React.FC<ProjectActiveServicesProps> = memo(
         ))}
       </div>
     );
-  }
+  },
 );
+ProjectActiveServices.displayName = "ProjectActiveServices";

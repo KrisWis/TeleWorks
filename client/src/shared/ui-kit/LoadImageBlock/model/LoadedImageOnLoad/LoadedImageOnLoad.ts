@@ -17,7 +17,7 @@ export const LoadedImageOnLoad = (
   setLoadedImageErrors: React.Dispatch<
     React.SetStateAction<LoadedImageErrorsTypes[]>
   >,
-  mockFileName?: string
+  mockFileName?: string,
 ) => {
   const UserInputFile = (e as React.DragEvent<HTMLDivElement>).dataTransfer
     ?.files!.length
@@ -66,7 +66,7 @@ export const LoadedImageOnLoad = (
           LoadImageIsValidCheck(
             UserInputFile[0].size,
             imageForCheck.naturalWidth,
-            imageForCheck.naturalHeight
+            imageForCheck.naturalHeight,
           )
         ) {
           setLoadedImage(fileReader.result as string);

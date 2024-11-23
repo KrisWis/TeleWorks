@@ -49,3 +49,4 @@ export const SpecialistServices: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+SpecialistServices.displayName = "SpecialistServices";

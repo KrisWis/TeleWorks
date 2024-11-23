@@ -11,5 +11,6 @@ export const EarnInSteps__item: React.FC<EarnInSteps__item_props> = memo(
         <p className={`InternalPage__text`}>{desc}</p>
       </div>
     );
-  }
+  },
 );
+EarnInSteps__item.displayName = "EarnInSteps__item";

@@ -27,5 +27,6 @@ export const ProjectDeadline: React.FC<ProjectDeadlineProps> = memo(
         </span>
       </div>
     );
-  }
+  },
 );
+ProjectDeadline.displayName = "ProjectDeadline";

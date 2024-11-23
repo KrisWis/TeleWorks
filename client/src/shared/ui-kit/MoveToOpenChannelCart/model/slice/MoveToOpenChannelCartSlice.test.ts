@@ -15,8 +15,8 @@ describe("MoveToOpenChannelCartSlice", () => {
     expect(
       MoveToOpenChannelCartReducer(
         state,
-        MoveToOpenChannelCartActions.setChannelsForCart(state)
-      )
+        MoveToOpenChannelCartActions.setChannelsForCart(state),
+      ),
     ).toEqual(initialState);
   });
 
@@ -28,8 +28,8 @@ describe("MoveToOpenChannelCartSlice", () => {
     expect(
       MoveToOpenChannelCartReducer(
         state,
-        MoveToOpenChannelCartActions.addChannelToCart({ channelID })
-      )
+        MoveToOpenChannelCartActions.addChannelToCart({ channelID }),
+      ),
     ).toEqual({ channelsIDs: [...initialState.channelsIDs, channelID] });
   });
 
@@ -43,11 +43,11 @@ describe("MoveToOpenChannelCartSlice", () => {
         state,
         MoveToOpenChannelCartActions.removeChannelFromCart({
           channelID: channelIDToRemove,
-        })
-      )
+        }),
+      ),
     ).toEqual({
       channelsIDs: initialState.channelsIDs.filter(
-        (item) => item !== channelIDToRemove
+        (item) => item !== channelIDToRemove,
       ),
     });
   });

@@ -17,3 +17,4 @@ export const SpecialistServicesPage: React.FC = (): React.JSX.Element => {
     </main>
   );
 };
+SpecialistServicesPage.displayName = "SpecialistServicesPage";

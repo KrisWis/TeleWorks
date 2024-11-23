@@ -86,5 +86,6 @@ export const UserCard: React.FC<UserCardProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );
+UserCard.displayName = "UserCard";

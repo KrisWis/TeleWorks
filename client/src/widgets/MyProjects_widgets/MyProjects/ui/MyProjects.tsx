@@ -46,5 +46,6 @@ export const MyProjects: React.FC<MyProjectsProps> = memo(
         </div>
       </section>
     );
-  }
+  },
 );
+MyProjects.displayName = "MyProjects";

@@ -123,5 +123,6 @@ export const Similar_channels__item: React.FC<Similar_channels__itemProps> =
           </div>
         </div>
       );
-    }
+    },
   );
+Similar_channels__item.displayName = "Similar_channels__item";

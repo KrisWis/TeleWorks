@@ -40,3 +40,4 @@ export const UserPage: React.FC = (): React.JSX.Element => {
     </main>
   );
 };
+UserPage.displayName = "UserPage";

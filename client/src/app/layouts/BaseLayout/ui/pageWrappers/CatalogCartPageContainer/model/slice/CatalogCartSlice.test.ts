@@ -23,8 +23,8 @@ describe("CatalogCartSlice.test", () => {
     expect(
       CatalogCartSliceReducer(
         initialState,
-        CatalogCartSliceActions.changeItemAmount({ itemId: 0, amount: 1 })
-      )
+        CatalogCartSliceActions.changeItemAmount({ itemId: 0, amount: 1 }),
+      ),
     ).toEqual({
       items: [
         {
@@ -44,8 +44,8 @@ describe("CatalogCartSlice.test", () => {
     expect(
       CatalogCartSliceReducer(
         initialState,
-        CatalogCartSliceActions.changeItemAmount({ itemId: 1, amount: -1 })
-      )
+        CatalogCartSliceActions.changeItemAmount({ itemId: 1, amount: -1 }),
+      ),
     ).toEqual({
       items: [
         {
@@ -65,8 +65,8 @@ describe("CatalogCartSlice.test", () => {
     expect(
       CatalogCartSliceReducer(
         initialState,
-        CatalogCartSliceActions.changeItemAmount({ itemId: 0, amount: -1 })
-      )
+        CatalogCartSliceActions.changeItemAmount({ itemId: 0, amount: -1 }),
+      ),
     ).toEqual({
       items: [
         {
@@ -96,8 +96,8 @@ describe("CatalogCartSlice.test", () => {
               amount: 1,
             },
           ],
-        })
-      )
+        }),
+      ),
     ).toEqual({
       items: [
         {

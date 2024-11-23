@@ -11,7 +11,7 @@ import ChangeSVG from "@/shared/assets/icons/Global/ChangeSVG.svg?react";
 export const BlogCreatePagePostTypes: React.FC = memo((): React.JSX.Element => {
   // Функционал переключения типа поста
   const { setSelectedPostType, selectedPostType } = useContext(
-    BlogCreatePageContext
+    BlogCreatePageContext,
   );
 
   return (
@@ -42,3 +42,4 @@ export const BlogCreatePagePostTypes: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+BlogCreatePagePostTypes.displayName = "BlogCreatePagePostTypes";

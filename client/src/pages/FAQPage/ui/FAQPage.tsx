@@ -12,3 +12,4 @@ export const FAQPage: React.FC = memo((): React.JSX.Element => {
 
   return <FAQPageContainer />;
 });
+FAQPage.displayName = "FAQPage";

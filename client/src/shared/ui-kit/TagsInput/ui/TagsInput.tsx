@@ -32,7 +32,7 @@ export const TagsInput: React.FC<TagInputProps> = memo(
           }
         }
       },
-      [SelectedTags, TagsInputValue, setSelectedTags]
+      [SelectedTags, TagsInputValue, setSelectedTags],
     );
 
     useEffect(() => {
@@ -57,7 +57,7 @@ export const TagsInput: React.FC<TagInputProps> = memo(
 
         TagInputRef.current!.focus();
       },
-      [SelectedTags, setSelectedTags]
+      [SelectedTags, setSelectedTags],
     );
 
     // Удаление последнего тега на клавиатуру
@@ -73,7 +73,7 @@ export const TagsInput: React.FC<TagInputProps> = memo(
           }
         }
       },
-      [SelectedTags, TagsInputValue, setSelectedTags]
+      [SelectedTags, TagsInputValue, setSelectedTags],
     );
 
     useEffect(() => {
@@ -117,5 +117,6 @@ export const TagsInput: React.FC<TagInputProps> = memo(
         />
       </div>
     );
-  }
+  },
 );
+TagsInput.displayName = "TagsInput";

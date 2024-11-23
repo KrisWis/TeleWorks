@@ -16,5 +16,6 @@ export const ProfileChannelRating: React.FC<ProfileChannelRatingProps> = memo(
         </span>
       </div>
     );
-  }
+  },
 );
+ProfileChannelRating.displayName = "ProfileChannelRating";

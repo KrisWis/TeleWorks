@@ -43,3 +43,4 @@ export const MeetAdvantages: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+MeetAdvantages.displayName = "MeetAdvantages";

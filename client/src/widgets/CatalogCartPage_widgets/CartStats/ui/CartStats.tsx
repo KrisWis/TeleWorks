@@ -58,10 +58,10 @@ export const CartStats: React.FC<CartStatsProps> = memo(
                 cartStateItems.reduce(
                   (sum, item) =>
                     (sum += cartItems.find(
-                      (cartItem) => cartItem.id == item.id
+                      (cartItem) => cartItem.id == item.id,
                     )!.subscribersAmount),
-                  0
-                )
+                  0,
+                ),
               )}
             </span>
           </Flex>
@@ -74,9 +74,9 @@ export const CartStats: React.FC<CartStatsProps> = memo(
               {cartStateItems.reduce(
                 (sum, item) =>
                   (sum += cartItems.find(
-                    (cartItem) => cartItem.id == item.id
+                    (cartItem) => cartItem.id == item.id,
                   )!.ThousandsViews),
-                0
+                0,
               )}
               K
             </span>
@@ -101,8 +101,8 @@ export const CartStats: React.FC<CartStatsProps> = memo(
                       .price *
                     cartStateItems.find((cartItem) => cartItem.id == item.id)!
                       .amount),
-                0
-              )
+                0,
+              ),
             )}
             ₽
           </span>
@@ -121,5 +121,6 @@ export const CartStats: React.FC<CartStatsProps> = memo(
         />
       </Flex>
     );
-  }
+  },
 );
+CartStats.displayName = "CartStats";

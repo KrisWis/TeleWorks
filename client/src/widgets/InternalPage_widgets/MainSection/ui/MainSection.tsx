@@ -46,3 +46,4 @@ export const MainSection: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+MainSection.displayName = "MainSection";

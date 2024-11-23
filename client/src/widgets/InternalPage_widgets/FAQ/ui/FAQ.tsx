@@ -56,3 +56,4 @@ export const FAQ: React.FC = memo((): React.JSX.Element => {
     </section>
   );
 });
+FAQ.displayName = "FAQ";

@@ -23,3 +23,4 @@ export const MyProjectsPage: React.FC = (): React.JSX.Element => {
     </>
   );
 };
+MyProjectsPage.displayName = "MyProjectsPage";

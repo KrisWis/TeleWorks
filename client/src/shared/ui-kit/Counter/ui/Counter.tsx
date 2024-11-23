@@ -16,7 +16,7 @@ export const Counter: React.FC<CounterProps> = memo(
   }): React.JSX.Element => {
     const canNotDicreaseAmount: boolean = useMemo(
       () => (canAlwaysDicrease ? !canAlwaysDicrease : amount == 1),
-      [amount, canAlwaysDicrease]
+      [amount, canAlwaysDicrease],
     );
 
     return (
@@ -53,5 +53,6 @@ export const Counter: React.FC<CounterProps> = memo(
         </button>
       </Flex>
     );
-  }
+  },
 );
+Counter.displayName = "Counter";

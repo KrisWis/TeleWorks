@@ -53,19 +53,19 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
                 UseIndexedDBInstance.deleteFileFromIndexedDB(
                   indexedDBName,
                   indexedDBStore,
-                  loadedFile.FileName
+                  loadedFile.FileName,
                 );
 
                 // Добавление в indexedDB
                 UseIndexedDBInstance.saveLoadedFile(
                   indexedDB,
                   indexedDBStore,
-                  UserInputFile[0]
+                  UserInputFile[0],
                 );
               }
 
               const PastFileIndex = InputFilesCopy.findIndex(
-                (file) => loadedFile.FileName === file.FileName
+                (file) => loadedFile.FileName === file.FileName,
               );
 
               InputFilesCopyForLoading[PastFileIndex] = {
@@ -101,7 +101,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
           loadedFile.FileName,
           setInputFileProgress,
           setInputFiles,
-        ]
+        ],
       );
 
       // Функционал удаления файла
@@ -109,7 +109,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
         const InputFilesCopy = InputFiles.slice();
 
         const PastFileIndex = InputFilesCopy.findIndex(
-          (file) => loadedFile.FileName === file.FileName
+          (file) => loadedFile.FileName === file.FileName,
         );
 
         InputFilesCopy.splice(PastFileIndex, 1);
@@ -120,7 +120,7 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
           UseIndexedDBInstance.deleteFileFromIndexedDB(
             indexedDBName,
             indexedDBStore,
-            loadedFile.FileName
+            loadedFile.FileName,
           );
       };
 
@@ -205,5 +205,6 @@ export const AttachFileContainerFile: React.FC<AttachFileContainerFileProps> =
           </div>
         </div>
       );
-    }
+    },
   );
+AttachFileContainerFile.displayName = "AttachFileContainerFile";

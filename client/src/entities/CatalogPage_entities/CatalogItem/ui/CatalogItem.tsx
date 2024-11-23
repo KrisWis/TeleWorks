@@ -60,12 +60,12 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
   }): React.JSX.Element => {
     // Функционал добавления предмета в корзину
     const ChannelInCart = useAppSelector((state) =>
-      checkChannelInCart(state.MoveToOpenChannelCartReducer!, catalogItem.id)
+      checkChannelInCart(state.MoveToOpenChannelCartReducer!, catalogItem.id),
     );
 
     const allChannelsIDsInCart = useAppSelector(
       (state) => getAllChannelsInCart(state.MoveToOpenChannelCartReducer!),
-      shallowEqual
+      shallowEqual,
     );
 
     const removeChannelFromCartTimeoutRef = useRef<NodeJS.Timeout>();
@@ -98,7 +98,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
         allChannelsIDsInCart.length,
         removeChannelFromCart,
         setMoveToOpenChannelCartIsAppear,
-      ]
+      ],
     );
 
     // Настройка стилей для селектов
@@ -111,12 +111,12 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
         lineHeight: "150%",
         color: selectsType == "format|amount" ? "#b2b2b2" : "var(--main-color)",
       }),
-      [selectsType]
+      [selectsType],
     );
 
     // Получение количества айтема со стейта
     const itemAmount = useAppSelector((state) =>
-      getCartItemAmount(state.CatalogCartSliceReducer!, catalogItem.id)
+      getCartItemAmount(state.CatalogCartSliceReducer!, catalogItem.id),
     );
 
     return (
@@ -353,5 +353,6 @@ export const CatalogItem: React.FC<CatalogItemProps> = memo(
         )}
       </div>
     );
-  }
+  },
 );
+CatalogItem.displayName = "CatalogItem";

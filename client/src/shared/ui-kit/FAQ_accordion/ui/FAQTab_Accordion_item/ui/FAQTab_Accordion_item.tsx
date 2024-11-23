@@ -35,3 +35,4 @@ export const FAQTab_Accordion_item: ({
     }}
   />
 );
+FAQTab_Accordion_item.displayName = "FAQTab_Accordion_item";

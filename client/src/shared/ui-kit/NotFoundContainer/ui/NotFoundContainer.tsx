@@ -17,3 +17,4 @@ export const NotFoundContainer: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+NotFoundContainer.displayName = "NotFoundContainer";

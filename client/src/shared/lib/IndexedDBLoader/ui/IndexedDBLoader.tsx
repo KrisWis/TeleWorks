@@ -20,12 +20,12 @@ export const IndexedDBLoader: React.FC<IndexedDBLoaderProps> = memo(
       async (db: IDBDatabase) => {
         const fetchedFiles = await UseIndexedDBInstance.fetchLoadedFiles(
           db,
-          indexedDBStoreName
+          indexedDBStoreName,
         );
 
         if (fetchedFiles) setFiles(fetchedFiles.map((file) => file.file));
       },
-      [indexedDBStoreName, setFiles]
+      [indexedDBStoreName, setFiles],
     );
 
     // Инициалиазация базы данных и загрузка данных из IndexedDB
@@ -35,7 +35,7 @@ export const IndexedDBLoader: React.FC<IndexedDBLoaderProps> = memo(
           indexedDB.current = await UseIndexedDBInstance.openDatabase(
             IndexedDBName,
             1,
-            IndexedDBStores.map((store) => store.name)
+            IndexedDBStores.map((store) => store.name),
           );
 
           loadFiles(indexedDB.current);
@@ -46,5 +46,6 @@ export const IndexedDBLoader: React.FC<IndexedDBLoaderProps> = memo(
     }, [indexedDB, loadFiles]);
 
     return <>{children}</>;
-  }
+  },
 );
+IndexedDBLoader.displayName = "IndexedDBLoader";

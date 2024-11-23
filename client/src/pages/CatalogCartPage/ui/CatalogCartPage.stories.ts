@@ -1,13 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { CatalogCartPage } from './CatalogCartPage';
+import type { Meta, StoryObj } from "@storybook/react";
+import { CatalogCartPage } from "./CatalogCartPage";
 
 const meta = {
-  title: 'Pages/CatalogCartPage',
+  title: "Pages/CatalogCartPage",
   component: CatalogCartPage,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-
 } satisfies Meta<typeof CatalogCartPage>;
 
 export default meta;

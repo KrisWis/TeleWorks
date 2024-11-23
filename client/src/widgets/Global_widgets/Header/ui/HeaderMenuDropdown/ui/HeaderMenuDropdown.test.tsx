@@ -10,13 +10,13 @@ describe("Global_widgets/Header/HeaderMenuDropdown", () => {
     expect(screen.getByTestId("HeaderMenuDropdown.menu")).toBeInTheDocument();
 
     expect(
-      screen.queryByTestId("HeaderMenuDropdown.login")
+      screen.queryByTestId("HeaderMenuDropdown.login"),
     ).not.toBeInTheDocument();
 
     await userEvent.click(screen.getByTestId("HeaderMenuDropdown.leave"));
 
     expect(
-      screen.queryByTestId("HeaderMenuDropdown.menu")
+      screen.queryByTestId("HeaderMenuDropdown.menu"),
     ).not.toBeInTheDocument();
 
     expect(screen.getByTestId("HeaderMenuDropdown.login")).toBeInTheDocument();

@@ -96,3 +96,4 @@ export const BlogActualPosts: React.FC = memo((): React.JSX.Element => {
     </Flex>
   );
 });
+BlogActualPosts.displayName = "BlogActualPosts";

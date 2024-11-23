@@ -16,3 +16,4 @@ export const ChannelsExamples_item: React.FC<ChannelsExamples_item_props> =
       </div>
     );
   });
+ChannelsExamples_item.displayName = "ChannelsExamples_item";

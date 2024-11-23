@@ -1,1 +1,1 @@
-export * from './ui/KindDeedsStats';
+export * from "./ui/KindDeedsStats";

@@ -17,7 +17,7 @@ export const Categories: React.FC<CategoriesProps> = memo(
   }): React.JSX.Element => {
     const SliderIsVisible = useMemo(
       () => categories.length >= 5,
-      [categories.length]
+      [categories.length],
     );
 
     return (
@@ -96,5 +96,6 @@ export const Categories: React.FC<CategoriesProps> = memo(
         )}
       </div>
     );
-  }
+  },
 );
+Categories.displayName = "Categories";

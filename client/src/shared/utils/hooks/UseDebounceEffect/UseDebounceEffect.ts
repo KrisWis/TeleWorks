@@ -13,7 +13,7 @@ let timer: NodeJS.Timeout;
 export function useDebounceEffect(
   callback: (...args: any[]) => void,
   delay: number,
-  deps?: DependencyList
+  deps?: DependencyList,
 ) {
   useEffect(() => {
     return (...args: any[]) => {

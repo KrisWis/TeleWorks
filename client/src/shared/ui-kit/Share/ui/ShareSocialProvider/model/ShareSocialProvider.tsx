@@ -27,7 +27,7 @@ export const ShareSocialProvider = ({ children }: { children: ReactNode }) => {
       ShareSocial: ShareSocialRef.current,
       isLoaded,
     }),
-    [isLoaded]
+    [isLoaded],
   );
 
   return (
@@ -36,3 +36,4 @@ export const ShareSocialProvider = ({ children }: { children: ReactNode }) => {
     </ShareSocialContext.Provider>
   );
 };
+ShareSocialProvider.displayName = "ShareSocialProvider";

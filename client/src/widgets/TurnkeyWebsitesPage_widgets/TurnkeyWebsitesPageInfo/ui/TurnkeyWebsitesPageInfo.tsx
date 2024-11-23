@@ -184,3 +184,4 @@ export const TurnkeyWebsitesPageInfo: React.FC = memo((): React.JSX.Element => {
     </div>
   );
 });
+TurnkeyWebsitesPageInfo.displayName = "TurnkeyWebsitesPageInfo";

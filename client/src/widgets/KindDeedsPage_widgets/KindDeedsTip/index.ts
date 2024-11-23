@@ -1,1 +1,1 @@
-export * from './ui/KindDeedsTip';
+export * from "./ui/KindDeedsTip";

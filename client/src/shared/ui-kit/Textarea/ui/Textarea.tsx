@@ -24,5 +24,6 @@ export const Textarea: React.FC<TextareaProps> = memo(
         ref={refTextarea}
       />
     );
-  }
+  },
 );
+Textarea.displayName = "Textarea";

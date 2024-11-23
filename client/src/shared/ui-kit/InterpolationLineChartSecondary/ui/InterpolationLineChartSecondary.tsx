@@ -9,7 +9,7 @@ export const InterpolationLineChartSecondary: React.FC<InterpolationLineChartSec
   memo(({ chartDataSets, className }): React.JSX.Element => {
     // Добавление градиента и нужная стилизация
     const chartGradient = useRef<CanvasGradient | "var(--white-color)">(
-      "var(--white-color)"
+      "var(--white-color)",
     );
 
     const [chartData, setChartData] = useState<ChartData<"line">>({
@@ -37,7 +37,7 @@ export const InterpolationLineChartSecondary: React.FC<InterpolationLineChartSec
     useEffect(() => {
       if (!gradientIsAdded) {
         const ctx = document.getElementById(
-          "InterpolationLineChartSecondaryCanvas"
+          "InterpolationLineChartSecondaryCanvas",
         ) as HTMLCanvasElement;
 
         if (ctx) {
@@ -98,3 +98,4 @@ export const InterpolationLineChartSecondary: React.FC<InterpolationLineChartSec
       />
     );
   });
+InterpolationLineChartSecondary.displayName = "InterpolationLineChartSecondary";

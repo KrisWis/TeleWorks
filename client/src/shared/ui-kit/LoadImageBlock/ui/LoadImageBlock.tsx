@@ -34,12 +34,12 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = ({
     <DragDropWrapper
       OnDragEnter={() =>
         loadImageBlockWrapperRef.current?.classList.add(
-          styles.loadImageBlock__wrapper__active
+          styles.loadImageBlock__wrapper__active,
         )
       }
       OnDragLeave={() => {
         loadImageBlockWrapperRef.current?.classList.remove(
-          styles.loadImageBlock__wrapper__active
+          styles.loadImageBlock__wrapper__active,
         );
       }}
       setLoadedImage={setLoadedImage}
@@ -123,7 +123,7 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = ({
             e,
             setLoadedImage,
             setLoadedImageErrors,
-            mockFileName
+            mockFileName,
           )
         }
         accept="image/png, image/gif, image/jpeg, image/jpg"
@@ -131,15 +131,16 @@ export const LoadImageBlock: React.FC<LoadImageBlockProps> = ({
         ref={loadImageBlockInputRef}
         onMouseEnter={() =>
           loadImageBlockWrapperRef.current?.classList.add(
-            styles.loadImageBlock__wrapper__active
+            styles.loadImageBlock__wrapper__active,
           )
         }
         onMouseLeave={() => {
           loadImageBlockWrapperRef.current?.classList.remove(
-            styles.loadImageBlock__wrapper__active
+            styles.loadImageBlock__wrapper__active,
           );
         }}
       />
     </DragDropWrapper>
   );
 };
+LoadImageBlock.displayName = "LoadImageBlock";

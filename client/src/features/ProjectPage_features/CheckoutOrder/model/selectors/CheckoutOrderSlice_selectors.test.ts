@@ -50,16 +50,16 @@ describe("getExtraServiceAmount", () => {
       getExtraServiceAmount(
         initialState,
         ProjectInfoPackNames.BASE,
-        "extraService"
-      )
+        "extraService",
+      ),
     ).toBe(1);
 
     expect(
       getExtraServiceAmount(
         initialState,
         ProjectInfoPackNames.PREMIUM,
-        "extraService"
-      )
+        "extraService",
+      ),
     ).toBe(1000);
   });
 });

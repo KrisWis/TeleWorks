@@ -19,5 +19,6 @@ export const MainSection_item: React.FC<MainSectionItemProps> = memo(
         <p className={styles.mainSection_item__desc}>{desc}</p>
       </div>
     );
-  }
+  },
 );
+MainSection_item.displayName = "MainSection_item";

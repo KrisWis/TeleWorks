@@ -9,5 +9,6 @@ export const ProjectTag: React.FC<ProjectTagProps> = memo(
         <span className={styles.projectTag__title}>{title}</span>
       </div>
     );
-  }
+  },
 );
+ProjectTag.displayName = "ProjectTag";

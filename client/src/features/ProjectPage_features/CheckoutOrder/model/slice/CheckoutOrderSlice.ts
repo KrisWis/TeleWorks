@@ -41,7 +41,7 @@ export const checkoutOrderSlice = createSlice({
   reducers: {
     setCheckoutOrderState: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderStateAction
+      action: CheckoutOrderStateAction,
     ) => {
       for (const key in action.payload) {
         // @ts-expect-error типы должны быть корректными
@@ -52,7 +52,7 @@ export const checkoutOrderSlice = createSlice({
 
     changeFinalPrice: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderFinalPriceAction
+      action: CheckoutOrderFinalPriceAction,
     ) => {
       state.finalPrice = action.payload;
       state = initialState;
@@ -60,7 +60,7 @@ export const checkoutOrderSlice = createSlice({
 
     setPackPrice: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderPackPriceAction
+      action: CheckoutOrderPackPriceAction,
     ) => {
       const actionPrice = action.payload.price;
 
@@ -71,7 +71,7 @@ export const checkoutOrderSlice = createSlice({
 
     changeeditionsAmounts: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrdereditionsAmountsAction
+      action: CheckoutOrdereditionsAmountsAction,
     ) => {
       state.packs[action.payload.packType].editionsAmounts +=
         action.payload.amounts;
@@ -86,7 +86,7 @@ export const checkoutOrderSlice = createSlice({
 
     clearProjectEditionsAmounts: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrdereditionsAmountsAction
+      action: CheckoutOrdereditionsAmountsAction,
     ) => {
       state.packs[action.payload.packType].editionsAmounts =
         action.payload.amounts;
@@ -94,7 +94,7 @@ export const checkoutOrderSlice = createSlice({
 
     changeExtraServiceAmounts: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderExtraServiceAmountAction
+      action: CheckoutOrderExtraServiceAmountAction,
     ) => {
       const extraServiceAmount =
         state.packs[action.payload.packType].extraServices[
@@ -120,7 +120,7 @@ export const checkoutOrderSlice = createSlice({
 
     changeExtraServices: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderExtraServicesAction
+      action: CheckoutOrderExtraServicesAction,
     ) => {
       const extraServices = state.packs[action.payload.packType].extraServices;
 
@@ -133,7 +133,7 @@ export const checkoutOrderSlice = createSlice({
 
     changeExtraServiceSelected: (
       state: CheckoutOrderSchema,
-      action: CheckoutOrderExtraServiceAction
+      action: CheckoutOrderExtraServiceAction,
     ) => {
       state.packs[action.payload.packType].extraServices[
         action.payload.extraService.title
