@@ -19,7 +19,22 @@ import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";
 import { Link } from "react-router-dom";
 import { PageLoadingComponent } from "@/shared/lib/PageLoading/PageLoadingComponent/PageLoadingComponent";
 import { TelegramChannelStatsProps } from "../model/TelegramChannelStats_types";
-import { useGetChannelQuery } from "../api/telegramChannelStatsApi";
+import { URL_PART } from "@/shared/const/app";
+// import { useGetChannelQuery } from "../api/telegramChannelStatsApi";
+
+// TODO: убрать рыбу
+const channelInfo = {
+  rating: 0,
+  imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+  title: "Квартира мечты!",
+  category: "Интерьер и строительство",
+  favouritesAmount: 134,
+  desc: "Пример описание чем занимается канала и прочие Например: Поможем найти вашу квартиру мечты по самым низким ценнам, на рынке уже более 10 лет. Помогли найти квартиру 30млн клиентам...",
+  geoLanguage: GeoLanguageTypes.RUSSIAN,
+  age: "1 год.",
+  postsAmount: 1573,
+  channelLink: "/channel",
+};
 
 export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
   ({ channelId }): React.JSX.Element => {
@@ -29,11 +44,13 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
     const [dropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false);
 
     // Получение данных с бекенда по id
-    const {
-      data: channelInfo,
-      isLoading,
-      error,
-    } = useGetChannelQuery(channelId);
+    // const {
+    //   data: channelInfo,
+    //   isLoading,
+    //   error,
+    // } = useGetChannelQuery(channelId);
+    const isLoading = false;
+    const error = false;
 
     return (
       <div className={styles.TelegramChannelStats}>
