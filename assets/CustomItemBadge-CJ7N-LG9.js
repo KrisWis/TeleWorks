@@ -1,0 +1,1 @@
+import{r as a,j as s}from"./react-C3EGSwTV.js";const o="_CustomItemBadge_1h4bi_3",r={CustomItemBadge:o},d=a.memo(({className:t,firstTitle:e,secondTitle:m})=>s.jsxs("span",{className:`${r.CustomItemBadge} ${t}`,children:[e," ",s.jsx("span",{children:m})]}));d.displayName="CustomItemBadge";export{d as C};
