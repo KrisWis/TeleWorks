@@ -9,7 +9,7 @@ export const PostsBlock: React.FC<PostsBlockProps> = memo(
       <div className={styles.PostsBlock}>
         <img
           className={styles.PostsBlock__img}
-          src={`${URL_PART}/ProfilePage/icons/profile__footer/posts.png`}
+          src={`${URL_PART}/TelegramChannelPage/icons/TelegramChannel__footer/posts.png`}
           alt="Иконка постов"
         />
         <h3 className={styles.PostsBlock__caption}>Постов</h3>

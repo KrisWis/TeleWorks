@@ -34,7 +34,7 @@
 
 1.  Склонируйте данный репозиторий.
 2.  Перейдите в папку client с помощью `cd client`.
-3.  Напиши в терминале ```npm install``` для установки всех зависимостей.
+3.  Напиши в терминале `npm install` для установки всех зависимостей.
 4.  Напишите в терминале команду `npm run dev`.
 
 Или вы можете просто зайти на [сайт](kriswis.github.io/TeleWorks/), загруженный на Github Pages.
@@ -233,8 +233,8 @@ Cборщика адаптирован под основные фичи прил
 
 ### Страница профиля канала
 
-- [Profile](/client/src/entities/ProfilePage_entities/Profile)
-- [Similar Channels Item](/client/src/entities/ProfilePage_entities/Similar_channels__item)
+- [TelegramChannel](/client/src/entities/TelegramChannelPage_entities/TelegramChannel)
+- [Similar Channels Item](/client/src/entities/TelegramChannelPage_entities/Similar_channels__item)
 
 ### Страница проекта
 
@@ -264,8 +264,8 @@ Cборщика адаптирован под основные фичи прил
 
 ### Страница профиля канала
 
-- [Buy Ads Calendar](/client/src/features/ProfilePage_features/Buy_ads_calendar)
-- [Buy Ads Form](/client/src/features/ProfilePage_features/Buy_ads_form)
+- [Buy Ads Calendar](/client/src/features/TelegramChannelPage_features/Buy_ads_calendar)
+- [Buy Ads Form](/client/src/features/TelegramChannelPage_features/Buy_ads_form)
 
 ### Страница проекта
 

@@ -1,0 +1,19 @@
+.TelegramChannelPage__main {
+  margin: 70px 0;
+
+  .padding {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.TelegramChannelPage__caption {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: var(--black-color);
+}

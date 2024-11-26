@@ -1241,7 +1241,7 @@ export const ProjectReviews_items: Reviews__itemProps[] = [
     date: "16.07.2024",
     text: "Быстрое выполнение задачи, ответственный!",
     stars: 5.0,
-    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    imgURL: `${URL_PART}/TelegramChannelPage/images/other/default-user.png`,
   },
 ];
 

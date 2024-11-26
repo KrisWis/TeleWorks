@@ -9,7 +9,7 @@ import { InternalPage } from "@/pages/InternalPage";
 import { MainPage } from "@/pages/MainPage";
 import { MyProjectsPage } from "@/pages/MyProjectsPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
-import { ProfilePage } from "@/pages/ProfilePage";
+import { TelegramChannelPage } from "@/pages/TelegramChannelPage";
 import { ProjectPage } from "@/pages/ProjectPage";
 import { SpecialistServicesPage } from "@/pages/SpecialistServicesPage";
 import { TelegramChannelStatsPage } from "@/pages/TelegramChannelStatsPage";
@@ -49,7 +49,7 @@ type routesList = {
 // @ts-expect-error Функции AppRoutes возвращают объект AppRoutes, всё корректно
 export const routes: routesList = {
   [AppRoutes.MAIN()]: <MainPage />,
-  [AppRoutes.CHANNEL_PROFILE()]: <ProfilePage />,
+  [AppRoutes.CHANNEL_TelegramChannel()]: <TelegramChannelPage />,
   [AppRoutes.MYPROJECTS()]: <MyProjectsPage />,
   [AppRoutes.CATALOG()]: <CatalogPage />,
   [AppRoutes.CATALOG_CART()]: <CatalogCartPage />,

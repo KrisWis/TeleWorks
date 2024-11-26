@@ -9,7 +9,7 @@ export const AgeBlock: React.FC<AgeBlockProps> = memo(
       <div className={styles.AgeBlock}>
         <img
           className={styles.AgeBlock__img}
-          src={`${URL_PART}/ProfilePage/icons/profile__footer/age.png`}
+          src={`${URL_PART}/TelegramChannelPage/icons/TelegramChannel__footer/age.png`}
           alt="Иконка возраста"
         />
         <h3 className={styles.AgeBlock__caption}>Возраст</h3>

@@ -3,11 +3,11 @@ import { memo, useState } from "react";
 import { Flex } from "@/shared/lib/Stack";
 import { Share, ShareTypes } from "@/shared/ui-kit/Share";
 import { Favourite } from "@/shared/ui-kit/Favourite";
-import ProfileChannelMoreSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelInfo/ProfileChannelMoreSVG.svg?react";
+import TelegramChannelChannelMoreSVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelInfo/TelegramChannelChannelMoreSVG.svg?react";
 import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
-import { ProfileAvatar } from "@/shared/ui-kit/ProfileAvatar";
+import { TelegramChannelAvatar } from "@/shared/ui-kit/TelegramChannelAvatar";
 import { AvatarSizes } from "@/shared/ui-kit/Avatar";
-import { ProfileChannelRating } from "@/shared/ui-kit/ProfileChannelRating";
+import { TelegramChannelChannelRating } from "@/shared/ui-kit/TelegramChannelChannelRating";
 import { Button, ButtonTypes } from "@/shared/ui-kit/Button";
 import { GeoLanguageBlock } from "@/shared/ui-kit/GeoLanguageBlock";
 import { GeoLanguageTypes } from "@/shared/ui-kit/GeoLanguageBlock/model/GeoLanguageBlock_types";
@@ -25,7 +25,7 @@ import { URL_PART } from "@/shared/const/app";
 // TODO: убрать рыбу
 const channelInfo = {
   rating: 0,
-  imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+  imgURL: `${URL_PART}/TelegramChannelPage/images/other/default-user.png`,
   title: "Квартира мечты!",
   category: "Интерьер и строительство",
   favouritesAmount: 134,
@@ -88,7 +88,7 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
                   withArrow={false}
                   trigger={
                     <IncreaseScaleHover>
-                      <ProfileChannelMoreSVG />
+                      <TelegramChannelChannelMoreSVG />
                     </IncreaseScaleHover>
                   }
                   className={styles.TelegramChannelStats__more}
@@ -127,11 +127,11 @@ export const TelegramChannelStats: React.FC<TelegramChannelStatsProps> = memo(
                   className={styles.TelegramChannelStats__avatar}
                   direction="column"
                 >
-                  <ProfileAvatar
+                  <TelegramChannelAvatar
                     src={channelInfo!.imgURL}
                     size={AvatarSizes.MEDIUM}
                   />
-                  <ProfileChannelRating
+                  <TelegramChannelChannelRating
                     rating={509.2}
                     backgroundIsVisible={false}
                   />

@@ -3,7 +3,7 @@ import { IndexedDBStore } from "../types/global";
 export enum AppRoutesPathes {
   MAIN = "/",
 
-  CHANNEL_PROFILE = "/channel",
+  CHANNEL_TelegramChannel = "/channel",
 
   MYPROJECTS = "/myProjects",
 
@@ -47,8 +47,8 @@ export enum AppRoutesPathes {
 export const AppRoutes = {
   MAIN: () => AppRoutesPathes.MAIN,
 
-  CHANNEL_PROFILE: (id: string = ":id") =>
-    `${AppRoutesPathes.CHANNEL_PROFILE}/${id}` as AppRoutesPathes,
+  CHANNEL_TelegramChannel: (id: string = ":id") =>
+    `${AppRoutesPathes.CHANNEL_TelegramChannel}/${id}` as AppRoutesPathes,
 
   MYPROJECTS: () => AppRoutesPathes.MYPROJECTS,
 
@@ -76,7 +76,7 @@ export const AppRoutes = {
   TURNKEY_WEBSITES: () => AppRoutesPathes.TURNKEY_WEBSITES,
 
   TELEGRAM_CHANNEL_STATS: (id: string = ":id") =>
-    `${AppRoutesPathes.CHANNEL_PROFILE}/${id}${AppRoutesPathes.TELEGRAM_CHANNEL_STATS}` as AppRoutesPathes,
+    `${AppRoutesPathes.CHANNEL_TelegramChannel}/${id}${AppRoutesPathes.TELEGRAM_CHANNEL_STATS}` as AppRoutesPathes,
 
   BLOG: () => AppRoutesPathes.BLOG,
 

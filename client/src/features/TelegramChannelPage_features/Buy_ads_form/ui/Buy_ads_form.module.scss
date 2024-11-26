@@ -1,0 +1,130 @@
+.buy_ads__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 100%;
+  border-radius: 25px;
+  background: linear-gradient(
+    271deg,
+    rgb(59, 130, 246, 0.1) 0%,
+    rgb(59, 130, 246, 0) 100%
+  );
+  padding: 30px;
+
+  &__caption {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    text-align: center;
+    color: var(--black-color);
+    width: 80%;
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+
+    &__span {
+      font-family: var(--second-family);
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: var(--black-color);
+    }
+
+    &__desc {
+      opacity: 0.4;
+      font-family: var(--second-family);
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: var(--black-color);
+      margin-top: 5px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    &__span {
+      font-family: var(--second-family);
+      font-weight: 500;
+      font-size: 24px;
+      letter-spacing: -0.04em;
+      color: var(--black-color);
+    }
+
+    &__text {
+      font-family: var(--second-family);
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 150%;
+      letter-spacing: -0.01em;
+      color: var(--black-color);
+      position: relative;
+      bottom: 5px;
+    }
+  }
+
+  &__toCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 68px;
+    border-radius: 15px;
+    background: var(--main-color);
+    gap: 5px;
+    cursor: pointer;
+    transition: var(--transition-duration) linear all;
+
+    svg * {
+      transition: var(--transition-duration) linear all;
+    }
+
+    &_text {
+      font-family: var(--second-family);
+      font-weight: 700;
+      font-size: 32px;
+      letter-spacing: -0.04em;
+      color: var(--white-color);
+      transition: var(--transition-duration) linear all;
+    }
+
+    &:hover {
+      background: var(--white-color);
+      border: 1px solid var(--main-color);
+
+      .buy_ads__form__toCart_text {
+        color: var(--main-color);
+      }
+
+      svg * {
+        fill: var(--main-color);
+      }
+    }
+  }
+}
+
+.buy_ads__form__category__form {
+  display: flex;
+  height: 67px;
+  width: 100%;
+  background: var(--white-color);
+  border: 3px solid var(--violet-color);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.buy_ads__form__category__form__svg {
+  margin-right: 20px;
+}

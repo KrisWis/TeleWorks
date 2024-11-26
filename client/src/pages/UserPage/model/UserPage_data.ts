@@ -155,7 +155,7 @@ export const userReviews_items: Reviews__itemProps[] = [
     date: "16.07.2024",
     text: "Быстрое выполнение задачи, ответственный!",
     stars: 5.0,
-    imgURL: `${URL_PART}/ProfilePage/images/other/default-user.png`,
+    imgURL: `${URL_PART}/TelegramChannelPage/images/other/default-user.png`,
     project: {
       imgURL: `${URL_PART}/global/images/portfolioCase__example_img.png`,
       title: "UI/UX Дизайн сайта",

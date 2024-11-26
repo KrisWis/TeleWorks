@@ -9,7 +9,7 @@ export const GeoLanguageBlock: React.FC<GeoLanguageBlockProps> = memo(
       <div className={styles.GeoLanguageBlock}>
         <img
           className={styles.GeoLanguageBlock__img}
-          src={`${URL_PART}/ProfilePage/icons/profile__footer/geo.png`}
+          src={`${URL_PART}/TelegramChannelPage/icons/TelegramChannel__footer/geo.png`}
           alt="Иконка гео"
         />
         <h3 className={styles.GeoLanguageBlock__caption}>Гео / Язык</h3>

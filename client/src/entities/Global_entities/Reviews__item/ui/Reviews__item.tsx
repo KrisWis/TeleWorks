@@ -39,7 +39,7 @@ export const Reviews__item: React.FC<Reviews__itemProps> = memo(
                 <img
                   key={_ + index}
                   className={styles.reviews__item__star}
-                  src={`${URL_PART}/ProfilePage/icons/ReviewsPanel__item/ReviewsPanel__item_star_active.png`}
+                  src={`${URL_PART}/TelegramChannelPage/icons/ReviewsPanel__item/ReviewsPanel__item_star_active.png`}
                   alt="Изображение звезды"
                 ></img>
               ))}

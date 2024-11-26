@@ -23,7 +23,7 @@ export const ReviewsPanel__item: React.FC<ReviewsPanel__item__props> = memo(
             <img
               key={_ + index}
               className={styles.ReviewsPanel__starsWrapper__star}
-              src={`${URL_PART}/ProfilePage/icons/ReviewsPanel__item/ReviewsPanel__item_star_active.png`}
+              src={`${URL_PART}/TelegramChannelPage/icons/ReviewsPanel__item/ReviewsPanel__item_star_active.png`}
               alt="Изображение активной звезды"
             ></img>
           ))}
@@ -31,7 +31,7 @@ export const ReviewsPanel__item: React.FC<ReviewsPanel__item__props> = memo(
             <img
               key={_ + index}
               className={styles.ReviewsPanel__starsWrapper__star}
-              src={`${URL_PART}/ProfilePage/icons/ReviewsPanel__item/ReviewsPanel__item_star_disactive.png`}
+              src={`${URL_PART}/TelegramChannelPage/icons/ReviewsPanel__item/ReviewsPanel__item_star_disactive.png`}
               alt="Изображение пустой звезды"
             ></img>
           ))}

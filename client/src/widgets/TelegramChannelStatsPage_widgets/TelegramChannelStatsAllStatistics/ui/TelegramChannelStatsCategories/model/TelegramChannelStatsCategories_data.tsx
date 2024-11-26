@@ -1,10 +1,10 @@
 import { TelegramChannelStatsCategories } from "@/shared/const/telegramChannels";
 import { TelegramChannelStatsCategory } from "@/shared/types/telegramChannels";
-import SummarySVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/SummarySVG.svg?react";
-import InvolvementSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/InvolvementSVG.svg?react";
-import ViewsAnalyzeSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/ViewsAnalyzeSVG.svg?react";
-import SubscribersAttractionSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/SubscribersAttractionSVG.svg?react";
-import ADSEffectivitySVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelStats/ADSEffectivitySVG.svg?react";
+import SummarySVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelStats/SummarySVG.svg?react";
+import InvolvementSVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelStats/InvolvementSVG.svg?react";
+import ViewsAnalyzeSVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelStats/ViewsAnalyzeSVG.svg?react";
+import SubscribersAttractionSVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelStats/SubscribersAttractionSVG.svg?react";
+import ADSEffectivitySVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelStats/ADSEffectivitySVG.svg?react";
 import { TelegramChannelStatsSummary } from "../../TelegramChannelStatsSummary";
 import { TelegramChannelStatsSubscribersAttraction } from "../../TelegramChannelStatsSubscribersAttraction/ui/TelegramChannelStatsSubscribersAttraction";
 import { TelegramChannelStatsViewsAnalyze } from "../../TelegramChannelStatsViewsAnalyze/ui/TelegramChannelStatsViewsAnalyze";

@@ -3,7 +3,7 @@ import { memo, useCallback, useState } from "react";
 import { Flex } from "@/shared/lib/Stack";
 import { Dropdown } from "@/shared/ui-kit/Dropdown";
 import { IncreaseScaleHover } from "@/shared/lib/IncreaseScaleHover";
-import ProfileChannelMoreSVG from "@/shared/assets/icons/TelegramChannelStatsPage/ProfileChannelInfo/ProfileChannelMoreSVG.svg?react";
+import TelegramChannelChannelMoreSVG from "@/shared/assets/icons/TelegramChannelStatsPage/TelegramChannelChannelInfo/TelegramChannelChannelMoreSVG.svg?react";
 import AcceptSVG from "@/shared/assets/icons/Global/AcceptSVG.svg?react";
 import HistorySVG from "@/shared/assets/icons/Global/HistorySVG.svg?react";
 import { Link } from "react-router-dom";
@@ -45,7 +45,7 @@ export const TelegramChannelStatsSubscribersAttractionPopup: React.FC<TelegramCh
             withArrow={false}
             trigger={
               <IncreaseScaleHover>
-                <ProfileChannelMoreSVG
+                <TelegramChannelChannelMoreSVG
                   className={
                     styles.TelegramChannelStatsSubscribersAttractionPopup__more__iconTrigger
                   }
